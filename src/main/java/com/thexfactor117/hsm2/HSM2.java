@@ -1,5 +1,6 @@
 package com.thexfactor117.hsm2;
 
+import com.thexfactor117.hsm2.init.ModCapabilities;
 import com.thexfactor117.hsm2.proxies.CommonProxy;
 import com.thexfactor117.hsm2.util.Reference;
 
@@ -29,6 +30,9 @@ public class HSM2
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		ModCapabilities.registerCapabilities();
+		//MinecraftForge.EVENT_BUS.register(new EventTest());
+		
 		proxy.preInit(event);
 	}
 	
