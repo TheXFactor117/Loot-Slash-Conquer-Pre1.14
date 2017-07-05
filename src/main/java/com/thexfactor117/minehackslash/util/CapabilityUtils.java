@@ -1,4 +1,4 @@
-package com.thexfactor117.hsm2.util;
+package com.thexfactor117.minehackslash.util;
 
 import javax.annotation.Nullable;
 

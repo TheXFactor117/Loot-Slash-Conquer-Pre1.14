@@ -1,4 +1,4 @@
-package com.thexfactor117.hsm2.capabilities;
+package com.thexfactor117.minehackslash.capabilities;
 
 import javax.annotation.Nullable;
 
@@ -11,7 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
  */
 public class PlayerInformation implements IPlayerInformation
 {
-	private String playerClass;
+	private int playerClass;
 	private int level;
 	private int experience;
 	private int skillPoints;
@@ -33,13 +33,13 @@ public class PlayerInformation implements IPlayerInformation
 	}
 	
 	@Override
-	public String getPlayerClass() 
+	public int getPlayerClass() 
 	{
 		return playerClass;
 	}
 
 	@Override
-	public void setPlayerClass(String playerClass) 
+	public void setPlayerClass(int playerClass) 
 	{
 		this.playerClass = playerClass;
 	}

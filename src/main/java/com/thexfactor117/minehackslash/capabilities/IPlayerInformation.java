@@ -1,4 +1,4 @@
-package com.thexfactor117.hsm2.capabilities;
+package com.thexfactor117.minehackslash.capabilities;
 
 /**
  * 
@@ -9,8 +9,8 @@ package com.thexfactor117.hsm2.capabilities;
  */
 public interface IPlayerInformation 
 {
-	String getPlayerClass();
-	void setPlayerClass(String playerClass);
+	int getPlayerClass();
+	void setPlayerClass(int playerClass);
 	
 	int getPlayerLevel();
 	void setPlayerLevel(int level);

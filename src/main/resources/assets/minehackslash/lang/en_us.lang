@@ -1,0 +1,19 @@
+#####
+### Mine Hack Slash ENGLISH language file
+#####
+
+### 
+### Gui
+###
+
+# Class Selection
+minehackslash.gui.class.title=Class Selection
+minehackslash.gui.class.info=Select a class to play as. Hover over each button for more information.
+minehackslash.gui.class.abilities=Abilities
+
+minehackslash.gui.class.warrior.title=Warrior
+minehackslash.gui.class.warrior.info=The Warrior is a very versatile class which primarily specializes in heavy weaponry and armor. Warriors are typically fairly tanky, but some Warriors could deal a decent amount of damage.
+minehackslash.gui.class.mage.title=Mage
+minehackslash.gui.class.mage.info=The Mage is the ultimate magical character which specializes in anything magical and typically lighter armor. Mages are very good damage dealers and boast an assortment of spells and other magical items to use.
+minehackslash.gui.class.hunter.title=Hunter
+minehackslash.gui.class.hunter.info=The Hunter is a fairly sneaky, powerful character which specializes in quick attack and speed to take out enemies. Hunters are very good with bows too, giving them solid options as melee or ranged characters.

@@ -1,10 +1,10 @@
-package com.thexfactor117.hsm2.capabilities;
+package com.thexfactor117.minehackslash.capabilities;
 
 import javax.annotation.Nullable;
 
-import com.thexfactor117.hsm2.util.CapabilityUtils;
-import com.thexfactor117.hsm2.util.Reference;
-import com.thexfactor117.hsm2.util.SimpleCapabilityProvider;
+import com.thexfactor117.minehackslash.util.CapabilityUtils;
+import com.thexfactor117.minehackslash.util.Reference;
+import com.thexfactor117.minehackslash.util.SimpleCapabilityProvider;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -43,7 +43,7 @@ public class CapabilityPlayerInformation
 			{
 				NBTTagCompound nbt = new NBTTagCompound();
 				
-				nbt.setString("PlayerClass", instance.getPlayerClass());
+				nbt.setInteger("PlayerClass", instance.getPlayerClass());
 				nbt.setInteger("PlayerLevel", instance.getPlayerLevel());
 				nbt.setInteger("PlayerExperience", instance.getPlayerExperience());
 				nbt.setInteger("PlayerSkillPoints", instance.getSkillPoints());
@@ -64,7 +64,7 @@ public class CapabilityPlayerInformation
 			{
 				NBTTagCompound compound = (NBTTagCompound) nbt;
 				
-				instance.setPlayerClass(compound.getString("PlayerClass"));
+				instance.setPlayerClass(compound.getInteger("PlayerClass"));
 				instance.setPlayerLevel(compound.getInteger("PlayerLevel"));
 				instance.setPlayerExperience(compound.getInteger("PlayerExperience"));
 				instance.setSkillPoints(compound.getInteger("PlayerSkillPoints"));
@@ -83,14 +83,14 @@ public class CapabilityPlayerInformation
 	}
 	
 	@Nullable
-	public static IPlayerInformation getCharacterLevel(EntityLivingBase entity) 
+	public static IPlayerInformation getPlayerInformation(EntityLivingBase entity) 
 	{
 		return CapabilityUtils.getCapability(entity, PLAYER_INFORMATION, DEFAULT_FACING);
 	}
 	
-	public static ICapabilityProvider createProvider(IPlayerInformation characterLevel) 
+	public static ICapabilityProvider createProvider(IPlayerInformation playerInfo) 
 	{
-		return new SimpleCapabilityProvider<>(PLAYER_INFORMATION, DEFAULT_FACING, characterLevel);
+		return new SimpleCapabilityProvider<>(PLAYER_INFORMATION, DEFAULT_FACING, playerInfo);
 	}
 	
 	public static class EventHandler 
@@ -102,9 +102,6 @@ public class CapabilityPlayerInformation
 			{
 				final PlayerInformation playerInfo = new PlayerInformation((EntityPlayer) event.getObject());
 				
-				playerInfo.setPlayerClass("default");
-				playerInfo.setPlayerLevel(1);
-				
 				event.addCapability(ID, createProvider(playerInfo));
 			}
 		}
@@ -112,8 +109,8 @@ public class CapabilityPlayerInformation
 		@SubscribeEvent
 		public void playerClone(PlayerEvent.Clone event) 
 		{
-			IPlayerInformation oldInfo = getCharacterLevel(event.getOriginal());
-			IPlayerInformation newInfo = getCharacterLevel(event.getEntityLiving());
+			IPlayerInformation oldInfo = getPlayerInformation(event.getOriginal());
+			IPlayerInformation newInfo = getPlayerInformation(event.getEntityLiving());
 
 			if (newInfo != null && oldInfo != null)
 			{

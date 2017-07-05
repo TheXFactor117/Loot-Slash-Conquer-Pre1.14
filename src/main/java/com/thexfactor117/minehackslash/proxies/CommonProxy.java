@@ -1,4 +1,4 @@
-package com.thexfactor117.hsm2.proxies;
+package com.thexfactor117.minehackslash.proxies;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

@@ -1,6 +1,6 @@
-package com.thexfactor117.hsm2.init;
+package com.thexfactor117.minehackslash.init;
 
-import com.thexfactor117.hsm2.capabilities.CapabilityPlayerInformation;
+import com.thexfactor117.minehackslash.capabilities.CapabilityPlayerInformation;
 
 /**
  * 
