@@ -36,9 +36,11 @@ public class EventLivingDeath
 				int experience = 0;
 				
 				if (enemy instanceof EntityPlayer) experience = 50; // if entity is a player, award more experience than usual.
-				else experience = (int) (enemy.getMaxHealth() * 0.1); // experience = 10% of max health.
+				else experience = (int) (enemy.getMaxHealth() * 0.2); // experience = 10% of max health.
 				
+				// update experience on client AND server; increase level if need be.
 				playerInfo.setPlayerExperience(playerInfo.getPlayerExperience() + experience);
+				if (playerInfo.getPlayerExperience() > playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel())) playerInfo.setPlayerLevel(playerInfo.getPlayerLevel() + 1);
 				MineHackSlash.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) player); 
 			}
 		}

@@ -71,7 +71,7 @@ public class PlayerInformation implements IPlayerInformation
 	@Override
 	public int getLevelUpExperience(int currentLevel) 
 	{
-		return 0; // implement later!
+		return (int) Math.pow(currentLevel, 2) * 30;
 	}
 
 	@Override
