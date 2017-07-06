@@ -56,12 +56,10 @@ public class PacketClassSelection implements IMessage
 					if (playerInfo != null && !player.getEntityWorld().isRemote)
 					{
 						if (message.playerClass == 1) playerInfo.setPlayerClass(1); // 1 for warrior
-						else if (message.playerClass == 2) 
-						{
-							playerInfo.setPlayerClass(2); // 2 for mage
-							System.out.println("Setting Mage");
-						}
+						else if (message.playerClass == 2) playerInfo.setPlayerClass(2); // 2 for mage
 						else if (message.playerClass == 3) playerInfo.setPlayerClass(3); // 3 for hunter
+						
+						playerInfo.setPlayerLevel(1);
 					}
 				}
 			});

@@ -1,14 +1,14 @@
 package com.thexfactor117.minehackslash;
 
-import com.thexfactor117.minehackslash.events.EventPlayerLoggedIn;
 import com.thexfactor117.minehackslash.init.ModCapabilities;
+import com.thexfactor117.minehackslash.init.ModEvents;
 import com.thexfactor117.minehackslash.network.PacketClassGui;
 import com.thexfactor117.minehackslash.network.PacketClassSelection;
+import com.thexfactor117.minehackslash.network.PacketUpdatePlayerInformation;
 import com.thexfactor117.minehackslash.proxies.CommonProxy;
 import com.thexfactor117.minehackslash.util.GuiHandler;
 import com.thexfactor117.minehackslash.util.Reference;
 
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -40,14 +40,14 @@ public class MineHackSlash
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		ModCapabilities.registerCapabilities();
-		MinecraftForge.EVENT_BUS.register(new EventPlayerLoggedIn());
-		//MinecraftForge.EVENT_BUS.register(new EventTest());
+		ModEvents.registerEvents();
 		
 		proxy.preInit(event);
 		
 		network = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID);
 		network.registerMessage(PacketClassGui.Handler.class, PacketClassGui.class, 0, Side.CLIENT);
 		network.registerMessage(PacketClassSelection.Handler.class, PacketClassSelection.class, 1, Side.SERVER);
+		network.registerMessage(PacketUpdatePlayerInformation.Handler.class, PacketUpdatePlayerInformation.class, 2, Side.CLIENT);
 	}
 	
 	@EventHandler

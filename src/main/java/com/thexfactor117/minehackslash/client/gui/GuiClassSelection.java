@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.thexfactor117.minehackslash.MineHackSlash;
+import com.thexfactor117.minehackslash.capabilities.CapabilityPlayerInformation;
+import com.thexfactor117.minehackslash.capabilities.IPlayerInformation;
 import com.thexfactor117.minehackslash.network.PacketClassSelection;
 
 import net.minecraft.client.gui.GuiButton;
@@ -56,13 +58,32 @@ public class GuiClassSelection extends GuiScreen
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException
 	{
-		EntityPlayer player = mc.player;
+		/*
+		 * This should only get called one time per player.
+		 */
 		
-		if (player != null)
+		EntityPlayer player = mc.player;
+		IPlayerInformation playerInfo = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		
+		if (player != null && playerInfo != null)
 		{
-			if (button == warrior) MineHackSlash.network.sendToServer(new PacketClassSelection(1));
-			else if (button == mage) MineHackSlash.network.sendToServer(new PacketClassSelection(2));
-			else if (button == hunter) MineHackSlash.network.sendToServer(new PacketClassSelection(3));
+			if (button == warrior) 
+			{
+				playerInfo.setPlayerClass(1);
+				MineHackSlash.network.sendToServer(new PacketClassSelection(1));
+			}
+			else if (button == mage) 
+			{
+				playerInfo.setPlayerClass(2);
+				MineHackSlash.network.sendToServer(new PacketClassSelection(2));
+			}
+			else if (button == hunter) 
+			{
+				playerInfo.setPlayerClass(3);
+				MineHackSlash.network.sendToServer(new PacketClassSelection(3));
+			}
+			
+			playerInfo.setPlayerLevel(1);
 			
 			this.mc.player.closeScreen();
 		}

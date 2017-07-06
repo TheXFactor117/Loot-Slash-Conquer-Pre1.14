@@ -17,3 +17,11 @@ minehackslash.gui.class.mage.title=Mage
 minehackslash.gui.class.mage.info=The Mage is the ultimate magical character which specializes in anything magical and typically lighter armor. Mages are very good damage dealers and boast an assortment of spells and other magical items to use.
 minehackslash.gui.class.hunter.title=Hunter
 minehackslash.gui.class.hunter.info=The Hunter is a fairly sneaky, powerful character which specializes in quick attack and speed to take out enemies. Hunters are very good with bows too, giving them solid options as melee or ranged characters.
+
+minehackslash.gui.playerinfo.title=Player Information
+minehackslash.gui.playerinfo.class=Class
+minehackslash.gui.playerinfo.class.1=Warrior
+minehackslash.gui.playerinfo.class.2=Mage
+minehackslash.gui.playerinfo.class.3=Hunter
+minehackslash.gui.playerinfo.level=Level
+minehackslash.gui.playerinfo.experience=Experience

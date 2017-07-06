@@ -1,6 +1,7 @@
 package com.thexfactor117.minehackslash.util;
 
 import com.thexfactor117.minehackslash.client.gui.GuiClassSelection;
+import com.thexfactor117.minehackslash.client.gui.GuiPlayerInformation;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 public class GuiHandler implements IGuiHandler
 {
 	public static final int CLASS_SELECTION = 0;
+	public static final int PLAYER_INFORMATION = 1;
 	
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) 
@@ -26,6 +28,8 @@ public class GuiHandler implements IGuiHandler
 	{
 		if (id == CLASS_SELECTION)
 			return new GuiClassSelection();
+		if (id == PLAYER_INFORMATION)
+			return new GuiPlayerInformation();
 		
 		return null;
 	}	
