@@ -1,0 +1,31 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "losteclipse:items/iron_staff"
+	},
+
+	"overrides": [
+		{
+			"predicate": {
+				"pulling":1
+			},
+			"model": "losteclipse:item/iron_staff_0"
+		},
+
+		{
+			"predicate": {
+				"pulling":1,
+				"pull":0.7
+			},
+			"model": "losteclipse:item/iron_staff_1"
+		},
+
+		{
+			"predicate": {
+				"pulling":1,
+				"pull":1.5
+			},
+			"model": "losteclipse:item/iron_staff_2"
+		}
+	]
+}

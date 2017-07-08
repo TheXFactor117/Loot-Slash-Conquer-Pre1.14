@@ -1,0 +1,6 @@
+{
+	"parent": "losteclipse:item/blizzard_staff",
+	"textures": {
+		"layer0": "losteclipse:items/blizzard_staff_2"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "losteclipse:items/minor_health_golden_ring"
+	}
+}

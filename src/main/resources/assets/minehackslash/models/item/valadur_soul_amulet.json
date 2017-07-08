@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "losteclipse:items/valadur_soul_amulet"
+	}
+}

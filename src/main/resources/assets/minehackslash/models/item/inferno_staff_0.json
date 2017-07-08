@@ -1,0 +1,6 @@
+{
+	"parent":"losteclipse:item/inferno_staff",
+	"textures": {
+		"layer0":"losteclipse:items/inferno_staff_0"
+	}
+}

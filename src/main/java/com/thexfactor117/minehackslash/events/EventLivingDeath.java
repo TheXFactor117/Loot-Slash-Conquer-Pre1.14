@@ -46,6 +46,8 @@ public class EventLivingDeath
 					playerInfo.setSkillPoints(playerInfo.getSkillPoints() + 1); // increase skill points
 				}
 				MineHackSlash.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) player); 
+				
+				MineHackSlash.LOGGER.info("Damage Source: " + event.getSource().damageType);
 			}
 		}
 	}

@@ -1,5 +1,8 @@
 package com.thexfactor117.minehackslash;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.thexfactor117.minehackslash.init.ModCapabilities;
 import com.thexfactor117.minehackslash.init.ModEvents;
 import com.thexfactor117.minehackslash.network.PacketClassGui;
@@ -34,6 +37,7 @@ public class MineHackSlash
 	public static MineHackSlash instance;
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.COMMON_PROXY)
 	public static CommonProxy proxy;
+	public static final Logger LOGGER = LogManager.getLogger(Reference.NAME);
 	public static SimpleNetworkWrapper network;
 	
 	@EventHandler
