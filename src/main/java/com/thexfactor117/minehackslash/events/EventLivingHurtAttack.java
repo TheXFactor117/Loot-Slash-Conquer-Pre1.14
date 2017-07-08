@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.thexfactor117.minehackslash.init.ModDamageSources;
 import com.thexfactor117.minehackslash.items.melee.ItemMHSAdvancedMelee;
+import com.thexfactor117.minehackslash.stats.weapons.ArmorAttribute;
 import com.thexfactor117.minehackslash.stats.weapons.WeaponAttribute;
 import com.thexfactor117.minehackslash.util.NBTHelper;
 
@@ -31,7 +32,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author TheXFactor117
  *
  */
-public class EventLivingHurt 
+public class EventLivingHurtAttack 
 {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onLivingHurt(LivingHurtEvent event)
@@ -52,6 +53,32 @@ public class EventLivingHurt
 				// set the true amount of damage.
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");				
 				event.setAmount((float) trueDamage);
+			}
+		}
+		
+		// gets called if the Player is attacked by another Mob OR Player OR specified Damage Source
+		if (event.getEntityLiving() instanceof EntityPlayer && (event.getSource().getTrueSource() instanceof EntityLivingBase || event.getSource() == ModDamageSources.FROST || event.getSource() == ModDamageSources.LIGHTNING || event.getSource() == ModDamageSources.POISON))
+		{
+			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+			
+			for (ItemStack stack : player.inventory.armorInventory)
+			{
+				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+				
+				if (event.getSource().getTrueSource() instanceof EntityLivingBase)
+				{
+					//EntityLivingBase enemy = (EntityLivingBase) event.getSource().getTrueSource();
+					
+					// do stuff?
+				}
+				else // apply resistances to custom Damage Sources.
+				{	
+					if (ArmorAttribute.FROST_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.FROST) event.setAmount((float) (event.getAmount() * ArmorAttribute.FROST_RESIST.getAmount(nbt)));
+					if (ArmorAttribute.LIGHTNING_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.LIGHTNING) event.setAmount((float) (event.getAmount() * ArmorAttribute.LIGHTNING_RESIST.getAmount(nbt)));
+					if (ArmorAttribute.POISON_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.POISON) event.setAmount((float) (event.getAmount() * ArmorAttribute.POISON_RESIST.getAmount(nbt)));
+				}
+				
+				if (ArmorAttribute.DURABLE.hasAttribute(nbt) && Math.random() < ArmorAttribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
 			}
 		}
 	}

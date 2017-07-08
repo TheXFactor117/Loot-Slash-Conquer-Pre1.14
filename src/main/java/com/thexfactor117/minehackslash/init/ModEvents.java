@@ -1,7 +1,7 @@
 package com.thexfactor117.minehackslash.init;
 
 import com.thexfactor117.minehackslash.events.EventLivingDeath;
-import com.thexfactor117.minehackslash.events.EventLivingHurt;
+import com.thexfactor117.minehackslash.events.EventLivingHurtAttack;
 import com.thexfactor117.minehackslash.events.EventPlayerTick;
 import com.thexfactor117.minehackslash.events.misc.EventInput;
 import com.thexfactor117.minehackslash.events.misc.EventItemTooltip;
@@ -22,7 +22,7 @@ public class ModEvents
 		MinecraftForge.EVENT_BUS.register(new EventPlayerLoggedIn());
 		MinecraftForge.EVENT_BUS.register(new EventLivingDeath());
 		MinecraftForge.EVENT_BUS.register(new EventInput());
-		MinecraftForge.EVENT_BUS.register(new EventLivingHurt());
+		MinecraftForge.EVENT_BUS.register(new EventLivingHurtAttack());
 		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
 		MinecraftForge.EVENT_BUS.register(new ModWeapons());
 		//MinecraftForge.EVENT_BUS.register(new EventTest());
