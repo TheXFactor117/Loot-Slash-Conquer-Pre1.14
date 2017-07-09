@@ -39,7 +39,7 @@ public abstract class ProceduralDungeonBase extends WorldGenerator
 		// settings and such
 		PlacementSettings settings = new PlacementSettings();
 		Template template = DungeonHelper.getStaircaseTemplate(manager, world);
-		
+
 		// add blocks (and handle any data blocks)
 		BlockPos corner = DungeonHelper.translateToCorner(template, center, Rotation.NONE); // translate from center to corner
 		template.addBlocksToWorld(world, corner, settings); // spawn in template at corner pos

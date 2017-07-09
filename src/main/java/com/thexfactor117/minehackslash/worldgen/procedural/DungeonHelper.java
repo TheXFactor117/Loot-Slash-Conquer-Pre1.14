@@ -100,7 +100,7 @@ public class DungeonHelper
 	{
 		ArrayList<Template> templates = new ArrayList<Template>();
 		
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "base")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room_1")));
 		
 		return templates.get((int) (Math.random() * (templates.size())));
 	}
@@ -109,7 +109,7 @@ public class DungeonHelper
 	{
 		ArrayList<Template> templates = new ArrayList<Template>();
 		
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "staircase_base")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "staircase_1")));
 		
 		return templates.get((int) (Math.random() * (templates.size())));
 	}

@@ -30,7 +30,7 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		TemplateManager manager = server.getStructureTemplateManager();
 		
 		// generate entrance
-		Template dungeonEntrance = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "base"));
+		Template dungeonEntrance = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room_1"));
 		PlacementSettings settings = new PlacementSettings();
 		
 		// if can generate
