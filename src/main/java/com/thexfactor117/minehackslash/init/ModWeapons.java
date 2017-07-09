@@ -1,5 +1,6 @@
 package com.thexfactor117.minehackslash.init;
 
+import com.thexfactor117.minehackslash.items.base.ItemTest;
 import com.thexfactor117.minehackslash.items.melee.ItemMHSAdvancedMelee;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -16,6 +17,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  */
 public class ModWeapons 
 {
+	public static Item test = new ItemTest("test");
+	
 	// vanilla
 	public static Item woodDagger = new ItemMHSAdvancedMelee(ToolMaterial.WOOD, "wood_dagger", 0.5, 0.5, 90);
 	public static Item woodMace = new ItemMHSAdvancedMelee(ToolMaterial.WOOD, "wood_mace", 1.25, 1.25, 45);
@@ -31,6 +34,8 @@ public class ModWeapons
 	@SubscribeEvent
 	public void registerItem(RegistryEvent.Register<Item> event)
 	{
+		event.getRegistry().register(test);
+		
 		event.getRegistry().register(woodDagger);
 		event.getRegistry().register(woodMace);
 		event.getRegistry().register(stoneDagger);
