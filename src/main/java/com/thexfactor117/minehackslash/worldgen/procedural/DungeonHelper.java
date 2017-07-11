@@ -3,6 +3,7 @@ package com.thexfactor117.minehackslash.worldgen.procedural;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 
+import com.thexfactor117.minehackslash.init.ModLootTables;
 import com.thexfactor117.minehackslash.util.Reference;
 
 import net.minecraft.init.Blocks;
@@ -35,7 +36,7 @@ public class DungeonHelper
 		// loop through all data blocks within the structure
 		for (Entry<BlockPos, String> e : template.getDataBlocks(pos, settings).entrySet())
 		{
-			if ("common_chest".equals(e.getValue())) // check data block tag
+			if ("random_chest".equals(e.getValue())) // check data block tag
 			{
 				BlockPos dataPos = e.getKey();
 				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3); // remove data block
@@ -44,10 +45,7 @@ public class DungeonHelper
 				if (chestEntity instanceof TileEntityChest)
 				{
 					int rand = (int) (Math.random() * 100 + 1);
-
-					/*if (rand <= 85) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.STRUCTURE_COMMON, world.rand.nextLong());
-					else if (rand > 95) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.STRUCTURE_LEGENDARY, world.rand.nextLong());
-					else ((TileEntityChest) chestEntity).setLootTable(ModLootTables.STRUCTURE_RARE, world.rand.nextLong());*/
+					((TileEntityChest) chestEntity).setLootTable(ModLootTables.LOOT, world.rand.nextLong());
 				}
 			}
 			else if ("rare_chest".equals(e.getValue())) // check data block tag

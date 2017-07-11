@@ -5,13 +5,17 @@ import org.apache.logging.log4j.Logger;
 
 import com.thexfactor117.minehackslash.init.ModCapabilities;
 import com.thexfactor117.minehackslash.init.ModEvents;
+import com.thexfactor117.minehackslash.init.ModLootTables;
+import com.thexfactor117.minehackslash.loot.functions.CreateStats;
 import com.thexfactor117.minehackslash.network.PacketClassGui;
 import com.thexfactor117.minehackslash.network.PacketClassSelection;
 import com.thexfactor117.minehackslash.network.PacketUpdatePlayerInformation;
 import com.thexfactor117.minehackslash.proxies.CommonProxy;
 import com.thexfactor117.minehackslash.util.GuiHandler;
 import com.thexfactor117.minehackslash.util.Reference;
+import com.thexfactor117.minehackslash.worldgen.MHSWorldGenerator;
 
+import net.minecraft.world.storage.loot.functions.LootFunctionManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -21,6 +25,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 /**
@@ -43,8 +48,11 @@ public class MineHackSlash
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		ModLootTables.register();
 		ModCapabilities.registerCapabilities();
 		ModEvents.registerEvents();
+		
+		LootFunctionManager.registerFunction(new CreateStats.Serializer());
 		
 		proxy.preInit(event);
 		
@@ -58,7 +66,7 @@ public class MineHackSlash
 	public void init(FMLInitializationEvent event)
 	{
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
-		
+		GameRegistry.registerWorldGenerator(new MHSWorldGenerator(), 100);
 		proxy.init(event);
 	}
 	

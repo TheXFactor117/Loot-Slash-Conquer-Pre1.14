@@ -48,7 +48,7 @@ public abstract class ProceduralDungeonBase extends WorldGenerator
 		
 		ArrayList<PotentialPosition> potentialPositions = new ArrayList<PotentialPosition>(); // stores potential positions to be generated off this room.
 		
-		int rooms = (int) (Math.random() * 7); // the amount of rooms that could be generated
+		int rooms = (int) (Math.random() * 4); // the amount of rooms that could be generated
 		
 		for (int i = 0; i < rooms; i++)
 		{
@@ -71,7 +71,10 @@ public abstract class ProceduralDungeonBase extends WorldGenerator
 			if (tempNextPositions != null)
 			{
 				for (PotentialPosition tempPosition : tempNextPositions) // unpack temporary position list and add it to master list.
-					nextPotentialPositions.add(tempPosition);
+				{
+					if (tempPosition != null) // remove null positions
+						nextPotentialPositions.add(tempPosition); 
+				}
 			}
 		}
 		

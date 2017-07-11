@@ -2,6 +2,9 @@ package com.thexfactor117.minehackslash.worldgen;
 
 import java.util.Random;
 
+import com.thexfactor117.minehackslash.MineHackSlash;
+import com.thexfactor117.minehackslash.worldgen.procedural.ProceduralDungeon;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -29,20 +32,26 @@ public class MHSWorldGenerator implements IWorldGenerator
 		switch (world.provider.getDimension())
 		{
 			case -1: 
-				generateNether(world, rand, blockX, blockZ);
+				generateNether(world, rand, blockX + 8, blockZ + 8);
 				break;
 			case 0: 
-				generateOverworld(world, rand, blockX, blockZ);
+				generateOverworld(world, rand, blockX + 8, blockZ + 8);
 				break;
 			case 1: 
-				generateEnd(world, rand, blockX, blockZ);
+				generateEnd(world, rand, blockX + 8, blockZ + 8);
 				break;
 		}
 	}
 	
 	private void generateOverworld(World world, Random rand, int blockX, int blockZ)
 	{	
-		
+		if ((int) (Math.random() * 100) == 0)
+		{
+			int y = getGroundFromAbove(world, blockX, blockZ);
+			BlockPos pos = new BlockPos(blockX, y, blockZ);
+			ProceduralDungeon dungeon = new ProceduralDungeon(4, 5);
+			dungeon.generate(world, rand, pos);
+		}
 	}
 	
 	private void generateNether(World world, Random rand, int chunkX, int chunkZ) {}

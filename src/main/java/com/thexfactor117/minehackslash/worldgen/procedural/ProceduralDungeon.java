@@ -41,7 +41,7 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		{	
 			dungeonEntrance.addBlocksToWorld(world, DungeonHelper.translateToCorner(dungeonEntrance, position, Rotation.NONE), settings);
 			DungeonHelper.handleDataBlocks(dungeonEntrance, world, position, settings);
-			
+			MineHackSlash.LOGGER.info("Generating Dungeon at " + position);
 			// start procedural generate
 			procedurallyGenerate(manager, world, position, null);
 			

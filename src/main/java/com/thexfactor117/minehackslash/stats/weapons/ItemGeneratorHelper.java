@@ -1,6 +1,7 @@
 package com.thexfactor117.minehackslash.stats.weapons;
 
 import java.util.Collection;
+import java.util.Random;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
@@ -9,7 +10,6 @@ import com.thexfactor117.minehackslash.MineHackSlash;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -37,7 +37,7 @@ public class ItemGeneratorHelper
 	 * @param rarity
 	 * @param player
 	 */
-	public static void setRandomAttributes(ItemStack stack, NBTTagCompound nbt, Rarity rarity, EntityPlayer player)
+	public static void setRandomAttributes(ItemStack stack, NBTTagCompound nbt, Rarity rarity)
 	{
 		int amount = 0;
 		// sets the amount of attributes should be generated depending on rarity.
@@ -51,7 +51,7 @@ public class ItemGeneratorHelper
 		{
 			if (stack.getItem() instanceof ItemSword)
 			{
-				WeaponAttribute attribute = WeaponAttribute.getRandomAttribute(player.getEntityWorld().rand); // generate random rarity.
+				WeaponAttribute attribute = WeaponAttribute.getRandomAttribute(new Random()); // generate random rarity.
 				
 				if (attribute.hasAttribute(nbt))
 					i--; // subtract 1 if we already have an attribute to "re-roll"
@@ -60,7 +60,7 @@ public class ItemGeneratorHelper
 			}
 			else if (stack.getItem() instanceof ItemArmor)
 			{
-				ArmorAttribute attribute = ArmorAttribute.getRandomAttribute(player.getEntityWorld().rand); // generate random rarity.
+				ArmorAttribute attribute = ArmorAttribute.getRandomAttribute(new Random()); // generate random rarity.
 				
 				if (attribute.hasAttribute(nbt))
 					i--; // subtract 1 if we already have an attribute to "re-roll"
@@ -75,7 +75,7 @@ public class ItemGeneratorHelper
 	 * @param nbt
 	 * @param sword
 	 */
-	public static void setAttributeModifiers(NBTTagCompound nbt, ItemStack stack, EntityPlayer player)
+	public static void setAttributeModifiers(NBTTagCompound nbt, ItemStack stack)
 	{
 		Item item = stack.getItem();
 		
@@ -88,7 +88,7 @@ public class ItemGeneratorHelper
 			AttributeModifier damageModifier = (AttributeModifier) damageCollection.toArray()[0];
 			AttributeModifier speedModifier = (AttributeModifier) speedCollection.toArray()[0];
 
-			double baseDamage = damageModifier.getAmount() + player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getBaseValue(); // add one to base damage for player strength
+			double baseDamage = damageModifier.getAmount();
 			double baseSpeed = speedModifier.getAmount();
 			double damage = ItemGeneratorHelper.getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
 			double speed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseSpeed);

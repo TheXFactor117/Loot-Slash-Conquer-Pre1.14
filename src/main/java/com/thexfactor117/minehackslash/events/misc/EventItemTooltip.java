@@ -45,7 +45,7 @@ public class EventItemTooltip
 				NBTTagCompound damageNbt = taglist.getCompoundTagAt(0);
 				NBTTagCompound speedNbt = taglist.getCompoundTagAt(1);
 				DecimalFormat format = new DecimalFormat("#.##");
-
+				
 				tooltip.add(1, "Level: " + nbt.getInteger("Level"));
 				
 				if (stack.getItem() instanceof ItemSword)
