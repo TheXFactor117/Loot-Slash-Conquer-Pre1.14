@@ -49,8 +49,8 @@ public class GuiClassSelection extends GuiScreen
 		this.drawDefaultBackground(); // draws background tint
 		super.drawScreen(mouseX, mouseY, partialTicks);
 
-		this.drawCenteredString(this.fontRenderer, I18n.format("minehackslash.gui.class.title"), this.width / 2, 20, 0xFFFFFF); // title
-		this.drawCenteredString(this.fontRenderer, I18n.format("minehackslash.gui.class.info"), this.width / 2, 40, 0xFFFFFF); // basic class information.
+		this.drawCenteredString(this.fontRenderer, I18n.format("losteclipse.gui.class.title"), this.width / 2, 20, 0xFFFFFF); // title
+		this.drawCenteredString(this.fontRenderer, I18n.format("losteclipse.gui.class.info"), this.width / 2, 40, 0xFFFFFF); // basic class information.
 		
 		drawTooltips(mouseX, mouseY);
 	}
@@ -104,10 +104,10 @@ public class GuiClassSelection extends GuiScreen
 		
 		if (warriorCheck.checkHover(mouseX, mouseY))
 		{
-			list.add(TextFormatting.RED + I18n.format("minehackslash.gui.class.warrior.title")); // title
-			list.add(TextFormatting.GRAY + I18n.format("minehackslash.gui.class.warrior.info")); // information about class
+			list.add(TextFormatting.RED + I18n.format("losteclipse.gui.class.warrior.title")); // title
+			list.add(TextFormatting.GRAY + I18n.format("losteclipse.gui.class.warrior.info")); // information about class
 			list.add("");
-			list.add(TextFormatting.ITALIC  + "" + TextFormatting.GRAY + I18n.format("minehackslash.gui.class.abilities")); // Abilities title
+			list.add(TextFormatting.ITALIC  + "" + TextFormatting.GRAY + I18n.format("losteclipse.gui.class.abilities")); // Abilities title
 			
 			// add specific ability information.
 			
@@ -115,10 +115,10 @@ public class GuiClassSelection extends GuiScreen
 		}
 		else if (mageCheck.checkHover(mouseX, mouseY))
 		{
-			list.add(TextFormatting.BLUE + I18n.format("minehackslash.gui.class.mage.title")); // title
-			list.add(TextFormatting.GRAY + I18n.format("minehackslash.gui.class.mage.info")); // information about class
+			list.add(TextFormatting.BLUE + I18n.format("losteclipse.gui.class.mage.title")); // title
+			list.add(TextFormatting.GRAY + I18n.format("losteclipse.gui.class.mage.info")); // information about class
 			list.add("");
-			list.add(TextFormatting.ITALIC  + "" + TextFormatting.GRAY + I18n.format("minehackslash.gui.class.abilities")); // Abilities title
+			list.add(TextFormatting.ITALIC  + "" + TextFormatting.GRAY + I18n.format("losteclipse.gui.class.abilities")); // Abilities title
 			
 			// add specific ability information.
 			
@@ -126,10 +126,10 @@ public class GuiClassSelection extends GuiScreen
 		}
 		else if (hunterCheck.checkHover(mouseX, mouseY))
 		{
-			list.add(TextFormatting.DARK_GREEN + I18n.format("minehackslash.gui.class.hunter.title")); // title
-			list.add(TextFormatting.GRAY + I18n.format("minehackslash.gui.class.hunter.info")); // information about class
+			list.add(TextFormatting.DARK_GREEN + I18n.format("losteclipse.gui.class.hunter.title")); // title
+			list.add(TextFormatting.GRAY + I18n.format("losteclipse.gui.class.hunter.info")); // information about class
 			list.add("");
-			list.add(TextFormatting.ITALIC  + "" + TextFormatting.GRAY + I18n.format("minehackslash.gui.class.abilities")); // Abilities title
+			list.add(TextFormatting.ITALIC  + "" + TextFormatting.GRAY + I18n.format("losteclipse.gui.class.abilities")); // Abilities title
 			
 			// add specific ability information.
 			

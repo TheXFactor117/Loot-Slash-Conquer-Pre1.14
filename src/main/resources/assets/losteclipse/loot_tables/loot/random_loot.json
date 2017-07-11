@@ -6,7 +6,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "minehackslash:loot/common_loot",
+					"name": "losteclipse:loot/common_loot",
 					"weight": 1
 				}
 			]

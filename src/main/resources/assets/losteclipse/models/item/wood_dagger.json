@@ -1,6 +1,6 @@
 {
 	"parent":"item/handheld",
 	"textures": {
-		"layer0":"minehackslash:items/wood_dagger"
+		"layer0":"losteclipse:items/wood_dagger"
 	}
 }
