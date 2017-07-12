@@ -46,8 +46,6 @@ public class EventLivingDeath
 					playerInfo.setSkillPoints(playerInfo.getSkillPoints() + 1); // increase skill points
 				}
 				LostEclipse.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) player); 
-				
-				LostEclipse.LOGGER.info("Damage Source: " + event.getSource().damageType);
 			}
 		}
 	}

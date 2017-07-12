@@ -6,7 +6,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.thexfactor117.losteclipse.loot.CustomLootContext;
-import com.thexfactor117.losteclipse.stats.weapons.ItemGenerator;
+import com.thexfactor117.losteclipse.loot.ItemGenerator;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.util.Reference;
 
@@ -31,8 +31,13 @@ public class CreateStats extends LootFunction
 		if (context instanceof CustomLootContext)
 		{
 			CustomLootContext customContext = (CustomLootContext) context;
-			BlockPos pos = customContext.getChestPos();
+			BlockPos pos;
 			NBTTagCompound nbt;
+			
+			if (customContext.getChestPos() != null)
+				pos = customContext.getChestPos();
+			else
+				pos = context.getLootedEntity().getPosition();
 			
 			if (!stack.hasTagCompound())
 				nbt = new NBTTagCompound();

@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.stats.weapons;
+package com.thexfactor117.losteclipse.loot;
 
 import java.util.Collection;
 import java.util.Random;
@@ -6,6 +6,9 @@ import java.util.UUID;
 
 import com.google.common.collect.Multimap;
 import com.thexfactor117.losteclipse.LostEclipse;
+import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
+import com.thexfactor117.losteclipse.stats.weapons.Rarity;
+import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
