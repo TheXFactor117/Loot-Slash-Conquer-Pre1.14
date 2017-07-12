@@ -7,8 +7,14 @@ import net.minecraft.world.storage.loot.LootTableList;
 
 public class ModLootTables 
 {
-	public static final ResourceLocation LOOT = register("loot");
-	public static final ResourceLocation RANDOM_LOOT = register("loot/random_loot");
+	public static ResourceLocation loot;
+	public static ResourceLocation random_loot;
+	
+	public static void register()
+	{
+		loot = register("loot");
+		random_loot = register("loot/random_loot");
+	}
 	
 	private static ResourceLocation register(String name)
 	{

@@ -1,5 +1,7 @@
 package com.thexfactor117.losteclipse.stats.weapons;
 
+import java.util.Random;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
@@ -33,9 +35,8 @@ public class ItemGenerator
 		
 		if (Rarity.getRarity(nbt) == Rarity.DEFAULT)
 		{
-			//Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, player.getEntityWorld().rand)); // sets a random rarity
-			Rarity.setRarity(nbt, Rarity.MYTHIC); // sets a random rarity
-			nbt.setInteger("Level", 1); // set level to current player level
+			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, new Random())); // sets a random rarity
+			nbt.setInteger("Level", (int) (Math.random() * 10 + 1)); // set level to current player level
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 			ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 			nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags			

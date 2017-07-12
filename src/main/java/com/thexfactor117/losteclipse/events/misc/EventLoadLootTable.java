@@ -17,7 +17,11 @@ public class EventLoadLootTable
 	@SubscribeEvent
 	public void onLootTableLoad(LootTableLoadEvent event)
 	{
-		if (event.getName() == ModLootTables.LOOT)
+		if (event.getName() == ModLootTables.loot)
+		{
+			event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		}
+		else if (event.getName() == ModLootTables.random_loot)
 		{
 			event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		}

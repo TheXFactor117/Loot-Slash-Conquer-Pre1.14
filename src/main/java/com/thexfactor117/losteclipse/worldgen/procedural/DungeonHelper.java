@@ -42,10 +42,9 @@ public class DungeonHelper
 				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3); // remove data block
 				TileEntity chestEntity = world.getTileEntity(dataPos.down()); // chest is located under data block
 							
-				if (chestEntity instanceof TileEntityChest)
+				if (chestEntity instanceof TileEntityChest && (int) (Math.random() * 2) == 0)
 				{
-					int rand = (int) (Math.random() * 100 + 1);
-					((TileEntityChest) chestEntity).setLootTable(ModLootTables.RANDOM_LOOT, world.rand.nextLong());
+					((TileEntityChest) chestEntity).setLootTable(ModLootTables.random_loot, world.rand.nextLong());
 				}
 			}
 			else if ("rare_chest".equals(e.getValue())) // check data block tag
@@ -99,6 +98,9 @@ public class DungeonHelper
 		ArrayList<Template> templates = new ArrayList<Template>();
 		
 		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room_1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze_1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "spawner_1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "spawner_2")));
 		
 		return templates.get((int) (Math.random() * (templates.size())));
 	}

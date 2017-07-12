@@ -30,7 +30,7 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		TemplateManager manager = server.getStructureTemplateManager();
 		
 		// generate entrance
-		Template dungeonEntrance = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room_1"));
+		Template dungeonEntrance = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "entrance_1"));
 		PlacementSettings settings = new PlacementSettings();
 		
 		// if can generate
@@ -39,7 +39,7 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		
 		if (MHSWorldGenerator.canSpawnHere(dungeonEntrance, world, position))
 		{	
-			dungeonEntrance.addBlocksToWorld(world, DungeonHelper.translateToCorner(dungeonEntrance, position, Rotation.NONE), settings);
+			dungeonEntrance.addBlocksToWorld(world, DungeonHelper.translateToCorner(dungeonEntrance, position.add(0, -8, 0), Rotation.NONE), settings);
 			DungeonHelper.handleDataBlocks(dungeonEntrance, world, position, settings);
 			LostEclipse.LOGGER.info("Generating Dungeon at " + position);
 			// start procedural generate

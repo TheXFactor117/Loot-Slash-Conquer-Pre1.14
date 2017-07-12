@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.thexfactor117.losteclipse.init.ModCapabilities;
 import com.thexfactor117.losteclipse.init.ModEvents;
+import com.thexfactor117.losteclipse.init.ModLootTables;
 import com.thexfactor117.losteclipse.loot.functions.CreateStats;
 import com.thexfactor117.losteclipse.network.PacketClassGui;
 import com.thexfactor117.losteclipse.network.PacketClassSelection;
@@ -47,6 +48,7 @@ public class LostEclipse
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
+		ModLootTables.register();
 		ModCapabilities.registerCapabilities();
 		ModEvents.registerEvents();
 		

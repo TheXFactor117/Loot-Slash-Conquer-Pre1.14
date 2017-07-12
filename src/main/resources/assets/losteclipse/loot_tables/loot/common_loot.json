@@ -10,7 +10,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:stone_sword",
-					"weight": 5
+					"weight": 5,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -20,7 +20,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:iron_sword",
-					"weight": 3
+					"weight": 3,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -30,7 +30,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:diamond_sword",
-					"weight": 1
+					"weight": 1,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -40,7 +40,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:iron_chestplate",
-					"weight": 3
+					"weight": 3,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -50,7 +50,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:iron_helmet",
-					"weight": 3
+					"weight": 3,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -60,7 +60,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:iron_leggings",
-					"weight": 3
+					"weight": 3,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -70,7 +70,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:iron_boots",
-					"weight": 3
+					"weight": 3,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -80,7 +80,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:diamond_helmet",
-					"weight": 1
+					"weight": 1,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -90,7 +90,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:diamond_chestplate",
-					"weight": 1
+					"weight": 1,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -100,7 +100,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:diamond_leggings",
-					"weight": 1
+					"weight": 1,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
@@ -110,7 +110,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:diamond_boots",
-					"weight": 1
+					"weight": 1,
 					"functions": [
 						{
 							"function": "losteclipse:create_stats"
