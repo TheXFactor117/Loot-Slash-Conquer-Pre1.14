@@ -85,7 +85,8 @@ public class ItemGeneratorHelper
 		if (item instanceof ItemSword)
 		{
 			// retrieves the default attributes, like damage and attack speed.
-			Multimap<String, AttributeModifier> map = item.getAttributeModifiers(EntityEquipmentSlot.MAINHAND, stack);
+			@SuppressWarnings("deprecation")
+			Multimap<String, AttributeModifier> map = item.getItemAttributeModifiers(EntityEquipmentSlot.MAINHAND);
 			Collection<AttributeModifier> damageCollection = map.get(SharedMonsterAttributes.ATTACK_DAMAGE.getName());
 			Collection<AttributeModifier> speedCollection = map.get(SharedMonsterAttributes.ATTACK_SPEED.getName());
 			AttributeModifier damageModifier = (AttributeModifier) damageCollection.toArray()[0];

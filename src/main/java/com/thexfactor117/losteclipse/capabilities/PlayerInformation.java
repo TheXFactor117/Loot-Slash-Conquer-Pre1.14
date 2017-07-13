@@ -24,12 +24,30 @@ public class PlayerInformation implements IPlayerInformation
 	private int wisdomStat;
 	private int fortitudeStat;
 	
+	private int strengthBonusStat;
+	private int agilityBonusStat;
+	private int dexterityBonusStat;
+	private int intelligenceBonusStat;
+	private int wisdomBonusStat;
+	private int fortitudeBonusStat;
+	
 	@SuppressWarnings("unused")
 	private final EntityLivingBase entity;
 	
 	public PlayerInformation(@Nullable EntityLivingBase entity)
 	{
 		this.entity = entity;
+	}
+	
+	@Override
+	public void removeBonusStats()
+	{
+		this.strengthBonusStat = 0;
+		this.agilityBonusStat = 0;
+		this.dexterityBonusStat = 0;
+		this.intelligenceBonusStat = 0;
+		this.wisdomBonusStat = 0;
+		this.fortitudeBonusStat = 0;
 	}
 	
 	@Override
@@ -160,5 +178,79 @@ public class PlayerInformation implements IPlayerInformation
 	public void setFortitudeStat(int stat) 
 	{
 		this.fortitudeStat = stat;
+	}
+	
+	// bonuses
+	
+	@Override
+	public int getBonusStrengthStat() 
+	{
+		return strengthBonusStat;
+	}
+
+	@Override
+	public void setBonusStrengthStat(int stat) 
+	{
+		this.strengthBonusStat = stat;
+	}
+
+	@Override
+	public int getBonusAgilityStat() 
+	{
+		return agilityBonusStat;
+	}
+
+	@Override
+	public void setBonusAgilityStat(int stat) 
+	{
+		this.agilityBonusStat = stat;
+	}
+
+	@Override
+	public int getBonusDexterityStat() 
+	{
+		return dexterityBonusStat;
+	}
+
+	@Override
+	public void setBonusDexterityStat(int stat) 
+	{
+		this.dexterityBonusStat = stat;
+	}
+
+	@Override
+	public int getBonusIntelligenceStat() 
+	{
+		return intelligenceBonusStat;
+	}
+
+	@Override
+	public void setBonusIntelligenceStat(int stat) 
+	{
+		this.intelligenceBonusStat = stat;
+	}
+
+	@Override
+	public int getBonusWisdomStat() 
+	{
+		return wisdomBonusStat;
+	}
+
+	@Override
+	public void setBonusWisdomStat(int stat) 
+	{
+		this.wisdomBonusStat = stat;
+	}
+
+	@Override
+	public int getBonusFortitudeStat() 
+	{
+		return fortitudeBonusStat;
+	}
+
+	@Override
+	public void setBonusFortitudeStat(int stat) 
+	{
+		this.fortitudeBonusStat = stat;
 	}
 }

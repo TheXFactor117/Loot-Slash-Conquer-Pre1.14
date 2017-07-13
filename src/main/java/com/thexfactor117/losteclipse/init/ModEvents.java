@@ -6,6 +6,7 @@ import com.thexfactor117.losteclipse.events.misc.EventInput;
 import com.thexfactor117.losteclipse.events.misc.EventItemTooltip;
 import com.thexfactor117.losteclipse.events.misc.EventLoadLootTable;
 import com.thexfactor117.losteclipse.events.misc.EventPlayerLoggedIn;
+import com.thexfactor117.losteclipse.events.misc.EventPlayerTick;
 
 import net.minecraftforge.common.MinecraftForge;
 
@@ -25,5 +26,6 @@ public class ModEvents
 		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
 		MinecraftForge.EVENT_BUS.register(new ModWeapons());
 		MinecraftForge.EVENT_BUS.register(new EventLoadLootTable());
+		MinecraftForge.EVENT_BUS.register(new EventPlayerTick());
 	}
 }

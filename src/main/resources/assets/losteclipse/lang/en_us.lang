@@ -26,6 +26,13 @@ losteclipse.gui.playerinfo.class.3=Hunter
 losteclipse.gui.playerinfo.level=Level
 losteclipse.gui.playerinfo.experience=Experience
 losteclipse.gui.playerinfo.skillpoints=Skill Points
+losteclipse.gui.playerinfo.stats=Stats
+losteclipse.gui.playerinfo.stats.strength=Strength
+losteclipse.gui.playerinfo.stats.agility=Agility
+losteclipse.gui.playerinfo.stats.dexterity=Dexterity
+losteclipse.gui.playerinfo.stats.intelligence=Intelligence
+losteclipse.gui.playerinfo.stats.wisdom=Wisdom
+losteclipse.gui.playerinfo.stats.fortitude=Fortitude
 
 
 

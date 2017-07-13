@@ -37,4 +37,19 @@ public interface IPlayerInformation
 	void setWisdomStat(int stat);
 	int getFortitudeStat();
 	void setFortitudeStat(int stat);
+	
+	int getBonusStrengthStat();
+	void setBonusStrengthStat(int stat);
+	int getBonusAgilityStat();
+	void setBonusAgilityStat(int stat);
+	int getBonusDexterityStat();
+	void setBonusDexterityStat(int stat);
+	int getBonusIntelligenceStat();
+	void setBonusIntelligenceStat(int stat);
+	int getBonusWisdomStat();
+	void setBonusWisdomStat(int stat);
+	int getBonusFortitudeStat();
+	void setBonusFortitudeStat(int stat);
+	
+	void removeBonusStats();
 }

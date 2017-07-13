@@ -56,6 +56,13 @@ public class CapabilityPlayerInformation
 				nbt.setInteger("WisdomStat", instance.getWisdomStat());
 				nbt.setInteger("FortitudeStat", instance.getFortitudeStat());
 				
+				nbt.setInteger("StrengthBonusStat", instance.getBonusStrengthStat());
+				nbt.setInteger("AgilityBonusStat", instance.getBonusAgilityStat());
+				nbt.setInteger("DexterityBonusStat", instance.getBonusDexterityStat());
+				nbt.setInteger("IntelligenceBonusStat", instance.getBonusIntelligenceStat());
+				nbt.setInteger("WisdomBonusStat", instance.getBonusWisdomStat());
+				nbt.setInteger("FortitudeBonusStat", instance.getBonusFortitudeStat());
+				
 				return nbt;
 			}
 
@@ -76,6 +83,13 @@ public class CapabilityPlayerInformation
 				instance.setIntelligenceStat(compound.getInteger("IntelligenceStat"));
 				instance.setWisdomStat(compound.getInteger("WisdomStat"));
 				instance.setFortitudeStat(compound.getInteger("FortitudeStat"));
+				
+				instance.setBonusStrengthStat(compound.getInteger("StrengthBonusStat"));
+				instance.setBonusAgilityStat(compound.getInteger("AgilityBonusStat"));
+				instance.setBonusDexterityStat(compound.getInteger("DexterityBonusStat"));
+				instance.setBonusIntelligenceStat(compound.getInteger("IntelligenceBonusStat"));
+				instance.setBonusWisdomStat(compound.getInteger("WisdomBonusStat"));
+				instance.setBonusFortitudeStat(compound.getInteger("FortitudeBonusStat"));
 			}
 		}, () -> new PlayerInformation(null));
 
@@ -126,6 +140,13 @@ public class CapabilityPlayerInformation
 				newInfo.setIntelligenceStat(oldInfo.getIntelligenceStat());
 				newInfo.setWisdomStat(oldInfo.getWisdomStat());
 				newInfo.setFortitudeStat(oldInfo.getFortitudeStat());
+				
+				newInfo.setBonusStrengthStat(oldInfo.getBonusStrengthStat());
+				newInfo.setBonusAgilityStat(oldInfo.getBonusAgilityStat());
+				newInfo.setBonusDexterityStat(oldInfo.getBonusDexterityStat());
+				newInfo.setBonusIntelligenceStat(oldInfo.getBonusIntelligenceStat());
+				newInfo.setBonusWisdomStat(oldInfo.getBonusWisdomStat());
+				newInfo.setBonusFortitudeStat(oldInfo.getBonusFortitudeStat());
 			}
 		}
 	}

@@ -9,7 +9,9 @@ import com.thexfactor117.losteclipse.init.ModLootTables;
 import com.thexfactor117.losteclipse.loot.functions.CreateStats;
 import com.thexfactor117.losteclipse.network.PacketClassGui;
 import com.thexfactor117.losteclipse.network.PacketClassSelection;
+import com.thexfactor117.losteclipse.network.PacketUpdateIncreaseStat;
 import com.thexfactor117.losteclipse.network.PacketUpdatePlayerInformation;
+import com.thexfactor117.losteclipse.network.PacketUpdatePlayerStats;
 import com.thexfactor117.losteclipse.proxies.CommonProxy;
 import com.thexfactor117.losteclipse.util.GuiHandler;
 import com.thexfactor117.losteclipse.util.Reference;
@@ -60,6 +62,8 @@ public class LostEclipse
 		network.registerMessage(PacketClassGui.Handler.class, PacketClassGui.class, 0, Side.CLIENT);
 		network.registerMessage(PacketClassSelection.Handler.class, PacketClassSelection.class, 1, Side.SERVER);
 		network.registerMessage(PacketUpdatePlayerInformation.Handler.class, PacketUpdatePlayerInformation.class, 2, Side.CLIENT);
+		network.registerMessage(PacketUpdatePlayerStats.Handler.class, PacketUpdatePlayerStats.class, 3, Side.CLIENT);
+		network.registerMessage(PacketUpdateIncreaseStat.Handler.class, PacketUpdateIncreaseStat.class, 4, Side.SERVER);
 	}
 	
 	@EventHandler
