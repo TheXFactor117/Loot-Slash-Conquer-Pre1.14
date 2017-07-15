@@ -8,7 +8,6 @@ import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
@@ -49,10 +48,10 @@ public class EventItemTooltip
 				tooltip.add(1, "Level: " + nbt.getInteger("Level"));
 				
 				if (stack.getItem() instanceof ItemSword)
-				{
+				{	
 					// damage and attack speed
 					tooltip.add(TextFormatting.BLUE + " +" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
-					tooltip.add(TextFormatting.BLUE + " +" + format.format(speedNbt.getDouble("Amount") + event.getEntityPlayer().getEntityAttribute(SharedMonsterAttributes.ATTACK_SPEED).getBaseValue()) + " Attack Speed");
+					tooltip.add(TextFormatting.BLUE + " +" + format.format(speedNbt.getDouble("Amount")) + " Attack Speed");
 				}
 				else if (stack.getItem() instanceof ItemArmor)
 				{
@@ -60,6 +59,10 @@ public class EventItemTooltip
 					tooltip.add(TextFormatting.BLUE + "+" + format.format(damageNbt.getDouble("Amount")) + " Armor");
 					tooltip.add(TextFormatting.BLUE + "+" + format.format(speedNbt.getDouble("Amount")) + " Armor Toughness");
 				}
+				
+				tooltip.add("");
+				
+				tooltip.add("Durability: " + (stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage());
 				
 				tooltip.add("");
 				tooltip.add(TextFormatting.ITALIC + "Attributes");

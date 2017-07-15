@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
-import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
@@ -139,9 +138,7 @@ public class ItemGeneratorHelper
 		int range = ((int) (Math.random() * 4 + 4)) / 2;
 		int minDamage = (int) (damage - range);
 		int maxDamage = (int) (damage + range);
-		
-		LostEclipse.LOGGER.info("Min: " + minDamage + "\tMax: " + maxDamage);
-		
+
 		if (WeaponAttribute.MIN_DAMAGE.hasAttribute(nbt))
 			minDamage += WeaponAttribute.MIN_DAMAGE.getAmount(nbt);
 		else if (WeaponAttribute.MAX_DAMAGE.hasAttribute(nbt))

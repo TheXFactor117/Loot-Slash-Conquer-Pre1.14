@@ -44,7 +44,7 @@ public class DungeonHelper
 							
 				if (chestEntity instanceof TileEntityChest && (int) (Math.random() * 2) == 0)
 				{
-					((TileEntityChest) chestEntity).setLootTable(ModLootTables.random_loot, world.rand.nextLong());
+					((TileEntityChest) chestEntity).setLootTable(ModLootTables.loot, world.rand.nextLong());
 				}
 			}
 			else if ("rare_chest".equals(e.getValue())) // check data block tag

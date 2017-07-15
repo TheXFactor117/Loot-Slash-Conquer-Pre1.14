@@ -39,7 +39,7 @@ public class EventLivingDeath
 				else experience = (int) (enemy.getMaxHealth() * 0.2); // experience = 10% of max health.
 				
 				// update experience on client AND server; increase level if need be.
-				playerInfo.setPlayerExperience(playerInfo.getPlayerExperience() + experience);
+				playerInfo.setPlayerExperience(playerInfo.getPlayerExperience() + experience + 200);
 				if (playerInfo.getPlayerExperience() > playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel())) 
 				{
 					playerInfo.setPlayerLevel(playerInfo.getPlayerLevel() + 1); // increase level
