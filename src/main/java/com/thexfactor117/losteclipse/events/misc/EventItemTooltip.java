@@ -3,11 +3,13 @@ package com.thexfactor117.losteclipse.events.misc;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
@@ -49,8 +51,13 @@ public class EventItemTooltip
 				
 				if (stack.getItem() instanceof ItemSword)
 				{	
+					double playerDamage = event.getEntityPlayer().getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
+					//double playerDamage = 0;
+					
+					LostEclipse.LOGGER.info(playerDamage);
+					
 					// damage and attack speed
-					tooltip.add(TextFormatting.BLUE + " +" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
+					tooltip.add(TextFormatting.BLUE + " +" + (nbt.getInteger("MinDamage") + (int) playerDamage) + "-" + (nbt.getInteger("MaxDamage") + (int) playerDamage) + " Damage");
 					tooltip.add(TextFormatting.BLUE + " +" + format.format(speedNbt.getDouble("Amount")) + " Attack Speed");
 				}
 				else if (stack.getItem() instanceof ItemArmor)

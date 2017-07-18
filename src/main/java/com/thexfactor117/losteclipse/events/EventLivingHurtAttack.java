@@ -3,6 +3,7 @@ package com.thexfactor117.losteclipse.events;
 import java.util.Iterator;
 import java.util.List;
 
+import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.init.ModDamageSources;
 import com.thexfactor117.losteclipse.items.melee.ItemMHSAdvancedMelee;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
@@ -11,6 +12,7 @@ import com.thexfactor117.losteclipse.util.NBTHelper;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
@@ -51,8 +53,12 @@ public class EventLivingHurtAttack
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				
 				// set the true amount of damage.
-				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");				
-				event.setAmount((float) trueDamage);
+				//LostEclipse.LOGGER.info("Player Damage: " + (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() - nbt.getInteger("MaxDamage")));
+				//LostEclipse.LOGGER.info("Min Damage: " + nbt.getInteger("MinDamage") + "\tMax Damage: " + nbt.getInteger("MaxDamage"));
+				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+				event.setAmount((float) (trueDamage + player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
+				
+				LostEclipse.LOGGER.info(event.getAmount());
 			}
 		}
 		

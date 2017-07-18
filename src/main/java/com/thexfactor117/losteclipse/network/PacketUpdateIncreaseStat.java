@@ -2,6 +2,7 @@ package com.thexfactor117.losteclipse.network;
 
 import java.util.UUID;
 
+import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.IPlayerInformation;
 
@@ -17,7 +18,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class PacketUpdateIncreaseStat implements IMessage
 {
-	private static final String STRENGTH = "ece5e91f-afc9-4883-a169-c7b5883c12dc";
+	public static final String STRENGTH = "ece5e91f-afc9-4883-a169-c7b5883c12dc";
 	private static final String AGILITY = "50ac5b8b-00a6-436c-bdc3-9848393bb7b7";
 	private static final String DEXTERITY = "e574e861-e5bd-4906-b72e-f6be6e4c9563";
 	private static final String INTELLIGENCE = "8c865de8-f16e-43ea-a69f-8e77edd7a11c";
@@ -64,8 +65,8 @@ public class PacketUpdateIncreaseStat implements IMessage
 						if (message.stat == 1) 
 						{
 							playerInfo.setStrengthStat(playerInfo.getStrengthStat() + 1);
-							AttributeModifier strengthModifier = new AttributeModifier(UUID.fromString(STRENGTH), "playerStrength", 0.5 * (playerInfo.getStrengthStat() + playerInfo.getBonusStrengthStat()), 1);
-							
+							AttributeModifier strengthModifier = new AttributeModifier(UUID.fromString(STRENGTH), "playerStrength", 2 + (playerInfo.getStrengthStat() + playerInfo.getBonusStrengthStat()), 0);
+
 							if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getModifier(UUID.fromString(STRENGTH)) != null)
 							{
 								player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).removeModifier(UUID.fromString(STRENGTH));
@@ -77,7 +78,7 @@ public class PacketUpdateIncreaseStat implements IMessage
 						else if (message.stat == 2) 
 						{
 							playerInfo.setAgilityStat(playerInfo.getAgilityStat() + 1);
-							AttributeModifier agilityModifier = new AttributeModifier(UUID.fromString(AGILITY), "playerAgility", 0.5 * (playerInfo.getAgilityStat() + playerInfo.getBonusAgilityStat()), 1);
+							AttributeModifier agilityModifier = new AttributeModifier(UUID.fromString(AGILITY), "playerAgility", 0.05 * (playerInfo.getAgilityStat() + playerInfo.getBonusAgilityStat()), 0);
 							
 							if (player.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(UUID.fromString(AGILITY)) != null)
 							{
@@ -121,6 +122,8 @@ public class PacketUpdateIncreaseStat implements IMessage
 							else
 								player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(healthModifier);
 						}
+						
+						playerInfo.setSkillPoints(playerInfo.getSkillPoints() - 1);
 					}
 				}
 			});
