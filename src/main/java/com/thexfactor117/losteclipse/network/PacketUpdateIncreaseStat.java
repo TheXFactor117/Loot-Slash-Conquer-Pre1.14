@@ -2,7 +2,6 @@ package com.thexfactor117.losteclipse.network;
 
 import java.util.UUID;
 
-import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.IPlayerInformation;
 
@@ -65,6 +64,8 @@ public class PacketUpdateIncreaseStat implements IMessage
 						if (message.stat == 1) 
 						{
 							playerInfo.setStrengthStat(playerInfo.getStrengthStat() + 1);
+							
+							// increase attack damage
 							AttributeModifier strengthModifier = new AttributeModifier(UUID.fromString(STRENGTH), "playerStrength", 2 + (playerInfo.getStrengthStat() + playerInfo.getBonusStrengthStat()), 0);
 
 							if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getModifier(UUID.fromString(STRENGTH)) != null)
@@ -77,8 +78,11 @@ public class PacketUpdateIncreaseStat implements IMessage
 						}
 						else if (message.stat == 2) 
 						{
+							// overpowered?
 							playerInfo.setAgilityStat(playerInfo.getAgilityStat() + 1);
-							AttributeModifier agilityModifier = new AttributeModifier(UUID.fromString(AGILITY), "playerAgility", 0.05 * (playerInfo.getAgilityStat() + playerInfo.getBonusAgilityStat()), 0);
+							
+							// increase agility
+							AttributeModifier agilityModifier = new AttributeModifier(UUID.fromString(AGILITY), "playerAgility", 0.01 * (playerInfo.getAgilityStat() + playerInfo.getBonusAgilityStat()), 0);
 							
 							if (player.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(UUID.fromString(AGILITY)) != null)
 							{
@@ -87,11 +91,9 @@ public class PacketUpdateIncreaseStat implements IMessage
 							}
 							else
 								player.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(agilityModifier);
-						}
-						else if (message.stat == 3) 
-						{
-							playerInfo.setDexterityStat(playerInfo.getDexterityStat() + 1);
-							AttributeModifier dexterityStat = new AttributeModifier(UUID.fromString(DEXTERITY), "playerDexterity", 0.5 * (playerInfo.getDexterityStat() + playerInfo.getBonusDexterityStat()), 1);
+							
+							// increase attack speed
+							AttributeModifier dexterityStat = new AttributeModifier(UUID.fromString(DEXTERITY), "playerDexterity", 0.5 * (playerInfo.getDexterityStat() + playerInfo.getBonusDexterityStat()), 0);
 							
 							if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_SPEED).getModifier(UUID.fromString(DEXTERITY)) != null)
 							{
@@ -100,6 +102,10 @@ public class PacketUpdateIncreaseStat implements IMessage
 							}
 							else
 								player.getEntityAttribute(SharedMonsterAttributes.ATTACK_SPEED).applyModifier(dexterityStat);
+						}
+						else if (message.stat == 3) 
+						{
+							playerInfo.setDexterityStat(playerInfo.getDexterityStat() + 1);
 						}
 						else if (message.stat == 4) 
 						{
@@ -112,7 +118,7 @@ public class PacketUpdateIncreaseStat implements IMessage
 						else if (message.stat == 6) 
 						{
 							playerInfo.setFortitudeStat(playerInfo.getFortitudeStat() + 1);
-							AttributeModifier healthModifier = new AttributeModifier(UUID.fromString(FORTITUDE), "maxHealth", 0.5 * (playerInfo.getFortitudeStat() + playerInfo.getBonusFortitudeStat()), 1);
+							AttributeModifier healthModifier = new AttributeModifier(UUID.fromString(FORTITUDE), "maxHealth", 2 * (playerInfo.getFortitudeStat() + playerInfo.getBonusFortitudeStat()), 0);
 							
 							if (player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(UUID.fromString(FORTITUDE)) != null)
 							{

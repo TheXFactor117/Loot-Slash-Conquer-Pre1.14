@@ -47,7 +47,7 @@ public class ItemGeneratorHelper
 		else if (rarity == Rarity.UNCOMMON) amount = (int) (Math.random() * 2 + 1);
 		else if (rarity == Rarity.RARE) amount = (int) (Math.random() * 2 + 2);
 		else if (rarity == Rarity.LEGENDARY) amount = (int) (Math.random() * 2 + 3);
-		else if (rarity == Rarity.MYTHIC) amount = (int) (Math.random() * 2 + 4);
+		else if (rarity == Rarity.EXOTIC) amount = (int) (Math.random() * 2 + 4);
 		
 		for (int i = 0; i < amount; i++)
 		{
@@ -173,7 +173,7 @@ public class ItemGeneratorHelper
 			range = 3;
 			damage = Math.random() * range + (base + 1);
 		}
-		else if (rarity == Rarity.MYTHIC)
+		else if (rarity == Rarity.EXOTIC)
 		{
 			range = 4;
 			damage = Math.random() * range + (base + 2);
@@ -207,7 +207,7 @@ public class ItemGeneratorHelper
 			range = 0.25;
 			speed = Math.random() * range + (base + 0.1);
 		}
-		else if (rarity == Rarity.MYTHIC)
+		else if (rarity == Rarity.EXOTIC)
 		{
 			range = 0.3;
 			speed = Math.random() * range + (base + 0.2);
@@ -241,7 +241,7 @@ public class ItemGeneratorHelper
 			range = 0.5;
 			armor = Math.random() * range + (base + 0.1);
 		}
-		else if (rarity == Rarity.MYTHIC)
+		else if (rarity == Rarity.EXOTIC)
 		{
 			range = 0.6;
 			armor = Math.random() * range + (base + 0.2);
@@ -274,7 +274,7 @@ public class ItemGeneratorHelper
 			range = 0.4;
 			toughness = Math.random() * range + (base + 0.1);
 		}
-		else if (rarity == Rarity.MYTHIC)
+		else if (rarity == Rarity.EXOTIC)
 		{
 			range = 0.5;
 			toughness = Math.random() * range + (base + 0.2);

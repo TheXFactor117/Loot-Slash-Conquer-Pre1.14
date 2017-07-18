@@ -19,7 +19,7 @@ public enum Rarity
 	UNCOMMON("Uncommon", TextFormatting.DARK_GREEN, 0.2),
 	RARE("Rare", TextFormatting.AQUA, 0.12),
 	LEGENDARY("Legendary", TextFormatting.DARK_PURPLE, 0.07),
-	MYTHIC("Mythic", TextFormatting.GOLD, 0.01);
+	EXOTIC("Exotic", TextFormatting.GOLD, 0.01);
 	
 	private String name;
 	private String color;
