@@ -19,12 +19,14 @@ public class ModEvents
 {
 	public static void registerEvents()
 	{
+		MinecraftForge.EVENT_BUS.register(new ModBlocks());
+		MinecraftForge.EVENT_BUS.register(new ModWeapons());
+		
 		MinecraftForge.EVENT_BUS.register(new EventPlayerLoggedIn());
 		MinecraftForge.EVENT_BUS.register(new EventLivingDeath());
 		MinecraftForge.EVENT_BUS.register(new EventInput());
 		MinecraftForge.EVENT_BUS.register(new EventLivingHurtAttack());
 		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
-		MinecraftForge.EVENT_BUS.register(new ModWeapons());
 		MinecraftForge.EVENT_BUS.register(new EventLoadLootTable());
 		MinecraftForge.EVENT_BUS.register(new EventPlayerTick());
 	}
