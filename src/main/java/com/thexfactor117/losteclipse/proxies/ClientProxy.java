@@ -2,7 +2,10 @@ package com.thexfactor117.losteclipse.proxies;
 
 import org.lwjgl.input.Keyboard;
 
+import com.thexfactor117.losteclipse.client.init.ModItemModels;
+
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -20,7 +23,7 @@ public class ClientProxy extends ServerProxy
 	@Override
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		
+		MinecraftForge.EVENT_BUS.register(new ModItemModels());
 	}
 	
 	@Override

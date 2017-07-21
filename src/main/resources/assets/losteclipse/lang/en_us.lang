@@ -2,11 +2,41 @@
 ### Lost Eclipse ENGLISH language file
 #####
 
-### 
-### Gui
-###
+#############################################
+#                   ITEMS                   #
+#############################################
 
-# Class Selection
+### Weapons
+# Vanilla Melee
+item.wood_dagger.name=Wood Dagger
+item.wood_mace.name=Wood Mace
+item.stone_dagger.name=Stone Dagger
+item.stone_mace.name=Stone Mace
+item.gold_dagger.name=Gold Dagger
+item.gold_mace.name=Gold Mace
+item.iron_dagger.name=Iron Dagger
+item.iron_mace.name=Iron Mace
+item.diamond_dagger.name=Diamond Dagger
+item.diamond_mace.name=Diamond Mace
+
+# LE Melee
+item.verantium_dagger.name=Verantium Dagger
+item.verantium_sword.name=Verantium Sword
+item.verantium_mace.name=Verantium Mace
+item.vexal_dagger.name=Vexal Dagger
+item.vexal_sword.name=Vexal Sword
+item.vexal_mace.name=Vexal Mace
+item.astrill_dagger.name=Astrill Dagger
+item.astrill_sword.name=Astrill Sword
+item.astrill_mace.name=Astrill Mace
+
+
+
+#############################################
+#                   GUI                     #
+#############################################
+
+### Class Selection
 losteclipse.gui.class.title=Class Selection
 losteclipse.gui.class.info=Select a class to play as. Hover over each button for more information.
 losteclipse.gui.class.abilities=Abilities
@@ -36,11 +66,11 @@ losteclipse.gui.playerinfo.stats.fortitude=Fortitude
 
 
 
-###
-### Misc
-###
+#############################################
+#                   MISC                    #
+#############################################
 
-# Damage Sources
+### Damage Sources
 death.attack.frost=%1$s was frozen solid.
 death.attack.frost.player=%1$s was frozen solid by %2$s. Unfortunately, %1$s wasn't thawed out in time.
 death.attack.lightning=%1$s was disintegrated by a stray lightning bolt.
