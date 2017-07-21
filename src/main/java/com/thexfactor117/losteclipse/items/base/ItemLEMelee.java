@@ -10,18 +10,16 @@ import net.minecraft.item.ItemSword;
  * @author TheXFactor117
  *
  */
-public class ItemSwordBase extends ItemSword
+public class ItemLEMelee extends ItemSword
 {
-	
-	
-	public ItemSwordBase(ToolMaterial material, String name) 
+	public ItemLEMelee(ToolMaterial material, String name) 
 	{
 		super(material);
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
 	}
 	
-	public ItemSwordBase(ToolMaterial material, String name, CreativeTabs tab) 
+	public ItemLEMelee(ToolMaterial material, String name, CreativeTabs tab) 
 	{
 		super(material);
 		this.setRegistryName(Reference.MODID, name);

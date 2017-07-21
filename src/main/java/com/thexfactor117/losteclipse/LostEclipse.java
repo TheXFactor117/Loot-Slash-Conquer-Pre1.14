@@ -6,13 +6,9 @@ import org.apache.logging.log4j.Logger;
 import com.thexfactor117.losteclipse.init.ModCapabilities;
 import com.thexfactor117.losteclipse.init.ModEvents;
 import com.thexfactor117.losteclipse.init.ModLootTables;
+import com.thexfactor117.losteclipse.init.ModPackets;
 import com.thexfactor117.losteclipse.loot.functions.CreateStats;
-import com.thexfactor117.losteclipse.network.PacketClassGui;
-import com.thexfactor117.losteclipse.network.PacketClassSelection;
-import com.thexfactor117.losteclipse.network.PacketUpdateIncreaseStat;
-import com.thexfactor117.losteclipse.network.PacketUpdatePlayerInformation;
-import com.thexfactor117.losteclipse.network.PacketUpdatePlayerStats;
-import com.thexfactor117.losteclipse.proxies.CommonProxy;
+import com.thexfactor117.losteclipse.proxies.ServerProxy;
 import com.thexfactor117.losteclipse.util.GuiHandler;
 import com.thexfactor117.losteclipse.util.Reference;
 import com.thexfactor117.losteclipse.worldgen.MHSWorldGenerator;
@@ -28,7 +24,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * 
@@ -42,8 +37,8 @@ public class LostEclipse
 {
 	@Instance(Reference.MODID)
 	public static LostEclipse instance;
-	@SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.COMMON_PROXY)
-	public static CommonProxy proxy;
+	@SidedProxy(clientSide = Reference.CLIENT_PROXY, serverSide = Reference.SERVER_PROXY)
+	public static ServerProxy proxy;
 	public static final Logger LOGGER = LogManager.getLogger(Reference.NAME);
 	public static SimpleNetworkWrapper network;
 	
@@ -58,12 +53,7 @@ public class LostEclipse
 		
 		proxy.preInit(event);
 		
-		network = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID);
-		network.registerMessage(PacketClassGui.Handler.class, PacketClassGui.class, 0, Side.CLIENT);
-		network.registerMessage(PacketClassSelection.Handler.class, PacketClassSelection.class, 1, Side.SERVER);
-		network.registerMessage(PacketUpdatePlayerInformation.Handler.class, PacketUpdatePlayerInformation.class, 2, Side.CLIENT);
-		network.registerMessage(PacketUpdatePlayerStats.Handler.class, PacketUpdatePlayerStats.class, 3, Side.CLIENT);
-		network.registerMessage(PacketUpdateIncreaseStat.Handler.class, PacketUpdateIncreaseStat.class, 4, Side.SERVER);
+		ModPackets.registerPackets();
 	}
 	
 	@EventHandler

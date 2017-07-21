@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.init.ModDamageSources;
-import com.thexfactor117.losteclipse.items.melee.ItemMHSAdvancedMelee;
+import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
 import com.thexfactor117.losteclipse.util.NBTHelper;
@@ -48,7 +48,7 @@ public class EventLivingHurtAttack
 			//EntityLivingBase enemy = event.getEntityLiving();
 			ItemStack stack = player.inventory.getCurrentItem();
 			
-			if (stack != null && stack.getItem() instanceof ItemSword && !(stack.getItem() instanceof ItemMHSAdvancedMelee))
+			if (stack != null && stack.getItem() instanceof ItemSword && !(stack.getItem() instanceof ItemLEAdvancedMelee))
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				
@@ -101,7 +101,7 @@ public class EventLivingHurtAttack
 			EntityLivingBase enemy = event.getEntityLiving();
 			ItemStack stack = player.inventory.getCurrentItem();
 			
-			if (stack != null && stack.getItem() instanceof ItemSword && !(stack.getItem() instanceof ItemMHSAdvancedMelee))
+			if (stack != null && stack.getItem() instanceof ItemSword && !(stack.getItem() instanceof ItemLEAdvancedMelee))
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				

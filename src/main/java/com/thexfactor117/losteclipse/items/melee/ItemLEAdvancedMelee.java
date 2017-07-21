@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
-import com.thexfactor117.losteclipse.items.base.ItemSwordBase;
+import com.thexfactor117.losteclipse.items.base.ItemLEMelee;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -18,12 +18,12 @@ import net.minecraft.item.ItemStack;
  * @author TheXFactor117
  *
  */
-public class ItemMHSAdvancedMelee extends ItemSwordBase
+public class ItemLEAdvancedMelee extends ItemLEMelee
 {
 	private double damageMultiplier;
 	private double speedMultiplier;
 	
-	public ItemMHSAdvancedMelee(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier, int maxUses) 
+	public ItemLEAdvancedMelee(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier, int maxUses) 
 	{
 		super(material, name);
 		this.setMaxDamage(maxUses);
@@ -31,7 +31,7 @@ public class ItemMHSAdvancedMelee extends ItemSwordBase
 		this.speedMultiplier = speedMultiplier;
 	}
 	
-	public ItemMHSAdvancedMelee(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier)
+	public ItemLEAdvancedMelee(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier)
 	{
 		super(material, name);
 		this.damageMultiplier = damageMultiplier;

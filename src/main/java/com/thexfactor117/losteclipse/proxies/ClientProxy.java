@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @author TheXFactor117
  *
  */
-public class ClientProxy extends CommonProxy
+public class ClientProxy extends ServerProxy
 {
 	public static KeyBinding bindingP;
 	

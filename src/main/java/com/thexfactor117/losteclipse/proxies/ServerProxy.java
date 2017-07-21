@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * @author TheXFactor117
  *
  */
-public class CommonProxy 
+public class ServerProxy 
 {
 	public void preInit(FMLPreInitializationEvent event)
 	{
