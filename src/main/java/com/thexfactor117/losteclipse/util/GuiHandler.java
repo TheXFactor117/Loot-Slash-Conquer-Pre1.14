@@ -1,6 +1,7 @@
 package com.thexfactor117.losteclipse.util;
 
 import com.thexfactor117.losteclipse.client.gui.GuiClassSelection;
+import com.thexfactor117.losteclipse.client.gui.GuiMana;
 import com.thexfactor117.losteclipse.client.gui.GuiPlayerInformation;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,6 +17,7 @@ public class GuiHandler implements IGuiHandler
 {
 	public static final int CLASS_SELECTION = 0;
 	public static final int PLAYER_INFORMATION = 1;
+	public static final int MANA = 2;
 	
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) 
@@ -30,6 +32,8 @@ public class GuiHandler implements IGuiHandler
 			return new GuiClassSelection();
 		if (id == PLAYER_INFORMATION)
 			return new GuiPlayerInformation();
+		if (id == MANA)
+			return new GuiMana();
 		
 		return null;
 	}	

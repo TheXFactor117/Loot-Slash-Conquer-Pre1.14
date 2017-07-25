@@ -7,7 +7,7 @@
 #############################################
 
 ### Weapons
-# Vanilla Melee
+# Melee
 item.wood_dagger.name=Wood Dagger
 item.wood_mace.name=Wood Mace
 item.stone_dagger.name=Stone Dagger
@@ -19,16 +19,16 @@ item.iron_mace.name=Iron Mace
 item.diamond_dagger.name=Diamond Dagger
 item.diamond_mace.name=Diamond Mace
 
-# LE Melee
-item.verantium_dagger.name=Verantium Dagger
-item.verantium_sword.name=Verantium Sword
-item.verantium_mace.name=Verantium Mace
-item.vexal_dagger.name=Vexal Dagger
-item.vexal_sword.name=Vexal Sword
-item.vexal_mace.name=Vexal Mace
-item.astrill_dagger.name=Astrill Dagger
-item.astrill_sword.name=Astrill Sword
-item.astrill_mace.name=Astrill Mace
+# Special Melee
+item.divine_rapier.name=Divine Rapier
+item.requiem.name=Requiem
+item.shadowfall.name=Shadowfall
+item.doomshadow.name=Doomshadow
+item.golden_pummel.name=Golden Pummel
+
+item.excalibur_rapier.name=Excalibur Rapier
+item.alakaslam.name=Alakaslam
+item.annihilation.name=Annihilation
 
 
 

@@ -2,11 +2,31 @@
     "pools": [
         {
             "name": "main",
-            "rolls": 1,
+            "rolls": 10,
             "entries": [
                 {
                     "type": "item",
                     "name": "minecraft:iron_sword",
+                    "weight": 1,
+                    "functions": [
+                    	{
+                    		"function": "losteclipse:create_stats"
+                    	}
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:iron_chestplate",
+                    "weight": 1,
+                    "functions": [
+                    	{
+                    		"function": "losteclipse:create_stats"
+                    	}
+                    ]
+                },
+                {
+                	"type": "item",
+                    "name": "losteclipse:diamond_dagger",
                     "weight": 1,
                     "functions": [
                     	{

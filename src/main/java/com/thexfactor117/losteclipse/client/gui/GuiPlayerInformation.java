@@ -1,18 +1,16 @@
 package com.thexfactor117.losteclipse.client.gui;
 
 import java.io.IOException;
-import java.util.UUID;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.IPlayerInformation;
 import com.thexfactor117.losteclipse.network.PacketUpdateIncreaseStat;
+import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextFormatting;
 
@@ -95,34 +93,45 @@ public class GuiPlayerInformation extends GuiScreen
 		EntityPlayer player = mc.player;
 		IPlayerInformation playerInfo = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 		
+		// REMEMBER TO UPDATE CLIENT SIDE TOO
+		
 		if (player != null && playerInfo != null && playerInfo.getSkillPoints() > 0)
 		{
 			// increase stat by one.
 			if (button == plusStrength) 
 			{
 				playerInfo.setStrengthStat(playerInfo.getStrengthStat() + 1);
-				
-				// setting attribute on client side since setShouldWatch returns false.
-				AttributeModifier strengthModifier = new AttributeModifier(UUID.fromString(PacketUpdateIncreaseStat.STRENGTH), "playerStrength", 2 + (playerInfo.getStrengthStat() + playerInfo.getBonusStrengthStat()), 1);
-
-				if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getModifier(UUID.fromString(PacketUpdateIncreaseStat.STRENGTH)) != null)
-				{
-					player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).removeModifier(UUID.fromString(PacketUpdateIncreaseStat.STRENGTH));
-					player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(strengthModifier);
-				}
-				else
-					player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(strengthModifier);
-				
-				LostEclipse.LOGGER.info("Client: " + player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
 				LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(1));
 			}
-			else if (button == plusAgility) LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(2));
-			else if (button == plusDexterity) LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(3));
-			else if (button == plusIntelligence) LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(4));
-			else if (button == plusWisdom) LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(5));
-			else if (button == plusFortitude) LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(6));
+			else if (button == plusAgility) 
+			{
+				playerInfo.setAgilityStat(playerInfo.getAgilityStat() + 1);
+				LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(2));
+			}
+			else if (button == plusDexterity) 
+			{
+				playerInfo.setDexterityStat(playerInfo.getDexterityStat() + 1);
+				LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(3));
+			}
+			else if (button == plusIntelligence) 
+			{
+				playerInfo.setIntelligenceStat(playerInfo.getIntelligenceStat() + 1);
+				LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(4));
+			}
+			else if (button == plusWisdom) 
+			{
+				playerInfo.setWisdomStat(playerInfo.getWisdomStat() + 1);
+				LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(5));
+			}
+			else if (button == plusFortitude) 
+			{
+				playerInfo.setFortitudeStat(playerInfo.getFortitudeStat() + 1);
+				LostEclipse.network.sendToServer(new PacketUpdateIncreaseStat(6));
+			}
 			
 			playerInfo.setSkillPoints(playerInfo.getSkillPoints() - 1);
+			
+			PlayerStatHelper.updateAttributes(player);
 		}
 	}
 	

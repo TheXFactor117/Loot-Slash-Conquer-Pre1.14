@@ -17,27 +17,26 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  */
 public class ModWeapons 
 {
-	/* Tool Materials */
-	// craftable
-	public static final ToolMaterial VERANTIUM = EnumHelper.addToolMaterial("verantium", 2, 250, 6F, 2F, 14);
-	public static final ToolMaterial CRYSTAL = EnumHelper.addToolMaterial("crystal", 2, 256, 6.0F, 3.0F, 25);
-	public static final ToolMaterial SHADOW = EnumHelper.addToolMaterial("shadow", 2, 384, 6.0F, 4.0F, 20);
-	public static final ToolMaterial VEXAL = EnumHelper.addToolMaterial("vexal", 2, 648, 6.5F, 2.5F, 10);
-	public static final ToolMaterial MALICE = EnumHelper.addToolMaterial("malice", 2, 448, 6.0F, 4.0F, 10);
-	public static final ToolMaterial GYRO = EnumHelper.addToolMaterial("gyro", 2, 198, 6.0F, 6.0F, 15);
-	public static final ToolMaterial VOID = EnumHelper.addToolMaterial("void", 2, 448, 6.0F, 12.0F, 15);
-	public static final ToolMaterial ASTRILL = EnumHelper.addToolMaterial("astrill", 3, 2000, 7.0F, 4.0F, 15);
-	
-	// special
-	public static final ToolMaterial DARK_MALICE = EnumHelper.addToolMaterial("dark_malice", 2, 480, 6.0F, 7.0F, 25);
-	public static final ToolMaterial DIVINE = EnumHelper.addToolMaterial("divine", 2, 512, 6.0F, 6.0F, 25);
-	public static final ToolMaterial EXCALIBUR = EnumHelper.addToolMaterial("excalibur", 2, 648, 6.0F, 8.0F, 15);
+	public static class ToolMaterials
+	{
+		/* Tool Materials */
+		// special
+		public static final ToolMaterial DIVINE = EnumHelper.addToolMaterial("divine", 3, 512, 6F, 6F, 25); // sword
+		public static final ToolMaterial REQUIEM = EnumHelper.addToolMaterial("requiem", 3, 512, 6F, 7F, 15); // sword
+		public static final ToolMaterial SHADOWFALL = EnumHelper.addToolMaterial("shadowfall", 3, 960, 6F, 4F, 20); // dagger
+		public static final ToolMaterial DOOMSHADOW = EnumHelper.addToolMaterial("doomshadow", 3, 310, 6F, 10F, 17); // mace
+		public static final ToolMaterial GOLDEN_PUMMEL = EnumHelper.addToolMaterial("golden_pummel", 3, 250, 6F, 12F, 10); // mace
+		
+		public static final ToolMaterial EXCALIBUR = EnumHelper.addToolMaterial("excalibur", 3, 648, 6.0F, 10.0F, 15); // sword
+		public static final ToolMaterial ALAKASLAM = EnumHelper.addToolMaterial("alakaslam", 3, 450, 6F, 15F, 12); // mace
+		public static final ToolMaterial ANNIHILATION = EnumHelper.addToolMaterial("annihilation", 3, 1200, 6F, 6F, 20); // dagger
+	}
 	
 	
 	/* Weapons */
 	public static Item test = new ItemTest("test");
 	
-	// vanilla
+	// melee
 	public static final Item WOOD_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.WOOD, "wood_dagger", 0.5, 0.5, 90);
 	public static final Item WOOD_MACE = new ItemLEAdvancedMelee(ToolMaterial.WOOD, "wood_mace", 1.25, 1.25, 45);
 	public static final Item STONE_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.STONE, "stone_dagger", 0.5, 0.5, 195);
@@ -49,27 +48,17 @@ public class ModWeapons
 	public static final Item DIAMOND_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.DIAMOND, "diamond_dagger", 0.5, 0.5, 2343);
 	public static final Item DIAMOND_MACE = new ItemLEAdvancedMelee(ToolMaterial.DIAMOND, "diamond_mace", 1.25, 1.25, 1171);
 	
-	// melee craftable
-	public static final Item VERANTIUM_DAGGER = new ItemLEAdvancedMelee(VERANTIUM, "verantium_dagger", 0.5, 0.5, 376);
-	public static final Item VERANTIUM_SWORD = new ItemLEMelee(VERANTIUM, "verantium_sword");
-	public static final Item VERANTIUM_MACE = new ItemLEAdvancedMelee(VERANTIUM, "verantium_mace", 1.25, 1.25, 188);
-	public static final Item LIGHT_CRYSTAL_SWORD = new ItemLEMelee(CRYSTAL, "light_crystal_sword");
-	public static final Item DARK_CRYSTAL_SWORD = new ItemLEMelee(CRYSTAL, "dark_crystal_sword");
-	public static final Item SHADOW_BLADE = new ItemLEMelee(SHADOW, "shadow_blade");
-	public static final Item VEXAL_DAGGER = new ItemLEAdvancedMelee(VEXAL, "vexal_dagger", 0.5, 0.5, 972);
-	public static final Item VEXAL_SWORD = new ItemLEMelee(VEXAL, "vexal_sword");
-	public static final Item VEXAL_MACE = new ItemLEAdvancedMelee(VEXAL, "vexal_mace", 1.25, 1.25, 486);
-	public static final Item MALICE_BLADE = new ItemLEMelee(MALICE, "malice_blade");
-	public static final Item GYRO_MACE = new ItemLEAdvancedMelee(GYRO, "gyro_mace", 1, 1.25);
-	public static final Item VOID_HAMMER = new ItemLEAdvancedMelee(VOID, "void_hammer", 1, 1.25);
-	public static final Item ASTRILL_DAGGER = new ItemLEAdvancedMelee(ASTRILL, "astrill_dagger", 0.5, 0.5, 1500);
-	public static final Item ASTRILL_SWORD = new ItemLEMelee(ASTRILL, "astrill_sword");
-	public static final Item ASTRILL_MACE = new ItemLEAdvancedMelee(ASTRILL, "astrill_mace", 1.25, 1.25, 2500);
-	
 	// melee special
-	public static final Item DARK_MALICE_BLADE = new ItemLEMelee(DARK_MALICE, "dark_malice_blade"); // add Legendary Rarity
-	public static final Item DIVINE_RAPIER = new ItemLEMelee(DIVINE, "divine_rapier"); // add Legendary Rarity
-	public static final Item EXCALIBUR_RAPIER = new ItemLEMelee(EXCALIBUR, "excalibur_rapier"); // add Exotic Rarity
+	public static final Item DIVINE_RAPIER = new ItemLEMelee(ToolMaterials.DIVINE, "divine_rapier"); // add Legendary Rarity
+	public static final Item REQUIEM = new ItemLEMelee(ToolMaterials.REQUIEM, "requiem");
+	public static final Item SHADOWFALL = new ItemLEAdvancedMelee(ToolMaterials.SHADOWFALL, "shadowfall", 1, 0.5);
+	public static final Item DOOMSHADOW = new ItemLEAdvancedMelee(ToolMaterials.DOOMSHADOW, "doomshadow", 1, 1.25);
+	public static final Item GOLDEN_PUMMEL = new ItemLEAdvancedMelee(ToolMaterials.GOLDEN_PUMMEL, "golden_pummel", 1, 1.25);
+	
+	public static final Item EXCALIBUR_RAPIER = new ItemLEMelee(ToolMaterials.EXCALIBUR, "excalibur_rapier"); // add Exotic Rarity
+	public static final Item ALAKASLAM = new ItemLEAdvancedMelee(ToolMaterials.ALAKASLAM, "alakaslam", 1, 1.25);
+	public static final Item ANNIHILATION = new ItemLEAdvancedMelee(ToolMaterials.ANNIHILATION, "annihilation", 1, 0.5);
+	
 	
 	/* Armors */
 	
@@ -78,7 +67,7 @@ public class ModWeapons
 	{
 		event.getRegistry().register(test);
 		
-		// vanilla
+		// melee
 		event.getRegistry().register(WOOD_DAGGER);
 		event.getRegistry().register(WOOD_MACE);
 		event.getRegistry().register(STONE_DAGGER);
@@ -90,26 +79,15 @@ public class ModWeapons
 		event.getRegistry().register(DIAMOND_DAGGER);
 		event.getRegistry().register(DIAMOND_MACE);
 		
-		// melee craftable
-		event.getRegistry().register(VERANTIUM_DAGGER);
-		event.getRegistry().register(VERANTIUM_SWORD);
-		event.getRegistry().register(VERANTIUM_MACE);
-		event.getRegistry().register(LIGHT_CRYSTAL_SWORD);
-		event.getRegistry().register(DARK_CRYSTAL_SWORD);
-		event.getRegistry().register(SHADOW_BLADE);
-		event.getRegistry().register(VEXAL_DAGGER);
-		event.getRegistry().register(VEXAL_SWORD);
-		event.getRegistry().register(VEXAL_MACE);
-		event.getRegistry().register(MALICE_BLADE);
-		event.getRegistry().register(GYRO_MACE);
-		event.getRegistry().register(VOID_HAMMER);
-		event.getRegistry().register(ASTRILL_DAGGER);
-		event.getRegistry().register(ASTRILL_SWORD);
-		event.getRegistry().register(ASTRILL_MACE);
-		
 		// melee special
-		event.getRegistry().register(DARK_MALICE_BLADE);
 		event.getRegistry().register(DIVINE_RAPIER);
+		event.getRegistry().register(REQUIEM);
+		event.getRegistry().register(SHADOWFALL);
+		event.getRegistry().register(DOOMSHADOW);
+		event.getRegistry().register(GOLDEN_PUMMEL);
+		
 		event.getRegistry().register(EXCALIBUR_RAPIER);
+		event.getRegistry().register(ALAKASLAM);
+		event.getRegistry().register(ANNIHILATION);
 	}
 }

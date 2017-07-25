@@ -40,7 +40,7 @@ public class EventLivingDeath
 				
 				// update experience on client AND server; increase level if need be.
 				playerInfo.setPlayerExperience(playerInfo.getPlayerExperience() + experience + 1000);
-				if (playerInfo.getPlayerExperience() > playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel())) 
+				while (playerInfo.getPlayerExperience() > playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel())) 
 				{
 					playerInfo.setPlayerLevel(playerInfo.getPlayerLevel() + 1); // increase level
 					playerInfo.setSkillPoints(playerInfo.getSkillPoints() + 1); // increase skill points

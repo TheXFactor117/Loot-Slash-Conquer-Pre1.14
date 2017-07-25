@@ -21,7 +21,7 @@ public class ModItemModels
 	@SubscribeEvent
 	public void registerItemModel(ModelRegistryEvent event)
 	{
-		// vanilla
+		// melee
 		registerItemModel(ModWeapons.WOOD_DAGGER);
 		registerItemModel(ModWeapons.WOOD_MACE);
 		registerItemModel(ModWeapons.STONE_DAGGER);
@@ -32,28 +32,17 @@ public class ModItemModels
 		registerItemModel(ModWeapons.IRON_MACE);
 		registerItemModel(ModWeapons.DIAMOND_DAGGER);
 		registerItemModel(ModWeapons.DIAMOND_MACE);
-		
-		// melee craftable
-		registerItemModel(ModWeapons.VERANTIUM_DAGGER);
-		registerItemModel(ModWeapons.VERANTIUM_SWORD);
-		registerItemModel(ModWeapons.VERANTIUM_MACE);
-		registerItemModel(ModWeapons.LIGHT_CRYSTAL_SWORD);
-		registerItemModel(ModWeapons.DARK_CRYSTAL_SWORD);
-		registerItemModel(ModWeapons.SHADOW_BLADE);
-		registerItemModel(ModWeapons.VEXAL_DAGGER);
-		registerItemModel(ModWeapons.VEXAL_SWORD);
-		registerItemModel(ModWeapons.VEXAL_MACE);
-		registerItemModel(ModWeapons.MALICE_BLADE);
-		registerItemModel(ModWeapons.GYRO_MACE);
-		registerItemModel(ModWeapons.VOID_HAMMER);
-		registerItemModel(ModWeapons.ASTRILL_DAGGER);
-		registerItemModel(ModWeapons.ASTRILL_SWORD);
-		registerItemModel(ModWeapons.ASTRILL_MACE);
-		
+
 		// melee special
-		registerItemModel(ModWeapons.DARK_MALICE_BLADE);
 		registerItemModel(ModWeapons.DIVINE_RAPIER);
+		registerItemModel(ModWeapons.REQUIEM);
+		registerItemModel(ModWeapons.SHADOWFALL);
+		registerItemModel(ModWeapons.DOOMSHADOW);
+		registerItemModel(ModWeapons.GOLDEN_PUMMEL);
+		
 		registerItemModel(ModWeapons.EXCALIBUR_RAPIER);
+		registerItemModel(ModWeapons.ALAKASLAM);
+		registerItemModel(ModWeapons.ANNIHILATION);
 	}
 	
 	private void registerItemModel(Item item)

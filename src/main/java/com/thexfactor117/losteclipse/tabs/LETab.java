@@ -22,7 +22,7 @@ public class LETab extends CreativeTabs
 	{
 		if (this.name == "tab_le") 
 		{
-			return new ItemStack(ModWeapons.ASTRILL_DAGGER);
+			return new ItemStack(ModWeapons.DIVINE_RAPIER);
 		} 
 		else if (this.name == "tab_le_test")
 		{

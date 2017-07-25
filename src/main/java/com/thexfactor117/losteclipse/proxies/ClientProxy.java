@@ -2,6 +2,7 @@ package com.thexfactor117.losteclipse.proxies;
 
 import org.lwjgl.input.Keyboard;
 
+import com.thexfactor117.losteclipse.client.gui.GuiMana;
 import com.thexfactor117.losteclipse.client.init.ModItemModels;
 
 import net.minecraft.client.settings.KeyBinding;
@@ -24,12 +25,13 @@ public class ClientProxy extends ServerProxy
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		MinecraftForge.EVENT_BUS.register(new ModItemModels());
+		MinecraftForge.EVENT_BUS.register(new GuiMana());
 	}
 	
 	@Override
 	public void init(FMLInitializationEvent event)
 	{
-		bindingP = new KeyBinding("Player Information", Keyboard.KEY_P, "Mine Hack Slash");
+		bindingP = new KeyBinding("Player Information", Keyboard.KEY_P, "Lost Eclipse");
 		
 		ClientRegistry.registerKeyBinding(bindingP);
 	}

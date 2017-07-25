@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
+import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
@@ -93,16 +94,18 @@ public class ItemGeneratorHelper
 
 			double baseDamage = damageModifier.getAmount();
 			double baseSpeed = speedModifier.getAmount();
-			double damage = ItemGeneratorHelper.getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
-			double speed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseSpeed);
+			double damage = getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
+			double speed = getWeightedAttackSpeed(Rarity.getRarity(nbt), baseSpeed);
 
-			ItemGeneratorHelper.setMinMaxDamage(nbt, damage);
+			LostEclipse.LOGGER.info("Attack Speed: " + speed);
+			
+			setMinMaxDamage(nbt, damage);
 			
 			// Creates new AttributeModifier's and applies them to the stack's NBT tag compound.
 			AttributeModifier attackDamage = new AttributeModifier(ATTACK_DAMAGE, "attackDamage", damage, 0);
 			AttributeModifier attackSpeed = new AttributeModifier(ATTACK_SPEED, "attackSpeed", speed, 0);
-			NBTTagCompound damageNbt = ItemGeneratorHelper.writeAttributeModifierToNBT(SharedMonsterAttributes.ATTACK_DAMAGE, attackDamage, EntityEquipmentSlot.MAINHAND);
-			NBTTagCompound speedNbt = ItemGeneratorHelper.writeAttributeModifierToNBT(SharedMonsterAttributes.ATTACK_SPEED, attackSpeed, EntityEquipmentSlot.MAINHAND);
+			NBTTagCompound damageNbt = writeAttributeModifierToNBT(SharedMonsterAttributes.ATTACK_DAMAGE, attackDamage, EntityEquipmentSlot.MAINHAND);
+			NBTTagCompound speedNbt = writeAttributeModifierToNBT(SharedMonsterAttributes.ATTACK_SPEED, attackSpeed, EntityEquipmentSlot.MAINHAND);
 			NBTTagList list = new NBTTagList();
 			list.appendTag(damageNbt);
 			list.appendTag(speedNbt);
@@ -118,14 +121,14 @@ public class ItemGeneratorHelper
 			
 			double baseArmor = armorModifier.getAmount();
 			double baseToughness = toughnessModifier.getAmount();
-			double newArmor = ItemGeneratorHelper.getWeightedArmor(Rarity.getRarity(nbt), baseArmor);
-			double newToughness = ItemGeneratorHelper.getWeightedArmorToughness(Rarity.getRarity(nbt), baseToughness);
+			double newArmor = getWeightedArmor(Rarity.getRarity(nbt), baseArmor);
+			double newToughness = getWeightedArmorToughness(Rarity.getRarity(nbt), baseToughness);
 			
 			// Creates new AttributeModifier's and applies them to the stack's NBT tag compound.
 			AttributeModifier armor = new AttributeModifier(ARMOR, "armor", newArmor, 0);
 			AttributeModifier toughness = new AttributeModifier(ARMOR_TOUGHNESS, "armorToughness", newToughness, 0);
-			NBTTagCompound armorNbt = ItemGeneratorHelper.writeAttributeModifierToNBT(SharedMonsterAttributes.ARMOR, armor, ((ItemArmor) item).armorType);
-			NBTTagCompound toughnessNbt = ItemGeneratorHelper.writeAttributeModifierToNBT(SharedMonsterAttributes.ARMOR_TOUGHNESS, toughness, ((ItemArmor) item).armorType);
+			NBTTagCompound armorNbt = writeAttributeModifierToNBT(SharedMonsterAttributes.ARMOR, armor, ((ItemArmor) item).armorType);
+			NBTTagCompound toughnessNbt = writeAttributeModifierToNBT(SharedMonsterAttributes.ARMOR_TOUGHNESS, toughness, ((ItemArmor) item).armorType);
 			NBTTagList list = new NBTTagList();
 			list.appendTag(armorNbt);
 			list.appendTag(toughnessNbt);

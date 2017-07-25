@@ -2,6 +2,7 @@ package com.thexfactor117.losteclipse.network;
 
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.IPlayerInformation;
+import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -116,6 +117,8 @@ public class PacketUpdatePlayerStats implements IMessage
 						playerInfo.setBonusIntelligenceStat(message.intelligenceBonus);
 						playerInfo.setBonusWisdomStat(message.wisdomBonus);
 						playerInfo.setBonusFortitudeStat(message.fortitudeBonus);
+						
+						PlayerStatHelper.updateAttributes(player);
 					}
 				}
 			});

@@ -1,6 +1,6 @@
 {
 	"parent":"item/handheld",
 	"textures": {
-		"layer0":"losteclipse:items/malice_blade"
+		"layer0":"losteclipse:items/requiem"
 	}
 }
