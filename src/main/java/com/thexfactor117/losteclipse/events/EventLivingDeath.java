@@ -2,7 +2,7 @@ package com.thexfactor117.losteclipse.events;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 import com.thexfactor117.losteclipse.network.PacketUpdatePlayerInformation;
 
 import net.minecraft.entity.EntityLivingBase;

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 import com.thexfactor117.losteclipse.network.PacketUpdateIncreaseStat;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 

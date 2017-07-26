@@ -2,6 +2,7 @@ package com.thexfactor117.losteclipse.capabilities;
 
 import javax.annotation.Nullable;
 
+import com.thexfactor117.losteclipse.capabilities.api.IMana;
 import com.thexfactor117.losteclipse.util.CapabilityUtils;
 import com.thexfactor117.losteclipse.util.Reference;
 import com.thexfactor117.losteclipse.util.SimpleCapabilityProvider;

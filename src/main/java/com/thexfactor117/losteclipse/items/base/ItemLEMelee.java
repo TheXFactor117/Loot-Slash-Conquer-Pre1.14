@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.items.base;
 
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 import com.thexfactor117.losteclipse.events.misc.EventPlayerTick;
 import com.thexfactor117.losteclipse.util.Reference;
 

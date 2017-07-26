@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 import com.thexfactor117.losteclipse.network.PacketClassSelection;
 
 import net.minecraft.client.gui.GuiButton;

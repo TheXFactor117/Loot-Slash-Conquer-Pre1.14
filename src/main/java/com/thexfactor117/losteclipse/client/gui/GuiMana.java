@@ -1,8 +1,7 @@
 package com.thexfactor117.losteclipse.client.gui;
 
-import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.CapabilityMana;
-import com.thexfactor117.losteclipse.capabilities.IMana;
+import com.thexfactor117.losteclipse.capabilities.api.IMana;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.client.Minecraft;
@@ -42,8 +41,6 @@ public class GuiMana extends Gui
 				
 				if (capMana != null)
 				{
-					LostEclipse.LOGGER.info("Mana: " + capMana.getMana() + "\tMax Mana: " + capMana.getMaxMana());
-
 					if (capMana.getMaxMana() != 0)
 					{
 						double manaBarWidth = (double) capMana.getMana() / capMana.getMaxMana() * 96.0;

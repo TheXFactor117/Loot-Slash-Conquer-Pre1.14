@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.network;
 
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
