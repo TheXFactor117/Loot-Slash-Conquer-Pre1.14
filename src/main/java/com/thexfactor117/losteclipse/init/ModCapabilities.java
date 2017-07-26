@@ -1,6 +1,6 @@
 package com.thexfactor117.losteclipse.init;
 
-import com.thexfactor117.losteclipse.capabilities.CapabilityMana;
+import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 
 /**
@@ -13,6 +13,6 @@ public class ModCapabilities
 	public static void registerCapabilities()
 	{
 		CapabilityPlayerInformation.register();
-		CapabilityMana.register();
+		CapabilityPlayerStats.register();
 	}
 }

@@ -3,11 +3,11 @@ package com.thexfactor117.losteclipse.stats;
 import java.util.UUID;
 
 import com.thexfactor117.losteclipse.LostEclipse;
-import com.thexfactor117.losteclipse.capabilities.CapabilityMana;
+import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.api.IMana;
+import com.thexfactor117.losteclipse.capabilities.api.IStats;
 import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
-import com.thexfactor117.losteclipse.network.PacketUpdateMana;
+import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -97,13 +97,13 @@ public class PlayerStatHelper
 			/*
 			 * WISDOM
 			 */
-			IMana manaCap = player.getCapability(CapabilityMana.MANA, null);
+			IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
 			
-			if (!player.getEntityWorld().isRemote && manaCap != null)
+			if (!player.getEntityWorld().isRemote && statsCap != null)
 			{
-				manaCap.setMaxMana((int) ((MAX_MANA_MULTIPLIER * (info.getWisdomStat() + info.getBonusWisdomStat())) + 100));
+				statsCap.setMaxMana((int) ((MAX_MANA_MULTIPLIER * (info.getWisdomStat() + info.getBonusWisdomStat())) + 100));
 				
-				LostEclipse.network.sendTo(new PacketUpdateMana(manaCap), (EntityPlayerMP) player);
+				LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
 			}
 			
 			

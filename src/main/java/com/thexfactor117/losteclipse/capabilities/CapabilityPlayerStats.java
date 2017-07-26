@@ -2,7 +2,7 @@ package com.thexfactor117.losteclipse.capabilities;
 
 import javax.annotation.Nullable;
 
-import com.thexfactor117.losteclipse.capabilities.api.IMana;
+import com.thexfactor117.losteclipse.capabilities.api.IStats;
 import com.thexfactor117.losteclipse.util.CapabilityUtils;
 import com.thexfactor117.losteclipse.util.Reference;
 import com.thexfactor117.losteclipse.util.SimpleCapabilityProvider;
@@ -28,19 +28,19 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author TheXFactor117
  *
  */
-public class CapabilityMana 
+public class CapabilityPlayerStats 
 {
-	@CapabilityInject(IMana.class)
-	public static final Capability<IMana> MANA = null;
+	@CapabilityInject(IStats.class)
+	public static final Capability<IStats> STATS = null;
 	public static final EnumFacing DEFAULT_FACING = null;
-	public static final ResourceLocation ID = new ResourceLocation(Reference.MODID, "Mana");
+	public static final ResourceLocation ID = new ResourceLocation(Reference.MODID, "Stats");
 	
 	public static void register() 
 	{
-		CapabilityManager.INSTANCE.register(IMana.class, new Capability.IStorage<IMana>() 
+		CapabilityManager.INSTANCE.register(IStats.class, new Capability.IStorage<IStats>() 
 		{
 			@Override
-			public NBTBase writeNBT(Capability<IMana> capability, IMana instance, EnumFacing side) 
+			public NBTBase writeNBT(Capability<IStats> capability, IStats instance, EnumFacing side) 
 			{
 				NBTTagCompound nbt = new NBTTagCompound();
 				
@@ -48,32 +48,42 @@ public class CapabilityMana
 				nbt.setInteger("MaxMana", instance.getMaxMana());
 				nbt.setInteger("ManaPerSecond", instance.getManaPerSecond());
 				
+				nbt.setInteger("HealthPerSecond", instance.getHealthPerSecond());
+				
+				nbt.setDouble("CriticalChance", instance.getCriticalChance());
+				nbt.setDouble("CriticalDamage", instance.getCriticalDamage());
+				
 				return nbt;
 			}
 
 			@Override
-			public void readNBT(Capability<IMana> capability, IMana instance, EnumFacing side, NBTBase nbt) 
+			public void readNBT(Capability<IStats> capability, IStats instance, EnumFacing side, NBTBase nbt) 
 			{
 				NBTTagCompound compound = (NBTTagCompound) nbt;
 				
 				instance.setMana(compound.getInteger("Mana"));
 				instance.setMaxMana(compound.getInteger("MaxMana"));
 				instance.setManaPerSecond(compound.getInteger("ManaPerSecond"));
+				
+				instance.setHealthPerSecond(compound.getInteger("HealthPerSecond"));
+				
+				instance.setCriticalChance(compound.getDouble("CriticalChance"));
+				instance.setCriticalDamage(compound.getDouble("CriticalDamage"));
 			}
-		}, () -> new Mana(null));
+		}, () -> new Stats(null));
 
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 	}
 	
 	@Nullable
-	public static IMana getMana(EntityLivingBase entity) 
+	public static IStats getStats(EntityLivingBase entity) 
 	{
-		return CapabilityUtils.getCapability(entity, MANA, DEFAULT_FACING);
+		return CapabilityUtils.getCapability(entity, STATS, DEFAULT_FACING);
 	}
 	
-	public static ICapabilityProvider createProvider(IMana mana) 
+	public static ICapabilityProvider createProvider(IStats mana) 
 	{
-		return new SimpleCapabilityProvider<>(MANA, DEFAULT_FACING, mana);
+		return new SimpleCapabilityProvider<>(STATS, DEFAULT_FACING, mana);
 	}
 	
 	public static class EventHandler 
@@ -83,23 +93,28 @@ public class CapabilityMana
 		{
 			if (event.getObject() instanceof EntityPlayer) 
 			{
-				final Mana mana = new Mana((EntityPlayer) event.getObject());
+				final Stats stats = new Stats((EntityPlayer) event.getObject());
 				
-				event.addCapability(ID, createProvider(mana));
+				event.addCapability(ID, createProvider(stats));
 			}
 		}
 		
 		@SubscribeEvent
 		public void playerClone(PlayerEvent.Clone event) 
 		{
-			IMana oldMana = getMana(event.getOriginal());
-			IMana newMana = getMana(event.getEntityLiving());
+			IStats oldStats = getStats(event.getOriginal());
+			IStats newStats = getStats(event.getEntityLiving());
 
-			if (newMana != null && oldMana != null)
+			if (newStats != null && oldStats != null)
 			{
-				newMana.setMana(oldMana.getMana());
-				newMana.setMaxMana(oldMana.getMaxMana());
-				newMana.setManaPerSecond(oldMana.getManaPerSecond());
+				newStats.setMana(oldStats.getMana());
+				newStats.setMaxMana(oldStats.getMaxMana());
+				newStats.setManaPerSecond(oldStats.getManaPerSecond());
+				
+				newStats.setHealthPerSecond(oldStats.getHealthPerSecond());
+				
+				newStats.setCriticalChance(oldStats.getCriticalChance());
+				newStats.setCriticalDamage(oldStats.getCriticalDamage());
 			}
 		}
 	}

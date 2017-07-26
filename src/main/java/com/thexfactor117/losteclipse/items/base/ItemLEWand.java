@@ -1,12 +1,12 @@
 package com.thexfactor117.losteclipse.items.base;
 
 import com.thexfactor117.losteclipse.LostEclipse;
-import com.thexfactor117.losteclipse.capabilities.CapabilityMana;
+import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.api.IMana;
+import com.thexfactor117.losteclipse.capabilities.api.IStats;
 import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 import com.thexfactor117.losteclipse.events.misc.EventPlayerTick;
-import com.thexfactor117.losteclipse.network.PacketUpdateMana;
+import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.entity.Entity;
@@ -74,11 +74,11 @@ public class ItemLEWand extends Item
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{
-		IMana manaCap = player.getCapability(CapabilityMana.MANA, null);
+		IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
 		
-		if (manaCap != null)
+		if (statsCap != null)
 		{
-			if (manaCap.getMana() - this.manaPerUse >= 0)
+			if (statsCap.getMana() - this.manaPerUse >= 0)
 			{	
 				player.setActiveHand(hand);
 				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.inventory.getCurrentItem());
@@ -94,9 +94,9 @@ public class ItemLEWand extends Item
 		if (entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) entity;
-			IMana manaCap = player.getCapability(CapabilityMana.MANA, null);
+			IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
 			
-			if (manaCap != null)
+			if (statsCap != null)
 			{
 				world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 				
@@ -108,8 +108,8 @@ public class ItemLEWand extends Item
 					// world spawn entity
 					
 					// update mana and send to client
-					manaCap.setMana(manaCap.getMana() - this.manaPerUse);
-					LostEclipse.network.sendTo(new PacketUpdateMana(manaCap), (EntityPlayerMP) player);
+					statsCap.setMana(statsCap.getMana() - this.manaPerUse);
+					LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
 					
 					// damage item
 					stack.damageItem(1, player);

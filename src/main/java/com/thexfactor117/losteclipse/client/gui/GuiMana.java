@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.client.gui;
 
-import com.thexfactor117.losteclipse.capabilities.CapabilityMana;
-import com.thexfactor117.losteclipse.capabilities.api.IMana;
+import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.api.IStats;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.client.Minecraft;
@@ -37,13 +37,13 @@ public class GuiMana extends Gui
 			
 			if (!player.capabilities.isCreativeMode)
 			{
-				IMana capMana = (IMana) player.getCapability(CapabilityMana.MANA, null);
+				IStats statsCap = (IStats) player.getCapability(CapabilityPlayerStats.STATS, null);
 				
-				if (capMana != null)
+				if (statsCap != null)
 				{
-					if (capMana.getMaxMana() != 0)
+					if (statsCap.getMaxMana() != 0)
 					{
-						double manaBarWidth = (double) capMana.getMana() / capMana.getMaxMana() * 96.0;
+						double manaBarWidth = (double) statsCap.getMana() / statsCap.getMaxMana() * 96.0;
 						int xPos = sr.getScaledWidth() / 2 + 110;
 						int yPos = sr.getScaledHeight() - 20;
 						

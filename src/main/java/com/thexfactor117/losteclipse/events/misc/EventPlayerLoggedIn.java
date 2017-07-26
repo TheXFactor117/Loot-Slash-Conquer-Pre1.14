@@ -1,12 +1,12 @@
 package com.thexfactor117.losteclipse.events.misc;
 
 import com.thexfactor117.losteclipse.LostEclipse;
-import com.thexfactor117.losteclipse.capabilities.CapabilityMana;
+import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.api.IMana;
+import com.thexfactor117.losteclipse.capabilities.api.IStats;
 import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 import com.thexfactor117.losteclipse.network.PacketClassGui;
-import com.thexfactor117.losteclipse.network.PacketUpdateMana;
+import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.network.PacketUpdatePlayerInformation;
 
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -24,20 +24,18 @@ public class EventPlayerLoggedIn
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
 	{
 		IPlayerInformation playerInfo = event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		IMana manaCap = event.player.getCapability(CapabilityMana.MANA, null);
+		IStats statsCap = event.player.getCapability(CapabilityPlayerStats.STATS, null);
 
-		if (playerInfo != null && playerInfo.getPlayerClass() == 0 && manaCap != null && manaCap.getMaxMana() == 0)
+		if (playerInfo != null && playerInfo.getPlayerClass() == 0 && statsCap != null && statsCap.getMaxMana() == 0)
 		{
 			// send Class Selection gui to client on first join.
 			LostEclipse.network.sendTo(new PacketClassGui(), (EntityPlayerMP) event.player);
 			
 			// setup max mana + send it to client.
-			manaCap.setMaxMana(100);
-			manaCap.setMana(manaCap.getMaxMana());
-			manaCap.setManaPerSecond(5);
-			LostEclipse.network.sendTo(new PacketUpdateMana(manaCap), (EntityPlayerMP) event.player);
-			
-			LostEclipse.LOGGER.info("Setting Max Mana!: " + manaCap.getMaxMana());
+			statsCap.setMaxMana(100);
+			statsCap.setMana(statsCap.getMaxMana());
+			statsCap.setManaPerSecond(5);
+			LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
 		}
 		else if (playerInfo != null && playerInfo.getPlayerClass() > 0)
 			LostEclipse.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);

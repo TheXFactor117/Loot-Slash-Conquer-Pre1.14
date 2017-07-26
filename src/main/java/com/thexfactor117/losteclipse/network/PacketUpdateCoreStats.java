@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
  * @author TheXFactor117
  *
  */
-public class PacketUpdatePlayerStats implements IMessage
+public class PacketUpdateCoreStats implements IMessage
 {
 	private int strength;
 	private int agility;
@@ -33,9 +33,9 @@ public class PacketUpdatePlayerStats implements IMessage
 	private int wisdomBonus;
 	private int fortitudeBonus;
 	
-	public PacketUpdatePlayerStats() {}
+	public PacketUpdateCoreStats() {}
 	
-	public PacketUpdatePlayerStats(IPlayerInformation info)
+	public PacketUpdateCoreStats(IPlayerInformation info)
 	{	
 		this.strength = info.getStrengthStat();
 		this.agility = info.getAgilityStat();
@@ -88,10 +88,10 @@ public class PacketUpdatePlayerStats implements IMessage
 		buf.writeInt(fortitudeBonus);
 	}
 	
-	public static class Handler implements IMessageHandler<PacketUpdatePlayerStats, IMessage>
+	public static class Handler implements IMessageHandler<PacketUpdateCoreStats, IMessage>
 	{
 		@Override
-		public IMessage onMessage(final PacketUpdatePlayerStats message, final MessageContext ctx) 
+		public IMessage onMessage(final PacketUpdateCoreStats message, final MessageContext ctx) 
 		{			
 			IThreadListener mainThread = Minecraft.getMinecraft();
 			mainThread.addScheduledTask(new Runnable()
