@@ -1,8 +1,9 @@
 package com.thexfactor117.losteclipse.init;
 
-import com.thexfactor117.losteclipse.items.base.ItemLEMelee;
 import com.thexfactor117.losteclipse.items.base.ItemTest;
+import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
 import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
+import com.thexfactor117.losteclipse.items.melee.ItemLEMelee;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -60,6 +61,10 @@ public class ModWeapons
 	public static final Item ANNIHILATION = new ItemLEAdvancedMelee(ToolMaterials.ANNIHILATION, "annihilation", 1, 0.5);
 	
 	
+	// ranged
+	public static final Item WOODEN_WAND = new ItemLEWand("wooden_wand", 10, 5, 200);
+	
+	
 	/* Armors */
 	
 	@SubscribeEvent
@@ -89,5 +94,9 @@ public class ModWeapons
 		event.getRegistry().register(EXCALIBUR_RAPIER);
 		event.getRegistry().register(ALAKASLAM);
 		event.getRegistry().register(ANNIHILATION);
+		
+		
+		// ranged
+		event.getRegistry().register(WOODEN_WAND);
 	}
 }

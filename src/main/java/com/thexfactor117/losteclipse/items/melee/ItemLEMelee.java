@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.items.base;
+package com.thexfactor117.losteclipse.items.melee;
 
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;

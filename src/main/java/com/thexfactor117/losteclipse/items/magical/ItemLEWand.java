@@ -1,12 +1,14 @@
-package com.thexfactor117.losteclipse.items.base;
+package com.thexfactor117.losteclipse.items.magical;
 
 import com.thexfactor117.losteclipse.LostEclipse;
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.api.IStats;
+import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.api.IStats;
+import com.thexfactor117.losteclipse.entities.projectiles.EntityMagic;
 import com.thexfactor117.losteclipse.events.misc.EventPlayerTick;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
+import com.thexfactor117.losteclipse.util.NBTHelper;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.entity.Entity;
@@ -17,10 +19,12 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 /**
@@ -78,6 +82,9 @@ public class ItemLEWand extends Item
 		
 		if (statsCap != null)
 		{
+			// TODO: DEBUG
+			statsCap.setMana(50);
+			
 			if (statsCap.getMana() - this.manaPerUse >= 0)
 			{	
 				player.setActiveHand(hand);
@@ -91,10 +98,14 @@ public class ItemLEWand extends Item
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entity, int count)
 	{
+		// check to see if we have held it long enough
+		if (count > (this.getMaxItemUseDuration(stack) - 10)) return;
+		
 		if (entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) entity;
 			IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
+			NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 			
 			if (statsCap != null)
 			{
@@ -102,10 +113,10 @@ public class ItemLEWand extends Item
 				
 				if (!world.isRemote)
 				{
-					//Vec3d look = player.getLookVec();
-					// spawn entity
-					// set position
-					// world spawn entity
+					Vec3d look = player.getLookVec();
+					EntityMagic magic = new EntityMagic(world, look.x, look.y, look.z, 1F, 0F, nbt.getInteger("MinDamage"), nbt.getInteger("MaxDamage"));
+					magic.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
+					world.spawnEntity(magic);
 					
 					// update mana and send to client
 					statsCap.setMana(statsCap.getMana() - this.manaPerUse);

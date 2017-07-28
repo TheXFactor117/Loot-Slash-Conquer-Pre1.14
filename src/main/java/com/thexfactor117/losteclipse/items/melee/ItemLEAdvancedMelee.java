@@ -5,7 +5,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
-import com.thexfactor117.losteclipse.items.base.ItemLEMelee;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;

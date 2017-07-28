@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.thexfactor117.losteclipse.init.ModCapabilities;
+import com.thexfactor117.losteclipse.init.ModEntities;
 import com.thexfactor117.losteclipse.init.ModEvents;
 import com.thexfactor117.losteclipse.init.ModLootTables;
 import com.thexfactor117.losteclipse.init.ModPackets;
@@ -48,6 +49,7 @@ public class LostEclipse
 		ModLootTables.register();
 		ModCapabilities.registerCapabilities();
 		ModEvents.registerEvents();
+		ModEntities.registerEntities();
 		
 		LootFunctionManager.registerFunction(new CreateStats.Serializer());
 		
