@@ -5,12 +5,15 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
+import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
 import com.thexfactor117.losteclipse.loot.CustomLootContext;
 import com.thexfactor117.losteclipse.loot.ItemGenerator;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.util.Reference;
 
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -44,7 +47,16 @@ public class CreateStats extends LootFunction
 			else
 				nbt = stack.getTagCompound();
 			
-			ItemGenerator.create(stack, nbt, pos);
+			
+			if (stack.getItem() instanceof ItemLEWand)
+			{
+				ItemGenerator.createMagical(stack, nbt, pos);
+			}
+			else if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor)
+			{
+				ItemGenerator.create(stack, nbt, pos);
+			}
+			
 			stack.setTagCompound(nbt);
 			stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + stack.getDisplayName());
 			return stack;

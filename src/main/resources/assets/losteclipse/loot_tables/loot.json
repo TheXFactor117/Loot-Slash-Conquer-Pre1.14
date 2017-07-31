@@ -2,11 +2,11 @@
     "pools": [
         {
             "name": "main",
-            "rolls": 10,
+            "rolls": 15,
             "entries": [
                 {
                     "type": "item",
-                    "name": "minecraft:iron_sword",
+                    "name": "losteclipse:wooden_wand",
                     "weight": 1,
                     "functions": [
                     	{

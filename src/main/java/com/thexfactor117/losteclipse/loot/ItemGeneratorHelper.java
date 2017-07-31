@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import com.google.common.collect.Multimap;
 import com.thexfactor117.losteclipse.LostEclipse;
+import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
@@ -52,7 +53,7 @@ public class ItemGeneratorHelper
 		
 		for (int i = 0; i < amount; i++)
 		{
-			if (stack.getItem() instanceof ItemSword)
+			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemLEWand)
 			{
 				WeaponAttribute attribute = WeaponAttribute.getRandomAttribute(new Random()); // generate random rarity.
 				

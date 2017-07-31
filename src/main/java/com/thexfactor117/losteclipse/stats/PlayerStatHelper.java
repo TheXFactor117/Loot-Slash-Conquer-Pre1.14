@@ -26,11 +26,11 @@ public class PlayerStatHelper
 	private static final String ATTACK_SPEED = "e574e861-e5bd-4906-b72e-f6be6e4c9563";
 	private static final String MAX_HEALTH = "e3762718-bbd8-4763-bfe9-1d18d70eaa76";
 	
-	private static final double ATTACK_DAMAGE_MULTIPLIER = 2;
-	private static final double MOVEMENT_SPEED_MULTIPLIER = 0.01;
+	public static final double ATTACK_DAMAGE_MULTIPLIER = 2;
+	public static final double MOVEMENT_SPEED_MULTIPLIER = 0.01;
 	public static final double ATTACK_SPEED_MULTIPLIER = 0.1;
-	private static final double MAX_HEALTH_MULTIPLIER = 2;
-	private static final double MAX_MANA_MULTIPLIER = 2;
+	public static final double MAX_HEALTH_MULTIPLIER = 2;
+	public static final double MAX_MANA_MULTIPLIER = 2;
 	
 	/**
 	 * Helper method to update player attributes based on current stats.

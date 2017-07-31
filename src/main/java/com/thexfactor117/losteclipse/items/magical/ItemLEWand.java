@@ -8,6 +8,7 @@ import com.thexfactor117.losteclipse.capabilities.api.IStats;
 import com.thexfactor117.losteclipse.entities.projectiles.EntityMagic;
 import com.thexfactor117.losteclipse.events.misc.EventPlayerTick;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
+import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 import com.thexfactor117.losteclipse.util.Reference;
 
@@ -36,10 +37,11 @@ public class ItemLEWand extends Item
 {
 	private boolean isBonusActive = false; // controls whether or not player stats should update. See onUpdate
 	
-	private int baseDamage;
+	private double baseDamage;
+	private double baseAttackSpeed;
 	private int manaPerUse;
 	
-	public ItemLEWand(String name, int baseDamage, int manaPerUse, int durability)
+	public ItemLEWand(String name, double baseDamage, double attackSpeed, int manaPerUse, int durability)
 	{
 		super();
 		this.setRegistryName(Reference.MODID, name);
@@ -47,6 +49,8 @@ public class ItemLEWand extends Item
 		this.setMaxStackSize(1);
 		this.setNoRepair();
 		this.setMaxDamage(durability);
+		this.baseDamage = baseDamage;
+		this.baseAttackSpeed = attackSpeed;
 		this.manaPerUse = manaPerUse;
 	}
 	
@@ -82,7 +86,7 @@ public class ItemLEWand extends Item
 		
 		if (statsCap != null)
 		{
-			// TODO: DEBUG
+			// DEBUG
 			statsCap.setMana(50);
 			
 			if (statsCap.getMana() - this.manaPerUse >= 0)
@@ -97,33 +101,45 @@ public class ItemLEWand extends Item
 	
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entity, int count)
-	{
-		// check to see if we have held it long enough
-		if (count > (this.getMaxItemUseDuration(stack) - 10)) return;
-		
+	{	
 		if (entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) entity;
-			IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
+			IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);	
+			IPlayerInformation info = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 			
-			if (statsCap != null)
+			if (info != null)
 			{
-				world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+				// check to see if we have held it long enough
+				double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (info.getAgilityStat() + info.getBonusAgilityStat()));
 				
-				if (!world.isRemote)
+				if (count > (this.getMaxItemUseDuration(stack) - ((1 / attackSpeed) * 20))) 
 				{
-					Vec3d look = player.getLookVec();
-					EntityMagic magic = new EntityMagic(world, look.x, look.y, look.z, 1F, 0F, nbt.getInteger("MinDamage"), nbt.getInteger("MaxDamage"));
-					magic.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
-					world.spawnEntity(magic);
+					LostEclipse.LOGGER.info("Count: " + count + "\t" + ((1 / attackSpeed) * 20));
+					return;
+				}
+				
+				// fire projectile because check passed
+				if (statsCap != null)
+				{
+					world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 					
-					// update mana and send to client
-					statsCap.setMana(statsCap.getMana() - this.manaPerUse);
-					LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
-					
-					// damage item
-					stack.damageItem(1, player);
+					if (!world.isRemote)
+					{
+						// spawn entity and set position to specified direction
+						Vec3d look = player.getLookVec();
+						EntityMagic magic = new EntityMagic(world, look.x, look.y, look.z, 1F, 0F, player, stack);
+						magic.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
+						world.spawnEntity(magic);
+						
+						// update mana and send to client
+						statsCap.setMana(statsCap.getMana() - this.manaPerUse);
+						LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
+						
+						// damage item
+						stack.damageItem(1, player);
+					}
 				}
 			}
 		}
@@ -138,16 +154,19 @@ public class ItemLEWand extends Item
 	@Override
 	public EnumAction getItemUseAction(ItemStack stack)
 	{
-		return EnumAction.NONE;
+		return EnumAction.BLOCK;
 	}
 	
-	/** Returns the base damage. DO NOT use this value when calculating damage. */
-	public int getBaseDamage()
+	public double getBaseDamage()
 	{
 		return baseDamage;
 	}
 	
-	/** Returns the mana per use of the weapon. */
+	public double getBaseAttackSpeed()
+	{
+		return baseAttackSpeed;
+	}
+	
 	public int getManaPerUse()
 	{
 		return manaPerUse;

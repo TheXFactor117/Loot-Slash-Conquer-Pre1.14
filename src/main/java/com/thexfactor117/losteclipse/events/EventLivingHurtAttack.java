@@ -105,15 +105,13 @@ public class EventLivingHurtAttack
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				
-				useWeaponAttributes(event, player, enemy, stack, nbt);
+				useWeaponAttributes(event.getAmount(), player, enemy, stack, nbt);
 			}
 		}
 	}
 	
-	/*
-	 * CALL ON LIVING ATTACK
-	 */
-	private void useWeaponAttributes(LivingAttackEvent event, EntityPlayer player, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)
+	/** Called to use the current stack's attributes. Called from LivingAttackEvent and projectiles. */
+	public static void useWeaponAttributes(float damage, EntityPlayer player, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)
 	{
 		if (WeaponAttribute.DURABLE.hasAttribute(nbt) && Math.random() < WeaponAttribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
 		if (WeaponAttribute.FIRE.hasAttribute(nbt)) 
@@ -142,7 +140,7 @@ public class EventLivingHurtAttack
 			enemy.attackEntityFrom(ModDamageSources.POISON, (float) WeaponAttribute.POISON.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 		}
-		if (WeaponAttribute.ETHEREAL.hasAttribute(nbt)) player.setHealth((float) (player.getHealth() + (event.getAmount() * WeaponAttribute.ETHEREAL.getAmount(nbt))));
+		if (WeaponAttribute.ETHEREAL.hasAttribute(nbt)) player.setHealth((float) (player.getHealth() + (damage * WeaponAttribute.ETHEREAL.getAmount(nbt))));
 		if (WeaponAttribute.MAGICAL.hasAttribute(nbt)); // add mana!
 		if (WeaponAttribute.CHAINED.hasAttribute(nbt))
 		{
@@ -157,7 +155,7 @@ public class EventLivingHurtAttack
 				
 				if (entity instanceof EntityLivingBase && !(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && !(entity instanceof EntitySlime))
 				{
-					entity.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) (event.getAmount() * 0.25));
+					entity.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) (damage * 0.25));
 					entity.hurtResistantTime = 0;
 				}
 			}

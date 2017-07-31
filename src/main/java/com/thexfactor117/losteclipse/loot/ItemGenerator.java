@@ -2,6 +2,7 @@ package com.thexfactor117.losteclipse.loot;
 
 import java.util.Random;
 
+import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 
 import net.minecraft.item.ItemStack;
@@ -15,11 +16,7 @@ import net.minecraft.util.math.BlockPos;
  */
 public class ItemGenerator 
 {
-	/**
-	 * Creates the given item with randomized attributes and such.
-	 * @param stack
-	 * @param player
-	 */
+	/** Creates a melee weapon/armor with randomized stats. */
 	public static void create(ItemStack stack, NBTTagCompound nbt, BlockPos pos)
 	{
 		/*
@@ -42,6 +39,29 @@ public class ItemGenerator
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 			ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 			nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags			
+		}
+	}
+	
+	/** Creates a magical weapon with randomized stats. */
+	public static void createMagical(ItemStack stack, NBTTagCompound nbt, BlockPos pos)
+	{
+		if (Rarity.getRarity(nbt) == Rarity.DEFAULT && stack.getItem() instanceof ItemLEWand)
+		{
+			ItemLEWand wand = (ItemLEWand) stack.getItem();
+			
+			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, new Random()));
+			nbt.setInteger("Level", (int) (Math.random() * 10 + 1));
+			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
+			
+			// handles setting weighted damage/attack speed and min/max damage
+			double baseDamage = wand.getBaseDamage();
+			double baseAttackSpeed = wand.getBaseAttackSpeed();
+			double weightedDamage = ItemGeneratorHelper.getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
+			double weightedAttackSpeed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseAttackSpeed);
+			
+			ItemGeneratorHelper.setMinMaxDamage(nbt, weightedDamage);
+			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
+			nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
 		}
 	}
 }

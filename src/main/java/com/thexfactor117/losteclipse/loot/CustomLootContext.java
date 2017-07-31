@@ -25,7 +25,6 @@ public class CustomLootContext extends LootContext
     {
         super(luck, world, manager, lootedEntity, player, damageSource);
         this.chestPos = chestPos;
-        LostEclipse.LOGGER.info("Created custom context!\tChest Pos: " + chestPos);
     }
     
     public BlockPos getChestPos()

@@ -1,7 +1,14 @@
 package com.thexfactor117.losteclipse.entities.projectiles;
 
+import com.thexfactor117.losteclipse.events.EventLivingHurtAttack;
+import com.thexfactor117.losteclipse.util.NBTHelper;
+
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
@@ -14,20 +21,21 @@ import net.minecraft.world.World;
  */
 public class EntityMagic extends EntityThrowable
 {
-	private int minDamage;
-	private int maxDamage;
+	private EntityPlayer player; // shooter
+	private ItemStack stack; // item that shot projectile
 	
 	public EntityMagic(World world)
 	{
 		super(world);
 	}
 	
-	public EntityMagic(World world, double x, double y, double z, float velocity, float inaccuracy, int minDamage, int maxDamage)
+	/** Only use this constructor if a player shoots the projectile with the correct item. */
+	public EntityMagic(World world, double x, double y, double z, float velocity, float inaccuracy, EntityPlayer player, ItemStack stack)
 	{
-		super(world, x,y, z);
+		super(world, x, y, z);
 		this.setThrowableHeading(x, y, z, velocity, inaccuracy);
-		this.minDamage = minDamage;
-		this.maxDamage = maxDamage;
+		this.player = player;
+		this.stack = stack;
 	}
 	
 	@Override
@@ -56,8 +64,16 @@ public class EntityMagic extends EntityThrowable
 		{
 			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase)
 			{
-				float damage = (float) ((Math.random() * (maxDamage - minDamage)) + minDamage);
-				result.entityHit.attackEntityFrom(DamageSource.MAGIC, damage);
+				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+				double playerDamage = player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
+				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage") + (int) playerDamage);
+				
+				// apply damage
+				result.entityHit.attackEntityFrom(DamageSource.MAGIC, (float) damage);
+				result.entityHit.hurtResistantTime = 0; // set hurt resistant time to zero because other calculations might be added.
+				
+				// apply attributes
+				EventLivingHurtAttack.useWeaponAttributes((float) damage, player, (EntityLivingBase) result.entityHit, stack, NBTHelper.loadStackNBT(stack));
 			}
 		}
 	}

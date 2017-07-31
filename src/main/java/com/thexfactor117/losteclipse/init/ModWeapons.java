@@ -62,7 +62,8 @@ public class ModWeapons
 	
 	
 	// ranged
-	public static final Item WOODEN_WAND = new ItemLEWand("wooden_wand", 10, 5, 200);
+	// (name, damage, attack speed, mana per use, durability)
+	public static final Item WOODEN_WAND = new ItemLEWand("wooden_wand", 4, 2, 5, 200);
 	
 	
 	/* Armors */
