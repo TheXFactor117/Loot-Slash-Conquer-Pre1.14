@@ -5,10 +5,10 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
-import com.thexfactor117.losteclipse.loot.CustomLootContext;
+import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.loot.ItemGenerator;
 import com.thexfactor117.losteclipse.loot.ItemGeneratorHelper;
+import com.thexfactor117.losteclipse.loot.table.CustomLootContext;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.item.ItemArmor;
@@ -48,7 +48,7 @@ public class CreateStats extends LootFunction
 				nbt = stack.getTagCompound();
 			
 			
-			if (stack.getItem() instanceof ItemLEWand)
+			if (stack.getItem() instanceof ItemLEMagical)
 			{
 				ItemGenerator.createMagical(stack, nbt, pos);
 			}

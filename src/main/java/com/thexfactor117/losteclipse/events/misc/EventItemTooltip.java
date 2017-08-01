@@ -5,7 +5,8 @@ import java.util.ArrayList;
 
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
-import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
+import com.thexfactor117.losteclipse.entities.projectiles.Rune;
+import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
@@ -41,12 +42,14 @@ public class EventItemTooltip
 		{
 			IPlayerInformation info = event.getEntityPlayer().getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (info != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor || stack.getItem() instanceof ItemLEWand))
+			if (info != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor || stack.getItem() instanceof ItemLEMagical))
 			{
 				Rarity rarity = Rarity.getRarity(nbt);
 				
 				if (rarity != Rarity.DEFAULT)
 				{
+					if (stack.getItem() instanceof ItemLEMagical) tooltip.add(Rune.getRune(nbt).getColor() + Rune.getRune(nbt).getName());
+					
 					tooltip.add("");
 					
 					NBTTagList taglist = nbt.getTagList("AttributeModifiers", 10);
@@ -54,7 +57,12 @@ public class EventItemTooltip
 					NBTTagCompound speedNbt = taglist.getCompoundTagAt(1);
 					DecimalFormat format = new DecimalFormat("#.##");
 					
-					tooltip.add(1, "Level: " + nbt.getInteger("Level"));
+					if (stack.getItem() instanceof ItemLEMagical) 
+					{
+						tooltip.add("");
+						tooltip.add(3, "Level: " + nbt.getInteger("Level"));
+					}
+					else tooltip.add(1, "Level: " + nbt.getInteger("Level"));
 					
 					if (stack.getItem() instanceof ItemSword)
 					{	
@@ -71,7 +79,7 @@ public class EventItemTooltip
 						tooltip.add(TextFormatting.BLUE + "+" + format.format(damageNbt.getDouble("Amount")) + " Armor");
 						tooltip.add(TextFormatting.BLUE + "+" + format.format(speedNbt.getDouble("Amount")) + " Armor Toughness");
 					}
-					else if (stack.getItem() instanceof ItemLEWand)
+					else if (stack.getItem() instanceof ItemLEMagical)
 					{
 						double playerDamage = event.getEntityPlayer().getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
 						double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (info.getAgilityStat() + info.getBonusAgilityStat()));
@@ -88,7 +96,7 @@ public class EventItemTooltip
 					tooltip.add("");
 					tooltip.add(TextFormatting.ITALIC + "Attributes");
 					
-					if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemLEWand)
+					if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemLEMagical)
 					{
 						// attributes
 						for (WeaponAttribute attribute : WeaponAttribute.values())

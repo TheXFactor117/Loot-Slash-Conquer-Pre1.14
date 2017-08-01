@@ -33,7 +33,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ItemLEWand extends Item
+public class ItemLEMagical extends Item
 {
 	private boolean isBonusActive = false; // controls whether or not player stats should update. See onUpdate
 	
@@ -41,7 +41,7 @@ public class ItemLEWand extends Item
 	private double baseAttackSpeed;
 	private int manaPerUse;
 	
-	public ItemLEWand(String name, double baseDamage, double attackSpeed, int manaPerUse, int durability)
+	public ItemLEMagical(String name, double baseDamage, double attackSpeed, int manaPerUse, int durability)
 	{
 		super();
 		this.setRegistryName(Reference.MODID, name);

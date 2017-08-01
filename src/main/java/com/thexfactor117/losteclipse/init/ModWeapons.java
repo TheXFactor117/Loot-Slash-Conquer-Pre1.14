@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.init;
 
 import com.thexfactor117.losteclipse.items.base.ItemTest;
-import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
+import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
 import com.thexfactor117.losteclipse.items.melee.ItemLEMelee;
 
@@ -63,7 +63,7 @@ public class ModWeapons
 	
 	// ranged
 	// (name, damage, attack speed, mana per use, durability)
-	public static final Item WOODEN_WAND = new ItemLEWand("wooden_wand", 4, 2, 5, 200);
+	public static final Item WOODEN_WAND = new ItemLEMagical("wooden_wand", 4, 2, 5, 200);
 	
 	
 	/* Armors */

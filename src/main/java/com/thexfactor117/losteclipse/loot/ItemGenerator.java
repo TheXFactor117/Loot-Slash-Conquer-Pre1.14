@@ -2,7 +2,7 @@ package com.thexfactor117.losteclipse.loot;
 
 import java.util.Random;
 
-import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
+import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 
 import net.minecraft.item.ItemStack;
@@ -45,9 +45,9 @@ public class ItemGenerator
 	/** Creates a magical weapon with randomized stats. */
 	public static void createMagical(ItemStack stack, NBTTagCompound nbt, BlockPos pos)
 	{
-		if (Rarity.getRarity(nbt) == Rarity.DEFAULT && stack.getItem() instanceof ItemLEWand)
+		if (Rarity.getRarity(nbt) == Rarity.DEFAULT && stack.getItem() instanceof ItemLEMagical)
 		{
-			ItemLEWand wand = (ItemLEWand) stack.getItem();
+			ItemLEMagical wand = (ItemLEMagical) stack.getItem();
 			
 			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, new Random()));
 			nbt.setInteger("Level", (int) (Math.random() * 10 + 1));
@@ -61,6 +61,7 @@ public class ItemGenerator
 			
 			ItemGeneratorHelper.setMinMaxDamage(nbt, weightedDamage);
 			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
+			ItemGeneratorHelper.setRune(nbt);
 			nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
 		}
 	}

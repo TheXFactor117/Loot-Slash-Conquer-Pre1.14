@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.loot;
+package com.thexfactor117.losteclipse.loot.table;
 
 import java.util.Collections;
 import java.util.Iterator;

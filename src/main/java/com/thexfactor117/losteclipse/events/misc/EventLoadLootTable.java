@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.events.misc;
 
 import com.thexfactor117.losteclipse.init.ModLootTables;
-import com.thexfactor117.losteclipse.loot.CustomLootTable;
+import com.thexfactor117.losteclipse.loot.table.CustomLootTable;
 
 import net.minecraft.world.storage.loot.LootPool;
 import net.minecraftforge.event.LootTableLoadEvent;

@@ -6,7 +6,8 @@ import java.util.UUID;
 
 import com.google.common.collect.Multimap;
 import com.thexfactor117.losteclipse.LostEclipse;
-import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
+import com.thexfactor117.losteclipse.entities.projectiles.Rune;
+import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
@@ -34,6 +35,8 @@ public class ItemGeneratorHelper
 	private static final UUID ARMOR = UUID.fromString("81a2ee21-fe83-41fb-8b2f-bf5ef33a71a8");
 	private static final UUID ARMOR_TOUGHNESS = UUID.fromString("2cdb1e5e-3937-41e1-98a4-6a6eac2cf458");
 	
+	private static Random rand = new Random();
+	
 	public static void generateName(ItemStack stack, NBTTagCompound nbt)
 	{
 		// return if Common
@@ -45,7 +48,7 @@ public class ItemGeneratorHelper
 		if (stack.getItem() instanceof ItemSword && !nbt.hasKey("Type")) suffix = NameHelper.getSwordSuffix();
 		else if (stack.getItem() instanceof ItemSword && nbt.hasKey("Type") && nbt.getString("Type").equals("Dagger")) suffix = NameHelper.getDaggerSuffix();
 		else if (stack.getItem() instanceof ItemSword && nbt.hasKey("Type") && nbt.getString("Type").equals("Mace")) suffix = NameHelper.getMaceSuffix();
-		else if (stack.getItem() instanceof ItemLEWand) suffix = NameHelper.getWandSuffix();
+		else if (stack.getItem() instanceof ItemLEMagical) suffix = NameHelper.getWandSuffix();
 		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.HEAD) suffix = NameHelper.getHelmetSuffix();
 		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.CHEST) suffix = NameHelper.getChestplateSuffix();
 		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.LEGS) suffix = NameHelper.getLeggingsSuffix();
@@ -73,9 +76,9 @@ public class ItemGeneratorHelper
 		
 		for (int i = 0; i < amount; i++)
 		{
-			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemLEWand)
+			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemLEMagical)
 			{
-				WeaponAttribute attribute = WeaponAttribute.getRandomAttribute(new Random()); // generate random rarity.
+				WeaponAttribute attribute = WeaponAttribute.getRandomAttribute(rand); // generate random rarity.
 				
 				if (attribute.hasAttribute(nbt))
 					i--; // subtract 1 if we already have an attribute to "re-roll"
@@ -84,7 +87,7 @@ public class ItemGeneratorHelper
 			}
 			else if (stack.getItem() instanceof ItemArmor)
 			{
-				ArmorAttribute attribute = ArmorAttribute.getRandomAttribute(new Random()); // generate random rarity.
+				ArmorAttribute attribute = ArmorAttribute.getRandomAttribute(rand); // generate random rarity.
 				
 				if (attribute.hasAttribute(nbt))
 					i--; // subtract 1 if we already have an attribute to "re-roll"
@@ -170,6 +173,11 @@ public class ItemGeneratorHelper
 		
 		nbt.setInteger("MinDamage", minDamage);
 		nbt.setInteger("MaxDamage", maxDamage);
+	}
+	
+	public static void setRune(NBTTagCompound nbt)
+	{
+		Rune.setRune(nbt, Rune.getRandomRune(nbt, rand));
 	}
 	
 	public static double getWeightedDamage(NBTTagCompound nbt, Rarity rarity, double base)
