@@ -2,8 +2,6 @@ package com.thexfactor117.losteclipse.loot;
 
 import javax.annotation.Nullable;
 
-import com.thexfactor117.losteclipse.LostEclipse;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;

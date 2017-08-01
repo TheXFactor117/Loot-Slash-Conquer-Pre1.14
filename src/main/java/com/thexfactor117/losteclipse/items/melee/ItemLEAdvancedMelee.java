@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
+import com.thexfactor117.losteclipse.util.NBTHelper;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -47,6 +48,9 @@ public class ItemLEAdvancedMelee extends ItemLEMelee
 			replaceModifier(modifiers, SharedMonsterAttributes.ATTACK_DAMAGE, ATTACK_DAMAGE_MODIFIER, damageMultiplier);
 			replaceModifier(modifiers, SharedMonsterAttributes.ATTACK_SPEED, ATTACK_SPEED_MODIFIER, speedMultiplier);
 		}
+		
+		if (speedMultiplier < 1) NBTHelper.loadStackNBT(stack).setString("Type", "Dagger");
+		else NBTHelper.loadStackNBT(stack).setString("Type", "Mace");
 
 		return modifiers;
 	}

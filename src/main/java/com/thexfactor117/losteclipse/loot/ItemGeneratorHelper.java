@@ -34,6 +34,26 @@ public class ItemGeneratorHelper
 	private static final UUID ARMOR = UUID.fromString("81a2ee21-fe83-41fb-8b2f-bf5ef33a71a8");
 	private static final UUID ARMOR_TOUGHNESS = UUID.fromString("2cdb1e5e-3937-41e1-98a4-6a6eac2cf458");
 	
+	public static void generateName(ItemStack stack, NBTTagCompound nbt)
+	{
+		// return if Common
+		if (Rarity.getRarity(nbt) == Rarity.COMMON) return;
+		
+		String prefix = NameHelper.getRandomPrefix();
+		String suffix = "";
+		
+		if (stack.getItem() instanceof ItemSword && !nbt.hasKey("Type")) suffix = NameHelper.getSwordSuffix();
+		else if (stack.getItem() instanceof ItemSword && nbt.hasKey("Type") && nbt.getString("Type").equals("Dagger")) suffix = NameHelper.getDaggerSuffix();
+		else if (stack.getItem() instanceof ItemSword && nbt.hasKey("Type") && nbt.getString("Type").equals("Mace")) suffix = NameHelper.getMaceSuffix();
+		else if (stack.getItem() instanceof ItemLEWand) suffix = NameHelper.getWandSuffix();
+		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.HEAD) suffix = NameHelper.getHelmetSuffix();
+		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.CHEST) suffix = NameHelper.getChestplateSuffix();
+		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.LEGS) suffix = NameHelper.getLeggingsSuffix();
+		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.FEET) suffix = NameHelper.getBootSuffix();
+
+		stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + suffix);
+	}
+	
 	/**
 	 * Sets a certain amount of random attributes to the stack depending on the Rarity.
 	 * @param stack

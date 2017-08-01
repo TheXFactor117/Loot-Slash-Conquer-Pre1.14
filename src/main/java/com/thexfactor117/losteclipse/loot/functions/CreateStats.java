@@ -8,7 +8,7 @@ import com.google.gson.JsonSerializationContext;
 import com.thexfactor117.losteclipse.items.magical.ItemLEWand;
 import com.thexfactor117.losteclipse.loot.CustomLootContext;
 import com.thexfactor117.losteclipse.loot.ItemGenerator;
-import com.thexfactor117.losteclipse.stats.weapons.Rarity;
+import com.thexfactor117.losteclipse.loot.ItemGeneratorHelper;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.item.ItemArmor;
@@ -58,7 +58,7 @@ public class CreateStats extends LootFunction
 			}
 			
 			stack.setTagCompound(nbt);
-			stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + stack.getDisplayName());
+			ItemGeneratorHelper.generateName(stack, stack.getTagCompound());
 			return stack;
 		}
 		

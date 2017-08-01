@@ -1,10 +1,12 @@
-#####
-### Lost Eclipse ENGLISH language file
-#####
+##########################################
+### Lost Eclipse ENGLISH Language File ###
+##########################################
 
-#############################################
-#                   ITEMS                   #
-#############################################
+
+
+##########################################
+#                   ITEMS                #
+##########################################
 
 ### Weapons
 # Melee
@@ -30,11 +32,14 @@ item.excalibur_rapier.name=Excalibur Rapier
 item.alakaslam.name=Alakaslam
 item.annihilation.name=Annihilation
 
+# Magical
+item.wooden_wand.name=Wooden Wand
 
 
-#############################################
-#                   GUI                     #
-#############################################
+
+##########################################
+#                   GUI                  #
+##########################################
 
 ### Class Selection
 losteclipse.gui.class.title=Class Selection
@@ -66,9 +71,9 @@ losteclipse.gui.playerinfo.stats.fortitude=Fortitude
 
 
 
-#############################################
-#                   MISC                    #
-#############################################
+##########################################
+#                   MISC                 #
+##########################################
 
 ### Damage Sources
 death.attack.frost=%1$s was frozen solid.

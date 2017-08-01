@@ -38,7 +38,7 @@ public class ItemGenerator
 			nbt.setInteger("Level", (int) (Math.random() * 10 + 1)); // set level to current player level
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 			ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
-			nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags			
+			nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
 		}
 	}
 	
