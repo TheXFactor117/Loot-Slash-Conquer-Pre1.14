@@ -19,18 +19,18 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class EntityMagic extends EntityThrowable
+public class EntityProjectileBase extends EntityThrowable
 {
-	private EntityPlayer player; // shooter
-	private ItemStack stack; // item that shot projectile
+	protected EntityPlayer player; // shooter
+	protected ItemStack stack; // item that shot projectile
 	
-	public EntityMagic(World world)
+	public EntityProjectileBase(World world)
 	{
 		super(world);
 	}
 	
 	/** Only use this constructor if a player shoots the projectile with the correct item. */
-	public EntityMagic(World world, double x, double y, double z, float velocity, float inaccuracy, EntityPlayer player, ItemStack stack)
+	public EntityProjectileBase(World world, double x, double y, double z, float velocity, float inaccuracy, EntityPlayer player, ItemStack stack)
 	{
 		super(world, x, y, z);
 		this.setThrowableHeading(x, y, z, velocity, inaccuracy);

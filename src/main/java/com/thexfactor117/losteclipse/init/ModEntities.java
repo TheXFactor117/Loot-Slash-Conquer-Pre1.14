@@ -1,7 +1,9 @@
 package com.thexfactor117.losteclipse.init;
 
 import com.thexfactor117.losteclipse.LostEclipse;
-import com.thexfactor117.losteclipse.entities.projectiles.EntityMagic;
+import com.thexfactor117.losteclipse.entities.projectiles.EntityFireball;
+import com.thexfactor117.losteclipse.entities.projectiles.EntityIcebolt;
+import com.thexfactor117.losteclipse.entities.projectiles.EntityLightning;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.util.ResourceLocation;
@@ -19,7 +21,9 @@ public class ModEntities
 	public static void registerEntities()
 	{
 		// projectiles
-		registerModProjectile(EntityMagic.class, "entityMagic");
+		registerModProjectile(EntityFireball.class, "entityFireball");
+		registerModProjectile(EntityIcebolt.class, "entityIcebolt");
+		registerModProjectile(EntityLightning.class, "entityLightning");
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })

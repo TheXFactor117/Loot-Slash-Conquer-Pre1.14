@@ -5,7 +5,10 @@ import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.api.IStats;
-import com.thexfactor117.losteclipse.entities.projectiles.EntityMagic;
+import com.thexfactor117.losteclipse.entities.projectiles.EntityFireball;
+import com.thexfactor117.losteclipse.entities.projectiles.EntityIcebolt;
+import com.thexfactor117.losteclipse.entities.projectiles.EntityLightning;
+import com.thexfactor117.losteclipse.entities.projectiles.Rune;
 import com.thexfactor117.losteclipse.events.misc.EventPlayerTick;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
@@ -129,9 +132,8 @@ public class ItemLEMagical extends Item
 					{
 						// spawn entity and set position to specified direction
 						Vec3d look = player.getLookVec();
-						EntityMagic magic = new EntityMagic(world, look.x, look.y, look.z, 1F, 0F, player, stack);
-						magic.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
-						world.spawnEntity(magic);
+
+						fireProjectile(world, player, stack, nbt, look);
 						
 						// update mana and send to client
 						statsCap.setMana(statsCap.getMana() - this.manaPerUse);
@@ -141,6 +143,55 @@ public class ItemLEMagical extends Item
 						stack.damageItem(1, player);
 					}
 				}
+			}
+		}
+	}
+	
+	private void fireProjectile(World world, EntityPlayer player, ItemStack stack, NBTTagCompound nbt, Vec3d look)
+	{
+		if (Rune.getRune(nbt) == Rune.FIREBALL) 
+		{
+			EntityFireball fireball = new EntityFireball(world, look.x, look.y, look.z, 1F, 0F, player, stack, 2);
+			fireball.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
+			world.spawnEntity(fireball);
+		}
+		else if (Rune.getRune(nbt) == Rune.ICEBOLT)
+		{
+			EntityIcebolt icebolt = new EntityIcebolt(world, look.x, look.y, look.z, 1F, 0F, player, stack, 2);
+			icebolt.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
+			world.spawnEntity(icebolt);
+		}
+		else if (Rune.getRune(nbt) == Rune.LIGHTNING)
+		{
+			EntityLightning lightning = new EntityLightning(world, look.x, look.y, look.z, 1F, 0F, player, stack, 2);
+			lightning.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
+			world.spawnEntity(lightning);
+		}
+		else if (Rune.getRune(nbt) == Rune.FIRESTORM)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				EntityFireball fireball = new EntityFireball(world, look.x, look.y, look.z, 1F, 15F, player, stack, 2);
+				fireball.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
+				world.spawnEntity(fireball);
+			}
+		}
+		else if (Rune.getRune(nbt) == Rune.BLIZZARD)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				EntityIcebolt icebolt = new EntityIcebolt(world, look.x, look.y, look.z, 1F, 0.3F, player, stack, 2);
+				icebolt.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
+				world.spawnEntity(icebolt);
+			}
+		}
+		else if (Rune.getRune(nbt) == Rune.DISCHARGE)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				EntityLightning lightning = new EntityLightning(world, look.x, look.y, look.z, 1F, 0F, player, stack, 2);
+				lightning.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
+				world.spawnEntity(lightning);
 			}
 		}
 	}
