@@ -43,6 +43,14 @@ public class ModItemModels
 		registerItemModel(ModWeapons.EXCALIBUR_RAPIER);
 		registerItemModel(ModWeapons.ALAKASLAM);
 		registerItemModel(ModWeapons.ANNIHILATION);
+		
+		// magical ranged
+		registerItemModel(ModWeapons.WOODEN_WAND);
+		registerItemModel(ModWeapons.GOLDEN_WAND);
+		registerItemModel(ModWeapons.DIAMOND_WAND);
+		registerItemModel(ModWeapons.WOODEN_STAFF);
+		registerItemModel(ModWeapons.GOLDEN_STAFF);
+		registerItemModel(ModWeapons.DIAMOND_STAFF);
 	}
 	
 	private void registerItemModel(Item item)

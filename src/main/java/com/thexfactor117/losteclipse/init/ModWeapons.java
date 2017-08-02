@@ -61,9 +61,14 @@ public class ModWeapons
 	public static final Item ANNIHILATION = new ItemLEAdvancedMelee(ToolMaterials.ANNIHILATION, "annihilation", 1, 0.5);
 	
 	
-	// ranged
+	// magical ranged
 	// (name, damage, attack speed, mana per use, durability)
-	public static final Item WOODEN_WAND = new ItemLEMagical("wooden_wand", 4, 2, 5, 200);
+	public static final Item WOODEN_WAND = new ItemLEMagical("wooden_wand", 3, 2, 5, 200);
+	public static final Item GOLDEN_WAND = new ItemLEMagical("golden_wand", 4, 2, 5, 100);
+	public static final Item DIAMOND_WAND = new ItemLEMagical("diamond_wand", 5, 2, 5, 500);
+	public static final Item WOODEN_STAFF = new ItemLEMagical("wooden_staff", 5, 1.25, 10, 200);
+	public static final Item GOLDEN_STAFF = new ItemLEMagical("golden_staff", 6, 1.25, 10, 100);
+	public static final Item DIAMOND_STAFF = new ItemLEMagical("diamond_staff", 7, 1.25, 10, 500);
 	
 	
 	/* Armors */
@@ -97,7 +102,12 @@ public class ModWeapons
 		event.getRegistry().register(ANNIHILATION);
 		
 		
-		// ranged
+		// magical ranged
 		event.getRegistry().register(WOODEN_WAND);
+		event.getRegistry().register(GOLDEN_WAND);
+		event.getRegistry().register(DIAMOND_WAND);
+		event.getRegistry().register(WOODEN_STAFF);
+		event.getRegistry().register(GOLDEN_STAFF);
+		event.getRegistry().register(DIAMOND_STAFF);
 	}
 }
