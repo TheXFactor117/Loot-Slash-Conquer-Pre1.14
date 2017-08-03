@@ -47,6 +47,8 @@ public class EntityLightning extends EntityProjectileBase
 					if (statsCap.getMana() < 0) statsCap.setMana(0);
 				}
 			}
+			
+			this.setDead();
 		}
 	}
 }

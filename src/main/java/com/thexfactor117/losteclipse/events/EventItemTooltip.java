@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.events.misc;
+package com.thexfactor117.losteclipse.events;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

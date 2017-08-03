@@ -2,6 +2,7 @@ package com.thexfactor117.losteclipse.proxies;
 
 import org.lwjgl.input.Keyboard;
 
+import com.thexfactor117.losteclipse.client.gui.GuiHealth;
 import com.thexfactor117.losteclipse.client.gui.GuiMana;
 import com.thexfactor117.losteclipse.client.init.ModItemModels;
 
@@ -26,6 +27,7 @@ public class ClientProxy extends ServerProxy
 	{
 		MinecraftForge.EVENT_BUS.register(new ModItemModels());
 		MinecraftForge.EVENT_BUS.register(new GuiMana());
+		MinecraftForge.EVENT_BUS.register(new GuiHealth());
 	}
 	
 	@Override

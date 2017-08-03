@@ -49,11 +49,6 @@ public class EntityProjectileBase extends EntityThrowable
 			{
 				this.getEntityWorld().spawnParticle(EnumParticleTypes.SPELL_INSTANT, this.posX, this.posY, this.posZ, 0F, 0F, 0F, new int[0]);
 			}
-			
-			if (this.inGround)
-			{
-				this.setDead();
-			}
 		}
 	}
 	
@@ -81,6 +76,6 @@ public class EntityProjectileBase extends EntityThrowable
 	@Override
 	protected float getGravityVelocity()
 	{
-		return 0;
+		return 0F;
 	}
 }

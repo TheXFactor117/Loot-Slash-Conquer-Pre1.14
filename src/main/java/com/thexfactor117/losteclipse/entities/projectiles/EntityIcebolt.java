@@ -40,6 +40,8 @@ public class EntityIcebolt extends EntityProjectileBase
 			{
 				((EntityLivingBase) result.entityHit).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * seconds, 1));
 			}
+			
+			this.setDead();
 		}
 	}
 }

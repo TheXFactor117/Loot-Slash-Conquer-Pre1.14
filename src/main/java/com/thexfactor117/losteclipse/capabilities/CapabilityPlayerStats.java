@@ -81,9 +81,9 @@ public class CapabilityPlayerStats
 		return CapabilityUtils.getCapability(entity, STATS, DEFAULT_FACING);
 	}
 	
-	public static ICapabilityProvider createProvider(IStats mana) 
+	public static ICapabilityProvider createProvider(IStats stats) 
 	{
-		return new SimpleCapabilityProvider<>(STATS, DEFAULT_FACING, mana);
+		return new SimpleCapabilityProvider<>(STATS, DEFAULT_FACING, stats);
 	}
 	
 	public static class EventHandler 

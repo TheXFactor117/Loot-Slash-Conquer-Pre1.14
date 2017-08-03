@@ -38,6 +38,8 @@ public class EntityFireball extends EntityProjectileBase
 			{
 				result.entityHit.setFire(seconds);
 			}
+			
+			this.setDead();
 		}
 	}
 }
