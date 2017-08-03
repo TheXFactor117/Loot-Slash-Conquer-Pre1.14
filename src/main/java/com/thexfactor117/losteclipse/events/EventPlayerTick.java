@@ -2,8 +2,11 @@ package com.thexfactor117.losteclipse.events;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.api.IStats;
 import com.thexfactor117.losteclipse.network.PacketUpdateCoreStats;
+import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
@@ -28,6 +31,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 public class EventPlayerTick 
 {
 	private int ticks;
+	private int regenTicks;
 	
 	private ItemStack mainhand;
 	private ItemStack helmet;
@@ -84,7 +88,30 @@ public class EventPlayerTick
 				ticks = 0;
 			}
 			
+			if (regenTicks % 100 == 0)
+			{
+				IStats statsCap = event.player.getCapability(CapabilityPlayerStats.STATS, null);
+				
+				if (statsCap != null)
+				{
+					if (statsCap.getMana() < statsCap.getMaxMana())
+					{
+						statsCap.setMana(statsCap.getMana() + statsCap.getManaPerSecond());
+					}
+					
+					if (event.player.getHealth() < event.player.getMaxHealth())
+					{
+						event.player.heal(statsCap.getHealthPerSecond());
+					}
+					
+					LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
+				}
+				
+				regenTicks = 0;
+			}
+			
 			ticks++;
+			regenTicks++;
 		}
 	}
 	

@@ -35,6 +35,7 @@ public class EventPlayerLoggedIn
 			statsCap.setMaxMana(100);
 			statsCap.setMana(statsCap.getMaxMana());
 			statsCap.setManaPerSecond(5);
+			statsCap.setHealthPerSecond(1);
 			LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
 		}
 		else if (playerInfo != null && playerInfo.getPlayerClass() > 0)

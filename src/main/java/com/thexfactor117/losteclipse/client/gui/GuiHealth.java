@@ -9,7 +9,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -56,8 +55,8 @@ public class GuiHealth extends Gui
 				
 				mc.renderEngine.bindTexture(location);
 				
-				this.drawTexturedModalRect(xPos, yPos, 0, 0, 80, 9);
-				this.drawTexturedModalRect(xPos, yPos, 0, 9, (int) healthBarWidth, 7);	
+				this.drawTexturedModalRect(xPos, yPos, 0, 0, 81, 9);
+				this.drawTexturedModalRect(xPos, yPos, 0, 9, (int) healthBarWidth, 8);	
 			}
 		}
 	}
