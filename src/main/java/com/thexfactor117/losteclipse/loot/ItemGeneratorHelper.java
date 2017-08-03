@@ -7,8 +7,10 @@ import java.util.UUID;
 import com.google.common.collect.Multimap;
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.entities.projectiles.Rune;
+import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
+import com.thexfactor117.losteclipse.stats.weapons.JewelryAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
 
@@ -35,7 +37,7 @@ public class ItemGeneratorHelper
 	private static final UUID ARMOR = UUID.fromString("81a2ee21-fe83-41fb-8b2f-bf5ef33a71a8");
 	private static final UUID ARMOR_TOUGHNESS = UUID.fromString("2cdb1e5e-3937-41e1-98a4-6a6eac2cf458");
 	
-	private static Random rand = new Random();
+	public static Random rand = new Random();
 	
 	public static void generateName(ItemStack stack, NBTTagCompound nbt)
 	{
@@ -88,6 +90,15 @@ public class ItemGeneratorHelper
 			else if (stack.getItem() instanceof ItemArmor)
 			{
 				ArmorAttribute attribute = ArmorAttribute.getRandomAttribute(rand); // generate random rarity.
+				
+				if (attribute.hasAttribute(nbt))
+					i--; // subtract 1 if we already have an attribute to "re-roll"
+				else
+					attribute.addAttribute(nbt); // add attribute - this method will handle setting up all the attribute unique modifiers, such as custom rarity, values, etc...
+			}
+			else if (stack.getItem() instanceof ItemLEBauble)
+			{
+				JewelryAttribute attribute = JewelryAttribute.getRandomAttribute(rand); // generate random rarity.
 				
 				if (attribute.hasAttribute(nbt))
 					i--; // subtract 1 if we already have an attribute to "re-roll"

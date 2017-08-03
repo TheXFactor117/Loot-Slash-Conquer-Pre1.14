@@ -20,6 +20,7 @@ public class ModEvents
 	public static void registerEvents()
 	{
 		MinecraftForge.EVENT_BUS.register(new ModBlocks());
+		MinecraftForge.EVENT_BUS.register(new ModItems());
 		MinecraftForge.EVENT_BUS.register(new ModWeapons());
 		
 		MinecraftForge.EVENT_BUS.register(new EventPlayerLoggedIn());

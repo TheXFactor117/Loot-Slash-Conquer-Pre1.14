@@ -20,9 +20,9 @@ public class NameHelper
 	public static final String[] LEGGINGS_SUFFIXES = new String[] { "Leggings", "Pants", "Skirt", "Breeches", "Legwraps", "Robe" };
 	public static final String[] BOOT_SUFFIXES = new String[] { "Boots", "Shoes", "Footguards", "Stompers", "Treads", "Sandals" };
 
-	public static final String[] AMULET_SUFFIXES = new String[] {};
-	public static final String[] RING_SUFFIXES = new String[] {};
-	public static final String[] BELT_SUFFIXES = new String[] {};
+	public static final String[] AMULET_SUFFIXES = new String[] { "Amulet", "Necklace" };
+	public static final String[] RING_SUFFIXES = new String[] { "Ring", "Band" };
+	public static final String[] BELT_SUFFIXES = new String[] { "Belt", "Sash", "Girdle" };
 	
 	public static String getRandomPrefix()
 	{

@@ -5,6 +5,7 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
+import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.loot.ItemGenerator;
 import com.thexfactor117.losteclipse.loot.ItemGeneratorHelper;
@@ -55,6 +56,10 @@ public class CreateStats extends LootFunction
 			else if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor)
 			{
 				ItemGenerator.create(stack, nbt, pos);
+			}
+			else if (stack.getItem() instanceof ItemLEBauble)
+			{
+				ItemGenerator.createJewelry(stack, nbt, pos);
 			}
 			
 			stack.setTagCompound(nbt);

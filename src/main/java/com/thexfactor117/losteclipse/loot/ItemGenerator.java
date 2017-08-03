@@ -1,7 +1,6 @@
 package com.thexfactor117.losteclipse.loot;
 
-import java.util.Random;
-
+import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 
@@ -34,7 +33,7 @@ public class ItemGenerator
 		
 		if (Rarity.getRarity(nbt) == Rarity.DEFAULT)
 		{
-			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, new Random())); // sets a random rarity
+			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand)); // sets a random rarity
 			nbt.setInteger("Level", (int) (Math.random() * 10 + 1)); // set level to current player level
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 			ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
@@ -49,7 +48,7 @@ public class ItemGenerator
 		{
 			ItemLEMagical wand = (ItemLEMagical) stack.getItem();
 			
-			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, new Random()));
+			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand));
 			nbt.setInteger("Level", (int) (Math.random() * 10 + 1));
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 			
@@ -63,6 +62,16 @@ public class ItemGenerator
 			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
 			ItemGeneratorHelper.setRune(nbt);
 			nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
+		}
+	}
+	
+	public static void createJewelry(ItemStack stack, NBTTagCompound nbt, BlockPos pos)
+	{
+		if (Rarity.getRarity(nbt) == Rarity.DEFAULT && stack.getItem() instanceof ItemLEBauble)
+		{
+			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand));
+			nbt.setInteger("Level", (int) (Math.random() * 10 + 1));
+			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 		}
 	}
 }

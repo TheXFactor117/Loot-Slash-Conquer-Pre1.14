@@ -19,7 +19,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class EntityProjectileBase extends EntityThrowable
+public abstract class EntityProjectileBase extends EntityThrowable
 {
 	protected EntityPlayer player; // shooter
 	protected ItemStack stack; // item that shot projectile

@@ -5,13 +5,18 @@ import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.api.IStats;
+import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
+import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.network.PacketUpdateCoreStats;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
+import com.thexfactor117.losteclipse.stats.weapons.JewelryAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
+import baubles.api.BaublesApi;
+import baubles.api.cap.IBaublesItemHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -119,7 +124,8 @@ public class EventPlayerTick
 	{	
 		info.removeBonusStats();
 		
-		if (player.inventory.getCurrentItem().getItem() instanceof ItemSword)
+		// current weapon
+		if (player.inventory.getCurrentItem().getItem() instanceof ItemSword || player.inventory.getCurrentItem().getItem() instanceof ItemLEMagical)
 		{
 			NBTTagCompound nbt = NBTHelper.loadStackNBT(player.inventory.getCurrentItem());
 			
@@ -133,14 +139,35 @@ public class EventPlayerTick
 		
 		for (ItemStack stack : player.inventory.armorInventory)
 		{
-			NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-			
-			if (ArmorAttribute.STRENGTH.hasAttribute(nbt)) info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) ArmorAttribute.STRENGTH.getAmount(nbt));
-			if (ArmorAttribute.AGILITY.hasAttribute(nbt)) info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) ArmorAttribute.AGILITY.getAmount(nbt));
-			if (ArmorAttribute.DEXTERITY.hasAttribute(nbt)) info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) ArmorAttribute.DEXTERITY.getAmount(nbt));
-			if (ArmorAttribute.INTELLIGENCE.hasAttribute(nbt)) info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) ArmorAttribute.INTELLIGENCE.getAmount(nbt));
-			if (ArmorAttribute.WISDOM.hasAttribute(nbt)) info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) ArmorAttribute.WISDOM.getAmount(nbt));
-			if (ArmorAttribute.FORTITUDE.hasAttribute(nbt)) info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) ArmorAttribute.FORTITUDE.getAmount(nbt));
+			if (stack.getItem() instanceof ItemArmor)
+			{
+				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+				
+				if (ArmorAttribute.STRENGTH.hasAttribute(nbt)) info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) ArmorAttribute.STRENGTH.getAmount(nbt));
+				if (ArmorAttribute.AGILITY.hasAttribute(nbt)) info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) ArmorAttribute.AGILITY.getAmount(nbt));
+				if (ArmorAttribute.DEXTERITY.hasAttribute(nbt)) info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) ArmorAttribute.DEXTERITY.getAmount(nbt));
+				if (ArmorAttribute.INTELLIGENCE.hasAttribute(nbt)) info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) ArmorAttribute.INTELLIGENCE.getAmount(nbt));
+				if (ArmorAttribute.WISDOM.hasAttribute(nbt)) info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) ArmorAttribute.WISDOM.getAmount(nbt));
+				if (ArmorAttribute.FORTITUDE.hasAttribute(nbt)) info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) ArmorAttribute.FORTITUDE.getAmount(nbt));
+			}
+		}
+		
+		// UNTESTED
+		IBaublesItemHandler baubles = BaublesApi.getBaublesHandler(player);
+		
+		for (int i = 0; i < baubles.getSlots(); i++)
+		{
+			if (baubles.getStackInSlot(i).getItem() instanceof ItemLEBauble)
+			{
+				NBTTagCompound nbt = NBTHelper.loadStackNBT(baubles.getStackInSlot(i));
+				
+				if (JewelryAttribute.STRENGTH.hasAttribute(nbt)) info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) JewelryAttribute.STRENGTH.getAmount(nbt));
+				if (JewelryAttribute.AGILITY.hasAttribute(nbt)) info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) JewelryAttribute.AGILITY.getAmount(nbt));
+				if (JewelryAttribute.DEXTERITY.hasAttribute(nbt)) info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) JewelryAttribute.DEXTERITY.getAmount(nbt));
+				if (JewelryAttribute.INTELLIGENCE.hasAttribute(nbt)) info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) JewelryAttribute.INTELLIGENCE.getAmount(nbt));
+				if (JewelryAttribute.WISDOM.hasAttribute(nbt)) info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) JewelryAttribute.WISDOM.getAmount(nbt));
+				if (JewelryAttribute.FORTITUDE.hasAttribute(nbt)) info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) JewelryAttribute.FORTITUDE.getAmount(nbt));
+			}
 		}
 		
 		PlayerStatHelper.updateAttributes(player);

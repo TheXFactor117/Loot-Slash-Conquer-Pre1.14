@@ -33,6 +33,16 @@
                     		"function": "losteclipse:create_stats"
                     	}
                     ]
+                },
+                {
+                	"type": "item",
+                    "name": "losteclipse:golden_ring",
+                    "weight": 1,
+                    "functions": [
+                    	{
+                    		"function": "losteclipse:create_stats"
+                    	}
+                    ]
                 }
             ]
         }

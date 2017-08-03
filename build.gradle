@@ -42,7 +42,9 @@ minecraft {
 }
 
 dependencies {
-
+	compile files (
+		"libs/Baubles-" + config.baubles_version + ".jar"
+	)
 }
 
 processResources {

@@ -1,5 +1,6 @@
 package com.thexfactor117.losteclipse.client.init;
 
+import com.thexfactor117.losteclipse.init.ModItems;
 import com.thexfactor117.losteclipse.init.ModWeapons;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -21,6 +22,19 @@ public class ModItemModels
 	@SubscribeEvent
 	public void registerItemModel(ModelRegistryEvent event)
 	{
+		/*
+		 * ITEMS
+		 */
+		
+		// jewelry
+		registerItemModel(ModItems.GOLDEN_RING);
+		
+		
+		
+		/*
+		 * WEAPONS
+		 */
+		
 		// melee
 		registerItemModel(ModWeapons.WOOD_DAGGER);
 		registerItemModel(ModWeapons.WOOD_MACE);
