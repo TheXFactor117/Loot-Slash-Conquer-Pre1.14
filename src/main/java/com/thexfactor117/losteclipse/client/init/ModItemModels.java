@@ -28,6 +28,10 @@ public class ModItemModels
 		
 		// jewelry
 		registerItemModel(ModItems.GOLDEN_RING);
+		registerItemModel(ModItems.DIAMOND_RING);
+		registerItemModel(ModItems.GOLDEN_AMULET);
+		registerItemModel(ModItems.DIAMOND_AMULET);
+		registerItemModel(ModItems.LEATHER_SASH);
 		
 		
 		
