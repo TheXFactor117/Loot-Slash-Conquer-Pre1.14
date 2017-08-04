@@ -69,6 +69,14 @@ public class ModItemModels
 		registerItemModel(ModWeapons.WOODEN_STAFF);
 		registerItemModel(ModWeapons.GOLDEN_STAFF);
 		registerItemModel(ModWeapons.DIAMOND_STAFF);
+		
+		// magical special
+		registerItemModel(ModWeapons.BLAZEFURY);
+		registerItemModel(ModWeapons.MOONLIT_ROD);
+		registerItemModel(ModWeapons.EPILOGUE);
+		
+		registerItemModel(ModWeapons.GAZE_OF_TRUTH);
+		registerItemModel(ModWeapons.VISAGE_OF_WIZARDRY);
 	}
 	
 	private void registerItemModel(Item item)
