@@ -48,7 +48,7 @@ public class MHSWorldGenerator implements IWorldGenerator
 		{
 			int y = getGroundFromAbove(world, blockX, blockZ);
 			BlockPos pos = new BlockPos(blockX, y, blockZ);
-			ProceduralDungeon dungeon = new ProceduralDungeon((int) (Math.random() * 3 + 2), (int) (Math.random() * 3 + 2));
+			ProceduralDungeon dungeon = new ProceduralDungeon((int) (Math.random() * 3 + 3), (int) (Math.random() * 3 + 4));
 			dungeon.generate(world, rand, pos);
 		}
 	}

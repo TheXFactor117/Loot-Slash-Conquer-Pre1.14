@@ -85,6 +85,16 @@ public enum WeaponAttribute
 			nbt.setDouble(name + "_attribute_stat", (int) amount);
 	}
 	
+	public void addAttribute(NBTTagCompound nbt, double amount)
+	{
+		nbt.setBoolean(toString(), true);
+		
+		if (amount < 1)
+			nbt.setDouble(name + "_attribute_stat", amount);
+		else
+			nbt.setDouble(name + "_attribute_stat", (int) amount);
+	}
+	
 	/**
 	 * Removes the specified Attribute from the NBT tag compound.
 	 * @param nbt

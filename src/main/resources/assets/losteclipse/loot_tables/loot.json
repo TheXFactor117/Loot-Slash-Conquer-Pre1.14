@@ -43,6 +43,16 @@
                     		"function": "losteclipse:create_stats"
                     	}
                     ]
+                },
+                {
+                	"type": "item",
+                    "name": "losteclipse:divine_rapier",
+                    "weight": 1,
+                    "functions": [
+                    	{
+                    		"function": "losteclipse:create_special"
+                    	}
+                    ]
                 }
             ]
         }

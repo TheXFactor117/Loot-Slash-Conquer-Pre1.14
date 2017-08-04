@@ -3,7 +3,14 @@ package com.thexfactor117.losteclipse.init;
 import com.thexfactor117.losteclipse.items.base.ItemTest;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
-import com.thexfactor117.losteclipse.items.melee.ItemLEMelee;
+import com.thexfactor117.losteclipse.items.melee.special.ItemAlakaslam;
+import com.thexfactor117.losteclipse.items.melee.special.ItemAnnihilation;
+import com.thexfactor117.losteclipse.items.melee.special.ItemDivineRapier;
+import com.thexfactor117.losteclipse.items.melee.special.ItemDoomshadow;
+import com.thexfactor117.losteclipse.items.melee.special.ItemExcaliburRapier;
+import com.thexfactor117.losteclipse.items.melee.special.ItemGoldenPummel;
+import com.thexfactor117.losteclipse.items.melee.special.ItemRequiem;
+import com.thexfactor117.losteclipse.items.melee.special.ItemShadowfall;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -50,15 +57,15 @@ public class ModWeapons
 	public static final Item DIAMOND_MACE = new ItemLEAdvancedMelee(ToolMaterial.DIAMOND, "diamond_mace", 1.25, 1.25, 1171);
 	
 	// melee special
-	public static final Item DIVINE_RAPIER = new ItemLEMelee(ToolMaterials.DIVINE, "divine_rapier"); // add Legendary Rarity
-	public static final Item REQUIEM = new ItemLEMelee(ToolMaterials.REQUIEM, "requiem");
-	public static final Item SHADOWFALL = new ItemLEAdvancedMelee(ToolMaterials.SHADOWFALL, "shadowfall", 1, 0.5);
-	public static final Item DOOMSHADOW = new ItemLEAdvancedMelee(ToolMaterials.DOOMSHADOW, "doomshadow", 1, 1.25);
-	public static final Item GOLDEN_PUMMEL = new ItemLEAdvancedMelee(ToolMaterials.GOLDEN_PUMMEL, "golden_pummel", 1, 1.25);
+	public static final Item DIVINE_RAPIER = new ItemDivineRapier(ToolMaterials.DIVINE, "divine_rapier"); // add Legendary Rarity
+	public static final Item REQUIEM = new ItemRequiem(ToolMaterials.REQUIEM, "requiem");
+	public static final Item SHADOWFALL = new ItemShadowfall(ToolMaterials.SHADOWFALL, "shadowfall", 1, 0.5);
+	public static final Item DOOMSHADOW = new ItemDoomshadow(ToolMaterials.DOOMSHADOW, "doomshadow", 1, 1.25);
+	public static final Item GOLDEN_PUMMEL = new ItemGoldenPummel(ToolMaterials.GOLDEN_PUMMEL, "golden_pummel", 1, 1.25);
 	
-	public static final Item EXCALIBUR_RAPIER = new ItemLEMelee(ToolMaterials.EXCALIBUR, "excalibur_rapier"); // add Exotic Rarity
-	public static final Item ALAKASLAM = new ItemLEAdvancedMelee(ToolMaterials.ALAKASLAM, "alakaslam", 1, 1.25);
-	public static final Item ANNIHILATION = new ItemLEAdvancedMelee(ToolMaterials.ANNIHILATION, "annihilation", 1, 0.5);
+	public static final Item EXCALIBUR_RAPIER = new ItemExcaliburRapier(ToolMaterials.EXCALIBUR, "excalibur_rapier"); // add Exotic Rarity
+	public static final Item ALAKASLAM = new ItemAlakaslam(ToolMaterials.ALAKASLAM, "alakaslam", 1, 1.25);
+	public static final Item ANNIHILATION = new ItemAnnihilation(ToolMaterials.ANNIHILATION, "annihilation", 1, 0.5);
 	
 	
 	// magical ranged
