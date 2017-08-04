@@ -1,5 +1,6 @@
 package com.thexfactor117.losteclipse.init;
 
+import com.thexfactor117.losteclipse.events.EventEntityJoinWorld;
 import com.thexfactor117.losteclipse.events.EventInput;
 import com.thexfactor117.losteclipse.events.EventItemTooltip;
 import com.thexfactor117.losteclipse.events.EventLivingDeath;
@@ -30,5 +31,6 @@ public class ModEvents
 		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
 		MinecraftForge.EVENT_BUS.register(new EventLoadLootTable());
 		MinecraftForge.EVENT_BUS.register(new EventPlayerTick());
+		MinecraftForge.EVENT_BUS.register(new EventEntityJoinWorld());
 	}
 }
