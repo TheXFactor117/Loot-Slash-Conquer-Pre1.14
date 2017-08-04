@@ -2,6 +2,11 @@ package com.thexfactor117.losteclipse.init;
 
 import com.thexfactor117.losteclipse.items.base.ItemTest;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
+import com.thexfactor117.losteclipse.items.magical.special.ItemBlazefury;
+import com.thexfactor117.losteclipse.items.magical.special.ItemEpilogue;
+import com.thexfactor117.losteclipse.items.magical.special.ItemGazeOfTruth;
+import com.thexfactor117.losteclipse.items.magical.special.ItemMoonlitRod;
+import com.thexfactor117.losteclipse.items.magical.special.ItemVisageOfWizardry;
 import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
 import com.thexfactor117.losteclipse.items.melee.special.ItemAlakaslam;
 import com.thexfactor117.losteclipse.items.melee.special.ItemAnnihilation;
@@ -76,6 +81,14 @@ public class ModWeapons
 	public static final Item WOODEN_STAFF = new ItemLEMagical("wooden_staff", 5, 1.25, 10, 200);
 	public static final Item GOLDEN_STAFF = new ItemLEMagical("golden_staff", 6, 1.25, 10, 100);
 	public static final Item DIAMOND_STAFF = new ItemLEMagical("diamond_staff", 7, 1.25, 10, 500);
+	
+	// magical special
+	public static final Item BLAZEFURY = new ItemBlazefury("blazefury", 7, 2, 5, 400);
+	public static final Item MOONLIT_ROD = new ItemMoonlitRod("moonlit_rod", 8, 2, 5, 375);
+	public static final Item EPILOGUE = new ItemEpilogue("epilogue", 11, 1.25, 10, 600);
+	
+	public static final Item GAZE_OF_TRUTH = new ItemGazeOfTruth("gaze_of_truth", 15, 1.25, 10, 800);
+	public static final Item VISAGE_OF_WIZARDRY = new ItemVisageOfWizardry("visage_of_wizardry", 11, 2, 5, 700);
 	
 	
 	/* Armors */

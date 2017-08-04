@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.items.melee.special;
 
 import com.thexfactor117.losteclipse.init.ModTabs;
-import com.thexfactor117.losteclipse.items.melee.ISpecial;
+import com.thexfactor117.losteclipse.items.base.ISpecial;
 import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
 import com.thexfactor117.losteclipse.loot.ItemGeneratorHelper;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
