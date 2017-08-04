@@ -14,6 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
@@ -38,6 +40,7 @@ public class CreateSpecial extends LootFunction
 			CustomLootContext customContext = (CustomLootContext) context;
 			BlockPos pos;
 			NBTTagCompound nbt;
+			World world = context.getWorld();
 			
 			if (customContext.getChestPos() != null)
 				pos = customContext.getChestPos();
@@ -52,7 +55,7 @@ public class CreateSpecial extends LootFunction
 			if (stack.getItem() instanceof ISpecial)
 			{
 				ISpecial special = (ISpecial) stack.getItem();
-				special.createSpecial(stack, nbt, pos);
+				special.createSpecial(stack, nbt, world, new ChunkPos(pos));
 			}
 
 			nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags

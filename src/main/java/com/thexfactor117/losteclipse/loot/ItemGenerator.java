@@ -1,12 +1,16 @@
 package com.thexfactor117.losteclipse.loot;
 
+import com.thexfactor117.losteclipse.capabilities.api.IChunkLevel;
+import com.thexfactor117.losteclipse.capabilities.api.IChunkLevelHolder;
+import com.thexfactor117.losteclipse.capabilities.chunk.CapabilityChunkLevel;
 import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.World;
 
 /**
  * 
@@ -16,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 public class ItemGenerator 
 {
 	/** Creates a melee weapon/armor with randomized stats. */
-	public static void create(ItemStack stack, NBTTagCompound nbt, BlockPos pos)
+	public static void create(ItemStack stack, NBTTagCompound nbt, World world, ChunkPos pos)
 	{
 		/*
 		 * Set rarity
@@ -33,8 +37,12 @@ public class ItemGenerator
 		
 		if (Rarity.getRarity(nbt) == Rarity.DEFAULT)
 		{
+			IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
+			IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
+			int level = chunkLevel.getChunkLevel();
+			
 			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand)); // sets a random rarity
-			nbt.setInteger("Level", (int) (Math.random() * 10 + 1)); // set level to current player level
+			nbt.setInteger("Level", level); // set level to current player level
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 			ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 			nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
@@ -42,14 +50,17 @@ public class ItemGenerator
 	}
 	
 	/** Creates a magical weapon with randomized stats. */
-	public static void createMagical(ItemStack stack, NBTTagCompound nbt, BlockPos pos)
+	public static void createMagical(ItemStack stack, NBTTagCompound nbt, World world, ChunkPos pos)
 	{
 		if (Rarity.getRarity(nbt) == Rarity.DEFAULT && stack.getItem() instanceof ItemLEMagical)
 		{
+			IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
+			IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
+			int level = chunkLevel.getChunkLevel();
 			ItemLEMagical wand = (ItemLEMagical) stack.getItem();
 			
 			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand));
-			nbt.setInteger("Level", (int) (Math.random() * 10 + 1));
+			nbt.setInteger("Level", level);
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 			
 			// handles setting weighted damage/attack speed and min/max damage
@@ -65,12 +76,16 @@ public class ItemGenerator
 		}
 	}
 	
-	public static void createJewelry(ItemStack stack, NBTTagCompound nbt, BlockPos pos)
+	public static void createJewelry(ItemStack stack, NBTTagCompound nbt, World world, ChunkPos pos)
 	{
 		if (Rarity.getRarity(nbt) == Rarity.DEFAULT && stack.getItem() instanceof ItemLEBauble)
 		{
+			IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
+			IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
+			int level = chunkLevel.getChunkLevel();
+			
 			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand));
-			nbt.setInteger("Level", (int) (Math.random() * 10 + 1));
+			nbt.setInteger("Level", level);
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 		}
 	}

@@ -1,6 +1,7 @@
 package com.thexfactor117.losteclipse.init;
 
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.chunk.CapabilityChunkLevel;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 
 /**
@@ -14,5 +15,6 @@ public class ModCapabilities
 	{
 		CapabilityPlayerInformation.register();
 		CapabilityPlayerStats.register();
+		CapabilityChunkLevel.register();
 	}
 }

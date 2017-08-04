@@ -2,7 +2,8 @@ package com.thexfactor117.losteclipse.items.base;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.World;
 
 /**
  * 
@@ -11,5 +12,5 @@ import net.minecraft.util.math.BlockPos;
  */
 public interface ISpecial 
 {
-	public void createSpecial(ItemStack stack, NBTTagCompound nbt, BlockPos pos);
+	public void createSpecial(ItemStack stack, NBTTagCompound nbt, World world, ChunkPos pos);
 }

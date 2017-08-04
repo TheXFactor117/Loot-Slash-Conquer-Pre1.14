@@ -18,6 +18,8 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
@@ -37,6 +39,7 @@ public class CreateStats extends LootFunction
 			CustomLootContext customContext = (CustomLootContext) context;
 			BlockPos pos;
 			NBTTagCompound nbt;
+			World world = context.getWorld();
 			
 			if (customContext.getChestPos() != null)
 				pos = customContext.getChestPos();
@@ -51,15 +54,15 @@ public class CreateStats extends LootFunction
 			
 			if (stack.getItem() instanceof ItemLEMagical)
 			{
-				ItemGenerator.createMagical(stack, nbt, pos);
+				ItemGenerator.createMagical(stack, nbt, world, new ChunkPos(pos));
 			}
 			else if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor)
 			{
-				ItemGenerator.create(stack, nbt, pos);
+				ItemGenerator.create(stack, nbt, world, new ChunkPos(pos));
 			}
 			else if (stack.getItem() instanceof ItemLEBauble)
 			{
-				ItemGenerator.createJewelry(stack, nbt, pos);
+				ItemGenerator.createJewelry(stack, nbt, world, new ChunkPos(pos));
 			}
 			
 			stack.setTagCompound(nbt);
