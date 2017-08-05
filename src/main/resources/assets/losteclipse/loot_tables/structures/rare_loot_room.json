@@ -9,7 +9,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "losteclipse:loot/common_loot",
+					"name": "losteclipse:loot/rare_loot",
 					"weight": 1
 				}
 			]

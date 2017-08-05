@@ -44,37 +44,11 @@ public class DungeonHelper
 							
 				if (chestEntity instanceof TileEntityChest)
 				{
-					((TileEntityChest) chestEntity).setLootTable(ModLootTables.common_loot_room, world.rand.nextLong());
-				}
-			}
-			else if ("rare_chest".equals(e.getValue())) // check data block tag
-			{
-				BlockPos dataPos = e.getKey();
-				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3); // remove data block
-				TileEntity chestEntity = world.getTileEntity(dataPos.down()); // chest is located under data block
-							
-				if (chestEntity instanceof TileEntityChest)
-				{
-					int rand = (int) (Math.random() * 100 + 1);
-
-					/*if (rand <= 40) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.STRUCTURE_COMMON, world.rand.nextLong());
-					else if (rand > 90) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.STRUCTURE_LEGENDARY, world.rand.nextLong());
-					else ((TileEntityChest) chestEntity).setLootTable(ModLootTables.STRUCTURE_RARE, world.rand.nextLong());*/
-				}
-			}
-			else if ("legendary_chest".equals(e.getValue())) // check data block tag
-			{
-				BlockPos dataPos = e.getKey();
-				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3); // remove data block
-				TileEntity chestEntity = world.getTileEntity(dataPos.down()); // chest is located under data block
-							
-				if (chestEntity instanceof TileEntityChest)
-				{
-					int rand = (int) (Math.random() * 100 + 1);
+					int rand = (int) (Math.random() * 10);
 					
-					/*if (rand <= 10) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.STRUCTURE_COMMON, world.rand.nextLong());
-					else if (rand > 50) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.STRUCTURE_LEGENDARY, world.rand.nextLong());
-					else ((TileEntityChest) chestEntity).setLootTable(ModLootTables.STRUCTURE_RARE, world.rand.nextLong());*/
+					if (rand > 3) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.common_loot_room, world.rand.nextLong());
+					else if (rand > 0) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.rare_loot_room, world.rand.nextLong());
+					else if (rand == 0) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.legendary_loot_room, world.rand.nextLong());
 				}
 			}
 		}
