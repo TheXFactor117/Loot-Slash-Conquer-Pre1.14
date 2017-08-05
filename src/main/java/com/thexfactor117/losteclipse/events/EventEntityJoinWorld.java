@@ -53,7 +53,7 @@ public class EventEntityJoinWorld
 		}
 	}
 	
-	private void setAttributeModifiers(EntityLivingBase entity, int level)
+	public static void setAttributeModifiers(EntityLivingBase entity, int level)
 	{
 		AttributeModifier attackDamage = new AttributeModifier(ATTACK_DAMAGE, "attackDamage", level * 0.1, 1);
 		AttributeModifier maxHealth = new AttributeModifier(MAX_HEALTH, "maxHealth", level * 0.2, 1);

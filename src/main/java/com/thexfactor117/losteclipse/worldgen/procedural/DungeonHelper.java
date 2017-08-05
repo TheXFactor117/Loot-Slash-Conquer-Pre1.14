@@ -42,9 +42,9 @@ public class DungeonHelper
 				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3); // remove data block
 				TileEntity chestEntity = world.getTileEntity(dataPos.down()); // chest is located under data block
 							
-				if (chestEntity instanceof TileEntityChest && (int) (Math.random() * 2) == 0)
+				if (chestEntity instanceof TileEntityChest)
 				{
-					((TileEntityChest) chestEntity).setLootTable(ModLootTables.loot, world.rand.nextLong());
+					((TileEntityChest) chestEntity).setLootTable(ModLootTables.common_loot_room, world.rand.nextLong());
 				}
 			}
 			else if ("rare_chest".equals(e.getValue())) // check data block tag

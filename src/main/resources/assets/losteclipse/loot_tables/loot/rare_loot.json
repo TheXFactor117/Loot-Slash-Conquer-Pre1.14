@@ -6,25 +6,8 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "losteclipse:loot/common/common_weapons",
-					"weight": 1
-				}
-			]
-		},
-		{
-			"name": "rare",
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "loot_table",
 					"name": "losteclipse:loot/rare/rare_weapons",
 					"weight": 1
-				}
-			],
-			"conditions": [
-				{
-					"condition": "random_chance",
-					"chance": 0.1
 				}
 			]
 		},
@@ -41,7 +24,7 @@
 			"conditions": [
 				{
 					"condition": "random_chance",
-					"chance": 0.03
+					"chance": 0.1
 				}
 			]
 		}

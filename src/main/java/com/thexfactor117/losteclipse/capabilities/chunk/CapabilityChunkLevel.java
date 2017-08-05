@@ -2,7 +2,6 @@ package com.thexfactor117.losteclipse.capabilities.chunk;
 
 import javax.annotation.Nullable;
 
-import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.api.IChunkLevel;
 import com.thexfactor117.losteclipse.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.losteclipse.util.CapabilityUtils;
@@ -25,7 +24,6 @@ import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.world.ChunkDataEvent;
 import net.minecraftforge.event.world.ChunkEvent;
-import net.minecraftforge.event.world.ChunkWatchEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -149,12 +147,11 @@ public class CapabilityChunkLevel
 			chunkLevelHolder.removeChunkLevel(event.getChunk().getPos());
 		}
 		
-		@SubscribeEvent
+		/*@SubscribeEvent
 		public static void onChunkWatch(ChunkWatchEvent.Watch event)
 		{
 			IChunkLevel chunkLevel = getChunkLevel(event.getPlayer().getEntityWorld(), event.getChunk());
-			LostEclipse.LOGGER.info(chunkLevel.getChunkLevel());
-		}
+		}*/
 		
 		private static int getAreaLevel(World world, ChunkPos pos)
 		{	

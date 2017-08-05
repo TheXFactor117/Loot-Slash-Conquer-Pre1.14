@@ -1,5 +1,7 @@
 package com.thexfactor117.losteclipse.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.api.IStats;
 import com.thexfactor117.losteclipse.util.Reference;
@@ -43,20 +45,38 @@ public class GuiMana extends Gui
 				{
 					if (statsCap.getMaxMana() != 0)
 					{
-						double manaBarWidth = (double) statsCap.getMana() / statsCap.getMaxMana() * 96.0;
-						int xPos = sr.getScaledWidth() / 2 + 110;
-						int yPos = sr.getScaledHeight() - 20;
+						double manaBarWidth = (double) statsCap.getMana() / statsCap.getMaxMana() * 81.0;
+						int xPos = sr.getScaledWidth() / 2 + 10;
+						int yPos = sr.getScaledHeight() - 38;
 						
 						mc.renderEngine.bindTexture(location);
 
 						//if (capMana.getMana() != capMana.getMaxMana())
 						//{
-							this.drawTexturedModalRect(xPos, yPos, 0, 18, 96, 6);
+							this.drawTexturedModalRect(xPos, yPos, 0, 18, 81, 6);
 							this.drawTexturedModalRect(xPos, yPos, 0, 24, (int) manaBarWidth, 5);
 						//}
 					}
 				}
 			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void onRenderOverlayText(RenderGameOverlayEvent.Text event)
+	{
+		ScaledResolution sr = event.getResolution();
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
+		
+		if (!player.capabilities.isCreativeMode && statsCap != null)
+		{
+			String mana = statsCap.getMana() + " / " + statsCap.getMaxMana();
+			
+			GL11.glPushMatrix();
+			GL11.glScalef(0.5F, 0.5F, 0.5F);
+			Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(mana, (sr.getScaledWidth() / 2 + 37) * 2, (sr.getScaledHeight() - 37) * 2, 0xFFFFFF);
+			GL11.glPopMatrix();
 		}
 	}
 }
