@@ -64,7 +64,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage") + (int) playerDamage);
 				
 				// apply damage
-				result.entityHit.attackEntityFrom(DamageSource.MAGIC, (float) damage);
+				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);
 				result.entityHit.hurtResistantTime = 0; // set hurt resistant time to zero because other calculations might be added.
 				
 				// apply attributes
@@ -77,5 +77,10 @@ public abstract class EntityProjectileBase extends EntityThrowable
 	protected float getGravityVelocity()
 	{
 		return 0F;
+	}
+	
+	public EntityPlayer getShooter()
+	{
+		return player;
 	}
 }

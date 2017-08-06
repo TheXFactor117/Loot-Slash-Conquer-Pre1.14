@@ -24,29 +24,36 @@ public class EventLivingDeath
 		/*
 		 * Update player experience when they kill a monster. Experience gained is determined from how much health/damage the monsters has.
 		 */
-		
+
 		if (event.getSource().getTrueSource() instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 			EntityLivingBase enemy = event.getEntityLiving();
 			IPlayerInformation playerInfo = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (playerInfo != null)
+			if (!player.getEntityWorld().isRemote && playerInfo != null)
 			{
-				int experience = 0;
-				
-				if (enemy instanceof EntityPlayer) experience = 50; // if entity is a player, award more experience than usual.
-				else experience = (int) (enemy.getMaxHealth() * 0.2); // experience = 10% of max health.
-				
-				// update experience on client AND server; increase level if need be.
-				playerInfo.setPlayerExperience(playerInfo.getPlayerExperience() + experience + 1000);
-				while (playerInfo.getPlayerExperience() > playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel())) 
-				{
-					playerInfo.setPlayerLevel(playerInfo.getPlayerLevel() + 1); // increase level
-					playerInfo.setSkillPoints(playerInfo.getSkillPoints() + 1); // increase skill points
-				}
-				LostEclipse.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) player); 
+				addExperience(player, playerInfo, enemy);
 			}
 		}
+	}
+	
+	private void addExperience(EntityPlayer player, IPlayerInformation playerInfo, EntityLivingBase enemy)
+	{
+		int experience = 0;
+		
+		if (enemy instanceof EntityPlayer) experience = 50; // if entity is a player, award more experience than usual.
+		else experience = (int) (enemy.getMaxHealth() * 0.2); // experience = 10% of max health.
+		
+		// update experience on client AND server; increase level if need be.
+		playerInfo.setPlayerExperience(playerInfo.getPlayerExperience() + experience);
+		
+		while (playerInfo.getPlayerExperience() > playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel())) 
+		{
+			playerInfo.setPlayerLevel(playerInfo.getPlayerLevel() + 1); // increase level
+			playerInfo.setSkillPoints(playerInfo.getSkillPoints() + 1); // increase skill points
+		}
+		
+		LostEclipse.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) player); 
 	}
 }
