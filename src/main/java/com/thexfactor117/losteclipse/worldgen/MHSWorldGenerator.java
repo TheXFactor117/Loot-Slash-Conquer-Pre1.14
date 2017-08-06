@@ -56,6 +56,7 @@ public class MHSWorldGenerator implements IWorldGenerator
 	private void generateNether(World world, Random rand, int chunkX, int chunkZ) {}
 	private void generateEnd(World world, Random rand, int chunkX, int chunkZ) {}
 	
+	@SuppressWarnings("unused")
 	private void addOreSpawn(IBlockState block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chanceToSpawn, int minY, int maxY)
 	{
 		for (int i = 0; i < chanceToSpawn; i++)

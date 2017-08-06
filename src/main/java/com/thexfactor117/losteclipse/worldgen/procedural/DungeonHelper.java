@@ -3,12 +3,22 @@ package com.thexfactor117.losteclipse.worldgen.procedural;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 
+import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.init.ModLootTables;
 import com.thexfactor117.losteclipse.util.Reference;
 
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.monster.EntityCaveSpider;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntitySpider;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -41,8 +51,9 @@ public class DungeonHelper
 				BlockPos dataPos = e.getKey();
 				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3); // remove data block
 				TileEntity chestEntity = world.getTileEntity(dataPos.down()); // chest is located under data block
-							
-				if (chestEntity instanceof TileEntityChest)
+				int chance = (int) (Math.random() * 2);
+				
+				if (chestEntity instanceof TileEntityChest && chance == 0)
 				{
 					int rand = (int) (Math.random() * 10);
 					
@@ -50,8 +61,41 @@ public class DungeonHelper
 					else if (rand > 0) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.rare_loot_room, world.rand.nextLong());
 					else if (rand == 0) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.legendary_loot_room, world.rand.nextLong());
 				}
+				else
+				{
+					world.setBlockState(chestEntity.getPos(), Blocks.AIR.getDefaultState(), 3);
+				}
+			}
+			else if ("random_spawner".equals(e.getValue()))
+			{
+				BlockPos dataPos = e.getKey();
+				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+				TileEntity spawnerEntity = world.getTileEntity(dataPos.down());
+				
+				if (spawnerEntity instanceof TileEntityMobSpawner)
+				{
+					MobSpawnerBaseLogic logic = ((TileEntityMobSpawner) spawnerEntity).getSpawnerBaseLogic();
+					
+					LostEclipse.LOGGER.info("Entity ID: " + EntityList.getKey(EntityEnderman.class));
+					
+					logic.setEntityId(getRandomMonster());
+				}
 			}
 		}
+	}
+	
+	private static ResourceLocation getRandomMonster()
+	{
+		ArrayList<ResourceLocation> entities = new ArrayList<ResourceLocation>();
+		
+		entities.add(EntityList.getKey(EntityZombie.class));
+		entities.add(EntityList.getKey(EntitySpider.class));
+		entities.add(EntityList.getKey(EntitySkeleton.class));
+		entities.add(EntityList.getKey(EntityEnderman.class));
+		entities.add(EntityList.getKey(EntityCreeper.class));
+		entities.add(EntityList.getKey(EntityCaveSpider.class));
+		
+		return entities.get((int) (Math.random() * entities.size()));	
 	}
 	
 	public static PotentialPosition getPotentialRoomPosition(Template template, BlockPos center, Rotation rotation)
@@ -71,10 +115,11 @@ public class DungeonHelper
 	{
 		ArrayList<Template> templates = new ArrayList<Template>();
 		
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room_1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze_1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "spawner_1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "spawner_2")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room_random1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room_random2")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "spawner1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "fluff1")));
 		
 		return templates.get((int) (Math.random() * (templates.size())));
 	}
