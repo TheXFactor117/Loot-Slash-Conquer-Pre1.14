@@ -3,6 +3,7 @@ package com.thexfactor117.losteclipse.init;
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.network.PacketClassGui;
 import com.thexfactor117.losteclipse.network.PacketClassSelection;
+import com.thexfactor117.losteclipse.network.PacketUpdateChunkLevel;
 import com.thexfactor117.losteclipse.network.PacketUpdateIncreaseStat;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.network.PacketUpdatePlayerInformation;
@@ -28,5 +29,6 @@ public class ModPackets
 		LostEclipse.network.registerMessage(PacketUpdateCoreStats.Handler.class, PacketUpdateCoreStats.class, 3, Side.CLIENT);
 		LostEclipse.network.registerMessage(PacketUpdateIncreaseStat.Handler.class, PacketUpdateIncreaseStat.class, 4, Side.SERVER);
 		LostEclipse.network.registerMessage(PacketUpdateStats.Handler.class, PacketUpdateStats.class, 5, Side.CLIENT);
+		LostEclipse.network.registerMessage(PacketUpdateChunkLevel.Handler.class, PacketUpdateChunkLevel.class, 6, Side.CLIENT);
 	}
 }
