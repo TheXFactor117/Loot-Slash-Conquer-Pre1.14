@@ -46,7 +46,7 @@ public class LostEclipse
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{
+	{	
 		ModLootTables.register();
 		ModCapabilities.registerCapabilities();
 		ModEvents.registerEvents();

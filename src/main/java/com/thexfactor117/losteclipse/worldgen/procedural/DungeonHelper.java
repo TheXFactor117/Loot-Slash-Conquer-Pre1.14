@@ -3,7 +3,6 @@ package com.thexfactor117.losteclipse.worldgen.procedural;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 
-import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.init.ModLootTables;
 import com.thexfactor117.losteclipse.util.Reference;
 
@@ -75,9 +74,7 @@ public class DungeonHelper
 				if (spawnerEntity instanceof TileEntityMobSpawner)
 				{
 					MobSpawnerBaseLogic logic = ((TileEntityMobSpawner) spawnerEntity).getSpawnerBaseLogic();
-					
-					LostEclipse.LOGGER.info("Entity ID: " + EntityList.getKey(EntityEnderman.class));
-					
+										
 					logic.setEntityId(getRandomMonster());
 				}
 			}

@@ -152,7 +152,6 @@ public class ItemLEMagical extends Item
 				
 				if (count > (this.getMaxItemUseDuration(stack) - ((1 / attackSpeed) * 20))) 
 				{
-					LostEclipse.LOGGER.info("Count: " + count + "\t" + ((1 / attackSpeed) * 20));
 					return;
 				}
 				

@@ -41,7 +41,7 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		{	
 			dungeonEntrance.addBlocksToWorld(world, DungeonHelper.translateToCorner(dungeonEntrance, position.add(0, -8, 0), Rotation.NONE), settings);
 			DungeonHelper.handleDataBlocks(dungeonEntrance, world, position, settings);
-			LostEclipse.LOGGER.info("Generating Dungeon at " + position);
+			LostEclipse.LOGGER.debug("Generating Dungeon at " + position);
 			// start procedural generate
 			procedurallyGenerate(manager, world, position, null);
 			
@@ -53,8 +53,8 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 	
 	public void procedurallyGenerate(TemplateManager manager, World world, BlockPos startingPos, ArrayList<PotentialPosition> potentialPositions)
 	{
-		LostEclipse.LOGGER.info("Procedurally generating another round...");
-		LostEclipse.LOGGER.info("Current Depth: " + depth + "\tRoom Count: " + roomCount);
+		LostEclipse.LOGGER.debug("Procedurally generating another round...");
+		LostEclipse.LOGGER.debug("Current Depth: " + depth + "\tRoom Count: " + roomCount);
 		ArrayList<PotentialPosition> nextPositions = potentialPositions; // create a new PotentialPosition array for the next iteration. 
 		
 		if (depth > maxDepth)

@@ -3,7 +3,6 @@ package com.thexfactor117.losteclipse.events;
 import java.util.Iterator;
 import java.util.List;
 
-import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
 import com.thexfactor117.losteclipse.init.ModDamageSources;
@@ -57,8 +56,6 @@ public class EventLivingHurtAttack
 				// set the true amount of damage.
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
 				event.setAmount((float) (trueDamage + player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
-				
-				LostEclipse.LOGGER.info(event.getAmount());
 			}
 		}
 		

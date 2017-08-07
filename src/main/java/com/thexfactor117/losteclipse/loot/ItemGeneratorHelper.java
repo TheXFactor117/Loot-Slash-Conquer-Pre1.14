@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
-import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.entities.projectiles.Rune;
 import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
@@ -139,8 +138,6 @@ public class ItemGeneratorHelper
 			double damage = getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
 			double speed = getWeightedAttackSpeed(Rarity.getRarity(nbt), baseSpeed);
 
-			LostEclipse.LOGGER.info("Attack Speed: " + speed);
-			
 			setMinMaxDamage(nbt, damage);
 			
 			// Creates new AttributeModifier's and applies them to the stack's NBT tag compound.

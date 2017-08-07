@@ -91,7 +91,7 @@ public abstract class ProceduralDungeonBase extends WorldGenerator
 		{
 			if (center.equals(roomPositions.get(i)))
 			{
-				LostEclipse.LOGGER.info("Room and potential position matched.");
+				LostEclipse.LOGGER.debug("Room and potential position matched.");
 				return null;
 			}
 		}
