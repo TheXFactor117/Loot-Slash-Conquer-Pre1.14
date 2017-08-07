@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.network;
 
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 
 import io.netty.buffer.ByteBuf;

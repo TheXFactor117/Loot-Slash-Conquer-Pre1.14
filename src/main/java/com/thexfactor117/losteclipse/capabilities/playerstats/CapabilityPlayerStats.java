@@ -1,8 +1,7 @@
-package com.thexfactor117.losteclipse.capabilities;
+package com.thexfactor117.losteclipse.capabilities.playerstats;
 
 import javax.annotation.Nullable;
 
-import com.thexfactor117.losteclipse.capabilities.api.IStats;
 import com.thexfactor117.losteclipse.util.CapabilityUtils;
 import com.thexfactor117.losteclipse.util.Reference;
 import com.thexfactor117.losteclipse.util.SimpleCapabilityProvider;
@@ -48,6 +47,8 @@ public class CapabilityPlayerStats
 				nbt.setInteger("MaxMana", instance.getMaxMana());
 				nbt.setInteger("ManaPerSecond", instance.getManaPerSecond());
 				
+				nbt.setDouble("MagicalPower", instance.getMagicalPower());
+				
 				nbt.setInteger("HealthPerSecond", instance.getHealthPerSecond());
 				
 				nbt.setDouble("CriticalChance", instance.getCriticalChance());
@@ -64,6 +65,8 @@ public class CapabilityPlayerStats
 				instance.setMana(compound.getInteger("Mana"));
 				instance.setMaxMana(compound.getInteger("MaxMana"));
 				instance.setManaPerSecond(compound.getInteger("ManaPerSecond"));
+				
+				instance.setMagicalPower(compound.getDouble("MagicalPower"));
 				
 				instance.setHealthPerSecond(compound.getInteger("HealthPerSecond"));
 				
@@ -110,6 +113,8 @@ public class CapabilityPlayerStats
 				newStats.setMana(oldStats.getMana());
 				newStats.setMaxMana(oldStats.getMaxMana());
 				newStats.setManaPerSecond(oldStats.getManaPerSecond());
+				
+				newStats.setMagicalPower(oldStats.getMagicalPower());
 				
 				newStats.setHealthPerSecond(oldStats.getHealthPerSecond());
 				

@@ -1,8 +1,6 @@
-package com.thexfactor117.losteclipse.capabilities;
+package com.thexfactor117.losteclipse.capabilities.playerstats;
 
 import javax.annotation.Nullable;
-
-import com.thexfactor117.losteclipse.capabilities.api.IStats;
 
 import net.minecraft.entity.EntityLivingBase;
 
@@ -16,6 +14,8 @@ public class Stats implements IStats
 	private int mana;
 	private int maxMana;
 	private int manaPerSecond;
+	
+	private double magicalPower;
 	
 	private int healthPerSecond;
 	
@@ -38,6 +38,9 @@ public class Stats implements IStats
 	public void setMana(int mana) 
 	{
 		this.mana = mana;
+		
+		if (mana > getMaxMana()) this.mana = getMaxMana();
+		else if (mana < 0) this.mana = 0;
 	}
 
 	@Override
@@ -68,6 +71,21 @@ public class Stats implements IStats
 	public int getManaPerSecond() 
 	{
 		return manaPerSecond;
+	}
+	
+	/*
+	 * MAGICAL POWER
+	 */
+	@Override
+	public void setMagicalPower(double power)
+	{
+		this.magicalPower = power;
+	}
+	
+	@Override
+	public double getMagicalPower()
+	{
+		return magicalPower;
 	}
 	
 	/*

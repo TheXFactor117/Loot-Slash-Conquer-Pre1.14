@@ -1,8 +1,6 @@
-package com.thexfactor117.losteclipse.capabilities;
+package com.thexfactor117.losteclipse.capabilities.playerinfo;
 
 import javax.annotation.Nullable;
-
-import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
 
 import net.minecraft.entity.EntityLivingBase;
 

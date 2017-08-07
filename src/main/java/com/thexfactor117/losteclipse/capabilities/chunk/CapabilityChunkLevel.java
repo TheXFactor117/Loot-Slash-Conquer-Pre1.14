@@ -2,8 +2,6 @@ package com.thexfactor117.losteclipse.capabilities.chunk;
 
 import javax.annotation.Nullable;
 
-import com.thexfactor117.losteclipse.capabilities.api.IChunkLevel;
-import com.thexfactor117.losteclipse.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.losteclipse.util.CapabilityUtils;
 import com.thexfactor117.losteclipse.util.Reference;
 import com.thexfactor117.losteclipse.util.SimpleCapabilityProvider;

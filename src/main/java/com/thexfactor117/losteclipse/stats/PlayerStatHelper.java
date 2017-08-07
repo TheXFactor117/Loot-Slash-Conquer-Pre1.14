@@ -3,10 +3,10 @@ package com.thexfactor117.losteclipse.stats;
 import java.util.UUID;
 
 import com.thexfactor117.losteclipse.LostEclipse;
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.api.IStats;
-import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -31,6 +31,7 @@ public class PlayerStatHelper
 	public static final double ATTACK_SPEED_MULTIPLIER = 0.1;
 	public static final double MAX_HEALTH_MULTIPLIER = 2;
 	public static final double MAX_MANA_MULTIPLIER = 2;
+	public static final double MAGICAL_POWER_MULTIPLIER = 2;
 	
 	/**
 	 * Helper method to update player attributes based on current stats.
@@ -38,6 +39,7 @@ public class PlayerStatHelper
 	public static void updateAttributes(EntityPlayer player)
 	{
 		IPlayerInformation info = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
 		
 		if (info != null)
 		{
@@ -91,15 +93,17 @@ public class PlayerStatHelper
 			/*
 			 * INTELLIGENCE
 			 */
-			
-			
+			if (!player.getEntityWorld().isRemote)
+			{
+				statsCap.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (info.getIntelligenceStat() + info.getBonusIntelligenceStat()));
+				
+				LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
+			}
 			
 			/*
 			 * WISDOM
-			 */
-			IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
-			
-			if (!player.getEntityWorld().isRemote && statsCap != null)
+			 */			
+			if (!player.getEntityWorld().isRemote)
 			{
 				statsCap.setMaxMana((int) ((MAX_MANA_MULTIPLIER * (info.getWisdomStat() + info.getBonusWisdomStat())) + 100));
 				

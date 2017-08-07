@@ -91,6 +91,16 @@ losteclipse.gui.playerinfo.stats.dexterity=Dexterity
 losteclipse.gui.playerinfo.stats.intelligence=Intelligence
 losteclipse.gui.playerinfo.stats.wisdom=Wisdom
 losteclipse.gui.playerinfo.stats.fortitude=Fortitude
+losteclipse.gui.playerinfo.bonuses=Bonuses
+losteclipse.gui.playerinfo.bonuses.playerdamage=Player Damage
+losteclipse.gui.playerinfo.bonuses.magicalpower=Magical Power
+losteclipse.gui.playerinfo.bonuses.attackspeed=Attack Speed
+losteclipse.gui.playerinfo.bonuses.armor=Armor
+losteclipse.gui.playerinfo.bonuses.toughness=Toughness
+losteclipse.gui.playerinfo.bonuses.health=Health
+losteclipse.gui.playerinfo.bonuses.hp5=HP5
+losteclipse.gui.playerinfo.bonuses.mana=Mana
+losteclipse.gui.playerinfo.bonuses.mp5=MP5
 
 
 

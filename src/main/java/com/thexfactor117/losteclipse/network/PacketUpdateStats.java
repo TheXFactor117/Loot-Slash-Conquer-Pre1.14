@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.network;
 
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.api.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -22,6 +22,8 @@ public class PacketUpdateStats implements IMessage
 	private int maxMana;
 	private int manaPerSecond;
 	
+	private double magicalPower;
+	
 	private int healthPerSecond;
 	
 	private double criticalChance;
@@ -34,6 +36,8 @@ public class PacketUpdateStats implements IMessage
 		this.mana = statsCap.getMana();
 		this.maxMana = statsCap.getMaxMana();
 		this.manaPerSecond = statsCap.getManaPerSecond();
+		
+		this.magicalPower = statsCap.getMagicalPower();
 		
 		this.healthPerSecond = statsCap.getHealthPerSecond();
 		
@@ -48,6 +52,8 @@ public class PacketUpdateStats implements IMessage
 		maxMana = buf.readInt();
 		manaPerSecond = buf.readInt();
 		
+		magicalPower = buf.readDouble();
+		
 		healthPerSecond = buf.readInt();
 		
 		criticalChance = buf.readDouble();
@@ -60,6 +66,8 @@ public class PacketUpdateStats implements IMessage
 		buf.writeInt(mana);
 		buf.writeInt(maxMana);
 		buf.writeInt(manaPerSecond);
+		
+		buf.writeDouble(magicalPower);
 		
 		buf.writeInt(healthPerSecond);
 		
@@ -86,6 +94,8 @@ public class PacketUpdateStats implements IMessage
 						statsCap.setMana(message.mana);
 						statsCap.setMaxMana(message.maxMana);
 						statsCap.setManaPerSecond(message.manaPerSecond);
+						
+						statsCap.setMagicalPower(message.magicalPower);
 						
 						statsCap.setHealthPerSecond(message.healthPerSecond);
 						

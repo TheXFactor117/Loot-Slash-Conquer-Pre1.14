@@ -1,9 +1,9 @@
 package com.thexfactor117.losteclipse.init;
 
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.chunk.CapabilityChunkLevel;
-import com.thexfactor117.losteclipse.capabilities.CapabilityEnemyLevel;
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.enemylevel.CapabilityEnemyLevel;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
 
 /**
  * 

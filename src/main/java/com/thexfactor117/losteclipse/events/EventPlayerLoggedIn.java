@@ -1,10 +1,10 @@
 package com.thexfactor117.losteclipse.events;
 
 import com.thexfactor117.losteclipse.LostEclipse;
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.api.IStats;
-import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
 import com.thexfactor117.losteclipse.network.PacketClassGui;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.network.PacketUpdatePlayerInformation;

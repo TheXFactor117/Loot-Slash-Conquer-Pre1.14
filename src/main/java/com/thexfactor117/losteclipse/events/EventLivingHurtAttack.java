@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.thexfactor117.losteclipse.LostEclipse;
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
 import com.thexfactor117.losteclipse.init.ModDamageSources;
 import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
@@ -53,8 +55,6 @@ public class EventLivingHurtAttack
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				
 				// set the true amount of damage.
-				//LostEclipse.LOGGER.info("Player Damage: " + (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() - nbt.getInteger("MaxDamage")));
-				//LostEclipse.LOGGER.info("Min Damage: " + nbt.getInteger("MinDamage") + "\tMax Damage: " + nbt.getInteger("MaxDamage"));
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
 				event.setAmount((float) (trueDamage + player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
 				
@@ -123,16 +123,22 @@ public class EventLivingHurtAttack
 		{
 			enemy.attackEntityFrom(ModDamageSources.FROST, (float) WeaponAttribute.FROST.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
-			enemy.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20*3, 5));
+			enemy.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 3, 5));
 		}
 		if (WeaponAttribute.LIGHTNING.hasAttribute(nbt))
 		{
 			enemy.attackEntityFrom(ModDamageSources.LIGHTNING, (float) WeaponAttribute.LIGHTNING.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 			
+			// remove half the lightning damage dealt from mana.
 			if (enemy instanceof EntityPlayer)
 			{
-				// REMOVE MANA
+				IStats statsCap = enemy.getCapability(CapabilityPlayerStats.STATS, null);
+				
+				if (statsCap != null)
+				{
+					statsCap.setMana(statsCap.getMana() - (int) (WeaponAttribute.LIGHTNING.getAmount(nbt) / 2));
+				}
 			}
 		}
 		if (WeaponAttribute.POISON.hasAttribute(nbt)) 
@@ -141,7 +147,16 @@ public class EventLivingHurtAttack
 			enemy.hurtResistantTime = 0;
 		}
 		if (WeaponAttribute.ETHEREAL.hasAttribute(nbt)) player.setHealth((float) (player.getHealth() + (damage * WeaponAttribute.ETHEREAL.getAmount(nbt))));
-		if (WeaponAttribute.MAGICAL.hasAttribute(nbt)); // add mana!
+		if (WeaponAttribute.MAGICAL.hasAttribute(nbt))
+		{
+			IStats statsCap = enemy.getCapability(CapabilityPlayerStats.STATS, null);
+			
+			if (statsCap != null)
+			{
+				// adds mana to the player each attack.
+				statsCap.setMana(statsCap.getMana() + (int) (WeaponAttribute.MAGICAL.getAmount(nbt) * damage));
+			}
+		}
 		if (WeaponAttribute.CHAINED.hasAttribute(nbt))
 		{
 			double radius = WeaponAttribute.CHAINED.getAmount(nbt);

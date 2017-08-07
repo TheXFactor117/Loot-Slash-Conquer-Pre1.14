@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.entities.projectiles;
 
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.api.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

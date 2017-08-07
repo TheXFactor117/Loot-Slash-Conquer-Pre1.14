@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.capabilities.api;
+package com.thexfactor117.losteclipse.capabilities.playerstats;
 
 /**
  * 
@@ -18,6 +18,12 @@ public interface IStats
 	
 	public void setManaPerSecond(int manaPerSecond);
 	public int getManaPerSecond();
+	
+	/*
+	 * MAGICAL POWER
+	 */
+	public void setMagicalPower(double power);
+	public double getMagicalPower();
 	
 	/*
 	 * HEALTH

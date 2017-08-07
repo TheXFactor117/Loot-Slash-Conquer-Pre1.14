@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.capabilities.api;
+package com.thexfactor117.losteclipse.capabilities.enemylevel;
 
 /**
  * 

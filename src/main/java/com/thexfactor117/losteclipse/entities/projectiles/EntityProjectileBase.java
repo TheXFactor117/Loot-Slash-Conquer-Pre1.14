@@ -1,10 +1,11 @@
 package com.thexfactor117.losteclipse.entities.projectiles;
 
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
 import com.thexfactor117.losteclipse.events.EventLivingHurtAttack;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
@@ -57,11 +58,13 @@ public abstract class EntityProjectileBase extends EntityThrowable
 	{
 		if (!this.getEntityWorld().isRemote)
 		{
-			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase)
+			IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
+			
+			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && statsCap != null)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				double playerDamage = player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
-				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage") + (int) playerDamage);
+				double magicalPower = statsCap.getMagicalPower();
+				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage") + (int) magicalPower);
 				
 				// apply damage
 				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);

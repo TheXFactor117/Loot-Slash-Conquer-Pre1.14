@@ -3,8 +3,8 @@ package com.thexfactor117.losteclipse.events;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.api.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
 import com.thexfactor117.losteclipse.entities.projectiles.Rune;
 import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
@@ -15,7 +15,6 @@ import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -83,10 +82,9 @@ public class EventItemTooltip
 		NBTTagCompound speedNbt = taglist.getCompoundTagAt(1);
 		DecimalFormat format = new DecimalFormat("#.##");
 		
-		double playerDamage = player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
 		double attackSpeed = speedNbt.getDouble("Amount") + 4 + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (double) (info.getAgilityStat() + info.getBonusAgilityStat()));
 
-		tooltip.add(TextFormatting.BLUE + " +" + (nbt.getInteger("MinDamage") + (int) playerDamage) + "-" + (nbt.getInteger("MaxDamage") + (int) playerDamage) + " Damage");
+		tooltip.add(TextFormatting.BLUE + " +" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + " +" + format.format(attackSpeed) + " Attack Speed");
 		tooltip.add("");
 		
@@ -176,10 +174,9 @@ public class EventItemTooltip
 		
 		// Damage and Attack Speed
 		DecimalFormat format = new DecimalFormat("#.##");
-		double playerDamage = player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
 		double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (info.getAgilityStat() + info.getBonusAgilityStat()));
 
-		tooltip.add(TextFormatting.BLUE + "+" + (nbt.getInteger("MinDamage") + (int) playerDamage) + "-" + (nbt.getInteger("MaxDamage") + (int) playerDamage) + " Damage");
+		tooltip.add(TextFormatting.BLUE + "+" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + "+" + format.format(attackSpeed) + " Attack Speed");
 		tooltip.add("");
 		

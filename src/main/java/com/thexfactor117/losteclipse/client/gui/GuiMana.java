@@ -2,8 +2,8 @@ package com.thexfactor117.losteclipse.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.api.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.client.Minecraft;

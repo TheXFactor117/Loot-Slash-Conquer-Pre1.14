@@ -1,7 +1,5 @@
 package com.thexfactor117.losteclipse.capabilities.chunk;
 
-import com.thexfactor117.losteclipse.capabilities.api.IChunkLevel;
-
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;

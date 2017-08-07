@@ -3,9 +3,6 @@ package com.thexfactor117.losteclipse.capabilities.chunk;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.thexfactor117.losteclipse.capabilities.api.IChunkLevel;
-import com.thexfactor117.losteclipse.capabilities.api.IChunkLevelHolder;
-
 import net.minecraft.util.math.ChunkPos;
 
 /**

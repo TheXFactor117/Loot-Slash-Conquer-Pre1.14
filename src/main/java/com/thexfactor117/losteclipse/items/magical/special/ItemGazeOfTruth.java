@@ -1,8 +1,8 @@
 package com.thexfactor117.losteclipse.items.magical.special;
 
-import com.thexfactor117.losteclipse.capabilities.api.IChunkLevel;
-import com.thexfactor117.losteclipse.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.losteclipse.capabilities.chunk.CapabilityChunkLevel;
+import com.thexfactor117.losteclipse.capabilities.chunk.IChunkLevel;
+import com.thexfactor117.losteclipse.capabilities.chunk.IChunkLevelHolder;
 import com.thexfactor117.losteclipse.items.base.ISpecial;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.loot.ItemGeneratorHelper;

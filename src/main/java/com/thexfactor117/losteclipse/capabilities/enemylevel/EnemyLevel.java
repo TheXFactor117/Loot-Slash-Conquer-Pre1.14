@@ -1,8 +1,6 @@
-package com.thexfactor117.losteclipse.capabilities;
+package com.thexfactor117.losteclipse.capabilities.enemylevel;
 
 import javax.annotation.Nullable;
-
-import com.thexfactor117.losteclipse.capabilities.api.IEnemyLevel;
 
 import net.minecraft.entity.EntityLivingBase;
 
