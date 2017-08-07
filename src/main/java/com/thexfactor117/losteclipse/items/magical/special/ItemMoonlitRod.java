@@ -21,9 +21,9 @@ import net.minecraft.world.World;
  */
 public class ItemMoonlitRod extends ItemLEMagical implements ISpecial
 {
-	public ItemMoonlitRod(String name, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
+	public ItemMoonlitRod(String name, boolean isStaff, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
 	{
-		super(name, baseDamage, attackSpeed, manaPerUse, durability);
+		super(name, isStaff, baseDamage, attackSpeed, manaPerUse, durability);
 	}
 
 	@Override

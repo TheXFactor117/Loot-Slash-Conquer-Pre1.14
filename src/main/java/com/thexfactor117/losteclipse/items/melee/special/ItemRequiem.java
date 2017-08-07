@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 
 public class ItemRequiem extends ItemLEMelee implements ISpecial
 {
-	public ItemRequiem(ToolMaterial material, String name)
+	public ItemRequiem(ToolMaterial material, String name, String type)
 	{
-		super(material, name);
+		super(material, name, type);
 		this.setCreativeTab(ModTabs.tabLE);
 	}
 

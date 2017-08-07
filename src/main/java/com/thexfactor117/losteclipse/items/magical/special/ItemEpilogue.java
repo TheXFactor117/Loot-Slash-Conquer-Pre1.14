@@ -21,9 +21,9 @@ import net.minecraft.world.World;
  */
 public class ItemEpilogue extends ItemLEMagical implements ISpecial
 {
-	public ItemEpilogue(String name, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
+	public ItemEpilogue(String name, boolean isStaff, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
 	{
-		super(name, baseDamage, attackSpeed, manaPerUse, durability);
+		super(name, isStaff, baseDamage, attackSpeed, manaPerUse, durability);
 	}
 
 	@Override

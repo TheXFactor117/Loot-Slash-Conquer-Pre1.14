@@ -50,45 +50,45 @@ public class ModWeapons
 	public static Item test = new ItemTest("test");
 	
 	// melee
-	public static final Item WOOD_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.WOOD, "wood_dagger", 0.5, 0.5, 90);
-	public static final Item WOOD_MACE = new ItemLEAdvancedMelee(ToolMaterial.WOOD, "wood_mace", 1.25, 1.25, 45);
-	public static final Item STONE_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.STONE, "stone_dagger", 0.5, 0.5, 195);
-	public static final Item STONE_MACE = new ItemLEAdvancedMelee(ToolMaterial.STONE, "stone_mace", 1.25, 1.25, 97);
-	public static final Item GOLD_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.GOLD, "gold_dagger", 0.5, 0.5, 45);
-	public static final Item GOLD_MACE = new ItemLEAdvancedMelee(ToolMaterial.GOLD, "gold_mace", 1.25, 1.25, 22);
-	public static final Item IRON_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.IRON, "iron_dagger", 0.5, 0.5, 376);
-	public static final Item IRON_MACE = new ItemLEAdvancedMelee(ToolMaterial.IRON, "iron_mace", 1.25, 1.25, 188);
-	public static final Item DIAMOND_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.DIAMOND, "diamond_dagger", 0.5, 0.5, 2343);
-	public static final Item DIAMOND_MACE = new ItemLEAdvancedMelee(ToolMaterial.DIAMOND, "diamond_mace", 1.25, 1.25, 1171);
+	public static final Item WOOD_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.WOOD, "wood_dagger", "dagger", 0.5, 0.5, 90);
+	public static final Item WOOD_MACE = new ItemLEAdvancedMelee(ToolMaterial.WOOD, "wood_mace", "mace", 1.25, 1.25, 45);
+	public static final Item STONE_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.STONE, "stone_dagger", "dagger", 0.5, 0.5, 195);
+	public static final Item STONE_MACE = new ItemLEAdvancedMelee(ToolMaterial.STONE, "stone_mace", "mace", 1.25, 1.25, 97);
+	public static final Item GOLD_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.GOLD, "gold_dagger", "dagger", 0.5, 0.5, 45);
+	public static final Item GOLD_MACE = new ItemLEAdvancedMelee(ToolMaterial.GOLD, "gold_mace", "mace", 1.25, 1.25, 22);
+	public static final Item IRON_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.IRON, "iron_dagger", "dagger", 0.5, 0.5, 376);
+	public static final Item IRON_MACE = new ItemLEAdvancedMelee(ToolMaterial.IRON, "iron_mace", "mace", 1.25, 1.25, 188);
+	public static final Item DIAMOND_DAGGER = new ItemLEAdvancedMelee(ToolMaterial.DIAMOND, "diamond_dagger", "dagger", 0.5, 0.5, 2343);
+	public static final Item DIAMOND_MACE = new ItemLEAdvancedMelee(ToolMaterial.DIAMOND, "diamond_mace", "mace", 1.25, 1.25, 1171);
 	
 	// melee special
-	public static final Item DIVINE_RAPIER = new ItemDivineRapier(ToolMaterials.DIVINE, "divine_rapier"); // add Legendary Rarity
-	public static final Item REQUIEM = new ItemRequiem(ToolMaterials.REQUIEM, "requiem");
-	public static final Item SHADOWFALL = new ItemShadowfall(ToolMaterials.SHADOWFALL, "shadowfall", 1, 0.5);
-	public static final Item DOOMSHADOW = new ItemDoomshadow(ToolMaterials.DOOMSHADOW, "doomshadow", 1, 1.25);
-	public static final Item GOLDEN_PUMMEL = new ItemGoldenPummel(ToolMaterials.GOLDEN_PUMMEL, "golden_pummel", 1, 1.25);
+	public static final Item DIVINE_RAPIER = new ItemDivineRapier(ToolMaterials.DIVINE, "divine_rapier", "sword"); // add Legendary Rarity
+	public static final Item REQUIEM = new ItemRequiem(ToolMaterials.REQUIEM, "requiem", "sword");
+	public static final Item SHADOWFALL = new ItemShadowfall(ToolMaterials.SHADOWFALL, "shadowfall", "dagger", 1, 0.5);
+	public static final Item DOOMSHADOW = new ItemDoomshadow(ToolMaterials.DOOMSHADOW, "doomshadow", "mace", 1, 1.25);
+	public static final Item GOLDEN_PUMMEL = new ItemGoldenPummel(ToolMaterials.GOLDEN_PUMMEL, "golden_pummel", "mace", 1, 1.25);
 	
-	public static final Item EXCALIBUR_RAPIER = new ItemExcaliburRapier(ToolMaterials.EXCALIBUR, "excalibur_rapier"); // add Exotic Rarity
-	public static final Item ALAKASLAM = new ItemAlakaslam(ToolMaterials.ALAKASLAM, "alakaslam", 1, 1.25);
-	public static final Item ANNIHILATION = new ItemAnnihilation(ToolMaterials.ANNIHILATION, "annihilation", 1, 0.5);
+	public static final Item EXCALIBUR_RAPIER = new ItemExcaliburRapier(ToolMaterials.EXCALIBUR, "excalibur_rapier", "sword"); // add Exotic Rarity
+	public static final Item ALAKASLAM = new ItemAlakaslam(ToolMaterials.ALAKASLAM, "alakaslam", "mace", 1, 1.25);
+	public static final Item ANNIHILATION = new ItemAnnihilation(ToolMaterials.ANNIHILATION, "annihilation", "dagger", 1, 0.5);
 	
 	
 	// magical ranged
 	// (name, damage, attack speed, mana per use, durability)
-	public static final Item WOODEN_WAND = new ItemLEMagical("wooden_wand", 3, 2, 5, 200);
-	public static final Item GOLDEN_WAND = new ItemLEMagical("golden_wand", 4, 2, 5, 100);
-	public static final Item DIAMOND_WAND = new ItemLEMagical("diamond_wand", 5, 2, 5, 500);
-	public static final Item WOODEN_STAFF = new ItemLEMagical("wooden_staff", 5, 1.25, 10, 200);
-	public static final Item GOLDEN_STAFF = new ItemLEMagical("golden_staff", 6, 1.25, 10, 100);
-	public static final Item DIAMOND_STAFF = new ItemLEMagical("diamond_staff", 7, 1.25, 10, 500);
+	public static final Item WOODEN_WAND = new ItemLEMagical("wooden_wand", false, 3, 2, 5, 200);
+	public static final Item GOLDEN_WAND = new ItemLEMagical("golden_wand", false, 4, 2, 5, 100);
+	public static final Item DIAMOND_WAND = new ItemLEMagical("diamond_wand", false, 5, 2, 5, 500);
+	public static final Item WOODEN_STAFF = new ItemLEMagical("wooden_staff", true, 5, 1.25, 10, 200);
+	public static final Item GOLDEN_STAFF = new ItemLEMagical("golden_staff", true, 6, 1.25, 10, 100);
+	public static final Item DIAMOND_STAFF = new ItemLEMagical("diamond_staff", true, 7, 1.25, 10, 500);
 	
 	// magical special
-	public static final Item BLAZEFURY = new ItemBlazefury("blazefury", 7, 2, 5, 400);
-	public static final Item MOONLIT_ROD = new ItemMoonlitRod("moonlit_rod", 8, 2, 5, 375);
-	public static final Item EPILOGUE = new ItemEpilogue("epilogue", 11, 1.25, 10, 600);
+	public static final Item BLAZEFURY = new ItemBlazefury("blazefury", false, 7, 2, 5, 400);
+	public static final Item MOONLIT_ROD = new ItemMoonlitRod("moonlit_rod", false, 8, 2, 5, 375);
+	public static final Item EPILOGUE = new ItemEpilogue("epilogue", true, 11, 1.25, 10, 600);
 	
-	public static final Item GAZE_OF_TRUTH = new ItemGazeOfTruth("gaze_of_truth", 15, 1.25, 10, 800);
-	public static final Item VISAGE_OF_WIZARDRY = new ItemVisageOfWizardry("visage_of_wizardry", 11, 2, 5, 700);
+	public static final Item GAZE_OF_TRUTH = new ItemGazeOfTruth("gaze_of_truth", true, 15, 1.25, 10, 800);
+	public static final Item VISAGE_OF_WIZARDRY = new ItemVisageOfWizardry("visage_of_wizardry", false, 11, 2, 5, 700);
 	
 	
 	/* Armors */

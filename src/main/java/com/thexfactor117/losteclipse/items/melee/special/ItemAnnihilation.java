@@ -22,9 +22,9 @@ import net.minecraft.world.World;
  */
 public class ItemAnnihilation extends ItemLEAdvancedMelee implements ISpecial
 {
-	public ItemAnnihilation(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier)
+	public ItemAnnihilation(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
 	{
-		super(material, name, damageMultiplier, speedMultiplier);
+		super(material, name, type, damageMultiplier, speedMultiplier);
 		this.setCreativeTab(ModTabs.tabLE);
 	}
 

@@ -20,20 +20,23 @@ import net.minecraft.world.World;
 public class ItemLEMelee extends ItemSword
 {
 	private boolean isBonusActive = false; // controls when the item should update player bonus stats.
+	private String type; // used in name.
 	
-	public ItemLEMelee(ToolMaterial material, String name) 
+	public ItemLEMelee(ToolMaterial material, String name, String type) 
 	{
 		super(material);
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
+		this.type = type;
 	}
 	
-	public ItemLEMelee(ToolMaterial material, String name, CreativeTabs tab) 
+	public ItemLEMelee(ToolMaterial material, String name, String type, CreativeTabs tab) 
 	{
 		super(material);
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(tab);
+		this.type = type;
 	}
 	
 	@Override
@@ -59,5 +62,10 @@ public class ItemLEMelee extends ItemSword
 				}
 			}
 		}
+	}
+	
+	public String getType()
+	{
+		return type;
 	}
 }

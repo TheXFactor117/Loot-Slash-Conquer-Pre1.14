@@ -22,9 +22,9 @@ import net.minecraft.world.World;
  */
 public class ItemExcaliburRapier extends ItemLEMelee implements ISpecial
 {
-	public ItemExcaliburRapier(ToolMaterial material, String name)
+	public ItemExcaliburRapier(ToolMaterial material, String name, String type)
 	{
-		super(material, name);
+		super(material, name, type);
 		this.setCreativeTab(ModTabs.tabLE);
 	}
 

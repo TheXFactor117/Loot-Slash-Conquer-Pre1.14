@@ -22,9 +22,9 @@ import net.minecraft.world.World;
  */
 public class ItemGoldenPummel extends ItemLEAdvancedMelee implements ISpecial
 {
-	public ItemGoldenPummel(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier)
+	public ItemGoldenPummel(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
 	{
-		super(material, name, damageMultiplier, speedMultiplier);
+		super(material, name, type, damageMultiplier, speedMultiplier);
 		this.setCreativeTab(ModTabs.tabLE);
 	}
 

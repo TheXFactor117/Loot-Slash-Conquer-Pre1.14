@@ -9,11 +9,14 @@ import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.entities.projectiles.Rune;
 import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
+import com.thexfactor117.losteclipse.items.melee.ItemLEMelee;
 import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.JewelryAttribute;
 import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
 
+import baubles.api.BaubleType;
+import baubles.api.IBauble;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -47,14 +50,18 @@ public class ItemGeneratorHelper
 		String prefix = NameHelper.getRandomPrefix();
 		String suffix = "";
 		
-		if (stack.getItem() instanceof ItemSword && !nbt.hasKey("Type")) suffix = NameHelper.getSwordSuffix();
-		else if (stack.getItem() instanceof ItemSword && nbt.hasKey("Type") && nbt.getString("Type").equals("Dagger")) suffix = NameHelper.getDaggerSuffix();
-		else if (stack.getItem() instanceof ItemSword && nbt.hasKey("Type") && nbt.getString("Type").equals("Mace")) suffix = NameHelper.getMaceSuffix();
-		else if (stack.getItem() instanceof ItemLEMagical) suffix = NameHelper.getWandSuffix();
+		if (stack.getItem() instanceof ItemLEMelee && ((ItemLEMelee) stack.getItem()).getType().equals("dagger")) suffix = NameHelper.getDaggerSuffix();
+		else if (stack.getItem() instanceof ItemLEMelee && ((ItemLEMelee) stack.getItem()).getType().equals("mace")) suffix = NameHelper.getMaceSuffix();
+		else if (stack.getItem() instanceof ItemSword) suffix = NameHelper.getSwordSuffix();
+		else if (stack.getItem() instanceof ItemLEMagical && !((ItemLEMagical) stack.getItem()).isStaff()) suffix = NameHelper.getWandSuffix();
+		else if (stack.getItem() instanceof ItemLEMagical && ((ItemLEMagical) stack.getItem()).isStaff()) suffix = NameHelper.getStaffSuffix();
 		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.HEAD) suffix = NameHelper.getHelmetSuffix();
 		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.CHEST) suffix = NameHelper.getChestplateSuffix();
 		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.LEGS) suffix = NameHelper.getLeggingsSuffix();
 		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.FEET) suffix = NameHelper.getBootSuffix();
+		else if (stack.getItem() instanceof ItemLEBauble && ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.AMULET) suffix = NameHelper.getAmuletSuffix();
+		else if (stack.getItem() instanceof ItemLEBauble && ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.RING) suffix = NameHelper.getRingSuffix();
+		else if (stack.getItem() instanceof ItemLEBauble && ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.BELT) suffix = NameHelper.getBeltSuffix();
 
 		stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + suffix);
 	}

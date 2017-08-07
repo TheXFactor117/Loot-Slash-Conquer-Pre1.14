@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 
 public class ItemDoomshadow extends ItemLEAdvancedMelee implements ISpecial
 {
-	public ItemDoomshadow(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier)
+	public ItemDoomshadow(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
 	{
-		super(material, name, damageMultiplier, speedMultiplier);
+		super(material, name, type, damageMultiplier, speedMultiplier);
 		this.setCreativeTab(ModTabs.tabLE);
 	}
 
