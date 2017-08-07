@@ -1,0 +1,6 @@
+{
+	"parent": "losteclipse:item/golden_staff",
+	"textures": {
+		"layer0": "losteclipse:items/golden_staff_charged"
+	}
+}

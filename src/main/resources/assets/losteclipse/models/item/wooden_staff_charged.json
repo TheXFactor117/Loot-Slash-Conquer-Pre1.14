@@ -1,0 +1,6 @@
+{
+	"parent": "losteclipse:item/wooden_staff",
+	"textures": {
+		"layer0": "losteclipse:items/wooden_staff_charged"
+	}
+}

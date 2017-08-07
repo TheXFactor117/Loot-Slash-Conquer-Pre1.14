@@ -1,0 +1,6 @@
+{
+	"parent": "losteclipse:item/golden_wand",
+	"textures": {
+		"layer0": "losteclipse:items/golden_wand_charged"
+	}
+}

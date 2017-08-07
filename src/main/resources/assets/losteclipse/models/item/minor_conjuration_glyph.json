@@ -1,6 +1,0 @@
-{
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "losteclipse:items/minor_conjuration_glyph"
-	}
-}

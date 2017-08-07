@@ -1,0 +1,6 @@
+{
+	"parent": "losteclipse:item/diamond_staff",
+	"textures": {
+		"layer0": "losteclipse:items/diamond_staff_charged"
+	}
+}

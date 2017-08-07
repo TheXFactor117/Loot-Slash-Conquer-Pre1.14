@@ -1,6 +1,14 @@
 {
-	"parent":"item/generated",
+	"parent": "item/handheld",
 	"textures": {
-		"layer0":"losteclipse:items/diamond_staff"
-	}
+		"layer0": "losteclipse:items/diamond_staff"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"charged": 1
+			},
+			"model": "losteclipse:item/diamond_staff_charged"
+		}
+	]
 }

@@ -1,5 +1,7 @@
 package com.thexfactor117.losteclipse.items.magical;
 
+import javax.annotation.Nullable;
+
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.CapabilityPlayerStats;
@@ -21,15 +23,19 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * 
@@ -58,6 +64,30 @@ public class ItemLEMagical extends Item
 		this.baseDamage = baseDamage;
 		this.baseAttackSpeed = attackSpeed;
 		this.manaPerUse = manaPerUse;
+		
+		// adds a property override so we can render the right texture based on how long we have been using the item.
+		this.addPropertyOverride(new ResourceLocation("charged"), new IItemPropertyGetter()
+		{
+			@SideOnly(Side.CLIENT)
+			public float apply(ItemStack stack, @Nullable World world, @Nullable EntityLivingBase entity)
+			{
+				if (entity instanceof EntityPlayer)
+				{
+					EntityPlayer player = (EntityPlayer) entity;
+					NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+					IPlayerInformation playerInfo = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+					
+					if (playerInfo != null)
+					{
+						double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (playerInfo.getAgilityStat() + playerInfo.getBonusAgilityStat()));
+						
+						return player.isHandActive() && player.getActiveItemStack() == stack && player.getItemInUseCount() < (stack.getMaxItemUseDuration() - (1 / attackSpeed) * 20) ? 1 : 0;
+					}
+				}
+				
+				return 0;
+			}
+		});
 	}
 	
 	@Override

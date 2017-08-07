@@ -1,6 +1,0 @@
-{
-	"parent":"losteclipse:item/lightning_staff",
-	"textures": {
-		"layer0": "losteclipse:items/lightning_staff_1"
-	}
-}
