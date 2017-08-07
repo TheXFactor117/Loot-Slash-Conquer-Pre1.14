@@ -8,6 +8,16 @@
 #                   ITEMS                #
 ##########################################
 
+### Items
+# Jewelry
+item.golden_ring.name=Golden Ring
+item.diamond_ring.name=Diamond Ring
+item.golden_amulet.name=Golden Amulet
+item.diamond_amulet.name=Diamond Amulet
+item.leather_sash.name=Leather Sash
+
+
+
 ### Weapons
 # Melee
 item.wood_dagger.name=Wood Dagger
@@ -34,6 +44,19 @@ item.annihilation.name=Annihilation
 
 # Magical
 item.wooden_wand.name=Wooden Wand
+item.golden_wand.name=Golden Wand
+item.diamond_wand.name=Diamond Wand
+item.wooden_staff.name=Wooden Staff
+item.golden_staff.name=Golden Staff
+item.diamond_staff.name=Diamond Staff
+
+# Special Magical
+item.blazefury.name=Blazefury
+item.moonlit_rod.name=Moonlit Rod
+item.epilogue.name=Epilogue
+
+item.gaze_of_truth.name=Gaze of Truth
+item.visage_of_wizardry.name=Visage of Wizardry
 
 
 
