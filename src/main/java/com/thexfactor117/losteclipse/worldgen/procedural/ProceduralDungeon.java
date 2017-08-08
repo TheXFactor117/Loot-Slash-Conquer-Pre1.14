@@ -41,7 +41,7 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		{	
 			dungeonEntrance.addBlocksToWorld(world, DungeonHelper.translateToCorner(dungeonEntrance, position.add(0, -8, 0), Rotation.NONE), settings);
 			DungeonHelper.handleDataBlocks(dungeonEntrance, world, position, settings);
-			LostEclipse.LOGGER.debug("Generating Dungeon at " + position);
+			LostEclipse.LOGGER.info("Generating Dungeon at " + position);
 			// start procedural generate
 			procedurallyGenerate(manager, world, position, null);
 			

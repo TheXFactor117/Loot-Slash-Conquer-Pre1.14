@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.stats.weapons;
+package com.thexfactor117.losteclipse.api;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.items.base;
+package com.thexfactor117.losteclipse.api;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

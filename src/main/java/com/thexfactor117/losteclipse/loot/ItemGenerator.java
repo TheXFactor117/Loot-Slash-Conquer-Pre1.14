@@ -1,11 +1,11 @@
 package com.thexfactor117.losteclipse.loot;
 
+import com.thexfactor117.losteclipse.api.Rarity;
 import com.thexfactor117.losteclipse.capabilities.chunk.CapabilityChunkLevel;
 import com.thexfactor117.losteclipse.capabilities.chunk.IChunkLevel;
 import com.thexfactor117.losteclipse.capabilities.chunk.IChunkLevelHolder;
 import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
-import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

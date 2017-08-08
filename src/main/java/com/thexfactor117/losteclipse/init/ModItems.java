@@ -15,7 +15,7 @@ public class ModItems
 	public static final Item GOLDEN_AMULET = new ItemLEBauble("golden_amulet", BaubleType.AMULET);
 	public static final Item DIAMOND_AMULET = new ItemLEBauble("diamond_amulet", BaubleType.AMULET);
 	public static final Item LEATHER_SASH = new ItemLEBauble("leather_sash", BaubleType.BELT);
-	
+		
 	@SubscribeEvent
 	public void registerItems(RegistryEvent.Register<Item> event)
 	{

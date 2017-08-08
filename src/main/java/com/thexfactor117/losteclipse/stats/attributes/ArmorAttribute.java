@@ -1,7 +1,8 @@
-package com.thexfactor117.losteclipse.stats.weapons;
+package com.thexfactor117.losteclipse.stats.attributes;
 
 import java.util.Random;
 
+import com.thexfactor117.losteclipse.api.Rarity;
 import com.thexfactor117.losteclipse.util.RandomCollection;
 
 import net.minecraft.nbt.NBTTagCompound;

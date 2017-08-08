@@ -5,9 +5,9 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.thexfactor117.losteclipse.items.base.ISpecial;
+import com.thexfactor117.losteclipse.api.ISpecial;
+import com.thexfactor117.losteclipse.api.Rarity;
 import com.thexfactor117.losteclipse.loot.table.CustomLootContext;
-import com.thexfactor117.losteclipse.stats.weapons.Rarity;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.item.ItemStack;

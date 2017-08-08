@@ -10,9 +10,9 @@ import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.network.PacketUpdateCoreStats;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
-import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
-import com.thexfactor117.losteclipse.stats.weapons.JewelryAttribute;
-import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
+import com.thexfactor117.losteclipse.stats.attributes.ArmorAttribute;
+import com.thexfactor117.losteclipse.stats.attributes.JewelryAttribute;
+import com.thexfactor117.losteclipse.stats.attributes.WeaponAttribute;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
 import baubles.api.BaublesApi;

@@ -7,8 +7,8 @@ import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerSt
 import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
 import com.thexfactor117.losteclipse.init.ModDamageSources;
 import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
-import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
-import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
+import com.thexfactor117.losteclipse.stats.attributes.ArmorAttribute;
+import com.thexfactor117.losteclipse.stats.attributes.WeaponAttribute;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
 import net.minecraft.entity.Entity;

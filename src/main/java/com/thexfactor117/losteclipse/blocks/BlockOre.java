@@ -2,7 +2,6 @@ package com.thexfactor117.losteclipse.blocks;
 
 import java.util.Random;
 
-import com.thexfactor117.losteclipse.init.ModBlocks;
 import com.thexfactor117.losteclipse.init.ModTabs;
 
 import net.minecraft.block.SoundType;
@@ -57,7 +56,7 @@ public class BlockOre extends BlockBase
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	{
-		if (state.getBlock() == ModBlocks.VEXAL_ORE || state.getBlock() == ModBlocks.ASTRILL_ORE) return item;
-		else return Item.getItemFromBlock(this);
+		//if (state.getBlock() == ModBlocks.VEXAL_ORE || state.getBlock() == ModBlocks.ASTRILL_ORE) return item;
+		return Item.getItemFromBlock(this);
 	}
 }

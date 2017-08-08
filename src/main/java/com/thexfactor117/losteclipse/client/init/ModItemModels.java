@@ -1,5 +1,6 @@
 package com.thexfactor117.losteclipse.client.init;
 
+import com.thexfactor117.losteclipse.init.ModBlocks;
 import com.thexfactor117.losteclipse.init.ModItems;
 import com.thexfactor117.losteclipse.init.ModWeapons;
 
@@ -77,6 +78,13 @@ public class ModItemModels
 		
 		registerItemModel(ModWeapons.GAZE_OF_TRUTH);
 		registerItemModel(ModWeapons.VISAGE_OF_WIZARDRY);
+		
+		
+		
+		/*
+		 * BLOCKS
+		 */
+		registerItemModel(Item.getItemFromBlock(ModBlocks.DUNGEON_BRICK));
 	}
 	
 	private void registerItemModel(Item item)

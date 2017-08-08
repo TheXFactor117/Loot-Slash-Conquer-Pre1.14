@@ -3,16 +3,16 @@ package com.thexfactor117.losteclipse.events;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import com.thexfactor117.losteclipse.api.Rarity;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
 import com.thexfactor117.losteclipse.entities.projectiles.Rune;
 import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
-import com.thexfactor117.losteclipse.stats.weapons.ArmorAttribute;
-import com.thexfactor117.losteclipse.stats.weapons.JewelryAttribute;
-import com.thexfactor117.losteclipse.stats.weapons.Rarity;
-import com.thexfactor117.losteclipse.stats.weapons.WeaponAttribute;
+import com.thexfactor117.losteclipse.stats.attributes.ArmorAttribute;
+import com.thexfactor117.losteclipse.stats.attributes.JewelryAttribute;
+import com.thexfactor117.losteclipse.stats.attributes.WeaponAttribute;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
