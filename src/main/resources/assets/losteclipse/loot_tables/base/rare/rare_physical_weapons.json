@@ -1,0 +1,25 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/rare/specific/rare_daggers",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/rare/specific/rare_swords",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/rare/specific/rare_maces",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

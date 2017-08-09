@@ -6,25 +6,8 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "losteclipse:loot/rare/rare_weapons",
+					"name": "losteclipse:base/rare/rare_everything",
 					"weight": 1
-				}
-			]
-		},
-		{
-			"name": "legendary",
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "loot_table",
-					"name": "losteclipse:loot/legendary/legendary_weapons",
-					"weight": 1
-				}
-			],
-			"conditions": [
-				{
-					"condition": "random_chance",
-					"chance": 0.1
 				}
 			]
 		}

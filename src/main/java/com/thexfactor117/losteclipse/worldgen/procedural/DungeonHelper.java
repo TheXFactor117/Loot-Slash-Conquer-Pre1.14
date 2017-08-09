@@ -50,15 +50,12 @@ public class DungeonHelper
 				BlockPos dataPos = e.getKey();
 				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3); // remove data block
 				TileEntity chestEntity = world.getTileEntity(dataPos.down()); // chest is located under data block
-				int chance = (int) (Math.random() * 2);
+				int chance = (int) (Math.random() * 4);
 				
-				if (chestEntity instanceof TileEntityChest && chance == 0)
+				if (chestEntity instanceof TileEntityChest)
 				{
-					int rand = (int) (Math.random() * 10);
-					
-					if (rand > 3) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.common_loot_room, world.rand.nextLong());
-					else if (rand > 0) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.rare_loot_room, world.rand.nextLong());
-					else if (rand == 0) ((TileEntityChest) chestEntity).setLootTable(ModLootTables.legendary_loot_room, world.rand.nextLong());
+					((TileEntityChest) chestEntity).setLootTable(ModLootTables.exotic_chest, world.rand.nextLong());
+					((TileEntityChest) chestEntity).setCustomName("Exotic Chest");
 				}
 				else
 				{
@@ -69,6 +66,7 @@ public class DungeonHelper
 			{
 				BlockPos dataPos = e.getKey();
 				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+				world.setBlockState(dataPos.down(), Blocks.MOB_SPAWNER.getDefaultState(), 2);
 				TileEntity spawnerEntity = world.getTileEntity(dataPos.down());
 				
 				if (spawnerEntity instanceof TileEntityMobSpawner)

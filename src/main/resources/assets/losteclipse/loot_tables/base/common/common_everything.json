@@ -1,0 +1,70 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_daggers",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_swords",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_maces",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_wands",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_staffs",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_helmets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_chestplates",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_leggings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_boots",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_amulets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_rings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:base/common/specific/common_belts",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

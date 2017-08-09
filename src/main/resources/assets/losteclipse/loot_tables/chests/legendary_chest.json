@@ -1,0 +1,43 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": {
+				"min": 1,
+				"max": 7
+			},
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "losteclipse:loot/common_loot",
+					"weight": 19
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:loot/uncommon_loot",
+					"weight": 30
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:loot/rare_loot",
+					"weight": 25
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:loot/legendary_loot",
+					"weight": 15
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:loot/exotic_loot",
+					"weight": 8
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:loot/special_loot",
+					"weight": 3
+				}
+			]
+		}
+	]
+}

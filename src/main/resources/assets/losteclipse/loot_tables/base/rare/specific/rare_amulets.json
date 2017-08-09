@@ -1,0 +1,30 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "losteclipse:golden_amulet",
+					"weight": 5,
+					"functions": [
+						{
+							"function": "losteclipse:create_rare"
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "losteclipse:diamond_amulet",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "losteclipse:create_rare"
+						}
+					]
+				}
+			]
+		}
+	]
+}

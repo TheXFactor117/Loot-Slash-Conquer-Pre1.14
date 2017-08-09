@@ -1,0 +1,20 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "losteclipse:special/specific/special_physical_weapons",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "losteclipse:special/specific/special_magical_weapons",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

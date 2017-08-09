@@ -6,7 +6,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "losteclipse:loot/legendary/legendary_weapons",
+					"name": "losteclipse:base/legendary/legendary_everything",
 					"weight": 1
 				}
 			]

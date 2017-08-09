@@ -15,17 +15,25 @@ import net.minecraft.util.text.TextFormatting;
 public enum Rarity 
 {
 	DEFAULT("default", TextFormatting.DARK_GRAY, 0),
-	COMMON("Common", TextFormatting.WHITE, 0.6),
-	UNCOMMON("Uncommon", TextFormatting.DARK_GREEN, 0.2),
-	RARE("Rare", TextFormatting.AQUA, 0.12),
-	LEGENDARY("Legendary", TextFormatting.DARK_PURPLE, 0.07),
-	EXOTIC("Exotic", TextFormatting.GOLD, 0.01);
+	COMMON("Common", TextFormatting.WHITE, 80),
+	UNCOMMON("Uncommon", TextFormatting.DARK_GREEN, 10),
+	RARE("Rare", TextFormatting.AQUA, 6),
+	LEGENDARY("Legendary", TextFormatting.DARK_PURPLE, 3),
+	EXOTIC("Exotic", TextFormatting.GOLD, 1);
 	
 	private String name;
 	private String color;
 	private double chance;
 	
+	private static final int MULTIPLIER = 15;
+	
 	private static final RandomCollection<Rarity> RANDOM_RARITIES = new RandomCollection<Rarity>();
+	
+	private static final RandomCollection<Rarity> COMMON_RARITIES = new RandomCollection<Rarity>();
+	private static final RandomCollection<Rarity> UNCOMMON_RARITIES = new RandomCollection<Rarity>();
+	private static final RandomCollection<Rarity> RARE_RARITIES = new RandomCollection<Rarity>();
+	private static final RandomCollection<Rarity> LEGENDARY_RARITIES = new RandomCollection<Rarity>();
+	private static final RandomCollection<Rarity> EXOTIC_RARITIES = new RandomCollection<Rarity>();
 	
 	Rarity(String name, Object color, double chance)
 	{
@@ -43,6 +51,17 @@ public enum Rarity
 	public static Rarity getRandomRarity(NBTTagCompound nbt, Random rand)
 	{	
 		return RANDOM_RARITIES.next(rand);
+	}
+	
+	public static Rarity getWeightedRarity(NBTTagCompound nbt, Random rand, Rarity rarity)
+	{
+		if (rarity == Rarity.COMMON) return COMMON_RARITIES.next(rand);
+		else if (rarity == Rarity.UNCOMMON) return UNCOMMON_RARITIES.next(rand);
+		else if (rarity == Rarity.RARE) return RARE_RARITIES.next(rand);
+		else if (rarity == Rarity.LEGENDARY) return LEGENDARY_RARITIES.next(rand);
+		else if (rarity == Rarity.EXOTIC) return EXOTIC_RARITIES.next(rand);
+		
+		return Rarity.DEFAULT;
 	}
 	
 	/**
@@ -91,6 +110,23 @@ public enum Rarity
 			if (rarity.chance > 0.0D)
 			{
 				RANDOM_RARITIES.add(rarity.chance, rarity);
+				
+				if (rarity == Rarity.COMMON)
+				{
+					COMMON_RARITIES.add(rarity.chance, rarity);
+					UNCOMMON_RARITIES.add(rarity.chance - MULTIPLIER, rarity);
+					RARE_RARITIES.add(rarity.chance - (MULTIPLIER * 2), rarity);
+					LEGENDARY_RARITIES.add(rarity.chance - (MULTIPLIER * 3), rarity);
+					EXOTIC_RARITIES.add(rarity.chance - (MULTIPLIER * 4), rarity);
+				}
+				else
+				{
+					COMMON_RARITIES.add(rarity.chance, rarity);
+					UNCOMMON_RARITIES.add(rarity.chance, rarity);
+					RARE_RARITIES.add(rarity.chance, rarity);
+					LEGENDARY_RARITIES.add(rarity.chance, rarity);
+					EXOTIC_RARITIES.add(rarity.chance, rarity);
+				}
 			}
 		}
 	}

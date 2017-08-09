@@ -35,13 +35,13 @@ public class ItemGenerator
 		 * Generate name based on attributes + material/type
 		 */
 		
-		if (Rarity.getRarity(nbt) == Rarity.DEFAULT)
+		if (Rarity.getRarity(nbt) != Rarity.DEFAULT)
 		{
 			IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
 			IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
 			int level = chunkLevel.getChunkLevel();
 			
-			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand)); // sets a random rarity
+			//Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand)); // sets a random rarity
 			nbt.setInteger("Level", level); // set level to current player level
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 			ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
@@ -52,7 +52,7 @@ public class ItemGenerator
 	/** Creates a magical weapon with randomized stats. */
 	public static void createMagical(ItemStack stack, NBTTagCompound nbt, World world, ChunkPos pos)
 	{
-		if (Rarity.getRarity(nbt) == Rarity.DEFAULT && stack.getItem() instanceof ItemLEMagical)
+		if (Rarity.getRarity(nbt) != Rarity.DEFAULT && stack.getItem() instanceof ItemLEMagical)
 		{
 			IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
 			IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
@@ -78,7 +78,7 @@ public class ItemGenerator
 	
 	public static void createJewelry(ItemStack stack, NBTTagCompound nbt, World world, ChunkPos pos)
 	{
-		if (Rarity.getRarity(nbt) == Rarity.DEFAULT && stack.getItem() instanceof ItemLEBauble)
+		if (Rarity.getRarity(nbt) != Rarity.DEFAULT && stack.getItem() instanceof ItemLEBauble)
 		{
 			IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
 			IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);

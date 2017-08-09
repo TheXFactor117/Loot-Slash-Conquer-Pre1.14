@@ -6,16 +6,14 @@ import org.apache.logging.log4j.Logger;
 import com.thexfactor117.losteclipse.init.ModCapabilities;
 import com.thexfactor117.losteclipse.init.ModEntities;
 import com.thexfactor117.losteclipse.init.ModEvents;
+import com.thexfactor117.losteclipse.init.ModLootFunctions;
 import com.thexfactor117.losteclipse.init.ModLootTables;
 import com.thexfactor117.losteclipse.init.ModPackets;
-import com.thexfactor117.losteclipse.loot.functions.CreateSpecial;
-import com.thexfactor117.losteclipse.loot.functions.CreateStats;
 import com.thexfactor117.losteclipse.proxies.ServerProxy;
 import com.thexfactor117.losteclipse.util.GuiHandler;
 import com.thexfactor117.losteclipse.util.Reference;
 import com.thexfactor117.losteclipse.worldgen.MHSWorldGenerator;
 
-import net.minecraft.world.storage.loot.functions.LootFunctionManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -51,9 +49,7 @@ public class LostEclipse
 		ModCapabilities.registerCapabilities();
 		ModEvents.registerEvents();
 		ModEntities.registerEntities();
-		
-		LootFunctionManager.registerFunction(new CreateStats.Serializer());
-		LootFunctionManager.registerFunction(new CreateSpecial.Serializer());
+		ModLootFunctions.registerFunctions();
 		
 		proxy.preInit(event);
 		
