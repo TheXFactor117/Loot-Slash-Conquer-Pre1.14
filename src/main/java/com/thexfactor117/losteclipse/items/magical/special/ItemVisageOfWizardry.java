@@ -40,7 +40,7 @@ public class ItemVisageOfWizardry extends ItemLEMagical implements ISpecial
 		// Attributes
 		WeaponAttribute.INTELLIGENCE.addAttribute(nbt, 10);
 		WeaponAttribute.WISDOM.addAttribute(nbt, 10);
-		WeaponAttribute.MAGICAL.addAttribute(nbt, 0.2);
+		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.2);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

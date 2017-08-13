@@ -129,5 +129,13 @@ public class ModWeapons
 		event.getRegistry().register(WOODEN_STAFF);
 		event.getRegistry().register(GOLDEN_STAFF);
 		event.getRegistry().register(DIAMOND_STAFF);
+		
+		// magical special
+		event.getRegistry().register(BLAZEFURY);
+		event.getRegistry().register(MOONLIT_ROD);
+		event.getRegistry().register(EPILOGUE);
+		
+		event.getRegistry().register(GAZE_OF_TRUTH);
+		event.getRegistry().register(VISAGE_OF_WIZARDRY);
 	}
 }

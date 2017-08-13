@@ -30,7 +30,8 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		TemplateManager manager = server.getStructureTemplateManager();
 		
 		// generate entrance
-		Template dungeonEntrance = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "entrance_1"));
+		Template dungeonEntrance = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "entrance1"));
+		Template entranceStaircase = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "entrance_staircase1"));
 		PlacementSettings settings = new PlacementSettings();
 		
 		// if can generate
@@ -39,8 +40,10 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		
 		if (MHSWorldGenerator.canSpawnHere(dungeonEntrance, world, position))
 		{	
-			dungeonEntrance.addBlocksToWorld(world, DungeonHelper.translateToCorner(dungeonEntrance, position.add(0, -8, 0), Rotation.NONE), settings);
+			dungeonEntrance.addBlocksToWorld(world, DungeonHelper.translateToCorner(dungeonEntrance, position, Rotation.NONE), settings);
+			entranceStaircase.addBlocksToWorld(world, DungeonHelper.translateToCorner(entranceStaircase, position.add(0, -6, 0), Rotation.NONE), settings);
 			DungeonHelper.handleDataBlocks(dungeonEntrance, world, position, settings);
+			DungeonHelper.handleDataBlocks(entranceStaircase, world, position, settings);
 			LostEclipse.LOGGER.info("Generating Dungeon at " + position);
 			// start procedural generate
 			procedurallyGenerate(manager, world, position, null);
@@ -57,16 +60,14 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		LostEclipse.LOGGER.debug("Current Depth: " + depth + "\tRoom Count: " + roomCount);
 		ArrayList<PotentialPosition> nextPositions = potentialPositions; // create a new PotentialPosition array for the next iteration. 
 		
-		if (depth > maxDepth)
-			return; // stop generating if we are over maxDepth.
+		if (depth > maxDepth) return; // stop generating if we are over maxDepth.
 		else
 		{
 			if (roomCount == 0)
 			{
 				int y = -8 * depth;
 				
-				if (depth == 1)
-					y -= 8;
+				if (depth == 1) y -= 5;
 				
 				// generate staircase underneath current staircase
 				nextPositions = generateStaircase(manager, world, startingPos.add(0, y, 0)); 
@@ -74,7 +75,7 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 			else
 			{
 				// generate rooms. return potential positions
-				nextPositions = generateRooms(manager, world, potentialPositions);
+				nextPositions = generateRooms(manager, world, potentialPositions, depth);
 			}
 		}
 		

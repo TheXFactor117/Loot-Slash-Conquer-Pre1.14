@@ -14,8 +14,6 @@ import com.thexfactor117.losteclipse.stats.attributes.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.attributes.JewelryAttribute;
 import com.thexfactor117.losteclipse.stats.attributes.WeaponAttribute;
 
-import baubles.api.BaubleType;
-import baubles.api.IBauble;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
@@ -43,26 +41,99 @@ public class ItemGeneratorHelper
 	
 	public static void generateName(ItemStack stack, NBTTagCompound nbt)
 	{
-		// return if Common
-		if (Rarity.getRarity(nbt) == Rarity.COMMON) return;
+		if (Rarity.getRarity(nbt) == Rarity.COMMON)
+		{
+			String prefix = NameHelper.getPrefix("common_prefix");
+			String type = NameHelper.getType(nbt.getString("Type") + "_type");
+			
+			stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
+		}
+		else if (Rarity.getRarity(nbt) == Rarity.UNCOMMON)
+		{
+			String type = NameHelper.getType(nbt.getString("Type") + "_type");
+			String prefix = NameHelper.getPrefix(getAttributeString(nbt) + "_prefix");
+			
+			stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
+		}
+		else
+		{
+			String type = NameHelper.getType(nbt.getString("Type") + "_type");
+			int rand = (int) (Math.random() * 3);
+			
+			if (rand == 0)
+			{
+				String prefix = NameHelper.getPrefix(getAttributeString(nbt) + "_prefix");
+				
+				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
+			}
+			else if (rand == 1)
+			{
+				String suffix = NameHelper.getSuffix(getAttributeString(nbt) + "_suffix");
+				
+				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + type + " " + suffix);
+			}
+			else
+			{
+				String prefix = NameHelper.getPrefix(getAttributeString(nbt) + "_prefix");
+				String suffix = NameHelper.getSuffix(getAttributeString(nbt) + "_suffix");
+				
+				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type + " " + suffix);
+			}
+		}
+	}
+	
+	private static String getAttributeString(NBTTagCompound nbt)
+	{
+		String type = nbt.getString("Type");
 		
-		String prefix = NameHelper.getRandomPrefix();
-		String suffix = "";
+		if (type.equals("dagger") || type.equals("sword") || type.equals("mace") || type.equals("wand") || type.equals("staff"))
+		{
+			return WeaponAttribute.getRandomActiveAttribute(nbt).getLocalizedString();
+		}
+		else if (type.equals("helmet") || type.equals("chestplate") || type.equals("leggings") || type.equals("boots"))
+		{
+			return ArmorAttribute.getRandomActiveAttribute(nbt).getLocalizedString();
+		}
+		else if (type.equals("amulet") || type.equals("ring") || type.equals("belt"))
+		{
+			return JewelryAttribute.getRandomActiveAttribute(nbt).getLocalizedName();
+		}
 		
-		if (stack.getItem() instanceof ItemLEMelee && ((ItemLEMelee) stack.getItem()).getType().equals("dagger")) suffix = NameHelper.getDaggerSuffix();
-		else if (stack.getItem() instanceof ItemLEMelee && ((ItemLEMelee) stack.getItem()).getType().equals("mace")) suffix = NameHelper.getMaceSuffix();
-		else if (stack.getItem() instanceof ItemSword) suffix = NameHelper.getSwordSuffix();
-		else if (stack.getItem() instanceof ItemLEMagical && !((ItemLEMagical) stack.getItem()).isStaff()) suffix = NameHelper.getWandSuffix();
-		else if (stack.getItem() instanceof ItemLEMagical && ((ItemLEMagical) stack.getItem()).isStaff()) suffix = NameHelper.getStaffSuffix();
-		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.HEAD) suffix = NameHelper.getHelmetSuffix();
-		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.CHEST) suffix = NameHelper.getChestplateSuffix();
-		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.LEGS) suffix = NameHelper.getLeggingsSuffix();
-		else if (stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.FEET) suffix = NameHelper.getBootSuffix();
-		else if (stack.getItem() instanceof ItemLEBauble && ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.AMULET) suffix = NameHelper.getAmuletSuffix();
-		else if (stack.getItem() instanceof ItemLEBauble && ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.RING) suffix = NameHelper.getRingSuffix();
-		else if (stack.getItem() instanceof ItemLEBauble && ((IBauble) stack.getItem()).getBaubleType(stack) == BaubleType.BELT) suffix = NameHelper.getBeltSuffix();
-
-		stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + suffix);
+		return "";
+	}
+	
+	public static void setTypes(ItemStack stack, NBTTagCompound nbt)
+	{
+		if (stack.getItem() instanceof ItemSword)
+		{
+			if (stack.getItem() instanceof ItemLEMelee)
+			{
+				ItemLEMelee item = (ItemLEMelee) stack.getItem();
+				
+				nbt.setString("Type", item.getType());
+			}
+			else nbt.setString("Type", "sword");
+		}
+		else if (stack.getItem() instanceof ItemArmor)
+		{
+			if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.HEAD) nbt.setString("Type", "helmet");
+			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.CHEST) nbt.setString("Type", "chestplate");
+			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.LEGS) nbt.setString("Type", "leggings");
+			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.FEET) nbt.setString("Type", "boots");
+		}
+		else if (stack.getItem() instanceof ItemLEMagical)
+		{
+			ItemLEMagical wand = (ItemLEMagical) stack.getItem();
+			
+			if (wand.isStaff()) nbt.setString("Type", "staff");
+			else nbt.setString("Type", "wand");
+		}
+		else if (stack.getItem() instanceof ItemLEBauble)
+		{
+			ItemLEBauble item = (ItemLEBauble) stack.getItem();
+			
+			nbt.setString("Type", item.getBaubleType(stack).toString().toLowerCase());
+		}
 	}
 	
 	/**
@@ -81,7 +152,7 @@ public class ItemGeneratorHelper
 		else if (rarity == Rarity.RARE) amount = (int) (Math.random() * 2 + 2);
 		else if (rarity == Rarity.LEGENDARY) amount = (int) (Math.random() * 2 + 3);
 		else if (rarity == Rarity.EXOTIC) amount = (int) (Math.random() * 2 + 4);
-		
+
 		for (int i = 0; i < amount; i++)
 		{
 			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemLEMagical)
@@ -124,7 +195,7 @@ public class ItemGeneratorHelper
 		Item item = stack.getItem();
 		
 		if (item instanceof ItemSword)
-		{
+		{	
 			// retrieves the default attributes, like damage and attack speed.
 			@SuppressWarnings("deprecation")
 			Multimap<String, AttributeModifier> map = item.getItemAttributeModifiers(EntityEquipmentSlot.MAINHAND);
@@ -207,22 +278,22 @@ public class ItemGeneratorHelper
 		}
 		else if (rarity == Rarity.UNCOMMON)
 		{
-			range = 2;
+			range = 3;
 			damage = Math.random() * range + (base);
 		}
 		else if (rarity == Rarity.RARE)
 		{
-			range = 3;
+			range = 4;
 			damage = Math.random() * range + (base);
 		}
 		else if (rarity == Rarity.LEGENDARY)
 		{
-			range = 3;
+			range = 5;
 			damage = Math.random() * range + (base + 1);
 		}
 		else if (rarity == Rarity.EXOTIC)
 		{
-			range = 4;
+			range = 6;
 			damage = Math.random() * range + (base + 2);
 		}
 		

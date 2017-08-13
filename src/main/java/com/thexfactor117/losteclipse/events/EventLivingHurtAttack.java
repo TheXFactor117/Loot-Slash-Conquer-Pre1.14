@@ -143,15 +143,15 @@ public class EventLivingHurtAttack
 			enemy.attackEntityFrom(ModDamageSources.POISON, (float) WeaponAttribute.POISON.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 		}
-		if (WeaponAttribute.ETHEREAL.hasAttribute(nbt)) player.setHealth((float) (player.getHealth() + (damage * WeaponAttribute.ETHEREAL.getAmount(nbt))));
-		if (WeaponAttribute.MAGICAL.hasAttribute(nbt))
+		if (WeaponAttribute.LIFE_STEAL.hasAttribute(nbt)) player.setHealth((float) (player.getHealth() + (damage * WeaponAttribute.LIFE_STEAL.getAmount(nbt))));
+		if (WeaponAttribute.MANA_STEAL.hasAttribute(nbt))
 		{
 			IStats statsCap = enemy.getCapability(CapabilityPlayerStats.STATS, null);
 			
 			if (statsCap != null)
 			{
 				// adds mana to the player each attack.
-				statsCap.setMana(statsCap.getMana() + (int) (WeaponAttribute.MAGICAL.getAmount(nbt) * damage));
+				statsCap.setMana(statsCap.getMana() + (int) (WeaponAttribute.MANA_STEAL.getAmount(nbt) * damage));
 			}
 		}
 		if (WeaponAttribute.CHAINED.hasAttribute(nbt))

@@ -59,14 +59,14 @@ public abstract class ProceduralDungeonBase extends WorldGenerator
 		return potentialPositions;
 	}
 	
-	public ArrayList<PotentialPosition> generateRooms(TemplateManager manager, World world, ArrayList<PotentialPosition> potentialPositions)
+	public ArrayList<PotentialPosition> generateRooms(TemplateManager manager, World world, ArrayList<PotentialPosition> potentialPositions, int depth)
 	{
 		ArrayList<PotentialPosition> nextPotentialPositions = new ArrayList<PotentialPosition>(); // master list of all next potential positions
 		
 		// loop through potential positions and generate a room at each one. store new potential positions in array to be passed back in.
 		for (PotentialPosition position : potentialPositions)
 		{
-			ArrayList<PotentialPosition> tempNextPositions = generateRandomRoom(manager, world, position.getPos(), position.getRotation());
+			ArrayList<PotentialPosition> tempNextPositions = generateRandomRoom(manager, world, position.getPos(), position.getRotation(), depth);
 			
 			if (tempNextPositions != null)
 			{
@@ -84,7 +84,7 @@ public abstract class ProceduralDungeonBase extends WorldGenerator
 	/**
 	 * Generate a room at the given position. Returns an array of potential rooms to be tested next iteration.
 	 */
-	public ArrayList<PotentialPosition> generateRandomRoom(TemplateManager manager, World world, BlockPos center, Rotation rotation)
+	public ArrayList<PotentialPosition> generateRandomRoom(TemplateManager manager, World world, BlockPos center, Rotation rotation, int depth)
 	{
 		// if there is a room at a potential position, return.
 		for (int i = 0; i < roomPositions.size(); i++)
@@ -98,7 +98,7 @@ public abstract class ProceduralDungeonBase extends WorldGenerator
 		
 		// settings and such
 		PlacementSettings settings = new PlacementSettings().setRotation(rotation);
-		Template template = DungeonHelper.getRandomizedDungeonTemplate(manager, world);
+		Template template = DungeonHelper.getRandomizedDungeonTemplate(manager, world, depth);
 		
 		// add blocks (and handle any data blocks)
 		BlockPos corner = DungeonHelper.translateToCorner(template, center, rotation); // translate from center to corner

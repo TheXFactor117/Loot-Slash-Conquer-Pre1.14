@@ -114,10 +114,10 @@ public enum Rarity
 				if (rarity == Rarity.COMMON)
 				{
 					COMMON_RARITIES.add(rarity.chance, rarity);
-					UNCOMMON_RARITIES.add(rarity.chance - MULTIPLIER, rarity);
-					RARE_RARITIES.add(rarity.chance - (MULTIPLIER * 2), rarity);
-					LEGENDARY_RARITIES.add(rarity.chance - (MULTIPLIER * 3), rarity);
-					EXOTIC_RARITIES.add(rarity.chance - (MULTIPLIER * 4), rarity);
+					UNCOMMON_RARITIES.add(rarity.chance - (MULTIPLIER * 2), rarity);
+					RARE_RARITIES.add(rarity.chance - (MULTIPLIER * 3), rarity);
+					LEGENDARY_RARITIES.add(rarity.chance - (MULTIPLIER * 4), rarity);
+					EXOTIC_RARITIES.add(rarity.chance - (MULTIPLIER * 5), rarity);
 				}
 				else
 				{

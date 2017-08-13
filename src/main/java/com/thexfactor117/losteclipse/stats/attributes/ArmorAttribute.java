@@ -1,7 +1,10 @@
 package com.thexfactor117.losteclipse.stats.attributes;
 
+import java.util.List;
 import java.util.Random;
 
+import com.google.common.collect.Lists;
+import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.api.Rarity;
 import com.thexfactor117.losteclipse.util.RandomCollection;
 
@@ -12,32 +15,33 @@ import net.minecraft.nbt.NBTTagCompound;
  * @author TheXFactor117
  *
  */
-public enum ArmorAttribute 
+public enum ArmorAttribute
 {
-	MOVE_SPEED("Movement Speed", Rarity.COMMON, 0.05, 0.5),
-	STRENGTH("Strength", Rarity.COMMON, 1, 8),
-	AGILITY("Agility", Rarity.COMMON, 1, 8),
-	DEXTERITY("Dexterity", Rarity.COMMON, 1, 8),
-	INTELLIGENCE("Intelligence", Rarity.COMMON, 1, 8),
-	WISDOM("Wisdom", Rarity.COMMON, 1, 8),
-	FORTITUDE("Fortitude", Rarity.COMMON, 1, 8),
-	DURABLE("Durable", Rarity.COMMON, 0.05, 0.5),
-	FIRE_RESIST("Fire Resistance", Rarity.UNCOMMON, 0.05, 1),
-	FROST_RESIST("Frost Resistance", Rarity.UNCOMMON, 0.05, 1),
-	LIGHTNING_RESIST("Lightning Resistance", Rarity.UNCOMMON, 0.05, 1),
-	POISON_RESIST("Poison Resistance", Rarity.UNCOMMON, 0.05, 1),
-	ANCIENT("All Stats", Rarity.RARE, 4, 12);
+	STRENGTH("Strength", "strength", Rarity.COMMON, 1, 8),
+	AGILITY("Agility", "agility", Rarity.COMMON, 1, 8),
+	DEXTERITY("Dexterity", "dexterity", Rarity.COMMON, 1, 8),
+	INTELLIGENCE("Intelligence", "intelligence", Rarity.COMMON, 1, 8),
+	WISDOM("Wisdom", "wisdom", Rarity.COMMON, 1, 8),
+	FORTITUDE("Fortitude", "fortitude", Rarity.COMMON, 1, 8),
+	DURABLE("Durable", "durable", Rarity.COMMON, 0.05, 0.5),
+	FIRE_RESIST("Fire Resistance", "fire", Rarity.UNCOMMON, 0.05, 1),
+	FROST_RESIST("Frost Resistance", "frost", Rarity.UNCOMMON, 0.05, 1),
+	LIGHTNING_RESIST("Lightning Resistance", "lightning", Rarity.UNCOMMON, 0.05, 1),
+	POISON_RESIST("Poison Resistance", "poison", Rarity.UNCOMMON, 0.05, 1),
+	ALL_STATS("All Stats", "all_stats", Rarity.RARE, 4, 12);
 	
 	private String name;
+	private String localizedName;
 	private Rarity baseRarity;
 	private double minAmount;
 	private double maxAmount;
 	
-	private static final RandomCollection<ArmorAttribute> RANDOM_ATTRIBUTES = new RandomCollection<ArmorAttribute>();
+	public static final RandomCollection<ArmorAttribute> RANDOM_ATTRIBUTES = new RandomCollection<ArmorAttribute>();
 	
-	ArmorAttribute(String name, Rarity baseRarity, double min, double max)
+	ArmorAttribute(String name, String localizedName, Rarity baseRarity, double min, double max)
 	{
 		this.name = name;
+		this.localizedName = localizedName;
 		this.baseRarity = baseRarity;
 		this.minAmount = min;
 		this.maxAmount = max;
@@ -46,6 +50,22 @@ public enum ArmorAttribute
 	public static ArmorAttribute getRandomAttribute(Random rand)
 	{
 		return RANDOM_ATTRIBUTES.next(rand);
+	}
+	
+	public static WeaponAttribute getRandomActiveAttribute(NBTTagCompound nbt)
+	{
+		List<WeaponAttribute> list = Lists.newArrayList();
+		
+		for (WeaponAttribute attribute : WeaponAttribute.values())
+		{
+			if (attribute.hasAttribute(nbt))
+			{
+				LostEclipse.LOGGER.info("Adding " + attribute + "!");
+				list.add(attribute);
+			}
+		}
+		
+		return list.size() > 0 ? list.get((int) (Math.random() * list.size())) : null;
 	}
 	
 	/**
@@ -110,6 +130,11 @@ public enum ArmorAttribute
 	public String getName()
 	{
 		return name;
+	}
+	
+	public String getLocalizedName()
+	{
+		return localizedName;
 	}
 	
 	public Rarity getBaseRarity()

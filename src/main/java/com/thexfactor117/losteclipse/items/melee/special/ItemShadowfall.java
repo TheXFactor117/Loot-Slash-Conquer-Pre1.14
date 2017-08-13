@@ -41,7 +41,7 @@ public class ItemShadowfall extends ItemLEAdvancedMelee implements ISpecial
 		// Attributes
 		WeaponAttribute.DEXTERITY.addAttribute(nbt, 10);
 		WeaponAttribute.MAX_DAMAGE.addAttribute(nbt, 3);
-		WeaponAttribute.ETHEREAL.addAttribute(nbt, 0.15);
+		WeaponAttribute.LIFE_STEAL.addAttribute(nbt, 0.15);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

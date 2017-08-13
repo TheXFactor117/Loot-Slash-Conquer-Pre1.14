@@ -1,5 +1,13 @@
 package com.thexfactor117.losteclipse.loot;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Properties;
+
+import com.google.common.collect.Lists;
+
 /**
  * 
  * @author TheXFactor117
@@ -7,85 +15,68 @@ package com.thexfactor117.losteclipse.loot;
  */
 public class NameHelper 
 {
-	public static final String[] PREFIXES = new String[] { "Fine", "Pure", "Sacred", "Unearthly", "Holy" };
-	
-	public static final String[] DAGGER_SUFFIXES = new String[] { "Dagger", "Shortblade", "Reaver", "Sabre", "Slicer", "Razor", "Knife", "Sculptor" };
-	public static final String[] SWORD_SUFFIXES = new String[] { "Sword", "Blade", "Rapier", "Skewer", "Scimitar", "Broadsword", "Katana" };
-	public static final String[] MACE_SUFFIXES = new String[] { "Mace", "Rock", "Impaler", "Smasher", "Pummel", "Hammer", "Bludgeon", "Crusher" };
-	public static final String[] WAND_SUFFIXES = new String[] { "Wand", "Stick", "Spell", "Baton", "Crystal", "Harp", "Charm" };
-	public static final String[] STAFF_SUFFIXES = new String[] { "Staff", "Spire", "Branch", "Visage", "Cane", "Pole", "War Staff" };
-	
-	public static final String[] HELMET_SUFFIXES = new String[] { "Helmet", "Helm", "Cap", "Hood", "Facemask", "Bandana" };
-	public static final String[] CHESTPLATE_SUFFIXES = new String[] { "Chestplate", "Plate", "Tunic", "Wrap" };
-	public static final String[] LEGGINGS_SUFFIXES = new String[] { "Leggings", "Pants", "Skirt", "Breeches", "Legwraps", "Robe" };
-	public static final String[] BOOT_SUFFIXES = new String[] { "Boots", "Shoes", "Footguards", "Stompers", "Treads", "Sandals" };
-
-	public static final String[] AMULET_SUFFIXES = new String[] { "Amulet", "Necklace" };
-	public static final String[] RING_SUFFIXES = new String[] { "Ring", "Band" };
-	public static final String[] BELT_SUFFIXES = new String[] { "Belt", "Sash", "Girdle" };
-	
-	public static String getRandomPrefix()
+	public static String getPrefix(String property)
 	{
-		return PREFIXES[(int) (Math.random() * PREFIXES.length)];
+		try
+		{
+			return NameHelper.readNameFile("prefixes", property);
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return "";
 	}
 	
-	public static String getDaggerSuffix()
+	public static String getType(String property)
 	{
-		return DAGGER_SUFFIXES[(int) (Math.random() * DAGGER_SUFFIXES.length)];
+		try
+		{
+			return NameHelper.readNameFile("types", property);
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return "";
 	}
 	
-	public static String getSwordSuffix()
+	public static String getSuffix(String property)
 	{
-		return SWORD_SUFFIXES[(int) (Math.random() * SWORD_SUFFIXES.length)];
+		try
+		{
+			return NameHelper.readNameFile("suffixes", property);
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return "";
 	}
 	
-	public static String getMaceSuffix()
+	private static String readNameFile(String filePath, String property) throws IOException
 	{
-		return MACE_SUFFIXES[(int) (Math.random() * MACE_SUFFIXES.length)];
-	}
-	
-	public static String getWandSuffix()
-	{
-		return WAND_SUFFIXES[(int) (Math.random() * WAND_SUFFIXES.length)];
-	}
-	
-	public static String getStaffSuffix()
-	{
-		return STAFF_SUFFIXES[(int) (Math.random() * STAFF_SUFFIXES.length)];
-	}
-	
-	public static String getHelmetSuffix()
-	{
-		return HELMET_SUFFIXES[(int) (Math.random() * HELMET_SUFFIXES.length)];
-	}
-	
-	public static String getChestplateSuffix()
-	{
-		return CHESTPLATE_SUFFIXES[(int) (Math.random() * CHESTPLATE_SUFFIXES.length)];
-	}
-	
-	public static String getLeggingsSuffix()
-	{
-		return LEGGINGS_SUFFIXES[(int) (Math.random() * LEGGINGS_SUFFIXES.length)];
-	}
-	
-	public static String getBootSuffix()
-	{
-		return BOOT_SUFFIXES[(int) (Math.random() * BOOT_SUFFIXES.length)];
-	}
-	
-	public static String getAmuletSuffix()
-	{
-		return AMULET_SUFFIXES[(int) (Math.random() * AMULET_SUFFIXES.length)];
-	}
-	
-	public static String getRingSuffix()
-	{
-		return RING_SUFFIXES[(int) (Math.random() * RING_SUFFIXES.length)];
-	}
-	
-	public static String getBeltSuffix()
-	{
-		return BELT_SUFFIXES[(int) (Math.random() * BELT_SUFFIXES.length)];
+		InputStreamReader in = new InputStreamReader(NameHelper.class.getClassLoader().getResourceAsStream("assets/losteclipse/names/" + filePath + ".txt"), "UTF-8");
+		Properties props = new Properties();
+		props.load(in);
+		Enumeration<?> e = props.propertyNames();
+		List<String> list = Lists.newArrayList();
+		
+		while(e.hasMoreElements())
+		{
+			String key = (String) e.nextElement();
+			
+			if (key != null && key.contains(property))
+			{
+				list.add(props.getProperty(key));
+			}
+		}
+		
+		in.close();
+		
+		return list.size() > 0 ? list.get((int) (Math.random() * list.size())) : "Error";
 	}
 }

@@ -135,14 +135,14 @@ public class EventPlayerTick
 			if (WeaponAttribute.INTELLIGENCE.hasAttribute(nbt)) info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) WeaponAttribute.INTELLIGENCE.getAmount(nbt));
 			if (WeaponAttribute.WISDOM.hasAttribute(nbt)) info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) WeaponAttribute.WISDOM.getAmount(nbt));
 			if (WeaponAttribute.FORTITUDE.hasAttribute(nbt)) info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) WeaponAttribute.FORTITUDE.getAmount(nbt));
-			if (WeaponAttribute.ANCIENT.hasAttribute(nbt))
+			if (WeaponAttribute.ALL_STATS.hasAttribute(nbt))
 			{
-				info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) WeaponAttribute.ANCIENT.getAmount(nbt));
-				info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) WeaponAttribute.ANCIENT.getAmount(nbt));
-				info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) WeaponAttribute.ANCIENT.getAmount(nbt));
-				info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) WeaponAttribute.ANCIENT.getAmount(nbt));
-				info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) WeaponAttribute.ANCIENT.getAmount(nbt));
-				info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) WeaponAttribute.ANCIENT.getAmount(nbt));
+				info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) WeaponAttribute.ALL_STATS.getAmount(nbt));
+				info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) WeaponAttribute.ALL_STATS.getAmount(nbt));
+				info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) WeaponAttribute.ALL_STATS.getAmount(nbt));
+				info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) WeaponAttribute.ALL_STATS.getAmount(nbt));
+				info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) WeaponAttribute.ALL_STATS.getAmount(nbt));
+				info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) WeaponAttribute.ALL_STATS.getAmount(nbt));
 			}
 		}
 		
@@ -158,14 +158,14 @@ public class EventPlayerTick
 				if (ArmorAttribute.INTELLIGENCE.hasAttribute(nbt)) info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) ArmorAttribute.INTELLIGENCE.getAmount(nbt));
 				if (ArmorAttribute.WISDOM.hasAttribute(nbt)) info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) ArmorAttribute.WISDOM.getAmount(nbt));
 				if (ArmorAttribute.FORTITUDE.hasAttribute(nbt)) info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) ArmorAttribute.FORTITUDE.getAmount(nbt));
-				if (ArmorAttribute.ANCIENT.hasAttribute(nbt))
+				if (ArmorAttribute.ALL_STATS.hasAttribute(nbt))
 				{
-					info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) ArmorAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) ArmorAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) ArmorAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) ArmorAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) ArmorAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) ArmorAttribute.ANCIENT.getAmount(nbt));
+					info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) ArmorAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) ArmorAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) ArmorAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) ArmorAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) ArmorAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) ArmorAttribute.ALL_STATS.getAmount(nbt));
 				}
 			}
 		}
@@ -184,14 +184,14 @@ public class EventPlayerTick
 				if (JewelryAttribute.INTELLIGENCE.hasAttribute(nbt)) info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) JewelryAttribute.INTELLIGENCE.getAmount(nbt));
 				if (JewelryAttribute.WISDOM.hasAttribute(nbt)) info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) JewelryAttribute.WISDOM.getAmount(nbt));
 				if (JewelryAttribute.FORTITUDE.hasAttribute(nbt)) info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) JewelryAttribute.FORTITUDE.getAmount(nbt));
-				if (JewelryAttribute.ANCIENT.hasAttribute(nbt))
+				if (JewelryAttribute.ALL_STATS.hasAttribute(nbt))
 				{
-					info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) JewelryAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) JewelryAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) JewelryAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) JewelryAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) JewelryAttribute.ANCIENT.getAmount(nbt));
-					info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) JewelryAttribute.ANCIENT.getAmount(nbt));
+					info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) JewelryAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) JewelryAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) JewelryAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) JewelryAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) JewelryAttribute.ALL_STATS.getAmount(nbt));
+					info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) JewelryAttribute.ALL_STATS.getAmount(nbt));
 				}
 			}
 		}

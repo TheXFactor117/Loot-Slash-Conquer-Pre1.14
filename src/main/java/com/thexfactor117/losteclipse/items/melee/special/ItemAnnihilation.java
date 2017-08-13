@@ -42,8 +42,8 @@ public class ItemAnnihilation extends ItemLEAdvancedMelee implements ISpecial
 		WeaponAttribute.AGILITY.addAttribute(nbt, 10);
 		WeaponAttribute.DEXTERITY.addAttribute(nbt, 10);
 		WeaponAttribute.GOLD.addAttribute(nbt, 10);
-		WeaponAttribute.ETHEREAL.addAttribute(nbt, 0.1);
-		WeaponAttribute.MAGICAL.addAttribute(nbt, 0.1);
+		WeaponAttribute.LIFE_STEAL.addAttribute(nbt, 0.1);
+		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.1);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

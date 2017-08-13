@@ -42,6 +42,7 @@ public class ItemGenerator
 			int level = chunkLevel.getChunkLevel();
 			
 			//Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand)); // sets a random rarity
+			ItemGeneratorHelper.setTypes(stack, nbt);
 			nbt.setInteger("Level", level); // set level to current player level
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 			ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
@@ -59,6 +60,7 @@ public class ItemGenerator
 			int level = chunkLevel.getChunkLevel();
 			ItemLEMagical wand = (ItemLEMagical) stack.getItem();
 			
+			ItemGeneratorHelper.setTypes(stack, nbt);
 			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand));
 			nbt.setInteger("Level", level);
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
@@ -84,6 +86,7 @@ public class ItemGenerator
 			IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
 			int level = chunkLevel.getChunkLevel();
 			
+			ItemGeneratorHelper.setTypes(stack, nbt);
 			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, ItemGeneratorHelper.rand));
 			nbt.setInteger("Level", level);
 			ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));

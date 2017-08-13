@@ -1,0 +1,6 @@
+{
+	"parent": "losteclipse:item/gaze_of_truth",
+	"textures": {
+		"layer0": "losteclipse:items/gaze_of_truth_charged"
+	}
+}

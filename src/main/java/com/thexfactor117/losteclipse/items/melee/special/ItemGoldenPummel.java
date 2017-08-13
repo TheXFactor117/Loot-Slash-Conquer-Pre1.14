@@ -41,7 +41,7 @@ public class ItemGoldenPummel extends ItemLEAdvancedMelee implements ISpecial
 		// Attributes
 		WeaponAttribute.FORTITUDE.addAttribute(nbt, 10);
 		WeaponAttribute.LIGHTNING.addAttribute(nbt, 7);
-		WeaponAttribute.MAGICAL.addAttribute(nbt, 0.2);
+		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.2);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

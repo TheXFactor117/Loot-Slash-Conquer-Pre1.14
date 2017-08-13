@@ -45,12 +45,12 @@ public class DungeonHelper
 		// loop through all data blocks within the structure
 		for (Entry<BlockPos, String> e : template.getDataBlocks(pos, settings).entrySet())
 		{
-			if ("random_chest".equals(e.getValue())) // check data block tag
+			if ("chest".equals(e.getValue())) // check data block tag
 			{
 				BlockPos dataPos = e.getKey();
 				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3); // remove data block
 				TileEntity chestEntity = world.getTileEntity(dataPos.down()); // chest is located under data block
-				int chance = (int) (Math.random() * 4);
+				//int chance = (int) (Math.random() * 4);
 				
 				if (chestEntity instanceof TileEntityChest)
 				{
@@ -62,7 +62,7 @@ public class DungeonHelper
 					world.setBlockState(chestEntity.getPos(), Blocks.AIR.getDefaultState(), 3);
 				}
 			}
-			else if ("random_spawner".equals(e.getValue()))
+			else if ("mob_spawner".equals(e.getValue()))
 			{
 				BlockPos dataPos = e.getKey();
 				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
@@ -106,15 +106,21 @@ public class DungeonHelper
 		return new PotentialPosition(new BlockPos(x, center.getY(), z), rotation);
 	}
 	
-	public static Template getRandomizedDungeonTemplate(TemplateManager manager, World world)
+	public static Template getRandomizedDungeonTemplate(TemplateManager manager, World world, int depth)
 	{
 		ArrayList<Template> templates = new ArrayList<Template>();
 		
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room_random1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room_random2")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "spawner1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room2")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "basic_spawner1")));
 		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "fluff1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze2")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "misc1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "misc2")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_floor")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_spawner1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_spawner2")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "water_spawner1")));
 		
 		return templates.get((int) (Math.random() * (templates.size())));
 	}
@@ -123,7 +129,7 @@ public class DungeonHelper
 	{
 		ArrayList<Template> templates = new ArrayList<Template>();
 		
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "staircase_1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "staircase1")));
 		
 		return templates.get((int) (Math.random() * (templates.size())));
 	}

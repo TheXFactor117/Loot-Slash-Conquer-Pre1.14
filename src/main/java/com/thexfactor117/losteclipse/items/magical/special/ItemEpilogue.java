@@ -38,8 +38,8 @@ public class ItemEpilogue extends ItemLEMagical implements ISpecial
 		ItemGeneratorHelper.setRune(nbt);
 		
 		// Attributes
-		WeaponAttribute.ANCIENT.addAttribute(nbt, 2);
-		WeaponAttribute.MAGICAL.addAttribute(nbt, 0.25);
+		WeaponAttribute.ALL_STATS.addAttribute(nbt, 2);
+		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.25);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

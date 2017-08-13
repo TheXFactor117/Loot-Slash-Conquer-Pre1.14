@@ -36,8 +36,8 @@ public class ItemRequiem extends ItemLEMelee implements ISpecial
 		// Attributes
 		WeaponAttribute.AGILITY.addAttribute(nbt, 5);
 		WeaponAttribute.DEXTERITY.addAttribute(nbt, 5);
-		WeaponAttribute.ETHEREAL.addAttribute(nbt, 0.05);
-		WeaponAttribute.MAGICAL.addAttribute(nbt, 0.05);
+		WeaponAttribute.LIFE_STEAL.addAttribute(nbt, 0.05);
+		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.05);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}
