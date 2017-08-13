@@ -8,7 +8,7 @@ import com.google.gson.JsonSerializationContext;
 import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.loot.ItemGenerator;
-import com.thexfactor117.losteclipse.loot.ItemGeneratorHelper;
+import com.thexfactor117.losteclipse.loot.NameGenerator;
 import com.thexfactor117.losteclipse.loot.table.CustomLootContext;
 import com.thexfactor117.losteclipse.util.Reference;
 
@@ -66,7 +66,7 @@ public class CreateStats extends LootFunction
 			}
 			
 			stack.setTagCompound(nbt);
-			ItemGeneratorHelper.generateName(stack, stack.getTagCompound());
+			NameGenerator.generateName(stack, stack.getTagCompound());
 			return stack;
 		}
 		

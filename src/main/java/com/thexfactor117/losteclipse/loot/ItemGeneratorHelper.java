@@ -39,69 +39,7 @@ public class ItemGeneratorHelper
 	
 	public static Random rand = new Random();
 	
-	public static void generateName(ItemStack stack, NBTTagCompound nbt)
-	{
-		if (Rarity.getRarity(nbt) == Rarity.COMMON)
-		{
-			String prefix = NameHelper.getPrefix("common_prefix");
-			String type = NameHelper.getType(nbt.getString("Type") + "_type");
-			
-			stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
-		}
-		else if (Rarity.getRarity(nbt) == Rarity.UNCOMMON)
-		{
-			String type = NameHelper.getType(nbt.getString("Type") + "_type");
-			String prefix = NameHelper.getPrefix(getAttributeString(nbt) + "_prefix");
-			
-			stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
-		}
-		else
-		{
-			String type = NameHelper.getType(nbt.getString("Type") + "_type");
-			int rand = (int) (Math.random() * 3);
-			
-			if (rand == 0)
-			{
-				String prefix = NameHelper.getPrefix(getAttributeString(nbt) + "_prefix");
-				
-				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
-			}
-			else if (rand == 1)
-			{
-				String suffix = NameHelper.getSuffix(getAttributeString(nbt) + "_suffix");
-				
-				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + type + " " + suffix);
-			}
-			else
-			{
-				String prefix = NameHelper.getPrefix(getAttributeString(nbt) + "_prefix");
-				String suffix = NameHelper.getSuffix(getAttributeString(nbt) + "_suffix");
-				
-				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type + " " + suffix);
-			}
-		}
-	}
-	
-	private static String getAttributeString(NBTTagCompound nbt)
-	{
-		String type = nbt.getString("Type");
-		
-		if (type.equals("dagger") || type.equals("sword") || type.equals("mace") || type.equals("wand") || type.equals("staff"))
-		{
-			return WeaponAttribute.getRandomActiveAttribute(nbt).getLocalizedString();
-		}
-		else if (type.equals("helmet") || type.equals("chestplate") || type.equals("leggings") || type.equals("boots"))
-		{
-			return ArmorAttribute.getRandomActiveAttribute(nbt).getLocalizedString();
-		}
-		else if (type.equals("amulet") || type.equals("ring") || type.equals("belt"))
-		{
-			return JewelryAttribute.getRandomActiveAttribute(nbt).getLocalizedName();
-		}
-		
-		return "";
-	}
-	
+	/** Set the type of the item to NBT for use in generating names. */
 	public static void setTypes(ItemStack stack, NBTTagCompound nbt)
 	{
 		if (stack.getItem() instanceof ItemSword)
@@ -261,6 +199,7 @@ public class ItemGeneratorHelper
 		nbt.setInteger("MaxDamage", maxDamage);
 	}
 	
+	/** Sets the rune of the current magical weapon. Only used for magical weapons. */
 	public static void setRune(NBTTagCompound nbt)
 	{
 		Rune.setRune(nbt, Rune.getRandomRune(nbt, rand));
