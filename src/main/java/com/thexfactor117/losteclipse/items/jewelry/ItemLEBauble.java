@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.items.jewelry;
 
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.events.EventPlayerTick;
 import com.thexfactor117.losteclipse.util.Reference;
 
@@ -46,7 +46,7 @@ public class ItemLEBauble extends Item implements IBauble
 			if (entity instanceof EntityPlayer)
 			{
 				EntityPlayer player = (EntityPlayer) entity;
-				IPlayerInformation info = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+				PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 				
 				if (info != null)
 				{
@@ -64,7 +64,7 @@ public class ItemLEBauble extends Item implements IBauble
 			if (entity instanceof EntityPlayer)
 			{
 				EntityPlayer player = (EntityPlayer) entity;
-				IPlayerInformation info = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+				PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 				
 				if (info != null)
 				{

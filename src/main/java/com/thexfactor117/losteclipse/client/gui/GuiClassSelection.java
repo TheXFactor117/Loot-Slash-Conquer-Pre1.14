@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.network.PacketClassSelection;
 
 import net.minecraft.client.gui.GuiButton;
@@ -63,7 +63,7 @@ public class GuiClassSelection extends GuiScreen
 		 */
 		
 		EntityPlayer player = mc.player;
-		IPlayerInformation playerInfo = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 		
 		if (player != null && playerInfo != null)
 		{

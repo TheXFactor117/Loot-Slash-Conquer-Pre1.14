@@ -4,9 +4,9 @@ import javax.annotation.Nullable;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 import com.thexfactor117.losteclipse.entities.projectiles.EntityFireball;
 import com.thexfactor117.losteclipse.entities.projectiles.EntityIcebolt;
 import com.thexfactor117.losteclipse.entities.projectiles.EntityLightning;
@@ -75,11 +75,11 @@ public class ItemLEMagical extends Item
 				{
 					EntityPlayer player = (EntityPlayer) entity;
 					NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-					IPlayerInformation playerInfo = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+					PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 					
 					if (playerInfo != null)
 					{
-						double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (playerInfo.getAgilityStat() + playerInfo.getBonusAgilityStat()));
+						double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (playerInfo.getTotalAgility()));
 						
 						return player.isHandActive() && player.getActiveItemStack() == stack && player.getItemInUseCount() < (stack.getMaxItemUseDuration() - (1 / attackSpeed) * 20) ? 1 : 0;
 					}
@@ -96,7 +96,7 @@ public class ItemLEMagical extends Item
 		if (entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) entity;
-			IPlayerInformation info = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
 			if (!world.isRemote && info != null)
 			{
@@ -118,7 +118,7 @@ public class ItemLEMagical extends Item
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{
-		IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
+		Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 		
 		if (statsCap != null)
 		{
@@ -141,14 +141,14 @@ public class ItemLEMagical extends Item
 		if (entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) entity;
-			IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);	
-			IPlayerInformation info = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);	
+			PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 			
 			if (info != null)
 			{
 				// check to see if we have held it long enough
-				double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (info.getAgilityStat() + info.getBonusAgilityStat()));
+				double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
 				
 				if (count > (this.getMaxItemUseDuration(stack) - ((1 / attackSpeed) * 20))) 
 				{
@@ -168,7 +168,7 @@ public class ItemLEMagical extends Item
 						fireProjectile(world, player, stack, nbt, look);
 						
 						// update mana and send to client
-						statsCap.setMana(statsCap.getMana() - this.manaPerUse);
+						statsCap.decreaseMana(this.manaPerUse);
 						LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
 						
 						// damage item

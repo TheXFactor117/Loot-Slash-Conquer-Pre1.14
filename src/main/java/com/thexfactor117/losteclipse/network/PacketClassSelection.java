@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.network;
 
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
@@ -51,7 +51,7 @@ public class PacketClassSelection implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = ctx.getServerHandler().player;
-					IPlayerInformation playerInfo = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+					PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 					
 					if (playerInfo != null && !player.getEntityWorld().isRemote)
 					{

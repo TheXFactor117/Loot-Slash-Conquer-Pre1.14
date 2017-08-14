@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.entities.projectiles;
 
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -38,13 +38,11 @@ public class EntityLightning extends EntityProjectileBase
 		{
 			if (result.entityHit != null && result.entityHit instanceof EntityPlayer)
 			{
-				IStats statsCap = result.entityHit.getCapability(CapabilityPlayerStats.STATS, null);
+				Stats statsCap = (Stats) result.entityHit.getCapability(CapabilityPlayerStats.STATS, null);
 				
 				if (statsCap != null)
 				{
-					statsCap.setMana(statsCap.getMana() - amount);
-					
-					if (statsCap.getMana() < 0) statsCap.setMana(0);
+					statsCap.decreaseMana(amount);
 				}
 			}
 			

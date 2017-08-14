@@ -2,9 +2,9 @@ package com.thexfactor117.losteclipse.events;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
 import com.thexfactor117.losteclipse.network.PacketUpdateCoreStats;
@@ -52,7 +52,7 @@ public class EventPlayerTick
 		{
 			if (ticks % 20 == 0)
 			{
-				IPlayerInformation playerInfo = event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+				PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 				
 				if (playerInfo != null)
 				{	
@@ -95,13 +95,13 @@ public class EventPlayerTick
 			
 			if (regenTicks % 100 == 0)
 			{
-				IStats statsCap = event.player.getCapability(CapabilityPlayerStats.STATS, null);
+				Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);
 				
 				if (statsCap != null)
 				{
 					if (statsCap.getMana() < statsCap.getMaxMana())
 					{
-						statsCap.setMana(statsCap.getMana() + statsCap.getManaPerSecond());
+						statsCap.increaseMana(statsCap.getManaPerSecond());
 					}
 					
 					if (event.player.getHealth() < event.player.getMaxHealth())
@@ -120,7 +120,7 @@ public class EventPlayerTick
 		}
 	}
 	
-	public static void updateStats(EntityPlayer player, IPlayerInformation info)
+	public static void updateStats(EntityPlayer player, PlayerInformation info)
 	{	
 		info.removeBonusStats();
 		

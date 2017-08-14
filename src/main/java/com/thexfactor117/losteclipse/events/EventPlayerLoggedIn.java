@@ -2,12 +2,12 @@ package com.thexfactor117.losteclipse.events;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 import com.thexfactor117.losteclipse.network.PacketClassGui;
-import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.network.PacketUpdatePlayerInformation;
+import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -23,8 +23,8 @@ public class EventPlayerLoggedIn
 	@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
 	{
-		IPlayerInformation playerInfo = event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		IStats statsCap = event.player.getCapability(CapabilityPlayerStats.STATS, null);
+		PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);
 
 		if (playerInfo != null && playerInfo.getPlayerClass() == 0 && statsCap != null && statsCap.getMaxMana() == 0)
 		{

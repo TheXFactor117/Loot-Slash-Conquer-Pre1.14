@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.network;
 
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -31,7 +31,7 @@ public class PacketUpdateStats implements IMessage
 	
 	public PacketUpdateStats() {}
 	
-	public PacketUpdateStats(IStats statsCap)
+	public PacketUpdateStats(Stats statsCap)
 	{
 		this.mana = statsCap.getMana();
 		this.maxMana = statsCap.getMaxMana();
@@ -87,7 +87,7 @@ public class PacketUpdateStats implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = Minecraft.getMinecraft().player;
-					IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
+					Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 					
 					if (statsCap != null)
 					{

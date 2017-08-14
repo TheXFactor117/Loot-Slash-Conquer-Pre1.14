@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.entities.projectiles;
 
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 import com.thexfactor117.losteclipse.events.EventLivingHurtAttack;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
@@ -58,7 +58,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 	{
 		if (!this.getEntityWorld().isRemote)
 		{
-			IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
+			Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 			
 			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && statsCap != null)
 			{

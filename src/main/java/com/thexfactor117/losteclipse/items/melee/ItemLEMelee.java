@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.items.melee;
 
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.events.EventPlayerTick;
 import com.thexfactor117.losteclipse.util.Reference;
 
@@ -45,7 +45,7 @@ public class ItemLEMelee extends ItemSword
 		if (entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) entity;
-			IPlayerInformation info = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
 			if (!world.isRemote && info != null)
 			{

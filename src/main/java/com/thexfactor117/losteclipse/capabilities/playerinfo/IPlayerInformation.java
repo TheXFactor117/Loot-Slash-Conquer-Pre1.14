@@ -17,7 +17,6 @@ public interface IPlayerInformation
 	
 	int getPlayerExperience();
 	void setPlayerExperience(int experience);
-	int getLevelUpExperience(int currentLevel); // returns the amount of experience needed to level given the current level.
 	
 	int getSkillPoints();
 	void setSkillPoints(int skillPoints);
@@ -50,6 +49,4 @@ public interface IPlayerInformation
 	void setBonusWisdomStat(int stat);
 	int getBonusFortitudeStat();
 	void setBonusFortitudeStat(int stat);
-	
-	void removeBonusStats();
 }

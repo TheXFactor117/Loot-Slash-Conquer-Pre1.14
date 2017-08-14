@@ -3,8 +3,9 @@ package com.thexfactor117.losteclipse.events;
 import java.util.Iterator;
 import java.util.List;
 
+import com.thexfactor117.losteclipse.api.Rarity;
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 import com.thexfactor117.losteclipse.init.ModDamageSources;
 import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
 import com.thexfactor117.losteclipse.stats.attributes.ArmorAttribute;
@@ -53,9 +54,12 @@ public class EventLivingHurtAttack
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				
-				// set the true amount of damage.
-				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-				event.setAmount((float) (trueDamage + player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
+				if (Rarity.getRarity(nbt) != Rarity.DEFAULT)
+				{
+					// set the true amount of damage.
+					double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+					event.setAmount((float) (trueDamage + player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
+				}
 			}
 		}
 		
@@ -130,11 +134,11 @@ public class EventLivingHurtAttack
 			// remove half the lightning damage dealt from mana.
 			if (enemy instanceof EntityPlayer)
 			{
-				IStats statsCap = enemy.getCapability(CapabilityPlayerStats.STATS, null);
+				Stats statsCap = (Stats) enemy.getCapability(CapabilityPlayerStats.STATS, null);
 				
 				if (statsCap != null)
 				{
-					statsCap.setMana(statsCap.getMana() - (int) (WeaponAttribute.LIGHTNING.getAmount(nbt) / 2));
+					statsCap.decreaseMana((int) (WeaponAttribute.LIGHTNING.getAmount(nbt) / 2));
 				}
 			}
 		}
@@ -146,12 +150,12 @@ public class EventLivingHurtAttack
 		if (WeaponAttribute.LIFE_STEAL.hasAttribute(nbt)) player.setHealth((float) (player.getHealth() + (damage * WeaponAttribute.LIFE_STEAL.getAmount(nbt))));
 		if (WeaponAttribute.MANA_STEAL.hasAttribute(nbt))
 		{
-			IStats statsCap = enemy.getCapability(CapabilityPlayerStats.STATS, null);
+			Stats statsCap = (Stats) enemy.getCapability(CapabilityPlayerStats.STATS, null);
 			
 			if (statsCap != null)
 			{
 				// adds mana to the player each attack.
-				statsCap.setMana(statsCap.getMana() + (int) (WeaponAttribute.MANA_STEAL.getAmount(nbt) * damage));
+				statsCap.increaseMana((int) (WeaponAttribute.MANA_STEAL.getAmount(nbt) * damage));
 			}
 		}
 		if (WeaponAttribute.CHAINED.hasAttribute(nbt))

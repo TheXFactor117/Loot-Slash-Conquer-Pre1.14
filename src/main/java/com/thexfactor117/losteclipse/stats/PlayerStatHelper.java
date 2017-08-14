@@ -4,9 +4,9 @@ import java.util.UUID;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -38,8 +38,8 @@ public class PlayerStatHelper
 	 */
 	public static void updateAttributes(EntityPlayer player)
 	{
-		IPlayerInformation info = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
+		PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 		
 		if (info != null)
 		{
@@ -47,7 +47,7 @@ public class PlayerStatHelper
 			 * STRENGTH
 			 */
 			// increase attack damage
-			AttributeModifier strengthAttackDamage = new AttributeModifier(UUID.fromString(ATTACK_DAMAGE), "playerStrength", ATTACK_DAMAGE_MULTIPLIER + (info.getStrengthStat() + info.getBonusStrengthStat()), 0);
+			AttributeModifier strengthAttackDamage = new AttributeModifier(UUID.fromString(ATTACK_DAMAGE), "playerStrength", ATTACK_DAMAGE_MULTIPLIER + (info.getTotalStrength()), 0);
 
 			if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getModifier(UUID.fromString(ATTACK_DAMAGE)) != null)
 			{
@@ -62,7 +62,7 @@ public class PlayerStatHelper
 			 * AGILITY
 			 */
 			// increase agility
-			AttributeModifier agilityMovementSpeed = new AttributeModifier(UUID.fromString(MOVEMENT_SPEED), "agilityMovementSpeed", MOVEMENT_SPEED_MULTIPLIER * (info.getAgilityStat() + info.getBonusAgilityStat()), 0);
+			AttributeModifier agilityMovementSpeed = new AttributeModifier(UUID.fromString(MOVEMENT_SPEED), "agilityMovementSpeed", MOVEMENT_SPEED_MULTIPLIER * (info.getTotalAgility()), 0);
 			
 			if (player.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(UUID.fromString(MOVEMENT_SPEED)) != null)
 			{
@@ -73,7 +73,7 @@ public class PlayerStatHelper
 				player.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(agilityMovementSpeed);
 			
 			// increase attack speed
-			AttributeModifier agilityAttackSpeed = new AttributeModifier(UUID.fromString(ATTACK_SPEED), "agilityAttackSpeed", ATTACK_SPEED_MULTIPLIER * (info.getAgilityStat() + info.getBonusAgilityStat()), 0);
+			AttributeModifier agilityAttackSpeed = new AttributeModifier(UUID.fromString(ATTACK_SPEED), "agilityAttackSpeed", ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()), 0);
 			
 			if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_SPEED).getModifier(UUID.fromString(ATTACK_SPEED)) != null)
 			{
@@ -95,7 +95,7 @@ public class PlayerStatHelper
 			 */
 			if (!player.getEntityWorld().isRemote)
 			{
-				statsCap.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (info.getIntelligenceStat() + info.getBonusIntelligenceStat()));
+				statsCap.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (info.getTotalIntelligence()));
 				
 				LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
 			}
@@ -105,7 +105,7 @@ public class PlayerStatHelper
 			 */			
 			if (!player.getEntityWorld().isRemote)
 			{
-				statsCap.setMaxMana((int) ((MAX_MANA_MULTIPLIER * (info.getWisdomStat() + info.getBonusWisdomStat())) + 100));
+				statsCap.setMaxMana((int) ((MAX_MANA_MULTIPLIER * (info.getTotalWisdom())) + 100));
 				
 				LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
 			}
@@ -115,7 +115,7 @@ public class PlayerStatHelper
 			 * FORTITUDE
 			 */
 			// increases max health
-			AttributeModifier fortitudeMaxHealth = new AttributeModifier(UUID.fromString(MAX_HEALTH), "maxHealth", MAX_HEALTH_MULTIPLIER * (info.getFortitudeStat() + info.getBonusFortitudeStat()), 0);
+			AttributeModifier fortitudeMaxHealth = new AttributeModifier(UUID.fromString(MAX_HEALTH), "maxHealth", MAX_HEALTH_MULTIPLIER * (info.getTotalFortitude()), 0);
 			
 			if (player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(UUID.fromString(MAX_HEALTH)) != null)
 			{

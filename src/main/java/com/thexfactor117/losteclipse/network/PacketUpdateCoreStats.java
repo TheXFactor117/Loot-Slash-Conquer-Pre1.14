@@ -1,7 +1,7 @@
 package com.thexfactor117.losteclipse.network;
 
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 
 import io.netty.buffer.ByteBuf;
@@ -35,7 +35,7 @@ public class PacketUpdateCoreStats implements IMessage
 	
 	public PacketUpdateCoreStats() {}
 	
-	public PacketUpdateCoreStats(IPlayerInformation info)
+	public PacketUpdateCoreStats(PlayerInformation info)
 	{	
 		this.strength = info.getStrengthStat();
 		this.agility = info.getAgilityStat();
@@ -100,7 +100,7 @@ public class PacketUpdateCoreStats implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = Minecraft.getMinecraft().player;
-					IPlayerInformation playerInfo = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+					PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 					
 					if (playerInfo != null)
 					{

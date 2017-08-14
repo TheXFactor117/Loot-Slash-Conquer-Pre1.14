@@ -39,7 +39,13 @@ public class PlayerInformation implements IPlayerInformation
 		this.entity = entity;
 	}
 	
-	@Override
+	/** Returns the amount of experience needed to level up given the current level. */
+	public int getLevelUpExperience(int currentLevel) 
+	{
+		return (int) Math.pow(currentLevel, 2) * 30;
+	}
+	
+	/** Sets all bonus stats to zero. */
 	public void removeBonusStats()
 	{
 		this.strengthBonusStat = 0;
@@ -49,6 +55,44 @@ public class PlayerInformation implements IPlayerInformation
 		this.wisdomBonusStat = 0;
 		this.fortitudeBonusStat = 0;
 	}
+	
+	public int getTotalStrength()
+	{
+		return this.strengthStat + this.strengthBonusStat;
+	}
+	
+	public int getTotalAgility()
+	{
+		return this.agilityStat + this.agilityBonusStat;
+	}
+	
+	public int getTotalDexterity()
+	{
+		return this.dexterityStat + this.dexterityBonusStat;
+	}
+	
+	public int getTotalIntelligence()
+	{
+		return this.intelligenceStat + this.intelligenceBonusStat;
+	}
+	
+	public int getTotalWisdom()
+	{
+		return this.wisdomStat + this.wisdomBonusStat;
+	}
+	
+	public int getTotalFortitude()
+	{
+		return this.fortitudeStat + this.fortitudeBonusStat;
+	}
+	
+	
+	
+	/*
+	 * 
+	 * GETTERS AND SETTERS
+	 *
+	 */
 	
 	@Override
 	public int getPlayerClass() 
@@ -84,12 +128,6 @@ public class PlayerInformation implements IPlayerInformation
 	public void setPlayerExperience(int experience) 
 	{
 		this.experience = experience;
-	}
-
-	@Override
-	public int getLevelUpExperience(int currentLevel) 
-	{
-		return (int) Math.pow(currentLevel, 2) * 30;
 	}
 
 	@Override

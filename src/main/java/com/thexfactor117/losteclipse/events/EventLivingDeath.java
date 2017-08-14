@@ -2,7 +2,7 @@ package com.thexfactor117.losteclipse.events;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.thexfactor117.losteclipse.capabilities.playerinfo.IPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.network.PacketUpdatePlayerInformation;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -29,7 +29,7 @@ public class EventLivingDeath
 		{
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 			EntityLivingBase enemy = event.getEntityLiving();
-			IPlayerInformation playerInfo = player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
 			if (!player.getEntityWorld().isRemote && playerInfo != null)
 			{
@@ -38,7 +38,7 @@ public class EventLivingDeath
 		}
 	}
 	
-	private void addExperience(EntityPlayer player, IPlayerInformation playerInfo, EntityLivingBase enemy)
+	private void addExperience(EntityPlayer player, PlayerInformation playerInfo, EntityLivingBase enemy)
 	{
 		int experience = 0;
 		

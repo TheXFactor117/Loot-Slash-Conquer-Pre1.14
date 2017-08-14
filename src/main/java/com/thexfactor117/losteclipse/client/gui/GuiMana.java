@@ -3,7 +3,7 @@ package com.thexfactor117.losteclipse.client.gui;
 import org.lwjgl.opengl.GL11;
 
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
-import com.thexfactor117.losteclipse.capabilities.playerstats.IStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.client.Minecraft;
@@ -39,7 +39,7 @@ public class GuiMana extends Gui
 			
 			if (!player.capabilities.isCreativeMode)
 			{
-				IStats statsCap = (IStats) player.getCapability(CapabilityPlayerStats.STATS, null);
+				Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 				
 				if (statsCap != null)
 				{
@@ -67,7 +67,7 @@ public class GuiMana extends Gui
 	{
 		ScaledResolution sr = event.getResolution();
 		EntityPlayer player = Minecraft.getMinecraft().player;
-		IStats statsCap = player.getCapability(CapabilityPlayerStats.STATS, null);
+		Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 		
 		if (!player.capabilities.isCreativeMode && statsCap != null)
 		{

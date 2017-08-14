@@ -30,6 +30,30 @@ public class Stats implements IStats
 		this.entity = entity;
 	}
 	
+	/** Increases the current mana count by the given amount. */
+	public void increaseMana(int mana)
+	{
+		this.mana += mana;
+		
+		if (this.mana > this.maxMana) this.mana = this.maxMana;
+	}
+	
+	/** Decreases the current mana count by the given amount. */
+	public void decreaseMana(int mana)
+	{
+		this.mana -= mana;
+		
+		if (this.mana < 0) this.mana = 0;
+	}
+	
+	
+	
+	/*
+	 * 
+	 * GETTERS AND SETTERS
+	 * 
+	 */
+	
 	/*
 	 * MANA
 	 */
