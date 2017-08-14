@@ -58,7 +58,6 @@ public enum JewelryAttribute
 			if (attribute.hasAttribute(nbt))
 			{
 				list.add(attribute);
-				LostEclipse.LOGGER.info("Adding " + attribute + "!");
 			}
 		}
 		

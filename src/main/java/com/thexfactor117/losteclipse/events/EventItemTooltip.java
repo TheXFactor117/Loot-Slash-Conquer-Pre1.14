@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import com.thexfactor117.losteclipse.api.Rarity;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 import com.thexfactor117.losteclipse.entities.projectiles.Rune;
 import com.thexfactor117.losteclipse.items.jewelry.ItemLEBauble;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;
@@ -74,7 +76,9 @@ public class EventItemTooltip
 		 */
 		
 		// Level
-		tooltip.add(1, "Level: " + nbt.getInteger("Level"));
+		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(1, TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		else tooltip.add(1, "Level: " + nbt.getInteger("Level"));
+		
 		tooltip.add("");
 		
 		// Damage and Attack Speed

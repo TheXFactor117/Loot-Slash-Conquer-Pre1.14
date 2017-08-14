@@ -183,10 +183,17 @@ public class ItemGeneratorHelper
 			nbt.setTag("AttributeModifiers", list);
 		}
 	}
+
+	/** Sets the rune of the current magical weapon. Only used for magical weapons. */
+	public static void setRune(NBTTagCompound nbt)
+	{
+		Rune.setRune(nbt, Rune.getRandomRune(nbt, rand));
+	}
 	
 	public static void setMinMaxDamage(NBTTagCompound nbt, double damage)
 	{
-		int range = ((int) (Math.random() * 4 + 4)) / 2;
+		double rangeMultiplier = (nbt.getInteger("Level") + 1) * 0.25;
+		int range = (int) ((Math.random() * 4 + 2) * rangeMultiplier / 1.5);
 		int minDamage = (int) (damage - range);
 		int maxDamage = (int) (damage + range);
 
@@ -199,40 +206,34 @@ public class ItemGeneratorHelper
 		nbt.setInteger("MaxDamage", maxDamage);
 	}
 	
-	/** Sets the rune of the current magical weapon. Only used for magical weapons. */
-	public static void setRune(NBTTagCompound nbt)
-	{
-		Rune.setRune(nbt, Rune.getRandomRune(nbt, rand));
-	}
-	
 	public static double getWeightedDamage(NBTTagCompound nbt, Rarity rarity, double base)
 	{
 		double damage = base;
-		int range = 0;
+		int range = 0; 
 		
 		if (rarity == Rarity.COMMON)
 		{
 			range = 2;
-			damage = Math.random() * range + (base - 1);
+			damage = Math.random() * range + (base - 2);
 		}
 		else if (rarity == Rarity.UNCOMMON)
 		{
 			range = 3;
-			damage = Math.random() * range + (base);
+			damage = Math.random() * range + (base - 1);
 		}
 		else if (rarity == Rarity.RARE)
 		{
-			range = 4;
+			range = 5;
 			damage = Math.random() * range + (base);
 		}
 		else if (rarity == Rarity.LEGENDARY)
 		{
-			range = 5;
+			range = 7;
 			damage = Math.random() * range + (base + 1);
 		}
 		else if (rarity == Rarity.EXOTIC)
 		{
-			range = 6;
+			range = 10;
 			damage = Math.random() * range + (base + 2);
 		}
 		

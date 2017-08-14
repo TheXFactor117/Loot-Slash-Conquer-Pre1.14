@@ -59,9 +59,13 @@ public class EventLivingHurtAttack
 				
 				if (Rarity.getRarity(nbt) != Rarity.DEFAULT)
 				{
-					// set the true amount of damage.
-					double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-					event.setAmount((float) (trueDamage + (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * playerInfo.getTotalStrength())));
+					if (playerInfo.getPlayerLevel() < nbt.getInteger("Level")) event.setAmount(0);
+					else
+					{
+						// set the true amount of damage.
+						double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+						event.setAmount((float) (trueDamage + (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * playerInfo.getTotalStrength())));
+					}
 				}
 			}
 		}
@@ -104,12 +108,16 @@ public class EventLivingHurtAttack
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 			EntityLivingBase enemy = event.getEntityLiving();
 			ItemStack stack = player.inventory.getCurrentItem();
+			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (stack != null && stack.getItem() instanceof ItemSword && !(stack.getItem() instanceof ItemLEAdvancedMelee))
+			if (playerInfo != null && stack != null && stack.getItem() instanceof ItemSword && !(stack.getItem() instanceof ItemLEAdvancedMelee))
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				
-				useWeaponAttributes(event.getAmount(), player, enemy, stack, nbt);
+				if (playerInfo.getPlayerLevel() >= nbt.getInteger("Level"))
+				{
+					useWeaponAttributes(event.getAmount(), player, enemy, stack, nbt);
+				}
 			}
 		}
 	}
