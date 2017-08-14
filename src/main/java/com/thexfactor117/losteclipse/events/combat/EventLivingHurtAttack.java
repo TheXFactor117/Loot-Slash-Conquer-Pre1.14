@@ -27,6 +27,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -59,7 +61,12 @@ public class EventLivingHurtAttack
 				
 				if (Rarity.getRarity(nbt) != Rarity.DEFAULT)
 				{
-					if (playerInfo.getPlayerLevel() < nbt.getInteger("Level")) event.setAmount(0);
+					if (playerInfo.getPlayerLevel() < nbt.getInteger("Level")) 
+					{
+						event.setAmount(0);
+						stack.damageItem((int) (stack.getMaxDamage() * 0.20), player);
+						player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
+					}
 					else
 					{
 						// set the true amount of damage.
@@ -74,25 +81,37 @@ public class EventLivingHurtAttack
 		if (event.getEntityLiving() instanceof EntityPlayer && (event.getSource().getTrueSource() instanceof EntityLivingBase || event.getSource() == ModDamageSources.FROST || event.getSource() == ModDamageSources.LIGHTNING || event.getSource() == ModDamageSources.POISON))
 		{
 			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			for (ItemStack stack : player.inventory.armorInventory)
+			if (playerInfo != null)
 			{
-				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				
-				if (event.getSource().getTrueSource() instanceof EntityLivingBase)
+				for (ItemStack stack : player.inventory.armorInventory)
 				{
-					//EntityLivingBase enemy = (EntityLivingBase) event.getSource().getTrueSource();
+					NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 					
-					// do stuff?
+					if (playerInfo.getPlayerLevel() >= nbt.getInteger("Level"))
+					{
+						if (event.getSource().getTrueSource() instanceof EntityLivingBase)
+						{
+							//EntityLivingBase enemy = (EntityLivingBase) event.getSource().getTrueSource();
+							
+							// do stuff?
+						}
+						else // apply resistances to custom Damage Sources.
+						{	
+							if (ArmorAttribute.FROST_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.FROST) event.setAmount((float) (event.getAmount() - (event.getAmount() * ArmorAttribute.FROST_RESIST.getAmount(nbt))));
+							if (ArmorAttribute.LIGHTNING_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.LIGHTNING) event.setAmount((float) (event.getAmount() - (event.getAmount() * ArmorAttribute.LIGHTNING_RESIST.getAmount(nbt))));
+							if (ArmorAttribute.POISON_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.POISON) event.setAmount((float) (event.getAmount() - (event.getAmount() * ArmorAttribute.POISON_RESIST.getAmount(nbt))));
+						}
+						
+						if (ArmorAttribute.DURABLE.hasAttribute(nbt) && Math.random() < ArmorAttribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
+					}
+					else
+					{
+						stack.damageItem((int) (stack.getMaxDamage() * 0.20), player);
+						player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
+					}
 				}
-				else // apply resistances to custom Damage Sources.
-				{	
-					if (ArmorAttribute.FROST_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.FROST) event.setAmount((float) (event.getAmount() - (event.getAmount() * ArmorAttribute.FROST_RESIST.getAmount(nbt))));
-					if (ArmorAttribute.LIGHTNING_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.LIGHTNING) event.setAmount((float) (event.getAmount() - (event.getAmount() * ArmorAttribute.LIGHTNING_RESIST.getAmount(nbt))));
-					if (ArmorAttribute.POISON_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.POISON) event.setAmount((float) (event.getAmount() - (event.getAmount() * ArmorAttribute.POISON_RESIST.getAmount(nbt))));
-				}
-				
-				if (ArmorAttribute.DURABLE.hasAttribute(nbt) && Math.random() < ArmorAttribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
 			}
 		}
 	}

@@ -33,6 +33,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -98,7 +100,7 @@ public class ItemLEMagical extends Item
 			EntityPlayer player = (EntityPlayer) entity;
 			PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (!world.isRemote && info != null)
+			if (!world.isRemote && info != null && info.getPlayerLevel() >= NBTHelper.loadStackNBT(stack).getInteger("Level"))
 			{
 				if (selected && !isBonusActive)
 				{
@@ -119,19 +121,21 @@ public class ItemLEMagical extends Item
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{
 		Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+		PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 		
-		if (statsCap != null)
+		if (statsCap != null && playerInfo != null)
 		{
 			// DEBUG
 			statsCap.setMana(50);
 			
-			if (statsCap.getMana() - this.manaPerUse >= 0)
+			if (statsCap.getMana() - this.manaPerUse >= 0 && playerInfo.getPlayerLevel() >= NBTHelper.loadStackNBT(player.inventory.getCurrentItem()).getInteger("Level"))
 			{	
 				player.setActiveHand(hand);
 				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.inventory.getCurrentItem());
 			}
 		}
 		
+		player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
 		return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.inventory.getCurrentItem());
 	}
 	

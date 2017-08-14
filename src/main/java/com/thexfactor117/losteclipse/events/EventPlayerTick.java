@@ -56,7 +56,7 @@ public class EventPlayerTick
 				
 				if (playerInfo != null)
 				{	
-					if (event.player.inventory.getCurrentItem() != mainhand)
+					if (event.player.inventory.getCurrentItem() != mainhand && playerInfo.getPlayerLevel() >= NBTHelper.loadStackNBT(event.player.inventory.getCurrentItem()).getInteger("Level"))
 					{
 						updateStats(event.player, playerInfo);
 						mainhand = event.player.inventory.getCurrentItem();
@@ -64,7 +64,7 @@ public class EventPlayerTick
 					
 					for (ItemStack stack : event.player.inventory.armorInventory)
 					{
-						if (stack.getItem() instanceof ItemArmor)
+						if (stack.getItem() instanceof ItemArmor && playerInfo.getPlayerLevel() >= NBTHelper.loadStackNBT(stack).getInteger("Level"))
 						{
 							if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.HEAD && stack != helmet)
 							{

@@ -3,6 +3,7 @@ package com.thexfactor117.losteclipse.items.jewelry;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.events.EventPlayerTick;
+import com.thexfactor117.losteclipse.util.NBTHelper;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import baubles.api.BaubleType;
@@ -12,6 +13,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 
 /**
  * 
@@ -48,10 +51,11 @@ public class ItemLEBauble extends Item implements IBauble
 				EntityPlayer player = (EntityPlayer) entity;
 				PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 				
-				if (info != null)
+				if (info != null && info.getPlayerLevel() >= NBTHelper.loadStackNBT(stack).getInteger("Level"))
 				{
 					EventPlayerTick.updateStats(player, info);
 				}
+				else player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will not provide any bonuses."));
 			}
 		}
 	}
