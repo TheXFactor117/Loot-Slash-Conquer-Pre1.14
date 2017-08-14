@@ -1,20 +1,22 @@
-package com.thexfactor117.losteclipse.events;
+package com.thexfactor117.losteclipse.events.combat;
 
 import java.util.Iterator;
 import java.util.List;
 
 import com.thexfactor117.losteclipse.api.Rarity;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
+import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
 import com.thexfactor117.losteclipse.init.ModDamageSources;
 import com.thexfactor117.losteclipse.items.melee.ItemLEAdvancedMelee;
+import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 import com.thexfactor117.losteclipse.stats.attributes.ArmorAttribute;
 import com.thexfactor117.losteclipse.stats.attributes.WeaponAttribute;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
@@ -49,8 +51,9 @@ public class EventLivingHurtAttack
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 			//EntityLivingBase enemy = event.getEntityLiving();
 			ItemStack stack = player.inventory.getCurrentItem();
+			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (stack != null && stack.getItem() instanceof ItemSword && !(stack.getItem() instanceof ItemLEAdvancedMelee))
+			if (stack != null && stack.getItem() instanceof ItemSword && playerInfo != null)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				
@@ -58,7 +61,7 @@ public class EventLivingHurtAttack
 				{
 					// set the true amount of damage.
 					double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-					event.setAmount((float) (trueDamage + player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
+					event.setAmount((float) (trueDamage + (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * playerInfo.getTotalStrength())));
 				}
 			}
 		}

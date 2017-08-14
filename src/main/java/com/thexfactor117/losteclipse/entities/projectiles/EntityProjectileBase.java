@@ -2,7 +2,7 @@ package com.thexfactor117.losteclipse.entities.projectiles;
 
 import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
 import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
-import com.thexfactor117.losteclipse.events.EventLivingHurtAttack;
+import com.thexfactor117.losteclipse.events.combat.EventLivingHurtAttack;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;

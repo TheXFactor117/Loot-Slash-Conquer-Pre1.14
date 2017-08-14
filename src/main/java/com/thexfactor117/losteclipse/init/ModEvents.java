@@ -3,11 +3,11 @@ package com.thexfactor117.losteclipse.init;
 import com.thexfactor117.losteclipse.events.EventEntityJoinWorld;
 import com.thexfactor117.losteclipse.events.EventInput;
 import com.thexfactor117.losteclipse.events.EventItemTooltip;
-import com.thexfactor117.losteclipse.events.EventLivingDeath;
-import com.thexfactor117.losteclipse.events.EventLivingHurtAttack;
 import com.thexfactor117.losteclipse.events.EventLoadLootTable;
 import com.thexfactor117.losteclipse.events.EventPlayerLoggedIn;
 import com.thexfactor117.losteclipse.events.EventPlayerTick;
+import com.thexfactor117.losteclipse.events.combat.EventLivingDeath;
+import com.thexfactor117.losteclipse.events.combat.EventLivingHurtAttack;
 
 import net.minecraftforge.common.MinecraftForge;
 

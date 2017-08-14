@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.events;
+package com.thexfactor117.losteclipse.events.combat;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
