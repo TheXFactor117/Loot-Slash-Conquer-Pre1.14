@@ -35,16 +35,23 @@ public class NameGenerator
 	{
 		if (Rarity.getRarity(nbt) == Rarity.COMMON)
 		{
-			String prefix = NameGenerator.getPrefix("common_prefix");
 			String type = NameGenerator.getType(nbt.getString("Type") + "_type");
 			
-			stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
+			if (WeaponAttribute.getRandomActiveAttribute(nbt) != null)
+			{	
+				String prefix = NameGenerator.getPrefix(getAttributeString(nbt) + "_prefix");
+				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
+			}
+			else
+			{
+				String prefix = NameGenerator.getPrefix("common_prefix");
+				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
+			}
 		}
 		else if (Rarity.getRarity(nbt) == Rarity.UNCOMMON)
 		{
 			String type = NameGenerator.getType(nbt.getString("Type") + "_type");
 			String prefix = NameGenerator.getPrefix(getAttributeString(nbt) + "_prefix");
-			
 			stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
 		}
 		else
@@ -55,20 +62,17 @@ public class NameGenerator
 			if (rand == 0)
 			{
 				String prefix = NameGenerator.getPrefix(getAttributeString(nbt) + "_prefix");
-				
 				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
 			}
 			else if (rand == 1)
 			{
 				String suffix = NameGenerator.getSuffix(getAttributeString(nbt) + "_suffix");
-				
 				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + type + " " + suffix);
 			}
 			else
 			{
 				String prefix = NameGenerator.getPrefix(getAttributeString(nbt) + "_prefix");
 				String suffix = NameGenerator.getSuffix(getAttributeString(nbt) + "_suffix");
-				
 				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type + " " + suffix);
 			}
 		}
