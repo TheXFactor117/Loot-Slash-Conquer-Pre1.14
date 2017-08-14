@@ -65,9 +65,9 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		{
 			if (roomCount == 0)
 			{
-				int y = -8 * depth;
+				int y = -14;
 				
-				if (depth == 1) y -= 5;
+				if (depth > 1) y -= 8 * depth;
 				
 				// generate staircase underneath current staircase
 				nextPositions = generateStaircase(manager, world, startingPos.add(0, y, 0)); 
