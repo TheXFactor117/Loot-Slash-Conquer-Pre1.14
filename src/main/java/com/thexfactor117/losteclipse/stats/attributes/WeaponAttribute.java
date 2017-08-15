@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import com.google.common.collect.Lists;
-import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.api.Rarity;
 import com.thexfactor117.losteclipse.util.RandomCollection;
 

@@ -196,6 +196,8 @@ public class ItemGeneratorHelper
 		int range = (int) ((Math.random() * 4 + 2) * rangeMultiplier / 1.5);
 		int minDamage = (int) (damage - range);
 		int maxDamage = (int) (damage + range);
+		
+		if (minDamage == maxDamage) minDamage -= 1;
 
 		if (WeaponAttribute.MIN_DAMAGE.hasAttribute(nbt))
 			minDamage += WeaponAttribute.MIN_DAMAGE.getAmount(nbt);
@@ -257,17 +259,17 @@ public class ItemGeneratorHelper
 		}
 		else if (rarity == Rarity.RARE)
 		{
-			range = 0.2;
+			range = 0.25;
 			speed = Math.random() * range + (base);
 		}
 		else if (rarity == Rarity.LEGENDARY)
 		{
-			range = 0.25;
+			range = 0.4;
 			speed = Math.random() * range + (base + 0.1);
 		}
 		else if (rarity == Rarity.EXOTIC)
 		{
-			range = 0.3;
+			range = 0.65;
 			speed = Math.random() * range + (base + 0.2);
 		}
 		
@@ -291,17 +293,17 @@ public class ItemGeneratorHelper
 		}
 		else if (rarity == Rarity.RARE)
 		{
-			range = 0.4;
+			range = 0.5;
 			armor = Math.random() * range + (base);
 		}
 		else if (rarity == Rarity.LEGENDARY)
 		{
-			range = 0.5;
+			range = 0.7;
 			armor = Math.random() * range + (base + 0.1);
 		}
 		else if (rarity == Rarity.EXOTIC)
 		{
-			range = 0.6;
+			range = 1;
 			armor = Math.random() * range + (base + 0.2);
 		}
 		
@@ -324,17 +326,17 @@ public class ItemGeneratorHelper
 		}
 		else if (rarity == Rarity.RARE)
 		{
-			range = 0.3;
+			range = 0.4;
 			toughness = Math.random() * range + (base);
 		}
 		else if (rarity == Rarity.LEGENDARY)
 		{
-			range = 0.4;
+			range = 0.7;
 			toughness = Math.random() * range + (base + 0.1);
 		}
 		else if (rarity == Rarity.EXOTIC)
 		{
-			range = 0.5;
+			range = 1;
 			toughness = Math.random() * range + (base + 0.2);
 		}
 		

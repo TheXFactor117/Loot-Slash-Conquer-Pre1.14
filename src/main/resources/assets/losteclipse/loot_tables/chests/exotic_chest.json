@@ -9,28 +9,23 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "losteclipse:loot/common_loot",
-					"weight": 10
-				},
-				{
-					"type": "loot_table",
 					"name": "losteclipse:loot/uncommon_loot",
-					"weight": 17
+					"weight": 15
 				},
 				{
 					"type": "loot_table",
 					"name": "losteclipse:loot/rare_loot",
-					"weight": 33
+					"weight": 35
 				},
 				{
 					"type": "loot_table",
 					"name": "losteclipse:loot/legendary_loot",
-					"weight": 22
+					"weight": 28
 				},
 				{
 					"type": "loot_table",
 					"name": "losteclipse:loot/exotic_loot",
-					"weight": 13
+					"weight": 17
 				},
 				{
 					"type": "loot_table",

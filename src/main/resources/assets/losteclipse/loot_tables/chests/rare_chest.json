@@ -10,17 +10,17 @@
 				{
 					"type": "loot_table",
 					"name": "losteclipse:loot/common_loot",
-					"weight": 35
-				},
-				{
-					"type": "loot_table",
-					"name": "losteclipse:loot/uncommon_loot",
 					"weight": 30
 				},
 				{
 					"type": "loot_table",
+					"name": "losteclipse:loot/uncommon_loot",
+					"weight": 33
+				},
+				{
+					"type": "loot_table",
 					"name": "losteclipse:loot/rare_loot",
-					"weight": 20
+					"weight": 22
 				},
 				{
 					"type": "loot_table",
