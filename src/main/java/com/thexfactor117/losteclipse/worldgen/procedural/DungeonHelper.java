@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 
 import com.thexfactor117.losteclipse.init.ModLootTables;
+import com.thexfactor117.losteclipse.util.RandomCollection;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.entity.EntityList;
@@ -40,7 +41,7 @@ public class DungeonHelper
 	 * @param pos
 	 * @param settings
 	 */
-	public static void handleDataBlocks(Template template, World world, BlockPos pos, PlacementSettings settings)
+	public static void handleDataBlocks(Template template, World world, BlockPos pos, PlacementSettings settings, int multiplier)
 	{
 		// loop through all data blocks within the structure
 		for (Entry<BlockPos, String> e : template.getDataBlocks(pos, settings).entrySet())
@@ -50,12 +51,11 @@ public class DungeonHelper
 				BlockPos dataPos = e.getKey();
 				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3); // remove data block
 				TileEntity chestEntity = world.getTileEntity(dataPos.down()); // chest is located under data block
-				//int chance = (int) (Math.random() * 4);
+				int chance = (int) (Math.random() * 4);
 				
-				if (chestEntity instanceof TileEntityChest)
+				if (chestEntity instanceof TileEntityChest && chance == 0)
 				{
-					((TileEntityChest) chestEntity).setLootTable(ModLootTables.exotic_chest, world.rand.nextLong());
-					((TileEntityChest) chestEntity).setCustomName("Exotic Chest");
+					setLootTable((TileEntityChest) chestEntity, world, multiplier);
 				}
 				else
 				{
@@ -77,6 +77,32 @@ public class DungeonHelper
 				}
 			}
 		}
+	}
+	
+	private static void setLootTable(TileEntityChest chestEntity, World world, int multiplier)
+	{
+		double common = 75 / multiplier;
+		double uncommon = 15;
+		double rare = 6;
+		double legendary = 3;
+		double exotic = 1;
+		
+		RandomCollection<ResourceLocation> loottables = new RandomCollection<ResourceLocation>();
+		
+		loottables.add(common, ModLootTables.common_chest);
+		loottables.add(uncommon, ModLootTables.uncommon_chest);
+		loottables.add(rare, ModLootTables.rare_chest);
+		loottables.add(legendary, ModLootTables.legendary_chest);
+		loottables.add(exotic, ModLootTables.exotic_chest);
+		
+		ResourceLocation table = loottables.next(world.rand);
+		chestEntity.setLootTable(table, world.rand.nextLong());
+		
+		if (table == ModLootTables.common_chest) chestEntity.setCustomName("Common Chest");
+		else if (table == ModLootTables.uncommon_chest) chestEntity.setCustomName("Uncommon Chest");
+		else if (table == ModLootTables.rare_chest) chestEntity.setCustomName("Rare Chest");
+		else if (table == ModLootTables.legendary_chest) chestEntity.setCustomName("Legendary Chest");
+		else if (table == ModLootTables.exotic_chest) chestEntity.setCustomName("Exotic Chest");
 	}
 	
 	private static ResourceLocation getRandomMonster()

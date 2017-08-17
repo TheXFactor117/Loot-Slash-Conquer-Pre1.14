@@ -3,6 +3,7 @@ package com.thexfactor117.losteclipse.items.jewelry;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.events.EventPlayerTick;
+import com.thexfactor117.losteclipse.init.ModTabs;
 import com.thexfactor117.losteclipse.util.NBTHelper;
 import com.thexfactor117.losteclipse.util.Reference;
 
@@ -30,6 +31,7 @@ public class ItemLEBauble extends Item implements IBauble
 		super();
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
+		this.setCreativeTab(ModTabs.tabLE);
 		this.setMaxStackSize(1);
 		this.type = type;
 	}

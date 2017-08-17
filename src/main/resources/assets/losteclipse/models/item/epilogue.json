@@ -1,0 +1,14 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "losteclipse:items/epilogue"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"charged": 1
+			},
+			"model": "losteclipse:item/epilogue_charged"
+		}
+	]
+}

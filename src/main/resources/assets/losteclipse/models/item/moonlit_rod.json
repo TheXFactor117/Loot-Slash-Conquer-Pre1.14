@@ -1,0 +1,14 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "losteclipse:items/moonlit_rod"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"charged": 1
+			},
+			"model": "losteclipse:item/moonlit_rod_charged"
+		}
+	]
+}

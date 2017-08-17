@@ -1,0 +1,6 @@
+{
+	"parent": "losteclipse:item/visage_of_wizardry",
+	"textures": {
+		"layer0": "losteclipse:items/visage_of_wizardry_charged"
+	}
+}

@@ -42,8 +42,8 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 		{	
 			dungeonEntrance.addBlocksToWorld(world, DungeonHelper.translateToCorner(dungeonEntrance, position, Rotation.NONE), settings);
 			entranceStaircase.addBlocksToWorld(world, DungeonHelper.translateToCorner(entranceStaircase, position.add(0, -6, 0), Rotation.NONE), settings);
-			DungeonHelper.handleDataBlocks(dungeonEntrance, world, position, settings);
-			DungeonHelper.handleDataBlocks(entranceStaircase, world, position, settings);
+			DungeonHelper.handleDataBlocks(dungeonEntrance, world, position, settings, depth);
+			DungeonHelper.handleDataBlocks(entranceStaircase, world, position, settings, depth);
 			LostEclipse.LOGGER.info("Generating Dungeon at " + position);
 			// start procedural generate
 			procedurallyGenerate(manager, world, position, null);
@@ -67,7 +67,7 @@ public class ProceduralDungeon extends ProceduralDungeonBase
 			{
 				int y = -14;
 				
-				if (depth > 1) y -= 8 * depth;
+				if (depth > 1) y -= 8 * depth - 8;
 				
 				// generate staircase underneath current staircase
 				nextPositions = generateStaircase(manager, world, startingPos.add(0, y, 0)); 

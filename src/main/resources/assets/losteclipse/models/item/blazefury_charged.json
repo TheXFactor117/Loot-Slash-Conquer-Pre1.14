@@ -1,0 +1,6 @@
+{
+	"parent": "losteclipse:item/blazefury",
+	"textures": {
+		"layer0": "losteclipse:items/blazefury_charged"
+	}
+}

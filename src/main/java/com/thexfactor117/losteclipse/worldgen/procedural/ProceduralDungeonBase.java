@@ -43,7 +43,7 @@ public abstract class ProceduralDungeonBase extends WorldGenerator
 		// add blocks (and handle any data blocks)
 		BlockPos corner = DungeonHelper.translateToCorner(template, center, Rotation.NONE); // translate from center to corner
 		template.addBlocksToWorld(world, corner, settings); // spawn in template at corner pos
-		DungeonHelper.handleDataBlocks(template, world, corner, settings); // update chest contents
+		DungeonHelper.handleDataBlocks(template, world, corner, settings, depth); // update chest contents
 		roomPositions.add(center); // add template position to array
 		
 		ArrayList<PotentialPosition> potentialPositions = new ArrayList<PotentialPosition>(); // stores potential positions to be generated off this room.
@@ -103,7 +103,7 @@ public abstract class ProceduralDungeonBase extends WorldGenerator
 		// add blocks (and handle any data blocks)
 		BlockPos corner = DungeonHelper.translateToCorner(template, center, rotation); // translate from center to corner
 		template.addBlocksToWorld(world, corner, settings); // spawn in template at corner pos
-		DungeonHelper.handleDataBlocks(template, world, corner, settings); // update chest contents
+		DungeonHelper.handleDataBlocks(template, world, corner, settings, depth); // update chest contents
 		roomPositions.add(center); // add template position to array
 
 		ArrayList<PotentialPosition> potentialPositions = new ArrayList<PotentialPosition>(); // stores potential positions to be generated off this room.

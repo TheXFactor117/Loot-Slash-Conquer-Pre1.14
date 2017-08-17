@@ -47,7 +47,7 @@ public class CapabilityPlayerInformation
 				nbt.setInteger("PlayerLevel", instance.getPlayerLevel());
 				nbt.setInteger("PlayerExperience", instance.getPlayerExperience());
 				nbt.setInteger("PlayerSkillPoints", instance.getSkillPoints());
-				
+
 				// stats
 				nbt.setInteger("StrengthStat", instance.getStrengthStat());
 				nbt.setInteger("AgilityStat", instance.getAgilityStat());

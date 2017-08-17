@@ -27,5 +27,8 @@ public class EventInput
 		{
 			player.openGui(LostEclipse.instance, GuiHandler.PLAYER_INFORMATION, player.getEntityWorld(), player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
 		}
+		
+		// if ability key is pressed.
+		// send server packet calling ability start.
 	}
 }

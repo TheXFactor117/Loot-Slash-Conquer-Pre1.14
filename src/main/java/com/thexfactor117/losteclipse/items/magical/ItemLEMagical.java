@@ -12,6 +12,7 @@ import com.thexfactor117.losteclipse.entities.projectiles.EntityIcebolt;
 import com.thexfactor117.losteclipse.entities.projectiles.EntityLightning;
 import com.thexfactor117.losteclipse.entities.projectiles.Rune;
 import com.thexfactor117.losteclipse.events.EventPlayerTick;
+import com.thexfactor117.losteclipse.init.ModTabs;
 import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.stats.PlayerStatHelper;
 import com.thexfactor117.losteclipse.util.NBTHelper;
@@ -59,6 +60,7 @@ public class ItemLEMagical extends Item
 		super();
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
+		this.setCreativeTab(ModTabs.tabLE);
 		this.setMaxStackSize(1);
 		this.setNoRepair();
 		this.setMaxDamage(durability);

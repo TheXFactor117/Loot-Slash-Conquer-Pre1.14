@@ -3,6 +3,7 @@ package com.thexfactor117.losteclipse.items.melee;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 import com.thexfactor117.losteclipse.events.EventPlayerTick;
+import com.thexfactor117.losteclipse.init.ModTabs;
 import com.thexfactor117.losteclipse.util.Reference;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -27,6 +28,7 @@ public class ItemLEMelee extends ItemSword
 		super(material);
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
+		this.setCreativeTab(ModTabs.tabLE);
 		this.type = type;
 	}
 	

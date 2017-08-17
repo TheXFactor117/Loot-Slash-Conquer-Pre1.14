@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.init;
+ package com.thexfactor117.losteclipse.init;
 
 import com.thexfactor117.losteclipse.items.base.ItemTest;
 import com.thexfactor117.losteclipse.items.magical.ItemLEMagical;

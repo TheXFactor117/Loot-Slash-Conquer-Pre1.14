@@ -1,0 +1,6 @@
+{
+	"parent": "losteclipse:item/epilogue",
+	"textures": {
+		"layer0": "losteclipse:items/epilogue_charged"
+	}
+}
