@@ -198,6 +198,7 @@ public class ItemGeneratorHelper
 		int maxDamage = (int) (damage + range);
 		
 		if (minDamage == maxDamage) minDamage -= 1;
+		while (minDamage > maxDamage) maxDamage += 1;
 
 		if (WeaponAttribute.MIN_DAMAGE.hasAttribute(nbt))
 			minDamage += WeaponAttribute.MIN_DAMAGE.getAmount(nbt);
