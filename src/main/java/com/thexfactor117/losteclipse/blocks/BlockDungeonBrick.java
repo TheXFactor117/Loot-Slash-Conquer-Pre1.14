@@ -3,6 +3,7 @@ package com.thexfactor117.losteclipse.blocks;
 import com.thexfactor117.losteclipse.init.ModTabs;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.world.Explosion;
 
 public class BlockDungeonBrick extends BlockBase
 {
@@ -10,5 +11,11 @@ public class BlockDungeonBrick extends BlockBase
 	{
 		super(material, name, ModTabs.tabLE);
 		this.setBlockUnbreakable();
+	}
+	
+	@Override
+	public boolean canDropFromExplosion(Explosion explosion) 
+	{
+		return false;
 	}
 }

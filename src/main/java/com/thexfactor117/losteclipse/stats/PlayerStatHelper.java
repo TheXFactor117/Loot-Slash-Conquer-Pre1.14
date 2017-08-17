@@ -27,7 +27,7 @@ public class PlayerStatHelper
 	private static final String MAX_HEALTH = "e3762718-bbd8-4763-bfe9-1d18d70eaa76";
 	
 	public static final double ATTACK_DAMAGE_MULTIPLIER = 2;
-	public static final double MOVEMENT_SPEED_MULTIPLIER = 0.01;
+	public static final double MOVEMENT_SPEED_MULTIPLIER = 0.001;
 	public static final double ATTACK_SPEED_MULTIPLIER = 0.1;
 	public static final double MAX_HEALTH_MULTIPLIER = 2;
 	public static final double MAX_MANA_MULTIPLIER = 2;

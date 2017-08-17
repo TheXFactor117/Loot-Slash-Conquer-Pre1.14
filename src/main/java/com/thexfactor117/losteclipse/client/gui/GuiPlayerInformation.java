@@ -1,6 +1,7 @@
 package com.thexfactor117.losteclipse.client.gui;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
@@ -55,6 +56,7 @@ public class GuiPlayerInformation extends GuiScreen
 		this.drawDefaultBackground(); // draws background tint
 		super.drawScreen(mouseX, mouseY, partialTicks);
 		
+		DecimalFormat format = new DecimalFormat("#.##");
 		EntityPlayer player = mc.player;
 		PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 		Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
@@ -93,9 +95,9 @@ public class GuiPlayerInformation extends GuiScreen
 			this.drawCenteredString(this.fontRenderer, I18n.format("losteclipse.gui.playerinfo.bonuses"), this.width / 2 - 150, 120, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.playerdamage") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * (playerInfo.getTotalStrength())), this.width / 2 - 190, 140, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.magicalpower") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAGICAL_POWER_MULTIPLIER * (playerInfo.getTotalIntelligence())), this.width / 2 - 190, 150, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (playerInfo.getTotalAgility())), this.width / 2 - 190, 160, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + player.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue(), this.width / 2 - 190, 170, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.toughness") + ": " + TextFormatting.WHITE + "+" + player.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue(), this.width / 2 - 190, 180, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + format.format((PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (playerInfo.getTotalAgility()))), this.width / 2 - 190, 160, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue()), this.width / 2 - 190, 170, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.toughness") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue()), this.width / 2 - 190, 180, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.health") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAX_HEALTH_MULTIPLIER * (playerInfo.getTotalFortitude())), this.width / 2 - 190, 190, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.hp5") + ": " + TextFormatting.WHITE + statsCap.getHealthPerSecond(), this.width / 2 - 190, 200, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("losteclipse.gui.playerinfo.bonuses.mana") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAX_MANA_MULTIPLIER * (playerInfo.getTotalWisdom())), this.width / 2 - 190, 210, 0xFFFFFF);

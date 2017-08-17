@@ -127,9 +127,6 @@ public class ItemLEMagical extends Item
 		
 		if (statsCap != null && playerInfo != null)
 		{
-			// DEBUG
-			statsCap.setMana(50);
-			
 			if (statsCap.getMana() - this.manaPerUse >= 0 && playerInfo.getPlayerLevel() >= NBTHelper.loadStackNBT(player.inventory.getCurrentItem()).getInteger("Level"))
 			{	
 				player.setActiveHand(hand);
@@ -218,7 +215,7 @@ public class ItemLEMagical extends Item
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				EntityIcebolt icebolt = new EntityIcebolt(world, look.x, look.y, look.z, 1F, 0.3F, player, stack, 2);
+				EntityIcebolt icebolt = new EntityIcebolt(world, look.x, look.y, look.z, 1F, 15F, player, stack, 2);
 				icebolt.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
 				world.spawnEntity(icebolt);
 			}
@@ -227,7 +224,7 @@ public class ItemLEMagical extends Item
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				EntityLightning lightning = new EntityLightning(world, look.x, look.y, look.z, 1F, 0F, player, stack, 2);
+				EntityLightning lightning = new EntityLightning(world, look.x, look.y, look.z, 1F, 15F, player, stack, 2);
 				lightning.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
 				world.spawnEntity(lightning);
 			}
