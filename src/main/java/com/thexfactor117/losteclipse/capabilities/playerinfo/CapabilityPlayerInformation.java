@@ -2,6 +2,11 @@ package com.thexfactor117.losteclipse.capabilities.playerinfo;
 
 import javax.annotation.Nullable;
 
+import com.thexfactor117.losteclipse.LostEclipse;
+import com.thexfactor117.losteclipse.capabilities.playerstats.CapabilityPlayerStats;
+import com.thexfactor117.losteclipse.capabilities.playerstats.Stats;
+import com.thexfactor117.losteclipse.network.PacketUpdatePlayerInformation;
+import com.thexfactor117.losteclipse.network.PacketUpdateStats;
 import com.thexfactor117.losteclipse.util.CapabilityUtils;
 import com.thexfactor117.losteclipse.util.Reference;
 import com.thexfactor117.losteclipse.util.SimpleCapabilityProvider;
@@ -9,6 +14,7 @@ import com.thexfactor117.losteclipse.util.SimpleCapabilityProvider;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
@@ -147,6 +153,25 @@ public class CapabilityPlayerInformation
 				newInfo.setBonusIntelligenceStat(oldInfo.getBonusIntelligenceStat());
 				newInfo.setBonusWisdomStat(oldInfo.getBonusWisdomStat());
 				newInfo.setBonusFortitudeStat(oldInfo.getBonusFortitudeStat());
+				
+				LostEclipse.LOGGER.info("Hello!");
+				
+				LostEclipse.network.sendTo(new PacketUpdatePlayerInformation((PlayerInformation) newInfo), (EntityPlayerMP) event.getEntityLiving());
+			}
+		}
+		
+		@SubscribeEvent
+		public void onPlayerRespawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event)
+		{
+			PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);
+			
+			if (playerInfo != null && statsCap != null)
+			{
+				statsCap.setMana(statsCap.getMaxMana());
+				
+				LostEclipse.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
+				LostEclipse.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
 			}
 		}
 	}

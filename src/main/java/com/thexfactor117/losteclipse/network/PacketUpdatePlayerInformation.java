@@ -1,5 +1,6 @@
 package com.thexfactor117.losteclipse.network;
 
+import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.thexfactor117.losteclipse.capabilities.playerinfo.PlayerInformation;
 
@@ -67,7 +68,10 @@ public class PacketUpdatePlayerInformation implements IMessage
 					
 					if (playerInfo != null)
 					{
+						LostEclipse.LOGGER.info("setting client-values: " + message.playerClass);
+						
 						playerInfo.setPlayerClass(message.playerClass);
+						LostEclipse.LOGGER.info(playerInfo.getPlayerClass());
 						playerInfo.setPlayerLevel(message.level);
 						playerInfo.setPlayerExperience(message.experience);
 						playerInfo.setSkillPoints(message.skillPoints);

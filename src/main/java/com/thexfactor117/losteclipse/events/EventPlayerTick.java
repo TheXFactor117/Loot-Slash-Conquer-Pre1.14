@@ -50,7 +50,7 @@ public class EventPlayerTick
 	{
 		if (event.phase == Phase.START && !event.player.getEntityWorld().isRemote)
 		{
-			if (ticks % 20 == 0)
+			if (ticks % 10 == 0)
 			{
 				PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 				
