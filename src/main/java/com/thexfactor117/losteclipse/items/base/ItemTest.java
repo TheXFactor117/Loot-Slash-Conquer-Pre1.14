@@ -4,9 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.util.Reference;
-import com.thexfactor117.losteclipse.worldgen.procedural.ProceduralDungeon;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -38,10 +36,6 @@ public class ItemTest extends Item
     {
 		if (!player.getEntityWorld().isRemote)
 		{
-			LostEclipse.LOGGER.info("Hello?");
-			ProceduralDungeon dungeon = new ProceduralDungeon(5, 5);
-			dungeon.generate(worldIn, player.getRNG(), pos);
-			
 	        return EnumActionResult.SUCCESS;
 		}
 		

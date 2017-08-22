@@ -2,7 +2,7 @@ package com.thexfactor117.losteclipse.worldgen;
 
 import java.util.Random;
 
-import com.thexfactor117.losteclipse.worldgen.procedural.ProceduralDungeon;
+import com.thexfactor117.losteclipse.worldgen.dungeon.Dungeon;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -48,7 +48,8 @@ public class MHSWorldGenerator implements IWorldGenerator
 		{
 			int y = getGroundFromAbove(world, blockX, blockZ);
 			BlockPos pos = new BlockPos(blockX, y, blockZ);
-			ProceduralDungeon dungeon = new ProceduralDungeon((int) (Math.random() * 3 + 3), (int) (Math.random() * 3 + 4));
+			//ProceduralDungeon dungeon = new ProceduralDungeon((int) (Math.random() * 3 + 3), (int) (Math.random() * 3 + 4));
+			Dungeon dungeon = new Dungeon(2);
 			dungeon.generate(world, rand, pos);
 		}
 	}

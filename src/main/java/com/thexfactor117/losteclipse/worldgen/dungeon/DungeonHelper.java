@@ -1,4 +1,4 @@
-package com.thexfactor117.losteclipse.worldgen.procedural;
+package com.thexfactor117.losteclipse.worldgen.dungeon;
 
 import java.util.ArrayList;
 import java.util.Map.Entry;
@@ -23,6 +23,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
@@ -116,37 +117,51 @@ public class DungeonHelper
 		entities.add(EntityList.getKey(EntityCreeper.class));
 		entities.add(EntityList.getKey(EntityCaveSpider.class));
 		
-		return entities.get((int) (Math.random() * entities.size()));	
+		return entities.get((int) (Math.random() * entities.size()));
 	}
 	
-	public static PotentialPosition getPotentialRoomPosition(Template template, BlockPos center, Rotation rotation)
+	public static BlockPos translateWallPos(Template template, BlockPos wallPos, Rotation wallRotation)
 	{
-		int x = center.getX();
-		int z = center.getZ();
+		int x = wallPos.getX();
+		int z = wallPos.getZ();
 		
-		if (rotation == Rotation.NONE) x += template.getSize().getX() - 1;
-		else if (rotation == Rotation.CLOCKWISE_90) z += template.getSize().getZ() - 1;
-		else if (rotation == Rotation.CLOCKWISE_180) x -= template.getSize().getX() - 1;
-		else if (rotation == Rotation.COUNTERCLOCKWISE_90) z -= template.getSize().getZ() - 1;
+		if (wallRotation == Rotation.NONE) x += template.getSize().getX() / 2;
+		else if (wallRotation == Rotation.CLOCKWISE_90) z += template.getSize().getZ() / 2;
+		else if (wallRotation == Rotation.CLOCKWISE_180) x -= template.getSize().getX() / 2;
+		else if (wallRotation == Rotation.COUNTERCLOCKWISE_90) z -= template.getSize().getZ() / 2;
 		
-		return new PotentialPosition(new BlockPos(x, center.getY(), z), rotation);
+		return new BlockPos(x, wallPos.getY(), z);
 	}
 	
-	public static Template getRandomizedDungeonTemplate(TemplateManager manager, World world, int depth)
+	/** Returns the bounding box of the specific template. Used to make sure it doesn't intersect with other rooms. */
+	public static StructureBoundingBox getStructureBoundingBox(Template template, Rotation rotation, BlockPos center)
+	{
+		int minX = center.getX() - (template.getSize().getX() / 2);
+		int maxX = center.getX() + (template.getSize().getX() / 2);
+		int minY = center.getY();
+		int maxY = center.getY() + template.getSize().getY();
+		int minZ = center.getZ() - (template.getSize().getZ() / 2);
+		int maxZ = center.getZ() + (template.getSize().getZ() / 2);
+		
+		return new StructureBoundingBox(minX, minY, minZ, maxX, maxY, maxZ);
+	}
+	
+	public static Template getRandomizedDungeonTemplate(TemplateManager manager, World world)
 	{
 		ArrayList<Template> templates = new ArrayList<Template>();
 		
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room2")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "basic_spawner1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze2")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "misc1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "misc2")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_floor")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_spawner1")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_spawner2")));
-		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "water_spawner1")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room1")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room2")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "dungeons/test_room1")));
+		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "dungeons/test_room2")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze1")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze2")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "misc1")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "misc2")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_floor")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_spawner1")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_spawner2")));
+		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "water_spawner1")));
 		
 		return templates.get((int) (Math.random() * (templates.size())));
 	}
@@ -160,6 +175,7 @@ public class DungeonHelper
 		return templates.get((int) (Math.random() * (templates.size())));
 	}
 	
+	/** Translates the given BlockPos to the corner of the structure for spawning. */
 	public static BlockPos translateToCorner(Template template, BlockPos originalPos, Rotation rotation)
 	{
 		int x = originalPos.getX();
@@ -186,5 +202,71 @@ public class DungeonHelper
 		}
 		
 		return new BlockPos(x, originalPos.getY(), z);
+	}
+	
+	/** Translates the given BlockPos to the next possible room position based on rotation and the size of the current and next template. */
+	public static BlockPos translateToNextRoom(Template currentTemplate, Template nextTemplate, BlockPos currentCenter, Rotation side, Rotation currentTemplateRotation, Rotation nextTemplateRotation)
+	{
+		int x = currentCenter.getX();
+		int z = currentCenter.getZ();
+		int currentX = currentTemplate.getSize().getX() / 2;
+		int currentZ = currentTemplate.getSize().getZ() / 2;
+		int nextX = nextTemplate.getSize().getX() / 2;
+		int nextZ = nextTemplate.getSize().getZ() / 2;
+		
+		if (side == Rotation.NONE)
+		{
+			if (currentTemplateRotation == Rotation.NONE || currentTemplateRotation == Rotation.CLOCKWISE_180)
+			{
+				if (nextTemplateRotation == Rotation.NONE || nextTemplateRotation == Rotation.CLOCKWISE_180) x += currentX + nextX;
+				else x += currentX + nextZ;
+			}
+			else
+			{
+				if (nextTemplateRotation == Rotation.NONE || nextTemplateRotation == Rotation.CLOCKWISE_180) x += currentZ + nextX;
+				else x += currentZ + nextZ;
+			}
+		}
+		else if (side == Rotation.CLOCKWISE_90)
+		{
+			if (currentTemplateRotation == Rotation.NONE || currentTemplateRotation == Rotation.CLOCKWISE_180)
+			{
+				if (nextTemplateRotation == Rotation.NONE || nextTemplateRotation == Rotation.CLOCKWISE_180) z += currentZ + nextZ;
+				else z += currentZ + nextX;
+			}
+			else
+			{
+				if (nextTemplateRotation == Rotation.NONE || nextTemplateRotation == Rotation.CLOCKWISE_180) z += currentX + nextZ;
+				else z += currentX + nextX;
+			}
+		}
+		else if (side == Rotation.CLOCKWISE_180)
+		{
+			if (currentTemplateRotation == Rotation.NONE || currentTemplateRotation == Rotation.CLOCKWISE_180)
+			{
+				if (nextTemplateRotation == Rotation.NONE || nextTemplateRotation == Rotation.CLOCKWISE_180) x -= currentX + nextX;
+				else x -= currentX + nextZ;
+			}
+			else
+			{
+				if (nextTemplateRotation == Rotation.NONE || nextTemplateRotation == Rotation.CLOCKWISE_180) x -= currentZ + nextX;
+				else x -= currentZ + nextZ;
+			}
+		}
+		else if (side == Rotation.COUNTERCLOCKWISE_90)
+		{
+			if (currentTemplateRotation == Rotation.NONE || currentTemplateRotation == Rotation.CLOCKWISE_180)
+			{
+				if (nextTemplateRotation == Rotation.NONE || nextTemplateRotation == Rotation.CLOCKWISE_180) z -= currentZ + nextZ;
+				else z -= currentZ + nextX;
+			}
+			else
+			{
+				if (nextTemplateRotation == Rotation.NONE || nextTemplateRotation == Rotation.CLOCKWISE_180) z -= currentX + nextZ;
+				else z -= currentX + nextX;
+			}
+		}
+		
+		return new BlockPos(x, currentCenter.getY(), z); 
 	}
 }
