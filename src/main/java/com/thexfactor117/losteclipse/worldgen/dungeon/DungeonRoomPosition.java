@@ -2,6 +2,7 @@ package com.thexfactor117.losteclipse.worldgen.dungeon;
 
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.template.Template;
 
 /**
@@ -19,13 +20,15 @@ public class DungeonRoomPosition
 	private Rotation templateRotation;
 	/** SIDE OF WALL WHICH IS THIS ROOM WILL SPAWN ON. */
 	private Rotation side;
+	private StructureBoundingBox boundingBox;
 	
-	public DungeonRoomPosition(BlockPos pos, Template template, Rotation templateRotation, Rotation side)
+	public DungeonRoomPosition(BlockPos pos, Template template, Rotation templateRotation, Rotation side, StructureBoundingBox boundingBox)
 	{
 		this.pos = pos;
 		this.template = template;
 		this.templateRotation = templateRotation;
 		this.side = side;
+		this.boundingBox = boundingBox;
 	}
 	
 	public BlockPos getPos()
@@ -46,5 +49,10 @@ public class DungeonRoomPosition
 	public Rotation getSide()
 	{
 		return side;
+	}
+	
+	public StructureBoundingBox getBoundingBox()
+	{
+		return boundingBox;
 	}
 }

@@ -2,6 +2,7 @@ package com.thexfactor117.losteclipse.worldgen.dungeon;
 
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import javax.annotation.Nullable;
 
@@ -28,7 +29,7 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
  *
  * World Generator for the procedurally generated dungeons.
  * 
- * TODO: Fix cascading worldgen. This might be tricky considering we are using recursion.
+ * TODO: Fix cascading worldgen.
  *
  */
 public class Dungeon extends WorldGenerator
@@ -36,15 +37,13 @@ public class Dungeon extends WorldGenerator
 	private int roomTries; // how many attempts will the generate try and make.
 	private int roomCount;
 	
-	private List<StructureBoundingBox> roomList;
-	private List<StructureBoundingBox> pendingRooms;
+	private ConcurrentLinkedQueue<StructureBoundingBox> roomList;
 	
 	public Dungeon(int roomTries)
 	{
 		this.roomTries = roomTries;
 		this.roomCount = 0;
-		this.roomList = Lists.newArrayList();
-		this.pendingRooms = Lists.newArrayList();
+		this.roomList = new ConcurrentLinkedQueue<StructureBoundingBox>();
 	}
 
 	@Override
@@ -89,7 +88,13 @@ public class Dungeon extends WorldGenerator
 				// check if room overlaps anything
 				// if it doesn't, spawn room.
 				
-				nextPos2 = this.generateRoom(manager, world, nextRoom);
+				for (StructureBoundingBox existingBoundingBox : roomList)
+				{
+					if (!DungeonHelper.checkOverlap(existingBoundingBox, nextRoom.getBoundingBox()))
+					{
+						nextPos2 = this.generateRoom(manager, world, nextRoom);
+					}
+				}
 			}
 		}
 		
@@ -120,8 +125,9 @@ public class Dungeon extends WorldGenerator
 				BlockPos bottomStaircaseCenteredPos = entranceCenter.add(0, -4 * (depth - 1) + -5, 0);
 				BlockPos bottomStaircasePos = DungeonHelper.translateToCorner(bottomStaircase, bottomStaircaseCenteredPos, Rotation.NONE);
 				bottomStaircase.addBlocksToWorld(world, bottomStaircasePos, new DungeonBlockProcessor(bottomStaircasePos, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
+				roomList.add(DungeonHelper.getStructureBoundingBox(bottomStaircase, Rotation.NONE, bottomStaircaseCenteredPos)); // add StructureBoundingBox to room list. Used to make sure we don't generate rooms inside of other bounding boxes.
 				
-				list = this.generatePotentialRooms(manager, world, bottomStaircase, Rotation.NONE, bottomStaircaseCenteredPos);
+				list = this.generatePotentialRooms(manager, world, bottomStaircase, Rotation.NONE, bottomStaircaseCenteredPos, null);
 			}
 		}
 		
@@ -139,26 +145,32 @@ public class Dungeon extends WorldGenerator
 		
 		template.addBlocksToWorld(world, cornerPosition, new DungeonBlockProcessor(cornerPosition, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
 		DungeonHelper.handleDataBlocks(template, world, cornerPosition, settings, 1);
+		roomList.add(drp.getBoundingBox());
 		
-		return this.generatePotentialRooms(manager, world, template, settings.getRotation(), centeredPosition);
+		return this.generatePotentialRooms(manager, world, template, settings.getRotation(), centeredPosition, drp.getSide());
 	}
 	
 	/**
 	 * Generates a stores potential room positions off of the current template. Note: this does not take into account existing rooms. Check for existing rooms when spawning each specific room position.
 	 * @param currentTemplate
 	 */
-	private List<DungeonRoomPosition> generatePotentialRooms(TemplateManager manager, World world, Template currentTemplate, Rotation currentTemplateRotation, BlockPos currentCenter)
+	private List<DungeonRoomPosition> generatePotentialRooms(TemplateManager manager, World world, Template currentTemplate, Rotation currentTemplateRotation, BlockPos currentCenter, Rotation currentSide)
 	{
 		List<DungeonRoomPosition> list = Lists.newArrayList();
 		
-		for (Rotation side : Rotation.values())
-		{
+		Rotation side = Rotation.values()[(int) (Math.random() * 4)];
+		//for (Rotation side : Rotation.values())
+		//{
 			Template nextTemplate = DungeonHelper.getRandomizedDungeonTemplate(manager, world);
 			Rotation nextTemplateRotation = Rotation.values()[(int) (Math.random() * 4)];
 			BlockPos centeredPosition = DungeonHelper.translateToNextRoom(currentTemplate, nextTemplate, currentCenter, side, currentTemplateRotation, nextTemplateRotation);
+			StructureBoundingBox boundingBox = DungeonHelper.getStructureBoundingBox(nextTemplate, nextTemplateRotation, centeredPosition);
 			
-			list.add(new DungeonRoomPosition(centeredPosition, nextTemplate, nextTemplateRotation, side));
-		}
+			if (currentSide == null || (currentSide != null && currentSide.add(Rotation.CLOCKWISE_180) != side)) // check to make sure we aren't spawning a room on the side we just spawned from.
+			{
+				list.add(new DungeonRoomPosition(centeredPosition, nextTemplate, nextTemplateRotation, side, boundingBox));
+			}
+		//}
 		
 		return list;
 	}

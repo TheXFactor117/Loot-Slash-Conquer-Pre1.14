@@ -136,32 +136,55 @@ public class DungeonHelper
 	/** Returns the bounding box of the specific template. Used to make sure it doesn't intersect with other rooms. */
 	public static StructureBoundingBox getStructureBoundingBox(Template template, Rotation rotation, BlockPos center)
 	{
-		int minX = center.getX() - (template.getSize().getX() / 2);
-		int maxX = center.getX() + (template.getSize().getX() / 2);
-		int minY = center.getY();
-		int maxY = center.getY() + template.getSize().getY();
-		int minZ = center.getZ() - (template.getSize().getZ() / 2);
-		int maxZ = center.getZ() + (template.getSize().getZ() / 2);
+		int minX = 0;
+		int maxX = 0; 
+		int minY = 0;
+		int maxY = 0;
+		int minZ = 0;
+		int maxZ = 0;
+		
+		// we offset everything by one to get the inner room with walls, ceilins, or floors. Rooms can connect through walls so we want those checks to pass.
+		if (rotation == Rotation.NONE || rotation == Rotation.CLOCKWISE_180)
+		{
+			minX = center.getX() - (template.getSize().getX() / 2) + 1;
+			maxX = center.getX() + (template.getSize().getX() / 2) - 1;
+			minY = center.getY() + 1;
+			maxY = center.getY() + template.getSize().getY() - 1;
+			minZ = center.getZ() - (template.getSize().getZ() / 2) + 1;
+			maxZ = center.getZ() + (template.getSize().getZ() / 2) - 1;
+		}
+		else
+		{
+			minX = center.getX() - (template.getSize().getZ() / 2) + 1;
+			maxX = center.getX() + (template.getSize().getZ() / 2) - 1;
+			minY = center.getY() + 1;
+			maxY = center.getY() + template.getSize().getY() - 1;
+			minZ = center.getZ() - (template.getSize().getX() / 2) + 1;
+			maxZ = center.getZ() + (template.getSize().getX() / 2) - 1;
+		}
 		
 		return new StructureBoundingBox(minX, minY, minZ, maxX, maxY, maxZ);
+	}
+	
+	/** Returns true if the two structures overlap. */
+	public static boolean checkOverlap(StructureBoundingBox existingStructure, StructureBoundingBox nextStructure)
+	{
+		if (((nextStructure.minX >= existingStructure.minX && nextStructure.minX <= existingStructure.maxX) && (nextStructure.minZ >= existingStructure.minZ && nextStructure.minZ <= existingStructure.maxZ) && (nextStructure.minY >= existingStructure.minY && nextStructure.minY <= existingStructure.maxY))
+				|| ((nextStructure.maxX >= existingStructure.minX && nextStructure.maxX <= existingStructure.maxX) && (nextStructure.maxZ >= existingStructure.minZ && nextStructure.maxZ <= existingStructure.maxZ) && (nextStructure.maxY >= existingStructure.minY && nextStructure.maxY <= existingStructure.maxY)))
+		{
+			//LostEclipse.LOGGER.warn("Two bounding boxes have overlapped - the next structure to be placed will not be placed because of it.");
+			return true;
+		}
+		
+		return false;
 	}
 	
 	public static Template getRandomizedDungeonTemplate(TemplateManager manager, World world)
 	{
 		ArrayList<Template> templates = new ArrayList<Template>();
-		
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room1")));
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "loot_room2")));
+
 		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "dungeons/test_room1")));
 		templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "dungeons/test_room2")));
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze1")));
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "maze2")));
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "misc1")));
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "misc2")));
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_floor")));
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_spawner1")));
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "lava_spawner2")));
-		//templates.add(manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "water_spawner1")));
 		
 		return templates.get((int) (Math.random() * (templates.size())));
 	}
