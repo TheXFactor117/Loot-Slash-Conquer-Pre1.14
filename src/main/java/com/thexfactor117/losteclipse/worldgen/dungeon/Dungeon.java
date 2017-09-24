@@ -1,8 +1,8 @@
 package com.thexfactor117.losteclipse.worldgen.dungeon;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 import javax.annotation.Nullable;
 
@@ -37,13 +37,13 @@ public class Dungeon extends WorldGenerator
 	private int roomTries; // how many attempts will the generate try and make.
 	private int roomCount;
 	
-	private ConcurrentLinkedQueue<StructureBoundingBox> roomList;
+	private ArrayList<StructureBoundingBox> roomList;
 	
 	public Dungeon(int roomTries)
 	{
 		this.roomTries = roomTries;
 		this.roomCount = 0;
-		this.roomList = new ConcurrentLinkedQueue<StructureBoundingBox>();
+		this.roomList = Lists.newArrayList();
 	}
 
 	@Override
@@ -59,9 +59,11 @@ public class Dungeon extends WorldGenerator
 		{
 			LostEclipse.LOGGER.info("Generating Dungeon at " + position);
 			
+			// spawn the entrance on the surface
 			BlockPos entrancePos = DungeonHelper.translateToCorner(dungeonEntrance, position, Rotation.NONE);
 			dungeonEntrance.addBlocksToWorld(world, entrancePos, new DungeonBlockProcessor(entrancePos, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
 			
+			// start the procedural generation
 			procedurallyGenerate(manager, world, position, this.generateStaircase(manager, world, position));
 			
 			return true;
@@ -83,16 +85,28 @@ public class Dungeon extends WorldGenerator
 		if (roomCount > roomTries) return;
 		else
 		{
-			for (DungeonRoomPosition nextRoom : nextPos)
-			{
-				// check if room overlaps anything
-				// if it doesn't, spawn room.
-				
-				for (StructureBoundingBox existingBoundingBox : roomList)
+			ArrayList<StructureBoundingBox> roomListCopy = Lists.newArrayList(roomList);
+			
+			for (DungeonRoomPosition room : nextPos)
+			{	
+				// check to make sure rooms don't overlap
+				for (StructureBoundingBox existingBB : roomListCopy)
 				{
-					if (!DungeonHelper.checkOverlap(existingBoundingBox, nextRoom.getBoundingBox()))
+					// if structures don't overlap
+					if (!DungeonHelper.checkOverlap(existingBB, room.getBoundingBox()))
 					{
-						nextPos2 = this.generateRoom(manager, world, nextRoom);
+						LostEclipse.LOGGER.info("Room generated successfully.");
+						List<DungeonRoomPosition> nextRooms = this.generateRoom(manager, world, room);
+						
+						// copy new generated rooms into bigger list
+						for (DungeonRoomPosition nextRoom : nextRooms)
+						{
+							nextPos2.add(nextRoom);
+						}
+					}
+					else
+					{
+						LostEclipse.LOGGER.info("Room failed to generate.");
 					}
 				}
 			}
@@ -158,9 +172,9 @@ public class Dungeon extends WorldGenerator
 	{
 		List<DungeonRoomPosition> list = Lists.newArrayList();
 		
-		Rotation side = Rotation.values()[(int) (Math.random() * 4)];
-		//for (Rotation side : Rotation.values())
-		//{
+		//Rotation side = Rotation.values()[(int) (Math.random() * 4)];
+		for (Rotation side : Rotation.values())
+		{
 			Template nextTemplate = DungeonHelper.getRandomizedDungeonTemplate(manager, world);
 			Rotation nextTemplateRotation = Rotation.values()[(int) (Math.random() * 4)];
 			BlockPos centeredPosition = DungeonHelper.translateToNextRoom(currentTemplate, nextTemplate, currentCenter, side, currentTemplateRotation, nextTemplateRotation);
@@ -170,7 +184,7 @@ public class Dungeon extends WorldGenerator
 			{
 				list.add(new DungeonRoomPosition(centeredPosition, nextTemplate, nextTemplateRotation, side, boundingBox));
 			}
-		//}
+		}
 		
 		return list;
 	}

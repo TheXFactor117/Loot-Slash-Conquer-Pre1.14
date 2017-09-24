@@ -3,6 +3,7 @@ package com.thexfactor117.losteclipse.worldgen.dungeon;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 
+import com.thexfactor117.losteclipse.LostEclipse;
 import com.thexfactor117.losteclipse.init.ModLootTables;
 import com.thexfactor117.losteclipse.util.RandomCollection;
 import com.thexfactor117.losteclipse.util.Reference;
@@ -143,23 +144,23 @@ public class DungeonHelper
 		int minZ = 0;
 		int maxZ = 0;
 		
-		// we offset everything by one to get the inner room with walls, ceilins, or floors. Rooms can connect through walls so we want those checks to pass.
+		// we offset everything by one to get the inner room with walls, ceilings, or floors. Rooms can connect through walls so we want those checks to pass.
 		if (rotation == Rotation.NONE || rotation == Rotation.CLOCKWISE_180)
 		{
-			minX = center.getX() - (template.getSize().getX() / 2) + 1;
+			minX = center.getX() - (template.getSize().getX() / 2) - 1;
 			maxX = center.getX() + (template.getSize().getX() / 2) - 1;
 			minY = center.getY() + 1;
 			maxY = center.getY() + template.getSize().getY() - 1;
-			minZ = center.getZ() - (template.getSize().getZ() / 2) + 1;
+			minZ = center.getZ() - (template.getSize().getZ() / 2) - 1;
 			maxZ = center.getZ() + (template.getSize().getZ() / 2) - 1;
 		}
 		else
 		{
-			minX = center.getX() - (template.getSize().getZ() / 2) + 1;
+			minX = center.getX() - (template.getSize().getZ() / 2) - 1;
 			maxX = center.getX() + (template.getSize().getZ() / 2) - 1;
 			minY = center.getY() + 1;
 			maxY = center.getY() + template.getSize().getY() - 1;
-			minZ = center.getZ() - (template.getSize().getX() / 2) + 1;
+			minZ = center.getZ() - (template.getSize().getX() / 2) - 1;
 			maxZ = center.getZ() + (template.getSize().getX() / 2) - 1;
 		}
 		
@@ -169,12 +170,12 @@ public class DungeonHelper
 	/** Returns true if the two structures overlap. */
 	public static boolean checkOverlap(StructureBoundingBox existingStructure, StructureBoundingBox nextStructure)
 	{
-		if (((nextStructure.minX >= existingStructure.minX && nextStructure.minX <= existingStructure.maxX) && (nextStructure.minZ >= existingStructure.minZ && nextStructure.minZ <= existingStructure.maxZ) && (nextStructure.minY >= existingStructure.minY && nextStructure.minY <= existingStructure.maxY))
-				|| ((nextStructure.maxX >= existingStructure.minX && nextStructure.maxX <= existingStructure.maxX) && (nextStructure.maxZ >= existingStructure.minZ && nextStructure.maxZ <= existingStructure.maxZ) && (nextStructure.maxY >= existingStructure.minY && nextStructure.maxY <= existingStructure.maxY)))
-		{
-			//LostEclipse.LOGGER.warn("Two bounding boxes have overlapped - the next structure to be placed will not be placed because of it.");
-			return true;
-		}
+		/*if (existingStructure.minX > nextStructure.maxX) return false;
+		if (existingStructure.maxX < nextStructure.minX) return false;
+		if (existingStructure.minY > nextStructure.maxY) return false;
+		if (existingStructure.maxY < nextStructure.minY) return false;
+		if (existingStructure.minZ > nextStructure.maxZ) return false;
+		if (existingStructure.maxZ < nextStructure.minZ) return false;*/
 		
 		return false;
 	}
@@ -211,16 +212,16 @@ public class DungeonHelper
 				z -= template.getSize().getZ() / 2;
 				break;
 			case CLOCKWISE_90:
-				x += template.getSize().getX() / 2;
-				z -= template.getSize().getZ() / 2;
+				x += template.getSize().getZ() / 2;
+				z -= template.getSize().getX() / 2;
 				break;
 			case CLOCKWISE_180:
 				x += template.getSize().getX() / 2;
 				z += template.getSize().getZ() / 2;
 				break;
 			case COUNTERCLOCKWISE_90:
-				x -= template.getSize().getX() / 2;
-				z += template.getSize().getZ() / 2;
+				x -= template.getSize().getZ() / 2;
+				z += template.getSize().getX() / 2;
 				break;
 		}
 		
