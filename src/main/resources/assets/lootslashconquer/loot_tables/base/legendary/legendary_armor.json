@@ -1,0 +1,30 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/legendary/specific/legendary_helmets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/legendary/specific/legendary_chestplates",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/legendary/specific/legendary_leggings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/legendary/specific/legendary_boots",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

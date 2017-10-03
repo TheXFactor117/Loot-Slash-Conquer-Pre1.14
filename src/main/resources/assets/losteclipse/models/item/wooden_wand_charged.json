@@ -1,6 +1,0 @@
-{
-	"parent": "losteclipse:item/wooden_wand",
-	"textures": {
-		"layer0": "losteclipse:items/wooden_wand_charged"
-	}
-}

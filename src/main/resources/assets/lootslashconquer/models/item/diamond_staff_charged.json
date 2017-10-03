@@ -1,0 +1,6 @@
+{
+	"parent": "lootslashconquer:item/diamond_staff",
+	"textures": {
+		"layer0": "lootslashconquer:items/diamond_staff_charged"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "lootslashconquer:item/golden_staff",
+	"textures": {
+		"layer0": "lootslashconquer:items/golden_staff_charged"
+	}
+}
