@@ -1,6 +1,0 @@
-{
-	"parent": "lootslashconquer:item/moonlit_rod",
-	"textures": {
-		"layer0": "lootslashconquer:items/moonlit_rod_charged"
-	}
-}

@@ -1,6 +1,0 @@
-{
-	"parent": "lootslashconquer:item/diamond_wand",
-	"textures": {
-		"layer0": "lootslashconquer:items/diamond_wand_charged"
-	}
-}
