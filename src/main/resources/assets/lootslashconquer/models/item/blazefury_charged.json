@@ -1,0 +1,6 @@
+{
+	"parent": "lootslashconquer:item/blazefury",
+	"textures": {
+		"layer0": "lootslashconquer:items/blazefury_charged"
+	}
+}

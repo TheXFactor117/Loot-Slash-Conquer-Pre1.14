@@ -1,0 +1,6 @@
+{
+	"parent": "lootslashconquer:item/epilogue",
+	"textures": {
+		"layer0": "lootslashconquer:items/epilogue_charged"
+	}
+}

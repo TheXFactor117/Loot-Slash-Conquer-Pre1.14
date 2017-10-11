@@ -1,0 +1,60 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:leather_helmet",
+					"weight": 12,
+					"functions": [
+						{
+							"function": "lootslashconquer:create_uncommon"
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:chainmail_helmet",
+					"weight": 5,
+					"functions": [
+						{
+							"function": "lootslashconquer:create_uncommon"
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:golden_helmet",
+					"weight": 8,
+					"functions": [
+						{
+							"function": "lootslashconquer:create_uncommon"
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:iron_helmet",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "lootslashconquer:create_uncommon"
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:diamond_helmet",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "lootslashconquer:create_uncommon"
+						}
+					]
+				}
+			]
+		}
+	]
+}

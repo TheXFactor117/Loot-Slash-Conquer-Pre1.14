@@ -1,0 +1,60 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:leather_boots",
+					"weight": 12,
+					"functions": [
+						{
+							"function": "losteclipse:create_legendary"
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:chainmail_boots",
+					"weight": 5,
+					"functions": [
+						{
+							"function": "losteclipse:create_legendary"
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:golden_boots",
+					"weight": 8,
+					"functions": [
+						{
+							"function": "losteclipse:create_legendary"
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:iron_boots",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "losteclipse:create_legendary"
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:diamond_boots",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "losteclipse:create_legendary"
+						}
+					]
+				}
+			]
+		}
+	]
+}

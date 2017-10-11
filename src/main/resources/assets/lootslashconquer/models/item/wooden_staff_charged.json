@@ -1,0 +1,6 @@
+{
+	"parent": "lootslashconquer:item/wooden_staff",
+	"textures": {
+		"layer0": "lootslashconquer:items/wooden_staff_charged"
+	}
+}
