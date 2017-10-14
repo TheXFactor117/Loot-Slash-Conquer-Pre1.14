@@ -1,6 +1,6 @@
 package com.lsc.init;
 
-import com.lsc.items.jewelry.ItemLEBauble;
+import com.lsc.items.base.ItemLEBauble;
 
 import baubles.api.BaubleType;
 import net.minecraft.item.Item;

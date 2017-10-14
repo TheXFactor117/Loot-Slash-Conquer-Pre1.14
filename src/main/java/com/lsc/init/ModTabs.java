@@ -1,6 +1,6 @@
 package com.lsc.init;
 
-import com.lsc.tabs.LETab;
+import com.lsc.util.LETab;
 
 import net.minecraft.creativetab.CreativeTabs;
 

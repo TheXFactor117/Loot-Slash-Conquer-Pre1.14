@@ -5,11 +5,11 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.lsc.api.Rarity;
-import com.lsc.items.jewelry.ItemLEBauble;
-import com.lsc.items.magical.ItemLEMagical;
+import com.lsc.items.base.ItemLEBauble;
+import com.lsc.items.base.ItemLEMagical;
 import com.lsc.loot.ItemGenerator;
 import com.lsc.loot.NameGenerator;
+import com.lsc.loot.Rarity;
 import com.lsc.loot.table.CustomLootContext;
 import com.lsc.util.Reference;
 

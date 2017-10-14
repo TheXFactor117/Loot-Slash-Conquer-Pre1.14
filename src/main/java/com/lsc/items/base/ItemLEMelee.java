@@ -1,4 +1,4 @@
-package com.lsc.items.melee;
+package com.lsc.items.base;
 
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;

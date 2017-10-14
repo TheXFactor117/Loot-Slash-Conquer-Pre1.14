@@ -1,4 +1,4 @@
-package com.lsc.items.jewelry;
+package com.lsc.items.base;
 
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;

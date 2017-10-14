@@ -1,4 +1,4 @@
-package com.lsc.items.melee;
+package com.lsc.items.base;
 
 import java.util.Collection;
 import java.util.Optional;

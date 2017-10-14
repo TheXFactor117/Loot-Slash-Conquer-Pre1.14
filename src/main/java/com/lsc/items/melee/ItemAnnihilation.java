@@ -1,14 +1,14 @@
-package com.lsc.items.melee.special;
+package com.lsc.items.melee;
 
-import com.lsc.api.ISpecial;
-import com.lsc.api.Rarity;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.init.ModTabs;
-import com.lsc.items.melee.ItemLEAdvancedMelee;
+import com.lsc.items.base.ISpecial;
+import com.lsc.items.base.ItemLEAdvancedMelee;
 import com.lsc.loot.ItemGeneratorHelper;
-import com.lsc.stats.attributes.WeaponAttribute;
+import com.lsc.loot.Rarity;
+import com.lsc.loot.WeaponAttribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,9 +20,9 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ItemAlakaslam extends ItemLEAdvancedMelee implements ISpecial
+public class ItemAnnihilation extends ItemLEAdvancedMelee implements ISpecial
 {
-	public ItemAlakaslam(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
+	public ItemAnnihilation(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
 	{
 		super(material, name, type, damageMultiplier, speedMultiplier);
 		this.setCreativeTab(ModTabs.tabLE);
@@ -39,9 +39,11 @@ public class ItemAlakaslam extends ItemLEAdvancedMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.STRENGTH.addAttribute(nbt, 10);
-		WeaponAttribute.FORTITUDE.addAttribute(nbt, 10);
-		WeaponAttribute.FROST.addAttribute(nbt, 7);
+		WeaponAttribute.AGILITY.addAttribute(nbt, 10);
+		WeaponAttribute.DEXTERITY.addAttribute(nbt, 10);
+		WeaponAttribute.GOLD.addAttribute(nbt, 10);
+		WeaponAttribute.LIFE_STEAL.addAttribute(nbt, 0.1);
+		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.1);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

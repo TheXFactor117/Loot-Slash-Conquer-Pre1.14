@@ -1,25 +1,30 @@
-package com.lsc.items.melee.special;
+package com.lsc.items.melee;
 
-import com.lsc.api.ISpecial;
-import com.lsc.api.Rarity;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.init.ModTabs;
-import com.lsc.items.melee.ItemLEAdvancedMelee;
+import com.lsc.items.base.ISpecial;
+import com.lsc.items.base.ItemLEMelee;
 import com.lsc.loot.ItemGeneratorHelper;
-import com.lsc.stats.attributes.WeaponAttribute;
+import com.lsc.loot.Rarity;
+import com.lsc.loot.WeaponAttribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 
-public class ItemDoomshadow extends ItemLEAdvancedMelee implements ISpecial
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+public class ItemExcaliburRapier extends ItemLEMelee implements ISpecial
 {
-	public ItemDoomshadow(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
+	public ItemExcaliburRapier(ToolMaterial material, String name, String type)
 	{
-		super(material, name, type, damageMultiplier, speedMultiplier);
+		super(material, name, type);
 		this.setCreativeTab(ModTabs.tabLE);
 	}
 
@@ -30,13 +35,14 @@ public class ItemDoomshadow extends ItemLEAdvancedMelee implements ISpecial
 		IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
 		int level = chunkLevel.getChunkLevel();
 		
-		Rarity.setRarity(nbt, Rarity.LEGENDARY);
+		Rarity.setRarity(nbt, Rarity.EXOTIC);
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.STRENGTH.addAttribute(nbt, 6);
-		WeaponAttribute.FORTITUDE.addAttribute(nbt, 4);
-		WeaponAttribute.CHAINED.addAttribute(nbt, 10);
+		WeaponAttribute.FIRE.addAttribute(nbt, 3);
+		WeaponAttribute.FROST.addAttribute(nbt, 3);
+		WeaponAttribute.LIGHTNING.addAttribute(nbt, 3);
+		WeaponAttribute.STRENGTH.addAttribute(nbt, 8);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

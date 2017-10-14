@@ -1,4 +1,4 @@
-package com.lsc.stats;
+package com.lsc.util;
 
 import java.util.UUID;
 

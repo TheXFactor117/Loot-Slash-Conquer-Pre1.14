@@ -1,4 +1,4 @@
-package com.lsc.api;
+package com.lsc.loot;
 
 import java.util.Random;
 

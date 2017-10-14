@@ -5,8 +5,8 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.lsc.api.ISpecial;
-import com.lsc.api.Rarity;
+import com.lsc.items.base.ISpecial;
+import com.lsc.loot.Rarity;
 import com.lsc.loot.table.CustomLootContext;
 import com.lsc.util.Reference;
 

@@ -1,4 +1,4 @@
-package com.lsc.api;
+package com.lsc.items.base;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

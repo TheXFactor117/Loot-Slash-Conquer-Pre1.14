@@ -2,7 +2,7 @@ package com.lsc.network;
 
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;
-import com.lsc.stats.PlayerStatHelper;
+import com.lsc.util.PlayerStatHelper;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;

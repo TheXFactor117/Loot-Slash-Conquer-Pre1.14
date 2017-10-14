@@ -1,28 +1,23 @@
-package com.lsc.items.melee.special;
+package com.lsc.items.melee;
 
-import com.lsc.api.ISpecial;
-import com.lsc.api.Rarity;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.init.ModTabs;
-import com.lsc.items.melee.ItemLEMelee;
+import com.lsc.items.base.ISpecial;
+import com.lsc.items.base.ItemLEMelee;
 import com.lsc.loot.ItemGeneratorHelper;
-import com.lsc.stats.attributes.WeaponAttribute;
+import com.lsc.loot.Rarity;
+import com.lsc.loot.WeaponAttribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 
-/**
- * 
- * @author TheXFactor117
- *
- */
-public class ItemExcaliburRapier extends ItemLEMelee implements ISpecial
+public class ItemRequiem extends ItemLEMelee implements ISpecial
 {
-	public ItemExcaliburRapier(ToolMaterial material, String name, String type)
+	public ItemRequiem(ToolMaterial material, String name, String type)
 	{
 		super(material, name, type);
 		this.setCreativeTab(ModTabs.tabLE);
@@ -35,14 +30,14 @@ public class ItemExcaliburRapier extends ItemLEMelee implements ISpecial
 		IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
 		int level = chunkLevel.getChunkLevel();
 		
-		Rarity.setRarity(nbt, Rarity.EXOTIC);
+		Rarity.setRarity(nbt, Rarity.LEGENDARY);
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.FIRE.addAttribute(nbt, 3);
-		WeaponAttribute.FROST.addAttribute(nbt, 3);
-		WeaponAttribute.LIGHTNING.addAttribute(nbt, 3);
-		WeaponAttribute.STRENGTH.addAttribute(nbt, 8);
+		WeaponAttribute.AGILITY.addAttribute(nbt, 5);
+		WeaponAttribute.DEXTERITY.addAttribute(nbt, 5);
+		WeaponAttribute.LIFE_STEAL.addAttribute(nbt, 0.05);
+		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.05);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

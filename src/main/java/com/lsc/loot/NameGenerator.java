@@ -7,10 +7,6 @@ import java.util.List;
 import java.util.Properties;
 
 import com.google.common.collect.Lists;
-import com.lsc.api.Rarity;
-import com.lsc.stats.attributes.ArmorAttribute;
-import com.lsc.stats.attributes.JewelryAttribute;
-import com.lsc.stats.attributes.WeaponAttribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

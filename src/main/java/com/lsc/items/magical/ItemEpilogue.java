@@ -1,13 +1,13 @@
-package com.lsc.items.magical.special;
+package com.lsc.items.magical;
 
-import com.lsc.api.ISpecial;
-import com.lsc.api.Rarity;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
-import com.lsc.items.magical.ItemLEMagical;
+import com.lsc.items.base.ISpecial;
+import com.lsc.items.base.ItemLEMagical;
 import com.lsc.loot.ItemGeneratorHelper;
-import com.lsc.stats.attributes.WeaponAttribute;
+import com.lsc.loot.Rarity;
+import com.lsc.loot.WeaponAttribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

@@ -1,4 +1,4 @@
-package com.lsc.items.magical;
+package com.lsc.items.base;
 
 import javax.annotation.Nullable;
 
@@ -14,8 +14,8 @@ import com.lsc.entities.projectiles.Rune;
 import com.lsc.events.EventPlayerTick;
 import com.lsc.init.ModTabs;
 import com.lsc.network.PacketUpdateStats;
-import com.lsc.stats.PlayerStatHelper;
 import com.lsc.util.NBTHelper;
+import com.lsc.util.PlayerStatHelper;
 import com.lsc.util.Reference;
 
 import net.minecraft.entity.Entity;
@@ -134,7 +134,11 @@ public class ItemLEMagical extends Item
 			}
 		}
 		
-		player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
+		if (playerInfo.getPlayerLevel() < NBTHelper.loadStackNBT(player.inventory.getCurrentItem()).getInteger("Level"))
+		{
+			player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
+		}
+		
 		return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.inventory.getCurrentItem());
 	}
 	

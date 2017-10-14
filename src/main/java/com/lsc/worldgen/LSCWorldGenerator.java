@@ -2,10 +2,6 @@ package com.lsc.worldgen;
 
 import java.util.Random;
 
-import com.lsc.LootSlashConquer;
-import com.lsc.worldgen.dungeon.DungeonBlockProcessor;
-import com.lsc.worldgen.structure.StructureHelper;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -14,7 +10,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
@@ -55,20 +50,6 @@ public class LSCWorldGenerator implements IWorldGenerator
 			Dungeon dungeon = new Dungeon(2);
 			dungeon.generate(world, rand, pos);
 		}*/
-		
-		if ((int) (Math.random() * 100) == 0)
-		{
-			int y = getGroundFromAbove(world, blockX, blockZ);
-			BlockPos pos = new BlockPos(blockX, y, blockZ);
-			Template template = StructureHelper.getRandomStructure().getTemplate(world);
-			PlacementSettings settings = new PlacementSettings();
-			
-			if (canSpawnHere(template, world, pos))
-			{
-				template.addBlocksToWorld(world, pos, new DungeonBlockProcessor(pos, settings), settings, 2);
-				LootSlashConquer.LOGGER.info("Position: " + pos);
-			}
-		}
 	}
 	
 	private void generateNether(World world, Random rand, int chunkX, int chunkZ) {}

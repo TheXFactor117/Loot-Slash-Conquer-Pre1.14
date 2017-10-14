@@ -1,11 +1,10 @@
 package com.lsc.loot;
 
-import com.lsc.api.Rarity;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
-import com.lsc.items.jewelry.ItemLEBauble;
-import com.lsc.items.magical.ItemLEMagical;
+import com.lsc.items.base.ItemLEBauble;
+import com.lsc.items.base.ItemLEMagical;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

@@ -1,10 +1,9 @@
-package com.lsc.stats.attributes;
+package com.lsc.loot;
 
 import java.util.List;
 import java.util.Random;
 
 import com.google.common.collect.Lists;
-import com.lsc.api.Rarity;
 import com.lsc.util.RandomCollection;
 
 import net.minecraft.nbt.NBTTagCompound;

@@ -1,14 +1,14 @@
-package com.lsc.items.melee.special;
+package com.lsc.items.melee;
 
-import com.lsc.api.ISpecial;
-import com.lsc.api.Rarity;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.init.ModTabs;
-import com.lsc.items.melee.ItemLEMelee;
+import com.lsc.items.base.ISpecial;
+import com.lsc.items.base.ItemLEAdvancedMelee;
 import com.lsc.loot.ItemGeneratorHelper;
-import com.lsc.stats.attributes.WeaponAttribute;
+import com.lsc.loot.Rarity;
+import com.lsc.loot.WeaponAttribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,11 +20,11 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ItemDivineRapier extends ItemLEMelee implements ISpecial
+public class ItemShadowfall extends ItemLEAdvancedMelee implements ISpecial
 {
-	public ItemDivineRapier(ToolMaterial material, String name, String type)
+	public ItemShadowfall(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
 	{
-		super(material, name, type);
+		super(material, name, type, damageMultiplier, speedMultiplier);
 		this.setCreativeTab(ModTabs.tabLE);
 	}
 
@@ -39,9 +39,9 @@ public class ItemDivineRapier extends ItemLEMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.FIRE.addAttribute(nbt, 5);
-		WeaponAttribute.STRENGTH.addAttribute(nbt, 3);
-		WeaponAttribute.DURABLE.addAttribute(nbt, 0.3);
+		WeaponAttribute.DEXTERITY.addAttribute(nbt, 10);
+		WeaponAttribute.MAX_DAMAGE.addAttribute(nbt, 3);
+		WeaponAttribute.LIFE_STEAL.addAttribute(nbt, 0.15);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

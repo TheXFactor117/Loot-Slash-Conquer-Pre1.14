@@ -3,17 +3,17 @@ package com.lsc.events;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import com.lsc.api.Rarity;
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.entities.projectiles.Rune;
-import com.lsc.items.jewelry.ItemLEBauble;
-import com.lsc.items.magical.ItemLEMagical;
-import com.lsc.stats.PlayerStatHelper;
-import com.lsc.stats.attributes.ArmorAttribute;
-import com.lsc.stats.attributes.JewelryAttribute;
-import com.lsc.stats.attributes.WeaponAttribute;
+import com.lsc.items.base.ItemLEBauble;
+import com.lsc.items.base.ItemLEMagical;
+import com.lsc.loot.ArmorAttribute;
+import com.lsc.loot.JewelryAttribute;
+import com.lsc.loot.Rarity;
+import com.lsc.loot.WeaponAttribute;
 import com.lsc.util.NBTHelper;
+import com.lsc.util.PlayerStatHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;

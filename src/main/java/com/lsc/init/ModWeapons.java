@@ -1,21 +1,21 @@
  package com.lsc.init;
 
+import com.lsc.items.base.ItemLEAdvancedMelee;
+import com.lsc.items.base.ItemLEMagical;
 import com.lsc.items.base.ItemTest;
-import com.lsc.items.magical.ItemLEMagical;
-import com.lsc.items.magical.special.ItemBlazefury;
-import com.lsc.items.magical.special.ItemEpilogue;
-import com.lsc.items.magical.special.ItemGazeOfTruth;
-import com.lsc.items.magical.special.ItemMoonlitRod;
-import com.lsc.items.magical.special.ItemVisageOfWizardry;
-import com.lsc.items.melee.ItemLEAdvancedMelee;
-import com.lsc.items.melee.special.ItemAlakaslam;
-import com.lsc.items.melee.special.ItemAnnihilation;
-import com.lsc.items.melee.special.ItemDivineRapier;
-import com.lsc.items.melee.special.ItemDoomshadow;
-import com.lsc.items.melee.special.ItemExcaliburRapier;
-import com.lsc.items.melee.special.ItemGoldenPummel;
-import com.lsc.items.melee.special.ItemRequiem;
-import com.lsc.items.melee.special.ItemShadowfall;
+import com.lsc.items.magical.ItemBlazefury;
+import com.lsc.items.magical.ItemEpilogue;
+import com.lsc.items.magical.ItemGazeOfTruth;
+import com.lsc.items.magical.ItemMoonlitRod;
+import com.lsc.items.magical.ItemVisageOfWizardry;
+import com.lsc.items.melee.ItemAlakaslam;
+import com.lsc.items.melee.ItemAnnihilation;
+import com.lsc.items.melee.ItemDivineRapier;
+import com.lsc.items.melee.ItemDoomshadow;
+import com.lsc.items.melee.ItemExcaliburRapier;
+import com.lsc.items.melee.ItemGoldenPummel;
+import com.lsc.items.melee.ItemRequiem;
+import com.lsc.items.melee.ItemShadowfall;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;

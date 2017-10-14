@@ -3,17 +3,17 @@ package com.lsc.events.combat;
 import java.util.Iterator;
 import java.util.List;
 
-import com.lsc.api.Rarity;
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
 import com.lsc.capabilities.playerstats.Stats;
 import com.lsc.init.ModDamageSources;
-import com.lsc.items.melee.ItemLEAdvancedMelee;
-import com.lsc.stats.PlayerStatHelper;
-import com.lsc.stats.attributes.ArmorAttribute;
-import com.lsc.stats.attributes.WeaponAttribute;
+import com.lsc.items.base.ItemLEAdvancedMelee;
+import com.lsc.loot.ArmorAttribute;
+import com.lsc.loot.Rarity;
+import com.lsc.loot.WeaponAttribute;
 import com.lsc.util.NBTHelper;
+import com.lsc.util.PlayerStatHelper;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

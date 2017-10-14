@@ -5,14 +5,10 @@ import java.util.Random;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
-import com.lsc.api.Rarity;
 import com.lsc.entities.projectiles.Rune;
-import com.lsc.items.jewelry.ItemLEBauble;
-import com.lsc.items.magical.ItemLEMagical;
-import com.lsc.items.melee.ItemLEMelee;
-import com.lsc.stats.attributes.ArmorAttribute;
-import com.lsc.stats.attributes.JewelryAttribute;
-import com.lsc.stats.attributes.WeaponAttribute;
+import com.lsc.items.base.ItemLEBauble;
+import com.lsc.items.base.ItemLEMagical;
+import com.lsc.items.base.ItemLEMelee;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;

@@ -1,13 +1,13 @@
-package com.lsc.items.magical.special;
+package com.lsc.items.magical;
 
-import com.lsc.api.ISpecial;
-import com.lsc.api.Rarity;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
-import com.lsc.items.magical.ItemLEMagical;
+import com.lsc.items.base.ISpecial;
+import com.lsc.items.base.ItemLEMagical;
 import com.lsc.loot.ItemGeneratorHelper;
-import com.lsc.stats.attributes.WeaponAttribute;
+import com.lsc.loot.Rarity;
+import com.lsc.loot.WeaponAttribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -19,9 +19,9 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ItemGazeOfTruth extends ItemLEMagical implements ISpecial
+public class ItemBlazefury extends ItemLEMagical implements ISpecial
 {
-	public ItemGazeOfTruth(String name, boolean isStaff, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
+	public ItemBlazefury(String name, boolean isStaff, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
 	{
 		super(name, isStaff, baseDamage, attackSpeed, manaPerUse, durability);
 	}
@@ -33,15 +33,14 @@ public class ItemGazeOfTruth extends ItemLEMagical implements ISpecial
 		IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
 		int level = chunkLevel.getChunkLevel();
 		
-		Rarity.setRarity(nbt, Rarity.EXOTIC);
+		Rarity.setRarity(nbt, Rarity.LEGENDARY);
 		nbt.setInteger("Level", level);
 		ItemGeneratorHelper.setRune(nbt);
 		
 		// Attributes
-		WeaponAttribute.FIRE.addAttribute(nbt, 5);
-		WeaponAttribute.MIN_DAMAGE.addAttribute(nbt, 3);
-		WeaponAttribute.FORTITUDE.addAttribute(nbt, 5);
-		WeaponAttribute.CHAINED.addAttribute(nbt, 15);
+		WeaponAttribute.FIRE.addAttribute(nbt, 3);
+		WeaponAttribute.FROST.addAttribute(nbt, 3);
+		WeaponAttribute.LIGHTNING.addAttribute(nbt, 3);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

@@ -1,4 +1,4 @@
-package com.lsc.tabs;
+package com.lsc.util;
 
 import com.lsc.init.ModWeapons;
 
