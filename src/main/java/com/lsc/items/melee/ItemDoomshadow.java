@@ -5,7 +5,7 @@ import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
-import com.lsc.items.base.ItemLEAdvancedMelee;
+import com.lsc.items.base.ItemAdvancedMelee;
 import com.lsc.loot.ItemGeneratorHelper;
 import com.lsc.loot.Rarity;
 import com.lsc.loot.WeaponAttribute;
@@ -15,7 +15,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 
-public class ItemDoomshadow extends ItemLEAdvancedMelee implements ISpecial
+public class ItemDoomshadow extends ItemAdvancedMelee implements ISpecial
 {
 	public ItemDoomshadow(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
 	{

@@ -2,6 +2,8 @@ package com.lsc.client.gui;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
@@ -17,6 +19,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.client.config.HoverChecker;
 
 /**
  * 
@@ -35,12 +38,12 @@ public class GuiPlayerInformation extends GuiScreen
 	@Override
 	public void initGui()
 	{
-		plusStrength = new GuiButton(0, this.width / 2 + 95, 139, 10, 10, "+");
-		plusAgility = new GuiButton(1, this.width / 2 + 95, 149, 10, 10, "+");
-		plusDexterity = new GuiButton(2, this.width / 2 + 95, 159, 10, 10, "+");
-		plusIntelligence = new GuiButton(3, this.width / 2 + 95, 169, 10, 10, "+");
-		plusWisdom = new GuiButton(4, this.width / 2 + 95, 179, 10, 10, "+");
-		plusFortitude = new GuiButton(5, this.width / 2 + 95, 189, 10, 10, "+");
+		plusStrength = new GuiButton(0, this.width / 2 + 65, 139, 10, 10, "+");
+		plusAgility = new GuiButton(1, this.width / 2 + 65, 149, 10, 10, "+");
+		plusDexterity = new GuiButton(2, this.width / 2 + 65, 159, 10, 10, "+");
+		plusIntelligence = new GuiButton(3, this.width / 2 + 65, 169, 10, 10, "+");
+		plusWisdom = new GuiButton(4, this.width / 2 + 65, 179, 10, 10, "+");
+		plusFortitude = new GuiButton(5, this.width / 2 + 65, 189, 10, 10, "+");
 		
 		this.buttonList.add(plusStrength);
 		this.buttonList.add(plusAgility);
@@ -76,32 +79,34 @@ public class GuiPlayerInformation extends GuiScreen
 			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.skillpoints") + ": " + playerInfo.getSkillPoints(), this.width / 2 - 50, 70, 0xFFFFFF); // skill points
 
 			// stats
-			this.drawCenteredString(this.fontRenderer, I18n.format("gui.playerinfo.stats"), this.width / 2 + 150, 120, 0xFFFFFF);
-			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.strength") + ":", this.width / 2 + 110, 140, 0xFFFFFF);
-			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.agility") + ":", this.width / 2 + 110, 150, 0xFFFFFF);
-			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.dexterity") + ":", this.width / 2 + 110, 160, 0xFFFFFF);
-			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.intelligence") + ":", this.width / 2 + 110, 170, 0xFFFFFF);
-			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.wisdom") + ":", this.width / 2 + 110, 180, 0xFFFFFF);
-			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.fortitude") + ":", this.width / 2 + 110, 190, 0xFFFFFF);
+			this.drawCenteredString(this.fontRenderer, I18n.format("gui.playerinfo.stats"), this.width / 2 + 120, 120, 0xFFFFFF);
+			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.strength") + ":", this.width / 2 + 80, 140, 0xFFFFFF);
+			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.agility") + ":", this.width / 2 + 80, 150, 0xFFFFFF);
+			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.dexterity") + ":", this.width / 2 + 80, 160, 0xFFFFFF);
+			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.intelligence") + ":", this.width / 2 + 80, 170, 0xFFFFFF);
+			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.wisdom") + ":", this.width / 2 + 80, 180, 0xFFFFFF);
+			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.fortitude") + ":", this.width / 2 + 80, 190, 0xFFFFFF);
 			
-			this.drawString(this.fontRenderer, "" + playerInfo.getStrengthStat() + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusStrengthStat() + TextFormatting.WHITE + ")", this.width / 2 + 180, 140, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + playerInfo.getAgilityStat() + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusAgilityStat() + TextFormatting.WHITE + ")", this.width / 2 + 180, 150, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + playerInfo.getDexterityStat() + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusDexterityStat() + TextFormatting.WHITE + ")", this.width / 2 + 180, 160, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + playerInfo.getIntelligenceStat() + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusIntelligenceStat() + TextFormatting.WHITE + ")", this.width / 2 + 180, 170, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + playerInfo.getWisdomStat() + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusWisdomStat() + TextFormatting.WHITE + ")", this.width / 2 + 180, 180, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + playerInfo.getFortitudeStat() + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusFortitudeStat() + TextFormatting.WHITE + ")", this.width / 2 + 180, 190, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (playerInfo.getStrengthStat() + playerInfo.getBonusStrengthStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusStrengthStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 140, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (playerInfo.getAgilityStat() + playerInfo.getBonusAgilityStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusAgilityStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 150, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (playerInfo.getDexterityStat() + playerInfo.getBonusDexterityStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusDexterityStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 160, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (playerInfo.getIntelligenceStat() + playerInfo.getBonusIntelligenceStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusIntelligenceStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 170, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (playerInfo.getWisdomStat() + playerInfo.getBonusWisdomStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusWisdomStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 180, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (playerInfo.getFortitudeStat() + playerInfo.getBonusFortitudeStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusFortitudeStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 190, 0xFFFFFF);
 			
 			// bonuses
-			this.drawCenteredString(this.fontRenderer, I18n.format("gui.playerinfo.bonuses"), this.width / 2 - 150, 120, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.playerdamage") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * (playerInfo.getTotalStrength())), this.width / 2 - 190, 140, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.magicalpower") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAGICAL_POWER_MULTIPLIER * (playerInfo.getTotalIntelligence())), this.width / 2 - 190, 150, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + format.format((PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (playerInfo.getTotalAgility()))), this.width / 2 - 190, 160, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue()), this.width / 2 - 190, 170, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.toughness") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue()), this.width / 2 - 190, 180, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.health") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAX_HEALTH_MULTIPLIER * (playerInfo.getTotalFortitude())), this.width / 2 - 190, 190, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.hp5") + ": " + TextFormatting.WHITE + statsCap.getHealthPerSecond(), this.width / 2 - 190, 200, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mana") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAX_MANA_MULTIPLIER * (playerInfo.getTotalWisdom())), this.width / 2 - 190, 210, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mp5") + ": " + TextFormatting.WHITE + statsCap.getManaPerSecond(), this.width / 2 - 190, 220, 0xFFFFFF);
+			this.drawCenteredString(this.fontRenderer, I18n.format("gui.playerinfo.bonuses"), this.width / 2 - 130, 120, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.playerdamage") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * (playerInfo.getTotalStrength())), this.width / 2 - 160, 140, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.magicalpower") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAGICAL_POWER_MULTIPLIER * (playerInfo.getTotalIntelligence())), this.width / 2 - 160, 150, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + format.format((PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (playerInfo.getTotalAgility()))), this.width / 2 - 160, 160, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue()), this.width / 2 - 160, 170, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.toughness") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue()), this.width / 2 - 160, 180, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.health") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAX_HEALTH_MULTIPLIER * (playerInfo.getTotalFortitude())), this.width / 2 - 160, 190, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.hp5") + ": " + TextFormatting.WHITE + statsCap.getHealthPerSecond(), this.width / 2 - 160, 200, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mana") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAX_MANA_MULTIPLIER * (playerInfo.getTotalWisdom())), this.width / 2 - 160, 210, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mp5") + ": " + TextFormatting.WHITE + statsCap.getManaPerSecond(), this.width / 2 - 160, 220, 0xFFFFFF);
+		
+			drawTooltips(mouseX, mouseY);
 		}
 	}
 	
@@ -150,6 +155,66 @@ public class GuiPlayerInformation extends GuiScreen
 			playerInfo.setSkillPoints(playerInfo.getSkillPoints() - 1);
 			
 			PlayerStatHelper.updateAttributes(player);
+		}
+	}
+	
+	/**
+	 * Check to see if mouse is hovering over a BUTTON. If so, display tooltip of button.
+	 * @param mouseX
+	 * @param mouseY
+	 */
+	private void drawTooltips(int mouseX, int mouseY)
+	{
+		HoverChecker strength = new HoverChecker(plusStrength, 0);
+		HoverChecker agility = new HoverChecker(plusAgility, 0);
+		HoverChecker dexterity = new HoverChecker(plusDexterity, 0);
+		HoverChecker intelligence = new HoverChecker(plusIntelligence, 0);
+		HoverChecker wisdom = new HoverChecker(plusWisdom, 0);
+		HoverChecker fortitude = new HoverChecker(plusFortitude, 0);
+		
+		List<String> list = new ArrayList<String>();
+		
+		if (strength.checkHover(mouseX, mouseY))
+		{
+			list.add(TextFormatting.RED + I18n.format("gui.playerinfo.stats.strength"));
+			list.add(TextFormatting.GRAY + I18n.format("gui.playerinfo.stats.strength.info"));
+			
+			drawHoveringText(list, mouseX + 3, mouseY + 3);
+		}
+		else if (agility.checkHover(mouseX, mouseY))
+		{
+			list.add(TextFormatting.DARK_GREEN + I18n.format("gui.playerinfo.stats.agility"));
+			list.add(TextFormatting.GRAY + I18n.format("gui.playerinfo.stats.agility.info"));
+			
+			drawHoveringText(list, mouseX + 3, mouseY + 3);
+		}
+		else if (dexterity.checkHover(mouseX, mouseY))
+		{
+			list.add(TextFormatting.GOLD + I18n.format("gui.playerinfo.stats.dexterity"));
+			list.add(TextFormatting.GRAY + I18n.format("gui.playerinfo.stats.dexterity.info"));
+			
+			drawHoveringText(list, mouseX + 3, mouseY + 3);
+		}
+		else if (intelligence.checkHover(mouseX, mouseY))
+		{
+			list.add(TextFormatting.BLUE + I18n.format("gui.playerinfo.stats.intelligence"));
+			list.add(TextFormatting.GRAY + I18n.format("gui.playerinfo.stats.intelligence.info"));
+			
+			drawHoveringText(list, mouseX + 3, mouseY + 3);
+		}
+		else if (wisdom.checkHover(mouseX, mouseY))
+		{
+			list.add(TextFormatting.DARK_PURPLE + I18n.format("gui.playerinfo.stats.wisdom"));
+			list.add(TextFormatting.GRAY + I18n.format("gui.playerinfo.stats.wisdom.info"));
+			
+			drawHoveringText(list, mouseX + 3, mouseY + 3);
+		}
+		else if (fortitude.checkHover(mouseX, mouseY))
+		{
+			list.add(TextFormatting.WHITE + I18n.format("gui.playerinfo.stats.fortitude"));
+			list.add(TextFormatting.GRAY + I18n.format("gui.playerinfo.stats.fortitude.info"));
+			
+			drawHoveringText(list, mouseX + 3, mouseY + 3);
 		}
 	}
 	

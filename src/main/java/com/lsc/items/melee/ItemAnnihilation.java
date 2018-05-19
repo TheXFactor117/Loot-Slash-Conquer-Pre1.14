@@ -5,7 +5,7 @@ import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
-import com.lsc.items.base.ItemLEAdvancedMelee;
+import com.lsc.items.base.ItemAdvancedMelee;
 import com.lsc.loot.ItemGeneratorHelper;
 import com.lsc.loot.Rarity;
 import com.lsc.loot.WeaponAttribute;
@@ -20,7 +20,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ItemAnnihilation extends ItemLEAdvancedMelee implements ISpecial
+public class ItemAnnihilation extends ItemAdvancedMelee implements ISpecial
 {
 	public ItemAnnihilation(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
 	{

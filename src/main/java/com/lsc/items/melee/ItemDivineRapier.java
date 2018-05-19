@@ -5,7 +5,7 @@ import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
-import com.lsc.items.base.ItemLEMelee;
+import com.lsc.items.base.ItemMelee;
 import com.lsc.loot.ItemGeneratorHelper;
 import com.lsc.loot.Rarity;
 import com.lsc.loot.WeaponAttribute;
@@ -20,7 +20,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ItemDivineRapier extends ItemLEMelee implements ISpecial
+public class ItemDivineRapier extends ItemMelee implements ISpecial
 {
 	public ItemDivineRapier(ToolMaterial material, String name, String type)
 	{

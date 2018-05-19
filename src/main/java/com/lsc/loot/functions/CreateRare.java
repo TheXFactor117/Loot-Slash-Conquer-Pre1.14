@@ -5,17 +5,19 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.lsc.items.base.ItemLEBauble;
-import com.lsc.items.base.ItemLEMagical;
+import com.lsc.capabilities.chunk.CapabilityChunkLevel;
+import com.lsc.capabilities.chunk.IChunkLevel;
+import com.lsc.capabilities.chunk.IChunkLevelHolder;
+import com.lsc.capabilities.enemylevel.CapabilityEnemyLevel;
+import com.lsc.capabilities.enemylevel.IEnemyLevel;
 import com.lsc.loot.ItemGenerator;
 import com.lsc.loot.NameGenerator;
 import com.lsc.loot.Rarity;
 import com.lsc.loot.table.CustomLootContext;
 import com.lsc.util.Reference;
 
-import net.minecraft.item.ItemArmor;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -47,37 +49,43 @@ public class CreateRare extends LootFunction
 			NBTTagCompound nbt;
 			World world = context.getWorld();
 			
-			if (customContext.getChestPos() != null)
-				pos = customContext.getChestPos();
-			else
-				pos = context.getLootedEntity().getPosition();
+			if (customContext.getChestPos() != null) pos = customContext.getChestPos();
+			else pos = context.getLootedEntity().getPosition();
 			
-			if (!stack.hasTagCompound())
-				nbt = new NBTTagCompound();
-			else
-				nbt = stack.getTagCompound();
+			if (!stack.hasTagCompound()) nbt = new NBTTagCompound();
+			else nbt = stack.getTagCompound();
 			
 			Rarity.setRarity(nbt, Rarity.getWeightedRarity(nbt, rand, Rarity.RARE));
 			
-			if (stack.getItem() instanceof ItemLEMagical)
-			{
-				ItemGenerator.createMagical(stack, nbt, world, new ChunkPos(pos));
-			}
-			else if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor)
-			{
-				ItemGenerator.create(stack, nbt, world, new ChunkPos(pos));
-			}
-			else if (stack.getItem() instanceof ItemLEBauble)
-			{
-				ItemGenerator.createJewelry(stack, nbt, world, new ChunkPos(pos));
-			}
+			ChunkPos chunkPos = new ChunkPos(pos);
+			IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
+			IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(chunkPos);
+			
+			ItemGenerator.create(stack, nbt, world, chunkLevel.getChunkLevel());
 			
 			stack.setTagCompound(nbt);
 			NameGenerator.generateName(stack, stack.getTagCompound());
 			return stack;
 		}
-		
-		return stack;
+		else
+		{
+			NBTTagCompound nbt;
+			World world = context.getWorld();
+			
+			if (!stack.hasTagCompound()) nbt = new NBTTagCompound();
+			else nbt = stack.getTagCompound();
+			
+			Rarity.setRarity(nbt, Rarity.getWeightedRarity(nbt, rand, Rarity.RARE));
+			
+			EntityLivingBase entity = (EntityLivingBase) context.getKiller();
+			IEnemyLevel enemyLevel = entity.getCapability(CapabilityEnemyLevel.ENEMY_LEVEL, null);
+			
+			ItemGenerator.create(stack, nbt, world, enemyLevel.getEnemyLevel());
+			
+			stack.setTagCompound(nbt);
+			NameGenerator.generateName(stack, stack.getTagCompound());
+			return stack;
+		}
     }
 
     public static class Serializer extends LootFunction.Serializer<CreateRare>

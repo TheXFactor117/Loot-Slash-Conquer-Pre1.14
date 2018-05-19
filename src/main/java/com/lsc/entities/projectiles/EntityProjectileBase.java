@@ -56,7 +56,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 	@Override
 	public void onImpact(RayTraceResult result)
 	{
-		if (!this.getEntityWorld().isRemote)
+		if (!this.getEntityWorld().isRemote && player != null)
 		{
 			Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 			

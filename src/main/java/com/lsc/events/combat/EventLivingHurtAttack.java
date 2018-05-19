@@ -8,7 +8,7 @@ import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
 import com.lsc.capabilities.playerstats.Stats;
 import com.lsc.init.ModDamageSources;
-import com.lsc.items.base.ItemLEAdvancedMelee;
+import com.lsc.items.base.ItemAdvancedMelee;
 import com.lsc.loot.ArmorAttribute;
 import com.lsc.loot.Rarity;
 import com.lsc.loot.WeaponAttribute;
@@ -129,7 +129,7 @@ public class EventLivingHurtAttack
 			ItemStack stack = player.inventory.getCurrentItem();
 			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (playerInfo != null && stack != null && stack.getItem() instanceof ItemSword && !(stack.getItem() instanceof ItemLEAdvancedMelee))
+			if (playerInfo != null && stack != null && stack.getItem() instanceof ItemSword && !(stack.getItem() instanceof ItemAdvancedMelee))
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				

@@ -42,15 +42,11 @@ public class CreateSpecial extends LootFunction
 			NBTTagCompound nbt;
 			World world = context.getWorld();
 			
-			if (customContext.getChestPos() != null)
-				pos = customContext.getChestPos();
-			else
-				pos = context.getLootedEntity().getPosition();
+			if (customContext.getChestPos() != null) pos = customContext.getChestPos();
+			else pos = context.getLootedEntity().getPosition();
 			
-			if (!stack.hasTagCompound())
-				nbt = new NBTTagCompound();
-			else
-				nbt = stack.getTagCompound();
+			if (!stack.hasTagCompound()) nbt = new NBTTagCompound();
+			else nbt = stack.getTagCompound();
 			
 			if (stack.getItem() instanceof ISpecial)
 			{

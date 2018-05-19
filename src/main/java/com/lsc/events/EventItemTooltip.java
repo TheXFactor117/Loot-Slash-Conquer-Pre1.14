@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.entities.projectiles.Rune;
-import com.lsc.items.base.ItemLEBauble;
-import com.lsc.items.base.ItemLEMagical;
+import com.lsc.items.base.ItemBauble;
+import com.lsc.items.base.ItemMagical;
 import com.lsc.loot.ArmorAttribute;
 import com.lsc.loot.JewelryAttribute;
 import com.lsc.loot.Rarity;
@@ -44,7 +44,7 @@ public class EventItemTooltip
 		{
 			PlayerInformation info = (PlayerInformation) event.getEntityPlayer().getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (info != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor || stack.getItem() instanceof ItemLEMagical || stack.getItem() instanceof ItemLEBauble))
+			if (info != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor || stack.getItem() instanceof ItemMagical || stack.getItem() instanceof ItemBauble))
 			{
 				Rarity rarity = Rarity.getRarity(nbt);
 				
@@ -52,8 +52,8 @@ public class EventItemTooltip
 				{
 					if (stack.getItem() instanceof ItemSword) drawMelee(tooltip, stack, nbt, event.getEntityPlayer(), info);
 					else if (stack.getItem() instanceof ItemArmor) drawArmor(tooltip, stack, nbt, event.getEntityPlayer(), info);
-					else if (stack.getItem() instanceof ItemLEMagical) drawMagical(tooltip, stack, nbt, event.getEntityPlayer(), info);
-					else if (stack.getItem() instanceof ItemLEBauble) drawBauble(tooltip, stack, nbt, event.getEntityPlayer(), info);
+					else if (stack.getItem() instanceof ItemMagical) drawMagical(tooltip, stack, nbt, event.getEntityPlayer(), info);
+					else if (stack.getItem() instanceof ItemBauble) drawBauble(tooltip, stack, nbt, event.getEntityPlayer(), info);
 				}
 			}
 		}
@@ -73,9 +73,12 @@ public class EventItemTooltip
 		 * Attributes
 		 */
 		
+		tooltip.add(1, "");
+		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
+		
 		// Level
-		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(1, TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
-		else tooltip.add(1, "Level: " + nbt.getInteger("Level"));
+		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		else tooltip.add("Level: " + nbt.getInteger("Level"));
 		
 		tooltip.add("");
 		
@@ -120,9 +123,12 @@ public class EventItemTooltip
 		 * Attributes
 		 */
 		
+		tooltip.add(1, "");
+		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
+		
 		// Level
-		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(1, TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
-		else tooltip.add(1, "Level: " + nbt.getInteger("Level"));
+		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		else tooltip.add("Level: " + nbt.getInteger("Level"));
 		
 		tooltip.add("");
 		
@@ -168,9 +174,12 @@ public class EventItemTooltip
 		 * Attributes
 		 */
 		
+		tooltip.add(1, "");
+		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
+		
 		// Level
-		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(1, TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
-		else tooltip.add(1, "Level: " + nbt.getInteger("Level"));
+		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		else tooltip.add("Level: " + nbt.getInteger("Level"));
 		
 		tooltip.add("");
 		
@@ -211,9 +220,12 @@ public class EventItemTooltip
 		 * Attributes
 		 */
 		
+		tooltip.add(1, "");
+		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
+		
 		// Level
-		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(1, TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
-		else tooltip.add(1, "Level: " + nbt.getInteger("Level"));
+		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		else tooltip.add("Level: " + nbt.getInteger("Level"));
 		
 		tooltip.add("");
 		

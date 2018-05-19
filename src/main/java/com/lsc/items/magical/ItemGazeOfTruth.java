@@ -4,7 +4,7 @@ import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.items.base.ISpecial;
-import com.lsc.items.base.ItemLEMagical;
+import com.lsc.items.base.ItemMagical;
 import com.lsc.loot.ItemGeneratorHelper;
 import com.lsc.loot.Rarity;
 import com.lsc.loot.WeaponAttribute;
@@ -19,7 +19,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ItemGazeOfTruth extends ItemLEMagical implements ISpecial
+public class ItemGazeOfTruth extends ItemMagical implements ISpecial
 {
 	public ItemGazeOfTruth(String name, boolean isStaff, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
 	{

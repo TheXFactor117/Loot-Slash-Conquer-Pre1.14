@@ -6,9 +6,9 @@ import java.util.UUID;
 
 import com.google.common.collect.Multimap;
 import com.lsc.entities.projectiles.Rune;
-import com.lsc.items.base.ItemLEBauble;
-import com.lsc.items.base.ItemLEMagical;
-import com.lsc.items.base.ItemLEMelee;
+import com.lsc.items.base.ItemBauble;
+import com.lsc.items.base.ItemMagical;
+import com.lsc.items.base.ItemMelee;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -40,9 +40,9 @@ public class ItemGeneratorHelper
 	{
 		if (stack.getItem() instanceof ItemSword)
 		{
-			if (stack.getItem() instanceof ItemLEMelee)
+			if (stack.getItem() instanceof ItemMelee)
 			{
-				ItemLEMelee item = (ItemLEMelee) stack.getItem();
+				ItemMelee item = (ItemMelee) stack.getItem();
 				
 				nbt.setString("Type", item.getType());
 			}
@@ -55,16 +55,16 @@ public class ItemGeneratorHelper
 			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.LEGS) nbt.setString("Type", "leggings");
 			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.FEET) nbt.setString("Type", "boots");
 		}
-		else if (stack.getItem() instanceof ItemLEMagical)
+		else if (stack.getItem() instanceof ItemMagical)
 		{
-			ItemLEMagical wand = (ItemLEMagical) stack.getItem();
+			ItemMagical wand = (ItemMagical) stack.getItem();
 			
 			if (wand.isStaff()) nbt.setString("Type", "staff");
 			else nbt.setString("Type", "wand");
 		}
-		else if (stack.getItem() instanceof ItemLEBauble)
+		else if (stack.getItem() instanceof ItemBauble)
 		{
-			ItemLEBauble item = (ItemLEBauble) stack.getItem();
+			ItemBauble item = (ItemBauble) stack.getItem();
 			
 			nbt.setString("Type", item.getBaubleType(stack).toString().toLowerCase());
 		}
@@ -89,7 +89,7 @@ public class ItemGeneratorHelper
 
 		for (int i = 0; i < amount; i++)
 		{
-			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemLEMagical)
+			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemMagical)
 			{
 				WeaponAttribute attribute = WeaponAttribute.getRandomAttribute(rand); // generate random rarity.
 				
@@ -107,7 +107,7 @@ public class ItemGeneratorHelper
 				else
 					attribute.addAttribute(nbt); // add attribute - this method will handle setting up all the attribute unique modifiers, such as custom rarity, values, etc...
 			}
-			else if (stack.getItem() instanceof ItemLEBauble)
+			else if (stack.getItem() instanceof ItemBauble)
 			{
 				JewelryAttribute attribute = JewelryAttribute.getRandomAttribute(rand); // generate random rarity.
 				

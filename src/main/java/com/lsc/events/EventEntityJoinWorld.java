@@ -2,6 +2,7 @@ package com.lsc.events;
 
 import java.util.UUID;
 
+import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
@@ -46,6 +47,8 @@ public class EventEntityJoinWorld
 					
 					enemyLevelCap.setEnemyLevel(level);
 					entity.setCustomNameTag("Level: " + enemyLevelCap.getEnemyLevel());
+					
+					LootSlashConquer.LOGGER.info("Side?");
 					
 					if (level > 1) setAttributeModifiers(entity, level);
 				}
