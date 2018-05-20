@@ -8,29 +8,9 @@
 			},
 			"entries": [
 				{
-					"type": "loot_table",
-					"name": "lootslashconquer:loot/common_loot",
+					"type": "item",
+					"name": "minecraft:iron_sword",
 					"weight": 80
-				},
-				{
-					"type": "loot_table",
-					"name": "lootslashconquer:loot/uncommon_loot",
-					"weight": 10
-				},
-				{
-					"type": "loot_table",
-					"name": "lootslashconquer:loot/rare_loot",
-					"weight": 6
-				},
-				{
-					"type": "loot_table",
-					"name": "lootslashconquer:loot/legendary_loot",
-					"weight": 3
-				},
-				{
-					"type": "loot_table",
-					"name": "lootslashconquer:loot/exotic_loot",
-					"weight": 1
 				}
 			]
 		}

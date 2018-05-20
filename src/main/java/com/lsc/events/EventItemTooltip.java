@@ -55,6 +55,11 @@ public class EventItemTooltip
 					else if (stack.getItem() instanceof ItemMagical) drawMagical(tooltip, stack, nbt, event.getEntityPlayer(), info);
 					else if (stack.getItem() instanceof ItemBauble) drawBauble(tooltip, stack, nbt, event.getEntityPlayer(), info);
 				}
+				else
+				{
+					event.getToolTip().add("");
+					event.getToolTip().add(TextFormatting.RED + "Close inventory to have stats rolled.");
+				}
 			}
 		}
 	}

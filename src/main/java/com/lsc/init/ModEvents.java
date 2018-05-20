@@ -1,5 +1,6 @@
 package com.lsc.init;
 
+import com.lsc.events.EventContainerOpen;
 import com.lsc.events.EventEntityJoinWorld;
 import com.lsc.events.EventInput;
 import com.lsc.events.EventItemTooltip;
@@ -32,5 +33,6 @@ public class ModEvents
 		MinecraftForge.EVENT_BUS.register(new EventLoadLootTable());
 		MinecraftForge.EVENT_BUS.register(new EventPlayerTick());
 		MinecraftForge.EVENT_BUS.register(new EventEntityJoinWorld());
+		MinecraftForge.EVENT_BUS.register(new EventContainerOpen());
 	}
 }

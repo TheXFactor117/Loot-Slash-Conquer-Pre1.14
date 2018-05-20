@@ -1,6 +1,7 @@
 package com.lsc.events;
 
 import com.lsc.init.ModLootTables;
+import com.lsc.loot.Rarity;
 import com.lsc.loot.table.CustomLootTable;
 
 import net.minecraft.util.ResourceLocation;
@@ -54,31 +55,46 @@ public class EventLoadLootTable
 	
 	private static void changeVanillaTables(LootTableLoadEvent event)
 	{
-		if (event.getName() == LootTableList.ENTITIES_BLAZE) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_CREEPER) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_ELDER_GUARDIAN) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_ENDER_DRAGON) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_ENDERMAN) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_ENDERMITE) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_EVOCATION_ILLAGER) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_GHAST) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_GUARDIAN) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_HUSK) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_MAGMA_CUBE) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_SHULKER) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_SKELETON) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_SLIME) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_SPIDER) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_VEX) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_VINDICATION_ILLAGER) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_WITCH) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_WITHER_SKELETON) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_ZOMBIE) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_ZOMBIE_PIGMAN) addPool(event.getTable());
-		else if (event.getName() == LootTableList.ENTITIES_ZOMBIE_VILLAGER) addPool(event.getTable());
+		// monsters
+		if (event.getName() == LootTableList.ENTITIES_BLAZE) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_CREEPER) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_ELDER_GUARDIAN) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_ENDER_DRAGON) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_ENDERMAN) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_ENDERMITE) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_EVOCATION_ILLAGER) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_GHAST) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_GUARDIAN) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_HUSK) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_MAGMA_CUBE) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_SHULKER) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_SKELETON) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_SLIME) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_SPIDER) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_VEX) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_VINDICATION_ILLAGER) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_WITCH) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_WITHER_SKELETON) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_ZOMBIE) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_ZOMBIE_PIGMAN) addRandomizedPool(event.getTable());
+		else if (event.getName() == LootTableList.ENTITIES_ZOMBIE_VILLAGER) addRandomizedPool(event.getTable());
+		// chests
+		else if (event.getName() == LootTableList.CHESTS_ABANDONED_MINESHAFT) addChestPool(event.getTable(), Rarity.UNCOMMON);
+		else if (event.getName() == LootTableList.CHESTS_DESERT_PYRAMID) addChestPool(event.getTable(), Rarity.UNCOMMON);
+		else if (event.getName() == LootTableList.CHESTS_END_CITY_TREASURE) addChestPool(event.getTable(), Rarity.LEGENDARY);
+		else if (event.getName() == LootTableList.CHESTS_IGLOO_CHEST) addChestPool(event.getTable(), Rarity.UNCOMMON);
+		else if (event.getName() == LootTableList.CHESTS_JUNGLE_TEMPLE) addChestPool(event.getTable(), Rarity.UNCOMMON);
+		else if (event.getName() == LootTableList.CHESTS_NETHER_BRIDGE) addChestPool(event.getTable(), Rarity.RARE);
+		else if (event.getName() == LootTableList.CHESTS_SIMPLE_DUNGEON) addChestPool(event.getTable(), Rarity.COMMON);
+		else if (event.getName() == LootTableList.CHESTS_SPAWN_BONUS_CHEST) addChestPool(event.getTable(), Rarity.COMMON);
+		else if (event.getName() == LootTableList.CHESTS_STRONGHOLD_CORRIDOR) addChestPool(event.getTable(), Rarity.RARE);
+		else if (event.getName() == LootTableList.CHESTS_STRONGHOLD_CROSSING) addChestPool(event.getTable(), Rarity.RARE);
+		else if (event.getName() == LootTableList.CHESTS_STRONGHOLD_LIBRARY) addChestPool(event.getTable(), Rarity.LEGENDARY);
+		else if (event.getName() == LootTableList.CHESTS_VILLAGE_BLACKSMITH) addChestPool(event.getTable(), Rarity.UNCOMMON);
+		else if (event.getName() == LootTableList.CHESTS_WOODLAND_MANSION) addChestPool(event.getTable(), Rarity.RARE);
 	}
 	
-	private static void addPool(LootTable table)
+	private static void addRandomizedPool(LootTable table)
 	{
 		LootEntry common = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/common_chest"), 60, 1, new LootCondition[0], "common");
 		LootEntry uncommon = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/uncommon_chest"), 25, 1, new LootCondition[0], "uncommon");
@@ -89,5 +105,39 @@ public class EventLoadLootTable
 		LootPool pool = new LootPool(new LootEntry[] { common, uncommon, rare, legendary, exotic }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
 
 		table.addPool(pool);
+	}
+	
+	private static void addChestPool(LootTable table, Rarity rarity)
+	{
+		if (rarity == Rarity.COMMON)
+		{
+			LootEntry entry = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/common_chest"), 1, 1, new LootCondition[0], "common");
+			LootPool pool = new LootPool(new LootEntry[] { entry }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
+			table.addPool(pool);
+		}
+		else if (rarity == Rarity.UNCOMMON)
+		{
+			LootEntry entry = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/uncommon_chest"), 1, 1, new LootCondition[0], "uncommon");
+			LootPool pool = new LootPool(new LootEntry[] { entry }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
+			table.addPool(pool);
+		}
+		else if (rarity == Rarity.RARE)
+		{
+			LootEntry entry = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/rare_chest"), 1, 1, new LootCondition[0], "rare");
+			LootPool pool = new LootPool(new LootEntry[] { entry }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
+			table.addPool(pool);
+		}
+		else if (rarity == Rarity.LEGENDARY)
+		{
+			LootEntry entry = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/legendary_chest"), 1, 1, new LootCondition[0], "legendary");
+			LootPool pool = new LootPool(new LootEntry[] { entry }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
+			table.addPool(pool);
+		}
+		else if (rarity == Rarity.EXOTIC)
+		{
+			LootEntry entry = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/exotic_chest"), 1, 1, new LootCondition[0], "exotic");
+			LootPool pool = new LootPool(new LootEntry[] { entry }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
+			table.addPool(pool);
+		}
 	}
 }
