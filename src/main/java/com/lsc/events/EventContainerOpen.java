@@ -1,8 +1,8 @@
 package com.lsc.events;
 
-import com.lsc.capabilities.chunk.CapabilityChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevelHolder;
+import com.lsc.LootSlashConquer;
+import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
+import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
 import com.lsc.loot.ItemGenerator;
@@ -15,8 +15,6 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -46,20 +44,32 @@ public class EventContainerOpen
 					{
 						if (Rarity.getRarity(nbt) == Rarity.DEFAULT)
 						{
-							Rarity.setRarity(nbt, Rarity.getWeightedRarity(nbt, world.rand, Rarity.COMMON));
-							
-							ChunkPos chunkPos = new ChunkPos(new BlockPos(player.posX, player.posY, player.posZ));
-							IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
-							IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(chunkPos);
-							
-							ItemGenerator.create(stack, nbt, world, chunkLevel.getChunkLevel());
-							
-							stack.setTagCompound(nbt);
-							NameGenerator.generateName(stack, stack.getTagCompound());
+							if (nbt.hasKey("TagLevel"))
+							{
+								LootSlashConquer.LOGGER.info("Has TagLevel!");
+								generate(stack, nbt, player.world, nbt.getInteger("TagLevel"));
+							}
+							else
+							{
+								PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+								nbt.setInteger("TagLevel", playerInfo.getPlayerLevel());
+								
+								generate(stack, nbt, player.world, nbt.getInteger("TagLevel"));
+							}
 						}
 					}
 				}
 			}
 		}
+	}
+	
+	public void generate(ItemStack stack, NBTTagCompound nbt, World world, int level)
+	{
+		Rarity.setRarity(nbt, Rarity.getWeightedRarity(nbt, world.rand, Rarity.COMMON));
+		
+		ItemGenerator.create(stack, nbt, world, level);
+		
+		stack.setTagCompound(nbt);
+		NameGenerator.generateName(stack, nbt);
 	}
 }

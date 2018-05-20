@@ -10,7 +10,12 @@
 				{
 					"type": "item",
 					"name": "minecraft:iron_sword",
-					"weight": 80
+					"weight": 80,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						}
+					]
 				}
 			]
 		}
