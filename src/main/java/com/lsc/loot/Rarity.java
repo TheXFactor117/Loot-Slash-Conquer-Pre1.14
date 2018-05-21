@@ -15,11 +15,11 @@ import net.minecraft.util.text.TextFormatting;
 public enum Rarity 
 {
 	DEFAULT("default", TextFormatting.DARK_GRAY, 0),
-	COMMON("Common", TextFormatting.WHITE, 80),
-	UNCOMMON("Uncommon", TextFormatting.DARK_GREEN, 10),
-	RARE("Rare", TextFormatting.AQUA, 6),
-	EPIC("Epic", TextFormatting.DARK_PURPLE, 3),
-	LEGENDARY("Legendary", TextFormatting.GOLD, 1);
+	COMMON("Common", TextFormatting.WHITE, 62),
+	UNCOMMON("Uncommon", TextFormatting.DARK_GREEN, 20),
+	RARE("Rare", TextFormatting.AQUA, 10),
+	EPIC("Epic", TextFormatting.DARK_PURPLE, 6),
+	LEGENDARY("Legendary", TextFormatting.GOLD, 2);
 	
 	private String name;
 	private String color;

@@ -46,7 +46,6 @@ public class EventContainerOpen
 						{
 							if (nbt.hasKey("TagLevel"))
 							{
-								LootSlashConquer.LOGGER.info("Has TagLevel!");
 								generate(stack, nbt, player.world, nbt.getInteger("TagLevel"));
 							}
 							else
@@ -65,7 +64,7 @@ public class EventContainerOpen
 	
 	public void generate(ItemStack stack, NBTTagCompound nbt, World world, int level)
 	{
-		Rarity.setRarity(nbt, Rarity.getWeightedRarity(nbt, world.rand, Rarity.COMMON));
+		Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, world.rand));
 		
 		ItemGenerator.create(stack, nbt, world, level);
 		

@@ -78,7 +78,17 @@ public class EventItemTooltip
 		 * Attributes
 		 */
 		
-		tooltip.add(1, "");
+		if (nbt.hasKey("IsSpecial") && nbt.getBoolean("IsSpecial"))
+		{
+			tooltip.add(1, TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Special");
+			tooltip.add("");
+		}
+		else
+		{
+			tooltip.add(1, "");
+		}
+		
+		
 		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
 		
 		// Level

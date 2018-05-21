@@ -1,5 +1,6 @@
 package com.lsc.init;
 
+import com.lsc.loot.functions.CreateSpecial;
 import com.lsc.loot.functions.TagLoot;
 
 import net.minecraft.world.storage.loot.functions.LootFunctionManager;
@@ -14,5 +15,6 @@ public class ModLootFunctions
 	public static void registerFunctions()
 	{
 		LootFunctionManager.registerFunction(new TagLoot.Serializer());
+		LootFunctionManager.registerFunction(new CreateSpecial.Serializer());
 	}
 }

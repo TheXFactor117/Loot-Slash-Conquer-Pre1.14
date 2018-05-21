@@ -35,6 +35,7 @@ public class ItemAnnihilation extends ItemAdvancedMelee implements ISpecial
 		IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
 		int level = chunkLevel.getChunkLevel();
 		
+		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.LEGENDARY);
 		nbt.setInteger("Level", level);
 		

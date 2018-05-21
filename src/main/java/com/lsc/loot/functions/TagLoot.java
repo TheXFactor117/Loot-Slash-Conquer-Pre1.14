@@ -5,7 +5,6 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
@@ -56,7 +55,7 @@ public class TagLoot extends LootFunction
 				ChunkPos chunkPos = new ChunkPos(pos);
 				IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
 				IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(chunkPos);
-				LootSlashConquer.LOGGER.info("Setting chunk level in tag loot.");
+
 				nbt.setInteger("TagLevel", chunkLevel.getChunkLevel());
 				
 				stack.setTagCompound(nbt);
