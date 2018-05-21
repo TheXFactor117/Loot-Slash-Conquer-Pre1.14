@@ -1,2 +1,2 @@
-# Lost Eclipse
-More information about the project will be released soon.
+# Loot Slash Conquer
+An immersive, action-RPG mod based off of Hack/Mine.
