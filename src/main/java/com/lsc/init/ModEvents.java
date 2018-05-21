@@ -2,8 +2,6 @@ package com.lsc.init;
 
 import com.lsc.events.EventContainerOpen;
 import com.lsc.events.EventEntityJoinWorld;
-import com.lsc.events.EventInput;
-import com.lsc.events.EventItemTooltip;
 import com.lsc.events.EventLoadLootTable;
 import com.lsc.events.EventPlayerLoggedIn;
 import com.lsc.events.EventPlayerTick;
@@ -27,9 +25,7 @@ public class ModEvents
 		
 		MinecraftForge.EVENT_BUS.register(new EventPlayerLoggedIn());
 		MinecraftForge.EVENT_BUS.register(new EventLivingDeath());
-		MinecraftForge.EVENT_BUS.register(new EventInput());
 		MinecraftForge.EVENT_BUS.register(new EventLivingHurtAttack());
-		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
 		MinecraftForge.EVENT_BUS.register(new EventLoadLootTable());
 		MinecraftForge.EVENT_BUS.register(new EventPlayerTick());
 		MinecraftForge.EVENT_BUS.register(new EventEntityJoinWorld());

@@ -6,6 +6,8 @@ import com.lsc.client.events.EventRenderOverlayText;
 import com.lsc.client.gui.GuiHealth;
 import com.lsc.client.gui.GuiMana;
 import com.lsc.client.init.ModItemModels;
+import com.lsc.events.EventInput;
+import com.lsc.events.EventItemTooltip;
 
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
@@ -30,6 +32,8 @@ public class ClientProxy extends ServerProxy
 		MinecraftForge.EVENT_BUS.register(new GuiMana());
 		MinecraftForge.EVENT_BUS.register(new GuiHealth());
 		MinecraftForge.EVENT_BUS.register(new EventRenderOverlayText());
+		MinecraftForge.EVENT_BUS.register(new EventInput());
+		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
 	}
 	
 	@Override
