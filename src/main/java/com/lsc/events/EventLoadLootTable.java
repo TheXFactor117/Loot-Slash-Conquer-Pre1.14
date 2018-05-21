@@ -40,12 +40,12 @@ public class EventLoadLootTable
 			event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		}
 		
-		if (event.getName() == ModLootTables.legendary_chest)
+		if (event.getName() == ModLootTables.epic_chest)
 		{
 			event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		}
 		
-		if (event.getName() == ModLootTables.exotic_chest)
+		if (event.getName() == ModLootTables.legendary_chest)
 		{
 			event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		}
@@ -99,10 +99,10 @@ public class EventLoadLootTable
 		LootEntry common = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/common_chest"), 60, 1, new LootCondition[0], "common");
 		LootEntry uncommon = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/uncommon_chest"), 25, 1, new LootCondition[0], "uncommon");
 		LootEntry rare = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/rare_chest"), 10, 1, new LootCondition[0], "rare");
-		LootEntry legendary = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/legendary_chest"), 5, 1, new LootCondition[0], "legendary");
-		LootEntry exotic = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/exotic_chest"), 2, 1, new LootCondition[0], "exotic");
+		LootEntry epic = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/legendary_chest"), 5, 1, new LootCondition[0], "epic");
+		LootEntry legendary = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/exotic_chest"), 2, 1, new LootCondition[0], "legendary");
 
-		LootPool pool = new LootPool(new LootEntry[] { common, uncommon, rare, legendary, exotic }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
+		LootPool pool = new LootPool(new LootEntry[] { common, uncommon, rare, epic, legendary }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
 
 		table.addPool(pool);
 	}
@@ -127,15 +127,15 @@ public class EventLoadLootTable
 			LootPool pool = new LootPool(new LootEntry[] { entry }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
 			table.addPool(pool);
 		}
-		else if (rarity == Rarity.LEGENDARY)
+		else if (rarity == Rarity.EPIC)
 		{
-			LootEntry entry = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/legendary_chest"), 1, 1, new LootCondition[0], "legendary");
+			LootEntry entry = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/epic_chest"), 1, 1, new LootCondition[0], "epic");
 			LootPool pool = new LootPool(new LootEntry[] { entry }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
 			table.addPool(pool);
 		}
-		else if (rarity == Rarity.EXOTIC)
+		else if (rarity == Rarity.LEGENDARY)
 		{
-			LootEntry entry = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/exotic_chest"), 1, 1, new LootCondition[0], "exotic");
+			LootEntry entry = new LootEntryTable(new ResourceLocation("lootslashconquer:chests/legendary_chest"), 1, 1, new LootCondition[0], "legendary");
 			LootPool pool = new LootPool(new LootEntry[] { entry }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
 			table.addPool(pool);
 		}

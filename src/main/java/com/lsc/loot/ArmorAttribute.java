@@ -115,8 +115,8 @@ public enum ArmorAttribute
 		if (nbt.getInteger(name + "_Rarity") == 1) return Rarity.COMMON;
 		else if (nbt.getInteger(name + "_Rarity") == 2) return Rarity.UNCOMMON;
 		else if (nbt.getInteger(name + "_Rarity") == 3) return Rarity.RARE;
-		else if (nbt.getInteger(name + "_Rarity") == 4) return Rarity.LEGENDARY;
-		else if (nbt.getInteger(name + "_Rarity") == 5) return Rarity.EXOTIC;
+		else if (nbt.getInteger(name + "_Rarity") == 4) return Rarity.EPIC;
+		else if (nbt.getInteger(name + "_Rarity") == 5) return Rarity.LEGENDARY;
 		else return Rarity.DEFAULT;
 	}
 	

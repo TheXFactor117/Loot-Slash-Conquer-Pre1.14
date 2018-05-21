@@ -18,8 +18,8 @@ public enum Rarity
 	COMMON("Common", TextFormatting.WHITE, 80),
 	UNCOMMON("Uncommon", TextFormatting.DARK_GREEN, 10),
 	RARE("Rare", TextFormatting.AQUA, 6),
-	LEGENDARY("Legendary", TextFormatting.DARK_PURPLE, 3),
-	EXOTIC("Exotic", TextFormatting.GOLD, 1);
+	EPIC("Epic", TextFormatting.DARK_PURPLE, 3),
+	LEGENDARY("Legendary", TextFormatting.GOLD, 1);
 	
 	private String name;
 	private String color;
@@ -32,8 +32,8 @@ public enum Rarity
 	private static final RandomCollection<Rarity> COMMON_RARITIES = new RandomCollection<Rarity>();
 	private static final RandomCollection<Rarity> UNCOMMON_RARITIES = new RandomCollection<Rarity>();
 	private static final RandomCollection<Rarity> RARE_RARITIES = new RandomCollection<Rarity>();
+	private static final RandomCollection<Rarity> EPIC_RARITIES = new RandomCollection<Rarity>();
 	private static final RandomCollection<Rarity> LEGENDARY_RARITIES = new RandomCollection<Rarity>();
-	private static final RandomCollection<Rarity> EXOTIC_RARITIES = new RandomCollection<Rarity>();
 	
 	Rarity(String name, Object color, double chance)
 	{
@@ -58,8 +58,8 @@ public enum Rarity
 		if (rarity == Rarity.COMMON) return COMMON_RARITIES.next(rand);
 		else if (rarity == Rarity.UNCOMMON) return UNCOMMON_RARITIES.next(rand);
 		else if (rarity == Rarity.RARE) return RARE_RARITIES.next(rand);
+		else if (rarity == Rarity.EPIC) return EPIC_RARITIES.next(rand);
 		else if (rarity == Rarity.LEGENDARY) return LEGENDARY_RARITIES.next(rand);
-		else if (rarity == Rarity.EXOTIC) return EXOTIC_RARITIES.next(rand);
 		
 		return Rarity.DEFAULT;
 	}
@@ -116,16 +116,16 @@ public enum Rarity
 					COMMON_RARITIES.add(rarity.chance, rarity);
 					UNCOMMON_RARITIES.add(rarity.chance - (MULTIPLIER * 2), rarity);
 					RARE_RARITIES.add(rarity.chance - (MULTIPLIER * 3), rarity);
-					LEGENDARY_RARITIES.add(rarity.chance - (MULTIPLIER * 4), rarity);
-					EXOTIC_RARITIES.add(rarity.chance - (MULTIPLIER * 5), rarity);
+					EPIC_RARITIES.add(rarity.chance - (MULTIPLIER * 4), rarity);
+					LEGENDARY_RARITIES.add(rarity.chance - (MULTIPLIER * 5), rarity);
 				}
 				else
 				{
 					COMMON_RARITIES.add(rarity.chance, rarity);
 					UNCOMMON_RARITIES.add(rarity.chance, rarity);
 					RARE_RARITIES.add(rarity.chance, rarity);
+					EPIC_RARITIES.add(rarity.chance, rarity);
 					LEGENDARY_RARITIES.add(rarity.chance, rarity);
-					EXOTIC_RARITIES.add(rarity.chance, rarity);
 				}
 			}
 		}

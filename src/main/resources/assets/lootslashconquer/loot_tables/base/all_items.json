@@ -1,0 +1,70 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/daggers",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/swords",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/maces",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/wands",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/staffs",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/helmets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/chestplates",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/leggings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/boots",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/amulets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/rings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/specific/belts",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

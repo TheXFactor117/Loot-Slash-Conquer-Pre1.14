@@ -35,7 +35,7 @@ public class ItemAlakaslam extends ItemAdvancedMelee implements ISpecial
 		IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
 		int level = chunkLevel.getChunkLevel();
 		
-		Rarity.setRarity(nbt, Rarity.EXOTIC);
+		Rarity.setRarity(nbt, Rarity.LEGENDARY);
 		nbt.setInteger("Level", level);
 		
 		// Attributes

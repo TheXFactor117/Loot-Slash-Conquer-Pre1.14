@@ -9,28 +9,33 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "lootslashconquer:loot/uncommon_loot",
+					"name": "lootslashconquer:loot/common_loot",
 					"weight": 15
 				},
 				{
 					"type": "loot_table",
+					"name": "lootslashconquer:loot/uncommon_loot",
+					"weight": 30
+				},
+				{
+					"type": "loot_table",
 					"name": "lootslashconquer:loot/rare_loot",
-					"weight": 35
+					"weight": 25
 				},
 				{
 					"type": "loot_table",
 					"name": "lootslashconquer:loot/legendary_loot",
-					"weight": 28
-				},
-				{
-					"type": "loot_table",
-					"name": "lootslashconquer:loot/exotic_loot",
 					"weight": 17
 				},
 				{
 					"type": "loot_table",
+					"name": "lootslashconquer:loot/exotic_loot",
+					"weight": 10
+				},
+				{
+					"type": "loot_table",
 					"name": "lootslashconquer:loot/special_loot",
-					"weight": 5
+					"weight": 3
 				}
 			]
 		}

@@ -35,7 +35,7 @@ public class ItemDivineRapier extends ItemMelee implements ISpecial
 		IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(pos);
 		int level = chunkLevel.getChunkLevel();
 		
-		Rarity.setRarity(nbt, Rarity.LEGENDARY);
+		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
 		
 		// Attributes

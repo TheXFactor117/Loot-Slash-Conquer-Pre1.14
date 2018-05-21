@@ -2,14 +2,11 @@
 	"pools": [
 		{
 			"name": "main",
-			"rolls": {
-				"min": 1,
-				"max": 7
-			},
+			"rolls": 1,
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "lootslashconquer:loot/loot",
+					"name": "lootslashconquer:base/all_items",
 					"weight": 1
 				}
 			]
