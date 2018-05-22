@@ -153,9 +153,7 @@ public class CapabilityPlayerInformation
 				newInfo.setBonusIntelligenceStat(oldInfo.getBonusIntelligenceStat());
 				newInfo.setBonusWisdomStat(oldInfo.getBonusWisdomStat());
 				newInfo.setBonusFortitudeStat(oldInfo.getBonusFortitudeStat());
-				
-				LootSlashConquer.LOGGER.info("Hello!");
-				
+
 				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation((PlayerInformation) newInfo), (EntityPlayerMP) event.getEntityLiving());
 			}
 		}

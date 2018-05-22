@@ -39,7 +39,7 @@ public class ClientProxy extends ServerProxy
 	@Override
 	public void init(FMLInitializationEvent event)
 	{
-		bindingP = new KeyBinding("Player Information", Keyboard.KEY_P, "Lost Eclipse");
+		bindingP = new KeyBinding("Player Information", Keyboard.KEY_P, "Loot Slash Conquer");
 		
 		ClientRegistry.registerKeyBinding(bindingP);
 	}

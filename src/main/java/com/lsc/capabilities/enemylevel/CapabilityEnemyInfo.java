@@ -10,7 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagInt;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,42 +26,50 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author TheXFactor117
  *
  */
-public class CapabilityEnemyLevel 
+public class CapabilityEnemyInfo 
 {
-	@CapabilityInject(IEnemyLevel.class)
-	public static final Capability<IEnemyLevel> ENEMY_LEVEL = null;
+	@CapabilityInject(IEnemyInfo.class)
+	public static final Capability<IEnemyInfo> ENEMY_INFO = null;
 	public static final EnumFacing DEFAULT_FACING = null;
-	public static final ResourceLocation ID = new ResourceLocation(Reference.MODID, "EnemyLevel");
+	public static final ResourceLocation ID = new ResourceLocation(Reference.MODID, "EnemyInfo");
 	
 	public static void register() 
 	{
-		CapabilityManager.INSTANCE.register(IEnemyLevel.class, new Capability.IStorage<IEnemyLevel>() 
+		CapabilityManager.INSTANCE.register(IEnemyInfo.class, new Capability.IStorage<IEnemyInfo>() 
 		{
 			@Override
-			public NBTBase writeNBT(Capability<IEnemyLevel> capability, IEnemyLevel instance, EnumFacing side) 
+			public NBTBase writeNBT(Capability<IEnemyInfo> capability, IEnemyInfo instance, EnumFacing side) 
 			{
-				return new NBTTagInt(instance.getEnemyLevel());
+				NBTTagCompound nbt = new NBTTagCompound();
+				
+				nbt.setInteger("EnemyLevel", instance.getEnemyLevel());
+				nbt.setInteger("EnemyTier", instance.getEnemyTier());
+				
+				return nbt;
 			}
 
 			@Override
-			public void readNBT(Capability<IEnemyLevel> capability, IEnemyLevel instance, EnumFacing side, NBTBase nbt) 
+			public void readNBT(Capability<IEnemyInfo> capability, IEnemyInfo instance, EnumFacing side, NBTBase nbt) 
 			{
-				instance.setEnemyLevel(((NBTTagInt) nbt).getInt());
+				NBTTagCompound compound = (NBTTagCompound) nbt;
+				
+				instance.setEnemyLevel(compound.getInteger("EnemyLevel"));
+				instance.setEnemyTier(compound.getInteger("EnemyTier"));
 			}
-		}, () -> new EnemyLevel(null));
+		}, () -> new EnemyInfo(null));
 
 		MinecraftForge.EVENT_BUS.register(new EventHandler());
 	}
 	
 	@Nullable
-	public static IEnemyLevel getEnemyLevel(EntityLivingBase entity) 
+	public static IEnemyInfo getEnemyLevel(EntityLivingBase entity) 
 	{
-		return CapabilityUtils.getCapability(entity, ENEMY_LEVEL, DEFAULT_FACING);
+		return CapabilityUtils.getCapability(entity, ENEMY_INFO, DEFAULT_FACING);
 	}
 	
-	public static ICapabilityProvider createProvider(IEnemyLevel level) 
+	public static ICapabilityProvider createProvider(IEnemyInfo level) 
 	{
-		return new SimpleCapabilityProvider<>(ENEMY_LEVEL, DEFAULT_FACING, level);
+		return new SimpleCapabilityProvider<>(ENEMY_INFO, DEFAULT_FACING, level);
 	}
 	
 	public static class EventHandler 
@@ -71,7 +79,7 @@ public class CapabilityEnemyLevel
 		{
 			if (event.getObject() instanceof EntityMob) 
 			{
-				final EnemyLevel enemyLevel = new EnemyLevel((EntityMob) event.getObject());
+				final EnemyInfo enemyLevel = new EnemyInfo((EntityMob) event.getObject());
 				event.addCapability(ID, createProvider(enemyLevel));
 			}
 		}

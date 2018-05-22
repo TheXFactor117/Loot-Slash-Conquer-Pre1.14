@@ -8,8 +8,8 @@ import com.google.gson.JsonSerializationContext;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
-import com.lsc.capabilities.enemylevel.CapabilityEnemyLevel;
-import com.lsc.capabilities.enemylevel.EnemyLevel;
+import com.lsc.capabilities.enemylevel.CapabilityEnemyInfo;
+import com.lsc.capabilities.enemylevel.EnemyInfo;
 import com.lsc.loot.table.CustomLootContext;
 import com.lsc.util.Reference;
 
@@ -65,7 +65,7 @@ public class TagLoot extends LootFunction
 			else 
 			{
 				EntityLivingBase entity = (EntityLivingBase) customContext.getLootedEntity();
-				EnemyLevel enemyLevel = (EnemyLevel) entity.getCapability(CapabilityEnemyLevel.ENEMY_LEVEL, null);
+				EnemyInfo enemyLevel = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
 				
 				nbt.setInteger("TagLevel", enemyLevel.getEnemyLevel());
 				

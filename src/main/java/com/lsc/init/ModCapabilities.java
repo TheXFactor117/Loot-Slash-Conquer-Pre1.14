@@ -1,7 +1,7 @@
 package com.lsc.init;
 
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
-import com.lsc.capabilities.enemylevel.CapabilityEnemyLevel;
+import com.lsc.capabilities.enemylevel.CapabilityEnemyInfo;
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
 
@@ -17,6 +17,6 @@ public class ModCapabilities
 		CapabilityPlayerInformation.register();
 		CapabilityPlayerStats.register();
 		CapabilityChunkLevel.register();
-		CapabilityEnemyLevel.register();
+		CapabilityEnemyInfo.register();
 	}
 }

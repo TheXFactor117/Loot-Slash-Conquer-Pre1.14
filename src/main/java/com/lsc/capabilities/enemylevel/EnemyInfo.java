@@ -4,14 +4,15 @@ import javax.annotation.Nullable;
 
 import net.minecraft.entity.EntityLivingBase;
 
-public class EnemyLevel implements IEnemyLevel
+public class EnemyInfo implements IEnemyInfo
 {
 	private int level;
+	private int tier;
 	
 	@SuppressWarnings("unused")
 	private final EntityLivingBase entity;
 	
-	public EnemyLevel(@Nullable EntityLivingBase entity)
+	public EnemyInfo(@Nullable EntityLivingBase entity)
 	{
 		this.entity = entity;
 	}
@@ -26,5 +27,17 @@ public class EnemyLevel implements IEnemyLevel
 	public void setEnemyLevel(int enemyLevel) 
 	{
 		level = enemyLevel;
+	}
+
+	@Override
+	public int getEnemyTier() 
+	{
+		return tier;
+	}
+
+	@Override
+	public void setEnemyTier(int enemyTier) 
+	{
+		tier = enemyTier;
 	}
 }

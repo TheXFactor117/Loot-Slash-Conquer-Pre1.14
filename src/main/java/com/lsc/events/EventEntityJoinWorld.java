@@ -5,8 +5,9 @@ import java.util.UUID;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
-import com.lsc.capabilities.enemylevel.CapabilityEnemyLevel;
-import com.lsc.capabilities.enemylevel.IEnemyLevel;
+import com.lsc.capabilities.enemylevel.CapabilityEnemyInfo;
+import com.lsc.capabilities.enemylevel.EnemyInfo;
+import com.lsc.entities.EnemyTier;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -34,29 +35,30 @@ public class EventEntityJoinWorld
 		{
 			EntityLivingBase entity = (EntityLivingBase) event.getEntity();
 			World world = entity.getEntityWorld();
-			IEnemyLevel enemyLevelCap = entity.getCapability(CapabilityEnemyLevel.ENEMY_LEVEL, null);
+			EnemyInfo info = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
 			IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
 			
-			if (enemyLevelCap != null && chunkLevelHolder != null)
+			if (info != null && chunkLevelHolder != null)
 			{
-				if (enemyLevelCap.getEnemyLevel() == 0)
+				if (info.getEnemyLevel() == 0)
 				{
 					IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(new ChunkPos(entity.getPosition()));
 					int level = chunkLevel.getChunkLevel();
 					
-					enemyLevelCap.setEnemyLevel(level);
-					entity.setCustomNameTag("Level: " + enemyLevelCap.getEnemyLevel());
+					info.setEnemyTier(EnemyTier.getRandomEnemyTier(world.rand).ordinal());
+					info.setEnemyLevel(level);
+					entity.setCustomNameTag("Level: " + info.getEnemyLevel() + "   " + EnemyTier.getEnemyTier(info).getName());
 					
-					if (level > 1) setAttributeModifiers(entity, level);
+					setAttributeModifiers(entity, level, info.getEnemyTier());
 				}
 			}
 		}
 	}
 	
-	public static void setAttributeModifiers(EntityLivingBase entity, int level)
+	public static void setAttributeModifiers(EntityLivingBase entity, int level, int tier)
 	{
-		AttributeModifier attackDamage = new AttributeModifier(ATTACK_DAMAGE, "attackDamage", level * 0.1, 1);
-		AttributeModifier maxHealth = new AttributeModifier(MAX_HEALTH, "maxHealth", level * 0.2, 1);
+		AttributeModifier attackDamage = new AttributeModifier(ATTACK_DAMAGE, "attackDamage", (level * (tier * 2)), 1);
+		AttributeModifier maxHealth = new AttributeModifier(MAX_HEALTH, "maxHealth", (level * (tier * 2)) * 0.2, 1);
 		
 		if (!entity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).hasModifier(attackDamage))
 			entity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(attackDamage);
