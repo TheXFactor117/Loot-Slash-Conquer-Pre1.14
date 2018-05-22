@@ -1,6 +1,5 @@
 package com.lsc.events;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.items.base.ItemBauble;

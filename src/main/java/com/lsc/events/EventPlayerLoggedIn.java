@@ -36,6 +36,9 @@ public class EventPlayerLoggedIn
 			statsCap.setMana(statsCap.getMaxMana());
 			statsCap.setManaPerSecond(5);
 			statsCap.setHealthPerSecond(1);
+			statsCap.setMagicalPower(0);
+			statsCap.setCriticalChance(0);
+			statsCap.setCriticalDamage(0);
 			LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
 		}
 		else if (playerInfo != null && playerInfo.getPlayerClass() > 0)

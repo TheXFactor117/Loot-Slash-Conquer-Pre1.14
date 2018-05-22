@@ -29,6 +29,8 @@ public class PlayerStatHelper
 	public static final double ATTACK_DAMAGE_MULTIPLIER = 2;
 	public static final double MOVEMENT_SPEED_MULTIPLIER = 0.001;
 	public static final double ATTACK_SPEED_MULTIPLIER = 0.1;
+	public static final double CRIT_CHANCE_MULTIPLIER = 0.05;
+	public static final double CRIT_DAMAGE_MULTIPLIER = 0.05;
 	public static final double MAX_HEALTH_MULTIPLIER = 2;
 	public static final double MAX_MANA_MULTIPLIER = 2;
 	public static final double MAGICAL_POWER_MULTIPLIER = 2;
@@ -39,9 +41,9 @@ public class PlayerStatHelper
 	public static void updateAttributes(EntityPlayer player)
 	{
 		PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+		Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 		
-		if (info != null)
+		if (info != null && stats != null)
 		{
 			/* 
 			 * STRENGTH
@@ -84,30 +86,33 @@ public class PlayerStatHelper
 				player.getEntityAttribute(SharedMonsterAttributes.ATTACK_SPEED).applyModifier(agilityAttackSpeed);
 			
 			
-			/*
-			 * DEXTERITY
-			 */
-			
-			
-			
-			/*
-			 * INTELLIGENCE
-			 */
 			if (!player.getEntityWorld().isRemote)
 			{
-				statsCap.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (info.getTotalIntelligence()));
+				/*
+				 * DEXTERITY
+				 */
+				int bonus = 0;
 				
-				LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
-			}
-			
-			/*
-			 * WISDOM
-			 */			
-			if (!player.getEntityWorld().isRemote)
-			{
-				statsCap.setMaxMana((int) ((MAX_MANA_MULTIPLIER * (info.getTotalWisdom())) + 100));
+				if (info.getTotalDexterity() > 0)
+				{
+					bonus = 1;
+				}
 				
-				LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
+				stats.setCriticalChance(CRIT_CHANCE_MULTIPLIER * ((info.getTotalDexterity() / 5) + bonus));
+				stats.setCriticalDamage(CRIT_DAMAGE_MULTIPLIER * ((info.getTotalDexterity() / 2) + bonus));
+				
+				
+				/*
+				 * INTELLIGENCE
+				 */
+				stats.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (info.getTotalIntelligence()));
+				
+				/*
+				 * WISDOM
+				 */			
+				stats.setMaxMana((int) ((MAX_MANA_MULTIPLIER * (info.getTotalWisdom())) + 100));
+				
+				LootSlashConquer.network.sendTo(new PacketUpdateStats(stats), (EntityPlayerMP) player);
 			}
 			
 			

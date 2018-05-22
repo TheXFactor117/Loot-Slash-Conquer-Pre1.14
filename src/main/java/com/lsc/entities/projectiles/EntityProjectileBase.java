@@ -58,16 +58,27 @@ public abstract class EntityProjectileBase extends EntityThrowable
 	{
 		if (!this.getEntityWorld().isRemote && player != null)
 		{
-			Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+			Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 			
-			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && statsCap != null)
+			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && stats != null)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				double magicalPower = statsCap.getMagicalPower();
+				double magicalPower = stats.getMagicalPower();
 				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage") + (int) magicalPower);
 				
+				// set the true amount of damage.
+				double trueDamage = damage;
+				
+				if (stats.getCriticalChance() > 0)
+				{
+					if (Math.random() < stats.getCriticalChance())
+					{
+						trueDamage = (stats.getCriticalDamage() * damage) + damage;
+					}
+				}
+				
 				// apply damage
-				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);
+				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) trueDamage);
 				result.entityHit.hurtResistantTime = 0; // set hurt resistant time to zero because other calculations might be added.
 				
 				// apply attributes

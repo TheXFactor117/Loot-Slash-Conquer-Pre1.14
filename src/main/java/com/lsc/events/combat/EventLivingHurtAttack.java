@@ -54,8 +54,9 @@ public class EventLivingHurtAttack
 			//EntityLivingBase enemy = event.getEntityLiving();
 			ItemStack stack = player.inventory.getCurrentItem();
 			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 			
-			if (stack != null && stack.getItem() instanceof ItemSword && playerInfo != null)
+			if (stack != null && stack.getItem() instanceof ItemSword && playerInfo != null && stats != null)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				
@@ -70,7 +71,17 @@ public class EventLivingHurtAttack
 					else
 					{
 						// set the true amount of damage.
-						double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+						double damageBeforeCrit = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+						double trueDamage = damageBeforeCrit;
+						
+						if (stats.getCriticalChance() > 0)
+						{
+							if (Math.random() < stats.getCriticalChance())
+							{
+								trueDamage = (stats.getCriticalDamage() * damageBeforeCrit) + damageBeforeCrit;
+							}
+						}
+						
 						event.setAmount((float) (trueDamage + (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * playerInfo.getTotalStrength())));
 					}
 				}
