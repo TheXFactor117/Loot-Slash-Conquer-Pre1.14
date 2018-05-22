@@ -16,6 +16,11 @@ public class EnemyInfo implements IEnemyInfo
 	{
 		this.entity = entity;
 	}
+	
+	public int getRandomEnemyLevel(int min, int max)
+	{
+		return (int) (Math.random() * (max - min) + min);
+	}
 
 	@Override
 	public int getEnemyLevel() 

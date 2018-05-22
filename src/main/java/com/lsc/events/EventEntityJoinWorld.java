@@ -42,8 +42,9 @@ public class EventEntityJoinWorld
 			{
 				if (info.getEnemyLevel() == 0)
 				{
-					IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(new ChunkPos(entity.getPosition()));
-					int level = chunkLevel.getChunkLevel();
+					IChunkLevel chunkLevelCap = chunkLevelHolder.getChunkLevel(new ChunkPos(entity.getPosition()));
+					int chunkLevel = chunkLevelCap.getChunkLevel();
+					int level = info.getRandomEnemyLevel(chunkLevel, chunkLevel + 3);
 					
 					info.setEnemyTier(EnemyTier.getRandomEnemyTier(world.rand).ordinal());
 					info.setEnemyLevel(level);
