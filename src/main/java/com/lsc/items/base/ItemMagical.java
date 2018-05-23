@@ -14,8 +14,8 @@ import com.lsc.entities.projectiles.Rune;
 import com.lsc.events.EventPlayerTick;
 import com.lsc.init.ModTabs;
 import com.lsc.network.PacketUpdateStats;
+import com.lsc.player.PlayerStatHelper;
 import com.lsc.util.NBTHelper;
-import com.lsc.util.PlayerStatHelper;
 import com.lsc.util.Reference;
 
 import net.minecraft.entity.Entity;
@@ -127,7 +127,7 @@ public class ItemMagical extends Item
 		
 		if (statsCap != null && playerInfo != null)
 		{
-			if (statsCap.getMana() - this.manaPerUse >= 0 && playerInfo.getPlayerLevel() >= NBTHelper.loadStackNBT(player.inventory.getCurrentItem()).getInteger("Level"))
+			if ((statsCap.getMana() - this.manaPerUse >= 0 && playerInfo.getPlayerLevel() >= NBTHelper.loadStackNBT(player.inventory.getCurrentItem()).getInteger("Level")) || player.isCreative())
 			{	
 				player.setActiveHand(hand);
 				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.inventory.getCurrentItem());

@@ -1,4 +1,4 @@
-package com.lsc.util;
+package com.lsc.player;
 
 import java.util.UUID;
 

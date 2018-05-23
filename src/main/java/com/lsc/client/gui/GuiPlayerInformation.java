@@ -11,7 +11,7 @@ import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
 import com.lsc.capabilities.playerstats.Stats;
 import com.lsc.network.PacketUpdateIncreaseStat;
-import com.lsc.util.PlayerStatHelper;
+import com.lsc.player.PlayerStatHelper;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;

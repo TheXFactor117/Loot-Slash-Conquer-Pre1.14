@@ -1,6 +1,5 @@
 package com.lsc.network;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;
 
@@ -68,10 +67,7 @@ public class PacketUpdatePlayerInformation implements IMessage
 					
 					if (playerInfo != null)
 					{
-						LootSlashConquer.LOGGER.info("setting client-values: " + message.playerClass);
-						
 						playerInfo.setPlayerClass(message.playerClass);
-						LootSlashConquer.LOGGER.info(playerInfo.getPlayerClass());
 						playerInfo.setPlayerLevel(message.level);
 						playerInfo.setPlayerExperience(message.experience);
 						playerInfo.setSkillPoints(message.skillPoints);

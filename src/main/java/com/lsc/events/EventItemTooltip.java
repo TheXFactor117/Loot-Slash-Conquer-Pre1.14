@@ -12,8 +12,8 @@ import com.lsc.loot.ArmorAttribute;
 import com.lsc.loot.JewelryAttribute;
 import com.lsc.loot.Rarity;
 import com.lsc.loot.WeaponAttribute;
+import com.lsc.player.PlayerStatHelper;
 import com.lsc.util.NBTHelper;
-import com.lsc.util.PlayerStatHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;

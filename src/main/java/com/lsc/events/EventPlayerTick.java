@@ -12,8 +12,8 @@ import com.lsc.loot.JewelryAttribute;
 import com.lsc.loot.WeaponAttribute;
 import com.lsc.network.PacketUpdateCoreStats;
 import com.lsc.network.PacketUpdateStats;
+import com.lsc.player.PlayerStatHelper;
 import com.lsc.util.NBTHelper;
-import com.lsc.util.PlayerStatHelper;
 
 import baubles.api.BaublesApi;
 import baubles.api.cap.BaublesCapabilities;
