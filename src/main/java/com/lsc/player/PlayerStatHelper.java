@@ -49,7 +49,7 @@ public class PlayerStatHelper
 			 * STRENGTH
 			 */
 			// increase attack damage
-			AttributeModifier strengthAttackDamage = new AttributeModifier(UUID.fromString(ATTACK_DAMAGE), "playerStrength", ATTACK_DAMAGE_MULTIPLIER + (info.getTotalStrength()), 0);
+			AttributeModifier strengthAttackDamage = new AttributeModifier(UUID.fromString(ATTACK_DAMAGE), "playerStrength", ATTACK_DAMAGE_MULTIPLIER * (info.getTotalStrength()), 0);
 
 			if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getModifier(UUID.fromString(ATTACK_DAMAGE)) != null)
 			{

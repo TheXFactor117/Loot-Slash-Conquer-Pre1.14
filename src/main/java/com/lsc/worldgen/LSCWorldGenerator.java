@@ -2,15 +2,22 @@ package com.lsc.worldgen;
 
 import java.util.Random;
 
+import com.lsc.LootSlashConquer;
+import com.lsc.util.Reference;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
+import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 /**
@@ -42,6 +49,11 @@ public class LSCWorldGenerator implements IWorldGenerator
 	
 	private void generateOverworld(World world, Random rand, int blockX, int blockZ)
 	{	
+		WorldServer server = (WorldServer) world;
+		TemplateManager manager = server.getStructureTemplateManager();
+		
+		Template test = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "abandoned_house_1"));
+		
 		/*if ((int) (Math.random() * 100) == 0)
 		{
 			int y = getGroundFromAbove(world, blockX, blockZ);
@@ -50,6 +62,14 @@ public class LSCWorldGenerator implements IWorldGenerator
 			Dungeon dungeon = new Dungeon(2);
 			dungeon.generate(world, rand, pos);
 		}*/
+		
+		if ((int) (Math.random() * 200) == 0)
+		{
+			int y = getGroundFromAbove(world, blockX, blockZ);
+			BlockPos pos = new BlockPos(blockX, y, blockZ);
+			test.addBlocksToWorld(world, pos, new PlacementSettings());
+			LootSlashConquer.LOGGER.info("Spawning House at " + pos);
+		}
 	}
 	
 	private void generateNether(World world, Random rand, int chunkX, int chunkZ) {}
