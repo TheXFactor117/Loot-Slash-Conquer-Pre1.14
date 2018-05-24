@@ -11,7 +11,11 @@
 					"functions": [
 						{
 							"function": "lootslashconquer:tag_loot"
-						}
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 1
+						}	
 					]
 				},
 				{
@@ -21,6 +25,10 @@
 					"functions": [
 						{
 							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 2
 						}
 					]
 				},
@@ -31,7 +39,11 @@
 					"functions": [
 						{
 							"function": "lootslashconquer:tag_loot"
-						}
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 3
+						}	
 					]
 				},
 				{
@@ -41,7 +53,11 @@
 					"functions": [
 						{
 							"function": "lootslashconquer:tag_loot"
-						}
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 4
+						}	
 					]
 				},
 				{
@@ -51,7 +67,11 @@
 					"functions": [
 						{
 							"function": "lootslashconquer:tag_loot"
-						}
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 5
+						}	
 					]
 				}
 			]

@@ -6,7 +6,6 @@ import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
 import com.lsc.loot.ItemGenerator;
 import com.lsc.loot.NameGenerator;
-import com.lsc.loot.Rarity;
 import com.lsc.util.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -41,7 +40,7 @@ public class EventContainerOpen
 					
 					if (nbt != null)
 					{
-						if (Rarity.getRarity(nbt) == Rarity.DEFAULT)
+						if (nbt.getInteger("Level") == 0)
 						{
 							if (nbt.hasKey("TagLevel"))
 							{
@@ -63,7 +62,7 @@ public class EventContainerOpen
 	
 	public void generate(ItemStack stack, NBTTagCompound nbt, World world, int level)
 	{
-		Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, world.rand));
+		//Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, world.rand));
 		
 		ItemGenerator.create(stack, nbt, world, level);
 		

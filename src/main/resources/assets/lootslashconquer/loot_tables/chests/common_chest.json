@@ -9,7 +9,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "lootslashconquer:loot/loot",
+					"name": "lootslashconquer:base/specific/maces",
 					"weight": 1
 				}
 			]
@@ -23,7 +23,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "lootslashconquer:loot/loot",
+					"name": "lootslashconquer:base/specific/maces",
 					"weight": 1
 				}
 			],
@@ -43,7 +43,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "lootslashconquer:loot/loot",
+					"name": "lootslashconquer:base/specific/maces",
 					"weight": 1
 				}
 			],
@@ -63,7 +63,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "lootslashconquer:loot/loot",
+					"name": "lootslashconquer:base/specific/maces",
 					"weight": 1
 				}
 			],
