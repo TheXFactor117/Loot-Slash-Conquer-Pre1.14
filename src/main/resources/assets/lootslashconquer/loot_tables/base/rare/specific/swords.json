@@ -1,0 +1,80 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:wooden_sword",
+					"weight": 10,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 3
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:stone_sword",
+					"weight": 6,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 3
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:golden_sword",
+					"weight": 7,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 3
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:iron_sword",
+					"weight": 3,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 3
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:diamond_sword",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 3
+						}
+					]
+				}
+			]
+		}
+	]
+}

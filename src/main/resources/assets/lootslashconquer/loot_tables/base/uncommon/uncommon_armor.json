@@ -1,0 +1,30 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/uncommon/specific/helmets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/uncommon/specific/chestplates",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/uncommon/specific/common_leggings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/uncommon/specific/boots",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

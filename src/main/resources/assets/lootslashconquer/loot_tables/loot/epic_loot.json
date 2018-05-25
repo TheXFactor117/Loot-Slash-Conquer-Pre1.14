@@ -1,0 +1,32 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/epic/epic_all_items",
+					"weight": 1
+				}
+			]
+		},
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:special/special_all",
+					"weight": 1
+				}
+			],
+			"conditions": [
+				{
+					"condition": "minecraft:random_chance",
+					"chance": 0.05
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/rare/specific/amulets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/rare/specific/belts",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lootslashconquer:base/rare/specific/rings",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

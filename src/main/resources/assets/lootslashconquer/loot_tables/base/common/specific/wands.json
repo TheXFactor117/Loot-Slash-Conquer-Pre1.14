@@ -1,0 +1,52 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "lootslashconquer:wooden_wand",
+					"weight": 15,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 1
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "lootslashconquer:golden_wand",
+					"weight": 7,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 1
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "lootslashconquer:diamond_wand",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 1
+						}
+					]
+				}
+			]
+		}
+	]
+}

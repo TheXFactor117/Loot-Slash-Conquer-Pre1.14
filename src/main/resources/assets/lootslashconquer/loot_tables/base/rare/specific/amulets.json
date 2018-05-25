@@ -1,0 +1,38 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "lootslashconquer:golden_amulet",
+					"weight": 5,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 3
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "lootslashconquer:diamond_amulet",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 3
+						}
+					]
+				}
+			]
+		}
+	]
+}

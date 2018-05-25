@@ -1,0 +1,52 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "lootslashconquer:wooden_staff",
+					"weight": 15,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 2
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "lootslashconquer:golden_staff",
+					"weight": 7,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 2
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "lootslashconquer:diamond_staff",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "lootslashconquer:tag_loot"
+						},
+						{
+							"function": "lootslashconquer:set_rarity",
+							"rarity": 2
+						}
+					]
+				}
+			]
+		}
+	]
+}
