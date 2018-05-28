@@ -75,7 +75,7 @@ public class EventLoadLootTable
 	
 	private static void addEntityPool(LootTable table)
 	{
-		LootEntry common = new LootEntryTable(new ResourceLocation("lootslashconquer:entities/basic_entity"), 1, 1, new LootCondition[0], "common");
+		LootEntry common = new LootEntryTable(new ResourceLocation("lootslashconquer:entities/common_entity"), 1, 1, new LootCondition[0], "common");
 		LootPool pool = new LootPool(new LootEntry[] { common }, new LootCondition[0], new RandomValueRange(0, 1), new RandomValueRange(0), "loot");
 		table.addPool(pool);
 	}

@@ -1,4 +1,4 @@
-package com.lsc.loot;
+package com.lsc.loot.generation;
 
 import java.util.Collection;
 import java.util.Random;
@@ -9,6 +9,10 @@ import com.lsc.entities.projectiles.Rune;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
 import com.lsc.items.base.ItemMelee;
+import com.lsc.loot.ArmorAttribute;
+import com.lsc.loot.JewelryAttribute;
+import com.lsc.loot.Rarity;
+import com.lsc.loot.WeaponAttribute;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -81,11 +85,11 @@ public class ItemGeneratorHelper
 	{
 		int amount = 0;
 		// sets the amount of attributes should be generated depending on rarity.
-		if (rarity == Rarity.COMMON) amount = (int) (Math.random() * 2);
-		else if (rarity == Rarity.UNCOMMON) amount = (int) (Math.random() * 2 + 1);
-		else if (rarity == Rarity.RARE) amount = (int) (Math.random() * 2 + 2);
-		else if (rarity == Rarity.EPIC) amount = (int) (Math.random() * 2 + 3);
-		else if (rarity == Rarity.LEGENDARY) amount = (int) (Math.random() * 2 + 4);
+		if (rarity == Rarity.COMMON) amount = (int) (Math.random() * 2); // max 1
+		else if (rarity == Rarity.UNCOMMON) amount = (int) (Math.random() * 2 + 1); // max 2
+		else if (rarity == Rarity.RARE) amount = (int) (Math.random() * 3 + 1); // max 3
+		else if (rarity == Rarity.EPIC) amount = (int) (Math.random() * 3 + 2); // max 4
+		else if (rarity == Rarity.LEGENDARY) amount = (int) (Math.random() * 3 + 3); // max 5
 
 		for (int i = 0; i < amount; i++)
 		{
@@ -188,18 +192,16 @@ public class ItemGeneratorHelper
 	
 	public static void setMinMaxDamage(NBTTagCompound nbt, double damage)
 	{
-		double rangeMultiplier = (nbt.getInteger("Level") + 1) * 0.25;
-		int range = (int) ((Math.random() * 4 + 2) * rangeMultiplier / 1.5);
-		int minDamage = (int) (damage - range);
-		int maxDamage = (int) (damage + range);
+		double rangeMultiplier = nbt.getInteger("Level") * 0.65;
+		int range = (int) ((Math.random() * 4 + 2) * rangeMultiplier);
+		int minDamage = (int) (damage - (range / 2));
+		int maxDamage = (int) (damage + (range / 2));
+
+		if (WeaponAttribute.MIN_DAMAGE.hasAttribute(nbt)) minDamage += WeaponAttribute.MIN_DAMAGE.getAmount(nbt);
+		else if (WeaponAttribute.MAX_DAMAGE.hasAttribute(nbt)) maxDamage += WeaponAttribute.MAX_DAMAGE.getAmount(nbt);
 		
 		if (minDamage == maxDamage) minDamage -= 1;
 		while (minDamage > maxDamage) maxDamage += 1;
-
-		if (WeaponAttribute.MIN_DAMAGE.hasAttribute(nbt))
-			minDamage += WeaponAttribute.MIN_DAMAGE.getAmount(nbt);
-		else if (WeaponAttribute.MAX_DAMAGE.hasAttribute(nbt))
-			maxDamage += WeaponAttribute.MAX_DAMAGE.getAmount(nbt);
 		
 		nbt.setInteger("MinDamage", minDamage);
 		nbt.setInteger("MaxDamage", maxDamage);
@@ -208,35 +210,17 @@ public class ItemGeneratorHelper
 	public static double getWeightedDamage(NBTTagCompound nbt, Rarity rarity, double base)
 	{
 		double damage = base;
-		int range = 0; 
+		double minRandFactor = 0.7;
+		double maxRandFactor = 0.9;
+		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
 		
-		if (rarity == Rarity.COMMON)
-		{
-			range = 2;
-			damage = Math.random() * range + (base - 2);
-		}
-		else if (rarity == Rarity.UNCOMMON)
-		{
-			range = 3;
-			damage = Math.random() * range + (base - 1);
-		}
-		else if (rarity == Rarity.RARE)
-		{
-			range = 5;
-			damage = Math.random() * range + (base);
-		}
-		else if (rarity == Rarity.EPIC)
-		{
-			range = 7;
-			damage = Math.random() * range + (base + 1);
-		}
-		else if (rarity == Rarity.LEGENDARY)
-		{
-			range = 10;
-			damage = Math.random() * range + (base + 2);
-		}
+		if (rarity == Rarity.COMMON) damage = base * (0.9 * multiplier);
+		else if (rarity == Rarity.UNCOMMON) damage = base * (1 * multiplier);
+		else if (rarity == Rarity.RARE) damage = base * (1.1 * multiplier);
+		else if (rarity == Rarity.EPIC) damage = base * (1.25 * multiplier);
+		else if (rarity == Rarity.LEGENDARY) damage = base * (1.4 * multiplier);
 		
-		return damage * Math.pow(nbt.getInteger("Level"), 0.75);
+		return damage * Math.pow(nbt.getInteger("Level"), 1.1);
 	}
 	
 	public static double getWeightedAttackSpeed(Rarity rarity, double base)

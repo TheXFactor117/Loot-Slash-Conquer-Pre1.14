@@ -4,8 +4,8 @@ import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
-import com.lsc.loot.ItemGenerator;
 import com.lsc.loot.NameGenerator;
+import com.lsc.loot.generation.ItemGenerator;
 import com.lsc.util.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;

@@ -5,9 +5,9 @@ import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemMagical;
-import com.lsc.loot.ItemGeneratorHelper;
 import com.lsc.loot.Rarity;
 import com.lsc.loot.WeaponAttribute;
+import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

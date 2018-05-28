@@ -1,7 +1,8 @@
-package com.lsc.loot;
+package com.lsc.loot.generation;
 
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
+import com.lsc.loot.Rarity;
 
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;

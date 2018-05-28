@@ -6,7 +6,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "lootslashconquer:loot/loot",
+					"name": "lootslashconquer:loot/rare_loot",
 					"weight": 1
 				}
 			],
@@ -23,7 +23,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "lootslashconquer:loot/loot",
+					"name": "lootslashconquer:loot/rare_loot",
 					"weight": 1
 				}
 			],
