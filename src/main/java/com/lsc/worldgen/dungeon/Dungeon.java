@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Lists;
 import com.lsc.LootSlashConquer;
 import com.lsc.util.Reference;
-import com.lsc.worldgen.LSCWorldGenerator;
+import com.lsc.worldgen.StructureHelper;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
@@ -55,7 +55,7 @@ public class Dungeon extends WorldGenerator
 		Template dungeonEntrance = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "dungeons/test_entrance"));
 		PlacementSettings settings = new PlacementSettings();
 		
-		if (LSCWorldGenerator.canSpawnHere(dungeonEntrance, world, position))
+		if (StructureHelper.canSpawnHere(dungeonEntrance, world, position))
 		{
 			LootSlashConquer.LOGGER.info("Generating Dungeon at " + position);
 			
