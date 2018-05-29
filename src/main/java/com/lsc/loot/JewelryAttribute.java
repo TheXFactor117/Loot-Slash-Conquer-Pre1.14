@@ -85,12 +85,27 @@ public enum JewelryAttribute
 	{
 		nbt.setBoolean(toString(), true);
 		nbt.setInteger(name + "_Rarity", Rarity.getRandomRarity(nbt, new Random()).ordinal()); // sets the Attribute randomized rarity (how effective the attribute will be).
-		double amount = (Math.random() * (maxAmount - minAmount)) + minAmount;
 		
-		if (amount < 1)
+		// ints
+		if (this == STRENGTH || this == AGILITY || this == DEXTERITY || this == INTELLIGENCE || this == WISDOM || this == FORTITUDE || this == ALL_STATS)
+		{
+			int base = (int) ((Math.random() * (maxAmount - minAmount)) + minAmount);
+			nbt.setDouble(name + "_attribute_stat", base);
+		}
+		// percentages
+		else if (this == FIRE_RESIST || this == FROST_RESIST || this == LIGHTNING_RESIST || this == POISON_RESIST || this == LIFE_STEAL || this == MANA_STEAL)
+		{
+			double base = (Math.random() * (maxAmount - minAmount)) + minAmount;
+			double amount = (Math.round(base * 20)) / 20.0;
+			
 			nbt.setDouble(name + "_attribute_stat", amount);
-		else
-			nbt.setDouble(name + "_attribute_stat", (int) amount);
+		}
+		// void
+		else if (this == VOID)
+		{
+			double base = (Math.random() * (maxAmount - minAmount)) + minAmount;
+			nbt.setDouble(name + "_attribute_stat", base);
+		}
 	}
 	
 	/**

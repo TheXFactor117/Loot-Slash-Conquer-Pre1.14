@@ -96,12 +96,45 @@ public enum WeaponAttribute
 	{
 		nbt.setBoolean(toString(), true);
 		nbt.setInteger(name + "_Rarity", Rarity.getRandomRarity(nbt, new Random()).ordinal()); // sets the Attribute randomized rarity (how effective the attribute will be).
-		double amount = (Math.random() * (maxAmount - minAmount)) + minAmount;
 		
-		if (amount < 1)
+		// damage attributes
+		if (this == FIRE || this == FROST || this == LIGHTNING || this == POISON || this == MIN_DAMAGE || this == MAX_DAMAGE)
+		{
+			double base = (Math.random() * (maxAmount - minAmount)) + minAmount;
+			double damage = base;
+			double minRandFactor = 0.4;
+			double maxRandFactor = 0.6;
+			double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
+			
+			if (this.getRandomizedRarity(nbt) == Rarity.COMMON) damage = base * (0.9 * multiplier);
+			else if (this.getRandomizedRarity(nbt) == Rarity.UNCOMMON) damage = base * (1 * multiplier);
+			else if (this.getRandomizedRarity(nbt) == Rarity.RARE) damage = base * (1.1 * multiplier);
+			else if (this.getRandomizedRarity(nbt) == Rarity.EPIC) damage = base * (1.25 * multiplier);
+			else if (this.getRandomizedRarity(nbt) == Rarity.LEGENDARY) damage = base * (1.4 * multiplier);
+			
+			nbt.setDouble(name + "_attribute_stat", (int) (damage * Math.pow(nbt.getInteger("Level"), 0.8)));
+		}
+		// life/mana steal
+		else if (this == LIFE_STEAL || this == MANA_STEAL || this == DURABLE)
+		{
+			double base = (Math.random() * (maxAmount - minAmount)) + minAmount;
+			double amount = (Math.round(base * 20)) / 20.0;
+			
 			nbt.setDouble(name + "_attribute_stat", amount);
-		else
-			nbt.setDouble(name + "_attribute_stat", (int) amount);
+		}
+		// random ints
+		if (this == CHAINED || this == STRENGTH || this == AGILITY || this == DEXTERITY || this == INTELLIGENCE || this == WISDOM || this == FORTITUDE || 
+				this == ALL_STATS || this == GOLD)
+		{
+			int base = (int) ((Math.random() * (maxAmount - minAmount)) + minAmount);
+			nbt.setDouble(name + "_attribute_stat", base);
+		}
+		// void
+		else if (this == VOID)
+		{
+			double base = (Math.random() * (maxAmount - minAmount)) + minAmount;
+			nbt.setDouble(name + "_attribute_stat", base);
+		}
 	}
 	
 	public void addAttribute(NBTTagCompound nbt, double amount)
