@@ -16,6 +16,17 @@ item.golden_amulet.name=Golden Amulet
 item.diamond_amulet.name=Diamond Amulet
 item.leather_sash.name=Leather Sash
 
+# Scrolls
+item.fireball_scroll.name=Fireball Scroll
+item.frostbite_scroll.name=Frostbite Scroll
+item.minor_ethereal_scroll.name=Minor Ethereal Scroll
+item.firestorm_scroll.name=Firestorm Scroll
+item.blizzard_scroll.name=Blizzard Scroll
+item.discharge_scroll.name=Discharge Scroll
+item.major_ethereal_scroll.name=Major Ethereal Scroll
+item.invisibility_scroll.name=Invisibility Scroll
+item.void_scroll.name=Void Scroll
+
 
 
 ### Weapons

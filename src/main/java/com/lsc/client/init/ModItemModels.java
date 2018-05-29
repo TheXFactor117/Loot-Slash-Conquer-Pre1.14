@@ -34,6 +34,17 @@ public class ModItemModels
 		registerItemModel(ModItems.DIAMOND_AMULET);
 		registerItemModel(ModItems.LEATHER_SASH);
 		
+		// scrolls
+		registerItemModel(ModItems.FIREBALL_SCROLL);
+		registerItemModel(ModItems.FROSTBITE_SCROLL);
+		registerItemModel(ModItems.MINOR_ETHEREAL_SCROLL);
+		registerItemModel(ModItems.FIRESTORM_SCROLL);
+		registerItemModel(ModItems.BLIZZARD_SCROLL);
+		registerItemModel(ModItems.DISCHARGE_SCROLL);
+		registerItemModel(ModItems.INVISIBILITY_SCROLL);
+		registerItemModel(ModItems.MAJOR_ETHEREAL_SCROLL);
+		registerItemModel(ModItems.VOID_SCROLL);
+		
 		
 		
 		/*

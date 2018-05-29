@@ -1,6 +1,16 @@
 package com.lsc.init;
 
 import com.lsc.items.base.ItemBauble;
+import com.lsc.items.scrolls.ItemBlizzardScroll;
+import com.lsc.items.scrolls.ItemDischargeScroll;
+import com.lsc.items.scrolls.ItemFireballScroll;
+import com.lsc.items.scrolls.ItemFirestormScroll;
+import com.lsc.items.scrolls.ItemFrostbiteScroll;
+import com.lsc.items.scrolls.ItemInvisibilityScroll;
+import com.lsc.items.scrolls.ItemMajorEtherealScroll;
+import com.lsc.items.scrolls.ItemMinorEtherealScroll;
+import com.lsc.items.scrolls.ItemVoidScroll;
+import com.lsc.loot.Rarity;
 
 import baubles.api.BaubleType;
 import net.minecraft.item.Item;
@@ -15,6 +25,17 @@ public class ModItems
 	public static final Item GOLDEN_AMULET = new ItemBauble("golden_amulet", BaubleType.AMULET);
 	public static final Item DIAMOND_AMULET = new ItemBauble("diamond_amulet", BaubleType.AMULET);
 	public static final Item LEATHER_SASH = new ItemBauble("leather_sash", BaubleType.BELT);
+	
+	// scrolls
+	public static final Item FIREBALL_SCROLL = new ItemFireballScroll("fireball_scroll", Rarity.UNCOMMON);
+	public static final Item FROSTBITE_SCROLL = new ItemFrostbiteScroll("frostbite_scroll", Rarity.UNCOMMON);
+	public static final Item MINOR_ETHEREAL_SCROLL = new ItemMinorEtherealScroll("minor_ethereal_scroll", Rarity.RARE);
+	public static final Item FIRESTORM_SCROLL = new ItemFirestormScroll("firestorm_scroll", Rarity.RARE);
+	public static final Item BLIZZARD_SCROLL = new ItemBlizzardScroll("blizzard_scroll", Rarity.RARE);
+	public static final Item DISCHARGE_SCROLL = new ItemDischargeScroll("discharge_scroll", Rarity.RARE);
+	public static final Item INVISIBILITY_SCROLL = new ItemInvisibilityScroll("invisibility_scroll", Rarity.EPIC);
+	public static final Item MAJOR_ETHEREAL_SCROLL = new ItemMajorEtherealScroll("major_ethereal_scroll", Rarity.EPIC);
+	public static final Item VOID_SCROLL = new ItemVoidScroll("void_scroll", Rarity.LEGENDARY);
 		
 	@SubscribeEvent
 	public void registerItems(RegistryEvent.Register<Item> event)
@@ -25,5 +46,16 @@ public class ModItems
 		event.getRegistry().register(GOLDEN_AMULET);
 		event.getRegistry().register(DIAMOND_AMULET);
 		event.getRegistry().register(LEATHER_SASH);
+		
+		// scrolls
+		event.getRegistry().register(FIREBALL_SCROLL);
+		event.getRegistry().register(FROSTBITE_SCROLL);
+		event.getRegistry().register(MINOR_ETHEREAL_SCROLL);
+		event.getRegistry().register(FIRESTORM_SCROLL);
+		event.getRegistry().register(BLIZZARD_SCROLL);
+		event.getRegistry().register(DISCHARGE_SCROLL);
+		event.getRegistry().register(INVISIBILITY_SCROLL);
+		event.getRegistry().register(MAJOR_ETHEREAL_SCROLL);
+		event.getRegistry().register(VOID_SCROLL);
 	}
 }
