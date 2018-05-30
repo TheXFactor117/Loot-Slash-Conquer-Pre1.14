@@ -4,6 +4,7 @@ import com.lsc.LootSlashConquer;
 import com.lsc.util.Reference;
 
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
@@ -40,6 +41,22 @@ public class Structure
 		if (StructureHelper.canSpawnHere(template, world, pos))
 		{
 			template.addBlocksToWorld(world, pos, settings);
+			LootSlashConquer.LOGGER.info("Spawning structure: " + pos);
+		}
+	}
+	
+	public void generateRandomHouse(World world, int identifier)
+	{
+		Template template = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, name + identifier)); 
+		int y = StructureHelper.getGroundFromAbove(world, x, z);
+		BlockPos pos = new BlockPos(x, y, z);
+		PlacementSettings settings = new PlacementSettings().setRotation(Rotation.values()[(int) (Math.random() * 4)]);
+		int offset = 0;
+
+		if (StructureHelper.canSpawnHere(template, world, pos))
+		{
+			if (identifier == 2 || identifier == 3) offset = 4; // offset building down if it has a basement
+			template.addBlocksToWorld(world, pos.down(offset), settings);
 			LootSlashConquer.LOGGER.info("Spawning structure: " + pos);
 		}
 	}

@@ -44,20 +44,15 @@ public class LSCWorldGenerator implements IWorldGenerator
 		WorldServer server = (WorldServer) world;
 		TemplateManager manager = server.getStructureTemplateManager();
 		
-		Structure abandonedHouse1 = new Structure("abandoned_house_1", blockX, blockZ, manager);
+		Structure randomHouse = new Structure("abandoned_house_", blockX, blockZ, manager);
 		
-		/*if ((int) (Math.random() * 100) == 0)
-		{
-			int y = getGroundFromAbove(world, blockX, blockZ);
-			BlockPos pos = new BlockPos(blockX, y, blockZ);
-			//ProceduralDungeon dungeon = new ProceduralDungeon((int) (Math.random() * 3 + 3), (int) (Math.random() * 3 + 4));
-			Dungeon dungeon = new Dungeon(2);
-			dungeon.generate(world, rand, pos);
-		}*/
-		
+		// Abandoned Houses
 		if ((int) (Math.random() * 200) == 0)
 		{
-			abandonedHouse1.generate(world);
+			int amount = 4; // total amount of abandoned house variations
+			int randomIdentifier = (int) (Math.random() * amount) + 1;
+			
+			randomHouse.generateRandomHouse(world, randomIdentifier);
 		}
 	}
 	
