@@ -1,10 +1,13 @@
 package com.lsc.loot.generation;
 
+import com.lsc.LootSlashConquer;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
+import com.lsc.items.base.ItemRanged;
 import com.lsc.loot.Rarity;
 
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -28,6 +31,37 @@ public class ItemGenerator
 				nbt.setInteger("Level", level); // set level to current player level
 				ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
 				ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
+				nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
+			}
+			else if (stack.getItem() instanceof ItemBow)
+			{
+				LootSlashConquer.LOGGER.info("Hello??");
+				
+				ItemGeneratorHelper.setTypes(stack, nbt);
+				nbt.setInteger("Level", level);
+				ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
+				
+				double baseDamage = 0;
+				double baseDrawSpeed = 0;
+				
+				// handle custom bows
+				if (stack.getItem() instanceof ItemRanged)
+				{
+					ItemRanged ranged = (ItemRanged) stack.getItem();
+					baseDamage = ranged.getBaseDamage();
+					baseDrawSpeed = ranged.getBaseDrawSpeed();
+				}
+				else // handle vanilla/modded bows
+				{
+					baseDamage = 3;
+					baseDrawSpeed = 2;
+				}
+				
+				double weightedDamage = ItemGeneratorHelper.getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
+				double weightedDrawSpeed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseDrawSpeed);
+				
+				ItemGeneratorHelper.setMinMaxDamage(nbt, weightedDamage);
+				nbt.setDouble("AttackSpeed", weightedDrawSpeed);
 				nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
 			}
 			else if (stack.getItem() instanceof ItemMagical)

@@ -1,15 +1,18 @@
 package com.lsc.events;
 
+import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
 import com.lsc.loot.NameGenerator;
+import com.lsc.loot.Rarity;
 import com.lsc.loot.generation.ItemGenerator;
 import com.lsc.util.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -34,10 +37,12 @@ public class EventContainerOpen
 		{
 			for (ItemStack stack : event.getContainer().getInventory())
 			{
-				if (stack != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor || stack.getItem() instanceof ItemMagical || stack.getItem() instanceof ItemBauble))
+				if (stack != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor || stack.getItem() instanceof ItemBow 
+						|| stack.getItem() instanceof ItemMagical || stack.getItem() instanceof ItemBauble))
 				{
 					NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-					
+					stack.setTagCompound(nbt);
+
 					if (nbt != null)
 					{
 						if (nbt.getInteger("Level") == 0)
@@ -62,10 +67,14 @@ public class EventContainerOpen
 	
 	public void generate(ItemStack stack, NBTTagCompound nbt, World world, int level)
 	{
-		//Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, world.rand));
+		if (Rarity.getRarity(nbt) == Rarity.DEFAULT)
+		{
+			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, world.rand));
+			LootSlashConquer.LOGGER.info("Getting random rarity...");
+		}
 		
 		ItemGenerator.create(stack, nbt, world, level);
-		
+
 		stack.setTagCompound(nbt);
 		NameGenerator.generateName(stack, nbt);
 	}

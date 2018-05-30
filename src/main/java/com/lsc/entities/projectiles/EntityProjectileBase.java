@@ -2,7 +2,7 @@ package com.lsc.entities.projectiles;
 
 import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
 import com.lsc.capabilities.playerstats.Stats;
-import com.lsc.events.combat.EventLivingHurtAttack;
+import com.lsc.player.WeaponHelper;
 import com.lsc.util.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -82,7 +82,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 				result.entityHit.hurtResistantTime = 0; // set hurt resistant time to zero because other calculations might be added.
 				
 				// apply attributes
-				EventLivingHurtAttack.useWeaponAttributes((float) damage, player, (EntityLivingBase) result.entityHit, stack, NBTHelper.loadStackNBT(stack));
+				WeaponHelper.useWeaponAttributes((float) damage, player, (EntityLivingBase) result.entityHit, stack, NBTHelper.loadStackNBT(stack));
 			}
 		}
 	}

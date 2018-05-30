@@ -1,0 +1,6 @@
+{
+    "parent": "lootslashconquer:item/golden_bow",
+    "textures": {
+        "layer0": "lootslashconquer:items/golden_bow_pulling_2"
+    }
+}

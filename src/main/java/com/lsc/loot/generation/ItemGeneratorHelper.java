@@ -20,6 +20,7 @@ import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -58,6 +59,10 @@ public class ItemGeneratorHelper
 			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.CHEST) nbt.setString("Type", "chestplate");
 			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.LEGS) nbt.setString("Type", "leggings");
 			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.FEET) nbt.setString("Type", "boots");
+		}
+		else if (stack.getItem() instanceof ItemBow)
+		{
+			nbt.setString("Type", "bow");
 		}
 		else if (stack.getItem() instanceof ItemMagical)
 		{

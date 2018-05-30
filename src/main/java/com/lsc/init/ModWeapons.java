@@ -2,6 +2,7 @@
 
 import com.lsc.items.base.ItemAdvancedMelee;
 import com.lsc.items.base.ItemMagical;
+import com.lsc.items.base.ItemRanged;
 import com.lsc.items.base.ItemTest;
 import com.lsc.items.magical.ItemBlazefury;
 import com.lsc.items.magical.ItemEpilogue;
@@ -73,6 +74,13 @@ public class ModWeapons
 	public static final Item ANNIHILATION = new ItemAnnihilation(ToolMaterials.ANNIHILATION, "annihilation", "dagger", 1, 0.5);
 	
 	
+	
+	// physical ranged
+	public static final Item GOLDEN_BOW = new ItemRanged("golden_bow", 4, 2, 100);
+	public static final Item IRON_BOW = new ItemRanged("iron_bow", 5, 2, 500);
+	public static final Item DIAMOND_BOW = new ItemRanged("diamond_bow", 6, 2, 1000);
+	
+	
 	// magical ranged
 	// (name, damage, attack speed, mana per use, durability)
 	public static final Item WOODEN_WAND = new ItemMagical("wooden_wand", false, 3, 2, 5, 200);
@@ -120,6 +128,14 @@ public class ModWeapons
 		event.getRegistry().register(EXCALIBUR_RAPIER);
 		event.getRegistry().register(ALAKASLAM);
 		event.getRegistry().register(ANNIHILATION);
+		
+		
+		
+		// physical ranged
+		event.getRegistry().register(GOLDEN_BOW);
+		event.getRegistry().register(IRON_BOW);
+		event.getRegistry().register(DIAMOND_BOW);
+		
 		
 		
 		// magical ranged

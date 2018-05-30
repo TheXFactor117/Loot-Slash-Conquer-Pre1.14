@@ -74,6 +74,11 @@ public class ModItemModels
 		registerItemModel(ModWeapons.ALAKASLAM);
 		registerItemModel(ModWeapons.ANNIHILATION);
 		
+		// physical ranged
+		registerItemModel(ModWeapons.GOLDEN_BOW);
+		registerItemModel(ModWeapons.IRON_BOW);
+		registerItemModel(ModWeapons.DIAMOND_BOW);
+		
 		// magical ranged
 		registerItemModel(ModWeapons.WOODEN_WAND);
 		registerItemModel(ModWeapons.GOLDEN_WAND);
