@@ -24,9 +24,7 @@ public enum Rarity
 	private String name;
 	private String color;
 	private double chance;
-	
-	private static final int MULTIPLIER = 15;
-	
+
 	private static final RandomCollection<Rarity> RANDOM_RARITIES = new RandomCollection<Rarity>();
 	
 	private static final RandomCollection<Rarity> COMMON_RARITIES = new RandomCollection<Rarity>();
@@ -53,7 +51,7 @@ public enum Rarity
 		return RANDOM_RARITIES.next(rand);
 	}
 	
-	public static Rarity getWeightedRarity(NBTTagCompound nbt, Random rand, Rarity rarity)
+	public static Rarity getWeightedRarity(Random rand, Rarity rarity)
 	{
 		if (rarity == Rarity.COMMON) return COMMON_RARITIES.next(rand);
 		else if (rarity == Rarity.UNCOMMON) return UNCOMMON_RARITIES.next(rand);
@@ -113,19 +111,43 @@ public enum Rarity
 				
 				if (rarity == Rarity.COMMON)
 				{
-					COMMON_RARITIES.add(rarity.chance, rarity);
-					UNCOMMON_RARITIES.add(rarity.chance - (MULTIPLIER * 2), rarity);
-					RARE_RARITIES.add(rarity.chance - (MULTIPLIER * 3), rarity);
-					EPIC_RARITIES.add(rarity.chance - (MULTIPLIER * 4), rarity);
-					LEGENDARY_RARITIES.add(rarity.chance - (MULTIPLIER * 5), rarity);
+					COMMON_RARITIES.add(62, rarity);
+					UNCOMMON_RARITIES.add(20, rarity);
+					RARE_RARITIES.add(10, rarity);
+					EPIC_RARITIES.add(5, rarity);
+					LEGENDARY_RARITIES.add(2, rarity);
 				}
-				else
+				else if (rarity == Rarity.UNCOMMON)
 				{
-					COMMON_RARITIES.add(rarity.chance, rarity);
-					UNCOMMON_RARITIES.add(rarity.chance, rarity);
-					RARE_RARITIES.add(rarity.chance, rarity);
-					EPIC_RARITIES.add(rarity.chance, rarity);
-					LEGENDARY_RARITIES.add(rarity.chance, rarity);
+					COMMON_RARITIES.add(20, rarity);
+					UNCOMMON_RARITIES.add(40, rarity);
+					RARE_RARITIES.add(20, rarity);
+					EPIC_RARITIES.add(15, rarity);
+					LEGENDARY_RARITIES.add(10, rarity);
+				}
+				else if (rarity == Rarity.RARE)
+				{
+					COMMON_RARITIES.add(10, rarity);
+					UNCOMMON_RARITIES.add(20, rarity);
+					RARE_RARITIES.add(40, rarity);
+					EPIC_RARITIES.add(20, rarity);
+					LEGENDARY_RARITIES.add(20, rarity);
+				}
+				else if (rarity == Rarity.EPIC)
+				{
+					COMMON_RARITIES.add(6, rarity);
+					UNCOMMON_RARITIES.add(15, rarity);
+					RARE_RARITIES.add(20, rarity);
+					EPIC_RARITIES.add(40, rarity);
+					LEGENDARY_RARITIES.add(30, rarity);
+				}
+				else if (rarity == Rarity.LEGENDARY)
+				{
+					COMMON_RARITIES.add(2, rarity);
+					UNCOMMON_RARITIES.add(5, rarity);
+					RARE_RARITIES.add(18, rarity);
+					EPIC_RARITIES.add(20, rarity);
+					LEGENDARY_RARITIES.add(40, rarity);
 				}
 			}
 		}

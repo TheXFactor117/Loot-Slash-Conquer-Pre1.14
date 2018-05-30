@@ -41,6 +41,7 @@ public class Structure
 		if (StructureHelper.canSpawnHere(template, world, pos))
 		{
 			template.addBlocksToWorld(world, pos, settings);
+			StructureHelper.handleDataBlocks(template, world, pos, settings);
 			LootSlashConquer.LOGGER.info("Spawning structure: " + pos);
 		}
 	}
@@ -57,6 +58,7 @@ public class Structure
 		{
 			if (identifier == 2 || identifier == 3) offset = 4; // offset building down if it has a basement
 			template.addBlocksToWorld(world, pos.down(offset), settings);
+			StructureHelper.handleDataBlocks(template, world, pos.down(offset), settings);
 			LootSlashConquer.LOGGER.info("Spawning structure: " + pos);
 		}
 	}

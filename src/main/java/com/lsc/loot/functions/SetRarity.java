@@ -47,7 +47,7 @@ public class SetRarity extends LootFunction
 		else if (this.rarity == 4) rarity = Rarity.EPIC;
 		else if (this.rarity == 5) rarity = Rarity.LEGENDARY;
 		
-		Rarity.setRarity(nbt, Rarity.getWeightedRarity(nbt, rand, rarity));
+		Rarity.setRarity(nbt, Rarity.getWeightedRarity(rand, rarity));
 		
 		stack.setTagCompound(nbt);
 		return stack;
