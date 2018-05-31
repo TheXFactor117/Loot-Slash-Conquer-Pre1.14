@@ -2,7 +2,7 @@ package com.lsc.entities;
 
 import java.util.Random;
 
-import com.lsc.capabilities.enemylevel.EnemyInfo;
+import com.lsc.capabilities.enemyinfo.EnemyInfo;
 import com.lsc.util.RandomCollection;
 
 import net.minecraft.util.text.TextFormatting;

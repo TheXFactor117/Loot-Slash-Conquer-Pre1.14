@@ -10,6 +10,7 @@ import com.lsc.loot.WeaponAttribute;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,7 +30,7 @@ import net.minecraft.world.World;
 public class WeaponHelper 
 {
 	/** Called to use the current stack's attributes. Called from LivingAttackEvent and projectiles. */
-	public static void useWeaponAttributes(float damage, EntityPlayer player, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)
+	public static void useWeaponAttributes(float damage, EntityLivingBase attacker, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)
 	{
 		if (WeaponAttribute.DURABLE.hasAttribute(nbt) && Math.random() < WeaponAttribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
 		if (WeaponAttribute.FIRE.hasAttribute(nbt)) 
@@ -64,7 +65,7 @@ public class WeaponHelper
 			enemy.attackEntityFrom(ModDamageSources.POISON, (float) WeaponAttribute.POISON.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 		}
-		if (WeaponAttribute.LIFE_STEAL.hasAttribute(nbt)) player.setHealth((float) (player.getHealth() + (damage * WeaponAttribute.LIFE_STEAL.getAmount(nbt))));
+		if (WeaponAttribute.LIFE_STEAL.hasAttribute(nbt)) attacker.setHealth((float) (attacker.getHealth() + (damage * WeaponAttribute.LIFE_STEAL.getAmount(nbt))));
 		if (WeaponAttribute.MANA_STEAL.hasAttribute(nbt))
 		{
 			Stats statsCap = (Stats) enemy.getCapability(CapabilityPlayerStats.STATS, null);
@@ -79,17 +80,23 @@ public class WeaponHelper
 		{
 			double radius = WeaponAttribute.CHAINED.getAmount(nbt);
 			World world = enemy.getEntityWorld();
-			List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(player.posX - radius, player.posY - radius, player.posZ - radius, player.posX + radius, player.posY + radius, player.posZ + radius));
+			List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(attacker.posX - radius, attacker.posY - radius, attacker.posZ - radius, attacker.posX + radius, attacker.posY + radius, attacker.posZ + radius));
 			Iterator<EntityLivingBase> iterator = entityList.iterator();
 			
 			while (iterator.hasNext())
 			{
                 Entity entity = (Entity) iterator.next();
 				
-				if (entity instanceof EntityLivingBase && !(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && !(entity instanceof EntitySlime))
+                // IF PLAYER IS THE ATTACKER
+				if (entity instanceof EntityLivingBase && attacker instanceof EntityPlayer && !(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && !(entity instanceof EntitySlime))
 				{
-					entity.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) (damage * 0.25));
+					entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), (float) (damage * 0.25));
 					entity.hurtResistantTime = 0;
+				}
+				// IF A MOB IS THE ATTACKER
+				else if (entity instanceof EntityPlayer && attacker instanceof EntityMob)
+				{
+					entity.attackEntityFrom(DamageSource.causeMobDamage(attacker), (float) (damage * 0.25));
 				}
 			}
 		}

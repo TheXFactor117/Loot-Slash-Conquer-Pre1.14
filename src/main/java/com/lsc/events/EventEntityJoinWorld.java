@@ -5,8 +5,8 @@ import java.util.UUID;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
-import com.lsc.capabilities.enemylevel.CapabilityEnemyInfo;
-import com.lsc.capabilities.enemylevel.EnemyInfo;
+import com.lsc.capabilities.enemyinfo.CapabilityEnemyInfo;
+import com.lsc.capabilities.enemyinfo.EnemyInfo;
 import com.lsc.entities.EnemyTier;
 
 import net.minecraft.entity.EntityLivingBase;

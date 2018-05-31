@@ -1,4 +1,4 @@
-package com.lsc.capabilities.enemylevel;
+package com.lsc.capabilities.enemyinfo;
 
 import javax.annotation.Nullable;
 
