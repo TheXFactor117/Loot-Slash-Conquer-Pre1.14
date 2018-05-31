@@ -1,6 +1,5 @@
 package com.lsc.events;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
 import com.lsc.capabilities.playerinfo.PlayerInformation;
 import com.lsc.items.base.ItemBauble;
@@ -70,7 +69,6 @@ public class EventContainerOpen
 		if (Rarity.getRarity(nbt) == Rarity.DEFAULT)
 		{
 			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, world.rand));
-			LootSlashConquer.LOGGER.info("Getting random rarity...");
 		}
 		
 		ItemGenerator.create(stack, nbt, world, level);

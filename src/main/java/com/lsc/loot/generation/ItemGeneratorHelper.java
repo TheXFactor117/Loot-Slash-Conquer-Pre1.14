@@ -98,7 +98,7 @@ public class ItemGeneratorHelper
 
 		for (int i = 0; i < amount; i++)
 		{
-			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemMagical)
+			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemBow || stack.getItem() instanceof ItemMagical)
 			{
 				WeaponAttribute attribute = WeaponAttribute.getRandomAttribute(rand); // generate random rarity.
 				

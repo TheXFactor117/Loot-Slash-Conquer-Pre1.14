@@ -1,6 +1,5 @@
 package com.lsc.loot.generation;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
 import com.lsc.items.base.ItemRanged;
@@ -35,8 +34,6 @@ public class ItemGenerator
 			}
 			else if (stack.getItem() instanceof ItemBow)
 			{
-				LootSlashConquer.LOGGER.info("Hello??");
-				
 				ItemGeneratorHelper.setTypes(stack, nbt);
 				nbt.setInteger("Level", level);
 				ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));

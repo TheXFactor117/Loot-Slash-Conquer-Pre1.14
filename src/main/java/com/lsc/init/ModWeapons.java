@@ -76,9 +76,9 @@ public class ModWeapons
 	
 	
 	// physical ranged
-	public static final Item GOLDEN_BOW = new ItemRanged("golden_bow", 4, 2, 100);
-	public static final Item IRON_BOW = new ItemRanged("iron_bow", 5, 2, 500);
-	public static final Item DIAMOND_BOW = new ItemRanged("diamond_bow", 6, 2, 1000);
+	public static final Item GOLDEN_BOW = new ItemRanged("golden_bow", 4, 0.25, 100);
+	public static final Item IRON_BOW = new ItemRanged("iron_bow", 5, 0.3, 500);
+	public static final Item DIAMOND_BOW = new ItemRanged("diamond_bow", 6, 0.4, 1000);
 	
 	
 	// magical ranged
