@@ -59,6 +59,7 @@ public class EntityAIIdleInvisible extends EntityAIBase
         this.entity.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20 * 5, 1, false, false));
     }
 	
+	@Override
 	public void updateTask()
     {
         --this.idleTime;
