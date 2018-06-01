@@ -177,4 +177,15 @@ public class EntityBarbarian extends EntityMonster
 		LootSlashConquer.LOGGER.info("Error setting Barbarian's random weapon...leaving null for now...");
 		return null;
 	}
+	
+	@Override
+	public void onDeath(DamageSource cause)
+    {
+		super.onDeath(cause);
+		
+		if (this.getHeldItemMainhand() != null)
+		{
+			this.entityDropItem(this.getHeldItemMainhand(), 0);
+		}
+    }
 }
