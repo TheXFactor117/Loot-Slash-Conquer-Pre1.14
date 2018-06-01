@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/blazefury",
+	"textures": {
+		"layer0": "lsc:items/blazefury_charged"
+	}
+}

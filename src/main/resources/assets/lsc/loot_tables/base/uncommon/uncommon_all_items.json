@@ -1,0 +1,70 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/daggers",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/swords",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/maces",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/wands",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/staffs",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/helmets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/chestplates",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/leggings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/boots",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/amulets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/rings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/uncommon/specific/belts",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

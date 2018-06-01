@@ -1,6 +1,0 @@
-{
-	"parent": "lootslashconquer:item/gaze_of_truth",
-	"textures": {
-		"layer0": "lootslashconquer:items/gaze_of_truth_charged"
-	}
-}

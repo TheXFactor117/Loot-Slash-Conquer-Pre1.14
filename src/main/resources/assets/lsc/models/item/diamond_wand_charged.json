@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/diamond_wand",
+	"textures": {
+		"layer0": "lsc:items/diamond_wand_charged"
+	}
+}

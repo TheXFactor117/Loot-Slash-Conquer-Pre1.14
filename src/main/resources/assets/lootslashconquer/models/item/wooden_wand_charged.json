@@ -1,6 +1,0 @@
-{
-	"parent": "lootslashconquer:item/wooden_wand",
-	"textures": {
-		"layer0": "lootslashconquer:items/wooden_wand_charged"
-	}
-}

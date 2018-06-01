@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/moonlit_rod",
+	"textures": {
+		"layer0": "lsc:items/moonlit_rod_charged"
+	}
+}

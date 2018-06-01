@@ -1,6 +1,0 @@
-{
-	"parent": "lootslashconquer:item/visage_of_wizardry",
-	"textures": {
-		"layer0": "lootslashconquer:items/visage_of_wizardry_charged"
-	}
-}

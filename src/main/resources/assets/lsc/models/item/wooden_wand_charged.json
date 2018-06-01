@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/wooden_wand",
+	"textures": {
+		"layer0": "lsc:items/wooden_wand_charged"
+	}
+}

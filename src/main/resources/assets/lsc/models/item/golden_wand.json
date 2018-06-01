@@ -1,0 +1,14 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "lsc:items/golden_wand"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"charged": 1
+			},
+			"model": "lsc:item/golden_wand_charged"
+		}
+	]
+}

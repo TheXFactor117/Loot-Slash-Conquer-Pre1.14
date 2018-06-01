@@ -1,0 +1,14 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "lsc:items/blazefury"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"charged": 1
+			},
+			"model": "lsc:item/blazefury_charged"
+		}
+	]
+}
