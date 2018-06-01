@@ -3,6 +3,7 @@ package com.lsc.proxies;
 import org.lwjgl.input.Keyboard;
 
 import com.lsc.client.events.EventRenderOverlayText;
+import com.lsc.client.events.EventRenderPlayer;
 import com.lsc.client.gui.GuiHealth;
 import com.lsc.client.gui.GuiMana;
 import com.lsc.client.init.ModItemModels;
@@ -34,6 +35,7 @@ public class ClientProxy extends ServerProxy
 		MinecraftForge.EVENT_BUS.register(new EventRenderOverlayText());
 		MinecraftForge.EVENT_BUS.register(new EventInput());
 		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
+		MinecraftForge.EVENT_BUS.register(new EventRenderPlayer());
 	}
 	
 	@Override

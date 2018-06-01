@@ -46,7 +46,7 @@ public class ItemInvisibilityScroll extends ItemBase
 		{
 			if (!world.isRemote && stats.getMana() >= 10)
 			{
-				player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20*10, 1));
+				player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20*10, 1, false, false));
 				stack.shrink(1);
 				stats.decreaseMana(10);
 			}
