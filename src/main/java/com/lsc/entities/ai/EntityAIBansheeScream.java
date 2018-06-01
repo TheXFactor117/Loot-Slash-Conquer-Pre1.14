@@ -1,0 +1,65 @@
+package com.lsc.entities.ai;
+
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
+
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+public class EntityAIBansheeScream extends EntityAIBase
+{
+	private EntityLiving banshee;
+	
+	public EntityAIBansheeScream(EntityLiving banshee)
+	{
+		this.banshee = banshee;
+	}
+	
+	@Override
+	public boolean shouldExecute() 
+	{
+		EntityLivingBase enemy = this.banshee.getAttackTarget();
+
+        if (enemy == null)
+        {
+            return false;
+        }
+        else if (!enemy.isEntityAlive())
+        {
+            return false;
+        }
+        else
+        {
+            return !(enemy instanceof EntityPlayer) || !((EntityPlayer) enemy).isSpectator() && !((EntityPlayer) enemy).isCreative();
+        }
+	}
+	
+	@Override
+	public boolean shouldContinueExecuting()
+	{
+		return false;
+	}
+	
+	@Override
+	public void startExecuting()
+	{
+		// play banshee scream sound
+		
+		if (this.banshee.getAttackTarget() != null && this.banshee.getAttackTarget() instanceof EntityPlayer)
+		{
+			EntityPlayer player = (EntityPlayer) this.banshee.getAttackTarget();
+			double damage = this.banshee.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() / 4.0;
+			player.attackEntityFrom(DamageSource.causeMobDamage(this.banshee), (float) damage);
+			player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 2, 3));
+			player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 20 * 5, 1));
+		}
+	}
+}
