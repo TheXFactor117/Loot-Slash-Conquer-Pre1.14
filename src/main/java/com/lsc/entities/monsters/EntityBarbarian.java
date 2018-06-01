@@ -2,14 +2,14 @@ package com.lsc.entities.monsters;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.enemyinfo.CapabilityEnemyInfo;
 import com.lsc.capabilities.enemyinfo.EnemyInfo;
 import com.lsc.entities.EntityMonster;
 import com.lsc.loot.NameGenerator;
 import com.lsc.loot.generation.ItemGenerator;
-import com.lsc.loot.table.CustomLootContext;
-import com.lsc.loot.table.CustomLootTable;
 import com.lsc.player.WeaponHelper;
 import com.lsc.util.NBTHelper;
 import com.lsc.util.Reference;
@@ -17,6 +17,7 @@ import com.lsc.util.Reference;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -34,6 +35,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootContext;
+import net.minecraft.world.storage.loot.LootTable;
 
 /**
  * 
@@ -46,6 +49,7 @@ public class EntityBarbarian extends EntityMonster
 	{
 		super(world);
 		this.setSize(1.0F, 2.0F);
+		this.initEntityAI();
 	}
 	
 	@Override
@@ -74,20 +78,24 @@ public class EntityBarbarian extends EntityMonster
 	}
 
 	@Override
-	public boolean attackEntityAsMob(Entity enemy)
+	public boolean attackEntityAsMob(Entity entity)
     {
 		ItemStack stack = this.getHeldItemMainhand();
 		
-		if (stack != null)
+		if (stack != null && entity instanceof EntityPlayer)
 		{
+			EntityPlayer enemy = (EntityPlayer) entity;
 			// damage enemy based on weapon's damage
 			NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 			double damage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
 			
 			boolean hasAttacked = enemy.attackEntityFrom(DamageSource.causeMobDamage(this), (float) damage);
+			LootSlashConquer.LOGGER.info("Damaging..." + damage);
 			
-			if (hasAttacked && enemy instanceof EntityLivingBase)
+			if (hasAttacked)
 			{
+				LootSlashConquer.LOGGER.info("Have we damaged?");
+				
 				// apply attributes from weapon
 				WeaponHelper.useWeaponAttributes((float) damage, this, (EntityLivingBase) enemy, stack, nbt);
 				
@@ -116,6 +124,7 @@ public class EntityBarbarian extends EntityMonster
 	@Override
 	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
 	{
+		LootSlashConquer.LOGGER.info("Setting equipment...");
 		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getRandomWeapon());
 	}
 	
@@ -129,37 +138,37 @@ public class EntityBarbarian extends EntityMonster
 		
 		if (enemyInfo != null)
 		{
-			CustomLootContext context = new CustomLootContext.Builder(this.getServer().getWorld(this.dimension)).withChestPos(this.getPosition()).build();
+			LootContext context = new LootContext.Builder(this.getServer().getWorld(this.dimension)).withLootedEntity(this).build();
 			ItemStack stack = null;
 			
 			// set loot table dependent on tier
 			if (enemyInfo.getEnemyTier() == 1) // normal
 			{			
-				CustomLootTable commonTable = (CustomLootTable) this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/common/common_physical_weapons"));
+				LootTable commonTable = this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/common/common_physical_weapons"));
 				List<ItemStack> items = commonTable.generateLootForPools(this.rand, context);
 				stack = items.get(0);
 			}
 			else if (enemyInfo.getEnemyTier() == 2) // hardened
 			{
-				CustomLootTable uncommonTable = (CustomLootTable) this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/uncommon/uncommon_physical_weapons"));
+				LootTable uncommonTable = this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/uncommon/uncommon_physical_weapons"));
 				List<ItemStack> items = uncommonTable.generateLootForPools(this.rand, context);
 				stack = items.get(0);
 			}
 			else if (enemyInfo.getEnemyTier() == 3) // superior
 			{
-				CustomLootTable rareTable = (CustomLootTable) this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/rare/rare_physical_weapons"));
+				LootTable rareTable = this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/rare/rare_physical_weapons"));
 				List<ItemStack> items = rareTable.generateLootForPools(this.rand, context);
 				stack = items.get(0);
 			}
 			else if (enemyInfo.getEnemyTier() == 4) // elite
 			{
-				CustomLootTable epicTable = (CustomLootTable) this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/epic/epic_physical_weapons"));
+				LootTable epicTable = this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/epic/epic_physical_weapons"));
 				List<ItemStack> items = epicTable.generateLootForPools(this.rand, context);
 				stack = items.get(0);
 			}
 			else if (enemyInfo.getEnemyTier() == 5) // legendary
 			{
-				CustomLootTable legendaryTable = (CustomLootTable) this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/legendary/legendary_physical_weapons"));
+				LootTable legendaryTable = this.world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "base/legendary/legendary_physical_weapons"));
 				List<ItemStack> items = legendaryTable.generateLootForPools(this.rand, context);
 				stack = items.get(0);
 			}
@@ -174,16 +183,23 @@ public class EntityBarbarian extends EntityMonster
 			}
 		}
 		
-		LootSlashConquer.LOGGER.info("Error setting Barbarian's random weapon...leaving null for now...");
 		return null;
 	}
+	
+	@Nullable
+    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
+    {
+		this.setEquipmentBasedOnDifficulty(difficulty);
+		
+		return super.onInitialSpawn(difficulty, livingdata);
+    }
 	
 	@Override
 	public void onDeath(DamageSource cause)
     {
 		super.onDeath(cause);
 		
-		if (this.getHeldItemMainhand() != null)
+		if (!this.world.isRemote && this.getHeldItemMainhand() != null)
 		{
 			this.entityDropItem(this.getHeldItemMainhand(), 0);
 		}

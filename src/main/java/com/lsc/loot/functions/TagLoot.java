@@ -5,6 +5,7 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
+import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.chunk.CapabilityChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevel;
 import com.lsc.capabilities.chunk.IChunkLevelHolder;
@@ -61,19 +62,26 @@ public class TagLoot extends LootFunction
 				stack.setTagCompound(nbt);
 				return stack;
 			}
-			// coming from mob drop
-			else 
-			{
-				EntityLivingBase entity = (EntityLivingBase) customContext.getLootedEntity();
-				EnemyInfo enemyLevel = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
-				
-				nbt.setInteger("TagLevel", enemyLevel.getEnemyLevel());
-				
-				stack.setTagCompound(nbt);
-				return stack;
-			}
+		}
+		// coming from mob drop
+		else 
+		{
+			NBTTagCompound nbt;
+
+			if (!stack.hasTagCompound()) nbt = new NBTTagCompound();
+			else nbt = stack.getTagCompound();
+			
+			EntityLivingBase entity = (EntityLivingBase) context.getLootedEntity();
+			EnemyInfo enemyLevel = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
+			
+			LootSlashConquer.LOGGER.info("Setting TagLevel...");
+			nbt.setInteger("TagLevel", enemyLevel.getEnemyLevel());
+			
+			stack.setTagCompound(nbt);
+			return stack;
 		}
 		
+		LootSlashConquer.LOGGER.info("Error setting TagLevel...");
 		return stack;
 	}
 	
