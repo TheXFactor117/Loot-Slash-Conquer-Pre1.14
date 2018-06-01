@@ -5,6 +5,7 @@ import com.lsc.entities.monsters.EntityBandit;
 import com.lsc.entities.monsters.EntityBanshee;
 import com.lsc.entities.monsters.EntityBarbarian;
 import com.lsc.entities.monsters.EntityGhost;
+import com.lsc.entities.monsters.EntityGolem;
 import com.lsc.entities.monsters.EntityMummy;
 import com.lsc.entities.projectiles.EntityFireball;
 import com.lsc.entities.projectiles.EntityIcebolt;
@@ -37,6 +38,7 @@ public class ModEntities
 		registerModEntity(EntityMummy.class, "entityMummy");
 		registerModEntity(EntityBandit.class, "entityBandit");
 		registerModEntity(EntityBanshee.class, "entityBanshee");
+		registerModEntity(EntityGolem.class, "entityGolem");
 	}
 	
 	private static void registerModProjectile(Class<? extends Entity> entityClass, String name)

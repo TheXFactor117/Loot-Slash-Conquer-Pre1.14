@@ -1,5 +1,8 @@
 package com.lsc.entities.ai;
 
+import com.lsc.LootSlashConquer;
+import com.lsc.entities.monsters.EntityBanshee;
+
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -38,7 +41,14 @@ public class EntityAIBansheeScream extends EntityAIBase
         }
         else
         {
-            return !(enemy instanceof EntityPlayer) || !((EntityPlayer) enemy).isSpectator() && !((EntityPlayer) enemy).isCreative();
+        	if (Math.random() < 0.01 && this.banshee instanceof EntityBanshee && ((EntityBanshee) this.banshee).canScream())
+        	{
+        		return !(enemy instanceof EntityPlayer) || !((EntityPlayer) enemy).isSpectator() && !((EntityPlayer) enemy).isCreative();
+        	}
+        	else
+        	{
+        		return false;
+        	}
         }
 	}
 	
@@ -53,13 +63,21 @@ public class EntityAIBansheeScream extends EntityAIBase
 	{
 		// play banshee scream sound
 		
+		LootSlashConquer.LOGGER.info("Screaming...");
+		
 		if (this.banshee.getAttackTarget() != null && this.banshee.getAttackTarget() instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) this.banshee.getAttackTarget();
 			double damage = this.banshee.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() / 4.0;
-			player.attackEntityFrom(DamageSource.causeMobDamage(this.banshee), (float) damage);
-			player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 2, 3));
-			player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 20 * 5, 1));
+			
+			if (player.attackEntityFrom(DamageSource.causeMobDamage(this.banshee), (float) damage))
+			{
+				player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 2, 3));
+				player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 20 * 5, 1));
+				
+				((EntityBanshee) this.banshee).setCanScream(false);
+				((EntityBanshee) this.banshee).resetTicksSinceScream();
+			}
 		}
 	}
 }

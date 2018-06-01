@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
+import com.lsc.LootSlashConquer;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -23,6 +24,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.scoreboard.Team;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.math.AxisAlignedBB;
 
@@ -39,6 +41,7 @@ public class EntityAINearestAttackableTargetInvisible<T extends EntityLivingBase
     protected final EntityAINearestAttackableTargetInvisible.Sorter sorter;
     protected final Predicate <? super T > targetEntitySelector;
     protected T targetEntity;
+    private int targetUnseenTicks;
     private int ticksSinceInvisible = 0;
 
     public EntityAINearestAttackableTargetInvisible(EntityCreature creature, Class<T> classTarget, boolean checkSight)
@@ -80,15 +83,15 @@ public class EntityAINearestAttackableTargetInvisible<T extends EntityLivingBase
     
     @Override
     public void updateTask()
-    {
+    {    	
     	if (!taskOwner.isPotionActive(MobEffects.INVISIBILITY))
     	{
-    		++ticksSinceInvisible;
+    		ticksSinceInvisible++;
     		
-    		if (ticksSinceInvisible > 20 * ((int) (Math.random() * 5) + 5))
+    		if (ticksSinceInvisible > 20 + ((int) (Math.random() * 5) + 5))
     		{
-    			this.taskOwner.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20 * 5, 1, false, false));
     			ticksSinceInvisible = 0;
+    			this.taskOwner.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20 * 5, 1, false, true));
     		}
     	}
     }
@@ -152,6 +155,72 @@ public class EntityAINearestAttackableTargetInvisible<T extends EntityLivingBase
             return this.targetEntity != null;
         }
     }
+	
+	/**
+     * Returns whether an in-progress EntityAIBase should continue executing
+     */
+    public boolean shouldContinueExecuting()
+    {
+        EntityLivingBase entitylivingbase = this.taskOwner.getAttackTarget();
+
+        if (entitylivingbase == null)
+        {
+            entitylivingbase = this.target;
+        }
+
+        if (entitylivingbase == null)
+        {
+            return false;
+        }
+        else if (!entitylivingbase.isEntityAlive())
+        {
+            return false;
+        }
+        else
+        {
+            Team team = this.taskOwner.getTeam();
+            Team team1 = entitylivingbase.getTeam();
+
+            if (team != null && team1 == team)
+            {
+                return false;
+            }
+            else
+            {
+                double d0 = this.getTargetDistance();
+
+                if (this.taskOwner.getDistanceSq(entitylivingbase) > d0 * d0)
+                {
+                    return false;
+                }
+                else
+                {
+                    if (this.shouldCheckSight)
+                    {
+                        if (this.taskOwner.getEntitySenses().canSee(entitylivingbase))
+                        {
+                            this.targetUnseenTicks = 0;
+                        }
+                        else if (++this.targetUnseenTicks > this.unseenMemoryTicks)
+                        {
+                            return false;
+                        }
+                    }
+
+                    if (entitylivingbase instanceof EntityPlayer && ((EntityPlayer)entitylivingbase).capabilities.disableDamage)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                    	this.updateTask();
+                        this.taskOwner.setAttackTarget(entitylivingbase);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
 
     protected AxisAlignedBB getTargetableArea(double targetDistance)
     {
@@ -163,7 +232,7 @@ public class EntityAINearestAttackableTargetInvisible<T extends EntityLivingBase
      */
     public void startExecuting()
     {
-    	this.taskOwner.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20 * 5, 1, false, false));
+    	this.taskOwner.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20 * 5, 1, false, true));
         this.taskOwner.setAttackTarget(this.targetEntity);
         super.startExecuting();
     }

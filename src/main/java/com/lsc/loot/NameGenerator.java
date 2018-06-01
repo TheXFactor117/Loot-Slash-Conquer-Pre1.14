@@ -140,7 +140,7 @@ public class NameGenerator
 	/** Reads the given file. Searches the file for the property passed in, and stores all of those properties into a list. Randomly return one of the properties. */
 	private static String readNameFile(String filePath, String property) throws IOException
 	{
-		InputStreamReader in = new InputStreamReader(NameGenerator.class.getClassLoader().getResourceAsStream("assets/lootslashconquer/names/" + filePath + ".txt"), "UTF-8");
+		InputStreamReader in = new InputStreamReader(NameGenerator.class.getClassLoader().getResourceAsStream("assets/lsc/names/" + filePath + ".txt"), "UTF-8");
 		Properties props = new Properties();
 		props.load(in);
 		Enumeration<?> e = props.propertyNames();

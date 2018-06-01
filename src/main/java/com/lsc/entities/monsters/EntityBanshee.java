@@ -22,7 +22,10 @@ import net.minecraft.world.World;
  *
  */
 public class EntityBanshee extends EntityMonster
-{
+{	
+	private int ticksSinceScream = 0;
+	private boolean canScream = false;
+	
 	public EntityBanshee(World world)
 	{
 		super(world);
@@ -34,9 +37,9 @@ public class EntityBanshee extends EntityMonster
 	{
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
-		this.tasks.addTask(2, new EntityAIBansheeScream(this));
-		this.tasks.addTask(3, new EntityAIWanderAvoidWater(this, 1.0D));
-		this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(2, new EntityAIWanderAvoidWater(this, 1.0D));
+		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(4, new EntityAIBansheeScream(this));
 		this.tasks.addTask(5, new EntityAIIdleInvisible(this));
 		this.targetTasks.addTask(0, new EntityAIHurtByTarget(this, false));
 		this.targetTasks.addTask(1, new EntityAINearestAttackableTargetInvisible<EntityPlayer>(this, EntityPlayer.class, false));
@@ -59,4 +62,40 @@ public class EntityBanshee extends EntityMonster
     {
 		return !this.isPotionActive(MobEffects.INVISIBILITY) && super.attackEntityFrom(source, amount);
     }
+	
+	@Override
+	public void onLivingUpdate()
+	{
+		super.onLivingUpdate();
+		
+		if (!this.world.isRemote && !canScream)
+		{
+			ticksSinceScream++;
+			
+			if (ticksSinceScream > 20 * (int) ((Math.random() * 10) + (Math.random() * 5)))
+			{
+				canScream = true;
+			}
+		}
+	}
+	
+	public void setCanScream(boolean canScream)
+	{
+		this.canScream = canScream;
+	}
+	
+	public void resetTicksSinceScream()
+	{
+		this.ticksSinceScream = 0;
+	}
+	
+	public boolean canScream()
+	{
+		return this.canScream;
+	}
+	
+	public int getTicksSinceScream()
+	{
+		return this.ticksSinceScream;
+	}
 }

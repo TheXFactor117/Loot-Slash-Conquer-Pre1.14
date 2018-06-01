@@ -7,6 +7,7 @@ import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
 import com.lsc.capabilities.playerstats.Stats;
 import com.lsc.network.PacketUpdatePlayerInformation;
 import com.lsc.network.PacketUpdateStats;
+import com.lsc.player.PlayerStatHelper;
 import com.lsc.util.CapabilityUtils;
 import com.lsc.util.Reference;
 import com.lsc.util.SimpleCapabilityProvider;
@@ -170,6 +171,10 @@ public class CapabilityPlayerInformation
 				
 				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
 				LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
+				PlayerStatHelper.updateAttributes(event.player);
+				
+				LootSlashConquer.LOGGER.info("Max health: " + event.player.getMaxHealth());
+				event.player.setHealth(event.player.getMaxHealth());
 			}
 		}
 	}
