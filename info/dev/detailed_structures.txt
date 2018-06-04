@@ -5,3 +5,7 @@ abandoned_house_1	short roof, no basement, no chests, no spawners
 abandoned_house_2	long roof, basement, 2 common chests, common 1 spawner
 abandoned_house_3	short roof, basement, 1 common chest, common 1 spawner
 abandoned_house_4	long roof, no basement, 1 common chest, no spawners
+
+# Shrines
+shrine_1		dome, basement, 1 common chest, 1 uncommon_chest, 1 uncommon_spawner
+shrine_2		pillars, no basement, 2 common chests, no spawners

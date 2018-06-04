@@ -24,10 +24,11 @@ public class EventLoadLootTable
 	@SubscribeEvent
 	public void onLootTableLoad(LootTableLoadEvent event)
 	{	
-		if (event.getName() == ModLootTables.common_chest)
-		{
-			event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		}
+		if (event.getName() == ModLootTables.common_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.uncommon_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.rare_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.epic_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.legendary_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		
 		changeVanillaTables(event);
 	}

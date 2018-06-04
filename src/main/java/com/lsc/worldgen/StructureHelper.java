@@ -47,7 +47,7 @@ public class StructureHelper
 		boolean corner4 = isCornerValid(world, posAboveGround.add(0, 0, zwidth));
 		
 		// if Y > 60 and all corners pass the test, it's okay to spawn the structure
-		return posAboveGround.getY() > 60 && corner1 && corner2 && corner3 && corner4;
+		return posAboveGround.getY() > 63 && corner1 && corner2 && corner3 && corner4;
 	}
 	
 	public static boolean isCornerValid(World world, BlockPos pos)

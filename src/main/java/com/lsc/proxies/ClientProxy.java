@@ -7,12 +7,23 @@ import com.lsc.client.events.EventRenderPlayer;
 import com.lsc.client.gui.GuiHealth;
 import com.lsc.client.gui.GuiMana;
 import com.lsc.client.init.ModItemModels;
+import com.lsc.client.render.RenderBanshee;
+import com.lsc.client.render.RenderBarbarian;
+import com.lsc.client.render.RenderGhost;
+import com.lsc.client.render.RenderGolem;
+import com.lsc.client.render.RenderMummy;
+import com.lsc.entities.monsters.EntityBanshee;
+import com.lsc.entities.monsters.EntityBarbarian;
+import com.lsc.entities.monsters.EntityGhost;
+import com.lsc.entities.monsters.EntityGolem;
+import com.lsc.entities.monsters.EntityMummy;
 import com.lsc.events.EventInput;
 import com.lsc.events.EventItemTooltip;
 
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -36,6 +47,8 @@ public class ClientProxy extends ServerProxy
 		MinecraftForge.EVENT_BUS.register(new EventInput());
 		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
 		MinecraftForge.EVENT_BUS.register(new EventRenderPlayer());
+		
+		registerRenderers();
 	}
 	
 	@Override
@@ -50,5 +63,14 @@ public class ClientProxy extends ServerProxy
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		
+	}
+	
+	private static void registerRenderers()
+	{
+		RenderingRegistry.registerEntityRenderingHandler(EntityBanshee.class, RenderBanshee::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityBarbarian.class, RenderBarbarian::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityGhost.class, RenderGhost::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityGolem.class, RenderGolem::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, RenderMummy::new);
 	}
 }

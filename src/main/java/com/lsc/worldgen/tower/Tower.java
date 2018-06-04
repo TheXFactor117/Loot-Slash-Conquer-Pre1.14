@@ -1,5 +1,11 @@
 package com.lsc.worldgen.tower;
 
-public class Tower {
-
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+public class Tower 
+{
+	
 }

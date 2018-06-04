@@ -2,13 +2,19 @@ package com.lsc.worldgen;
 
 import java.util.Random;
 
+import com.lsc.LootSlashConquer;
+import com.lsc.util.Reference;
+
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.structure.template.PlacementSettings;
+import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
@@ -19,41 +25,50 @@ import net.minecraftforge.fml.common.IWorldGenerator;
  */
 public class LSCWorldGenerator implements IWorldGenerator
 {
+	
+	
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) 
 	{
-		int blockX = chunkX * 16;
-		int blockZ = chunkZ * 16;
-		
 		switch (world.provider.getDimension())
 		{
 			case -1: 
-				generateNether(world, rand, blockX + 8, blockZ + 8);
+				generateNether(world, rand, chunkX, chunkZ);
 				break;
 			case 0: 
-				generateOverworld(world, rand, blockX + 8, blockZ + 8);
+				generateOverworld(world, rand, chunkX, chunkZ);
 				break;
 			case 1: 
-				generateEnd(world, rand, blockX + 8, blockZ + 8);
+				generateEnd(world, rand, chunkX, chunkZ);
 				break;
 		}
 	}
 	
-	private void generateOverworld(World world, Random rand, int blockX, int blockZ)
+	private void generateOverworld(World world, Random rand, int chunkX, int chunkZ)
 	{	
+		int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
+		int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
+		
 		WorldServer server = (WorldServer) world;
 		TemplateManager manager = server.getStructureTemplateManager();
+
+		Template test = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "abandoned_house_1"));
 		
-		Structure randomHouse = new Structure("abandoned_house_", blockX, blockZ, manager);
-		
-		// Abandoned Houses
-		if ((int) (Math.random() * 200) == 0)
+		if ((int) (Math.random() * 150) == 0)
 		{
-			int amount = 4; // total amount of abandoned house variations
-			int randomIdentifier = (int) (Math.random() * amount) + 1;
-			
-			randomHouse.generateRandomHouse(world, randomIdentifier);
-		}
+			if (world.isChunkGeneratedAt(chunkX-1, chunkZ) && world.isChunkGeneratedAt(chunkX, chunkZ-1) && world.isChunkGeneratedAt(chunkX+1, chunkZ-1)
+					&& world.isChunkGeneratedAt(chunkX+2, chunkZ) && world.isChunkGeneratedAt(chunkX+2, chunkZ+1) && world.isChunkGeneratedAt(chunkX+1, chunkZ+2)
+					&& world.isChunkGeneratedAt(chunkX, chunkZ+2) && world.isChunkGeneratedAt(chunkX-1, chunkZ+1))
+			{
+				test.addBlocksToWorld(world, new BlockPos(blockX, StructureHelper.getGroundFromAbove(world, blockX, blockZ), blockZ), new PlacementSettings());
+				LootSlashConquer.LOGGER.info("Generating test structure...all chunks are loaded!");		
+			}
+			else
+			{
+				
+				LootSlashConquer.LOGGER.info("Canceling generation because some chunks have not been generated...");
+			}
+		}		
 	}
 	
 	private void generateNether(World world, Random rand, int chunkX, int chunkZ) {}

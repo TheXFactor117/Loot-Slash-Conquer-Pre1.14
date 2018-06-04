@@ -23,7 +23,7 @@ public class EntityAIMummyGaze extends EntityAIBase
 	public EntityAIMummyGaze(EntityLiving mummy)
 	{
 		this.mummy = mummy;
-		this.setMutexBits(7);
+		this.setMutexBits(8);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class EntityAIMummyGaze extends EntityAIBase
 		
 		if (enemy != null)
 		{
-			if (mummy.getDistance(enemy) < 20);
+			if (mummy.getDistance(enemy) < 20 && Math.random() < 0.05);
 			{
 				return true;
 			}
@@ -93,5 +93,12 @@ public class EntityAIMummyGaze extends EntityAIBase
 				}
 			}
 		}
+	}
+	
+	@Override
+	public void resetTask()
+	{
+		ticksGazing = 0;
+		gazeSuccessful = false;
 	}
 }
