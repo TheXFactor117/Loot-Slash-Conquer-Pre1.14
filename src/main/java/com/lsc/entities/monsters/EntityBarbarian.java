@@ -76,6 +76,16 @@ public class EntityBarbarian extends EntityMonster
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0);
 	}
+	
+	@Override
+	public void onLivingUpdate()
+	{
+		if (!this.world.isRemote && this.getHeldItemMainhand() == null)
+		{
+			LootSlashConquer.LOGGER.info("Setting equipment...");
+			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getRandomWeapon());
+		}
+	}
 
 	@Override
 	public boolean attackEntityAsMob(Entity entity)
@@ -124,8 +134,11 @@ public class EntityBarbarian extends EntityMonster
 	@Override
 	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
 	{
-		LootSlashConquer.LOGGER.info("Setting equipment...");
-		this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getRandomWeapon());
+		if (this.hasCapability(CapabilityEnemyInfo.ENEMY_INFO, null))
+		{
+			LootSlashConquer.LOGGER.info("Setting equipment...");
+			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getRandomWeapon());
+		}
 	}
 	
 	/**
@@ -140,6 +153,8 @@ public class EntityBarbarian extends EntityMonster
 		{
 			LootContext context = new LootContext.Builder(this.getServer().getWorld(this.dimension)).withLootedEntity(this).build();
 			ItemStack stack = null;
+			
+			LootSlashConquer.LOGGER.info("WERE INSIDE!");
 			
 			// set loot table dependent on tier
 			if (enemyInfo.getEnemyTier() == 1) // normal
@@ -189,7 +204,10 @@ public class EntityBarbarian extends EntityMonster
 	@Nullable
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
     {
-		this.setEquipmentBasedOnDifficulty(difficulty);
+		if (!this.world.isRemote)
+		{
+			//this.setEquipmentBasedOnDifficulty(difficulty);
+		}
 		
 		return super.onInitialSpawn(difficulty, livingdata);
     }

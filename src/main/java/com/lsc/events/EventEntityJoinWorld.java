@@ -8,12 +8,14 @@ import com.lsc.capabilities.chunk.IChunkLevelHolder;
 import com.lsc.capabilities.enemyinfo.CapabilityEnemyInfo;
 import com.lsc.capabilities.enemyinfo.EnemyInfo;
 import com.lsc.entities.EnemyTier;
+import com.lsc.entities.EntityMonster;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -30,9 +32,14 @@ public class EventEntityJoinWorld
 	
 	@SubscribeEvent
 	public void onEntityJoinWorld(EntityJoinWorldEvent event)
-	{
-		if (event.getEntity() instanceof EntityLivingBase && !(event.getEntity() instanceof EntityPlayer))
+	{	
+		if (event.getWorld().getDifficulty() == EnumDifficulty.PEACEFUL && event.getEntity() instanceof EntityMonster)
 		{
+			event.setCanceled(true);
+		}
+		
+		if (event.getEntity() instanceof EntityLivingBase && !(event.getEntity() instanceof EntityPlayer))
+		{	
 			EntityLivingBase entity = (EntityLivingBase) event.getEntity();
 			World world = entity.getEntityWorld();
 			EnemyInfo info = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
