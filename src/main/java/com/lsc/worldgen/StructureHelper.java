@@ -10,6 +10,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
@@ -58,6 +59,35 @@ public class StructureHelper
 		if (highestBlock > pos.getY() - variation && highestBlock < pos.getY() + variation) return true;
 				
 		return false;
+	}
+	
+	/** Translates the given BlockPos to the corner of the structure for spawning. */
+	public static BlockPos translateToCorner(Template template, BlockPos originalPos, Rotation rotation)
+	{
+		int x = originalPos.getX();
+		int z = originalPos.getZ();
+		
+		switch (rotation)
+		{
+			case NONE:
+				x -= template.getSize().getX() / 2;
+				z -= template.getSize().getZ() / 2;
+				break;
+			case CLOCKWISE_90:
+				x += template.getSize().getZ() / 2;
+				z -= template.getSize().getX() / 2;
+				break;
+			case CLOCKWISE_180:
+				x += template.getSize().getX() / 2;
+				z += template.getSize().getZ() / 2;
+				break;
+			case COUNTERCLOCKWISE_90:
+				x -= template.getSize().getZ() / 2;
+				z += template.getSize().getX() / 2;
+				break;
+		}
+		
+		return new BlockPos(x, originalPos.getY(), z);
 	}
 	
 	/**
