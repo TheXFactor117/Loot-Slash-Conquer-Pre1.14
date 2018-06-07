@@ -2,26 +2,25 @@ package com.lsc.worldgen.tower;
 
 import java.util.Random;
 
+import com.lsc.LootSlashConquer;
 import com.lsc.worldgen.StructureHelper;
 
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
-import net.minecraftforge.fml.common.IWorldGenerator;
 
 /**
  * 
  * @author TheXFactor117
  *
  */
-public class Tower implements IWorldGenerator
+public class Tower
 {
 	protected int towerHeight; // min height of 3, max height of 6
 	protected int towerDepth; // min depth of 1, max depth 3
+	protected static final int floorHeight = 7; // y-size of the floor structure
 	
 	public Tower()
 	{
@@ -29,8 +28,14 @@ public class Tower implements IWorldGenerator
 		this.towerDepth = (int) (Math.random() * 3) + 1;
 	}
 	
-	@Override
-	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
+	/**
+	 * Starts the generation process.
+	 * @param rand
+	 * @param chunkX
+	 * @param chunkZ
+	 * @param world
+	 */
+	public void generate(Random rand, int chunkX, int chunkZ, World world)
 	{		
 		int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
 		int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
@@ -39,13 +44,34 @@ public class Tower implements IWorldGenerator
 		
 		if ((int) (Math.random() * 300) == 0 && generateEntrance(world, pos))
 		{
-			handleGeneration(world);
+			handleGeneration(world, pos);
 		}
 	}
 	
-	private void handleGeneration(World world)
+	/**
+	 * Handles the positioning of different floor pieces, as well as the structure building up and down.
+	 * @param world
+	 * @param center
+	 */
+	private void handleGeneration(World world, BlockPos center)
 	{
+		LootSlashConquer.LOGGER.info("Tower Spawning: Generating top half...");
 		
+		// top half
+		for (int i = 1; i <= towerHeight; i++)
+		{
+			BlockPos floorCenter = center.up(floorHeight * i);
+			generateFloor(world, floorCenter);
+		}
+		
+		LootSlashConquer.LOGGER.info("Tower Spawning: Generating bottom half...");
+		
+		// bottom half
+		for (int j = 1; j <= towerHeight; j++)
+		{
+			BlockPos floorCenter = center.down(floorHeight * j);
+			generateFloor(world, floorCenter);
+		}
 	}
 	
 	/**
@@ -54,24 +80,34 @@ public class Tower implements IWorldGenerator
 	 * @param pos
 	 * @return
 	 */
-	private boolean generateEntrance(World world, BlockPos pos)
+	private boolean generateEntrance(World world, BlockPos center)
 	{
 		Template entrance = TowerHelper.getRandomEntrance(world);
+		PlacementSettings settings = new PlacementSettings().setRotation(Rotation.values()[(int) (Math.random() * 4)]);
+		// translate the center position to the corner for proper spawning. Use spawnPos when dealing with the placement of the structure.
+		BlockPos spawnPos = StructureHelper.translateToCorner(entrance, center, settings.getRotation());
 		
-		if (StructureHelper.canSpawnHere(entrance, world, pos))
+		if (StructureHelper.canSpawnHere(entrance, world, spawnPos))
 		{
-			PlacementSettings settings = new PlacementSettings().setRotation(Rotation.values()[(int) (Math.random() * 4)]);
-			entrance.addBlocksToWorld(world, pos, settings);
-			StructureHelper.handleDataBlocks(entrance, world, pos, settings);
-			
+			entrance.addBlocksToWorld(world, spawnPos, settings);
+			StructureHelper.handleDataBlocks(entrance, world, spawnPos, settings);
 			return true;
 		}
 		
 		return false;
 	}
 	
-	private void generateFloor()
+	/**
+	 * Generates a floor of the Tower Dungeon based on the passed in center position.
+	 * @param world
+	 * @param center
+	 */
+	private void generateFloor(World world, BlockPos center)
 	{
-		
+		Template floor = TowerHelper.getRandomFloor(world);
+		PlacementSettings settings = new PlacementSettings().setRotation(Rotation.values()[(int) (Math.random() * 4)]);
+		BlockPos spawnPos = StructureHelper.translateToCorner(floor, center, settings.getRotation());
+		floor.addBlocksToWorld(world, spawnPos, settings);
+		StructureHelper.handleDataBlocks(floor, world, spawnPos, settings);
 	}
 }
