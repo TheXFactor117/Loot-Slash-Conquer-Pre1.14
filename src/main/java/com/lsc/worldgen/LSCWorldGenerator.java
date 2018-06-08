@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.lsc.LootSlashConquer;
 import com.lsc.util.Reference;
+import com.lsc.worldgen.tower.Tower;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
@@ -53,6 +54,13 @@ public class LSCWorldGenerator implements IWorldGenerator
 		TemplateManager manager = server.getStructureTemplateManager();
 
 		Template test = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "abandoned_house_1"));
+		
+		if ((int) (Math.random() * 200) == 0)
+		{
+			LootSlashConquer.LOGGER.info("Attempting Tower generation...");
+			Tower tower = new Tower();
+			tower.generate(rand, chunkX, chunkZ, world);
+		}
 		
 		if ((int) (Math.random() * 150) == 0)
 		{

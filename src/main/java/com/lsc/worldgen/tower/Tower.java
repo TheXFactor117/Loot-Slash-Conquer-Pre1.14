@@ -41,10 +41,12 @@ public class Tower
 		int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
 		int blockY = StructureHelper.getGroundFromAbove(world, blockX, blockZ);
 		BlockPos pos = new BlockPos(blockX, blockY, blockZ);
+		Rotation mainRotation = Rotation.values()[(int) (Math.random() * 4)]; // random rotation for the odd floor
 		
-		if ((int) (Math.random() * 300) == 0 && generateEntrance(world, pos))
+		if (generateEntrance(world, pos, mainRotation))
 		{
-			handleGeneration(world, pos);
+			LootSlashConquer.LOGGER.info("Generating Tower at: " + pos);
+			handleGeneration(world, pos, mainRotation);
 		}
 	}
 	
@@ -53,7 +55,7 @@ public class Tower
 	 * @param world
 	 * @param center
 	 */
-	private void handleGeneration(World world, BlockPos center)
+	private void handleGeneration(World world, BlockPos center, Rotation mainRotation)
 	{
 		LootSlashConquer.LOGGER.info("Tower Spawning: Generating top half...");
 		
@@ -61,16 +63,32 @@ public class Tower
 		for (int i = 1; i <= towerHeight; i++)
 		{
 			BlockPos floorCenter = center.up(floorHeight * i);
-			generateFloor(world, floorCenter);
+			
+			if (i % 2 == 0) // even
+			{
+				generateFloor(world, floorCenter, mainRotation);
+			}
+			else // odd
+			{
+				generateFloor(world, floorCenter, mainRotation.add(Rotation.CLOCKWISE_180));
+			}
 		}
 		
 		LootSlashConquer.LOGGER.info("Tower Spawning: Generating bottom half...");
 		
 		// bottom half
-		for (int j = 1; j <= towerHeight; j++)
+		for (int j = 1; j <= towerDepth; j++)
 		{
 			BlockPos floorCenter = center.down(floorHeight * j);
-			generateFloor(world, floorCenter);
+			
+			if (j % 2 == 0) // even
+			{
+				generateFloor(world, floorCenter, mainRotation);
+			}
+			else
+			{
+				generateFloor(world, floorCenter, mainRotation.add(Rotation.CLOCKWISE_180));
+			}
 		}
 	}
 	
@@ -80,10 +98,10 @@ public class Tower
 	 * @param pos
 	 * @return
 	 */
-	private boolean generateEntrance(World world, BlockPos center)
+	private boolean generateEntrance(World world, BlockPos center, Rotation rotation)
 	{
 		Template entrance = TowerHelper.getRandomEntrance(world);
-		PlacementSettings settings = new PlacementSettings().setRotation(Rotation.values()[(int) (Math.random() * 4)]);
+		PlacementSettings settings = new PlacementSettings().setRotation(rotation);
 		// translate the center position to the corner for proper spawning. Use spawnPos when dealing with the placement of the structure.
 		BlockPos spawnPos = StructureHelper.translateToCorner(entrance, center, settings.getRotation());
 		
@@ -102,10 +120,10 @@ public class Tower
 	 * @param world
 	 * @param center
 	 */
-	private void generateFloor(World world, BlockPos center)
+	private void generateFloor(World world, BlockPos center, Rotation rotation)
 	{
 		Template floor = TowerHelper.getRandomFloor(world);
-		PlacementSettings settings = new PlacementSettings().setRotation(Rotation.values()[(int) (Math.random() * 4)]);
+		PlacementSettings settings = new PlacementSettings().setRotation(rotation);
 		BlockPos spawnPos = StructureHelper.translateToCorner(floor, center, settings.getRotation());
 		floor.addBlocksToWorld(world, spawnPos, settings);
 		StructureHelper.handleDataBlocks(floor, world, spawnPos, settings);

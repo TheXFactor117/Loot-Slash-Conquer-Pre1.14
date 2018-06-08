@@ -30,7 +30,7 @@ public class TowerHelper
 		WorldServer server = (WorldServer) world;
 		TemplateManager manager = server.getStructureTemplateManager();
 		int entranceID = (int) (Math.random() * ENTRANCES) + 1; // sets the random entrance room.
-		Template template = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "tower_entrance_" + entranceID));
+		Template template = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "towers/entrance_" + entranceID));
 		return template;
 	}
 	
@@ -46,7 +46,7 @@ public class TowerHelper
 		WorldServer server = (WorldServer) world;
 		TemplateManager manager = server.getStructureTemplateManager();
 		int floorID = (int) (Math.random() * FLOORS) + 1; // sets the random entrance room.
-		Template template = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "tower_floor_" + floorID));
+		Template template = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "towers/floor_" + floorID));
 		return template;
 	}
 }
