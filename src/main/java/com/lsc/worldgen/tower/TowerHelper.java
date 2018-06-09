@@ -16,7 +16,7 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 public class TowerHelper
 {	
 	private static final int ENTRANCES = 1; // amount of entrance templates
-	private static final int FLOORS = 1; // amount of floor templates
+	private static final int FLOORS = 2; // amount of floor templates
 	private static final int TOP_FLOORS = 1; // amount of top floor templates
 	
 	/**
