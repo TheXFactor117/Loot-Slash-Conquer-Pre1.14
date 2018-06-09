@@ -2,6 +2,7 @@ package com.lsc.worldgen;
 
 import java.util.Map.Entry;
 
+import com.lsc.LootSlashConquer;
 import com.lsc.init.ModLootTables;
 import com.lsc.loot.Rarity;
 
@@ -13,6 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.ChunkProviderServer;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 
@@ -58,6 +60,65 @@ public class StructureHelper
 		
 		if (highestBlock > pos.getY() - variation && highestBlock < pos.getY() + variation) return true;
 				
+		return false;
+	}
+	
+	public static boolean canSpawnInChunk(StructureOutline outline, World world)
+	{
+		BlockPos corner1 = outline.getCenter();
+		BlockPos corner2 = outline.getCenter();
+		BlockPos corner3 = outline.getCenter();
+		BlockPos corner4 = outline.getCenter();
+		
+		int width = outline.getTemplate().getSize().getX() / 2;
+		int length = outline.getTemplate().getSize().getZ() / 2;
+		
+		switch (outline.getRotation())
+		{
+			case NONE:
+				corner1 = outline.getCenter().add(-width, 0, length);
+				corner2 = outline.getCenter().add(width, 0, length);
+				corner3 = outline.getCenter().add(width, 0, -length);
+				corner4 = outline.getCenter().add(-width, 0, -length);
+				break;
+			case CLOCKWISE_90:
+				corner1 = outline.getCenter().add(-length, 0, width);
+				corner2 = outline.getCenter().add(length, 0, width);
+				corner3 = outline.getCenter().add(length, 0, -width);
+				corner4 = outline.getCenter().add(-length, 0, -width);
+				break;
+			case CLOCKWISE_180:
+				corner1 = outline.getCenter().add(-width, 0, length);
+				corner2 = outline.getCenter().add(width, 0, length);
+				corner3 = outline.getCenter().add(width, 0, -length);
+				corner4 = outline.getCenter().add(-width, 0, -length);
+				break;
+			case COUNTERCLOCKWISE_90:
+				corner1 = outline.getCenter().add(-length, 0, width);
+				corner2 = outline.getCenter().add(length, 0, width);
+				corner3 = outline.getCenter().add(length, 0, -width);
+				corner4 = outline.getCenter().add(-length, 0, -width);
+				break;
+		}
+		
+		ChunkProviderServer chunkProvider = (ChunkProviderServer) world.getChunkProvider();
+		
+		boolean flag1 = chunkProvider.chunkExists(corner1.getX() >> 4, corner1.getZ() >> 4);
+		boolean flag2 = chunkProvider.chunkExists(corner2.getX() >> 4, corner2.getZ() >> 4);
+		boolean flag3 = chunkProvider.chunkExists(corner3.getX() >> 4, corner3.getZ() >> 4);
+		boolean flag4 = chunkProvider.chunkExists(corner4.getX() >> 4, corner4.getZ() >> 4);
+		
+		LootSlashConquer.LOGGER.info("Generation flags:");
+		LootSlashConquer.LOGGER.info("\t" + flag1 + " " + (corner1.getX() >> 4) + " " + (corner1.getZ() >> 4));
+		LootSlashConquer.LOGGER.info("\t" + flag2 + " " + (corner2.getX() >> 4) + " " + (corner2.getZ() >> 4));
+		LootSlashConquer.LOGGER.info("\t" + flag3 + " " + (corner3.getX() >> 4) + " " + (corner3.getZ() >> 4));
+		LootSlashConquer.LOGGER.info("\t" + flag4 + " " + (corner4.getX() >> 4) + " " + (corner4.getZ() >> 4));
+		
+		if (flag1 && flag2 && flag3 && flag4)
+		{
+			return true;
+		}
+		
 		return false;
 	}
 	

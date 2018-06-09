@@ -26,8 +26,6 @@ import net.minecraftforge.fml.common.IWorldGenerator;
  */
 public class LSCWorldGenerator implements IWorldGenerator
 {
-	
-	
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) 
 	{
@@ -55,7 +53,20 @@ public class LSCWorldGenerator implements IWorldGenerator
 
 		Template test = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "abandoned_house_1"));
 		
-		if ((int) (Math.random() * 200) == 0)
+		for (int i = 0; i < Tower.towerParts.size(); i++)
+		{
+			StructureOutline outline = Tower.towerParts.get(i);
+			
+			if (StructureHelper.canSpawnInChunk(outline, world))
+			{
+				LootSlashConquer.LOGGER.info("Successfully spawned part of a tower from the list!");
+				outline.generate(world);
+				outline.setHasGenerated(true);
+				Tower.towerParts.remove(i);
+			}
+		}
+		
+		if ((int) (Math.random() * 120) == 0)
 		{
 			LootSlashConquer.LOGGER.info("Attempting Tower generation...");
 			Tower tower = new Tower();
@@ -69,12 +80,12 @@ public class LSCWorldGenerator implements IWorldGenerator
 					&& world.isChunkGeneratedAt(chunkX, chunkZ+2) && world.isChunkGeneratedAt(chunkX-1, chunkZ+1))
 			{
 				test.addBlocksToWorld(world, new BlockPos(blockX, StructureHelper.getGroundFromAbove(world, blockX, blockZ), blockZ), new PlacementSettings());
-				LootSlashConquer.LOGGER.info("Generating test structure...all chunks are loaded!");		
+				//LootSlashConquer.LOGGER.info("Generating test structure...all chunks are loaded!");		
 			}
 			else
 			{
 				
-				LootSlashConquer.LOGGER.info("Canceling generation because some chunks have not been generated...");
+				//LootSlashConquer.LOGGER.info("Canceling generation because some chunks have not been generated...");
 			}
 		}		
 	}

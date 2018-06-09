@@ -17,6 +17,7 @@ public class TowerHelper
 {	
 	private static final int ENTRANCES = 1; // amount of entrance templates
 	private static final int FLOORS = 1; // amount of floor templates
+	private static final int TOP_FLOORS = 1; // amount of top floor templates
 	
 	/**
 	 * Returns a randomized entrance for the Tower Dungeon from all available entrance templates. 
@@ -36,7 +37,7 @@ public class TowerHelper
 	
 	/**
 	 * Returns a randomized floor for the Tower Dungeon from all available floor templates.
-	 * Be sure to set the correct amount of entrances above.
+	 * Be sure to set the correct amount of floors above.
 	 * @param world
 	 * @param manager
 	 * @return
@@ -47,6 +48,21 @@ public class TowerHelper
 		TemplateManager manager = server.getStructureTemplateManager();
 		int floorID = (int) (Math.random() * FLOORS) + 1; // sets the random entrance room.
 		Template template = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "towers/floor_" + floorID));
+		return template;
+	}
+	
+	/**
+	 * Returns a randomized floor for the top of Tower Dungeons from all available top floor templates.
+	 * Be sure to set the correct amount of top floors above.
+	 * @param world
+	 * @return
+	 */
+	public static Template getRandomTopFloor(World world)
+	{
+		WorldServer server = (WorldServer) world;
+		TemplateManager manager = server.getStructureTemplateManager();
+		int floorID = (int) (Math.random() * TOP_FLOORS) + 1; // sets the random entrance room.
+		Template template = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "towers/top_floor_" + floorID));
 		return template;
 	}
 }
