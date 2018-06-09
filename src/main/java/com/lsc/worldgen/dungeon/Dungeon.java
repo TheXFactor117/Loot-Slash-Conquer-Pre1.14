@@ -61,7 +61,7 @@ public class Dungeon extends WorldGenerator
 			
 			// spawn the entrance on the surface
 			BlockPos entrancePos = DungeonHelper.translateToCorner(dungeonEntrance, position, Rotation.NONE);
-			dungeonEntrance.addBlocksToWorld(world, entrancePos, new DungeonBlockProcessor(entrancePos, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
+			//dungeonEntrance.addBlocksToWorld(world, entrancePos, new DungeonBlockProcessor(entrancePos, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
 			
 			// start the procedural generation
 			procedurallyGenerate(manager, world, position, this.generateStaircase(manager, world, position));
@@ -132,13 +132,13 @@ public class Dungeon extends WorldGenerator
 			if (i < depth - 1) // make sure we aren't at the last staircase
 			{
 				BlockPos encasedStaircasePos = DungeonHelper.translateToCorner(encasedStaircase, entranceCenter.add(0, -4 * (i + 1), 0), Rotation.NONE); // get the staircase position; offset by height and multiply by depth.
-				encasedStaircase.addBlocksToWorld(world, encasedStaircasePos, new DungeonBlockProcessor(encasedStaircasePos, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
+				//encasedStaircase.addBlocksToWorld(world, encasedStaircasePos, new DungeonBlockProcessor(encasedStaircasePos, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
 			}
 			else // we know this is the bottom staircase, so spawn bottom staircase and store potential rooms.
 			{
 				BlockPos bottomStaircaseCenteredPos = entranceCenter.add(0, -4 * (depth - 1) + -5, 0);
 				BlockPos bottomStaircasePos = DungeonHelper.translateToCorner(bottomStaircase, bottomStaircaseCenteredPos, Rotation.NONE);
-				bottomStaircase.addBlocksToWorld(world, bottomStaircasePos, new DungeonBlockProcessor(bottomStaircasePos, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
+				//bottomStaircase.addBlocksToWorld(world, bottomStaircasePos, new DungeonBlockProcessor(bottomStaircasePos, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
 				roomList.add(DungeonHelper.getStructureBoundingBox(bottomStaircase, Rotation.NONE, bottomStaircaseCenteredPos)); // add StructureBoundingBox to room list. Used to make sure we don't generate rooms inside of other bounding boxes.
 				
 				list = this.generatePotentialRooms(manager, world, bottomStaircase, Rotation.NONE, bottomStaircaseCenteredPos, null);
@@ -157,7 +157,7 @@ public class Dungeon extends WorldGenerator
 		BlockPos centeredPosition = drp.getPos();
 		BlockPos cornerPosition = DungeonHelper.translateToCorner(template, centeredPosition, settings.getRotation());
 		
-		template.addBlocksToWorld(world, cornerPosition, new DungeonBlockProcessor(cornerPosition, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
+		//template.addBlocksToWorld(world, cornerPosition, new DungeonBlockProcessor(cornerPosition, settings, Blocks.NETHER_BRICK, Blocks.NETHERRACK), settings, 2);
 		DungeonHelper.handleDataBlocks(template, world, cornerPosition, settings, 1);
 		roomList.add(drp.getBoundingBox());
 		

@@ -2,7 +2,6 @@ package com.lsc.worldgen;
 
 import java.util.Map.Entry;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.init.ModLootTables;
 import com.lsc.loot.Rarity;
 
@@ -108,11 +107,11 @@ public class StructureHelper
 		boolean flag3 = chunkProvider.chunkExists(corner3.getX() >> 4, corner3.getZ() >> 4);
 		boolean flag4 = chunkProvider.chunkExists(corner4.getX() >> 4, corner4.getZ() >> 4);
 		
-		LootSlashConquer.LOGGER.info("Generation flags:");
+		/*LootSlashConquer.LOGGER.info("Generation flags:");
 		LootSlashConquer.LOGGER.info("\t" + flag1 + " " + (corner1.getX() >> 4) + " " + (corner1.getZ() >> 4));
 		LootSlashConquer.LOGGER.info("\t" + flag2 + " " + (corner2.getX() >> 4) + " " + (corner2.getZ() >> 4));
 		LootSlashConquer.LOGGER.info("\t" + flag3 + " " + (corner3.getX() >> 4) + " " + (corner3.getZ() >> 4));
-		LootSlashConquer.LOGGER.info("\t" + flag4 + " " + (corner4.getX() >> 4) + " " + (corner4.getZ() >> 4));
+		LootSlashConquer.LOGGER.info("\t" + flag4 + " " + (corner4.getX() >> 4) + " " + (corner4.getZ() >> 4));*/
 		
 		if (flag1 && flag2 && flag3 && flag4)
 		{

@@ -123,7 +123,7 @@ public class Tower
 	private boolean generateEntrance(World world, BlockPos center, Rotation rotation)
 	{
 		Template entrance = TowerHelper.getRandomEntrance(world);
-		StructureOutline outline = new StructureOutline(entrance, rotation, center);
+		TowerFloorOutline outline = new TowerFloorOutline(entrance, rotation, center);
 
 		boolean canSpawn = StructureHelper.canSpawnInChunk(outline, world);
 
@@ -152,7 +152,7 @@ public class Tower
 	{
 		Template floor = TowerHelper.getRandomFloor(world);
 		PlacementSettings settings = new PlacementSettings().setRotation(rotation);
-		StructureOutline outline = new StructureOutline(floor, settings.getRotation(), center);
+		TowerFloorOutline outline = new TowerFloorOutline(floor, settings.getRotation(), center);
 
 		if (StructureHelper.canSpawnInChunk(outline, world))
 		{
@@ -177,7 +177,7 @@ public class Tower
 	{
 		Template floor = TowerHelper.getRandomTopFloor(world);
 		PlacementSettings settings = new PlacementSettings().setRotation(rotation);
-		StructureOutline outline = new StructureOutline(floor, settings.getRotation(), center);
+		TowerFloorOutline outline = new TowerFloorOutline(floor, settings.getRotation(), center);
 
 		if (StructureHelper.canSpawnInChunk(outline, world))
 		{
