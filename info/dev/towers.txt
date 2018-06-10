@@ -1,0 +1,30 @@
+##################
+### Tower Info ###
+##################
+
+This is a small document to keep track of the different features regarding
+the spawning of towers. Thinks like wool colors, chest spawns, and other
+things will be documented here. This is used for internal purposes only,
+and will typically not mean anything to the typical player.
+
+
+#####
+### Tower Room Info
+#####
+
+entrance_1 = base entrance, no features
+
+floor_1 = base room, no features
+floor_2 = random lava floor, common chest, common spawner
+floor_3 = random water floor, common chest, common spawner
+floor_4 = maze_1, two common chests, two common spawners
+
+
+
+#####
+### Processor Block Info
+#####
+
+Light Gray Wool - forces a Stone Brick to spawn.
+Red Wool - spawns Lava.
+Blue Wool - spawns Water.

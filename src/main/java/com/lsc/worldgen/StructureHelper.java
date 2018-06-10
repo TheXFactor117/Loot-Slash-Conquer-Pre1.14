@@ -174,43 +174,43 @@ public class StructureHelper
 		
 		if ("common_chest".equals(e.getValue()))
 		{
-			world.setBlockState(dataPos, Blocks.CHEST.getDefaultState(), 3);
-			TileEntity chest = world.getTileEntity(dataPos);
+			world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+			TileEntity chest = world.getTileEntity(dataPos.down(1));
 			
 			if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.COMMON);
-			else world.setBlockToAir(dataPos);
+			else world.setBlockToAir(dataPos.down(1));
 		}
 		else if ("uncommon_chest".equals(e.getValue()))
 		{
-			world.setBlockState(dataPos, Blocks.CHEST.getDefaultState(), 3);
-			TileEntity chest = world.getTileEntity(dataPos);
+			world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+			TileEntity chest = world.getTileEntity(dataPos.down(1));
 			
 			if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.UNCOMMON);
-			else world.setBlockToAir(dataPos);
+			else world.setBlockToAir(dataPos.down(1));
 		}
 		else if ("rare_chest".equals(e.getValue()))
 		{
-			world.setBlockState(dataPos, Blocks.CHEST.getDefaultState(), 3);
-			TileEntity chest = world.getTileEntity(dataPos);
+			world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+			TileEntity chest = world.getTileEntity(dataPos.down(1));
 			
 			if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.RARE);
-			else world.setBlockToAir(dataPos);
+			else world.setBlockToAir(dataPos.down(1));
 		}
 		else if ("epic_chest".equals(e.getValue()))
 		{
-			world.setBlockState(dataPos, Blocks.CHEST.getDefaultState(), 3);
-			TileEntity chest = world.getTileEntity(dataPos);
+			world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+			TileEntity chest = world.getTileEntity(dataPos.down(1));
 			
 			if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.EPIC);
-			else world.setBlockToAir(dataPos);
+			else world.setBlockToAir(dataPos.down(1));
 		}
 		else if ("legendary_chest".equals(e.getValue()))
 		{
-			world.setBlockState(dataPos, Blocks.CHEST.getDefaultState(), 3);
-			TileEntity chest = world.getTileEntity(dataPos);
+			world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+			TileEntity chest = world.getTileEntity(dataPos.down(1));
 			
 			if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.LEGENDARY);
-			else world.setBlockToAir(dataPos);
+			else world.setBlockToAir(dataPos.down(1));
 		}
 	}
 	
