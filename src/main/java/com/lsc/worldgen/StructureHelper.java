@@ -1,14 +1,28 @@
 package com.lsc.worldgen;
 
 import java.util.Map.Entry;
+import java.util.Random;
 
+import com.lsc.entities.monsters.EntityBandit;
+import com.lsc.entities.monsters.EntityBanshee;
+import com.lsc.entities.monsters.EntityBarbarian;
+import com.lsc.entities.monsters.EntityGhost;
+import com.lsc.entities.monsters.EntityGolem;
 import com.lsc.init.ModLootTables;
 import com.lsc.loot.Rarity;
+import com.lsc.util.RandomCollection;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntitySpider;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -216,43 +230,89 @@ public class StructureHelper
 	
 	private static void handleSpawners(Entry<BlockPos, String> e, World world)
 	{
+		BlockPos dataPos = e.getKey();
 		
+		if ("uncommon_mob_spawner".equals(e.getValue()))
+		{
+			world.setBlockState(dataPos, Blocks.MOB_SPAWNER.getDefaultState(), 3);
+			TileEntity tile = world.getTileEntity(dataPos);
+			
+			if (tile instanceof TileEntityMobSpawner)
+			{
+				TileEntityMobSpawner spawner = (TileEntityMobSpawner) tile;
+				MobSpawnerBaseLogic logic = spawner.getSpawnerBaseLogic();
+				
+				setSpawnerLogic(logic, world.rand);
+			}
+		}
+	}
+	
+	private static void setSpawnerLogic(MobSpawnerBaseLogic logic, Random rand)
+	{
+		logic.setEntityId(getRandomMonster(rand));
+		
+		NBTTagCompound nbt = new NBTTagCompound();
+		logic.writeToNBT(nbt);
+		
+		nbt.setShort("SpawnCount", (short) 4);
+		nbt.setShort("MinSpawnDelay", (short) (20 * 10));
+		nbt.setShort("MaxSpawnDelay", (short) (20 * 30));
+		nbt.setShort("MaxNearbyEntities", (short) 10);
+		nbt.setShort("SpawnRange", (short) 10);
+
+		logic.readFromNBT(nbt);
+	}
+	
+	private static ResourceLocation getRandomMonster(Random rand)
+	{
+		RandomCollection<ResourceLocation> MONSTERS = new RandomCollection<ResourceLocation>();
+		
+		MONSTERS.add(10, EntityList.getKey(EntityZombie.class));
+		MONSTERS.add(10, EntityList.getKey(EntitySkeleton.class));
+		MONSTERS.add(10, EntityList.getKey(EntitySpider.class));
+		MONSTERS.add(7, EntityList.getKey(EntityGhost.class));
+		MONSTERS.add(7, EntityList.getKey(EntityBarbarian.class));
+		MONSTERS.add(4, EntityList.getKey(EntityBandit.class));
+		MONSTERS.add(3, EntityList.getKey(EntityBanshee.class));
+		MONSTERS.add(1, EntityList.getKey(EntityGolem.class));
+		
+		return MONSTERS.next(rand);
 	}
 	
 	private static void setLootTable(TileEntityChest chest, World world, Rarity chestRarity)
 	{
 		if (chestRarity == Rarity.COMMON)
 		{
-			Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
-			ResourceLocation table = getLootTable(lootRarity);
+			//Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
+			ResourceLocation table = getLootTable(chestRarity);
 			chest.setLootTable(table, world.rand.nextLong());
 			chest.setCustomName("Common Chest");
 		}
 		else if (chestRarity == Rarity.UNCOMMON)
 		{
-			Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
-			ResourceLocation table = getLootTable(lootRarity);
+			//Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
+			ResourceLocation table = getLootTable(chestRarity);
 			chest.setLootTable(table, world.rand.nextLong());
 			chest.setCustomName("Uncommon Chest");
 		}
 		else if (chestRarity == Rarity.RARE)
 		{
-			Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
-			ResourceLocation table = getLootTable(lootRarity);
+			//Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
+			ResourceLocation table = getLootTable(chestRarity);
 			chest.setLootTable(table, world.rand.nextLong());
 			chest.setCustomName("Rare Chest");
 		}
 		else if (chestRarity == Rarity.EPIC)
 		{
-			Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
-			ResourceLocation table = getLootTable(lootRarity);
+			//Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
+			ResourceLocation table = getLootTable(chestRarity);
 			chest.setLootTable(table, world.rand.nextLong());
 			chest.setCustomName("Epic Chest");
 		}
 		else if (chestRarity == Rarity.LEGENDARY)
 		{
-			Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
-			ResourceLocation table = getLootTable(lootRarity);
+			//Rarity lootRarity = Rarity.getWeightedRarity(world.rand, chestRarity);
+			ResourceLocation table = getLootTable(chestRarity);
 			chest.setLootTable(table, world.rand.nextLong());
 			chest.setCustomName("Legendary Chest");
 		}

@@ -77,11 +77,11 @@ public class Tower
 			{
 				if (i % 2 == 0) // even
 				{
-					generateTopFloor(world, floorCenter, mainRotation);
+					generateTopFloor(world, floorCenter, mainRotation.add(Rotation.CLOCKWISE_180));
 				}
 				else // odd
 				{
-					generateTopFloor(world, floorCenter, mainRotation.add(Rotation.CLOCKWISE_180));
+					generateTopFloor(world, floorCenter, mainRotation);
 				}
 			}
 			else
