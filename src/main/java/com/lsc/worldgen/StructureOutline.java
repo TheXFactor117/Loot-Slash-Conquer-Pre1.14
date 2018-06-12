@@ -31,7 +31,7 @@ public class StructureOutline
 		PlacementSettings settings = new PlacementSettings().setRotation(rotation);
 		BlockPos pos = StructureHelper.translateToCorner(template, center, settings.getRotation());
 		template.addBlocksToWorld(world, pos, settings);
-		StructureHelper.handleDataBlocks(template, world, pos, settings);
+		//StructureHelper.handleDataBlocks(template, world, pos, settings);
 		hasGenerated = true;
 	}
 	
