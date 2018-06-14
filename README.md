@@ -1,13 +1,13 @@
 # Loot Slash Conquer
 An immersive, action-RPG mod based off of Hack/Mine.
 
-### About
+## About
 Loot Slash Conquer will be released in an Alpha stage shortly. Join our Discord if you would like to talk with the developers.
 
-### Downloads
+## Downloads
 Loot Slash Conquer is currently unreleased. Pre-Alpha versions can be found on our Discord. This part will be updated when Loot Slash Conquer enters the Alpha stage.
 
-### License and Legal Information
+## License and Legal Information
 Loot Slash Conquer does not have a specific license and is therefore copyright of TheXFactor117. Below is a list of common things you can and cannot do with the mod and its code/assets.
 
 * You MAY NOT take large portions of the mod's code and/or assets and create an entirely new project under your own name.
