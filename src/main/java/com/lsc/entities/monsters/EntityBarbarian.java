@@ -80,6 +80,8 @@ public class EntityBarbarian extends EntityMonster
 	@Override
 	public void onLivingUpdate()
 	{
+		super.onLivingUpdate();
+		
 		if (!this.world.isRemote && this.getHeldItemMainhand() == null)
 		{
 			LootSlashConquer.LOGGER.info("Setting equipment...");
