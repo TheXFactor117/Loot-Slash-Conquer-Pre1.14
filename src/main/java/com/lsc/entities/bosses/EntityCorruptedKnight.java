@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.lsc.LootSlashConquer;
 import com.lsc.entities.EntityMonster;
+import com.lsc.entities.ai.EntityAICKSlam;
 import com.lsc.entities.monsters.EntityBarbarian;
 
 import net.minecraft.entity.Entity;
@@ -36,6 +37,8 @@ public class EntityCorruptedKnight extends EntityMonster
 	private int spawnerCount; // current counter tracking when we should spawn extra mobs
 	private int maxSpawnerCount;
 	private final int averageSpawnerCount = 20 * 10; // average amount of time (in ticks) that extra mobs will spawn
+	
+	protected EntityAICKSlam aiCKSlam;
 
 	public EntityCorruptedKnight(World world)
 	{
@@ -50,11 +53,13 @@ public class EntityCorruptedKnight extends EntityMonster
 	protected void initEntityAI()
 	{
 		super.initEntityAI();
+		aiCKSlam = new EntityAICKSlam(this);
 		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
-		this.tasks.addTask(2, new EntityAIWanderAvoidWater(this, 1.0D));
-		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(4, new EntityAILookIdle(this));
+		this.tasks.addTask(1, aiCKSlam);
+		this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
+		this.tasks.addTask(3, new EntityAIWanderAvoidWater(this, 1.0D));
+		this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(5, new EntityAILookIdle(this));
 		this.targetTasks.addTask(0, new EntityAIHurtByTarget(this, false));
 		this.targetTasks.addTask(1, new EntityAINearestAttackableTarget<EntityPlayer>(this, EntityPlayer.class, false));
 	}
@@ -78,6 +83,8 @@ public class EntityCorruptedKnight extends EntityMonster
 
 		if (!this.world.isRemote)
 		{				
+			this.updateCustomTasks();
+			
 			// update stage based on health
 			if (this.stage == 1 && this.getHealth() < (this.getMaxHealth() * (double) (2.0 / 3.0)))
 			{
@@ -157,7 +164,7 @@ public class EntityCorruptedKnight extends EntityMonster
 	 */
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount)
-    {
+    {		
 		LootSlashConquer.LOGGER.info("CORRUPTED KNIGHT: attacked for " + amount);
 		LootSlashConquer.LOGGER.info("CORRUPTED KNIGHT: now has " + this.getHealth() + " health");
 		
@@ -174,6 +181,17 @@ public class EntityCorruptedKnight extends EntityMonster
 		
 		return super.attackEntityAsMob(entity);
     }
+	
+	/**
+	 * Updates custom AI cooldowns, etc...
+	 */
+	private void updateCustomTasks()
+	{
+		if (this.aiCKSlam.slamCooldown > 0)
+		{
+			this.aiCKSlam.slamCooldown--;
+		}
+	}
 	
 	/**
 	 * Checks to see if the boss can spawn additional mobs.
@@ -199,5 +217,10 @@ public class EntityCorruptedKnight extends EntityMonster
 	{
 		super.readEntityFromNBT(nbt);
 		// may need to read stage data in here
+	}
+	
+	public int getStage()
+	{
+		return this.stage;
 	}
 }
