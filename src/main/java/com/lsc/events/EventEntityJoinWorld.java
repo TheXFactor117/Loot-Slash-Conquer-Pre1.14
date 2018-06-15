@@ -55,7 +55,6 @@ public class EventEntityJoinWorld
 					
 					info.setEnemyTier(EnemyTier.getRandomEnemyTier(world.rand).ordinal());
 					info.setEnemyLevel(level);
-					entity.setCustomNameTag("Level: " + info.getEnemyLevel() + "   " + EnemyTier.getEnemyTier(info).getName());
 					
 					setAttributeModifiers(entity, level, info.getEnemyTier());
 				}
