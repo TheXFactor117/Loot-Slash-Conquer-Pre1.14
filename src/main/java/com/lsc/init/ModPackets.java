@@ -5,6 +5,7 @@ import com.lsc.network.PacketClassGui;
 import com.lsc.network.PacketClassSelection;
 import com.lsc.network.PacketUpdateChunkLevel;
 import com.lsc.network.PacketUpdateCoreStats;
+import com.lsc.network.PacketUpdateEnemyInfo;
 import com.lsc.network.PacketUpdateIncreaseStat;
 import com.lsc.network.PacketUpdatePlayerInformation;
 import com.lsc.network.PacketUpdateStats;
@@ -30,5 +31,6 @@ public class ModPackets
 		LootSlashConquer.network.registerMessage(PacketUpdateIncreaseStat.Handler.class, PacketUpdateIncreaseStat.class, 4, Side.SERVER);
 		LootSlashConquer.network.registerMessage(PacketUpdateStats.Handler.class, PacketUpdateStats.class, 5, Side.CLIENT);
 		LootSlashConquer.network.registerMessage(PacketUpdateChunkLevel.Handler.class, PacketUpdateChunkLevel.class, 6, Side.CLIENT);
+		LootSlashConquer.network.registerMessage(PacketUpdateEnemyInfo.Handler.class, PacketUpdateEnemyInfo.class, 7, Side.CLIENT);
 	}
 }
