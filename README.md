@@ -4,6 +4,9 @@ An immersive, action-RPG mod based off of Hack/Mine.
 ## About
 Loot Slash Conquer will be released in an Alpha stage shortly. Join our Discord if you would like to talk with the developers.
 
+[Join our Discord server](https://discord.gg/qDtkjke) to stay up to date with development!
+
+
 ## Downloads
 Loot Slash Conquer is currently unreleased. Pre-Alpha versions can be found on our Discord. This part will be updated when Loot Slash Conquer enters the Alpha stage.
 
