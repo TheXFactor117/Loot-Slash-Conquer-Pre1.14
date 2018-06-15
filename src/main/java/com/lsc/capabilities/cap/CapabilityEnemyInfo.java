@@ -1,7 +1,9 @@
-package com.lsc.capabilities.enemyinfo;
+package com.lsc.capabilities.cap;
 
 import javax.annotation.Nullable;
 
+import com.lsc.capabilities.api.IEnemyInfo;
+import com.lsc.capabilities.implementation.EnemyInfo;
 import com.lsc.util.CapabilityUtils;
 import com.lsc.util.Reference;
 import com.lsc.util.SimpleCapabilityProvider;

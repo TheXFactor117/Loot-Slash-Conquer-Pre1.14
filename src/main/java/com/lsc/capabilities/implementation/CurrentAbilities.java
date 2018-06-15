@@ -1,8 +1,9 @@
-package com.lsc.capabilities.abilities;
+package com.lsc.capabilities.implementation;
 
 import javax.annotation.Nullable;
 
 import com.lsc.abilities.AbilityHelper;
+import com.lsc.capabilities.api.ICurrentAbilities;
 
 import net.minecraft.entity.Entity;
 

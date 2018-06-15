@@ -1,8 +1,8 @@
 package com.lsc.network;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
+import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.util.GuiHandler;
 
 import io.netty.buffer.ByteBuf;

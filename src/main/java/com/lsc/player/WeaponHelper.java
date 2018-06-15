@@ -3,8 +3,8 @@ package com.lsc.player;
 import java.util.Iterator;
 import java.util.List;
 
-import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
-import com.lsc.capabilities.playerstats.Stats;
+import com.lsc.capabilities.cap.CapabilityPlayerStats;
+import com.lsc.capabilities.implementation.Stats;
 import com.lsc.init.ModDamageSources;
 import com.lsc.loot.WeaponAttribute;
 

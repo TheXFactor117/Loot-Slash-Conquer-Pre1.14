@@ -1,7 +1,9 @@
-package com.lsc.capabilities.abilities;
+package com.lsc.capabilities.cap;
 
 import javax.annotation.Nullable;
 
+import com.lsc.capabilities.api.ICurrentAbilities;
+import com.lsc.capabilities.implementation.CurrentAbilities;
 import com.lsc.util.CapabilityUtils;
 import com.lsc.util.Reference;
 import com.lsc.util.SimpleCapabilityProvider;

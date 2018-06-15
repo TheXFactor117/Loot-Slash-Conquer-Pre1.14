@@ -1,4 +1,6 @@
-package com.lsc.capabilities.chunk;
+package com.lsc.capabilities.implementation;
+
+import com.lsc.capabilities.api.IChunkLevel;
 
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.math.ChunkPos;

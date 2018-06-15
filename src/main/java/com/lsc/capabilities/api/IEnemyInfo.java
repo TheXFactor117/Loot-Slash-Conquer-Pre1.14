@@ -1,4 +1,4 @@
-package com.lsc.capabilities.enemyinfo;
+package com.lsc.capabilities.api;
 
 /**
  * 

@@ -3,11 +3,11 @@ package com.lsc.events;
 import java.util.UUID;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.capabilities.chunk.CapabilityChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevelHolder;
-import com.lsc.capabilities.enemyinfo.CapabilityEnemyInfo;
-import com.lsc.capabilities.enemyinfo.EnemyInfo;
+import com.lsc.capabilities.api.IChunkLevel;
+import com.lsc.capabilities.api.IChunkLevelHolder;
+import com.lsc.capabilities.cap.CapabilityChunkLevel;
+import com.lsc.capabilities.cap.CapabilityEnemyInfo;
+import com.lsc.capabilities.implementation.EnemyInfo;
 import com.lsc.entities.EnemyTier;
 import com.lsc.entities.EntityMonster;
 import com.lsc.network.PacketUpdateEnemyInfo;

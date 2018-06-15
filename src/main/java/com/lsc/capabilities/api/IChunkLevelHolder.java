@@ -1,4 +1,4 @@
-package com.lsc.capabilities.chunk;
+package com.lsc.capabilities.api;
 
 import net.minecraft.util.math.ChunkPos;
 

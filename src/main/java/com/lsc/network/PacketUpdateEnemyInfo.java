@@ -1,8 +1,8 @@
 package com.lsc.network;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.capabilities.enemyinfo.CapabilityEnemyInfo;
-import com.lsc.capabilities.enemyinfo.EnemyInfo;
+import com.lsc.capabilities.cap.CapabilityEnemyInfo;
+import com.lsc.capabilities.implementation.EnemyInfo;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;

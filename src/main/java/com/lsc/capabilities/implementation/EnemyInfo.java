@@ -1,6 +1,8 @@
-package com.lsc.capabilities.enemyinfo;
+package com.lsc.capabilities.implementation;
 
 import javax.annotation.Nullable;
+
+import com.lsc.capabilities.api.IEnemyInfo;
 
 import net.minecraft.entity.EntityLivingBase;
 

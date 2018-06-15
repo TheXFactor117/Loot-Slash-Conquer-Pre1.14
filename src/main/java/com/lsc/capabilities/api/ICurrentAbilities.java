@@ -1,4 +1,4 @@
-package com.lsc.capabilities.abilities;
+package com.lsc.capabilities.api;
 
 /**
  * 

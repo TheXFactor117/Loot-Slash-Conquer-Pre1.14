@@ -1,8 +1,8 @@
 package com.lsc.client.events;
 
-import com.lsc.capabilities.chunk.CapabilityChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevelHolder;
+import com.lsc.capabilities.api.IChunkLevel;
+import com.lsc.capabilities.api.IChunkLevelHolder;
+import com.lsc.capabilities.cap.CapabilityChunkLevel;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,10 +1,11 @@
-package com.lsc.capabilities.playerinfo;
+package com.lsc.capabilities.cap;
 
 import javax.annotation.Nullable;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
-import com.lsc.capabilities.playerstats.Stats;
+import com.lsc.capabilities.api.IPlayerInformation;
+import com.lsc.capabilities.implementation.PlayerInformation;
+import com.lsc.capabilities.implementation.Stats;
 import com.lsc.network.PacketUpdatePlayerInformation;
 import com.lsc.network.PacketUpdateStats;
 import com.lsc.player.PlayerStatHelper;

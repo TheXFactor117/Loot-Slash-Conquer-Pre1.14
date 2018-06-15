@@ -1,6 +1,8 @@
-package com.lsc.capabilities.playerinfo;
+package com.lsc.capabilities.implementation;
 
 import javax.annotation.Nullable;
+
+import com.lsc.capabilities.api.IPlayerInformation;
 
 import net.minecraft.entity.EntityLivingBase;
 

@@ -1,7 +1,7 @@
 package com.lsc.network;
 
-import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
+import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.player.PlayerStatHelper;
 
 import io.netty.buffer.ByteBuf;

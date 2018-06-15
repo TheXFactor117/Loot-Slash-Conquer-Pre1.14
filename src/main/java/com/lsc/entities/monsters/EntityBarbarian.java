@@ -5,8 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.capabilities.enemyinfo.CapabilityEnemyInfo;
-import com.lsc.capabilities.enemyinfo.EnemyInfo;
+import com.lsc.capabilities.cap.CapabilityEnemyInfo;
+import com.lsc.capabilities.implementation.EnemyInfo;
 import com.lsc.entities.EntityMonster;
 import com.lsc.loot.NameGenerator;
 import com.lsc.loot.generation.ItemGenerator;

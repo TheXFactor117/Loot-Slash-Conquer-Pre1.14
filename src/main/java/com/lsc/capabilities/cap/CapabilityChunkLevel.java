@@ -1,8 +1,12 @@
-package com.lsc.capabilities.chunk;
+package com.lsc.capabilities.cap;
 
 import javax.annotation.Nullable;
 
 import com.lsc.LootSlashConquer;
+import com.lsc.capabilities.api.IChunkLevel;
+import com.lsc.capabilities.api.IChunkLevelHolder;
+import com.lsc.capabilities.implementation.ChunkLevel;
+import com.lsc.capabilities.implementation.ChunkLevelHolder;
 import com.lsc.network.PacketUpdateChunkLevel;
 import com.lsc.util.CapabilityUtils;
 import com.lsc.util.Reference;

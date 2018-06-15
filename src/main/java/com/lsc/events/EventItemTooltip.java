@@ -3,8 +3,8 @@ package com.lsc.events;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
+import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.entities.projectiles.Rune;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;

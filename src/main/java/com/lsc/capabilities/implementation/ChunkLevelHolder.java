@@ -1,7 +1,10 @@
-package com.lsc.capabilities.chunk;
+package com.lsc.capabilities.implementation;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.lsc.capabilities.api.IChunkLevel;
+import com.lsc.capabilities.api.IChunkLevelHolder;
 
 import net.minecraft.util.math.ChunkPos;
 

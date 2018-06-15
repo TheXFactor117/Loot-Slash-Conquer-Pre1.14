@@ -1,7 +1,7 @@
 package com.lsc.events;
 
-import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
+import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
 import com.lsc.loot.NameGenerator;

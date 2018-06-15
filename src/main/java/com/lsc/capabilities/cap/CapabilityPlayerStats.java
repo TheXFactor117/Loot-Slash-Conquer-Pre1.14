@@ -1,7 +1,9 @@
-package com.lsc.capabilities.playerstats;
+package com.lsc.capabilities.cap;
 
 import javax.annotation.Nullable;
 
+import com.lsc.capabilities.api.IStats;
+import com.lsc.capabilities.implementation.Stats;
 import com.lsc.util.CapabilityUtils;
 import com.lsc.util.Reference;
 import com.lsc.util.SimpleCapabilityProvider;

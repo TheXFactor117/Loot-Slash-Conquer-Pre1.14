@@ -1,7 +1,7 @@
 package com.lsc.client.events;
 
-import com.lsc.capabilities.enemyinfo.CapabilityEnemyInfo;
-import com.lsc.capabilities.enemyinfo.EnemyInfo;
+import com.lsc.capabilities.cap.CapabilityEnemyInfo;
+import com.lsc.capabilities.implementation.EnemyInfo;
 import com.lsc.entities.EnemyTier;
 
 import net.minecraft.client.gui.FontRenderer;

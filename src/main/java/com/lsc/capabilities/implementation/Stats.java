@@ -1,6 +1,8 @@
-package com.lsc.capabilities.playerstats;
+package com.lsc.capabilities.implementation;
 
 import javax.annotation.Nullable;
+
+import com.lsc.capabilities.api.IStats;
 
 import net.minecraft.entity.EntityLivingBase;
 

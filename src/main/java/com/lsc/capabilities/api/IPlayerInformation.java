@@ -1,4 +1,4 @@
-package com.lsc.capabilities.playerinfo;
+package com.lsc.capabilities.api;
 
 /**
  * 
