@@ -3,189 +3,154 @@ package com.lsc.client.models.bosses;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 /**
  * 
  * @author TheXFactor117
+ * @artist Ithronyar
  *
  */
 public class ModelCorruptedKnight extends ModelBase
 {
-	private ModelRenderer torsoUpper;
-	private ModelRenderer torsoLower;
-	private ModelRenderer shoulderLeft;
-	private ModelRenderer shoulderRight;
-	private ModelRenderer armLeft;
-	private ModelRenderer armRight;
-	private ModelRenderer legLeft;
-	private ModelRenderer legRight;
-	private ModelRenderer legClothLeft;
-	private ModelRenderer legClothRight;
-	private ModelRenderer head;
-	private ModelRenderer helmMain;
-	private ModelRenderer helmHornLeft1;
-	private ModelRenderer helmHornLeft2;
-	private ModelRenderer helmHornLeft3;
-	private ModelRenderer helmHornRight1;
-	private ModelRenderer helmHornRight2;
-	private ModelRenderer helmHornRight3;
+	public ModelRenderer LegR;
+	public ModelRenderer LegL;
+	public ModelRenderer ArmL;
+	public ModelRenderer ArmR;
+	public ModelRenderer Head;
+	public ModelRenderer LegClothR;
+	public ModelRenderer LegClothL;
+	public ModelRenderer ShoulderL;
+	public ModelRenderer ShoulderL_1;
+	public ModelRenderer HelmBase;
+	public ModelRenderer HelmHornL1;
+	public ModelRenderer HelmHornL2;
+	public ModelRenderer HelmHornL3;
+	public ModelRenderer HelmHornR1;
+	public ModelRenderer HelmHornR2;
+	public ModelRenderer HelmHornR3;
+	public ModelRenderer TorsoLower;
+	public ModelRenderer TorsoUpper;
 
 	public ModelCorruptedKnight()
 	{
-		textureWidth = 128;
-		textureHeight = 128;
-
-		torsoUpper = new ModelRenderer(this, 0, 20);
-		torsoUpper.addBox(-7F, 0F, -5F, 14, 12, 10);
-		torsoUpper.setRotationPoint(0F, -16F, 0F);
-		torsoUpper.setTextureSize(128, 128);
-		torsoUpper.mirror = true;
-		setRotation(torsoUpper, 0F, 0F, 0F);
-		torsoLower = new ModelRenderer(this, 48, 24);
-		torsoLower.addBox(-6F, 0F, -4F, 12, 10, 8);
-		torsoLower.setRotationPoint(0F, -4F, 0F);
-		torsoLower.setTextureSize(128, 128);
-		torsoLower.mirror = true;
-		setRotation(torsoLower, 0F, 0F, 0F);
-		shoulderLeft = new ModelRenderer(this, 88, 7);
-		shoulderLeft.addBox(0F, -3F, -4F, 7, 6, 8);
-		shoulderLeft.setRotationPoint(7F, -14F, 0F);
-		shoulderLeft.setTextureSize(128, 128);
-		shoulderLeft.mirror = true;
-		setRotation(shoulderLeft, 0F, 0F, 0F);
-		shoulderRight = new ModelRenderer(this, 88, 7);
-		shoulderRight.addBox(-7F, 0F, -4F, 7, 6, 8);
-		shoulderRight.setRotationPoint(-7F, -17F, 0F);
-		shoulderRight.setTextureSize(128, 128);
-		shoulderRight.mirror = true;
-		setRotation(shoulderRight, 0F, 0F, 0F);
-		shoulderRight.mirror = false;
-		armLeft = new ModelRenderer(this, 88, 21);
-		armLeft.addBox(0F, -2F, -3F, 6, 20, 6);
-		armLeft.setRotationPoint(7F, -14F, 0F);
-		armLeft.setTextureSize(128, 128);
-		armLeft.mirror = true;
-		setRotation(armLeft, 0F, 0F, 0F);
-		armRight = new ModelRenderer(this, 88, 21);
-		armRight.addBox(-6F, 0F, -3F, 6, 20, 6);
-		armRight.setRotationPoint(-7F, -16F, 0F);
-		armRight.setTextureSize(128, 128);
-		armRight.mirror = true;
-		setRotation(armRight, 0F, 0F, 0F);
-		armRight.mirror = false;
-		legLeft = new ModelRenderer(this, 0, 42);
-		legLeft.addBox(-2.5F, 0F, -3F, 5, 18, 6);
-		legLeft.setRotationPoint(3F, 6F, 0F);
-		legLeft.setTextureSize(128, 128);
-		legLeft.mirror = true;
-		setRotation(legLeft, 0F, 0F, 0F);
-		legRight = new ModelRenderer(this, 0, 42);
-		legRight.addBox(-2.5F, 0F, -3F, 5, 18, 6);
-		legRight.setRotationPoint(-3F, 6F, 0F);
-		legRight.setTextureSize(128, 128);
-		legRight.mirror = true;
-		setRotation(legRight, 0F, 0F, 0F);
-		legRight.mirror = false;
-		legClothLeft = new ModelRenderer(this, 50, 42);
-		legClothLeft.addBox(-3F, 0F, -4F, 6, 8, 8);
-		legClothLeft.setRotationPoint(3F, 6F, 0F);
-		legClothLeft.setTextureSize(128, 128);
-		legClothLeft.mirror = true;
-		setRotation(legClothLeft, 0F, 0F, 0F);
-		legClothRight = new ModelRenderer(this, 22, 42);
-		legClothRight.addBox(-3F, 0F, -4F, 6, 8, 8);
-		legClothRight.setRotationPoint(-3F, 6F, 0F);
-		legClothRight.setTextureSize(128, 128);
-		legClothRight.mirror = true;
-		setRotation(legClothRight, 0F, 0F, 0F);
-		head = new ModelRenderer(this, 0, 0);
-		head.addBox(-5F, -10F, -5F, 10, 10, 10);
-		head.setRotationPoint(0F, -17F, 0F);
-		head.setTextureSize(128, 128);
-		head.mirror = true;
-		setRotation(head, 0F, 0F, 0F);
-		helmMain = new ModelRenderer(this, 40, 0);
-		helmMain.addBox(-6F, -12F, -6F, 12, 12, 12);
-		helmMain.setRotationPoint(0F, -16F, 0F);
-		helmMain.setTextureSize(128, 128);
-		helmMain.mirror = true;
-		setRotation(helmMain, 0F, 0F, 0F);
-		helmHornLeft1 = new ModelRenderer(this, 76, 0);
-		helmHornLeft1.addBox(-1.5F, -7F, -1.5F, 3, 7, 3);
-		helmHornLeft1.setRotationPoint(5F, -23F, 0F);
-		helmHornLeft1.setTextureSize(128, 128);
-		helmHornLeft1.mirror = true;
-		setRotation(helmHornLeft1, 0F, 0F, 1.047198F);
-		helmHornLeft2 = new ModelRenderer(this, 88, 0);
-		helmHornLeft2.addBox(-1F, -5F, -1F, 2, 5, 2);
-		helmHornLeft2.setRotationPoint(10F, -26F, 0F);
-		helmHornLeft2.setTextureSize(128, 128);
-		helmHornLeft2.mirror = true;
-		setRotation(helmHornLeft2, 0F, 0F, 0.2617994F);
-		helmHornLeft3 = new ModelRenderer(this, 96, 0);
-		helmHornLeft3.addBox(-0.5F, -5F, -0.5F, 1, 5, 1);
-		helmHornLeft3.setRotationPoint(11F, -30F, 0F);
-		helmHornLeft3.setTextureSize(128, 128);
-		helmHornLeft3.mirror = true;
-		setRotation(helmHornLeft3, 0F, 0F, 0F);
-		helmHornRight1 = new ModelRenderer(this, 76, 0);
-		helmHornRight1.addBox(-1.5F, -7F, -1.5F, 3, 7, 3);
-		helmHornRight1.setRotationPoint(-5F, -23F, 0F);
-		helmHornRight1.setTextureSize(128, 128);
-		helmHornRight1.mirror = true;
-		setRotation(helmHornRight1, 0F, 0F, -1.047198F);
-		helmHornRight1.mirror = false;
-		helmHornRight2 = new ModelRenderer(this, 88, 0);
-		helmHornRight2.addBox(-1F, -5F, -1F, 2, 5, 2);
-		helmHornRight2.setRotationPoint(-10F, -26F, 0F);
-		helmHornRight2.setTextureSize(128, 128);
-		helmHornRight2.mirror = true;
-		setRotation(helmHornRight2, 0F, 0F, -0.2617994F);
-		helmHornRight2.mirror = false;
-		helmHornRight3 = new ModelRenderer(this, 96, 0);
-		helmHornRight3.addBox(-0.5F, -5F, -0.5F, 1, 5, 1);
-		helmHornRight3.setRotationPoint(-11F, -30F, 0F);
-		helmHornRight3.setTextureSize(128, 128);
-		helmHornRight3.mirror = true;
-		setRotation(helmHornRight3, 0F, 0F, 0F);
-		helmHornRight3.mirror = false;
+		this.textureWidth = 128;
+		this.textureHeight = 128;
+		this.HelmHornL1 = new ModelRenderer(this, 76, 0);
+		this.HelmHornL1.setRotationPoint(5.0F, -7.0F, 0.0F);
+		this.HelmHornL1.addBox(-1.5F, -7.0F, -1.5F, 3, 7, 3, 0.0F);
+		this.setRotateAngle(HelmHornL1, 0.0F, 0.0F, 1.0471975511965976F);
+		this.HelmHornL2 = new ModelRenderer(this, 88, 0);
+		this.HelmHornL2.setRotationPoint(10.0F, -10.0F, 0.0F);
+		this.HelmHornL2.addBox(-1.0F, -5.0F, -1.0F, 2, 5, 2, 0.0F);
+		this.setRotateAngle(HelmHornL2, 0.0F, 0.0F, 0.2617993877991494F);
+		this.TorsoUpper = new ModelRenderer(this, 0, 20);
+		this.TorsoUpper.setRotationPoint(0.0F, -4.0F, 0.0F);
+		this.TorsoUpper.addBox(-7.0F, -12.0F, -5.0F, 14, 12, 10, 0.0F);
+		this.LegR = new ModelRenderer(this, 0, 42);
+		this.LegR.mirror = true;
+		this.LegR.setRotationPoint(-3.0F, 6.0F, 0.0F);
+		this.LegR.addBox(-2.5F, 0.0F, -3.0F, 5, 18, 6, 0.0F);
+		this.ShoulderL_1 = new ModelRenderer(this, 88, 7);
+		this.ShoulderL_1.mirror = true;
+		this.ShoulderL_1.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.ShoulderL_1.addBox(-7.0F, -3.0F, -4.0F, 7, 6, 8, 0.0F);
+		this.Head = new ModelRenderer(this, 0, 0);
+		this.Head.setRotationPoint(0.0F, -17.0F, 0.0F);
+		this.Head.addBox(-5.0F, -10.0F, -5.0F, 10, 10, 10, 0.0F);
+		this.HelmHornR1 = new ModelRenderer(this, 76, 0);
+		this.HelmHornR1.mirror = true;
+		this.HelmHornR1.setRotationPoint(-5.0F, -7.0F, 0.0F);
+		this.HelmHornR1.addBox(-1.5F, -7.0F, -1.5F, 3, 7, 3, 0.0F);
+		this.setRotateAngle(HelmHornR1, 0.0F, 0.0F, -1.0471975511965976F);
+		this.LegClothR = new ModelRenderer(this, 22, 42);
+		this.LegClothR.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.LegClothR.addBox(-3.0F, 0.0F, -4.0F, 6, 8, 8, 0.0F);
+		this.ShoulderL = new ModelRenderer(this, 88, 7);
+		this.ShoulderL.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.ShoulderL.addBox(0.0F, -3.0F, -4.0F, 7, 6, 8, 0.0F);
+		this.HelmHornL3 = new ModelRenderer(this, 96, 0);
+		this.HelmHornL3.setRotationPoint(11.0F, -14.0F, 0.0F);
+		this.HelmHornL3.addBox(-0.5F, -5.0F, -0.5F, 1, 5, 1, 0.0F);
+		this.LegL = new ModelRenderer(this, 0, 42);
+		this.LegL.setRotationPoint(3.0F, 6.0F, 0.0F);
+		this.LegL.addBox(-2.5F, 0.0F, -3.0F, 5, 18, 6, 0.0F);
+		this.HelmBase = new ModelRenderer(this, 40, 0);
+		this.HelmBase.setRotationPoint(0.0F, 1.0F, 0.0F);
+		this.HelmBase.addBox(-6.0F, -12.0F, -6.0F, 12, 12, 12, 0.0F);
+		this.HelmHornR3 = new ModelRenderer(this, 96, 0);
+		this.HelmHornR3.mirror = true;
+		this.HelmHornR3.setRotationPoint(-11.0F, -14.0F, 0.0F);
+		this.HelmHornR3.addBox(-0.5F, -5.0F, -0.5F, 1, 5, 1, 0.0F);
+		this.ArmL = new ModelRenderer(this, 88, 21);
+		this.ArmL.setRotationPoint(7.0F, -14.0F, 0.0F);
+		this.ArmL.addBox(0.0F, -2.0F, -3.0F, 6, 20, 6, 0.0F);
+		this.HelmHornR2 = new ModelRenderer(this, 88, 0);
+		this.HelmHornR2.mirror = true;
+		this.HelmHornR2.setRotationPoint(-10.0F, -10.0F, 0.0F);
+		this.HelmHornR2.addBox(-1.0F, -5.0F, -1.0F, 2, 5, 2, 0.0F);
+		this.setRotateAngle(HelmHornR2, 0.0F, 0.0F, -0.2617993877991494F);
+		this.TorsoLower = new ModelRenderer(this, 48, 24);
+		this.TorsoLower.setRotationPoint(0.0F, -4.0F, 0.0F);
+		this.TorsoLower.addBox(-6.0F, 0.0F, -4.0F, 12, 10, 8, 0.0F);
+		this.ArmR = new ModelRenderer(this, 88, 21);
+		this.ArmR.mirror = true;
+		this.ArmR.setRotationPoint(-7.0F, -14.0F, 0.0F);
+		this.ArmR.addBox(-6.0F, -2.0F, -3.0F, 6, 20, 6, 0.0F);
+		this.LegClothL = new ModelRenderer(this, 50, 42);
+		this.LegClothL.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.LegClothL.addBox(-3.0F, 0.0F, -4.0F, 6, 8, 8, 0.0F);
+		this.HelmBase.addChild(this.HelmHornL1);
+		this.HelmBase.addChild(this.HelmHornL2);
+		this.ArmR.addChild(this.ShoulderL_1);
+		this.HelmBase.addChild(this.HelmHornR1);
+		this.LegR.addChild(this.LegClothR);
+		this.ArmL.addChild(this.ShoulderL);
+		this.HelmBase.addChild(this.HelmHornL3);
+		this.Head.addChild(this.HelmBase);
+		this.HelmBase.addChild(this.HelmHornR3);
+		this.HelmBase.addChild(this.HelmHornR2);
+		this.LegL.addChild(this.LegClothL);
 	}
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
 	{
-		super.render(entity, f, f1, f2, f3, f4, f5);
-		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		torsoUpper.render(f5);
-		torsoLower.render(f5);
-		shoulderLeft.render(f5);
-		shoulderRight.render(f5);
-		armLeft.render(f5);
-		armRight.render(f5);
-		legLeft.render(f5);
-		legRight.render(f5);
-		legClothLeft.render(f5);
-		legClothRight.render(f5);
-		head.render(f5);
-		helmMain.render(f5);
-		helmHornLeft1.render(f5);
-		helmHornLeft2.render(f5);
-		helmHornLeft3.render(f5);
-		helmHornRight1.render(f5);
-		helmHornRight2.render(f5);
-		helmHornRight3.render(f5);
+		this.TorsoUpper.render(f5);
+		this.LegR.render(f5);
+		this.Head.render(f5);
+		this.LegL.render(f5);
+		this.ArmL.render(f5);
+		this.TorsoLower.render(f5);
+		this.ArmR.render(f5);
 	}
-
-	private void setRotation(ModelRenderer model, float x, float y, float z)
-	{
-		model.rotateAngleX = x;
-		model.rotateAngleY = y;
-		model.rotateAngleZ = z;
-	}
-
+	
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
 	{
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+
+		this.Head.rotateAngleY = f3 / (180F / (float) Math.PI);
+		this.Head.rotateAngleX = f4 / (180F / (float) Math.PI);
+		this.HelmBase.rotateAngleY = this.Head.rotateAngleY;
+		this.HelmBase.rotateAngleX = this.Head.rotateAngleX;
+		this.ArmR.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 2.0F * f1 * 0.5F;
+		this.ArmL.rotateAngleX = MathHelper.cos(f * 0.6662F) * 2.0F * f1 * 0.5F;
+		this.ArmR.rotateAngleZ = 0.0F;
+		this.ArmL.rotateAngleZ = 0.0F;
+		this.LegR.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+		this.LegL.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
+		this.LegR.rotateAngleY = 0.0F;
+		this.LegL.rotateAngleY = 0.0F;
+	}
+
+	/**
+	 * Helper method from Tabula.
+	 */
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z)
+	{
+		modelRenderer.rotateAngleX = x;
+		modelRenderer.rotateAngleY = y;
+		modelRenderer.rotateAngleZ = z;
 	}
 }

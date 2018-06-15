@@ -6,7 +6,7 @@ import com.lsc.LootSlashConquer;
 import com.lsc.entities.EntityMonster;
 import com.lsc.entities.ai.EntityAICKSlam;
 import com.lsc.entities.ai.EntityAIMeleeCharge;
-import com.lsc.entities.monsters.EntityBarbarian;
+import com.lsc.entities.monsters.EntitySpectralKnight;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -147,7 +147,7 @@ public class EntityCorruptedKnight extends EntityMonster
 						// check to see if the monster can spawn in a good area
 						if (canSpawnMobAtPos(monsterPos))
 						{
-							EntityBarbarian monster = new EntityBarbarian(this.world);
+							EntitySpectralKnight monster = new EntitySpectralKnight(this.world);
 							monster.setPosition(x, y, z);
 							this.world.spawnEntity(monster);
 						}
