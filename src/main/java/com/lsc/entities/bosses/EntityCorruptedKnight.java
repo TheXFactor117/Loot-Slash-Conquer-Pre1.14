@@ -5,6 +5,7 @@ import java.util.UUID;
 import com.lsc.LootSlashConquer;
 import com.lsc.entities.EntityMonster;
 import com.lsc.entities.ai.EntityAICKSlam;
+import com.lsc.entities.ai.EntityAIMeleeCharge;
 import com.lsc.entities.monsters.EntityBarbarian;
 
 import net.minecraft.entity.Entity;
@@ -39,6 +40,7 @@ public class EntityCorruptedKnight extends EntityMonster
 	private final int averageSpawnerCount = 20 * 10; // average amount of time (in ticks) that extra mobs will spawn
 	
 	protected EntityAICKSlam aiCKSlam;
+	protected EntityAIMeleeCharge aiMeleeCharge;
 
 	public EntityCorruptedKnight(World world)
 	{
@@ -54,8 +56,10 @@ public class EntityCorruptedKnight extends EntityMonster
 	{
 		super.initEntityAI();
 		aiCKSlam = new EntityAICKSlam(this);
+		aiMeleeCharge = new EntityAIMeleeCharge(this, 15, 0.5);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, aiCKSlam);
+		this.tasks.addTask(1, aiMeleeCharge);
 		this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
 		this.tasks.addTask(3, new EntityAIWanderAvoidWater(this, 1.0D));
 		this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -191,6 +195,11 @@ public class EntityCorruptedKnight extends EntityMonster
 		{
 			this.aiCKSlam.slamCooldown--;
 		}
+		
+		if (this.aiMeleeCharge.cooldown > 0)
+		{
+			this.aiMeleeCharge.cooldown--;
+		}
 	}
 	
 	/**
@@ -209,14 +218,26 @@ public class EntityCorruptedKnight extends EntityMonster
 	public void writeEntityToNBT(NBTTagCompound nbt)
 	{
 		super.writeEntityToNBT(nbt);
-		// may need to write stage data in here
+		
+		nbt.setInteger("BossStage", this.stage);
 	}
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt)
 	{
 		super.readEntityFromNBT(nbt);
-		// may need to read stage data in here
+		
+		if (nbt.hasKey("BossStage"))
+		{
+			this.stage = nbt.getInteger("BossStage");
+		}
+	}
+	
+	@Override
+	public boolean canDespawn()
+	{
+		return false;
+		
 	}
 	
 	public int getStage()
