@@ -1,0 +1,7 @@
+package com.lsc.entities.ai;
+
+import net.minecraft.entity.ai.EntityAIBase;
+
+public class AICorruptedKnightMove extends EntityAIBase {
+
+}
