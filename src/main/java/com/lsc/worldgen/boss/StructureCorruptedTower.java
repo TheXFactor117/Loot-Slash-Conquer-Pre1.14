@@ -1,5 +1,7 @@
 package com.lsc.worldgen.boss;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.lsc.util.Reference;
@@ -21,6 +23,7 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
  */
 public class StructureCorruptedTower
 {
+	public static List<StructureOutline> parts = new ArrayList<StructureOutline>();
 	
 	/**
 	 * Handles the generation and placing of the tower.
@@ -35,35 +38,103 @@ public class StructureCorruptedTower
 		int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
 		int blockY = StructureHelper.getGroundFromAbove(world, blockX, blockZ);
 		BlockPos pos = new BlockPos(blockX, blockY, blockZ);
-		Rotation mainRotation = Rotation.values()[(int) (Math.random() * 4)];
+		//Rotation mainRotation = Rotation.values()[(int) (Math.random() * 4)];
 		
-		if (canTowerSpawn(world, pos, mainRotation));
+		//if (canTowerSpawn(world, pos, Rotation.NONE))
+		//{
+			//LootSlashConquer.LOGGER.info("Checks passed - generating structure at: " + pos);
+			WorldServer server = (WorldServer) world;
+			TemplateManager manager = server.getStructureTemplateManager();
+			
+			generateNESide(world, manager, pos);
+			generateNWSide(world, manager, pos);
+			generateSESide(world, manager, pos);
+			generateSWSide(world, manager, pos);
+		//}
+		//else
+		//{
+		//	LootSlashConquer.LOGGER.info("Boss structure generation failed during checks.");
+		//}
+	}
+	
+	private void generateNESide(World world, TemplateManager manager, BlockPos center)
+	{
+		BlockPos neCenter = center.add(16, -11, -16);
+		
+		for (int i = 0; i < 4; i++)
 		{
-			generateNESide(world, pos);
-			generateNWSide(world, pos);
-			generateSESide(world, pos);
-			generateSWSide(world, pos);
+			Template template = manager.get(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "boss/corruptedtower/darktower_ne_" + i));
+			StructureOutline outline = new StructureOutline(template, Rotation.NONE, neCenter.up(32 * i));
+			
+			if (outline.canSpawnInChunk(world))
+			{
+				outline.generate(world);
+			}
+			else
+			{
+				parts.add(outline);
+			}
 		}
 	}
 	
-	private void generateNESide(World world, BlockPos center)
+	private void generateNWSide(World world, TemplateManager manager, BlockPos center)
 	{
+		BlockPos nwCenter = center.add(-16, -11, -16);
 		
+		for (int i = 0; i < 4; i++)
+		{
+			Template template = manager.get(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "boss/corruptedtower/darktower_nw_" + i));
+			StructureOutline outline = new StructureOutline(template, Rotation.NONE, nwCenter.up(32 * i));
+			
+			if (outline.canSpawnInChunk(world))
+			{
+				outline.generate(world);
+			}
+			else
+			{
+				parts.add(outline);
+			}
+		}
 	}
 	
-	private void generateNWSide(World world, BlockPos center)
+	private void generateSESide(World world, TemplateManager manager, BlockPos center)
 	{
+		BlockPos seCenter = center.add(16, -11, 16);
 		
+		for (int i = 0; i < 4; i++)
+		{
+			Template template = manager.get(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "boss/corruptedtower/darktower_se_" + i));
+			StructureOutline outline = new StructureOutline(template, Rotation.NONE, seCenter.up(32 * i));
+			
+			if (outline.canSpawnInChunk(world))
+			{
+				outline.generate(world);
+			}
+			else
+			{
+				parts.add(outline);
+			}
+		}
 	}
 	
-	private void generateSESide(World world, BlockPos center)
+	private void generateSWSide(World world, TemplateManager manager, BlockPos center)
 	{
+		BlockPos swCenter = center.add(-16, -11, 16);
 		
-	}
-	
-	private void generateSWSide(World world, BlockPos center)
-	{
-		
+		for (int i = 0; i < 4; i++)
+		{
+			Template template = manager.get(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "boss/corruptedtower/darktower_sw_" + i));
+			StructureOutline outline = new StructureOutline(template, Rotation.NONE, swCenter.up(32 * i));
+			
+			if (outline.canSpawnInChunk(world))
+			{
+				outline.generate(world);
+			}
+			else
+			{
+				parts.add(outline);
+			}
+		}
 	}
 	
 	/**

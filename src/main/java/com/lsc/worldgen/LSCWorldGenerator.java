@@ -3,20 +3,15 @@ package com.lsc.worldgen;
 import java.util.Random;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.util.Reference;
+import com.lsc.worldgen.boss.StructureCorruptedTower;
 import com.lsc.worldgen.tower.Tower;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.structure.template.PlacementSettings;
-import net.minecraft.world.gen.structure.template.Template;
-import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 /**
@@ -45,13 +40,11 @@ public class LSCWorldGenerator implements IWorldGenerator
 	
 	private void generateOverworld(World world, Random rand, int chunkX, int chunkZ)
 	{	
-		int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
-		int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
+		//int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
+		//int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
 		
-		WorldServer server = (WorldServer) world;
-		TemplateManager manager = server.getStructureTemplateManager();
-
-		Template test = manager.getTemplate(server.getMinecraftServer(), new ResourceLocation(Reference.MODID, "abandoned_house_1"));
+		//WorldServer server = (WorldServer) world;
+		//TemplateManager manager = server.getStructureTemplateManager();
 		
 		for (int i = 0; i < Tower.towerParts.size(); i++)
 		{
@@ -66,28 +59,31 @@ public class LSCWorldGenerator implements IWorldGenerator
 			}
 		}
 		
-		if ((int) (Math.random() * 120) == 0)
+		for (int i = 0; i < StructureCorruptedTower.parts.size(); i++)
 		{
-			LootSlashConquer.LOGGER.info("Attempting Tower generation...");
-			Tower tower = new Tower();
-			tower.generate(rand, chunkX, chunkZ, world);
+			StructureOutline outline = StructureCorruptedTower.parts.get(i);
+			
+			if (outline.canSpawnInChunk(world))
+			{
+				LootSlashConquer.LOGGER.info("Successfully spawned part of a boss structure from the list!");
+				outline.generate(world);
+				StructureCorruptedTower.parts.remove(i);
+			}
 		}
 		
-		if ((int) (Math.random() * 150) == 0)
+		if ((int) (Math.random() * 120) == 0)
 		{
-			if (world.isChunkGeneratedAt(chunkX-1, chunkZ) && world.isChunkGeneratedAt(chunkX, chunkZ-1) && world.isChunkGeneratedAt(chunkX+1, chunkZ-1)
-					&& world.isChunkGeneratedAt(chunkX+2, chunkZ) && world.isChunkGeneratedAt(chunkX+2, chunkZ+1) && world.isChunkGeneratedAt(chunkX+1, chunkZ+2)
-					&& world.isChunkGeneratedAt(chunkX, chunkZ+2) && world.isChunkGeneratedAt(chunkX-1, chunkZ+1))
-			{
-				test.addBlocksToWorld(world, new BlockPos(blockX, StructureHelper.getGroundFromAbove(world, blockX, blockZ), blockZ), new PlacementSettings());
-				//LootSlashConquer.LOGGER.info("Generating test structure...all chunks are loaded!");		
-			}
-			else
-			{
-				
-				//LootSlashConquer.LOGGER.info("Canceling generation because some chunks have not been generated...");
-			}
-		}		
+			//LootSlashConquer.LOGGER.info("Attempting Tower generation...");
+			Tower tower = new Tower();
+			//tower.generate(rand, chunkX, chunkZ, world);
+		}
+		
+		if ((int) (Math.random() * 300) == 0)
+		{
+			LootSlashConquer.LOGGER.info("Attempting boss structure generation...");
+			StructureCorruptedTower tower = new StructureCorruptedTower();
+			tower.generate(rand, chunkX, chunkZ, world);
+		}
 	}
 	
 	private void generateNether(World world, Random rand, int chunkX, int chunkZ) {}
