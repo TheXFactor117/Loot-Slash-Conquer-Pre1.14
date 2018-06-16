@@ -1,0 +1,5 @@
+package com.lsc.entities.ai;
+
+public class AICorruptedKnightAttack3 {
+
+}

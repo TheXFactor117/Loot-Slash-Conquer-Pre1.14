@@ -1,0 +1,5 @@
+package com.lsc.entities.bosses;
+
+public class EntityGhostKnight {
+
+}

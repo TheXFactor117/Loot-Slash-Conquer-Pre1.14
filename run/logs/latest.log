@@ -1,0 +1,747 @@
+[15:27:16] [main/INFO] [GradleStart]: Extra: []
+[15:27:16] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, /home/jared/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12.2, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[15:27:16] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[15:27:16] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[15:27:16] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[15:27:16] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[15:27:16] [main/INFO] [FML]: Forge Mod Loader version 14.23.3.2655 for Minecraft 1.12.2 loading
+[15:27:16] [main/INFO] [FML]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_171, running on Linux:amd64:3.13.0-144-generic, installed at /usr/lib/jvm/java-8-oracle/jre
+[15:27:16] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[15:27:16] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[15:27:16] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[15:27:16] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[15:27:16] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[15:27:16] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[15:27:16] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[15:27:16] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[15:27:16] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[15:27:16] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[15:27:16] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[15:27:16] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[15:27:17] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[15:27:17] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[15:27:17] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[15:27:18] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[15:27:18] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[15:27:18] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[15:27:18] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[15:27:18] [main/INFO] [net.minecraft.client.Minecraft]: Setting user: Player570
+[15:27:21] [main/INFO] [net.minecraft.client.Minecraft]: LWJGL Version: 2.9.4
+[15:27:22] [main/INFO] [FML]: -- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Linux (amd64) version 3.13.0-144-generic
+	Java Version: 1.8.0_171, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 866579728 bytes (826 MB) / 1037959168 bytes (989 MB) up to 1037959168 bytes (989 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'Intel Open Source Technology Center' Version: '3.0 Mesa 10.1.3' Renderer: 'Mesa DRI Intel(R) Ivybridge Desktop '
+[15:27:22] [main/INFO] [FML]: MinecraftForge v14.23.3.2655 Initialized
+[15:27:22] [main/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[15:27:22] [main/INFO] [FML]: Replaced 1036 ore ingredients
+[15:27:22] [main/INFO] [FML]: Found 0 mods from the command line. Injecting into mod discoverer
+[15:27:22] [main/INFO] [FML]: Searching /home/jared/Documents/src/eclipse/MC1.12.2/Loot-Slash-Conquer/run/mods for mods
+[15:27:23] [main/INFO] [FML]: Forge Mod Loader has identified 6 mods to load
+[15:27:23] [main/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, lsc, baubles] at CLIENT
+[15:27:23] [main/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, lsc, baubles] at SERVER
+[15:27:24] [main/INFO] [net.minecraft.client.resources.SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Loot Slash Conquer, FMLFileResourcePack:Baubles
+[15:27:24] [main/INFO] [FML]: Processing ObjectHolder annotations
+[15:27:24] [main/INFO] [FML]: Found 1169 ObjectHolder annotations
+[15:27:24] [main/INFO] [FML]: Identifying ItemStackHolder annotations
+[15:27:24] [main/INFO] [FML]: Found 0 ItemStackHolder annotations
+[15:27:24] [main/INFO] [FML]: Configured a dormant chunk cache size of 0
+[15:27:24] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[15:27:24] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: OUTDATED Target: 14.23.4.2705
+[15:27:24] [main/INFO] [Loot Slash Conquer]: Registering Blocks!
+[15:27:24] [main/INFO] [FML]: Applying holder lookups
+[15:27:24] [main/INFO] [FML]: Holder lookups applied
+[15:27:24] [main/INFO] [FML]: Applying holder lookups
+[15:27:24] [main/INFO] [FML]: Holder lookups applied
+[15:27:24] [main/INFO] [FML]: Applying holder lookups
+[15:27:24] [main/INFO] [FML]: Holder lookups applied
+[15:27:24] [main/INFO] [FML]: Applying holder lookups
+[15:27:24] [main/INFO] [FML]: Holder lookups applied
+[15:27:24] [main/INFO] [FML]: Injecting itemstacks
+[15:27:24] [main/INFO] [FML]: Itemstack injection complete
+[15:27:25] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Starting up SoundSystem...
+[15:27:25] [Thread-4/INFO] [net.minecraft.client.audio.SoundManager]: Initializing LWJGL OpenAL
+[15:27:25] [Thread-4/INFO] [net.minecraft.client.audio.SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[15:27:25] [Thread-3/INFO] [FML]: Using sync timing. 200 frames of Display.update took 55229667 nanos
+[15:27:25] [Thread-4/INFO] [net.minecraft.client.audio.SoundManager]: OpenAL initialized.
+[15:27:26] [Sound Library Loader/INFO] [net.minecraft.client.audio.SoundManager]: Sound engine started
+[15:27:27] [main/INFO] [FML]: Max texture size: 8192
+[15:27:27] [main/INFO] [net.minecraft.client.renderer.texture.TextureMap]: Created: 512x512 textures-atlas
+[15:27:28] [main/ERROR] [FML]: Exception loading model for variant lsc:iron_bow#inventory for item "lsc:iron_bow", normal location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:item/iron_bow with loader VanillaLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:314) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:164) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: java.io.FileNotFoundException: lsc:models/item/iron_bow.json
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:69) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:65) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadModel(ModelBakery.java:334) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.access$1600(ModelLoader.java:130) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:880) ~[ModelLoader$VanillaLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[15:27:28] [main/ERROR] [FML]: Exception loading model for variant lsc:iron_bow#inventory for item "lsc:iron_bow", blockstate location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:iron_bow#inventory with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:322) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:164) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1189) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[15:27:28] [main/ERROR] [FML]: Exception loading model for variant lsc:diamond_bow#inventory for item "lsc:diamond_bow", normal location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:item/diamond_bow with loader VanillaLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:314) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:164) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: java.io.FileNotFoundException: lsc:models/item/diamond_bow.json
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:69) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:65) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadModel(ModelBakery.java:334) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.access$1600(ModelLoader.java:130) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:880) ~[ModelLoader$VanillaLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[15:27:28] [main/ERROR] [FML]: Exception loading model for variant lsc:diamond_bow#inventory for item "lsc:diamond_bow", blockstate location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:diamond_bow#inventory with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:322) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:164) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1189) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[15:27:28] [main/ERROR] [FML]: Exception loading model for variant lsc:test#inventory for item "lsc:test", normal location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:item/test with loader VanillaLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:314) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:164) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: java.io.FileNotFoundException: lsc:models/item/test.json
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:69) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:65) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadModel(ModelBakery.java:334) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.access$1600(ModelLoader.java:130) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:880) ~[ModelLoader$VanillaLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[15:27:28] [main/ERROR] [FML]: Exception loading model for variant lsc:test#inventory for item "lsc:test", blockstate location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:test#inventory with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:322) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:164) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1189) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[15:27:28] [main/ERROR] [FML]: Exception loading model for variant lsc:discharge_scroll#inventory for item "lsc:discharge_scroll", normal location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:item/discharge_scroll with loader VanillaLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:314) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:164) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: java.io.FileNotFoundException: lsc:models/item/discharge_scroll.json
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:69) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:65) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadModel(ModelBakery.java:334) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.access$1600(ModelLoader.java:130) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:880) ~[ModelLoader$VanillaLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[15:27:28] [main/ERROR] [FML]: Exception loading model for variant lsc:discharge_scroll#inventory for item "lsc:discharge_scroll", blockstate location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:discharge_scroll#inventory with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:153) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:322) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:164) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_171]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_171]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_171]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_171]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1189) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:149) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[15:27:28] [main/FATAL] [FML]: Suppressed additional 0 model loading errors for domain lsc
+[15:27:28] [main/INFO] [FML]: Applying holder lookups
+[15:27:28] [main/INFO] [FML]: Holder lookups applied
+[15:27:29] [main/INFO] [FML]: Injecting itemstacks
+[15:27:29] [main/INFO] [FML]: Itemstack injection complete
+[15:27:29] [main/INFO] [FML]: Forge Mod Loader has successfully loaded 6 mods
+[15:27:29] [main/INFO] [com.mojang.text2speech.NarratorLinux]: Narrator library successfully loaded
+[15:27:29] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient]: Could not authorize you against Realms server: Invalid session id
+[15:27:35] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Starting integrated minecraft server version 1.12.2
+[15:27:35] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Generating keypair
+[15:27:35] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[15:27:35] [Server thread/INFO] [FML]: Applying holder lookups
+[15:27:35] [Server thread/INFO] [FML]: Holder lookups applied
+[15:27:35] [Server thread/INFO] [FML]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@14b05e1c)
+[15:27:35] [Server thread/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 488 advancements
+[15:27:36] [Server thread/INFO] [FML]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@14b05e1c)
+[15:27:36] [Server thread/INFO] [FML]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@14b05e1c)
+[15:27:36] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing start region for level 0
+[15:27:37] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 10%
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-326, y=74, z=252}
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:38] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 18%
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-312, y=64, z=158}
+[15:27:38] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:39] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:39] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:39] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:39] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:39] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:39] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 25%
+[15:27:40] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 40%
+[15:27:40] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:27:40] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:40] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-225, y=68, z=202}
+[15:27:40] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:41] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 43%
+[15:27:42] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 56%
+[15:27:43] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:27:43] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:43] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-139, y=96, z=424}
+[15:27:43] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:43] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:43] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:43] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:43] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:43] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:43] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 68%
+[15:27:44] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 84%
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-10, y=81, z=173}
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:45] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:27:45] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Preparing spawn area: 96%
+[15:27:46] [Server thread/INFO] [FML]: Unloading dimension -1
+[15:27:46] [Server thread/INFO] [FML]: Unloading dimension 1
+[15:27:46] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Changing view distance to 12, from 10
+[15:27:47] [Netty Local Client IO #0/INFO] [FML]: Server protocol version 2
+[15:27:47] [Netty Server IO #1/INFO] [FML]: Client protocol version 2
+[15:27:47] [Netty Server IO #1/INFO] [FML]: Client attempting to join with 6 mods : minecraft@1.12.2,FML@8.0.99.99,forge@14.23.3.2655,baubles@1.5.1,mcp@9.42,lsc@@MINORVERSION@-@MAJORVERSION@
+[15:27:47] [Netty Local Client IO #0/INFO] [FML]: [Netty Local Client IO #0] Client side modded connection established
+[15:27:47] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[15:27:47] [Server thread/INFO] [net.minecraft.server.management.PlayerList]: Player570[local:E:c74868e6] logged in with entity id 1467 at (-188.5, 74.0, 249.5)
+[15:27:47] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player570 joined the game
+[15:27:48] [pool-2-thread-1/WARN] [com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@43c28770[id=130bfefb-ac8d-3a05-b27c-6205f9d12a06,name=Player570,properties={},legacy=false]
+com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[YggdrasilAuthenticationService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) [YggdrasilMinecraftSessionService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:60) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:57) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:5153) [guava-21.0.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:170) [YggdrasilMinecraftSessionService.class:?]
+	at net.minecraft.client.Minecraft.getProfileProperties(Minecraft.java:3177) [Minecraft.class:?]
+	at net.minecraft.client.resources.SkinManager$3.run(SkinManager.java:138) [SkinManager$3.class:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_171]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_171]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_171]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_171]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_171]
+[15:27:49] [Server thread/WARN] [net.minecraft.server.MinecraftServer]: Can't keep up! Did the system time change, or is the server overloaded? Running 3261ms behind, skipping 65 tick(s)
+[15:27:56] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[15:27:56] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[15:28:33] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[15:28:33] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[15:28:58] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[15:28:58] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[15:29:51] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:29:51] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:29:51] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-423, y=66, z=162}
+[15:29:51] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:29:51] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:29:51] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:29:51] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:29:51] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:29:51] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:30:33] [Server thread/WARN] [net.minecraft.world.storage.loot.LootTableManager]: Couldn't find resource table lootslashconquer:entities/common_entity
+[15:31:11] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player570 has made the advancement [Cover Me With Diamonds]
+[15:31:11] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player570 has made the advancement [Cover Me With Diamonds]
+[15:31:11] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 7 advancements
+[15:36:35] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 9 advancements
+[15:36:57] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 10 advancements
+[15:40:04] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 17 advancements
+[15:41:31] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Survival Mode]
+[15:41:31] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Survival Mode
+[15:41:40] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 26 advancements
+[15:42:42] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player570 has made the advancement [Monster Hunter]
+[15:42:42] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player570 has made the advancement [Monster Hunter]
+[15:42:42] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 27 advancements
+[15:42:42] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 31 advancements
+[15:43:13] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Creative Mode]
+[15:43:13] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Creative Mode
+[15:43:21] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Survival Mode]
+[15:43:21] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Survival Mode
+[15:43:26] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 31 advancements
+[15:44:25] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 31 advancements
+[15:44:35] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player570 has made the advancement [Not Today, Thank You]
+[15:44:35] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player570 has made the advancement [Not Today, Thank You]
+[15:44:35] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 33 advancements
+[15:44:46] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[15:44:46] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[15:45:35] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 36 advancements
+[15:45:55] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player570 was slain by Level: 2   Superior
+[15:45:55] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player570 was slain by Level: 2   Superior
+[15:46:00] [Server thread/INFO] [Loot Slash Conquer]: Max health: 22.0
+[15:46:06] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Creative Mode]
+[15:46:06] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Creative Mode
+[15:46:17] [main/WARN] [net.minecraft.client.network.NetHandlerPlayClient]: Received passengers for unknown entity
+[15:47:54] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Creative Mode]
+[15:47:54] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Creative Mode
+[15:47:57] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Survival Mode]
+[15:47:57] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Survival Mode
+[15:49:21] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player570 was slain by Level: 3   Hardened
+[15:49:21] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player570 was slain by Level: 3   Hardened
+[15:49:27] [Server thread/INFO] [Loot Slash Conquer]: Max health: 22.0
+[15:49:34] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Creative Mode]
+[15:49:34] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Creative Mode
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-372, y=66, z=476}
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:49:41] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:49:45] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 36 advancements
+[15:49:58] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 36 advancements
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-591, y=63, z=11}
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:50:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:50:24] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 36 advancements
+[15:52:42] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Survival Mode]
+[15:52:42] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Survival Mode
+[15:53:01] [Server thread/ERROR] [FML]: Exception caught during firing event net.minecraftforge.event.entity.living.LivingDeathEvent@4cbb6a5:
+java.lang.NullPointerException: null
+	at com.lsc.player.ExperienceHelper.addExperience(ExperienceHelper.java:28) ~[ExperienceHelper.class:?]
+	at com.lsc.events.combat.EventLivingDeath.onLivingDeath(EventLivingDeath.java:33) ~[EventLivingDeath.class:?]
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_28_EventLivingDeath_onLivingDeath_LivingDeathEvent.invoke(.dynamic) ~[?:?]
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90) ~[ASMEventHandler.class:?]
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:179) [EventBus.class:?]
+	at net.minecraftforge.common.ForgeHooks.onLivingDeath(ForgeHooks.java:600) [ForgeHooks.class:?]
+	at net.minecraft.entity.EntityLivingBase.onDeath(EntityLivingBase.java:1282) [EntityLivingBase.class:?]
+	at net.minecraft.entity.passive.EntityPig.onDeath(EntityPig.java:208) [EntityPig.class:?]
+	at net.minecraft.entity.EntityLivingBase.attackEntityFrom(EntityLivingBase.java:1127) [EntityLivingBase.class:?]
+	at net.minecraft.entity.passive.EntityAnimal.attackEntityFrom(EntityAnimal.java:82) [EntityAnimal.class:?]
+	at net.minecraft.entity.player.EntityPlayer.attackTargetEntityWithCurrentItem(EntityPlayer.java:1438) [EntityPlayer.class:?]
+	at net.minecraft.entity.player.EntityPlayerMP.attackTargetEntityWithCurrentItem(EntityPlayerMP.java:1567) [EntityPlayerMP.class:?]
+	at net.minecraft.network.NetHandlerPlayServer.processUseEntity(NetHandlerPlayServer.java:1138) [NetHandlerPlayServer.class:?]
+	at net.minecraft.network.play.client.CPacketUseEntity.processPacket(CPacketUseEntity.java:94) [CPacketUseEntity.class:?]
+	at net.minecraft.network.play.client.CPacketUseEntity.processPacket(CPacketUseEntity.java:15) [CPacketUseEntity.class:?]
+	at net.minecraft.network.PacketThreadUtil$1.run(PacketThreadUtil.java:21) [PacketThreadUtil$1.class:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_171]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_171]
+	at net.minecraft.util.Util.runTask(Util.java:53) [Util.class:?]
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:796) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:741) [MinecraftServer.class:?]
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:192) [IntegratedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:590) [MinecraftServer.class:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_171]
+[15:53:01] [Server thread/ERROR] [FML]: Index: 1 Listeners:
+[15:53:01] [Server thread/ERROR] [FML]: 0: NORMAL
+[15:53:01] [Server thread/ERROR] [FML]: 1: ASM: com.lsc.events.combat.EventLivingDeath@3b418ca2 onLivingDeath(Lnet/minecraftforge/event/entity/living/LivingDeathEvent;)V
+[15:53:01] [Server thread/FATAL] [net.minecraft.server.MinecraftServer]: Error executing task
+java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122) ~[?:1.8.0_171]
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192) ~[?:1.8.0_171]
+	at net.minecraft.util.Util.runTask(Util.java:54) [Util.class:?]
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:796) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:741) [MinecraftServer.class:?]
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:192) [IntegratedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:590) [MinecraftServer.class:?]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_171]
+Caused by: java.lang.NullPointerException
+	at com.lsc.player.ExperienceHelper.addExperience(ExperienceHelper.java:28) ~[ExperienceHelper.class:?]
+	at com.lsc.events.combat.EventLivingDeath.onLivingDeath(EventLivingDeath.java:33) ~[EventLivingDeath.class:?]
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_28_EventLivingDeath_onLivingDeath_LivingDeathEvent.invoke(.dynamic) ~[?:?]
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90) ~[ASMEventHandler.class:?]
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:179) ~[EventBus.class:?]
+	at net.minecraftforge.common.ForgeHooks.onLivingDeath(ForgeHooks.java:600) ~[ForgeHooks.class:?]
+	at net.minecraft.entity.EntityLivingBase.onDeath(EntityLivingBase.java:1282) ~[EntityLivingBase.class:?]
+	at net.minecraft.entity.passive.EntityPig.onDeath(EntityPig.java:208) ~[EntityPig.class:?]
+	at net.minecraft.entity.EntityLivingBase.attackEntityFrom(EntityLivingBase.java:1127) ~[EntityLivingBase.class:?]
+	at net.minecraft.entity.passive.EntityAnimal.attackEntityFrom(EntityAnimal.java:82) ~[EntityAnimal.class:?]
+	at net.minecraft.entity.player.EntityPlayer.attackTargetEntityWithCurrentItem(EntityPlayer.java:1438) ~[EntityPlayer.class:?]
+	at net.minecraft.entity.player.EntityPlayerMP.attackTargetEntityWithCurrentItem(EntityPlayerMP.java:1567) ~[EntityPlayerMP.class:?]
+	at net.minecraft.network.NetHandlerPlayServer.processUseEntity(NetHandlerPlayServer.java:1138) ~[NetHandlerPlayServer.class:?]
+	at net.minecraft.network.play.client.CPacketUseEntity.processPacket(CPacketUseEntity.java:94) ~[CPacketUseEntity.class:?]
+	at net.minecraft.network.play.client.CPacketUseEntity.processPacket(CPacketUseEntity.java:15) ~[CPacketUseEntity.class:?]
+	at net.minecraft.network.PacketThreadUtil$1.run(PacketThreadUtil.java:21) ~[PacketThreadUtil$1.class:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) ~[?:1.8.0_171]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) ~[?:1.8.0_171]
+	at net.minecraft.util.Util.runTask(Util.java:53) ~[Util.class:?]
+	... 5 more
+[15:53:25] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player570 has made the advancement [Take Aim]
+[15:53:25] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player570 has made the advancement [Take Aim]
+[15:53:26] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 36 advancements
+[15:54:05] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 36 advancements
+[15:54:27] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:54:27] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:54:27] [Server thread/WARN] [FML]: Loot Slash Conquer loaded a new chunk [-10, 34] in dimension 0 (overworld) while populating chunk [-11, 34], causing cascading worldgen lag.
+[15:54:27] [Server thread/WARN] [FML]: Please report this to the mod's issue tracker. This log can be disabled in the Forge config.
+[15:54:27] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-153, y=78, z=562}
+[15:54:27] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:54:27] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:54:27] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:54:27] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:54:28] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:54:28] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:20] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:55:20] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:20] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-497, y=61, z=706}
+[15:55:20] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:20] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:20] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:20] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-344, y=76, z=709}
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:21] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:23] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 42 advancements
+[15:55:24] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:55:24] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:24] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-386, y=61, z=716}
+[15:55:24] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:24] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:24] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:24] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-183, y=61, z=726}
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:25] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[15:55:31] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 42 advancements
+[15:55:54] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 42 advancements
+[15:56:12] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Creative Mode]
+[15:56:12] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Creative Mode
+[16:00:01] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Survival Mode]
+[16:00:01] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Survival Mode
+[16:01:16] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Creative Mode]
+[16:01:16] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Creative Mode
+[16:04:03] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Creative Mode]
+[16:04:03] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Creative Mode
+[16:07:03] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player570 has made the advancement [Suit Up]
+[16:07:03] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Player570 has made the advancement [Suit Up]
+[16:07:03] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 42 advancements
+[16:08:20] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Survival Mode]
+[16:08:20] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Survival Mode
+[16:08:24] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[16:08:24] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[16:09:00] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Creative Mode]
+[16:09:00] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Creative Mode
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-629, y=71, z=870}
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:11] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:15] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[16:09:15] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:15] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-665, y=81, z=635}
+[16:09:15] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:16] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:16] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:16] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-672, y=85, z=772}
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:09:17] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:10:02] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Survival Mode]
+[16:10:02] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Survival Mode
+[16:10:45] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Creative Mode]
+[16:10:45] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Creative Mode
+[16:11:00] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 42 advancements
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-653, y=77, z=1030}
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:03] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:07] [Server thread/WARN] [net.minecraft.world.storage.loot.LootTableManager]: Couldn't find resource table lootslashconquer:chests/common_chest
+[16:11:43] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[16:11:43] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:43] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-446, y=61, z=1066}
+[16:11:43] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:44] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:44] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:44] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:44] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:44] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:44] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:44] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:47] [main/INFO] [net.minecraft.advancements.AdvancementList]: Loaded 42 advancements
+[16:11:49] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[16:11:49] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:49] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-595, y=65, z=1133}
+[16:11:49] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:49] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:50] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:50] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:50] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:50] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:50] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:55] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[16:11:55] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:55] [Server thread/WARN] [FML]: Loot Slash Conquer loaded a new chunk [-39, 74] in dimension 0 (overworld) while populating chunk [-40, 74], causing cascading worldgen lag.
+[16:11:55] [Server thread/WARN] [FML]: Please report this to the mod's issue tracker. This log can be disabled in the Forge config.
+[16:11:55] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-617, y=63, z=1205}
+[16:11:55] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:55] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:55] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:55] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:56] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:56] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:56] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:11:56] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:12:37] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: [Player570: Set own game mode to Survival Mode]
+[16:12:37] [main/INFO] [net.minecraft.client.gui.GuiNewChat]: [CHAT] Your game mode has been updated to Survival Mode
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: Attempting Tower generation...
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: Generating Tower at: BlockPos{x=-853, y=66, z=963}
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:13:07] [Server thread/INFO] [Loot Slash Conquer]: All chunks generated, generating tower piece.
+[16:13:10] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer]: Saving and pausing game...
+[16:13:10] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[16:13:10] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Stopping server
+[16:13:10] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving players
+[16:13:11] [Server thread/INFO] [net.minecraft.network.NetHandlerPlayServer]: Player570 lost connection: Disconnected
+[16:13:11] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Player570 left the game
+[16:13:11] [Server thread/INFO] [net.minecraft.network.NetHandlerPlayServer]: Stopping singleplayer server as player logged out
+[16:13:11] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving worlds
+[16:13:11] [Server thread/INFO] [net.minecraft.server.MinecraftServer]: Saving chunks for level 'New World'/overworld
+[16:13:11] [Server thread/INFO] [FML]: Unloading dimension 0
+[16:13:11] [Server thread/INFO] [FML]: Applying holder lookups
+[16:13:11] [Server thread/INFO] [FML]: Holder lookups applied
+[16:13:15] [main/INFO] [net.minecraft.world.storage.SaveFormatOld]: Deleting level New World
+[16:13:15] [main/INFO] [net.minecraft.world.storage.SaveFormatOld]: Attempt 1...
+[16:13:16] [main/INFO] [net.minecraft.client.Minecraft]: Stopping!
+[16:13:16] [main/INFO] [net.minecraft.client.audio.SoundManager]: SoundSystem shutting down...
+[16:13:16] [main/WARN] [net.minecraft.client.audio.SoundManager]: Author: Paul Lamb, www.paulscode.com

@@ -1,0 +1,14 @@
+package com.lsc.entities.bosses;
+
+import net.minecraft.world.World;
+
+import com.lsc.entities.EntityMonster;
+
+public class EntityGhostKnight extends EntityMonster {
+
+	public EntityGhostKnight(World world) {
+		super(world);
+		// TODO Auto-generated constructor stub
+	}
+
+}

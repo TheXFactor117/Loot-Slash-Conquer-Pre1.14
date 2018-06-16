@@ -20,6 +20,22 @@ import net.minecraft.world.World;
  */
 public class EntityCorruptedKnight extends EntityMonster
 {
+	/**
+	 * I'm not sure if this will be needed.
+	 * 
+	 * Two ideas -- check for stage in some methods, *OR*
+	 * change basic data values (speed and damage) when 
+	 * changing stages.
+	 * 
+	 * @author JaredBGreat
+	 */
+	public static enum Stage {
+		FIRST,
+		SECOND,
+		THIRD;
+	}
+	
+	
 	public EntityCorruptedKnight(World world)
 	{
 		super(world);
@@ -43,7 +59,7 @@ public class EntityCorruptedKnight extends EntityMonster
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(45); // cleaner division by 3
 		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
