@@ -1,6 +1,5 @@
 package com.lsc.network;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.lsc.capabilities.implementation.EnemyInfo;
 
@@ -60,7 +59,6 @@ public class PacketUpdateEnemyInfo implements IMessage
 				public void run()
 				{
 					Entity entity = Minecraft.getMinecraft().world.getEntityByID(message.entityID);
-					LootSlashConquer.LOGGER.info("Clientside entity..." + entity);
 					
 					if (entity != null)
 					{
@@ -68,7 +66,6 @@ public class PacketUpdateEnemyInfo implements IMessage
 						
 						if (enemyInfo != null)
 						{
-							LootSlashConquer.LOGGER.info("Updating enemy info clientside...");
 							enemyInfo.setEnemyLevel(message.level);
 							enemyInfo.setEnemyTier(message.tier);
 						}
