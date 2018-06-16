@@ -1,6 +1,6 @@
-package com.lsc.client.render.bosses;
+package com.lsc.client.render;
 
-import com.lsc.client.models.bosses.ModelCorruptedKnight;
+import com.lsc.client.models.ModelCorruptedKnight;
 import com.lsc.entities.bosses.EntityCorruptedKnight;
 import com.lsc.util.Reference;
 

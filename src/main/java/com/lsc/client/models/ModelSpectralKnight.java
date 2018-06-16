@@ -2,8 +2,6 @@ package com.lsc.client.models;
 
 import org.lwjgl.opengl.GL11;
 
-import com.lsc.client.models.bosses.ModelCorruptedKnight;
-
 import net.minecraft.entity.Entity;
 
 /**

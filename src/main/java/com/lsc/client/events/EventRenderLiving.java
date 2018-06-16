@@ -44,7 +44,11 @@ public class EventRenderLiving
 			//this.renderNameplate(entity, event.getRenderer().getRenderManager(), level, x, y + entity.height + 2, z, 16);
 			//this.renderNameplate(entity, event.getRenderer().getRenderManager(), tier, x, y + entity.height + 1.75, z, 16);
 			String test = EnemyTier.getEnemyTier(enemyInfo).getColor() + EnemyTier.getEnemyTier(enemyInfo).getName() + " Level " + enemyInfo.getEnemyLevel();
-			this.renderNameplate(entity, event.getRenderer().getRenderManager(), test, x, y + entity.height + 0.5, z, 16);
+			
+			if (!entity.isInvisible())
+			{
+				this.renderNameplate(entity, event.getRenderer().getRenderManager(), test, x, y + entity.height + 0.5, z, 16);
+			}
 		}
 	}
 	

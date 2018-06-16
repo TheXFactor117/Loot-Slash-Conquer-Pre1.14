@@ -1,4 +1,4 @@
-package com.lsc.client.models.bosses;
+package com.lsc.client.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -124,7 +124,7 @@ public class ModelCorruptedKnight extends ModelBase
 		this.TorsoLower.render(f5);
 		this.ArmR.render(f5);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
 	{

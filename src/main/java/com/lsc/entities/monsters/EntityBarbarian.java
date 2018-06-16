@@ -29,6 +29,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -78,11 +79,13 @@ public class EntityBarbarian extends EntityMonster
 	}
 	
 	@Override
-	public void onLivingUpdate()
+	public void onUpdate()
 	{
-		super.onLivingUpdate();
+		super.onUpdate();
 		
-		if (!this.world.isRemote && this.getHeldItemMainhand() == null)
+		//LootSlashConquer.LOGGER.info(this.getHeldItemMainhand());
+		
+		if (!this.world.isRemote && !(this.getHeldItemMainhand().getItem() instanceof ItemSword))
 		{
 			LootSlashConquer.LOGGER.info("Setting equipment...");
 			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getRandomWeapon());
