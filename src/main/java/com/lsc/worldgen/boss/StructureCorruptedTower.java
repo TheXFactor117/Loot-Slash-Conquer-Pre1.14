@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.lsc.util.Reference;
+import com.lsc.worldgen.LSCWorldSavedData;
 import com.lsc.worldgen.StructureHelper;
 import com.lsc.worldgen.StructureOutline;
 
@@ -43,13 +44,18 @@ public class StructureCorruptedTower
 		//if (canTowerSpawn(world, pos, Rotation.NONE))
 		//{
 			//LootSlashConquer.LOGGER.info("Checks passed - generating structure at: " + pos);
-			WorldServer server = (WorldServer) world;
-			TemplateManager manager = server.getStructureTemplateManager();
 			
-			generateNESide(world, manager, pos);
-			generateNWSide(world, manager, pos);
-			generateSESide(world, manager, pos);
-			generateSWSide(world, manager, pos);
+		WorldServer server = (WorldServer) world;
+		TemplateManager manager = server.getStructureTemplateManager();
+		
+		generateNESide(world, manager, pos);
+		generateNWSide(world, manager, pos);
+		generateSESide(world, manager, pos);
+		generateSWSide(world, manager, pos);
+		
+		LSCWorldSavedData.get(world).increaseCorruptedTowers();
+		
+		
 		//}
 		//else
 		//{
