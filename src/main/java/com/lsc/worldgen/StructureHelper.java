@@ -171,20 +171,70 @@ public class StructureHelper
 	 * @param pos
 	 * @param settings
 	 */
-	public static void handleDataBlocks(Template template, World world, BlockPos pos, PlacementSettings settings)
+	public static void handleTowerDataBlocks(Template template, World world, BlockPos pos, PlacementSettings settings)
 	{
 		// loop through all data blocks within the structure
 		for (Entry<BlockPos, String> e : template.getDataBlocks(pos, settings).entrySet())
 		{
-			handleChests(e, world);
-			handleSpawners(e, world);
+			handleTowerChests(e, world);
+			handleTowerSpawners(e, world);
 		}
 	}
 	
-	private static void handleChests(Entry<BlockPos, String> e, World world)
+	public static void handleTreasureRoomDataBlocks(Template template, World world, BlockPos pos, PlacementSettings settings)
+	{
+		for (Entry<BlockPos, String> e : template.getDataBlocks(pos, settings).entrySet())
+		{
+			BlockPos dataPos = e.getKey();
+			int chance = (int) (Math.random() * 2);
+			
+			if ("common_chest".equals(e.getValue()))
+			{
+				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+				TileEntity chest = world.getTileEntity(dataPos.down(1));
+				
+				if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.COMMON);
+				else world.setBlockToAir(dataPos.down(1));
+			}
+			else if ("uncommon_chest".equals(e.getValue()))
+			{
+				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+				TileEntity chest = world.getTileEntity(dataPos.down(1));
+				
+				if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.UNCOMMON);
+				else world.setBlockToAir(dataPos.down(1));
+			}
+			else if ("rare_chest".equals(e.getValue()))
+			{
+				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+				TileEntity chest = world.getTileEntity(dataPos.down(1));
+				
+				if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.RARE);
+				else world.setBlockToAir(dataPos.down(1));
+			}
+			else if ("epic_chest".equals(e.getValue()))
+			{
+				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+				TileEntity chest = world.getTileEntity(dataPos.down(1));
+				
+				if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.EPIC);
+				else world.setBlockToAir(dataPos.down(1));
+			}
+			else if ("legendary_chest".equals(e.getValue()))
+			{
+				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+				TileEntity chest = world.getTileEntity(dataPos.down(1));
+				
+				if (chance == 0) setLootTable((TileEntityChest) chest, world, Rarity.LEGENDARY);
+				else world.setBlockToAir(dataPos.down(1));
+			}
+		}
+	}
+	
+	private static void handleTowerChests(Entry<BlockPos, String> e, World world)
 	{
 		BlockPos dataPos = e.getKey();
-		int chance = (int) (Math.random() * 2);
+		int chance = (int) (Math.random() * 4);
 		
 		if ("common_chest".equals(e.getValue()))
 		{
@@ -228,11 +278,11 @@ public class StructureHelper
 		}
 	}
 	
-	private static void handleSpawners(Entry<BlockPos, String> e, World world)
+	private static void handleTowerSpawners(Entry<BlockPos, String> e, World world)
 	{
 		BlockPos dataPos = e.getKey();
 		
-		if ("uncommon_mob_spawner".equals(e.getValue()))
+		if ("common_mob_spawner".equals(e.getValue()) || "uncommon_mob_spawner".equals(e.getValue()) || "rare_mob_spawner".equals(e.getValue()))
 		{
 			world.setBlockState(dataPos, Blocks.MOB_SPAWNER.getDefaultState(), 3);
 			TileEntity tile = world.getTileEntity(dataPos);

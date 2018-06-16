@@ -5,8 +5,8 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.capabilities.enemyinfo.CapabilityEnemyInfo;
-import com.lsc.capabilities.enemyinfo.EnemyInfo;
+import com.lsc.capabilities.cap.CapabilityEnemyInfo;
+import com.lsc.capabilities.implementation.EnemyInfo;
 import com.lsc.entities.EntityMonster;
 import com.lsc.loot.NameGenerator;
 import com.lsc.loot.generation.ItemGenerator;
@@ -29,6 +29,7 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -78,12 +79,23 @@ public class EntityBarbarian extends EntityMonster
 	}
 	
 	@Override
-	public void onLivingUpdate()
+	public void onUpdate()
 	{
-		if (!this.world.isRemote && this.getHeldItemMainhand() == null)
+		super.onUpdate();
+		
+		//LootSlashConquer.LOGGER.info(this.getHeldItemMainhand());
+		
+		if (!this.world.isRemote && !(this.getHeldItemMainhand().getItem() instanceof ItemSword))
 		{
-			LootSlashConquer.LOGGER.info("Setting equipment...");
-			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getRandomWeapon());
+			EnemyInfo info = (EnemyInfo) this.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
+			
+			if (info != null && info.getEnemyTier() != 0)
+			{
+				LootSlashConquer.LOGGER.info("Setting equipment...");
+				ItemStack stack = this.getRandomWeapon();
+				LootSlashConquer.LOGGER.info(stack);
+				this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, stack);
+			}
 		}
 	}
 
@@ -190,6 +202,7 @@ public class EntityBarbarian extends EntityMonster
 			
 			if (stack != null)
 			{
+				LootSlashConquer.LOGGER.info("returning barbarian stack");
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				ItemGenerator.create(stack, nbt, world, nbt.getInteger("TagLevel"));
 				stack.setTagCompound(nbt);

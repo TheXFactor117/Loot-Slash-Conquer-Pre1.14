@@ -2,8 +2,8 @@ package com.lsc.items.base;
 
 import javax.annotation.Nullable;
 
-import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
+import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.init.ModTabs;
 import com.lsc.player.PlayerStatHelper;
 import com.lsc.util.NBTHelper;

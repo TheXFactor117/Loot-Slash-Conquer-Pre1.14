@@ -3,7 +3,6 @@ package com.lsc.client.models;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 
 /**
  * 
@@ -12,12 +11,12 @@ import net.minecraft.util.math.MathHelper;
  */
 public class ModelBarbarian extends ModelBiped
 {
-	private ModelRenderer head;
+	/*private ModelRenderer head;
 	private ModelRenderer body;
 	private ModelRenderer rightarm;
 	private ModelRenderer leftarm;
 	private ModelRenderer rightleg;
-	private ModelRenderer leftleg;
+	private ModelRenderer leftleg;*/
 	private ModelRenderer body2;
 	private ModelRenderer helm;
 	private ModelRenderer beard;
@@ -28,7 +27,43 @@ public class ModelBarbarian extends ModelBiped
 		textureWidth = 128;
 		textureHeight = 32;
 
-		head = new ModelRenderer(this, 0, 0);
+		this.bipedHead = new ModelRenderer(this, 0, 0);
+		this.bipedHead.addBox(-4F, -8F, -4F, 8, 8, 8);
+		this.bipedHead.setRotationPoint(0F, 0F, 0F);
+		this.bipedHead.setTextureSize(128, 32);
+		setRotation(this.bipedHead, 0F, 0F, 0F);
+		this.bipedBody = new ModelRenderer(this, 33, 12);
+		this.bipedBody.addBox(-5F, 0F, -2F, 10, 6, 4);
+		this.bipedBody.setRotationPoint(0F, 0F, 0F);
+		this.bipedBody.setTextureSize(128, 32);
+		this.bipedBody.mirror = true;
+		setRotation(this.bipedBody, 0F, 0F, 0F);
+		this.bipedRightArm = new ModelRenderer(this, 17, 16);
+		this.bipedRightArm.addBox(-3F, -2F, -2F, 4, 12, 4);
+		this.bipedRightArm.setRotationPoint(-6F, 2F, 0F);
+		this.bipedRightArm.setTextureSize(128, 32);
+		this.bipedRightArm.mirror = true;
+		setRotation(this.bipedRightArm, 0F, 0F, 0F);
+		this.bipedLeftArm = new ModelRenderer(this, 17, 16);
+		this.bipedLeftArm.addBox(-1F, -2F, -2F, 4, 12, 4);
+		this.bipedLeftArm.setRotationPoint(6F, 2F, 0F);
+		this.bipedLeftArm.setTextureSize(128, 32);
+		this.bipedLeftArm.mirror = true;
+		setRotation(this.bipedLeftArm, 0F, 0F, 0F);
+		this.bipedRightLeg = new ModelRenderer(this, 0, 16);
+		this.bipedRightLeg.addBox(-2F, 0F, -2F, 4, 12, 4);
+		this.bipedRightLeg.setRotationPoint(-2F, 12F, 0F);
+		this.bipedRightLeg.setTextureSize(128, 32);
+		this.bipedRightLeg.mirror = true;
+		setRotation(this.bipedRightLeg, 0F, 0F, 0F);
+		this.bipedLeftLeg = new ModelRenderer(this, 0, 16);
+		this.bipedLeftLeg.addBox(-2F, 0F, -2F, 4, 12, 4);
+		this.bipedLeftLeg.setRotationPoint(2F, 12F, 0F);
+		this.bipedLeftLeg.setTextureSize(128, 32);
+		this.bipedLeftLeg.mirror = true;
+		setRotation(this.bipedLeftLeg, 0F, 0F, 0F);
+		
+		/*head = new ModelRenderer(this, 0, 0);
 		head.addBox(-4F, -8F, -4F, 8, 8, 8);
 		head.setRotationPoint(0F, 0F, 0F);
 		head.setTextureSize(128, 32);
@@ -63,7 +98,7 @@ public class ModelBarbarian extends ModelBiped
 		leftleg.setRotationPoint(2F, 12F, 0F);
 		leftleg.setTextureSize(128, 32);
 		leftleg.mirror = true;
-		setRotation(leftleg, 0F, 0F, 0F);
+		setRotation(leftleg, 0F, 0F, 0F);*/
 		body2 = new ModelRenderer(this, 33, 22);
 		body2.addBox(-4F, 0F, -2F, 8, 6, 4);
 		body2.setRotationPoint(0F, 6F, 0F);
@@ -95,12 +130,12 @@ public class ModelBarbarian extends ModelBiped
 	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		head.render(f5);
+		/*head.render(f5);
 		body.render(f5);
 		rightarm.render(f5);
 		leftarm.render(f5);
 		rightleg.render(f5);
-		leftleg.render(f5);
+		leftleg.render(f5);*/
 		body2.render(f5);
 		helm.render(f5);
 		beard.render(f5);
@@ -119,7 +154,7 @@ public class ModelBarbarian extends ModelBiped
 	{
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 
-		this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
+		/*this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 		this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
 		this.helm.rotateAngleY = this.head.rotateAngleY;
 		this.helm.rotateAngleX = this.head.rotateAngleX;
@@ -130,6 +165,6 @@ public class ModelBarbarian extends ModelBiped
 		this.rightleg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
 		this.leftleg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float) Math.PI) * 1.4F * f1;
 		this.rightleg.rotateAngleY = 0.0F;
-		this.leftleg.rotateAngleY = 0.0F;
+		this.leftleg.rotateAngleY = 0.0F;*/
 	}
 }

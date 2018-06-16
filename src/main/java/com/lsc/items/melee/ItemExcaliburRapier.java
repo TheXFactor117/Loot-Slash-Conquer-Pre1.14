@@ -1,8 +1,8 @@
 package com.lsc.items.melee;
 
-import com.lsc.capabilities.chunk.CapabilityChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevelHolder;
+import com.lsc.capabilities.api.IChunkLevel;
+import com.lsc.capabilities.api.IChunkLevelHolder;
+import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemMelee;

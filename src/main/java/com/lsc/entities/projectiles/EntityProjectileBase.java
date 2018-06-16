@@ -1,7 +1,7 @@
 package com.lsc.entities.projectiles;
 
-import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
-import com.lsc.capabilities.playerstats.Stats;
+import com.lsc.capabilities.cap.CapabilityPlayerStats;
+import com.lsc.capabilities.implementation.Stats;
 import com.lsc.player.WeaponHelper;
 import com.lsc.util.NBTHelper;
 

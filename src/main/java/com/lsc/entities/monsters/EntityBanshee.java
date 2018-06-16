@@ -1,10 +1,14 @@
 package com.lsc.entities.monsters;
 
+import java.util.Iterator;
+import java.util.List;
+
 import com.lsc.entities.EntityMonster;
-import com.lsc.entities.ai.EntityAIBansheeScream;
 import com.lsc.entities.ai.EntityAIIdleInvisible;
 import com.lsc.entities.ai.EntityAINearestAttackableTargetInvisible;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -13,7 +17,10 @@ import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
 /**
@@ -23,13 +30,16 @@ import net.minecraft.world.World;
  */
 public class EntityBanshee extends EntityMonster
 {	
-	private int ticksSinceScream = 0;
-	private boolean canScream = false;
+	private boolean canScream;
+	private int screamCooldown;
+	private int avgScreamCooldown = 20 * 20;
 	
 	public EntityBanshee(World world)
 	{
 		super(world);
 		this.setSize(1.0F, 2.0F);
+		this.canScream = false;
+		this.screamCooldown = (int) (Math.random() * avgScreamCooldown) + 15;
 	}
 	
 	@Override
@@ -39,8 +49,7 @@ public class EntityBanshee extends EntityMonster
 		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		this.tasks.addTask(2, new EntityAIWanderAvoidWater(this, 1.0D));
 		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(4, new EntityAIBansheeScream(this));
-		this.tasks.addTask(5, new EntityAIIdleInvisible(this));
+		this.tasks.addTask(4, new EntityAIIdleInvisible(this));
 		this.targetTasks.addTask(0, new EntityAIHurtByTarget(this, false));
 		this.targetTasks.addTask(1, new EntityAINearestAttackableTargetInvisible<EntityPlayer>(this, EntityPlayer.class, false));
 	}
@@ -64,38 +73,52 @@ public class EntityBanshee extends EntityMonster
     }
 	
 	@Override
-	public void onLivingUpdate()
+	public void onUpdate()
 	{
-		super.onLivingUpdate();
+		super.onUpdate();
 		
-		if (!this.world.isRemote && !canScream)
+		if (!this.world.isRemote)
 		{
-			ticksSinceScream++;
-			
-			if (ticksSinceScream > 20 * (int) ((Math.random() * 10) + (Math.random() * 5)))
+			if (this.getAttackTarget() != null && !this.getAttackTarget().isDead)
 			{
-				canScream = true;
+				if (!this.canScream)
+				{
+					this.screamCooldown--;
+					
+					if (this.screamCooldown <= 0)
+					{
+						this.canScream = true;
+						this.screamCooldown = (int) (Math.random() * avgScreamCooldown) + 15;
+					}
+				}
+				else
+				{
+					int radius = 16;
+					double damage = this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() / 4;
+					
+					List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.posX - radius, this.posY - radius, this.posZ - radius, this.posX + radius, this.posY + radius, this.posZ + radius));
+					Iterator<EntityLivingBase> iterator = entityList.iterator();
+					
+					while (iterator.hasNext())
+					{
+		                Entity entity = (Entity) iterator.next();
+		                
+		                if (entity instanceof EntityPlayer)
+		                {
+		                	EntityPlayer player = (EntityPlayer) entity;
+		                	
+		                	if (player.attackEntityFrom(DamageSource.causeMobDamage(this), (float) damage))
+		                	{
+		                		this.playSound(SoundEvents.ENTITY_SPIDER_HURT, 1.0F, 1.0F);
+		                		player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 2, 3));
+		                		player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 20 * 5, 1));
+		                	}
+		                }
+					}
+					
+					this.canScream = false;
+				}
 			}
 		}
-	}
-	
-	public void setCanScream(boolean canScream)
-	{
-		this.canScream = canScream;
-	}
-	
-	public void resetTicksSinceScream()
-	{
-		this.ticksSinceScream = 0;
-	}
-	
-	public boolean canScream()
-	{
-		return this.canScream;
-	}
-	
-	public int getTicksSinceScream()
-	{
-		return this.ticksSinceScream;
 	}
 }

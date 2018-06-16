@@ -1,9 +1,9 @@
 package com.lsc.events.combat;
 
-import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
-import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
-import com.lsc.capabilities.playerstats.Stats;
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
+import com.lsc.capabilities.cap.CapabilityPlayerStats;
+import com.lsc.capabilities.implementation.PlayerInformation;
+import com.lsc.capabilities.implementation.Stats;
 import com.lsc.init.ModDamageSources;
 import com.lsc.items.base.ItemAdvancedMelee;
 import com.lsc.loot.ArmorAttribute;

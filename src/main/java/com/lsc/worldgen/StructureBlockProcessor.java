@@ -79,11 +79,25 @@ public class StructureBlockProcessor implements ITemplateProcessor
     	
     	if (oldBlockInfo.blockState.getBlock() == Blocks.WOOL && oldBlockInfo.blockState.equals(Blocks.WOOL.getStateFromMeta(14)))
     	{
-    		int lavaChance = 2; // 1 in 5
+    		int lavaChance = 2; // 1 in 2
     		
     		if ((int) (Math.random() * lavaChance) == 0)
     		{
     			newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.LAVA.getDefaultState(), oldBlockInfo.tileentityData);
+    		}
+    		else
+    		{
+    			newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getDefaultState(), oldBlockInfo.tileentityData);
+    		}
+    	}
+    	
+    	if (oldBlockInfo.blockState.getBlock() == Blocks.WOOL && oldBlockInfo.blockState.equals(Blocks.WOOL.getStateFromMeta(11)))
+    	{
+    		double waterChance = 0.75; // 75%
+    		
+    		if (Math.random() < waterChance)
+    		{
+    			newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.WATER.getDefaultState(), oldBlockInfo.tileentityData);
     		}
     		else
     		{

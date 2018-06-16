@@ -2,6 +2,7 @@ package com.lsc.proxies;
 
 import org.lwjgl.input.Keyboard;
 
+import com.lsc.client.events.EventRenderLiving;
 import com.lsc.client.events.EventRenderOverlayText;
 import com.lsc.client.events.EventRenderPlayer;
 import com.lsc.client.gui.GuiHealth;
@@ -9,16 +10,18 @@ import com.lsc.client.gui.GuiMana;
 import com.lsc.client.init.ModItemModels;
 import com.lsc.client.render.RenderBanshee;
 import com.lsc.client.render.RenderBarbarian;
+import com.lsc.client.render.RenderCorruptedKnight;
 import com.lsc.client.render.RenderGhost;
 import com.lsc.client.render.RenderGolem;
 import com.lsc.client.render.RenderMummy;
-import com.lsc.client.render.bosses.RenderCorruptedKnight;
+import com.lsc.client.render.RenderSpectralKnight;
 import com.lsc.entities.bosses.EntityCorruptedKnight;
 import com.lsc.entities.monsters.EntityBanshee;
 import com.lsc.entities.monsters.EntityBarbarian;
 import com.lsc.entities.monsters.EntityGhost;
 import com.lsc.entities.monsters.EntityGolem;
 import com.lsc.entities.monsters.EntityMummy;
+import com.lsc.entities.monsters.EntitySpectralKnight;
 import com.lsc.events.EventInput;
 import com.lsc.events.EventItemTooltip;
 
@@ -49,6 +52,7 @@ public class ClientProxy extends ServerProxy
 		MinecraftForge.EVENT_BUS.register(new EventInput());
 		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
 		MinecraftForge.EVENT_BUS.register(new EventRenderPlayer());
+		MinecraftForge.EVENT_BUS.register(new EventRenderLiving());
 		
 		registerRenderers();
 	}
@@ -75,5 +79,6 @@ public class ClientProxy extends ServerProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityGolem.class, RenderGolem::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, RenderMummy::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCorruptedKnight.class, RenderCorruptedKnight::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntitySpectralKnight.class, RenderSpectralKnight::new);
 	}
 }

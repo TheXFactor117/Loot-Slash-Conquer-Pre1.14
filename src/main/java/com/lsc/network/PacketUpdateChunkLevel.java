@@ -1,9 +1,9 @@
 package com.lsc.network;
 
-import com.lsc.capabilities.chunk.CapabilityChunkLevel;
-import com.lsc.capabilities.chunk.ChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevel;
-import com.lsc.capabilities.chunk.IChunkLevelHolder;
+import com.lsc.capabilities.api.IChunkLevel;
+import com.lsc.capabilities.api.IChunkLevelHolder;
+import com.lsc.capabilities.cap.CapabilityChunkLevel;
+import com.lsc.capabilities.implementation.ChunkLevel;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;

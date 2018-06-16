@@ -28,7 +28,16 @@ public class TowerFloorOutline extends StructureOutline
 		PlacementSettings settings = new PlacementSettings().setRotation(this.getRotation());
 		BlockPos pos = StructureHelper.translateToCorner(this.getTemplate(), this.getCenter(), settings.getRotation());
 		this.getTemplate().addBlocksToWorld(world, pos, new StructureBlockProcessor(pos, settings, StructureBlockProcessor.TOWER_FLOOR), settings, 2);
-		StructureHelper.handleDataBlocks(this.getTemplate(), world, pos, settings);
+		StructureHelper.handleTowerDataBlocks(this.getTemplate(), world, pos, settings);
+		this.setHasGenerated(true);
+	}
+	
+	public void generateTreasureRoom(World world)
+	{
+		PlacementSettings settings = new PlacementSettings().setRotation(this.getRotation());
+		BlockPos pos = StructureHelper.translateToCorner(this.getTemplate(), this.getCenter(), settings.getRotation());
+		this.getTemplate().addBlocksToWorld(world, pos, new StructureBlockProcessor(pos, settings, StructureBlockProcessor.TOWER_FLOOR), settings, 2);
+		StructureHelper.handleTreasureRoomDataBlocks(this.getTemplate(), world, pos, settings);
 		this.setHasGenerated(true);
 	}
 }

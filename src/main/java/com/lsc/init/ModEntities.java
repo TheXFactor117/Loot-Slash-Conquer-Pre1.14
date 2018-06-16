@@ -8,6 +8,7 @@ import com.lsc.entities.monsters.EntityBarbarian;
 import com.lsc.entities.monsters.EntityGhost;
 import com.lsc.entities.monsters.EntityGolem;
 import com.lsc.entities.monsters.EntityMummy;
+import com.lsc.entities.monsters.EntitySpectralKnight;
 import com.lsc.entities.projectiles.EntityFireball;
 import com.lsc.entities.projectiles.EntityIcebolt;
 import com.lsc.entities.projectiles.EntityLightning;
@@ -32,20 +33,21 @@ public class ModEntities
 	public static void registerEntities()
 	{
 		// projectiles
-		registerModProjectile(EntityFireball.class, "entityFireball");
-		registerModProjectile(EntityIcebolt.class, "entityIcebolt");
-		registerModProjectile(EntityLightning.class, "entityLightning");
+		registerModProjectile(EntityFireball.class, "fireball");
+		registerModProjectile(EntityIcebolt.class, "icebolt");
+		registerModProjectile(EntityLightning.class, "lightning");
 		
 		// monsters
-		registerModEntity(EntityBarbarian.class, "entityBarbarian");
-		registerModEntity(EntityGhost.class, "entityGhost");
-		registerModEntity(EntityMummy.class, "entityMummy");
-		registerModEntity(EntityBandit.class, "entityBandit");
-		registerModEntity(EntityBanshee.class, "entityBanshee");
-		registerModEntity(EntityGolem.class, "entityGolem");
+		registerModEntity(EntityBarbarian.class, "barbarian");
+		registerModEntity(EntityGhost.class, "ghost");
+		registerModEntity(EntityMummy.class, "mummy");
+		registerModEntity(EntityBandit.class, "bandit");
+		registerModEntity(EntityBanshee.class, "banshee");
+		registerModEntity(EntityGolem.class, "golem");
+		registerModEntity(EntitySpectralKnight.class, "spectralknight");
 		
 		// bosses
-		registerModEntity(EntityCorruptedKnight.class, "entityCorruptedKnight");
+		registerModEntity(EntityCorruptedKnight.class, "corruptedknight");
 		
 		registerNaturalSpawns();
 	}

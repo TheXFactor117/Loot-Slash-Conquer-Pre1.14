@@ -2,8 +2,8 @@ package com.lsc.items.scrolls;
 
 import java.util.List;
 
-import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
-import com.lsc.capabilities.playerstats.Stats;
+import com.lsc.capabilities.cap.CapabilityPlayerStats;
+import com.lsc.capabilities.implementation.Stats;
 import com.lsc.init.ModItems;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ItemBase;

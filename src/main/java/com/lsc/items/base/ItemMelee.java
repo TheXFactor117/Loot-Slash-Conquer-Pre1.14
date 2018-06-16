@@ -1,7 +1,7 @@
 package com.lsc.items.base;
 
-import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
+import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.events.EventPlayerTick;
 import com.lsc.init.ModTabs;
 import com.lsc.util.Reference;

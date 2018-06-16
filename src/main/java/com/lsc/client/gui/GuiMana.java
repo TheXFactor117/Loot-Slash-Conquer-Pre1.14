@@ -2,8 +2,8 @@ package com.lsc.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
-import com.lsc.capabilities.playerstats.Stats;
+import com.lsc.capabilities.cap.CapabilityPlayerStats;
+import com.lsc.capabilities.implementation.Stats;
 import com.lsc.util.Reference;
 
 import net.minecraft.client.Minecraft;

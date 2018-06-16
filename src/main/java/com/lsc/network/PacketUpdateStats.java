@@ -1,7 +1,7 @@
 package com.lsc.network;
 
-import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
-import com.lsc.capabilities.playerstats.Stats;
+import com.lsc.capabilities.cap.CapabilityPlayerStats;
+import com.lsc.capabilities.implementation.Stats;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;

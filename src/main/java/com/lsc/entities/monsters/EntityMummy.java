@@ -1,7 +1,7 @@
 package com.lsc.entities.monsters;
 
 import com.lsc.entities.EntityMonster;
-import com.lsc.entities.ai.EntityAIMummyGaze;
+import com.lsc.entities.ai.EntityAIGaze;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
@@ -21,6 +21,8 @@ import net.minecraft.world.World;
  */
 public class EntityMummy extends EntityMonster
 {
+	protected EntityAIGaze aiGaze;
+	
 	public EntityMummy(World world)
 	{
 		super(world);
@@ -30,9 +32,10 @@ public class EntityMummy extends EntityMonster
 	@Override
 	protected void initEntityAI()
 	{
+		this.aiGaze = new EntityAIGaze(this);
 		this.tasks.addTask(0, new EntityAISwimming(this));
-		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
-		this.tasks.addTask(2, new EntityAIMummyGaze(this));
+		this.tasks.addTask(1, aiGaze);
+		this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, false));
 		this.tasks.addTask(3, new EntityAIWanderAvoidWater(this, 1.0D));
 		this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.tasks.addTask(5, new EntityAILookIdle(this));
@@ -50,5 +53,24 @@ public class EntityMummy extends EntityMonster
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25);
 		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0);
+	}
+	
+	@Override
+	public void onUpdate()
+	{
+		super.onUpdate();
+		
+		if (!this.world.isRemote)
+		{
+			this.updateCustomTasks();
+		}
+	}
+	
+	private void updateCustomTasks()
+	{
+		if (this.aiGaze.gazeCooldown > 0)
+		{
+			this.aiGaze.gazeCooldown--;
+		}
 	}
 }

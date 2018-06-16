@@ -3,7 +3,7 @@ package com.lsc.player;
 import java.util.Random;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
+import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.network.PacketUpdatePlayerInformation;
 
 import net.minecraft.entity.EntityLivingBase;

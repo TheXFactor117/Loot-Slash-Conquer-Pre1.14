@@ -3,10 +3,10 @@ package com.lsc.player;
 import java.util.UUID;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
-import com.lsc.capabilities.playerstats.CapabilityPlayerStats;
-import com.lsc.capabilities.playerstats.Stats;
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
+import com.lsc.capabilities.cap.CapabilityPlayerStats;
+import com.lsc.capabilities.implementation.PlayerInformation;
+import com.lsc.capabilities.implementation.Stats;
 import com.lsc.network.PacketUpdateStats;
 
 import net.minecraft.entity.SharedMonsterAttributes;

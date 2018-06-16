@@ -28,7 +28,7 @@ public class EntityGolem extends EntityMonster
 	public EntityGolem(World world)
 	{
 		super(world);
-		this.setSize(1.0F, 2.0F);
+		this.setSize(1.0F, 3.0F);
 	}
 	
 	@Override

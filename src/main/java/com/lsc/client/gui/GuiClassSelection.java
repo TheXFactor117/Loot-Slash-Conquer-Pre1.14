@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.lsc.LootSlashConquer;
-import com.lsc.capabilities.playerinfo.CapabilityPlayerInformation;
-import com.lsc.capabilities.playerinfo.PlayerInformation;
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
+import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.network.PacketClassSelection;
 
 import net.minecraft.client.gui.GuiButton;
