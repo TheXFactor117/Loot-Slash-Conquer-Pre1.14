@@ -87,8 +87,15 @@ public class EntityBarbarian extends EntityMonster
 		
 		if (!this.world.isRemote && !(this.getHeldItemMainhand().getItem() instanceof ItemSword))
 		{
-			LootSlashConquer.LOGGER.info("Setting equipment...");
-			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getRandomWeapon());
+			EnemyInfo info = (EnemyInfo) this.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
+			
+			if (info != null && info.getEnemyTier() != 0)
+			{
+				LootSlashConquer.LOGGER.info("Setting equipment...");
+				ItemStack stack = this.getRandomWeapon();
+				LootSlashConquer.LOGGER.info(stack);
+				this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, stack);
+			}
 		}
 	}
 
@@ -195,6 +202,7 @@ public class EntityBarbarian extends EntityMonster
 			
 			if (stack != null)
 			{
+				LootSlashConquer.LOGGER.info("returning barbarian stack");
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				ItemGenerator.create(stack, nbt, world, nbt.getInteger("TagLevel"));
 				stack.setTagCompound(nbt);

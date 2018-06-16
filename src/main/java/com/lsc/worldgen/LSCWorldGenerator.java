@@ -80,7 +80,6 @@ public class LSCWorldGenerator implements IWorldGenerator
 		
 		if ((int) (Math.random() * 200) == 0 && LSCWorldSavedData.get(world).getCorruptedTowers() < 3)
 		{
-			LootSlashConquer.LOGGER.info("Attempting boss structure generation...");
 			StructureCorruptedTower tower = new StructureCorruptedTower();
 			tower.generate(rand, chunkX, chunkZ, world);
 		}
