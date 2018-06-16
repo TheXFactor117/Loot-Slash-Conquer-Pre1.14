@@ -1,5 +1,6 @@
 package com.lsc.init;
 
+import com.lsc.items.base.ItemBase;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.scrolls.ItemBlizzardScroll;
 import com.lsc.items.scrolls.ItemDischargeScroll;
@@ -36,6 +37,9 @@ public class ModItems
 	public static final Item INVISIBILITY_SCROLL = new ItemInvisibilityScroll("invisibility_scroll", Rarity.EPIC);
 	public static final Item MAJOR_ETHEREAL_SCROLL = new ItemMajorEtherealScroll("major_ethereal_scroll", Rarity.EPIC);
 	public static final Item VOID_SCROLL = new ItemVoidScroll("void_scroll", Rarity.LEGENDARY);
+	
+	// miscellaneous
+	public static final Item CORRUPTED_TOWER_KEY = new ItemBase("corrupted_tower_key", ModTabs.tabLE);
 		
 	@SubscribeEvent
 	public void registerItems(RegistryEvent.Register<Item> event)
@@ -57,5 +61,8 @@ public class ModItems
 		event.getRegistry().register(INVISIBILITY_SCROLL);
 		event.getRegistry().register(MAJOR_ETHEREAL_SCROLL);
 		event.getRegistry().register(VOID_SCROLL);
+		
+		// miscellaneous
+		event.getRegistry().register(CORRUPTED_TOWER_KEY);
 	}
 }

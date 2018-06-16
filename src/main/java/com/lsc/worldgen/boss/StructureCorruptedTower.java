@@ -2,20 +2,28 @@ package com.lsc.worldgen.boss;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Random;
 
 import com.lsc.LootSlashConquer;
+import com.lsc.init.ModBlocks;
+import com.lsc.init.ModItems;
 import com.lsc.util.Reference;
 import com.lsc.worldgen.LSCWorldSavedData;
 import com.lsc.worldgen.StructureHelper;
 import com.lsc.worldgen.StructureOutline;
 
 import net.minecraft.init.Biomes;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 
@@ -160,27 +168,29 @@ public class StructureCorruptedTower
 		return corner1 && corner2 && corner3 && corner4;
 	}
 	
-	/**
-	 * Returns whether or not the Tower can spawn without causing cascading worldgen.
-	 * @param world
-	 * @param center
-	 * @return
-	 */
-	private boolean canTowerSpawn(World world, BlockPos center, Rotation rotation)
+	public static void handleDataBlocks(Template template, World world, BlockPos pos, PlacementSettings settings)
 	{
-		WorldServer server = (WorldServer) world;
-		TemplateManager manager = server.getStructureTemplateManager();
-		
-		Template ne = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "boss/corruptedtower/darktower_ne_1"));
-		Template nw = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "boss/corruptedtower/darktower_nw_1"));
-		Template se = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "boss/corruptedtower/darktower_se_1"));
-		Template sw = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "boss/corruptedtower/darktower_sw_1"));
-		StructureOutline neOutline = new StructureOutline(ne, rotation, center);
-		StructureOutline nwOutline = new StructureOutline(nw, rotation, center);
-		StructureOutline seOutline = new StructureOutline(se, rotation, center);
-		StructureOutline swOutline = new StructureOutline(sw, rotation, center);
-		
-		return neOutline.canSpawnInChunk(world) && nwOutline.canSpawnInChunk(world) && seOutline.canSpawnInChunk(world) && swOutline.canSpawnInChunk(world);
+		// loop through all data blocks within the structure
+		for (Entry<BlockPos, String> e : template.getDataBlocks(pos, settings).entrySet())
+		{
+			BlockPos dataPos = e.getKey();
+			
+			if ("key_chest".equals(e.getValue()))
+			{
+				world.setBlockState(dataPos, Blocks.AIR.getDefaultState(), 3);
+				TileEntity tile = world.getTileEntity(dataPos.down(1));
+				
+				if (tile instanceof TileEntityChest)
+				{
+					TileEntityChest chest = (TileEntityChest) tile;
+					chest.setInventorySlotContents(0, new ItemStack(ModItems.CORRUPTED_TOWER_KEY));
+				}
+			}
+			else if ("boss_door".equals(e.getValue()))
+			{
+				world.setBlockState(dataPos, ModBlocks.BOSS_DOOR.getDefaultState(), 3);
+			}
+		}
 	}
 }
 

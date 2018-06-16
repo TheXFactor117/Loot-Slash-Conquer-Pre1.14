@@ -1,5 +1,7 @@
 package com.lsc.worldgen;
 
+import com.lsc.worldgen.boss.StructureCorruptedTower;
+
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -32,7 +34,7 @@ public class StructureOutline
 		PlacementSettings settings = new PlacementSettings().setRotation(rotation);
 		BlockPos pos = StructureHelper.translateToCorner(template, center, settings.getRotation());
 		template.addBlocksToWorld(world, pos, settings);
-		//StructureHelper.handleDataBlocks(template, world, pos, settings);
+		StructureCorruptedTower.handleDataBlocks(template, world, pos, settings);
 		hasGenerated = true;
 	}
 	

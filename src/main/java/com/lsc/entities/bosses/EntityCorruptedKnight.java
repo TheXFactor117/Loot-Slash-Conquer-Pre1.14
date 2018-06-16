@@ -45,7 +45,7 @@ public class EntityCorruptedKnight extends EntityMonster
 	public EntityCorruptedKnight(World world)
 	{
 		super(world);
-		this.setSize(1.0F, 2.0F);
+		this.setSize(1.0F, 3.5F);
 		this.stage = 1;
 		this.maxSpawnerCount = averageSpawnerCount;
 		this.canSpawnMobs = false;
@@ -94,7 +94,8 @@ public class EntityCorruptedKnight extends EntityMonster
 			{
 				LootSlashConquer.LOGGER.info("Increasing stage...");
 				this.stage++;
-				this.world.getClosestPlayerToEntity(this, 32).sendMessage(new TextComponentString("The monster seems to be transforming..."));
+				EntityPlayer player = this.world.getClosestPlayerToEntity(this, 32);
+				if (player != null) player.sendMessage(new TextComponentString("The monster seems to be transforming..."));
 
 				// add bonus modifiers/stats
 				AttributeModifier attackDamage = new AttributeModifier(UUID.fromString("e3340e2a-2595-4161-8076-64580a874894"), "bonusDamage", 10, 1);
@@ -106,7 +107,8 @@ public class EntityCorruptedKnight extends EntityMonster
 			{
 				LootSlashConquer.LOGGER.info("Increasing stage...");
 				this.stage++;
-				this.world.getClosestPlayerToEntity(this, 32).sendMessage(new TextComponentString("The monster seems to be transforming...again..."));
+				EntityPlayer player = this.world.getClosestPlayerToEntity(this, 32);
+				if (player != null) player.sendMessage(new TextComponentString("The monster seems to be transforming...again..."));
 
 				// add bonus modifiers/stats
 				AttributeModifier attackDamage = new AttributeModifier(UUID.fromString("456ccc6a-97b7-4347-8362-4c3794f1cf14"), "bonusDamage", 20, 1);
