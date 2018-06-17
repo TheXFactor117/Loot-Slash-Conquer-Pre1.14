@@ -1,11 +1,10 @@
-package com.lsc.worldgen;
-
-import com.lsc.worldgen.boss.StructureCorruptedTower;
+package com.lsc.world.generation.util;
 
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkProviderServer;
+import net.minecraft.world.gen.structure.template.ITemplateProcessor;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 
@@ -13,56 +12,57 @@ import net.minecraft.world.gen.structure.template.Template;
  *
  * @author TheXFactor117
  *
+ * A Class used to help ease the generation of structures.
+ * 
  */
 public class StructureOutline
 {
 	private Template template;
 	private Rotation rotation;
 	private BlockPos center;
-	private boolean hasGenerated;
+	private BlockPos corner;
+	private PlacementSettings settings;
 	
 	public StructureOutline(Template template, Rotation rotation, BlockPos center)
 	{
 		this.template = template;
 		this.rotation = rotation;
 		this.center = center;
-		this.hasGenerated = false;
+		this.corner = StructureUtils.translateToCorner(template, center, rotation);
+		this.settings = new PlacementSettings().setRotation(rotation);
 	}
 	
-	public void generate(World world)
+	/**
+	 * Generates the outline into the world, returning the corner pos in which the outline was
+	 * generated at.
+	 * @param world
+	 * @return
+	 */
+	public BlockPos generate(World world)
 	{
-		PlacementSettings settings = new PlacementSettings().setRotation(rotation);
-		BlockPos pos = StructureHelper.translateToCorner(template, center, settings.getRotation());
-		template.addBlocksToWorld(world, pos, settings);
-		StructureCorruptedTower.handleDataBlocks(template, world, pos, settings);
-		hasGenerated = true;
+		template.addBlocksToWorld(world, corner, settings);
+		return corner;
 	}
 	
-	public void setHasGenerated(boolean hasGenerated)
+	/**
+	 * Generates the outline into the world, returning the corner pos in which the outline was
+	 * generated at. Allows to specify the block processor as well.
+	 * @param world
+	 * @param processor
+	 * @return
+	 */
+	public BlockPos generate(World world, ITemplateProcessor processor)
 	{
-		this.hasGenerated = hasGenerated;
+		template.addBlocksToWorld(world, corner, processor, settings, 2);
+		return corner;
 	}
-	
-	public Template getTemplate()
-	{
-		return template;
-	}
-	
-	public Rotation getRotation()
-	{
-		return rotation;
-	}
-	
-	public BlockPos getCenter()
-	{
-		return center;
-	}
-	
-	public boolean hasGenerated()
-	{
-		return hasGenerated;
-	}
-	
+
+	/**
+	 * Checks to make sure the four corners of the template are loaded in their respective chunk.
+	 * Returns true if all corners are in loaded chunks.
+	 * @param world
+	 * @return
+	 */
 	public boolean canSpawnInChunk(World world)
 	{
 		BlockPos corner1 = this.getCenter();
@@ -120,5 +120,30 @@ public class StructureOutline
 		}
 		
 		return false;
+	}
+	
+	public Template getTemplate()
+	{
+		return template;
+	}
+	
+	public Rotation getRotation()
+	{
+		return rotation;
+	}
+	
+	public BlockPos getCenter()
+	{
+		return center;
+	}
+	
+	public BlockPos getCorner()
+	{
+		return corner;
+	}
+	
+	public PlacementSettings getSettings()
+	{
+		return settings;
 	}
 }

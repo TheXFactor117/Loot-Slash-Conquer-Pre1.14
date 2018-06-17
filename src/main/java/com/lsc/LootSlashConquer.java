@@ -9,10 +9,10 @@ import com.lsc.init.ModEvents;
 import com.lsc.init.ModLootFunctions;
 import com.lsc.init.ModLootTables;
 import com.lsc.init.ModPackets;
+import com.lsc.init.ModWorldGenerators;
 import com.lsc.proxies.ServerProxy;
 import com.lsc.util.GuiHandler;
 import com.lsc.util.Reference;
-import com.lsc.worldgen.LSCWorldGenerator;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -23,7 +23,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * 
@@ -59,8 +58,8 @@ public class LootSlashConquer
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+		ModWorldGenerators.registerWorldGenerators();
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
-		GameRegistry.registerWorldGenerator(new LSCWorldGenerator(), 100);
 		proxy.init(event);
 	}
 	

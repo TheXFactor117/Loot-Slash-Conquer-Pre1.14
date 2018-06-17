@@ -1,4 +1,4 @@
-package com.lsc.worldgen.dungeon;
+package com.lsc.world.generation.dungeon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Lists;
 import com.lsc.LootSlashConquer;
 import com.lsc.util.Reference;
-import com.lsc.worldgen.StructureHelper;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
@@ -55,7 +53,7 @@ public class Dungeon extends WorldGenerator
 		Template dungeonEntrance = manager.getTemplate(world.getMinecraftServer(), new ResourceLocation(Reference.MODID, "dungeons/test_entrance"));
 		PlacementSettings settings = new PlacementSettings();
 		
-		if (StructureHelper.canSpawnHere(dungeonEntrance, world, position))
+		/*if (StructureHelper.canSpawnHere(dungeonEntrance, world, position))
 		{
 			LootSlashConquer.LOGGER.info("Generating Dungeon at " + position);
 			
@@ -67,7 +65,7 @@ public class Dungeon extends WorldGenerator
 			procedurallyGenerate(manager, world, position, this.generateStaircase(manager, world, position));
 			
 			return true;
-		}
+		}*/
 		
 		return false;
 	}

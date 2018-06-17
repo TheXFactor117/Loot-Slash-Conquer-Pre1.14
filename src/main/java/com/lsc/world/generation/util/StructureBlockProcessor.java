@@ -1,4 +1,4 @@
-package com.lsc.worldgen;
+package com.lsc.world.generation.util;
 
 import java.util.Random;
 
@@ -57,51 +57,58 @@ public class StructureBlockProcessor implements ITemplateProcessor
     	int mossyChance = 20; // 1 in 20 chance
     	
     	// chance to remove the particular block
+    	
+    	// replaces stonebrick with air should the removal chance pass
     	if (oldBlockInfo.blockState.getBlock() == Blocks.STONEBRICK && (int) (Math.random() * removeChance) == 0)
     	{
-    		newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.AIR.getDefaultState(), oldBlockInfo.tileentityData);
+    		return new Template.BlockInfo(oldBlockInfo.pos, Blocks.AIR.getDefaultState(), oldBlockInfo.tileentityData);
     	}
     	
+    	// replaces stonebrick with cracked stonebrick
     	if (oldBlockInfo.blockState.getBlock() == Blocks.STONEBRICK && (int) (Math.random() * crackedChance) == 0)
     	{
-    		newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getStateFromMeta(BlockStoneBrick.CRACKED_META), oldBlockInfo.tileentityData);
+    		return new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getStateFromMeta(BlockStoneBrick.CRACKED_META), oldBlockInfo.tileentityData);
     	}
     	
+    	// replaces stonebrick with mossy stonebrick
     	if (oldBlockInfo.blockState.getBlock() == Blocks.STONEBRICK && (int) (Math.random() * mossyChance) == 0)
     	{
-    		newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getStateFromMeta(BlockStoneBrick.MOSSY_META), oldBlockInfo.tileentityData);
+    		return new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getStateFromMeta(BlockStoneBrick.MOSSY_META), oldBlockInfo.tileentityData);
     	}
     	
+    	// forces a stonebrick to spawn at this pos - designated by Light Gray Wool in-game.
     	if (oldBlockInfo.blockState.getBlock() == Blocks.WOOL && oldBlockInfo.blockState.equals(Blocks.WOOL.getStateFromMeta(8)))
     	{
-    		newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getDefaultState(), oldBlockInfo.tileentityData);
+    		return new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getDefaultState(), oldBlockInfo.tileentityData);
     	}
     	
+    	// randomly places lava if block = Red Wool
     	if (oldBlockInfo.blockState.getBlock() == Blocks.WOOL && oldBlockInfo.blockState.equals(Blocks.WOOL.getStateFromMeta(14)))
     	{
     		int lavaChance = 2; // 1 in 2
     		
     		if ((int) (Math.random() * lavaChance) == 0)
     		{
-    			newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.LAVA.getDefaultState(), oldBlockInfo.tileentityData);
+    			return new Template.BlockInfo(oldBlockInfo.pos, Blocks.LAVA.getDefaultState(), oldBlockInfo.tileentityData);
     		}
     		else
     		{
-    			newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getDefaultState(), oldBlockInfo.tileentityData);
+    			return new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getDefaultState(), oldBlockInfo.tileentityData);
     		}
     	}
     	
+    	// randomly places water if block = Blue Wool
     	if (oldBlockInfo.blockState.getBlock() == Blocks.WOOL && oldBlockInfo.blockState.equals(Blocks.WOOL.getStateFromMeta(11)))
     	{
     		double waterChance = 0.75; // 75%
     		
     		if (Math.random() < waterChance)
     		{
-    			newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.WATER.getDefaultState(), oldBlockInfo.tileentityData);
+    			return new Template.BlockInfo(oldBlockInfo.pos, Blocks.WATER.getDefaultState(), oldBlockInfo.tileentityData);
     		}
     		else
     		{
-    			newBlockInfo = new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getDefaultState(), oldBlockInfo.tileentityData);
+    			return new Template.BlockInfo(oldBlockInfo.pos, Blocks.STONEBRICK.getDefaultState(), oldBlockInfo.tileentityData);
     		}
     	}
     	

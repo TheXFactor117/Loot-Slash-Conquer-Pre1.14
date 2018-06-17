@@ -1,4 +1,4 @@
-package com.lsc.worldgen.dungeon;
+package com.lsc.world.generation.dungeon;
 
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;

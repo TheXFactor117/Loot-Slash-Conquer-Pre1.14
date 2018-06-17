@@ -1,4 +1,4 @@
-package com.lsc.worldgen;
+package com.lsc.world;
 
 import com.lsc.util.Reference;
 

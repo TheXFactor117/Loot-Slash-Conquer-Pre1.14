@@ -1,4 +1,4 @@
-package com.lsc.worldgen.dungeon;
+package com.lsc.world.generation.dungeon;
 
 import java.util.ArrayList;
 import java.util.Map.Entry;

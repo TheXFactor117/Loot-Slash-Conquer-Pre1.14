@@ -1,4 +1,4 @@
-package com.lsc.worldgen.tower;
+package com.lsc.world.generation.tower;
 
 import com.lsc.util.Reference;
 
@@ -13,7 +13,7 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
  * @author TheXFactor117
  *
  */
-public class TowerHelper
+public class TowerUtils
 {	
 	private static final int ENTRANCES = 1; // amount of entrance templates
 	private static final int FLOORS = 4; // amount of floor templates
