@@ -11,17 +11,20 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
 import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
 
 /**
  *
  * @author TheXFactor117
  *
  */
+@Mod.EventBusSubscriber(value = Side.CLIENT)
 public class EventRenderLiving
 {
 	@SubscribeEvent
-	public void onRenderLiving(RenderLivingEvent.Post<EntityLivingBase> event)
+	public static void onRenderLiving(RenderLivingEvent.Post<EntityLivingBase> event)
 	{
 		EntityLivingBase entity = event.getEntity();
 		EnemyInfo enemyInfo = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
@@ -47,7 +50,7 @@ public class EventRenderLiving
 			
 			if (!entity.isInvisible())
 			{
-				this.renderNameplate(entity, event.getRenderer().getRenderManager(), test, x, y + entity.height + 0.5, z, 16);
+				renderNameplate(entity, event.getRenderer().getRenderManager(), test, x, y + entity.height + 0.5, z, 16);
 			}
 		}
 	}
@@ -62,7 +65,7 @@ public class EventRenderLiving
 	 * @param z
 	 * @param maxDistance
 	 */
-	private void renderNameplate(EntityLivingBase entity, RenderManager render, String str, double x, double y, double z, int maxDistance)
+	private static void renderNameplate(EntityLivingBase entity, RenderManager render, String str, double x, double y, double z, int maxDistance)
 	{
 		double distance = entity.getDistance(render.renderViewEntity);
 		

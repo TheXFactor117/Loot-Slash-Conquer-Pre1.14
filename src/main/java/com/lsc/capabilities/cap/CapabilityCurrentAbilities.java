@@ -21,7 +21,6 @@ import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -77,10 +76,10 @@ public class CapabilityCurrentAbilities
 		return new SimpleCapabilityProvider<>(CURRENT_ABILITIES, DEFAULT_FACING, currentAbilities);
 	}
 	
-	@Mod.EventBusSubscriber
+	//@Mod.EventBusSubscriber(modid = Reference.MODID)
 	public static class EventHandler 
 	{
-		@SubscribeEvent
+		//@SubscribeEvent
 		public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
 		{
 			if (event.getObject() instanceof EntityPlayer) 

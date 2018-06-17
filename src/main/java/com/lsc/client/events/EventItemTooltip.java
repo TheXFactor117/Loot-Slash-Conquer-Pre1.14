@@ -1,4 +1,4 @@
-package com.lsc.events;
+package com.lsc.client.events;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -27,13 +27,14 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * 
  * @author TheXFactor117
  *
  */
-@Mod.EventBusSubscriber
+@Mod.EventBusSubscriber(value = Side.CLIENT)
 public class EventItemTooltip 
 {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)

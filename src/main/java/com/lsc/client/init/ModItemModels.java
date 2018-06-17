@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -18,10 +19,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  *
  */
 @SideOnly(Side.CLIENT)
+@Mod.EventBusSubscriber(value = Side.CLIENT)
 public class ModItemModels 
 {
 	@SubscribeEvent
-	public void registerItemModel(ModelRegistryEvent event)
+	public static void registerItemModel(ModelRegistryEvent event)
 	{
 		/*
 		 * ITEMS
@@ -103,7 +105,7 @@ public class ModItemModels
 		registerItemModel(Item.getItemFromBlock(ModBlocks.DUNGEON_BRICK));
 	}
 	
-	private void registerItemModel(Item item)
+	private static void registerItemModel(Item item)
 	{
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 	}

@@ -46,6 +46,9 @@ public class EventPlayerTick
 	{
 		if (event.phase == Phase.START && !event.player.getEntityWorld().isRemote)
 		{
+			ticks++;
+			regenTicks++;
+			
 			if (ticks % 10 == 0)
 			{
 				PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
@@ -79,9 +82,6 @@ public class EventPlayerTick
 				
 				regenTicks = 0;
 			}
-			
-			ticks++;
-			regenTicks++;
 		}
 	}
 	

@@ -2,13 +2,8 @@ package com.lsc.proxies;
 
 import org.lwjgl.input.Keyboard;
 
-import com.lsc.client.events.EventInput;
-import com.lsc.client.events.EventRenderLiving;
-import com.lsc.client.events.EventRenderOverlayText;
-import com.lsc.client.events.EventRenderPlayer;
 import com.lsc.client.gui.GuiHealth;
 import com.lsc.client.gui.GuiMana;
-import com.lsc.client.init.ModItemModels;
 import com.lsc.client.render.RenderBanshee;
 import com.lsc.client.render.RenderBarbarian;
 import com.lsc.client.render.RenderCorruptedKnight;
@@ -23,7 +18,6 @@ import com.lsc.entities.monsters.EntityGhost;
 import com.lsc.entities.monsters.EntityGolem;
 import com.lsc.entities.monsters.EntityMummy;
 import com.lsc.entities.monsters.EntitySpectralKnight;
-import com.lsc.events.EventItemTooltip;
 
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
@@ -41,18 +35,13 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ClientProxy extends ServerProxy
 {
 	public static KeyBinding bindingP;
+	public static KeyBinding openClass;
 	
 	@Override
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		MinecraftForge.EVENT_BUS.register(new ModItemModels());
 		MinecraftForge.EVENT_BUS.register(new GuiMana());
 		MinecraftForge.EVENT_BUS.register(new GuiHealth());
-		MinecraftForge.EVENT_BUS.register(new EventRenderOverlayText());
-		MinecraftForge.EVENT_BUS.register(new EventInput());
-		MinecraftForge.EVENT_BUS.register(new EventItemTooltip());
-		MinecraftForge.EVENT_BUS.register(new EventRenderPlayer());
-		MinecraftForge.EVENT_BUS.register(new EventRenderLiving());
 		
 		registerRenderers();
 	}
@@ -61,8 +50,10 @@ public class ClientProxy extends ServerProxy
 	public void init(FMLInitializationEvent event)
 	{
 		bindingP = new KeyBinding("Player Information", Keyboard.KEY_P, "Loot Slash Conquer");
+		openClass = new KeyBinding("Open Class Gui", Keyboard.KEY_O, "Loot Slash Conquer");
 		
 		ClientRegistry.registerKeyBinding(bindingP);
+		ClientRegistry.registerKeyBinding(openClass);
 	}
 	
 	@Override
