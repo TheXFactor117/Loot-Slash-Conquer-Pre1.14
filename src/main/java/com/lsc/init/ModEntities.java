@@ -75,10 +75,10 @@ public class ModEntities
 		Biome[] cold = new Biome[] { Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.ICE_MOUNTAINS, Biomes.ICE_PLAINS };
 		Biome[] warm = new Biome[] { Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_CLEAR_ROCK, Biomes.MESA_ROCK };
 		
-		EntityRegistry.addSpawn(EntityBarbarian.class, 2, 1, 3, EnumCreatureType.CREATURE, main);
-		EntityRegistry.addSpawn(EntityGhost.class, 8, 1, 2, EnumCreatureType.CREATURE, main);
-		EntityRegistry.addSpawn(EntityMummy.class, 10, 1, 2, EnumCreatureType.CREATURE, warm);
-		EntityRegistry.addSpawn(EntityBanshee.class, 5, 1, 1, EnumCreatureType.CREATURE, neutral);
-		EntityRegistry.addSpawn(EntityGolem.class, 3, 2, 2, EnumCreatureType.CREATURE, main);
+		EntityRegistry.addSpawn(EntityBarbarian.class, 100, 1, 3, EnumCreatureType.MONSTER, main);
+		EntityRegistry.addSpawn(EntityGhost.class, 70, 1, 2, EnumCreatureType.MONSTER, main);
+		EntityRegistry.addSpawn(EntityMummy.class, 85, 1, 2, EnumCreatureType.MONSTER, warm);
+		EntityRegistry.addSpawn(EntityBanshee.class, 50, 1, 1, EnumCreatureType.MONSTER, neutral);
+		EntityRegistry.addSpawn(EntityGolem.class, 10, 2, 2, EnumCreatureType.MONSTER, main);
 	}
 }

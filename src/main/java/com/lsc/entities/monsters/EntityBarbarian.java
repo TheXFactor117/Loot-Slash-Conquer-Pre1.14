@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.lsc.capabilities.implementation.EnemyInfo;
 import com.lsc.entities.EntityMonster;
@@ -82,18 +81,14 @@ public class EntityBarbarian extends EntityMonster
 	public void onUpdate()
 	{
 		super.onUpdate();
-		
-		//LootSlashConquer.LOGGER.info(this.getHeldItemMainhand());
-		
+
 		if (!this.world.isRemote && !(this.getHeldItemMainhand().getItem() instanceof ItemSword))
 		{
 			EnemyInfo info = (EnemyInfo) this.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
 			
 			if (info != null && info.getEnemyTier() != 0)
 			{
-				LootSlashConquer.LOGGER.info("Setting equipment...");
 				ItemStack stack = this.getRandomWeapon();
-				LootSlashConquer.LOGGER.info(stack);
 				this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, stack);
 			}
 		}
@@ -112,12 +107,9 @@ public class EntityBarbarian extends EntityMonster
 			double damage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
 			
 			boolean hasAttacked = enemy.attackEntityFrom(DamageSource.causeMobDamage(this), (float) damage);
-			LootSlashConquer.LOGGER.info("Damaging..." + damage);
 			
 			if (hasAttacked)
-			{
-				LootSlashConquer.LOGGER.info("Have we damaged?");
-				
+			{				
 				// apply attributes from weapon
 				WeaponHelper.useWeaponAttributes((float) damage, this, (EntityLivingBase) enemy, stack, nbt);
 				
@@ -148,7 +140,6 @@ public class EntityBarbarian extends EntityMonster
 	{
 		if (this.hasCapability(CapabilityEnemyInfo.ENEMY_INFO, null))
 		{
-			LootSlashConquer.LOGGER.info("Setting equipment...");
 			this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, this.getRandomWeapon());
 		}
 	}
@@ -165,9 +156,7 @@ public class EntityBarbarian extends EntityMonster
 		{
 			LootContext context = new LootContext.Builder(this.getServer().getWorld(this.dimension)).withLootedEntity(this).build();
 			ItemStack stack = null;
-			
-			LootSlashConquer.LOGGER.info("WERE INSIDE!");
-			
+						
 			// set loot table dependent on tier
 			if (enemyInfo.getEnemyTier() == 1) // normal
 			{			
@@ -202,7 +191,6 @@ public class EntityBarbarian extends EntityMonster
 			
 			if (stack != null)
 			{
-				LootSlashConquer.LOGGER.info("returning barbarian stack");
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				ItemGenerator.create(stack, nbt, world, nbt.getInteger("TagLevel"));
 				stack.setTagCompound(nbt);

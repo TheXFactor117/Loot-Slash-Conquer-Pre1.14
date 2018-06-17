@@ -5,7 +5,6 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.api.IChunkLevel;
 import com.lsc.capabilities.api.IChunkLevelHolder;
 import com.lsc.capabilities.cap.CapabilityChunkLevel;
@@ -74,14 +73,11 @@ public class TagLoot extends LootFunction
 			EntityLivingBase entity = (EntityLivingBase) context.getLootedEntity();
 			EnemyInfo enemyLevel = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
 			
-			LootSlashConquer.LOGGER.info("Setting TagLevel...");
 			nbt.setInteger("TagLevel", enemyLevel.getEnemyLevel());
 			
 			stack.setTagCompound(nbt);
 			return stack;
-		}
-		
-		LootSlashConquer.LOGGER.info("Error setting TagLevel...");
+		}		
 		return stack;
 	}
 	

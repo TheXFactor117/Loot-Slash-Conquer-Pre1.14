@@ -1,6 +1,7 @@
 package com.lsc.entities;
 
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
 /**
@@ -20,6 +21,12 @@ public class EntityMonster extends EntityMob
 	{
 		this.tasks.taskEntries.clear();
 		this.targetTasks.taskEntries.clear();
+	}
+	
+	@Override
+	public boolean getCanSpawnHere()
+	{
+		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel();
 	}
 	
 	@Override
