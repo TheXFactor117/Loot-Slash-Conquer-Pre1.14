@@ -20,6 +20,7 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -27,13 +28,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author TheXFactor117
  *
  */
+@Mod.EventBusSubscriber
 public class EventPlayerStartTracking 
 {
 	private static final UUID ATTACK_DAMAGE = UUID.fromString("708b7d5f-9e4d-4bb5-9bdc-437ebcd0fb52");
 	private static final UUID MAX_HEALTH = UUID.fromString("136ed593-8c70-4ba8-98e9-42c93e64fff0");
 	
 	@SubscribeEvent
-	public void onPlayerStartTracking(PlayerEvent.StartTracking event)
+	public static void onPlayerStartTracking(PlayerEvent.StartTracking event)
 	{	
 		// cancel the event if we're in peaceful.
 		if (event.getEntityPlayer().world.getDifficulty() == EnumDifficulty.PEACEFUL && event.getTarget() instanceof EntityMonster)

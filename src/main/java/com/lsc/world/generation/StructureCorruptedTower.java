@@ -51,7 +51,7 @@ public class StructureCorruptedTower implements IWorldGenerator
 			
 			if (outline.canSpawnInChunk(world))
 			{
-				LootSlashConquer.LOGGER.info("Successfully spawned part of a boss structure from the list!");
+				//LootSlashConquer.LOGGER.info("Successfully spawned part of a boss structure from the list!");
 				BlockPos corner = outline.generate(world);
 				this.handleDataBlocks(outline.getTemplate(), world, corner, new PlacementSettings().setRotation(outline.getRotation()));
 				parts.remove(i);
@@ -60,7 +60,7 @@ public class StructureCorruptedTower implements IWorldGenerator
 		
 		// preliminary spawn check, including a weight
 		// TODO: make it spawn somewhere in a specific area range (e.g. Areas 10-15).
-		if ((int) (Math.random() * 200) == 0 && LSCWorldSavedData.get(world).getCorruptedTowers() < 3 && world.provider.getDimension() == 0)
+		if ((int) (Math.random() * 300) == 0 && LSCWorldSavedData.get(world).getCorruptedTowers() < 3 && world.provider.getDimension() == 0)
 		{
 			// get the specific block position of the structure
 			int blockX = chunkX * 16 + (rand.nextInt(16) + 8);

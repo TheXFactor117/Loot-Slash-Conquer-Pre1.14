@@ -10,6 +10,7 @@ import com.lsc.network.PacketUpdatePlayerInformation;
 import com.lsc.network.PacketUpdateStats;
 
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
@@ -18,10 +19,11 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
  * @author TheXFactor117
  *
  */
+@Mod.EventBusSubscriber
 public class EventPlayerLoggedIn 
 {
 	@SubscribeEvent
-	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
+	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
 	{
 		PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 		Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);

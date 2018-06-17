@@ -23,6 +23,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -31,10 +32,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author TheXFactor117
  *
  */
+@Mod.EventBusSubscriber
 public class EventLivingHurtAttack 
 {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
-	public void onLivingHurt(LivingHurtEvent event)
+	public static void onLivingHurt(LivingHurtEvent event)
 	{
 		/*
 		 * Player attacks a monster OR another player

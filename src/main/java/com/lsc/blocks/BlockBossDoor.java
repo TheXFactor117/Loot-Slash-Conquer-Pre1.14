@@ -1,6 +1,5 @@
 package com.lsc.blocks;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.entities.bosses.EntityCorruptedKnight;
 import com.lsc.init.ModItems;
 import com.lsc.init.ModTabs;
@@ -34,8 +33,6 @@ public class BlockBossDoor extends BlockBase
 		{
 			if (hand == EnumHand.MAIN_HAND && player.getHeldItemMainhand().getItem() == ModItems.CORRUPTED_TOWER_KEY)
 			{
-				LootSlashConquer.LOGGER.info("Right clicking block with key...");
-				
 				BlockPos bossPos = pos.add(7, 5, 4);
 				EntityCorruptedKnight boss = new EntityCorruptedKnight(world);
 				boss.setPosition(bossPos.getX(), bossPos.getY(), bossPos.getZ());

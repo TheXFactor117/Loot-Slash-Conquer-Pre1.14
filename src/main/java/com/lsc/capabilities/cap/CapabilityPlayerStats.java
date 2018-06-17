@@ -15,13 +15,13 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -76,8 +76,6 @@ public class CapabilityPlayerStats
 				instance.setCriticalDamage(compound.getDouble("CriticalDamage"));
 			}
 		}, () -> new Stats(null));
-
-		MinecraftForge.EVENT_BUS.register(new EventHandler());
 	}
 	
 	@Nullable
@@ -91,10 +89,11 @@ public class CapabilityPlayerStats
 		return new SimpleCapabilityProvider<>(STATS, DEFAULT_FACING, stats);
 	}
 	
+	@Mod.EventBusSubscriber
 	public static class EventHandler 
 	{
 		@SubscribeEvent
-		public void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
+		public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
 		{
 			if (event.getObject() instanceof EntityPlayer) 
 			{
@@ -105,7 +104,7 @@ public class CapabilityPlayerStats
 		}
 		
 		@SubscribeEvent
-		public void playerClone(PlayerEvent.Clone event) 
+		public static void playerClone(PlayerEvent.Clone event) 
 		{
 			IStats oldStats = getStats(event.getOriginal());
 			IStats newStats = getStats(event.getEntityLiving());

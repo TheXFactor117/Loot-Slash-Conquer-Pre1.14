@@ -24,6 +24,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -32,10 +33,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author TheXFactor117
  *
  */
+@Mod.EventBusSubscriber
 public class EventItemTooltip 
 {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
-	public void onItemTooltip(ItemTooltipEvent event)
+	public static void onItemTooltip(ItemTooltipEvent event)
 	{
 		ArrayList<String> tooltip = (ArrayList<String>) event.getToolTip();
 		ItemStack stack = event.getItemStack();
@@ -67,7 +69,7 @@ public class EventItemTooltip
 		}
 	}
 	
-	private void drawMelee(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawMelee(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
 	{
 		/*
 		 * NAME
@@ -127,7 +129,7 @@ public class EventItemTooltip
 		}
 	}
 	
-	private void drawArmor(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawArmor(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
 	{
 		/*
 		 * NAME
@@ -176,7 +178,7 @@ public class EventItemTooltip
 		}
 	}
 	
-	private void drawRanged(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawRanged(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
 	{
 		tooltip.add(1, "");
 		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
@@ -211,7 +213,7 @@ public class EventItemTooltip
 		}
 	}
 	
-	private void drawMagical(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawMagical(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
 	{
 		/*
 		 * NAME
@@ -264,7 +266,7 @@ public class EventItemTooltip
 		}
 	}
 	
-	private void drawBauble(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawBauble(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
 	{
 		/*
 		 * NAME

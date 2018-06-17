@@ -21,13 +21,13 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -100,8 +100,6 @@ public class CapabilityPlayerInformation
 				instance.setBonusFortitudeStat(compound.getInteger("FortitudeBonusStat"));
 			}
 		}, () -> new PlayerInformation(null));
-
-		MinecraftForge.EVENT_BUS.register(new EventHandler());
 	}
 	
 	@Nullable
@@ -115,10 +113,11 @@ public class CapabilityPlayerInformation
 		return new SimpleCapabilityProvider<>(PLAYER_INFORMATION, DEFAULT_FACING, playerInfo);
 	}
 	
+	@Mod.EventBusSubscriber
 	public static class EventHandler 
 	{
 		@SubscribeEvent
-		public void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
+		public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
 		{
 			if (event.getObject() instanceof EntityPlayer) 
 			{
@@ -129,7 +128,7 @@ public class CapabilityPlayerInformation
 		}
 		
 		@SubscribeEvent
-		public void playerClone(PlayerEvent.Clone event) 
+		public static void playerClone(PlayerEvent.Clone event) 
 		{
 			IPlayerInformation oldInfo = getPlayerInformation(event.getOriginal());
 			IPlayerInformation newInfo = getPlayerInformation(event.getEntityLiving());
@@ -161,7 +160,7 @@ public class CapabilityPlayerInformation
 		}
 		
 		@SubscribeEvent
-		public void onPlayerRespawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event)
+		public static void onPlayerRespawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event)
 		{
 			PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);

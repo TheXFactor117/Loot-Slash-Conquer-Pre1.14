@@ -41,7 +41,7 @@ public class StructureTower implements IWorldGenerator
 
 			if (outline.canSpawnInChunk(world))
 			{
-				LootSlashConquer.LOGGER.info("Successfully spawned part of a tower from the list!");
+				//LootSlashConquer.LOGGER.info("Successfully spawned part of a tower from the list!");
 				outline.generate(world, new StructureBlockProcessor(outline.getCenter(), outline.getSettings(), StructureBlockProcessor.TOWER_FLOOR));
 				// TODO: if a treasure room gets spawned from here, it'll have lower chest spawn rates.
 				// this will need to be fixed eventually. Maybe add an additional parameter to
@@ -144,13 +144,13 @@ public class StructureTower implements IWorldGenerator
 
 		if (canSpawn)
 		{
-			LootSlashConquer.LOGGER.info("All chunks generated, generating tower piece.");
+			//LootSlashConquer.LOGGER.info("All chunks generated, generating tower piece.");
 			outline.generate(world, new StructureBlockProcessor(outline.getCenter(), outline.getSettings(), StructureBlockProcessor.TOWER_FLOOR));
 			this.handleDataBlocks(outline.getTemplate(), world, outline.getCorner(), outline.getSettings(), 0);
 		}
 		else
 		{
-			LootSlashConquer.LOGGER.info("Some chunks haven't been generated yet, storing tower piece.");
+			//LootSlashConquer.LOGGER.info("Some chunks haven't been generated yet, storing tower piece.");
 			parts.add(outline);
 		}
 
@@ -170,13 +170,13 @@ public class StructureTower implements IWorldGenerator
 
 		if (outline.canSpawnInChunk(world))
 		{
-			LootSlashConquer.LOGGER.info("All chunks generated, generating tower piece.");
+			//LootSlashConquer.LOGGER.info("All chunks generated, generating tower piece.");
 			outline.generate(world, new StructureBlockProcessor(outline.getCenter(), outline.getSettings(), StructureBlockProcessor.TOWER_FLOOR));
 			this.handleDataBlocks(outline.getTemplate(), world, outline.getCorner(), outline.getSettings(), 0);
 		}
 		else
 		{
-			LootSlashConquer.LOGGER.info("Some chunks haven't been generated yet, storing tower piece.");
+			//LootSlashConquer.LOGGER.info("Some chunks haven't been generated yet, storing tower piece.");
 			parts.add(outline);
 		}
 	}
@@ -195,13 +195,13 @@ public class StructureTower implements IWorldGenerator
 
 		if (outline.canSpawnInChunk(world))
 		{
-			LootSlashConquer.LOGGER.info("All chunks generated, generating tower piece.");
+			//LootSlashConquer.LOGGER.info("All chunks generated, generating tower piece.");
 			outline.generate(world, new StructureBlockProcessor(outline.getCenter(), outline.getSettings(), StructureBlockProcessor.TOWER_FLOOR));
 			this.handleDataBlocks(outline.getTemplate(), world, outline.getCorner(), outline.getSettings(), 1);
 		}
 		else
 		{
-			LootSlashConquer.LOGGER.info("Some chunks haven't been generated yet, storing tower piece.");
+			//LootSlashConquer.LOGGER.info("Some chunks haven't been generated yet, storing tower piece.");
 			parts.add(outline);
 		}
 	}

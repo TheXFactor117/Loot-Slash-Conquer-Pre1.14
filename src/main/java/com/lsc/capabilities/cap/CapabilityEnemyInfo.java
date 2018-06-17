@@ -15,12 +15,12 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -59,8 +59,6 @@ public class CapabilityEnemyInfo
 				instance.setEnemyTier(compound.getInteger("EnemyTier"));
 			}
 		}, () -> new EnemyInfo(null));
-
-		MinecraftForge.EVENT_BUS.register(new EventHandler());
 	}
 	
 	@Nullable
@@ -74,10 +72,11 @@ public class CapabilityEnemyInfo
 		return new SimpleCapabilityProvider<>(ENEMY_INFO, DEFAULT_FACING, level);
 	}
 	
+	@Mod.EventBusSubscriber
 	public static class EventHandler 
 	{
 		@SubscribeEvent
-		public void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
+		public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
 		{
 			if (event.getObject() instanceof EntityMob) 
 			{

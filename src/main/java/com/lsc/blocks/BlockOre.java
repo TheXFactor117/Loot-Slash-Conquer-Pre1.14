@@ -9,6 +9,12 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+// TODO: remove this and implement future ores in a better way?
 public class BlockOre extends BlockBase
 {
 	public Item item;

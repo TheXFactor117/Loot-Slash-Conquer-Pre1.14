@@ -24,6 +24,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
@@ -33,14 +34,15 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
  * @author TheXFactor117
  *
  */
+@Mod.EventBusSubscriber
 public class EventPlayerTick 
 {
-	private int ticks;
-	private int regenTicks;
+	private static int ticks;
+	private static int regenTicks;
 	
 	/* Called ever second to check for slots and update stat bonuses. Might need to be re-worked. */
 	@SubscribeEvent
-	public void onPlayerTick(PlayerTickEvent event)
+	public static void onPlayerTick(PlayerTickEvent event)
 	{
 		if (event.phase == Phase.START && !event.player.getEntityWorld().isRemote)
 		{

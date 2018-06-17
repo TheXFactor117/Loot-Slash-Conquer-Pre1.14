@@ -2,6 +2,7 @@ package com.lsc.proxies;
 
 import org.lwjgl.input.Keyboard;
 
+import com.lsc.client.events.EventInput;
 import com.lsc.client.events.EventRenderLiving;
 import com.lsc.client.events.EventRenderOverlayText;
 import com.lsc.client.events.EventRenderPlayer;
@@ -22,7 +23,6 @@ import com.lsc.entities.monsters.EntityGhost;
 import com.lsc.entities.monsters.EntityGolem;
 import com.lsc.entities.monsters.EntityMummy;
 import com.lsc.entities.monsters.EntitySpectralKnight;
-import com.lsc.events.EventInput;
 import com.lsc.events.EventItemTooltip;
 
 import net.minecraft.client.settings.KeyBinding;

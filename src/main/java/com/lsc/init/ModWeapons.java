@@ -22,6 +22,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -29,6 +30,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author TheXFactor117
  *
  */
+@Mod.EventBusSubscriber
 public class ModWeapons 
 {
 	public static class ToolMaterials
@@ -102,7 +104,7 @@ public class ModWeapons
 	/* Armors */
 	
 	@SubscribeEvent
-	public void registerItem(RegistryEvent.Register<Item> event)
+	public static void registerItem(RegistryEvent.Register<Item> event)
 	{
 		event.getRegistry().register(test);
 		

@@ -12,6 +12,7 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.world.storage.loot.RandomValueRange;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraftforge.event.LootTableLoadEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -19,10 +20,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author TheXFactor117
  *
  */
+@Mod.EventBusSubscriber
 public class EventLoadLootTable 
 {
 	@SubscribeEvent
-	public void onLootTableLoad(LootTableLoadEvent event)
+	public static void onLootTableLoad(LootTableLoadEvent event)
 	{	
 		if (event.getName() == ModLootTables.common_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		else if (event.getName() == ModLootTables.uncommon_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));

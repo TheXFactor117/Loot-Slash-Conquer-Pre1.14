@@ -15,13 +15,13 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -64,8 +64,6 @@ public class CapabilityCurrentAbilities
 				instance.setAbilityInSlot(4, compound.getInteger("UltimateAbility"));
 			}
 		}, () -> new CurrentAbilities(null));
-
-		MinecraftForge.EVENT_BUS.register(new EventHandler());
 	}
 	
 	@Nullable
@@ -79,10 +77,11 @@ public class CapabilityCurrentAbilities
 		return new SimpleCapabilityProvider<>(CURRENT_ABILITIES, DEFAULT_FACING, currentAbilities);
 	}
 	
+	@Mod.EventBusSubscriber
 	public static class EventHandler 
 	{
 		@SubscribeEvent
-		public void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
+		public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
 		{
 			if (event.getObject() instanceof EntityPlayer) 
 			{
@@ -93,7 +92,7 @@ public class CapabilityCurrentAbilities
 		}
 		
 		@SubscribeEvent
-		public void playerClone(PlayerEvent.Clone event) 
+		public static void playerClone(PlayerEvent.Clone event) 
 		{
 			ICurrentAbilities oldAbilities = getCurrentAbilities(event.getOriginal());
 			ICurrentAbilities newAbilities = getCurrentAbilities(event.getEntityLiving());

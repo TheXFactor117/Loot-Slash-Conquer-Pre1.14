@@ -17,6 +17,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerContainerEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -24,10 +25,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
  * @author TheXFactor117
  *
  */
+@Mod.EventBusSubscriber
 public class EventContainerOpen 
 {
 	@SubscribeEvent
-	public void onContainerOpen(PlayerContainerEvent event)
+	public static void onContainerOpen(PlayerContainerEvent event)
 	{
 		EntityPlayer player = event.getEntityPlayer();
 		World world = player.getEntityWorld();
@@ -64,7 +66,7 @@ public class EventContainerOpen
 		}
 	}
 	
-	public void generate(ItemStack stack, NBTTagCompound nbt, World world, int level)
+	public static void generate(ItemStack stack, NBTTagCompound nbt, World world, int level)
 	{
 		if (Rarity.getRarity(nbt) == Rarity.DEFAULT)
 		{

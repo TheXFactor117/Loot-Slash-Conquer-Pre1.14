@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 
 import com.lsc.init.ModCapabilities;
 import com.lsc.init.ModEntities;
-import com.lsc.init.ModEvents;
 import com.lsc.init.ModLootFunctions;
 import com.lsc.init.ModLootTables;
 import com.lsc.init.ModPackets;
@@ -44,15 +43,15 @@ public class LootSlashConquer
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{	
+		LootSlashConquer.LOGGER.info("Starting initialization process...");
+		
 		ModLootTables.register();
 		ModCapabilities.registerCapabilities();
-		ModEvents.registerEvents();
 		ModEntities.registerEntities();
 		ModLootFunctions.registerFunctions();
+		ModPackets.registerPackets();
 		
 		proxy.preInit(event);
-		
-		ModPackets.registerPackets();
 	}
 	
 	@EventHandler
@@ -67,5 +66,7 @@ public class LootSlashConquer
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		proxy.postInit(event);
+		
+		LootSlashConquer.LOGGER.info("Loot Slash Conquer has finished initializing successfully!");
 	}
 }

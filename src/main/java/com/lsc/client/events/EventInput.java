@@ -1,4 +1,4 @@
-package com.lsc.events;
+package com.lsc.client.events;
 
 import com.lsc.LootSlashConquer;
 import com.lsc.proxies.ClientProxy;

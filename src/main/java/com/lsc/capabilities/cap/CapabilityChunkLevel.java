@@ -59,9 +59,7 @@ public class CapabilityChunkLevel
 			{
 
 			}
-		}, ChunkLevelHolder::new);
-		
-		//MinecraftForge.EVENT_BUS.register(new EventHandler());
+		}, ChunkLevelHolder::new);		
 	}
 	
 	@Nullable
