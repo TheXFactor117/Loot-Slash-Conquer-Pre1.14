@@ -129,6 +129,11 @@ public class PlayerStatHelper
 			}
 			else
 				player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(fortitudeMaxHealth);
+			
+			if (player.getHealth() > player.getMaxHealth())
+			{
+				player.setHealth(player.getMaxHealth());
+			}
 		}
 	}
 }
