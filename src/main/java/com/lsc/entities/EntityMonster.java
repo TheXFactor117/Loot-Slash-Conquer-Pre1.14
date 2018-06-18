@@ -26,7 +26,9 @@ public class EntityMonster extends EntityMob
 	@Override
 	public boolean getCanSpawnHere()
 	{
-		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel();
+		int chance = this.world.isDaytime() ? 4 : 1;
+		
+		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel() && (int) (Math.random() * chance) == 0;
 	}
 	
 	@Override

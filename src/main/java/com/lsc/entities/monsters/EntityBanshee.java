@@ -106,12 +106,16 @@ public class EntityBanshee extends EntityMonster
 		                if (entity instanceof EntityPlayer)
 		                {
 		                	EntityPlayer player = (EntityPlayer) entity;
+		                	int chance = (int) (Math.random() * 2);
 		                	
-		                	if (player.attackEntityFrom(DamageSource.causeMobDamage(this), (float) damage))
+		                	if (chance == 0)
 		                	{
-		                		this.playSound(SoundEvents.ENTITY_SPIDER_HURT, 1.0F, 1.0F);
-		                		player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 2, 3));
-		                		player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 20 * 5, 1));
+		                		if (player.attackEntityFrom(DamageSource.causeMobDamage(this), (float) damage))
+			                	{
+			                		this.playSound(SoundEvents.ENTITY_SPIDER_HURT, 1.0F, 1.0F);
+			                		player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 2, 3));
+			                		player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 20 * 5, 1));
+			                	}
 		                	}
 		                }
 					}

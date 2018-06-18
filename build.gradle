@@ -13,8 +13,8 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 loadProperties()
 
 version = config.minecraft_version + "-" + config.minor_version + "-" + config.major_version
-group = "com.thexfactor117.losteclipse"
-archivesBaseName = "Lost Eclipse"
+group = "com.thexfactor117.lsc"
+archivesBaseName = "Loot Slash Conquer"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
