@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
-import com.lsc.LootSlashConquer;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;

@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "lsc:items/golden_bow_standby"
+        "layer0": "lsc:items/golden_bow"
     },
     "display": {
         "thirdperson_righthand": {

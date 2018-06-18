@@ -72,7 +72,7 @@ public class EntityCorruptedKnight extends EntityMonster
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300);
 		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(40);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);

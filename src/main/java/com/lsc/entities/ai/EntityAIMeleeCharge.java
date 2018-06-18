@@ -4,7 +4,6 @@ import com.lsc.LootSlashConquer;
 import com.lsc.entities.bosses.EntityCorruptedKnight;
 
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -22,7 +21,7 @@ public class EntityAIMeleeCharge extends EntityAIBase
 {
 	private EntityLiving entity;
 	private int chargeDistance; // distance the entity will charge
-	private double chargeSpeed; // speed at which the entity will charge
+	//private double chargeSpeed; // speed at which the entity will charge
 	public int cooldown; // cooldown counter
 	private final int maxCooldown = 20 * 15; // amount of time needed to pass for the AI to start again
 	private int progress;
@@ -36,7 +35,7 @@ public class EntityAIMeleeCharge extends EntityAIBase
 		this.setMutexBits(7); // incompatible with everything vanilla
 		this.entity = entity;
 		this.chargeDistance = distance;
-		this.chargeSpeed = speed;
+		//this.chargeSpeed = speed;
 		this.chargeMotionX = 0;
 		this.chargeMotionZ = 0;
 	}
@@ -87,15 +86,13 @@ public class EntityAIMeleeCharge extends EntityAIBase
 		this.progress++;
 		
 		// check to make sure the charge can continue
-		if (this.startingPos.getDistance(this.entity.getPosition().getX(), this.entity.getPosition().getY(), this.entity.getPosition().getZ()) >= 25 || this.progress >= this.maxProgress)
+		if (this.startingPos.getDistance(this.entity.getPosition().getX(), this.entity.getPosition().getY(), this.entity.getPosition().getZ()) >= this.chargeDistance || this.progress >= this.maxProgress)
 		{
-			LootSlashConquer.LOGGER.info("Charge finished...");
 			// reset cooldown when finished
 			this.cooldown = this.maxCooldown;
 		}
 		else
 		{
-			LootSlashConquer.LOGGER.info("Charging...");
 			this.entity.motionX += this.chargeMotionX;
 			this.entity.motionZ += this.chargeMotionZ;
 			

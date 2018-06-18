@@ -195,10 +195,25 @@ public class ItemGeneratorHelper
 		Rune.setRune(nbt, Rune.getRandomRune(nbt, rand));
 	}
 	
+	/**
+	 * Sets the minimum and maximum damage an item can deal and sets it to NBT.
+	 * @param nbt
+	 * @param damage
+	 */
 	public static void setMinMaxDamage(NBTTagCompound nbt, double damage)
 	{
+		// min/max rand factor control the range of the random decimal. The higher the factors, the bigger range
+		double minRandFactor = 0.5; 
+		double maxRandFactor = 0.7;
+		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
+		// scales the range by level (higher level items have greater ranges
 		double rangeMultiplier = nbt.getInteger("Level") * 0.65;
-		int range = (int) ((Math.random() * 4 + 2) * rangeMultiplier);
+		// the actual range is calculated here
+		// take the random multiplier and multiply it by some value (the higher the value, the bigger the range)
+		// add 0.5 so it can't be zero
+		// multiply it by the range multiplier (increases the range dependent on the level)
+		int range = (int) ((multiplier * 4 + 0.5) * rangeMultiplier);
+		// set the min/max by subtracting/adding half the range to the new damage value.
 		int minDamage = (int) (damage - (range / 2));
 		int maxDamage = (int) (damage + (range / 2));
 
@@ -212,19 +227,45 @@ public class ItemGeneratorHelper
 		nbt.setInteger("MaxDamage", maxDamage);
 	}
 	
+	/**
+	 * Returns a weighted damage value dependent on the Rarity and Level of the item.
+	 * @param nbt
+	 * @param rarity
+	 * @param base
+	 * @return
+	 */
 	public static double getWeightedDamage(NBTTagCompound nbt, Rarity rarity, double base)
 	{
 		double damage = base;
+		// min/max rand factor controls the range of the random decimal (this creates a sort of range for the damage to fall in,
+		// based on the base damage.
 		double minRandFactor = 0.7;
 		double maxRandFactor = 0.9;
 		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
 		
-		if (rarity == Rarity.COMMON) damage = base * (0.9 * multiplier);
-		else if (rarity == Rarity.UNCOMMON) damage = base * (1 * multiplier);
-		else if (rarity == Rarity.RARE) damage = base * (1.1 * multiplier);
-		else if (rarity == Rarity.EPIC) damage = base * (1.25 * multiplier);
-		else if (rarity == Rarity.LEGENDARY) damage = base * (1.4 * multiplier);
+		// set the new damage equal to the base multiplied by the multiplier and the rarity factor.
+		switch (rarity)
+		{
+			case COMMON:
+				damage = base * (0.9 * multiplier);
+				break;
+			case UNCOMMON:
+				damage = base * (1 * multiplier);
+				break;
+			case RARE:
+				damage = base * (1.1 * multiplier);
+				break;
+			case EPIC:
+				damage = base * (1.25 * multiplier);
+				break;
+			case LEGENDARY:
+				damage = base * (1.4 * multiplier);
+				break;
+			default:
+				break;
+		}
 		
+		// scale the new damage value up based on the level
 		return damage * Math.pow(nbt.getInteger("Level"), 1.1);
 	}
 	
@@ -233,30 +274,30 @@ public class ItemGeneratorHelper
 		double speed = base;
 		double range = 0;
 		
-		if (rarity == Rarity.COMMON)
+		switch (rarity)
 		{
-			range = 0.1;
-			speed = Math.random() * range + (base - 0.1);
-		}
-		else if (rarity == Rarity.UNCOMMON)
-		{
-			range = 0.15;
-			speed = Math.random() * range + (base - 0.05);
-		}
-		else if (rarity == Rarity.RARE)
-		{
-			range = 0.25;
-			speed = Math.random() * range + (base);
-		}
-		else if (rarity == Rarity.EPIC)
-		{
-			range = 0.4;
-			speed = Math.random() * range + (base + 0.1);
-		}
-		else if (rarity == Rarity.LEGENDARY)
-		{
-			range = 0.65;
-			speed = Math.random() * range + (base + 0.2);
+			case COMMON:
+				range = 0.1;
+				speed = Math.random() * range + (base - 0.1);
+				break;
+			case UNCOMMON:
+				range = 0.15;
+				speed = Math.random() * range + (base - 0.05);
+				break;
+			case RARE:
+				range = 0.25;
+				speed = Math.random() * range + (base);
+				break;
+			case EPIC:
+				range = 0.4;
+				speed = Math.random() * range + (base + 0.1);
+				break;
+			case LEGENDARY:
+				range = 0.65;
+				speed = Math.random() * range + (base - 0.2);
+				break;
+			default:
+				break;
 		}
 		
 		return speed;
