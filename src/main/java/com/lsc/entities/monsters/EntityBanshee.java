@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.lsc.entities.EntityMonster;
-import com.lsc.entities.ai.EntityAIIdleInvisible;
 import com.lsc.entities.ai.EntityAINearestAttackableTargetInvisible;
 
 import net.minecraft.entity.Entity;
@@ -12,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
@@ -49,7 +49,7 @@ public class EntityBanshee extends EntityMonster
 		this.tasks.addTask(1, new EntityAIAttackMelee(this, 1.0D, false));
 		this.tasks.addTask(2, new EntityAIWanderAvoidWater(this, 1.0D));
 		this.tasks.addTask(3, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(4, new EntityAIIdleInvisible(this));
+		this.tasks.addTask(4, new EntityAILookIdle(this));
 		this.targetTasks.addTask(0, new EntityAIHurtByTarget(this, false));
 		this.targetTasks.addTask(1, new EntityAINearestAttackableTargetInvisible<EntityPlayer>(this, EntityPlayer.class, false));
 	}
@@ -69,7 +69,11 @@ public class EntityBanshee extends EntityMonster
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount)
     {
-		return !this.isPotionActive(MobEffects.INVISIBILITY) && super.attackEntityFrom(source, amount);
+		// give the player a 20% chance of hitting an invisible banshee.
+		int chance = (int) (Math.random() * 5);
+		boolean flag = !this.isPotionActive(MobEffects.INVISIBILITY) ? true : chance == 0;
+				
+		return flag && super.attackEntityFrom(source, amount);
     }
 	
 	@Override

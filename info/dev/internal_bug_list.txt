@@ -4,6 +4,5 @@
 * Something was null when an item got a name.
 * Bonus damage from attributes doesn't count towards experience.
 * Special weapons get stats re-rolled. Might not work as drops entirely.
-* Chests inside of structures are not rotated properly.
 * Loot drops from chests (maybe vanilla spawns) are not getting stats rolled properly. Something with the rarity might be messing it up because it's getting set as Default.
-* Ghost/Banshee disappearing logic is slightly bugged.
+* Barbarians sometimes drop two weapons, both of which have almost no durability.

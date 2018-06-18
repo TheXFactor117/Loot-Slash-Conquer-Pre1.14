@@ -87,10 +87,11 @@ public class EntityAINearestAttackableTargetInvisible<T extends EntityLivingBase
     	{
     		ticksSinceInvisible++;
     		
-    		if (ticksSinceInvisible > 20 + ((int) (Math.random() * 5) + 5))
+    		if (ticksSinceInvisible > 20 + (((int) (Math.random() * 5) + 3) * 20))
     		{
     			ticksSinceInvisible = 0;
-    			this.taskOwner.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20 * 5, 1, false, true));
+    			int randTime = (int) (Math.random() * 5) + 1;
+    			this.taskOwner.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20 * randTime, 1, false, false));
     		}
     	}
     }
