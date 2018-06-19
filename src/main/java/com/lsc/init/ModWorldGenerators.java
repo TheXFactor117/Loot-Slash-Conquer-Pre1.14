@@ -1,6 +1,6 @@
 package com.lsc.init;
 
-import com.lsc.world.generation.StructureCorruptedTower;
+import com.lsc.world.generation.boss.StructureCorruptedTower;
 import com.lsc.world.generation.tower.StructureTower;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;

@@ -1,4 +1,4 @@
-package com.lsc.world.generation;
+package com.lsc.world.generation.boss;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,47 +44,50 @@ public class StructureCorruptedTower implements IWorldGenerator
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-		// try and spawn additional parts if possible
-		for (int i = 0; i < parts.size(); i++)
+		if (world.getWorldInfo().isMapFeaturesEnabled())
 		{
-			StructureOutline outline = parts.get(i);
-			
-			if (outline.canSpawnInChunk(world))
+			// try and spawn additional parts if possible
+			for (int i = 0; i < parts.size(); i++)
 			{
-				//LootSlashConquer.LOGGER.info("Successfully spawned part of a boss structure from the list!");
-				BlockPos corner = outline.generate(world);
-				this.handleDataBlocks(outline.getTemplate(), world, corner, new PlacementSettings().setRotation(outline.getRotation()));
-				parts.remove(i);
+				StructureOutline outline = parts.get(i);
+				
+				if (outline.canSpawnInChunk(world))
+				{
+					//LootSlashConquer.LOGGER.info("Successfully spawned part of a boss structure from the list!");
+					BlockPos corner = outline.generate(world);
+					this.handleDataBlocks(outline.getTemplate(), world, corner, new PlacementSettings().setRotation(outline.getRotation()));
+					parts.remove(i);
+				}
 			}
-		}
-		
-		// preliminary spawn check, including a weight
-		// TODO: make it spawn somewhere in a specific area range (e.g. Areas 10-15).
-		if ((int) (Math.random() * 300) == 0 && LSCWorldSavedData.get(world).getCorruptedTowers() < 3 && world.provider.getDimension() == 0)
-		{
-			// get the specific block position of the structure
-			int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
-			int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
-			int blockY = StructureUtils.getGroundFromAbove(world, blockX, blockZ);
-			BlockPos pos = new BlockPos(blockX, blockY, blockZ);
 			
-			// check to make sure the center is in a good biome, and check to make sure the corners are in the same biome too.
-			if ((world.getBiome(pos) == Biomes.PLAINS || world.getBiome(pos) == Biomes.DESERT) && this.canSpawnInBiome(world, pos))
+			// preliminary spawn check, including a weight
+			// TODO: make it spawn somewhere in a specific area range (e.g. Areas 10-15).
+			if ((int) (Math.random() * 300) == 0 && LSCWorldSavedData.get(world).getCorruptedTowers() < 3 && world.provider.getDimension() == 0)
 			{
-				// debug
-				LootSlashConquer.LOGGER.info("Spawning boss structure at: " + pos);
+				// get the specific block position of the structure
+				int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
+				int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
+				int blockY = StructureUtils.getGroundFromAbove(world, blockX, blockZ);
+				BlockPos pos = new BlockPos(blockX, blockY, blockZ);
 				
-				WorldServer server = (WorldServer) world;
-				TemplateManager manager = server.getStructureTemplateManager();
-				
-				// we're good to place blocks or generate the outline
-				generateNESide(world, manager, pos);
-				generateNWSide(world, manager, pos);
-				generateSESide(world, manager, pos);
-				generateSWSide(world, manager, pos);
-				
-				// increase this counter to limit how many structures spawn per world.
-				LSCWorldSavedData.get(world).increaseCorruptedTowers();
+				// check to make sure the center is in a good biome, and check to make sure the corners are in the same biome too.
+				if ((world.getBiome(pos) == Biomes.PLAINS || world.getBiome(pos) == Biomes.DESERT) && this.canSpawnInBiome(world, pos))
+				{
+					// debug
+					LootSlashConquer.LOGGER.info("Spawning boss structure at: " + pos);
+					
+					WorldServer server = (WorldServer) world;
+					TemplateManager manager = server.getStructureTemplateManager();
+					
+					// we're good to place blocks or generate the outline
+					generateNESide(world, manager, pos);
+					generateNWSide(world, manager, pos);
+					generateSESide(world, manager, pos);
+					generateSWSide(world, manager, pos);
+					
+					// increase this counter to limit how many structures spawn per world.
+					LSCWorldSavedData.get(world).increaseCorruptedTowers();
+				}
 			}
 		}
 	}

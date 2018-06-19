@@ -34,43 +34,46 @@ public class StructureTower implements IWorldGenerator
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-		// try and spawn additional parts if possible
-		for (int i = 0; i < parts.size(); i++)
+		if (world.getWorldInfo().isMapFeaturesEnabled())
 		{
-			StructureOutline outline = parts.get(i);
-
-			if (outline.canSpawnInChunk(world))
+			// try and spawn additional parts if possible
+			for (int i = 0; i < parts.size(); i++)
 			{
-				//LootSlashConquer.LOGGER.info("Successfully spawned part of a tower from the list!");
-				outline.generate(world, new StructureBlockProcessor(outline.getCenter(), outline.getSettings(), StructureBlockProcessor.TOWER_FLOOR));
-				// TODO: if a treasure room gets spawned from here, it'll have lower chest spawn rates.
-				// this will need to be fixed eventually. Maybe add an additional parameter to
-				// StructureOutline.
-				this.handleDataBlocks(outline.getTemplate(), world, outline.getCorner(), outline.getSettings(), 0);
-				parts.remove(i);
+				StructureOutline outline = parts.get(i);
+
+				if (outline.canSpawnInChunk(world))
+				{
+					//LootSlashConquer.LOGGER.info("Successfully spawned part of a tower from the list!");
+					outline.generate(world, new StructureBlockProcessor(outline.getCenter(), outline.getSettings(), StructureBlockProcessor.TOWER_FLOOR));
+					// TODO: if a treasure room gets spawned from here, it'll have lower chest spawn rates.
+					// this will need to be fixed eventually. Maybe add an additional parameter to
+					// StructureOutline.
+					this.handleDataBlocks(outline.getTemplate(), world, outline.getCorner(), outline.getSettings(), 0);
+					parts.remove(i);
+				}
 			}
-		}
 
-		// check to make sure spawning works as it should for Alpha release
-		// TODO: restrict to certain biomes?
-		if ((int) (Math.random() * 300) == 0 && world.provider.getDimension() == 0)
-		{
-			int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
-			int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
-			int blockY = StructureUtils.getGroundFromAbove(world, blockX, blockZ);
-			BlockPos pos = new BlockPos(blockX, blockY, blockZ);
-			Rotation mainRotation = Rotation.values()[(int) (Math.random() * 4)]; // random rotation for the odd floor
-			this.towerHeight = (int) (Math.random() * 5) + 5;
-			this.towerDepth = (int) (Math.random() * 3) + 3;
+			// check to make sure spawning works as it should for Alpha release
+			// TODO: restrict to certain biomes?
+			if ((int) (Math.random() * 300) == 0 && world.provider.getDimension() == 0)
+			{
+				int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
+				int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
+				int blockY = StructureUtils.getGroundFromAbove(world, blockX, blockZ);
+				BlockPos pos = new BlockPos(blockX, blockY, blockZ);
+				Rotation mainRotation = Rotation.values()[(int) (Math.random() * 4)]; // random rotation for the odd floor
+				this.towerHeight = (int) (Math.random() * 5) + 5;
+				this.towerDepth = (int) (Math.random() * 3) + 3;
 
-			if (generateEntrance(world, pos, mainRotation))
-			{
-				LootSlashConquer.LOGGER.info("Generating Tower at: " + pos);
-				handleGeneration(world, pos, mainRotation);
-			}
-			else
-			{
-				LootSlashConquer.LOGGER.info("Tower generation failed...");
+				if (generateEntrance(world, pos, mainRotation))
+				{
+					LootSlashConquer.LOGGER.info("Generating Tower at: " + pos);
+					handleGeneration(world, pos, mainRotation);
+				}
+				else
+				{
+					LootSlashConquer.LOGGER.info("Tower generation failed...");
+				}
 			}
 		}
 	}
