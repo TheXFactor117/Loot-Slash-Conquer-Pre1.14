@@ -5,6 +5,7 @@ import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.player.ExperienceHelper;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,7 +25,7 @@ public class EventLivingDeath
 		/*
 		 * Update player experience when they kill a monster. Experience gained is determined from how much health/damage the monsters has.
 		 */
-		if (event.getSource().getTrueSource() instanceof EntityPlayer)
+		if (event.getSource().getTrueSource() instanceof EntityPlayer && event.getEntityLiving() instanceof IMob)
 		{
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 			EntityLivingBase enemy = event.getEntityLiving();
