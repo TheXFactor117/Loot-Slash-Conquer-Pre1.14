@@ -49,6 +49,7 @@ public class EntityBarbarian extends EntityMonster
 	{
 		super(world);
 		this.setSize(1.0F, 2.0F);
+		rarity = 1;
 		this.initEntityAI();
 	}
 	

@@ -11,6 +11,8 @@ import net.minecraft.world.World;
  */
 public class EntityMonster extends EntityMob
 {
+	public static int rarity;
+	
 	public EntityMonster(World world)
 	{
 		super(world);
@@ -26,9 +28,19 @@ public class EntityMonster extends EntityMob
 	@Override
 	public boolean getCanSpawnHere()
 	{
-		int chance = this.world.isDaytime() ? 4 : 1;
+		// TODO: make mobs spawn less often in lower level areas.
+		/*IChunkLevelHolder chunkLevelHolder = this.world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
+		int chance = 0;
 		
-		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel() && (int) (Math.random() * chance) == 0;
+		if (chunkLevelHolder != null)
+		{
+			IChunkLevel chunkLevelCap = chunkLevelHolder.getChunkLevel(new ChunkPos(this.getPosition()));
+			int chunkLevel = chunkLevelCap.getChunkLevel();
+			
+			chance = this.world.isDaytime() ? (int) (4 / (chunkLevel * 0.3) * 2) : 4;
+		}*/
+
+		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel();
 	}
 	
 	@Override

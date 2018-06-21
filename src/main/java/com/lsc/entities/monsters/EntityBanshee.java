@@ -38,6 +38,7 @@ public class EntityBanshee extends EntityMonster
 	{
 		super(world);
 		this.setSize(1.0F, 2.0F);
+		rarity = 2;
 		this.canScream = false;
 		this.screamCooldown = (int) (Math.random() * avgScreamCooldown) + 15;
 	}

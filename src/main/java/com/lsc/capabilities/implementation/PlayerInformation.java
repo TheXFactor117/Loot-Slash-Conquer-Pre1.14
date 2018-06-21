@@ -44,7 +44,7 @@ public class PlayerInformation implements IPlayerInformation
 	/** Returns the amount of experience needed to level up given the current level. */
 	public int getLevelUpExperience(int currentLevel) 
 	{
-		return (int) Math.pow(currentLevel, 2) * 30;
+		return (int) (Math.pow(currentLevel + 1, 3.52) + 250);
 	}
 	
 	/** Sets all bonus stats to zero. */
