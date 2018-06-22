@@ -15,11 +15,11 @@ import net.minecraft.util.text.TextFormatting;
 public enum EnemyTier 
 {
 	DEFAULT("default", TextFormatting.DARK_GRAY, 0),
-	NORMAL("Normal", TextFormatting.WHITE, 50),
+	NORMAL("Normal", TextFormatting.WHITE, 62),
 	HARDENED("Hardened", TextFormatting.DARK_GREEN, 20),
-	SUPERIOR("Superior", TextFormatting.AQUA, 15),
-	ELITE("Elite", TextFormatting.DARK_PURPLE, 10),
-	LEGENDARY("Legendary", TextFormatting.GOLD, 5);
+	SUPERIOR("Superior", TextFormatting.AQUA, 10),
+	ELITE("Elite", TextFormatting.DARK_PURPLE, 6),
+	LEGENDARY("Legendary", TextFormatting.GOLD, 2);
 	
 	public String name;
 	public Object color;

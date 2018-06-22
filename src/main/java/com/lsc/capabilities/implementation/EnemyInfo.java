@@ -21,7 +21,9 @@ public class EnemyInfo implements IEnemyInfo
 	
 	public int getRandomEnemyLevel(int min, int max)
 	{
-		return (int) (Math.random() * (max - min) + min);
+		int level = (int) (Math.random() * (max - min) + min);
+		
+		return level > 0 ? level : 1;
 	}
 
 	@Override
