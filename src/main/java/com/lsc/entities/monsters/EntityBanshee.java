@@ -6,8 +6,6 @@ import java.util.List;
 import com.lsc.entities.EntityMonster;
 import com.lsc.entities.ai.EntityAINearestAttackableTargetInvisible;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -98,31 +96,26 @@ public class EntityBanshee extends EntityMonster
 				}
 				else
 				{
-					int radius = 16;
-					double damage = this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() / 4;
+					int radius = 5;
+					double damage = this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() / 5;
 					
-					List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.posX - radius, this.posY - radius, this.posZ - radius, this.posX + radius, this.posY + radius, this.posZ + radius));
-					Iterator<EntityLivingBase> iterator = entityList.iterator();
+					List<EntityPlayer> entityList = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(this.posX - radius, this.posY - radius, this.posZ - radius, this.posX + radius, this.posY + radius, this.posZ + radius));
+					Iterator<EntityPlayer> iterator = entityList.iterator();
 					
 					while (iterator.hasNext())
 					{
-		                Entity entity = (Entity) iterator.next();
-		                
-		                if (entity instanceof EntityPlayer)
-		                {
-		                	EntityPlayer player = (EntityPlayer) entity;
-		                	int chance = (int) (Math.random() * 2);
-		                	
-		                	if (chance == 0)
+						EntityPlayer player = iterator.next();
+	                	int chance = (int) (Math.random() * 4);
+	                	
+	                	if (chance == 0)
+	                	{
+	                		if (player.attackEntityFrom(DamageSource.causeMobDamage(this), (float) damage))
 		                	{
-		                		if (player.attackEntityFrom(DamageSource.causeMobDamage(this), (float) damage))
-			                	{
-			                		this.playSound(SoundEvents.ENTITY_SPIDER_HURT, 1.0F, 1.0F);
-			                		player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 2, 3));
-			                		player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 20 * 5, 1));
-			                	}
+		                		this.playSound(SoundEvents.ENTITY_SPIDER_HURT, 1.0F, 1.0F);
+		                		player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 2, 3));
+		                		player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 20 * 5, 1));
 		                	}
-		                }
+	                	}
 					}
 					
 					this.canScream = false;
