@@ -129,11 +129,35 @@ gui.playerinfo.bonuses.mp5=MP5
 
 
 ##########################################
-#                   ITEMS                #
+#                   BLOCKS               #
 ##########################################
 
 ### Blocks
 tile.dungeon_brick.name=Dungeon Brick
+
+
+
+##########################################
+#                MONSTERS                #
+##########################################
+
+### Common Monsters
+entity.barbarian.name=Barbarian
+entity.ghost.name=Ghost
+entity.mummy.name=Mummy
+entity.spectralknight.name=Spectral Knight
+
+### Uncommon Monsters
+entity.bandit.name=Bandit
+entity.banshee.name=Banshee
+
+### Rare Monsters
+entity.golem.name=Golem
+
+### Semi-Bosses
+
+### Bosses
+entity.corruptedknight.name=Corrupted Knight
 
 
 
