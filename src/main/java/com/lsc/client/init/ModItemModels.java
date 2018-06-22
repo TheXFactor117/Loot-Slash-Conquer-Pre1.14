@@ -47,6 +47,9 @@ public class ModItemModels
 		registerItemModel(ModItems.MAJOR_ETHEREAL_SCROLL);
 		registerItemModel(ModItems.VOID_SCROLL);
 		
+		// misc
+		registerItemModel(ModItems.CORRUPTED_TOWER_KEY);
+		
 		
 		
 		/*

@@ -27,6 +27,9 @@ item.major_ethereal_scroll.name=Major Ethereal Scroll
 item.invisibility_scroll.name=Invisibility Scroll
 item.void_scroll.name=Void Scroll
 
+# Misc
+item.corrupted_tower_key.name=Corrupted Tower Key
+
 
 
 ### Weapons
@@ -134,6 +137,7 @@ gui.playerinfo.bonuses.mp5=MP5
 
 ### Blocks
 tile.dungeon_brick.name=Dungeon Brick
+tile.boss_door.name=Boss Door
 
 
 
