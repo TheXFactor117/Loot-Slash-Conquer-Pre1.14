@@ -52,10 +52,8 @@ public class ItemMagical extends Item
 	private double baseDamage;
 	private double baseAttackSpeed;
 	private int manaPerUse;
-	
-	private boolean isStaff; // used to determine name.
-	
-	public ItemMagical(String name, boolean isStaff, double baseDamage, double attackSpeed, int manaPerUse, int durability)
+		
+	public ItemMagical(String name, double baseDamage, double attackSpeed, int manaPerUse, int durability)
 	{
 		super();
 		this.setRegistryName(Reference.MODID, name);
@@ -64,7 +62,6 @@ public class ItemMagical extends Item
 		this.setMaxStackSize(1);
 		this.setNoRepair();
 		this.setMaxDamage(durability);
-		this.isStaff = isStaff;
 		this.baseDamage = baseDamage;
 		this.baseAttackSpeed = attackSpeed;
 		this.manaPerUse = manaPerUse;
@@ -245,11 +242,6 @@ public class ItemMagical extends Item
 	public EnumAction getItemUseAction(ItemStack stack)
 	{
 		return EnumAction.BLOCK;
-	}
-	
-	public boolean isStaff()
-	{
-		return isStaff;
 	}
 	
 	public double getBaseDamage()

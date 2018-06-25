@@ -21,9 +21,9 @@ import net.minecraft.world.World;
  */
 public class ItemVisageOfWizardry extends ItemMagical implements ISpecial
 {
-	public ItemVisageOfWizardry(String name, boolean isStaff, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
+	public ItemVisageOfWizardry(String name, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
 	{
-		super(name, isStaff, baseDamage, attackSpeed, manaPerUse, durability);
+		super(name, baseDamage, attackSpeed, manaPerUse, durability);
 	}
 
 	@Override

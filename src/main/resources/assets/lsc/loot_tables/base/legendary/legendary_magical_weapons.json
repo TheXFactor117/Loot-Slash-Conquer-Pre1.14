@@ -6,11 +6,6 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "lsc:base/legendary/specific/wands",
-					"weight": 1
-				},
-				{
-					"type": "loot_table",
 					"name": "lsc:base/legendary/specific/staffs",
 					"weight": 1
 				}

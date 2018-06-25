@@ -85,20 +85,17 @@ public class ModWeapons
 	
 	// magical ranged
 	// (name, damage, attack speed, mana per use, durability)
-	public static final Item WOODEN_WAND = new ItemMagical("wooden_wand", false, 3, 2, 5, 200);
-	public static final Item GOLDEN_WAND = new ItemMagical("golden_wand", false, 4, 2, 5, 100);
-	public static final Item DIAMOND_WAND = new ItemMagical("diamond_wand", false, 5, 2, 5, 500);
-	public static final Item WOODEN_STAFF = new ItemMagical("wooden_staff", true, 5, 1.25, 10, 200);
-	public static final Item GOLDEN_STAFF = new ItemMagical("golden_staff", true, 6, 1.25, 10, 100);
-	public static final Item DIAMOND_STAFF = new ItemMagical("diamond_staff", true, 7, 1.25, 10, 500);
+	public static final Item WOODEN_STAFF = new ItemMagical("wooden_staff", 5, 1.25, 10, 200);
+	public static final Item GOLDEN_STAFF = new ItemMagical("golden_staff", 6, 1.25, 10, 100);
+	public static final Item DIAMOND_STAFF = new ItemMagical("diamond_staff", 7, 1.25, 10, 500);
 	
 	// magical special
-	public static final Item BLAZEFURY = new ItemBlazefury("blazefury", false, 7, 2, 5, 400);
-	public static final Item MOONLIT_ROD = new ItemMoonlitRod("moonlit_rod", false, 8, 2, 5, 375);
-	public static final Item EPILOGUE = new ItemEpilogue("epilogue", true, 11, 1.25, 10, 600);
+	public static final Item BLAZEFURY = new ItemBlazefury("blazefury", 7, 2, 5, 400);
+	public static final Item MOONLIT_ROD = new ItemMoonlitRod("moonlit_rod", 8, 2, 5, 375);
+	public static final Item EPILOGUE = new ItemEpilogue("epilogue", 11, 1.25, 10, 600);
 	
-	public static final Item GAZE_OF_TRUTH = new ItemGazeOfTruth("gaze_of_truth", true, 15, 1.25, 10, 800);
-	public static final Item VISAGE_OF_WIZARDRY = new ItemVisageOfWizardry("visage_of_wizardry", false, 11, 2, 5, 700);
+	public static final Item GAZE_OF_TRUTH = new ItemGazeOfTruth("gaze_of_truth", 15, 1.25, 10, 800);
+	public static final Item VISAGE_OF_WIZARDRY = new ItemVisageOfWizardry("visage_of_wizardry", 11, 2, 5, 700);
 	
 	
 	/* Armors */
@@ -141,9 +138,6 @@ public class ModWeapons
 		
 		
 		// magical ranged
-		event.getRegistry().register(WOODEN_WAND);
-		event.getRegistry().register(GOLDEN_WAND);
-		event.getRegistry().register(DIAMOND_WAND);
 		event.getRegistry().register(WOODEN_STAFF);
 		event.getRegistry().register(GOLDEN_STAFF);
 		event.getRegistry().register(DIAMOND_STAFF);

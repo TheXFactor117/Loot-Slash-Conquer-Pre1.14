@@ -21,9 +21,9 @@ import net.minecraft.world.World;
  */
 public class ItemBlazefury extends ItemMagical implements ISpecial
 {
-	public ItemBlazefury(String name, boolean isStaff, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
+	public ItemBlazefury(String name, double baseDamage, double attackSpeed, int manaPerUse, int durability) 
 	{
-		super(name, isStaff, baseDamage, attackSpeed, manaPerUse, durability);
+		super(name, baseDamage, attackSpeed, manaPerUse, durability);
 	}
 
 	@Override

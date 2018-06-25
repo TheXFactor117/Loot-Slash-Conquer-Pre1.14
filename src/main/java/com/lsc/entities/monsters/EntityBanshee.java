@@ -123,4 +123,12 @@ public class EntityBanshee extends EntityMonster
 			}
 		}
 	}
+	
+	@Override
+	public boolean getCanSpawnHere()
+	{
+		boolean isBelow60 = this.getPosition().getY() < 60 ? true : false;
+		
+		return super.getCanSpawnHere() && isBelow60;
+	}
 }

@@ -66,10 +66,7 @@ public class ItemGeneratorHelper
 		}
 		else if (stack.getItem() instanceof ItemMagical)
 		{
-			ItemMagical wand = (ItemMagical) stack.getItem();
-			
-			if (wand.isStaff()) nbt.setString("Type", "staff");
-			else nbt.setString("Type", "wand");
+			nbt.setString("Type", "staff");
 		}
 		else if (stack.getItem() instanceof ItemBauble)
 		{
