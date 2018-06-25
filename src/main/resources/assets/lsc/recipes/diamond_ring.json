@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" X ",
+		"XYX",
+		" X "
+	],
+	"key": {
+		"X": {
+			"item": "minecraft:gold_ingot"
+		},
+		"Y": {
+			"item": "minecraft:diamond"
+		}
+	},
+	"result": {
+		"item": "lsc:diamond_ring"
+	}
+}
