@@ -40,7 +40,7 @@ public class EntityMonster extends EntityMob
 			chance = this.world.isDaytime() ? (int) (4 / (chunkLevel * 0.3) * 2) : 4;
 		}*/
 
-		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel();
+		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel() && super.getCanSpawnHere();
 	}
 	
 	@Override
@@ -52,6 +52,6 @@ public class EntityMonster extends EntityMob
 	@Override
 	public boolean isValidLightLevel()
 	{
-		return true;
+		return super.isValidLightLevel();
 	}
 }

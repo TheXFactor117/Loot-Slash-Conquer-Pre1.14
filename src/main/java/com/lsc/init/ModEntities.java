@@ -1,5 +1,7 @@
 package com.lsc.init;
 
+import java.lang.reflect.Field;
+
 import com.lsc.LootSlashConquer;
 import com.lsc.entities.bosses.EntityCorruptedKnight;
 import com.lsc.entities.monsters.EntityBandit;
@@ -29,6 +31,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 public class ModEntities 
 {
 	private static int id = 0;
+	public static Field mobCountDiv;
 	
 	public static void registerEntities()
 	{
@@ -75,10 +78,42 @@ public class ModEntities
 		Biome[] cold = new Biome[] { Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.ICE_MOUNTAINS, Biomes.ICE_PLAINS };
 		Biome[] warm = new Biome[] { Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_CLEAR_ROCK, Biomes.MESA_ROCK };
 		
-		EntityRegistry.addSpawn(EntityBarbarian.class, 100, 1, 3, EnumCreatureType.MONSTER, main);
-		EntityRegistry.addSpawn(EntityGhost.class, 70, 1, 2, EnumCreatureType.MONSTER, main);
-		EntityRegistry.addSpawn(EntityMummy.class, 85, 1, 2, EnumCreatureType.MONSTER, warm);
+		EntityRegistry.addSpawn(EntityBarbarian.class, 100, 2, 3, EnumCreatureType.MONSTER, main);
+		EntityRegistry.addSpawn(EntityGhost.class, 80, 1, 2, EnumCreatureType.MONSTER, main);
+		EntityRegistry.addSpawn(EntityMummy.class, 90, 1, 2, EnumCreatureType.MONSTER, warm);
 		EntityRegistry.addSpawn(EntityBanshee.class, 50, 1, 1, EnumCreatureType.MONSTER, neutral);
-		EntityRegistry.addSpawn(EntityGolem.class, 10, 2, 2, EnumCreatureType.MONSTER, main);
+		EntityRegistry.addSpawn(EntityGolem.class, 10, 1, 1, EnumCreatureType.MONSTER, main);
+		
+		/*LootSlashConquer.LOGGER.info("Attempting reflection...");
+		
+		try
+		{
+			mobCountDiv = ReflectionHelper.findField(WorldEntitySpawner.class, "MOB_COUNT_DIV", "field_180268_a");
+			mobCountDiv.setAccessible(true);
+			
+			Field modifiersField;
+			try
+			{
+				modifiersField = Field.class.getDeclaredField("modifiers");
+				modifiersField.setAccessible(true);
+				modifiersField.setInt(mobCountDiv, mobCountDiv.getModifiers() & ~Modifier.FINAL);
+			}
+			catch (NoSuchFieldException | SecurityException e)
+			{
+				e.printStackTrace();
+			}
+			
+			mobCountDiv.setInt(mobCountDiv, 430);
+			LootSlashConquer.LOGGER.info("Trying to catch reflection successful.");
+			LootSlashConquer.LOGGER.info("MOB_COUNT_DIV is now : " + mobCountDiv.getInt(mobCountDiv));
+		}
+		catch (IllegalArgumentException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IllegalAccessException e)
+		{
+			e.printStackTrace();
+		}*/
 	}
 }
