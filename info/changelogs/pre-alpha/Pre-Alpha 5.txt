@@ -16,3 +16,25 @@
 * Fixed Fortitude bug which caused health to be greater than the max health in some cases.
 * Fixed crash when using magical weapons to kill passive animals.
 * Re-worked monster damage and scaling.
+
+
+
+#####
+### 0.5.1.0-pre-alpha
+#####
+
++ Added entity localization names (no more entity.entity.name killed you!).
++ Added new textures for certain items.
++ Added recipes for custom items.
++ Added loot drops to all monsters dependent on tier.
+- Removed daylight monster spawning.
+- Removed wands.
+* Converted special wands to special staves.
+* Nerfed Banshee's significantly.
+	* Reduced scream damage to 1/5th of normal damage.
+	* Decreased chance of scream hitting from 50% to 25%.
+	* Decreased range from 16 blocks to 5 blocks.
+* Added the new boss structure version.
+* Changed the enemy tier chances. There should be less Legendarys and more Commons.
+* Adjusted how enemy levels get applied slightly.
+* Fixed some texture/localization issues.
