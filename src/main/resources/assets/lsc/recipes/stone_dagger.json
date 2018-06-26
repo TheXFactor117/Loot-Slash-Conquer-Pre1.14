@@ -6,8 +6,7 @@
 	],
 	"key": {
 		"X": {
-			"item": "minecraft:stone",
-			"data": 0
+			"item": "minecraft:cobblestone"
 		},
 		"Y": {
 			"item": "minecraft:stick"

@@ -1,19 +1,19 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
-		"XXX",
-		"XYX",
-		" Y "
+		"  X",
+		" Y ",
+		"Y  "
 	],
 	"key": {
 		"X": {
-			"item": "minecraft:cobblestone"
+			"item": "minecraft:gold_ingot"
 		},
 		"Y": {
 			"item": "minecraft:stick"
 		}
 	},
 	"result": {
-		"item": "lsc:stone_mace"
+		"item": "lsc:golden_staff"
 	}
 }
