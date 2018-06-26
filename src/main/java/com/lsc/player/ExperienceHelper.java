@@ -57,6 +57,10 @@ public class ExperienceHelper
 		// update experience on client AND server; increase level if need be.
 		playerInfo.setPlayerExperience(playerInfo.getPlayerExperience() + experience);
 		
+		// Minecraft bug with actionbar times - it doesn't actually handle specifying times for the actionbar.
+		SPacketTitle packetActionbar = new SPacketTitle(SPacketTitle.Type.ACTIONBAR, new TextComponentString("You killed " + enemy.getName() + " and gained " + experience + " experience!"), -1, -1, -1);
+		((EntityPlayerMP) player).connection.sendPacket(packetActionbar);
+		
 		while (playerInfo.getPlayerExperience() > playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel())) 
 		{
 			int leftOverExperience = playerInfo.getPlayerExperience() - playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel());
