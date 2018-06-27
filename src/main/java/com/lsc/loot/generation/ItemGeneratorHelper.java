@@ -264,7 +264,7 @@ public class ItemGeneratorHelper
 		}
 		
 		// scale the new damage value up based on the level
-		return damage * Math.pow(nbt.getInteger("Level"), 1.1);
+		return damage * Math.pow(nbt.getInteger("Level"), 1.3);
 	}
 	
 	public static double getWeightedAttackSpeed(Rarity rarity, double base)
