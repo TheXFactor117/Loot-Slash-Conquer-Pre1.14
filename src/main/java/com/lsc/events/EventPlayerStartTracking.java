@@ -31,6 +31,12 @@ public class EventPlayerStartTracking
 {
 	private static final UUID ATTACK_DAMAGE = UUID.fromString("708b7d5f-9e4d-4bb5-9bdc-437ebcd0fb52");
 	private static final UUID MAX_HEALTH = UUID.fromString("136ed593-8c70-4ba8-98e9-42c93e64fff0");
+	private static final double DAMAGE_POWER = 1.25;
+	private static final double HEALTH_POWER = 1.75;
+	private static final double DAMAGE_TIER_POWER = 2;
+	private static final double HEALTH_TIER_POWER = 2.75;
+	private static final double DAMAGE_DIVISOR = 5;
+	private static final double HEALTH_DIVISOR = 4;
 	
 	@SubscribeEvent
 	public static void onPlayerStartTracking(PlayerEvent.StartTracking event)
@@ -69,8 +75,8 @@ public class EventPlayerStartTracking
 	{
 		double baseDamage = entity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getBaseValue();
 		double baseHealth = entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue();
-		double damageMultiplier = (Math.pow(level, 1.25) * ((baseDamage * tier) / 5));
-		double healthMultiplier = (Math.pow(level, 1.4) * ((baseHealth * tier) / 4));
+		double damageMultiplier = (Math.pow(level, DAMAGE_POWER) * ((baseDamage + (Math.pow(tier, DAMAGE_TIER_POWER))) / DAMAGE_DIVISOR));
+		double healthMultiplier = (Math.pow(level, HEALTH_POWER) * ((baseHealth + (Math.pow(tier, HEALTH_TIER_POWER))) / HEALTH_DIVISOR));
 		
 		AttributeModifier attackDamage = new AttributeModifier(ATTACK_DAMAGE, "attackDamage", damageMultiplier, 0);
 		AttributeModifier maxHealth = new AttributeModifier(MAX_HEALTH, "maxHealth", healthMultiplier, 0);
