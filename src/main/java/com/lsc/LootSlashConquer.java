@@ -30,7 +30,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
  * A Hack/Mine-like Minecraft mod.
  *
  */
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, dependencies = "required-after:baubles", updateJSON = "https://github.com/TheXFactor117/Loot-Slash-Conquer/tree/master/info/update_checker.json")
+@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, dependencies = "required-after:baubles", updateJSON = "https://raw.githubusercontent.com/TheXFactor117/Loot-Slash-Conquer/master/info/update_checker.json")
 public class LootSlashConquer 
 {
 	@Instance(Reference.MODID)
