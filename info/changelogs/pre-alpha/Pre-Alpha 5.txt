@@ -2,20 +2,20 @@
 ### Pre-Alpha 5 Changelogs ###
 ##############################
 
+
+
 #####
-### 0.5.0.2-pre-alpha
+### 0.5.1.1-pre-alpha
 #####
 
-+ Added new player leveling algorithm.
-+ Added new monster experience drop algorithm.
-+ Added support to disable LSC structure generation when creating a new world (Turn 'Generate Structures' Off).
-* Nerfed Ghosts and Banshees significantly.
-	+ Added chance to hit invisible Ghosts/Banshees.
-    - Removed idling invisible AI task.
-   	* Fixed issue with them almost always being invisible.
-* Fixed Fortitude bug which caused health to be greater than the max health in some cases.
-* Fixed crash when using magical weapons to kill passive animals.
-* Re-worked monster damage and scaling.
++ Added staff recipes and fixed stone dagger/mace recipes.
++ Added actionbar message whenever you gain experience.
+* Fixed damage values sometimes being zero.
+* Fixed damage values sometimes being the same number.
+* Re-wrote monster health/damage formulas.
+* Re-wrote weapon damage formulas.
+* Decreased max number of enemies around a custom spawner from 10 to 6.
+* Decreased the projectile spread/variation of magical weapons for specific runes (15 to 10).
 
 
 
@@ -38,3 +38,20 @@
 * Changed the enemy tier chances. There should be less Legendarys and more Commons.
 * Adjusted how enemy levels get applied slightly.
 * Fixed some texture/localization issues.
+
+
+
+#####
+### 0.5.0.2-pre-alpha
+#####
+
++ Added new player leveling algorithm.
++ Added new monster experience drop algorithm.
++ Added support to disable LSC structure generation when creating a new world (Turn 'Generate Structures' Off).
+* Nerfed Ghosts and Banshees significantly.
+	+ Added chance to hit invisible Ghosts/Banshees.
+    - Removed idling invisible AI task.
+   	* Fixed issue with them almost always being invisible.
+* Fixed Fortitude bug which caused health to be greater than the max health in some cases.
+* Fixed crash when using magical weapons to kill passive animals.
+* Re-worked monster damage and scaling.
