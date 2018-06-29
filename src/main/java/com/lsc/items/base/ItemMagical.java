@@ -207,7 +207,7 @@ public class ItemMagical extends Item
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				EntityFireball fireball = new EntityFireball(world, look.x, look.y, look.z, 1F, 15F, player, stack, 2);
+				EntityFireball fireball = new EntityFireball(world, look.x, look.y, look.z, 1F, 10F, player, stack, 2);
 				fireball.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
 				world.spawnEntity(fireball);
 			}
@@ -216,7 +216,7 @@ public class ItemMagical extends Item
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				EntityIcebolt icebolt = new EntityIcebolt(world, look.x, look.y, look.z, 1F, 15F, player, stack, 2);
+				EntityIcebolt icebolt = new EntityIcebolt(world, look.x, look.y, look.z, 1F, 10F, player, stack, 2);
 				icebolt.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
 				world.spawnEntity(icebolt);
 			}
@@ -225,7 +225,7 @@ public class ItemMagical extends Item
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				EntityLightning lightning = new EntityLightning(world, look.x, look.y, look.z, 1F, 15F, player, stack, 2);
+				EntityLightning lightning = new EntityLightning(world, look.x, look.y, look.z, 1F, 10F, player, stack, 2);
 				lightning.setPosition(player.posX + look.x, player.posY + look.y + 1.5, player.posZ + look.z);
 				world.spawnEntity(lightning);
 			}

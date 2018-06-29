@@ -36,7 +36,7 @@ public class EventPlayerLoggedIn
 			// setup max mana + send it to client.
 			statsCap.setMaxMana(100);
 			statsCap.setMana(statsCap.getMaxMana());
-			statsCap.setManaPerSecond(5);
+			statsCap.setManaPerSecond(10);
 			statsCap.setHealthPerSecond(1);
 			statsCap.setMagicalPower(0);
 			statsCap.setCriticalChance(0);

@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
+import com.lsc.LootSlashConquer;
 import com.lsc.entities.projectiles.Rune;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
@@ -204,7 +205,7 @@ public class ItemGeneratorHelper
 		double maxRandFactor = 0.7;
 		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
 		// scales the range by level (higher level items have greater ranges
-		double rangeMultiplier = nbt.getInteger("Level") * 0.65;
+		double rangeMultiplier = nbt.getInteger("Level") * 0.3;
 		// the actual range is calculated here
 		// take the random multiplier and multiply it by some value (the higher the value, the bigger the range)
 		// add 0.5 so it can't be zero
@@ -213,7 +214,9 @@ public class ItemGeneratorHelper
 		// set the min/max by subtracting/adding half the range to the new damage value.
 		int minDamage = (int) (damage - (range / 2));
 		int maxDamage = (int) (damage + (range / 2));
-
+		
+		LootSlashConquer.LOGGER.info(damage + "\t" + range);
+		
 		if (WeaponAttribute.MIN_DAMAGE.hasAttribute(nbt)) minDamage += WeaponAttribute.MIN_DAMAGE.getAmount(nbt);
 		else if (WeaponAttribute.MAX_DAMAGE.hasAttribute(nbt)) maxDamage += WeaponAttribute.MAX_DAMAGE.getAmount(nbt);
 		
@@ -234,7 +237,7 @@ public class ItemGeneratorHelper
 	 */
 	public static double getWeightedDamage(NBTTagCompound nbt, Rarity rarity, double base)
 	{
-		double damage = base;
+		double baseFactor = 1.109;
 		// min/max rand factor controls the range of the random decimal (this creates a sort of range for the damage to fall in,
 		// based on the base damage.
 		double minRandFactor = 0.7;
@@ -245,26 +248,18 @@ public class ItemGeneratorHelper
 		switch (rarity)
 		{
 			case COMMON:
-				damage = base * (0.9 * multiplier);
-				break;
+				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (0.85 * multiplier)));
 			case UNCOMMON:
-				damage = base * (1 * multiplier);
-				break;
+				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (1 * multiplier)));
 			case RARE:
-				damage = base * (1.1 * multiplier);
-				break;
+				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (1.2 * multiplier)));
 			case EPIC:
-				damage = base * (1.25 * multiplier);
-				break;
+				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (1.45 * multiplier)));
 			case LEGENDARY:
-				damage = base * (1.4 * multiplier);
-				break;
+				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (1.8 * multiplier)));
 			default:
-				break;
+				return base;
 		}
-		
-		// scale the new damage value up based on the level
-		return damage * Math.pow(nbt.getInteger("Level"), 1.5);
 	}
 	
 	public static double getWeightedAttackSpeed(Rarity rarity, double base)

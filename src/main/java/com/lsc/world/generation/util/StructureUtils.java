@@ -288,7 +288,7 @@ public class StructureUtils
 		nbt.setShort("SpawnCount", (short) 4);
 		nbt.setShort("MinSpawnDelay", (short) (20 * 10));
 		nbt.setShort("MaxSpawnDelay", (short) (20 * 30));
-		nbt.setShort("MaxNearbyEntities", (short) 10);
+		nbt.setShort("MaxNearbyEntities", (short) 6);
 		nbt.setShort("SpawnRange", (short) 10);
 
 		logic.readFromNBT(nbt);
