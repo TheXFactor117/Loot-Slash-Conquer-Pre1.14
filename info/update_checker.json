@@ -1,0 +1,10 @@
+{
+	"homepage": "https://github.com/TheXFactor117/Loot-Slash-Conquer",
+	"1.12.2": {
+		"0.6.0.0-alpha": "* Short description of new update.\n* View the entire changelog on GitHub."
+	},
+	"promos": {
+		"1.12.2-latest": "0.6.0.0-alpha",
+		"1.12.2-recommended": "0.6.0.0-alpha"
+	}
+}
