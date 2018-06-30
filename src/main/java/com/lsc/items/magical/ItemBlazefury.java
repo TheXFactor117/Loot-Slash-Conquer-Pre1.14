@@ -5,8 +5,8 @@ import com.lsc.capabilities.api.IChunkLevelHolder;
 import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemMagical;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -39,9 +39,9 @@ public class ItemBlazefury extends ItemMagical implements ISpecial
 		ItemGeneratorHelper.setRune(nbt);
 		
 		// Attributes
-		WeaponAttribute.FIRE.addAttribute(nbt, 3);
-		WeaponAttribute.FROST.addAttribute(nbt, 3);
-		WeaponAttribute.LIGHTNING.addAttribute(nbt, 3);
+		Attribute.FIRE.addAttribute(nbt, world.rand, 3);
+		Attribute.FROST.addAttribute(nbt, world.rand, 3);
+		Attribute.LIGHTNING.addAttribute(nbt, world.rand, 3);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

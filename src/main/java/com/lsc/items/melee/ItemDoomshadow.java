@@ -6,8 +6,8 @@ import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemAdvancedMelee;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -35,9 +35,9 @@ public class ItemDoomshadow extends ItemAdvancedMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.STRENGTH.addAttribute(nbt, 6);
-		WeaponAttribute.FORTITUDE.addAttribute(nbt, 4);
-		WeaponAttribute.CHAINED.addAttribute(nbt, 10);
+		Attribute.STRENGTH.addAttribute(nbt, world.rand, 6);
+		Attribute.FORTITUDE.addAttribute(nbt, world.rand, 4);
+		Attribute.CHAINED.addAttribute(nbt, world.rand, 10);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

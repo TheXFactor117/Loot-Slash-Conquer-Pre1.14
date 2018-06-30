@@ -5,8 +5,8 @@ import com.lsc.capabilities.api.IChunkLevelHolder;
 import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemMagical;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -39,8 +39,8 @@ public class ItemEpilogue extends ItemMagical implements ISpecial
 		ItemGeneratorHelper.setRune(nbt);
 		
 		// Attributes
-		WeaponAttribute.ALL_STATS.addAttribute(nbt, 2);
-		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.25);
+		Attribute.ALL_STATS.addAttribute(nbt, world.rand, 2);
+		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.25);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

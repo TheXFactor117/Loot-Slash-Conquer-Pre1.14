@@ -6,7 +6,7 @@ import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
 import com.lsc.init.ModDamageSources;
 import com.lsc.items.base.ItemAdvancedMelee;
-import com.lsc.loot.ArmorAttribute;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
 import com.lsc.player.DamageType;
 import com.lsc.player.DamageUtils;
@@ -87,12 +87,12 @@ public class EventLivingHurtAttack
 						}
 						else // apply resistances to custom Damage Sources.
 						{	
-							if (ArmorAttribute.FROST_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.FROST) event.setAmount((float) (event.getAmount() - (event.getAmount() * ArmorAttribute.FROST_RESIST.getAmount(nbt))));
-							if (ArmorAttribute.LIGHTNING_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.LIGHTNING) event.setAmount((float) (event.getAmount() - (event.getAmount() * ArmorAttribute.LIGHTNING_RESIST.getAmount(nbt))));
-							if (ArmorAttribute.POISON_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.POISON) event.setAmount((float) (event.getAmount() - (event.getAmount() * ArmorAttribute.POISON_RESIST.getAmount(nbt))));
+							if (Attribute.FROST_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.FROST) event.setAmount((float) (event.getAmount() - (event.getAmount() * Attribute.FROST_RESIST.getAmount(nbt))));
+							if (Attribute.LIGHTNING_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.LIGHTNING) event.setAmount((float) (event.getAmount() - (event.getAmount() * Attribute.LIGHTNING_RESIST.getAmount(nbt))));
+							if (Attribute.POISON_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.POISON) event.setAmount((float) (event.getAmount() - (event.getAmount() * Attribute.POISON_RESIST.getAmount(nbt))));
 						}
 						
-						if (ArmorAttribute.DURABLE.hasAttribute(nbt) && Math.random() < ArmorAttribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
+						if (Attribute.DURABLE.hasAttribute(nbt) && Math.random() < Attribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
 					}
 					else
 					{

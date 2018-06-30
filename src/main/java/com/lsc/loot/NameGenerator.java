@@ -33,7 +33,7 @@ public class NameGenerator
 		{
 			String type = NameGenerator.getType(nbt.getString("Type") + "_type");
 			
-			if (WeaponAttribute.getRandomActiveAttribute(nbt) != null)
+			if (Attribute.getRandomAttribute(nbt) != null)
 			{	
 				String prefix = NameGenerator.getPrefix(getAttributeString(nbt) + "_prefix");
 				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type);
@@ -77,22 +77,7 @@ public class NameGenerator
 	/** Returns a randomized, localized name of a current attribute to lookup in name files. */
 	private static String getAttributeString(NBTTagCompound nbt)
 	{
-		String type = nbt.getString("Type");
-		
-		if (type.equals("dagger") || type.equals("sword") || type.equals("mace") || type.equals("wand") || type.equals("staff"))
-		{
-			return WeaponAttribute.getRandomActiveAttribute(nbt).getLocalizedString();
-		}
-		else if (type.equals("helmet") || type.equals("chestplate") || type.equals("leggings") || type.equals("boots"))
-		{
-			return ArmorAttribute.getRandomActiveAttribute(nbt).getLocalizedString();
-		}
-		else if (type.equals("amulet") || type.equals("ring") || type.equals("belt"))
-		{
-			return JewelryAttribute.getRandomActiveAttribute(nbt).getLocalizedName();
-		}
-		
-		return "";
+		return Attribute.getRandomAttribute(nbt).getLocalizedName();
 	}
 	
 	public static String getPrefix(String property)

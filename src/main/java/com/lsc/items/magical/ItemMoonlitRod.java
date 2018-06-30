@@ -5,8 +5,8 @@ import com.lsc.capabilities.api.IChunkLevelHolder;
 import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemMagical;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -39,9 +39,9 @@ public class ItemMoonlitRod extends ItemMagical implements ISpecial
 		ItemGeneratorHelper.setRune(nbt);
 		
 		// Attributes
-		WeaponAttribute.INTELLIGENCE.addAttribute(nbt, 3);
-		WeaponAttribute.WISDOM.addAttribute(nbt, 3);
-		WeaponAttribute.LIGHTNING.addAttribute(nbt, 5);
+		Attribute.INTELLIGENCE.addAttribute(nbt, world.rand, 3);
+		Attribute.WISDOM.addAttribute(nbt, world.rand, 3);
+		Attribute.LIGHTNING.addAttribute(nbt, world.rand, 5);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

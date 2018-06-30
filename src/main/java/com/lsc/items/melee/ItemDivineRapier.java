@@ -6,8 +6,8 @@ import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemMelee;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -40,9 +40,9 @@ public class ItemDivineRapier extends ItemMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.FIRE.addAttribute(nbt, 5);
-		WeaponAttribute.STRENGTH.addAttribute(nbt, 3);
-		WeaponAttribute.DURABLE.addAttribute(nbt, 0.3);
+		Attribute.FIRE.addAttribute(nbt, world.rand, 5);
+		Attribute.STRENGTH.addAttribute(nbt, world.rand, 3);
+		Attribute.DURABLE.addAttribute(nbt, world.rand, 0.3);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

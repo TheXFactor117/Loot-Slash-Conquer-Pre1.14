@@ -6,8 +6,8 @@ import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemMelee;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -40,10 +40,10 @@ public class ItemExcaliburRapier extends ItemMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.FIRE.addAttribute(nbt, 3);
-		WeaponAttribute.FROST.addAttribute(nbt, 3);
-		WeaponAttribute.LIGHTNING.addAttribute(nbt, 3);
-		WeaponAttribute.STRENGTH.addAttribute(nbt, 8);
+		Attribute.FIRE.addAttribute(nbt, world.rand, 3);
+		Attribute.FROST.addAttribute(nbt, world.rand, 3);
+		Attribute.LIGHTNING.addAttribute(nbt, world.rand, 3);
+		Attribute.STRENGTH.addAttribute(nbt, world.rand, 8);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

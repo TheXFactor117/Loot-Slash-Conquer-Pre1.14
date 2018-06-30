@@ -6,8 +6,8 @@ import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemAdvancedMelee;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -40,9 +40,9 @@ public class ItemGoldenPummel extends ItemAdvancedMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.FORTITUDE.addAttribute(nbt, 10);
-		WeaponAttribute.LIGHTNING.addAttribute(nbt, 7);
-		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.2);
+		Attribute.FORTITUDE.addAttribute(nbt, world.rand, 10);
+		Attribute.LIGHTNING.addAttribute(nbt, world.rand, 7);
+		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.2);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

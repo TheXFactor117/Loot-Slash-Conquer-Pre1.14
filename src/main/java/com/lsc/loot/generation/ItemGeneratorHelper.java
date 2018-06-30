@@ -10,10 +10,8 @@ import com.lsc.entities.projectiles.Rune;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
 import com.lsc.items.base.ItemMelee;
-import com.lsc.loot.ArmorAttribute;
-import com.lsc.loot.JewelryAttribute;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -98,30 +96,30 @@ public class ItemGeneratorHelper
 		{
 			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemBow || stack.getItem() instanceof ItemMagical)
 			{
-				WeaponAttribute attribute = WeaponAttribute.getRandomAttribute(rand); // generate random rarity.
+				Attribute attribute = Attribute.getRandomWeaponAttribute(rand); // generate random rarity.
 				
 				if (attribute.hasAttribute(nbt))
 					i--; // subtract 1 if we already have an attribute to "re-roll"
 				else
-					attribute.addAttribute(nbt); // add attribute - this method will handle setting up all the attribute unique modifiers, such as custom rarity, values, etc...
+					attribute.addAttribute(nbt, rand); // add attribute - this method will handle setting up all the attribute unique modifiers, such as custom rarity, values, etc...
 			}
 			else if (stack.getItem() instanceof ItemArmor)
 			{
-				ArmorAttribute attribute = ArmorAttribute.getRandomAttribute(rand); // generate random rarity.
+				Attribute attribute = Attribute.getRandomArmorAttribute(rand); // generate random rarity.
 				
 				if (attribute.hasAttribute(nbt))
 					i--; // subtract 1 if we already have an attribute to "re-roll"
 				else
-					attribute.addAttribute(nbt); // add attribute - this method will handle setting up all the attribute unique modifiers, such as custom rarity, values, etc...
+					attribute.addAttribute(nbt, rand); // add attribute - this method will handle setting up all the attribute unique modifiers, such as custom rarity, values, etc...
 			}
 			else if (stack.getItem() instanceof ItemBauble)
 			{
-				JewelryAttribute attribute = JewelryAttribute.getRandomAttribute(rand); // generate random rarity.
+				Attribute attribute = Attribute.getRandomArmorAttribute(rand); // generate random rarity.
 				
 				if (attribute.hasAttribute(nbt))
 					i--; // subtract 1 if we already have an attribute to "re-roll"
 				else
-					attribute.addAttribute(nbt); // add attribute - this method will handle setting up all the attribute unique modifiers, such as custom rarity, values, etc...
+					attribute.addAttribute(nbt, rand); // add attribute - this method will handle setting up all the attribute unique modifiers, such as custom rarity, values, etc...
 			}
 		}
 	}
@@ -217,8 +215,8 @@ public class ItemGeneratorHelper
 		
 		LootSlashConquer.LOGGER.info(damage + "\t" + range);
 		
-		if (WeaponAttribute.MIN_DAMAGE.hasAttribute(nbt)) minDamage += WeaponAttribute.MIN_DAMAGE.getAmount(nbt);
-		else if (WeaponAttribute.MAX_DAMAGE.hasAttribute(nbt)) maxDamage += WeaponAttribute.MAX_DAMAGE.getAmount(nbt);
+		if (Attribute.MIN_DAMAGE.hasAttribute(nbt)) minDamage += Attribute.MIN_DAMAGE.getAmount(nbt);
+		else if (Attribute.MAX_DAMAGE.hasAttribute(nbt)) maxDamage += Attribute.MAX_DAMAGE.getAmount(nbt);
 		
 		if (minDamage == maxDamage) minDamage -= 1;
 		if (minDamage == 0) minDamage = 1;

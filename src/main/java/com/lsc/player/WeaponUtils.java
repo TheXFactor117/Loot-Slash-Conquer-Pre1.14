@@ -6,7 +6,7 @@ import java.util.List;
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.Stats;
 import com.lsc.init.ModDamageSources;
-import com.lsc.loot.WeaponAttribute;
+import com.lsc.loot.Attribute;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -32,21 +32,21 @@ public class WeaponUtils
 	/** Called to use the current stack's attributes. Called from LivingAttackEvent and projectiles. */
 	public static void useWeaponAttributes(float damage, EntityLivingBase attacker, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)
 	{
-		if (WeaponAttribute.DURABLE.hasAttribute(nbt) && Math.random() < WeaponAttribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
-		if (WeaponAttribute.FIRE.hasAttribute(nbt)) 
+		if (Attribute.DURABLE.hasAttribute(nbt) && Math.random() < Attribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
+		if (Attribute.FIRE.hasAttribute(nbt)) 
 		{
-			enemy.attackEntityFrom(DamageSource.ON_FIRE, (float) WeaponAttribute.FIRE.getAmount(nbt));
+			enemy.attackEntityFrom(DamageSource.ON_FIRE, (float) Attribute.FIRE.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 		}
-		if (WeaponAttribute.FROST.hasAttribute(nbt))
+		if (Attribute.FROST.hasAttribute(nbt))
 		{
-			enemy.attackEntityFrom(ModDamageSources.FROST, (float) WeaponAttribute.FROST.getAmount(nbt));
+			enemy.attackEntityFrom(ModDamageSources.FROST, (float) Attribute.FROST.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 			enemy.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 3, 5));
 		}
-		if (WeaponAttribute.LIGHTNING.hasAttribute(nbt))
+		if (Attribute.LIGHTNING.hasAttribute(nbt))
 		{
-			enemy.attackEntityFrom(ModDamageSources.LIGHTNING, (float) WeaponAttribute.LIGHTNING.getAmount(nbt));
+			enemy.attackEntityFrom(ModDamageSources.LIGHTNING, (float) Attribute.LIGHTNING.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 			
 			// remove half the lightning damage dealt from mana.
@@ -56,29 +56,29 @@ public class WeaponUtils
 				
 				if (statsCap != null)
 				{
-					statsCap.decreaseMana((int) (WeaponAttribute.LIGHTNING.getAmount(nbt) / 2));
+					statsCap.decreaseMana((int) (Attribute.LIGHTNING.getAmount(nbt) / 2));
 				}
 			}
 		}
-		if (WeaponAttribute.POISON.hasAttribute(nbt)) 
+		if (Attribute.POISON.hasAttribute(nbt)) 
 		{
-			enemy.attackEntityFrom(ModDamageSources.POISON, (float) WeaponAttribute.POISON.getAmount(nbt));
+			enemy.attackEntityFrom(ModDamageSources.POISON, (float) Attribute.POISON.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 		}
-		if (WeaponAttribute.LIFE_STEAL.hasAttribute(nbt)) attacker.setHealth((float) (attacker.getHealth() + (damage * WeaponAttribute.LIFE_STEAL.getAmount(nbt))));
-		if (WeaponAttribute.MANA_STEAL.hasAttribute(nbt))
+		if (Attribute.LIFE_STEAL.hasAttribute(nbt)) attacker.setHealth((float) (attacker.getHealth() + (damage * Attribute.LIFE_STEAL.getAmount(nbt))));
+		if (Attribute.MANA_STEAL.hasAttribute(nbt))
 		{
 			Stats statsCap = (Stats) enemy.getCapability(CapabilityPlayerStats.STATS, null);
 			
 			if (statsCap != null)
 			{
 				// adds mana to the player each attack.
-				statsCap.increaseMana((int) (WeaponAttribute.MANA_STEAL.getAmount(nbt) * damage));
+				statsCap.increaseMana((int) (Attribute.MANA_STEAL.getAmount(nbt) * damage));
 			}
 		}
-		if (WeaponAttribute.CHAINED.hasAttribute(nbt))
+		if (Attribute.CHAINED.hasAttribute(nbt))
 		{
-			double radius = WeaponAttribute.CHAINED.getAmount(nbt);
+			double radius = Attribute.CHAINED.getAmount(nbt);
 			World world = enemy.getEntityWorld();
 			List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(attacker.posX - radius, attacker.posY - radius, attacker.posZ - radius, attacker.posX + radius, attacker.posY + radius, attacker.posZ + radius));
 			Iterator<EntityLivingBase> iterator = entityList.iterator();
@@ -100,6 +100,6 @@ public class WeaponUtils
 				}
 			}
 		}
-		if (WeaponAttribute.VOID.hasAttribute(nbt) && Math.random() < WeaponAttribute.VOID.getAmount(nbt)) enemy.setHealth(0.00001F);
+		if (Attribute.VOID.hasAttribute(nbt) && Math.random() < Attribute.VOID.getAmount(nbt)) enemy.setHealth(0.00001F);
 	}
 }

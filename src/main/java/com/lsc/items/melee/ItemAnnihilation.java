@@ -6,8 +6,8 @@ import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemAdvancedMelee;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -40,11 +40,11 @@ public class ItemAnnihilation extends ItemAdvancedMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.AGILITY.addAttribute(nbt, 10);
-		WeaponAttribute.DEXTERITY.addAttribute(nbt, 10);
-		WeaponAttribute.GOLD.addAttribute(nbt, 10);
-		WeaponAttribute.LIFE_STEAL.addAttribute(nbt, 0.1);
-		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.1);
+		Attribute.AGILITY.addAttribute(nbt, world.rand, 10);
+		Attribute.DEXTERITY.addAttribute(nbt, world.rand, 10);
+		Attribute.GOLD.addAttribute(nbt, world.rand, 10);
+		Attribute.LIFE_STEAL.addAttribute(nbt, world.rand, 0.1);
+		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.1);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

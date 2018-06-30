@@ -5,8 +5,8 @@ import com.lsc.capabilities.api.IChunkLevelHolder;
 import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemMagical;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -39,10 +39,10 @@ public class ItemGazeOfTruth extends ItemMagical implements ISpecial
 		ItemGeneratorHelper.setRune(nbt);
 		
 		// Attributes
-		WeaponAttribute.FIRE.addAttribute(nbt, 5);
-		WeaponAttribute.MIN_DAMAGE.addAttribute(nbt, 3);
-		WeaponAttribute.FORTITUDE.addAttribute(nbt, 5);
-		WeaponAttribute.CHAINED.addAttribute(nbt, 15);
+		Attribute.FIRE.addAttribute(nbt, world.rand, 5);
+		Attribute.MIN_DAMAGE.addAttribute(nbt, world.rand, 3);
+		Attribute.FORTITUDE.addAttribute(nbt, world.rand, 5);
+		Attribute.CHAINED.addAttribute(nbt, world.rand, 15);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

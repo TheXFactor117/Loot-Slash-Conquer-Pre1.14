@@ -12,9 +12,9 @@ import net.minecraft.nbt.NBTTagCompound;
  */
 public class DamageUtils
 {
-	private static final double MIN_RAND_FACTOR = 0.7;
-	private static final double MAX_RAND_FACTOR = 0.9;
-	private static final double BASE_FACTOR = 1.109;
+	public static final double MIN_RAND_FACTOR = 0.7;
+	public static final double MAX_RAND_FACTOR = 0.9;
+	public static final double BASE_FACTOR = 1.109;
 	
 	/**
 	 * Applies damage modifiers to the damage passed in. This adds additional damage based on

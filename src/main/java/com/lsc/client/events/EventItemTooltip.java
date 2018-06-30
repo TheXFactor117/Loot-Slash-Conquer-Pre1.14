@@ -8,10 +8,8 @@ import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.entities.projectiles.Rune;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
-import com.lsc.loot.ArmorAttribute;
-import com.lsc.loot.JewelryAttribute;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.player.PlayerStatUtils;
 import com.lsc.util.NBTHelper;
 
@@ -121,7 +119,7 @@ public class EventItemTooltip
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 
-		for (WeaponAttribute attribute : WeaponAttribute.values())
+		for (Attribute attribute : Attribute.values())
 		{
 			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
 				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
@@ -170,7 +168,7 @@ public class EventItemTooltip
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 		
-		for (ArmorAttribute attribute : ArmorAttribute.values())
+		for (Attribute attribute : Attribute.values())
 		{
 			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
 				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
@@ -205,7 +203,7 @@ public class EventItemTooltip
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 		
-		for (WeaponAttribute attribute : WeaponAttribute.values())
+		for (Attribute attribute : Attribute.values())
 		{
 			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
 				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
@@ -258,7 +256,7 @@ public class EventItemTooltip
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 		
-		for (WeaponAttribute attribute : WeaponAttribute.values())
+		for (Attribute attribute : Attribute.values())
 		{
 			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
 				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
@@ -289,7 +287,7 @@ public class EventItemTooltip
 		DecimalFormat format = new DecimalFormat("#.##");
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 		
-		for (JewelryAttribute attribute : JewelryAttribute.values())
+		for (Attribute attribute : Attribute.values())
 		{
 			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
 				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());

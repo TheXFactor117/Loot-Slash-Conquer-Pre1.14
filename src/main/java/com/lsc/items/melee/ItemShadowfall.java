@@ -6,8 +6,8 @@ import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemAdvancedMelee;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -40,9 +40,9 @@ public class ItemShadowfall extends ItemAdvancedMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.DEXTERITY.addAttribute(nbt, 10);
-		WeaponAttribute.MAX_DAMAGE.addAttribute(nbt, 3);
-		WeaponAttribute.LIFE_STEAL.addAttribute(nbt, 0.15);
+		Attribute.DEXTERITY.addAttribute(nbt, world.rand, 10);
+		Attribute.MAX_DAMAGE.addAttribute(nbt, world.rand, 3);
+		Attribute.LIFE_STEAL.addAttribute(nbt, world.rand, 0.15);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

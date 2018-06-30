@@ -6,8 +6,8 @@ import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemMelee;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -35,10 +35,10 @@ public class ItemRequiem extends ItemMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.AGILITY.addAttribute(nbt, 5);
-		WeaponAttribute.DEXTERITY.addAttribute(nbt, 5);
-		WeaponAttribute.LIFE_STEAL.addAttribute(nbt, 0.05);
-		WeaponAttribute.MANA_STEAL.addAttribute(nbt, 0.05);
+		Attribute.AGILITY.addAttribute(nbt, world.rand, 5);
+		Attribute.DEXTERITY.addAttribute(nbt, world.rand, 5);
+		Attribute.LIFE_STEAL.addAttribute(nbt, world.rand, 0.05);
+		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.05);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}

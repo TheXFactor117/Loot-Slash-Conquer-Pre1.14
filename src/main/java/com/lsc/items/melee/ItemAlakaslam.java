@@ -6,8 +6,8 @@ import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.init.ModTabs;
 import com.lsc.items.base.ISpecial;
 import com.lsc.items.base.ItemAdvancedMelee;
+import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.loot.WeaponAttribute;
 import com.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
@@ -40,9 +40,9 @@ public class ItemAlakaslam extends ItemAdvancedMelee implements ISpecial
 		nbt.setInteger("Level", level);
 		
 		// Attributes
-		WeaponAttribute.STRENGTH.addAttribute(nbt, 10);
-		WeaponAttribute.FORTITUDE.addAttribute(nbt, 10);
-		WeaponAttribute.FROST.addAttribute(nbt, 7);
+		Attribute.STRENGTH.addAttribute(nbt, world.rand, 10);
+		Attribute.FORTITUDE.addAttribute(nbt, world.rand, 10);
+		Attribute.FROST.addAttribute(nbt, world.rand, 7);
 		
 		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}
