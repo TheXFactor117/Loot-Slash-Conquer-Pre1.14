@@ -9,7 +9,7 @@ import com.lsc.capabilities.implementation.EnemyInfo;
 import com.lsc.entities.EntityMonster;
 import com.lsc.loot.NameGenerator;
 import com.lsc.loot.generation.ItemGenerator;
-import com.lsc.player.WeaponHelper;
+import com.lsc.player.WeaponUtils;
 import com.lsc.util.NBTHelper;
 import com.lsc.util.Reference;
 
@@ -112,7 +112,7 @@ public class EntityBarbarian extends EntityMonster
 			if (hasAttacked)
 			{				
 				// apply attributes from weapon
-				WeaponHelper.useWeaponAttributes((float) damage, this, (EntityLivingBase) enemy, stack, nbt);
+				WeaponUtils.useWeaponAttributes((float) damage, this, (EntityLivingBase) enemy, stack, nbt);
 				
 				// apply knockback if attack was successful
 				int knockback = EnchantmentHelper.getKnockbackModifier(this);

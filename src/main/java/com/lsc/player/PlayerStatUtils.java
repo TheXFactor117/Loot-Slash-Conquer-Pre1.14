@@ -19,7 +19,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
  * @author TheXFactor117
  *
  */
-public class PlayerStatHelper 
+public class PlayerStatUtils 
 {
 	private static final String ATTACK_DAMAGE = "ece5e91f-afc9-4883-a169-c7b5883c12dc";
 	private static final String MOVEMENT_SPEED = "50ac5b8b-00a6-436c-bdc3-9848393bb7b7";

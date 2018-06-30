@@ -32,7 +32,7 @@ public class EventPlayerStartTracking
 	private static final UUID ATTACK_DAMAGE = UUID.fromString("708b7d5f-9e4d-4bb5-9bdc-437ebcd0fb52");
 	private static final UUID MAX_HEALTH = UUID.fromString("136ed593-8c70-4ba8-98e9-42c93e64fff0");
 	private static final double HEALTH_TIER_POWER = 2.25;
-	private static final double HEALTH_BASE_FACTOR = 1.115;
+	private static final double HEALTH_BASE_FACTOR = 1.13;
 	private static final double DAMAGE_TIER_POWER = 1.3;
 	private static final double DAMAGE_BASE_FACTOR = 1.06;
 	

@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.init.ModTabs;
-import com.lsc.player.PlayerStatHelper;
+import com.lsc.player.PlayerStatUtils;
 import com.lsc.util.NBTHelper;
 import com.lsc.util.Reference;
 
@@ -64,7 +64,7 @@ public class ItemRanged extends ItemBow
                 		EntityPlayer player = (EntityPlayer) entityIn;
                 		PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
                 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-                    	double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
+                    	double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
                     	float drawSpeed = (float) (20.0F / attackSpeed);
                         return !(entityIn.getActiveItemStack().getItem() instanceof ItemRanged)  ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / drawSpeed;
                 	}
@@ -203,7 +203,7 @@ public class ItemRanged extends ItemBow
      */
     public static float getArrowVelocity(NBTTagCompound nbt, PlayerInformation info, int charge)
     {
-    	double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
+    	double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
     	float drawSpeed = (float) (20.0F / attackSpeed);
         float f = (float) charge / drawSpeed;
         f = (f * f + f * 2.0F) / 3.0F;

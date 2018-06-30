@@ -8,8 +8,9 @@ import com.lsc.init.ModDamageSources;
 import com.lsc.items.base.ItemAdvancedMelee;
 import com.lsc.loot.ArmorAttribute;
 import com.lsc.loot.Rarity;
-import com.lsc.player.PlayerStatHelper;
-import com.lsc.player.WeaponHelper;
+import com.lsc.player.DamageType;
+import com.lsc.player.DamageUtils;
+import com.lsc.player.WeaponUtils;
 import com.lsc.util.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -122,7 +123,7 @@ public class EventLivingHurtAttack
 				
 				if (playerInfo.getPlayerLevel() >= nbt.getInteger("Level"))
 				{
-					WeaponHelper.useWeaponAttributes(event.getAmount(), player, enemy, stack, nbt);
+					WeaponUtils.useWeaponAttributes(event.getAmount(), player, enemy, stack, nbt);
 				}
 			}
 		}
@@ -143,18 +144,11 @@ public class EventLivingHurtAttack
 			else
 			{
 				// set the true amount of damage.
-				double damageBeforeCrit = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-				double trueDamage = damageBeforeCrit;
+				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+				trueDamage = DamageUtils.applyDamageModifiers(playerInfo, trueDamage, DamageType.PHYSICAL_MELEE);
+				trueDamage = DamageUtils.applyCriticalModifier(stats, trueDamage, nbt);
 				
-				if (stats.getCriticalChance() > 0)
-				{
-					if (Math.random() < stats.getCriticalChance())
-					{
-						trueDamage = (stats.getCriticalDamage() * damageBeforeCrit) + damageBeforeCrit;
-					}
-				}
-				
-				event.setAmount((float) (trueDamage + (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * playerInfo.getTotalStrength())));
+				event.setAmount((float) trueDamage);
 			}
 		}
 	}
@@ -174,18 +168,11 @@ public class EventLivingHurtAttack
 			else
 			{
 				// set the true amount of damage.
-				double damageBeforeCrit = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-				double trueDamage = damageBeforeCrit;
+				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+				trueDamage = DamageUtils.applyDamageModifiers(playerInfo, trueDamage, DamageType.PHYSICAL_RANGED);
+				trueDamage = DamageUtils.applyCriticalModifier(stats, trueDamage, nbt);
 				
-				if (stats.getCriticalChance() > 0)
-				{
-					if (Math.random() < stats.getCriticalChance())
-					{
-						trueDamage = (stats.getCriticalDamage() * damageBeforeCrit) + damageBeforeCrit;
-					}
-				}
-				
-				event.setAmount((float) (trueDamage + (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * playerInfo.getTotalDexterity())));
+				event.setAmount((float) trueDamage);
 			}
 		}
 	}

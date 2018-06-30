@@ -45,7 +45,7 @@ public class ItemEpilogue extends ItemMagical implements ISpecial
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();
 		double baseAttackSpeed = this.getBaseAttackSpeed();
-		double weightedDamage = ItemGeneratorHelper.getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
+		double weightedDamage = ItemGeneratorHelper.getWeightedDamage(level, Rarity.getRarity(nbt), baseDamage);
 		double weightedAttackSpeed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseAttackSpeed);
 		
 		ItemGeneratorHelper.setMinMaxDamage(nbt, weightedDamage);

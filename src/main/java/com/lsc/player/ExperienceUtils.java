@@ -22,7 +22,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ExperienceHelper 
+public class ExperienceUtils 
 {
 	public static void addExperience(EntityPlayer player, PlayerInformation playerInfo, EntityLivingBase enemy)
 	{

@@ -2,7 +2,7 @@ package com.lsc.events.combat;
 
 import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.implementation.PlayerInformation;
-import com.lsc.player.ExperienceHelper;
+import com.lsc.player.ExperienceUtils;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
@@ -33,7 +33,7 @@ public class EventLivingDeath
 			
 			if (!player.getEntityWorld().isRemote && playerInfo != null)
 			{
-				ExperienceHelper.addExperience(player, playerInfo, enemy);
+				ExperienceUtils.addExperience(player, playerInfo, enemy);
 			}
 		}
 	}

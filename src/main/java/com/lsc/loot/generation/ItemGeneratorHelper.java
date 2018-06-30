@@ -147,7 +147,7 @@ public class ItemGeneratorHelper
 
 			double baseDamage = damageModifier.getAmount();
 			double baseSpeed = speedModifier.getAmount();
-			double damage = getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
+			double damage = getWeightedDamage(nbt.getInteger("Level"), Rarity.getRarity(nbt), baseDamage);
 			double speed = getWeightedAttackSpeed(Rarity.getRarity(nbt), baseSpeed);
 
 			setMinMaxDamage(nbt, damage);
@@ -235,7 +235,7 @@ public class ItemGeneratorHelper
 	 * @param base
 	 * @return
 	 */
-	public static double getWeightedDamage(NBTTagCompound nbt, Rarity rarity, double base)
+	public static double getWeightedDamage(int level, Rarity rarity, double base)
 	{
 		double baseFactor = 1.109;
 		// min/max rand factor controls the range of the random decimal (this creates a sort of range for the damage to fall in,
@@ -248,15 +248,15 @@ public class ItemGeneratorHelper
 		switch (rarity)
 		{
 			case COMMON:
-				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (0.85 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (0.85 * multiplier)));
 			case UNCOMMON:
-				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (1 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (1 * multiplier)));
 			case RARE:
-				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (1.2 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (1.2 * multiplier)));
 			case EPIC:
-				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (1.45 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (1.45 * multiplier)));
 			case LEGENDARY:
-				return (Math.pow(baseFactor, nbt.getInteger("Level")) * (base * (1.8 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (1.8 * multiplier)));
 			default:
 				return base;
 		}

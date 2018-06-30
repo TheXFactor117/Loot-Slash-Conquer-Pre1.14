@@ -27,7 +27,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class WeaponHelper 
+public class WeaponUtils 
 {
 	/** Called to use the current stack's attributes. Called from LivingAttackEvent and projectiles. */
 	public static void useWeaponAttributes(float damage, EntityLivingBase attacker, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)

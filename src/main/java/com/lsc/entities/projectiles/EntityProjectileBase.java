@@ -1,8 +1,12 @@
 package com.lsc.entities.projectiles;
 
+import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
+import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
-import com.lsc.player.WeaponHelper;
+import com.lsc.player.DamageType;
+import com.lsc.player.DamageUtils;
+import com.lsc.player.WeaponUtils;
 import com.lsc.util.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -59,30 +63,21 @@ public abstract class EntityProjectileBase extends EntityThrowable
 		if (!this.getEntityWorld().isRemote && player != null)
 		{
 			Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && stats != null)
+			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && stats != null && playerInfo != null)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				double magicalPower = stats.getMagicalPower();
-				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage") + (int) magicalPower);
-				
-				// set the true amount of damage.
-				double trueDamage = damage;
-				
-				if (stats.getCriticalChance() > 0)
-				{
-					if (Math.random() < stats.getCriticalChance())
-					{
-						trueDamage = (stats.getCriticalDamage() * damage) + damage;
-					}
-				}
+				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage"));
+				damage = DamageUtils.applyDamageModifiers(playerInfo, damage, DamageType.MAGICAL);
+				damage = DamageUtils.applyCriticalModifier(stats, damage, nbt);
 				
 				// apply damage
-				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) trueDamage);
+				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);
 				result.entityHit.hurtResistantTime = 0; // set hurt resistant time to zero because other calculations might be added.
 				
 				// apply attributes
-				WeaponHelper.useWeaponAttributes((float) damage, player, (EntityLivingBase) result.entityHit, stack, NBTHelper.loadStackNBT(stack));
+				WeaponUtils.useWeaponAttributes((float) damage, player, (EntityLivingBase) result.entityHit, stack, NBTHelper.loadStackNBT(stack));
 			}
 		}
 	}

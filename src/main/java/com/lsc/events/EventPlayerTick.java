@@ -12,7 +12,7 @@ import com.lsc.loot.JewelryAttribute;
 import com.lsc.loot.WeaponAttribute;
 import com.lsc.network.PacketUpdateCoreStats;
 import com.lsc.network.PacketUpdateStats;
-import com.lsc.player.PlayerStatHelper;
+import com.lsc.player.PlayerStatUtils;
 import com.lsc.util.NBTHelper;
 
 import baubles.api.BaublesApi;
@@ -185,7 +185,7 @@ public class EventPlayerTick
 			}
 		}
 		
-		PlayerStatHelper.updateAttributes(player);
+		PlayerStatUtils.updateAttributes(player);
 		
 		LootSlashConquer.network.sendTo(new PacketUpdateCoreStats(info), (EntityPlayerMP) player);
 	}

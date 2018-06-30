@@ -11,7 +11,8 @@ import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
 import com.lsc.network.PacketUpdateIncreaseStat;
-import com.lsc.player.PlayerStatHelper;
+import com.lsc.player.DamageUtils;
+import com.lsc.player.PlayerStatUtils;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -96,16 +97,16 @@ public class GuiPlayerInformation extends GuiScreen
 			
 			// bonuses
 			this.drawCenteredString(this.fontRenderer, I18n.format("gui.playerinfo.bonuses"), this.width / 2 - 130, 120, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.playerdamage") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.ATTACK_DAMAGE_MULTIPLIER * (playerInfo.getTotalStrength())), this.width / 2 - 160, 140, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.magicalpower") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAGICAL_POWER_MULTIPLIER * (playerInfo.getTotalIntelligence())), this.width / 2 - 160, 150, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + format.format((PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (playerInfo.getTotalAgility()))), this.width / 2 - 160, 160, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.playerdamage") + ": " + TextFormatting.WHITE + "+" + format.format(DamageUtils.getMeleePower(playerInfo)), this.width / 2 - 160, 140, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.magicalpower") + ": " + TextFormatting.WHITE + "+" + format.format(DamageUtils.getMagicalPower(playerInfo)), this.width / 2 - 160, 150, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + format.format((PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (playerInfo.getTotalAgility()))), this.width / 2 - 160, 160, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue()), this.width / 2 - 160, 170, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.toughness") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue()), this.width / 2 - 160, 180, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critchance") + ": " + TextFormatting.WHITE + ((int) (statsCap.getCriticalChance() * 100)) + "%", this.width / 2 - 160, 190, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critdamage") + ": " + TextFormatting.WHITE + ((int) (statsCap.getCriticalDamage() * 100)) + "%", this.width / 2 - 160, 200, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.health") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAX_HEALTH_MULTIPLIER * (playerInfo.getTotalFortitude())), this.width / 2 - 160, 210, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.health") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatUtils.MAX_HEALTH_MULTIPLIER * (playerInfo.getTotalFortitude())), this.width / 2 - 160, 210, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.hp5") + ": " + TextFormatting.WHITE + statsCap.getHealthPerSecond(), this.width / 2 - 160, 220, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mana") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatHelper.MAX_MANA_MULTIPLIER * (playerInfo.getTotalWisdom())), this.width / 2 - 160, 230, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mana") + ": " + TextFormatting.WHITE + "+" + (int) (PlayerStatUtils.MAX_MANA_MULTIPLIER * (playerInfo.getTotalWisdom())), this.width / 2 - 160, 230, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mp5") + ": " + TextFormatting.WHITE + statsCap.getManaPerSecond(), this.width / 2 - 160, 240, 0xFFFFFF);
 		
 			drawTooltips(mouseX, mouseY);
@@ -156,7 +157,7 @@ public class GuiPlayerInformation extends GuiScreen
 			
 			playerInfo.setSkillPoints(playerInfo.getSkillPoints() - 1);
 			
-			PlayerStatHelper.updateAttributes(player);
+			PlayerStatUtils.updateAttributes(player);
 		}
 	}
 	

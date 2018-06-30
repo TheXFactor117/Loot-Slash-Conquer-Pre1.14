@@ -54,7 +54,7 @@ public class ItemGenerator
 					baseDrawSpeed = 2;
 				}
 				
-				double weightedDamage = ItemGeneratorHelper.getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
+				double weightedDamage = ItemGeneratorHelper.getWeightedDamage(level, Rarity.getRarity(nbt), baseDamage);
 				double weightedDrawSpeed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseDrawSpeed);
 				
 				ItemGeneratorHelper.setMinMaxDamage(nbt, weightedDamage);
@@ -72,7 +72,7 @@ public class ItemGenerator
 				// handles setting weighted damage/attack speed and min/max damage
 				double baseDamage = magical.getBaseDamage();
 				double baseAttackSpeed = magical.getBaseAttackSpeed();
-				double weightedDamage = ItemGeneratorHelper.getWeightedDamage(nbt, Rarity.getRarity(nbt), baseDamage);
+				double weightedDamage = ItemGeneratorHelper.getWeightedDamage(level, Rarity.getRarity(nbt), baseDamage);
 				double weightedAttackSpeed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseAttackSpeed);
 				
 				ItemGeneratorHelper.setMinMaxDamage(nbt, weightedDamage);

@@ -2,7 +2,7 @@ package com.lsc.network;
 
 import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.implementation.PlayerInformation;
-import com.lsc.player.PlayerStatHelper;
+import com.lsc.player.PlayerStatUtils;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -118,7 +118,7 @@ public class PacketUpdateCoreStats implements IMessage
 						playerInfo.setBonusWisdomStat(message.wisdomBonus);
 						playerInfo.setBonusFortitudeStat(message.fortitudeBonus);
 						
-						PlayerStatHelper.updateAttributes(player);
+						PlayerStatUtils.updateAttributes(player);
 					}
 				}
 			});

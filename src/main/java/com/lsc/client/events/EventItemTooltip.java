@@ -12,7 +12,7 @@ import com.lsc.loot.ArmorAttribute;
 import com.lsc.loot.JewelryAttribute;
 import com.lsc.loot.Rarity;
 import com.lsc.loot.WeaponAttribute;
-import com.lsc.player.PlayerStatHelper;
+import com.lsc.player.PlayerStatUtils;
 import com.lsc.util.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -108,7 +108,7 @@ public class EventItemTooltip
 		NBTTagCompound speedNbt = taglist.getCompoundTagAt(1);
 		DecimalFormat format = new DecimalFormat("#.##");
 		
-		double attackSpeed = speedNbt.getDouble("Amount") + 4 + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (double) (info.getTotalAgility()));
+		double attackSpeed = speedNbt.getDouble("Amount") + 4 + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (double) (info.getTotalAgility()));
 
 		tooltip.add(TextFormatting.BLUE + " +" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + " +" + format.format(attackSpeed) + " Attack Speed");
@@ -192,7 +192,7 @@ public class EventItemTooltip
 		
 		// Damage and Attack Speed
 		DecimalFormat format = new DecimalFormat("#.##");
-		double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
+		double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
 
 		tooltip.add(TextFormatting.BLUE + "+" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + "+" + format.format(attackSpeed) + " Attack Speed");
@@ -245,7 +245,7 @@ public class EventItemTooltip
 		
 		// Damage and Attack Speed
 		DecimalFormat format = new DecimalFormat("#.##");
-		double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatHelper.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
+		double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
 
 		tooltip.add(TextFormatting.BLUE + "+" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + "+" + format.format(attackSpeed) + " Attack Speed");
