@@ -13,23 +13,6 @@
 			"conditions": [
             	{
                 	"condition": "minecraft:random_chance",
-                    "chance": 0.5
-                }
-        	]
-		},
-		{
-			"name": "highchance",
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "loot_table",
-					"name": "lsc:loot/rare_loot",
-					"weight": 1
-				}
-			],
-			"conditions": [
-            	{
-                	"condition": "minecraft:random_chance",
                     "chance": 0.2
                 }
         	]
