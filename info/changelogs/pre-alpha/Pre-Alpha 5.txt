@@ -5,6 +5,24 @@
 
 
 #####
+### 0.5.1.2-pre-alpha
+#####
+
++ Added an update checker.
++ Added a requirement to install Baubles.
+* Re-worked entire damage formula implemented by Loot Slash Conquer.
+* Re-wrote the weapon/armor Attribute system.
+	* Consolidated a lot of the code internally.
+	* Fixes issue where damage attributes showed as 0%.
+	* Passive attributes cannot be applied to melee/ranged/magical weapons (e.g. no stat bonuses for these items).
+	* Bonus damage now scales properly with player level.
+
+NOTE: This version will break the old Attribute system, meaning your old weapons might be messed up slightly.
+	The system should be final now, and won't experience anymore changes in the near future.
+
+
+
+#####
 ### 0.5.1.1-pre-alpha
 #####
 
