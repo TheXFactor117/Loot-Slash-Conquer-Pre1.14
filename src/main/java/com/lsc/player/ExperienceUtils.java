@@ -45,13 +45,13 @@ public class ExperienceUtils
 			}
 			
 			// calculates the different multipliers and multiplies them together to get the total multiplier
-			int tierMultiplier = (int) (Math.pow(enemyTier, 2.25) / 3 + 1);
-			int rarityMultiplier = (int) (Math.pow(rarity, 1.75) / 2.5 + 1);
+			double baseFactor = 1.15;
+			double tierMultiplier = (Math.pow(enemyTier, 2.25) / 3 + 1) + 0.5;
+			double rarityMultiplier = (Math.pow(rarity, 1.75) / 2.5 + 1) + 0.5;
 			int multiplier = (int) ((tierMultiplier * rarityMultiplier + 1) / 1.5);
 			
-			// base experience is 5 for now...
-			// formula: 5 * (level+1 ^ 1.5) * multiplier
-			experience = (int) (5 * (Math.pow(enemyLevel + 1, 1.5)) * multiplier);
+			// base experience is 10 for now...
+			experience = (int) (Math.pow(baseFactor, enemyLevel + 1) * (10 + multiplier));
 		}
 		
 		// update experience on client AND server; increase level if need be.
