@@ -2,10 +2,9 @@ package com.lsc.world.generation.tower;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Map.Entry;
+import java.util.Random;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.world.generation.util.StructureBlockProcessor;
 import com.lsc.world.generation.util.StructureOutline;
 import com.lsc.world.generation.util.StructureUtils;
@@ -67,12 +66,12 @@ public class StructureTower implements IWorldGenerator
 
 				if (generateEntrance(world, pos, mainRotation))
 				{
-					LootSlashConquer.LOGGER.info("Generating Tower at: " + pos);
+					//LootSlashConquer.LOGGER.info("Generating Tower at: " + pos);
 					handleGeneration(world, pos, mainRotation);
 				}
 				else
 				{
-					LootSlashConquer.LOGGER.info("Tower generation failed...");
+					//LootSlashConquer.LOGGER.info("Tower generation failed...");
 				}
 			}
 		}

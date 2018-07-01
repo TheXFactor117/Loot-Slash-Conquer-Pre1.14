@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
-import com.lsc.LootSlashConquer;
 import com.lsc.entities.projectiles.Rune;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
@@ -212,8 +211,6 @@ public class ItemGeneratorHelper
 		// set the min/max by subtracting/adding half the range to the new damage value.
 		int minDamage = (int) (damage - (range / 2));
 		int maxDamage = (int) (damage + (range / 2));
-		
-		LootSlashConquer.LOGGER.info(damage + "\t" + range);
 		
 		if (Attribute.MIN_DAMAGE.hasAttribute(nbt)) minDamage += Attribute.MIN_DAMAGE.getAmount(nbt);
 		else if (Attribute.MAX_DAMAGE.hasAttribute(nbt)) maxDamage += Attribute.MAX_DAMAGE.getAmount(nbt);

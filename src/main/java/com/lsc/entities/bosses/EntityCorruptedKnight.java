@@ -2,7 +2,6 @@ package com.lsc.entities.bosses;
 
 import java.util.UUID;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.entities.EntityMonster;
 import com.lsc.entities.ai.EntityAICKSlam;
 import com.lsc.entities.ai.EntityAIMeleeCharge;
@@ -92,7 +91,6 @@ public class EntityCorruptedKnight extends EntityMonster
 			// update stage based on health
 			if (this.stage == 1 && this.getHealth() < (this.getMaxHealth() * (double) (2.0 / 3.0)))
 			{
-				LootSlashConquer.LOGGER.info("Increasing stage...");
 				this.stage++;
 				EntityPlayer player = this.world.getClosestPlayerToEntity(this, 32);
 				if (player != null) player.sendMessage(new TextComponentString("The monster seems to be transforming..."));
@@ -105,7 +103,6 @@ public class EntityCorruptedKnight extends EntityMonster
 			}
 			else if (this.stage == 2 && this.getHealth() < (this.getMaxHealth() * (double) (1.0 / 3.0)))
 			{
-				LootSlashConquer.LOGGER.info("Increasing stage...");
 				this.stage++;
 				EntityPlayer player = this.world.getClosestPlayerToEntity(this, 32);
 				if (player != null) player.sendMessage(new TextComponentString("The monster seems to be transforming...again..."));
@@ -171,9 +168,6 @@ public class EntityCorruptedKnight extends EntityMonster
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount)
     {		
-		LootSlashConquer.LOGGER.info("CORRUPTED KNIGHT: attacked for " + amount);
-		LootSlashConquer.LOGGER.info("CORRUPTED KNIGHT: now has " + this.getHealth() + " health");
-		
 		return super.attackEntityFrom(source, amount);
     }
 	
@@ -182,9 +176,7 @@ public class EntityCorruptedKnight extends EntityMonster
 	 */
 	@Override
 	public boolean attackEntityAsMob(Entity entity)
-    {
-		LootSlashConquer.LOGGER.info("CORRUPTED KNIGHT: attacking...");
-		
+    {		
 		return super.attackEntityAsMob(entity);
     }
 	

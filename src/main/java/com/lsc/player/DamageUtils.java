@@ -62,6 +62,9 @@ public class DamageUtils
 		return damage;
 	}
 	
+	// TODO: if power is less than 1 (decimal), set to zero to prevent the decimal being added on as extra damage.
+	// not too important but still a thing.
+	
 	public static double getMeleePower(PlayerInformation playerInfo)
 	{
 		double multiplier = (Math.random() * (MAX_RAND_FACTOR - MIN_RAND_FACTOR) + MIN_RAND_FACTOR);

@@ -71,9 +71,7 @@ public class EntityAIGaze extends EntityAIBase
             vec3d1 = vec3d1.normalize();
             double d1 = vec3d.dotProduct(vec3d1);
             boolean isLooking = d1 > 1.0D - 0.5D / d0 ? enemy.canEntityBeSeen(this.entity) : false;
-			
-            LootSlashConquer.LOGGER.info(isLooking);
-            
+			            
 			if (isLooking)
 			{
 				int chance = (int) (Math.random() * 2);

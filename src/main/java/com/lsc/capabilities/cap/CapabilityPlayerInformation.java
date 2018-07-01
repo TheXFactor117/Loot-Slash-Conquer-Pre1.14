@@ -173,7 +173,6 @@ public class CapabilityPlayerInformation
 				LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
 				PlayerStatUtils.updateAttributes(event.player);
 				
-				LootSlashConquer.LOGGER.info("Max health: " + event.player.getMaxHealth());
 				event.player.setHealth(event.player.getMaxHealth());
 			}
 		}

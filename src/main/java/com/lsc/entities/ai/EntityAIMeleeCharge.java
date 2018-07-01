@@ -1,6 +1,5 @@
 package com.lsc.entities.ai;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.entities.bosses.EntityCorruptedKnight;
 
 import net.minecraft.entity.EntityLiving;
@@ -61,9 +60,7 @@ public class EntityAIMeleeCharge extends EntityAIBase
 	
 	@Override
 	public void startExecuting()
-	{
-		LootSlashConquer.LOGGER.info("Executing charge...");
-		
+	{		
 		this.startingPos = this.entity.getPosition();
 		
 		double d0 = this.entity.getAttackTarget().posX - this.entity.posX;

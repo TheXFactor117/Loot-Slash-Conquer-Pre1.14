@@ -153,6 +153,7 @@ public class CapabilityChunkLevel
 		@SubscribeEvent
 		public static void onChunkWatch(ChunkWatchEvent.Watch event)
 		{
+			@SuppressWarnings("deprecation")
 			IChunkLevel chunkLevel = getChunkLevel(event.getPlayer().getEntityWorld(), event.getChunk());
 			
 			LootSlashConquer.network.sendTo(new PacketUpdateChunkLevel(chunkLevel.getChunkPos().x, chunkLevel.getChunkPos().z, chunkLevel.getChunkLevel()), event.getPlayer());

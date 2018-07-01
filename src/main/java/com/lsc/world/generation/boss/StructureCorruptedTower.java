@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
 
-import com.lsc.LootSlashConquer;
 import com.lsc.init.ModBlocks;
 import com.lsc.init.ModItems;
 import com.lsc.util.Reference;
@@ -74,7 +73,7 @@ public class StructureCorruptedTower implements IWorldGenerator
 				if ((world.getBiome(pos) == Biomes.PLAINS || world.getBiome(pos) == Biomes.DESERT) && this.canSpawnInBiome(world, pos))
 				{
 					// debug
-					LootSlashConquer.LOGGER.info("Spawning boss structure at: " + pos);
+					//LootSlashConquer.LOGGER.info("Spawning boss structure at: " + pos);
 					
 					WorldServer server = (WorldServer) world;
 					TemplateManager manager = server.getStructureTemplateManager();
