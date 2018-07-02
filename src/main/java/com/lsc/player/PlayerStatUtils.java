@@ -21,7 +21,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
  */
 public class PlayerStatUtils 
 {
-	private static final String ATTACK_DAMAGE = "ece5e91f-afc9-4883-a169-c7b5883c12dc";
+	//private static final String ATTACK_DAMAGE = "ece5e91f-afc9-4883-a169-c7b5883c12dc";
 	private static final String MOVEMENT_SPEED = "50ac5b8b-00a6-436c-bdc3-9848393bb7b7";
 	private static final String ATTACK_SPEED = "e574e861-e5bd-4906-b72e-f6be6e4c9563";
 	private static final String MAX_HEALTH = "e3762718-bbd8-4763-bfe9-1d18d70eaa76";
@@ -48,8 +48,9 @@ public class PlayerStatUtils
 			/* 
 			 * STRENGTH
 			 */
+			// TODO: convert new damage to add to the player's attribute...look into this more, the whole system is all sorts of fucked up.
 			// increase attack damage
-			AttributeModifier strengthAttackDamage = new AttributeModifier(UUID.fromString(ATTACK_DAMAGE), "playerStrength", ATTACK_DAMAGE_MULTIPLIER * (info.getTotalStrength()), 0);
+			/*AttributeModifier strengthAttackDamage = new AttributeModifier(UUID.fromString(ATTACK_DAMAGE), "playerStrength", ATTACK_DAMAGE_MULTIPLIER * (info.getTotalStrength()), 0);
 
 			if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getModifier(UUID.fromString(ATTACK_DAMAGE)) != null)
 			{
@@ -57,7 +58,7 @@ public class PlayerStatUtils
 				player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(strengthAttackDamage);
 			}
 			else
-				player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(strengthAttackDamage);
+				player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(strengthAttackDamage);*/
 			
 			
 			/*
@@ -110,7 +111,7 @@ public class PlayerStatUtils
 				/*
 				 * WISDOM
 				 */			
-				stats.setMaxMana((int) ((MAX_MANA_MULTIPLIER * (info.getTotalWisdom())) + 100));
+				stats.setMaxMana((int) ((MAX_MANA_MULTIPLIER * info.getTotalWisdom()) + 100));
 				
 				LootSlashConquer.network.sendTo(new PacketUpdateStats(stats), (EntityPlayerMP) player);
 			}

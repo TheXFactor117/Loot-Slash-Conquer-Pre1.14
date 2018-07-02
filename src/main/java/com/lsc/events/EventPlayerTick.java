@@ -45,13 +45,14 @@ public class EventPlayerTick
 			ticks++;
 			regenTicks++;
 			
+			// TODO: possibly optimize this? 3 packets get sent every second
 			if (ticks % 10 == 0)
 			{
 				PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 				
 				if (event.player != null && playerInfo != null)
 				{	
-					updateStats(event.player, playerInfo, 4);
+					updateStats(event.player, playerInfo, 3);
 				}
 				
 				ticks = 0;

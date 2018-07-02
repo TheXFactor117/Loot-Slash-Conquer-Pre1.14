@@ -1,7 +1,5 @@
 package com.lsc.entities.ai;
 
-import com.lsc.LootSlashConquer;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
