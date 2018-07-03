@@ -65,7 +65,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 			Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && stats != null && playerInfo != null)
+			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && result.entityHit != player && stats != null && playerInfo != null)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage"));
@@ -75,7 +75,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 				// apply damage
 				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);
 				result.entityHit.hurtResistantTime = 0; // set hurt resistant time to zero because other calculations might be added.
-				
+
 				// apply attributes
 				WeaponUtils.useWeaponAttributes((float) damage, player, (EntityLivingBase) result.entityHit, stack, NBTHelper.loadStackNBT(stack));
 			}

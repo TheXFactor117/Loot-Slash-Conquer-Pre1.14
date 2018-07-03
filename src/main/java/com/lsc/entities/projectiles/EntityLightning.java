@@ -36,7 +36,7 @@ public class EntityLightning extends EntityProjectileBase
 		
 		if (!this.getEntityWorld().isRemote)
 		{
-			if (result.entityHit != null && result.entityHit instanceof EntityPlayer)
+			if (result.entityHit != null && result.entityHit instanceof EntityPlayer && result.entityHit != player)
 			{
 				Stats statsCap = (Stats) result.entityHit.getCapability(CapabilityPlayerStats.STATS, null);
 				

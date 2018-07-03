@@ -35,7 +35,7 @@ public class Stats implements IStats
 	/** Increases the current mana count by the given amount. */
 	public void increaseMana(int mana)
 	{
-		this.mana += mana;
+		this.setMana(this.getMana() + mana);
 		
 		if (this.mana > this.maxMana) this.mana = this.maxMana;
 	}
@@ -43,7 +43,7 @@ public class Stats implements IStats
 	/** Decreases the current mana count by the given amount. */
 	public void decreaseMana(int mana)
 	{
-		this.mana -= mana;
+		this.setMana(this.getMana() - mana);
 		
 		if (this.mana < 0) this.mana = 0;
 	}

@@ -32,7 +32,7 @@ public class EventPlayerLoggedIn
 		{
 			// send Class Selection gui to client on first join.
 			LootSlashConquer.network.sendTo(new PacketClassGui(), (EntityPlayerMP) event.player);
-			
+
 			// setup max mana + send it to client.
 			statsCap.setMaxMana(100);
 			statsCap.setMana(statsCap.getMaxMana());
@@ -44,6 +44,20 @@ public class EventPlayerLoggedIn
 			LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
 		}
 		else if (playerInfo != null && playerInfo.getPlayerClass() > 0)
+		{
+			LootSlashConquer.LOGGER.info(statsCap);
+			
+			LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
+		}
+	}
+	
+	@SubscribeEvent
+	public static void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event)
+	{
+		PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);
+		
+		LootSlashConquer.LOGGER.info("Mana: " + statsCap.getMana());
 	}
 }

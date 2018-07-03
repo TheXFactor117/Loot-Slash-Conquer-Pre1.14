@@ -36,7 +36,7 @@ public class EntityIcebolt extends EntityProjectileBase
 		
 		if (!this.getEntityWorld().isRemote)
 		{
-			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase)
+			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && result.entityHit != player)
 			{
 				((EntityLivingBase) result.entityHit).addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * seconds, 1));
 			}
