@@ -53,10 +53,10 @@ public class ItemGeneratorHelper
 		}
 		else if (stack.getItem() instanceof ItemArmor)
 		{
-			if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.HEAD) nbt.setString("Type", "helmet");
-			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.CHEST) nbt.setString("Type", "chestplate");
-			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.LEGS) nbt.setString("Type", "leggings");
-			else if (((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.FEET) nbt.setString("Type", "boots");
+			if (((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.HEAD) nbt.setString("Type", "helmet");
+			else if (((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.CHEST) nbt.setString("Type", "chestplate");
+			else if (((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.LEGS) nbt.setString("Type", "leggings");
+			else if (((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.FEET) nbt.setString("Type", "boots");
 		}
 		else if (stack.getItem() instanceof ItemBow)
 		{
