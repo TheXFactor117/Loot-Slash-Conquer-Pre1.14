@@ -44,26 +44,30 @@ public class EventPlayerStartTracking
 			if (event.getTarget() instanceof EntityLivingBase)
 			{	
 				EntityLivingBase entity = (EntityLivingBase) event.getTarget();
-				World world = entity.getEntityWorld();
-				EnemyInfo info = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
-				IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
 				
-				if (info != null && chunkLevelHolder != null)
+				if (entity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) != null)
 				{
-					if (info.getEnemyLevel() == 0 || info.getEnemyTier() == 0)
-					{
-						IChunkLevel chunkLevelCap = chunkLevelHolder.getChunkLevel(new ChunkPos(entity.getPosition()));
-						int chunkLevel = chunkLevelCap.getChunkLevel();
-						int level = info.getRandomEnemyLevel(chunkLevel, chunkLevel + 3);
-						
-						info.setEnemyTier(EnemyTier.getRandomEnemyTier(world.rand).ordinal());
-						info.setEnemyLevel(level);
-						
-						setAttributeModifiers(entity, level, info.getEnemyTier());
-					}
+					World world = entity.getEntityWorld();
+					EnemyInfo info = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
+					IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
 					
-					// send information to clients
-					LootSlashConquer.network.sendTo(new PacketUpdateEnemyInfo(info, entity.getEntityId()), (EntityPlayerMP) event.getEntityPlayer());
+					if (info != null && chunkLevelHolder != null)
+					{
+						if (info.getEnemyLevel() == 0 || info.getEnemyTier() == 0)
+						{
+							IChunkLevel chunkLevelCap = chunkLevelHolder.getChunkLevel(new ChunkPos(entity.getPosition()));
+							int chunkLevel = chunkLevelCap.getChunkLevel();
+							int level = info.getRandomEnemyLevel(chunkLevel, chunkLevel + 3);
+							
+							info.setEnemyTier(EnemyTier.getRandomEnemyTier(world.rand).ordinal());
+							info.setEnemyLevel(level);
+							
+							setAttributeModifiers(entity, level, info.getEnemyTier());
+						}
+						
+						// send information to clients
+						LootSlashConquer.network.sendTo(new PacketUpdateEnemyInfo(info, entity.getEntityId()), (EntityPlayerMP) event.getEntityPlayer());
+					}
 				}
 			}
 		}
