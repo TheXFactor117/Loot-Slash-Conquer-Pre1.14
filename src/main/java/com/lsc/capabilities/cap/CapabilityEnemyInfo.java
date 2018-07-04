@@ -10,7 +10,7 @@ import com.lsc.util.SimpleCapabilityProvider;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
@@ -78,9 +78,9 @@ public class CapabilityEnemyInfo
 		@SubscribeEvent
 		public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
 		{
-			if (event.getObject() instanceof EntityMob) 
+			if (event.getObject() instanceof IMob) 
 			{
-				final EnemyInfo enemyLevel = new EnemyInfo((EntityMob) event.getObject());
+				final EnemyInfo enemyLevel = new EnemyInfo((EntityLivingBase) event.getObject());
 				event.addCapability(ID, createProvider(enemyLevel));
 			}
 		}
