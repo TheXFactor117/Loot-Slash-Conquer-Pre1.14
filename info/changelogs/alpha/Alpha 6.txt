@@ -5,6 +5,22 @@
 
 
 #####
+### 0.6.0.2-alpha
+#####
+
+* Fixed modded monsters not getting levels/rarities applied to them.
+	* Monsters which implement IMob will work be default - this includes monsters which extend
+	EntityMob. Monsters which don't implement IMob will not work and may need custom integration.
+* Fixed issue with mana resetting to zero when re-loading a world.
+* Fixed some naming "Error" issues which slipped through the previous hotfix.
+* Fixed crash when the game tries spawning certain entities.
+* Fixed staves disappearing when used in the offhand. Staves used in the offhand will now fire correctly.
+* Fixed bug where staves could block all incoming damage when in use.
+* Potentially fixed bug where elemental damage blows won't give the player experience for the kill.
+
+
+
+#####
 ### 0.6.0.1-alpha
 #####
 
