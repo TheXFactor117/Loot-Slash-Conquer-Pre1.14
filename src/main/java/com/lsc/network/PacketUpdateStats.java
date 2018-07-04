@@ -18,8 +18,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
  */
 public class PacketUpdateStats implements IMessage
 {
-	private int mana;
 	private int maxMana;
+	private int mana;
 	private int manaPerSecond;
 	
 	private double magicalPower;
@@ -33,8 +33,8 @@ public class PacketUpdateStats implements IMessage
 	
 	public PacketUpdateStats(Stats statsCap)
 	{
-		this.mana = statsCap.getMana();
 		this.maxMana = statsCap.getMaxMana();
+		this.mana = statsCap.getMana();
 		this.manaPerSecond = statsCap.getManaPerSecond();
 		
 		this.magicalPower = statsCap.getMagicalPower();
@@ -48,8 +48,8 @@ public class PacketUpdateStats implements IMessage
 	@Override
 	public void fromBytes(ByteBuf buf) 
 	{
-		mana = buf.readInt();
 		maxMana = buf.readInt();
+		mana = buf.readInt();
 		manaPerSecond = buf.readInt();
 		
 		magicalPower = buf.readDouble();
@@ -63,8 +63,8 @@ public class PacketUpdateStats implements IMessage
 	@Override
 	public void toBytes(ByteBuf buf) 
 	{
-		buf.writeInt(mana);
 		buf.writeInt(maxMana);
+		buf.writeInt(mana);
 		buf.writeInt(manaPerSecond);
 		
 		buf.writeDouble(magicalPower);
@@ -91,8 +91,8 @@ public class PacketUpdateStats implements IMessage
 					
 					if (statsCap != null)
 					{
-						statsCap.setMana(message.mana);
 						statsCap.setMaxMana(message.maxMana);
+						statsCap.setMana(message.mana);
 						statsCap.setManaPerSecond(message.manaPerSecond);
 						
 						statsCap.setMagicalPower(message.magicalPower);

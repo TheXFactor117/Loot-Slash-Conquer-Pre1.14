@@ -43,21 +43,10 @@ public class EventPlayerLoggedIn
 			statsCap.setCriticalDamage(0);
 			LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
 		}
-		else if (playerInfo != null && playerInfo.getPlayerClass() > 0)
+		else if (playerInfo != null && statsCap != null && playerInfo.getPlayerClass() > 0)
 		{
-			LootSlashConquer.LOGGER.info(statsCap);
-			
 			LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
 		}
-	}
-	
-	@SubscribeEvent
-	public static void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event)
-	{
-		PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);
-		
-		LootSlashConquer.LOGGER.info("Mana: " + statsCap.getMana());
 	}
 }

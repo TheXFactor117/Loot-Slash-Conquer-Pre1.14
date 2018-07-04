@@ -45,8 +45,8 @@ public class CapabilityPlayerStats
 			{
 				NBTTagCompound nbt = new NBTTagCompound();
 				
-				nbt.setInteger("Mana", instance.getMana());
 				nbt.setInteger("MaxMana", instance.getMaxMana());
+				nbt.setInteger("Mana", instance.getMana());
 				nbt.setInteger("ManaPerSecond", instance.getManaPerSecond());
 				
 				nbt.setDouble("MagicalPower", instance.getMagicalPower());
@@ -64,8 +64,8 @@ public class CapabilityPlayerStats
 			{
 				NBTTagCompound compound = (NBTTagCompound) nbt;
 				
-				instance.setMana(compound.getInteger("Mana"));
 				instance.setMaxMana(compound.getInteger("MaxMana"));
+				instance.setMana(compound.getInteger("Mana"));
 				instance.setManaPerSecond(compound.getInteger("ManaPerSecond"));
 				
 				instance.setMagicalPower(compound.getDouble("MagicalPower"));
@@ -111,8 +111,8 @@ public class CapabilityPlayerStats
 
 			if (newStats != null && oldStats != null)
 			{
-				newStats.setMana(oldStats.getMana());
 				newStats.setMaxMana(oldStats.getMaxMana());
+				newStats.setMana(oldStats.getMana());
 				newStats.setManaPerSecond(oldStats.getManaPerSecond());
 				
 				newStats.setMagicalPower(oldStats.getMagicalPower());
