@@ -121,22 +121,23 @@ public class ItemMagical extends Item
 	{
 		Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 		PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		ItemStack currentStack = player.getHeldItem(hand);
 		
-		if (statsCap != null && playerInfo != null)
+		if (statsCap != null && playerInfo != null && currentStack != null)
 		{
-			if ((statsCap.getMana() - this.manaPerUse >= 0 && playerInfo.getPlayerLevel() >= NBTHelper.loadStackNBT(player.inventory.getCurrentItem()).getInteger("Level")) || player.isCreative())
+			if ((statsCap.getMana() - this.manaPerUse >= 0 && playerInfo.getPlayerLevel() >= NBTHelper.loadStackNBT(currentStack).getInteger("Level")) || player.isCreative())
 			{	
 				player.setActiveHand(hand);
-				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.inventory.getCurrentItem());
+				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, currentStack);
 			}
 		}
 		
-		if (playerInfo.getPlayerLevel() < NBTHelper.loadStackNBT(player.inventory.getCurrentItem()).getInteger("Level"))
+		if (playerInfo.getPlayerLevel() < NBTHelper.loadStackNBT(currentStack).getInteger("Level"))
 		{
 			player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
 		}
 		
-		return new ActionResult<ItemStack>(EnumActionResult.FAIL, player.inventory.getCurrentItem());
+		return new ActionResult<ItemStack>(EnumActionResult.FAIL, currentStack);
 	}
 	
 	@Override
@@ -241,7 +242,7 @@ public class ItemMagical extends Item
 	@Override
 	public EnumAction getItemUseAction(ItemStack stack)
 	{
-		return EnumAction.BLOCK;
+		return EnumAction.NONE;
 	}
 	
 	public double getBaseDamage()
