@@ -1,0 +1,17 @@
+##########################
+### Alpha 6 Changelogs ###
+##########################
+
+
+
+#####
+### 0.6.0.1-alpha
+#####
+
+* Fixed some stats not updating correctly.
+	* The entire system of how it gets updated and how stat bonuses
+	apply will be re-written in the near future. I'll be adding all
+	of the stat bonuses and balancing the current ones as well.
+* Fixed randomly generated items having "Error" names.
+* Fixed bug where players could hurt themselves when using a staff.
+* Fixed server-side bug causing modded containers to not open.
