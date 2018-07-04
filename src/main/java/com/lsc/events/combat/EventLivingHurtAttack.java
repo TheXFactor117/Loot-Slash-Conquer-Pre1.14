@@ -4,13 +4,13 @@ import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
-import com.lsc.init.ModDamageSources;
 import com.lsc.items.base.ItemAdvancedMelee;
 import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
 import com.lsc.player.DamageType;
 import com.lsc.player.DamageUtils;
 import com.lsc.player.WeaponUtils;
+import com.lsc.util.ElementalDamageSource;
 import com.lsc.util.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -66,7 +66,7 @@ public class EventLivingHurtAttack
 		}
 		
 		// gets called if the Player is attacked by another Mob OR Player OR specified Damage Source
-		if (event.getEntityLiving() instanceof EntityPlayer && (event.getSource().getTrueSource() instanceof EntityLivingBase || event.getSource() == ModDamageSources.FROST || event.getSource() == ModDamageSources.LIGHTNING || event.getSource() == ModDamageSources.POISON))
+		if (event.getEntityLiving() instanceof EntityPlayer && (event.getSource().getTrueSource() instanceof EntityLivingBase || event.getSource() == ElementalDamageSource.FROST || event.getSource() == ElementalDamageSource.LIGHTNING || event.getSource() == ElementalDamageSource.POISON))
 		{
 			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
@@ -87,9 +87,9 @@ public class EventLivingHurtAttack
 						}
 						else // apply resistances to custom Damage Sources.
 						{	
-							if (Attribute.FROST_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.FROST) event.setAmount((float) (event.getAmount() - (event.getAmount() * Attribute.FROST_RESIST.getAmount(nbt))));
-							if (Attribute.LIGHTNING_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.LIGHTNING) event.setAmount((float) (event.getAmount() - (event.getAmount() * Attribute.LIGHTNING_RESIST.getAmount(nbt))));
-							if (Attribute.POISON_RESIST.hasAttribute(nbt) && event.getSource() == ModDamageSources.POISON) event.setAmount((float) (event.getAmount() - (event.getAmount() * Attribute.POISON_RESIST.getAmount(nbt))));
+							if (Attribute.FROST_RESIST.hasAttribute(nbt) && event.getSource() == ElementalDamageSource.FROST) event.setAmount((float) (event.getAmount() - (event.getAmount() * Attribute.FROST_RESIST.getAmount(nbt))));
+							if (Attribute.LIGHTNING_RESIST.hasAttribute(nbt) && event.getSource() == ElementalDamageSource.LIGHTNING) event.setAmount((float) (event.getAmount() - (event.getAmount() * Attribute.LIGHTNING_RESIST.getAmount(nbt))));
+							if (Attribute.POISON_RESIST.hasAttribute(nbt) && event.getSource() == ElementalDamageSource.POISON) event.setAmount((float) (event.getAmount() - (event.getAmount() * Attribute.POISON_RESIST.getAmount(nbt))));
 						}
 						
 						if (Attribute.DURABLE.hasAttribute(nbt) && Math.random() < Attribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
