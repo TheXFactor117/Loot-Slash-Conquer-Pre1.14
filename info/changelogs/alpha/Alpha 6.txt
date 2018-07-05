@@ -5,6 +5,16 @@
 
 
 #####
+### 0.6.1.0-alpha
+#####
+
++ Added configuration file.
+* Fixed some more naming "Error" issues.
+* Fixed crash when using weapons with +elemental damage.
+
+
+
+#####
 ### 0.6.0.2-alpha
 #####
 
