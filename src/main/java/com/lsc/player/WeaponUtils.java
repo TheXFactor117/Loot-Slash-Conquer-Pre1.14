@@ -40,13 +40,13 @@ public class WeaponUtils
 		}
 		if (Attribute.FROST.hasAttribute(nbt))
 		{
-			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, (ElementalDamageSource) ElementalDamageSource.FROST), (float) Attribute.FROST.getAmount(nbt));
+			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, ElementalDamageSource.FROST), (float) Attribute.FROST.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 			enemy.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 3, 5));
 		}
 		if (Attribute.LIGHTNING.hasAttribute(nbt))
 		{
-			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, (ElementalDamageSource) ElementalDamageSource.LIGHTNING), (float) Attribute.LIGHTNING.getAmount(nbt));
+			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, ElementalDamageSource.LIGHTNING), (float) Attribute.LIGHTNING.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 			
 			// remove half the lightning damage dealt from mana.
@@ -62,7 +62,7 @@ public class WeaponUtils
 		}
 		if (Attribute.POISON.hasAttribute(nbt)) 
 		{
-			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, (ElementalDamageSource) ElementalDamageSource.POISON), (float) Attribute.POISON.getAmount(nbt));
+			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, ElementalDamageSource.POISON), (float) Attribute.POISON.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 		}
 		if (Attribute.LIFE_STEAL.hasAttribute(nbt)) attacker.setHealth((float) (attacker.getHealth() + (damage * Attribute.LIFE_STEAL.getAmount(nbt))));
