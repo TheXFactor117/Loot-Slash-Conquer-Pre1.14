@@ -6,6 +6,7 @@ import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.lsc.capabilities.implementation.EnemyInfo;
 import com.lsc.capabilities.implementation.PlayerInformation;
+import com.lsc.config.Configs;
 import com.lsc.entities.EntityMonster;
 import com.lsc.network.PacketUpdatePlayerInformation;
 
@@ -45,13 +46,13 @@ public class ExperienceUtils
 			}
 			
 			// calculates the different multipliers and multiplies them together to get the total multiplier
-			double baseFactor = 1.15;
-			double tierMultiplier = (Math.pow(enemyTier, 2.25) / 3 + 1) + 0.5;
-			double rarityMultiplier = (Math.pow(rarity, 1.75) / 2.5 + 1) + 0.5;
-			int multiplier = (int) ((tierMultiplier * rarityMultiplier + 1) / 1.5);
+			double baseFactor = Configs.monsterLevelTierCategory.experienceBaseFactor;
+			double tierMultiplier = (Math.pow(enemyTier, Configs.monsterLevelTierCategory.experienceTierPower) / Configs.monsterLevelTierCategory.experienceTierDivisor + 1) + 0.5;
+			double rarityMultiplier = (Math.pow(rarity, Configs.monsterLevelTierCategory.experienceRarityPower) / Configs.monsterLevelTierCategory.experienceRarityDivisor + 1) + 0.5;
+			int multiplier = (int) ((tierMultiplier * rarityMultiplier + 1) / Configs.monsterLevelTierCategory.experienceDivisor);
 			
 			// base experience is 10 for now...
-			experience = (int) (Math.pow(baseFactor, enemyLevel + 1) * (10 + multiplier));
+			experience = (int) (Math.pow(baseFactor, enemyLevel + 1) * (Configs.monsterLevelTierCategory.baseExperience + multiplier));
 		}
 		
 		// update experience on client AND server; increase level if need be.
@@ -69,19 +70,29 @@ public class ExperienceUtils
 			playerInfo.setPlayerLevel(playerInfo.getPlayerLevel() + 1); // increase level
 			playerInfo.setPlayerExperience(leftOverExperience);
 			
-			// Every level add 1 skill point.
-			// Every 5 levels add an additional 2 skill points (total 3)
-			// Every 10 levels add an additional 4 skill points (total 5)
-			if (playerInfo.getPlayerLevel() % 10 == 0) skillPoints = 5;
-			else if (playerInfo.getPlayerLevel() % 5 == 0) skillPoints = 3;
-			else skillPoints = 1;
+			if (Configs.playerCategory.useTieredSkillPointDistribution)
+			{
+				// Every level add 1 skill point.
+				// Every 5 levels add an additional 2 skill points (total 3)
+				// Every 10 levels add an additional 4 skill points (total 5)
+				if (playerInfo.getPlayerLevel() % 10 == 0) skillPoints = Configs.playerCategory.skillPointsPer10Levels;
+				else if (playerInfo.getPlayerLevel() % 5 == 0) skillPoints = Configs.playerCategory.skillPointsPer5Levels;
+				else skillPoints = Configs.playerCategory.skillPointsPerLevel;
+			}
+			else
+			{
+				skillPoints = Configs.playerCategory.skillPointsPerLevel;
+			}
 			
 			SPacketTitle packetTitle = new SPacketTitle(SPacketTitle.Type.TITLE, new TextComponentString("Level " + playerInfo.getPlayerLevel()));
 			SPacketTitle packetSubtitle = new SPacketTitle(SPacketTitle.Type.SUBTITLE, new TextComponentString("You have leveled up! You've gained " + skillPoints + " Skill Points."));
 			((EntityPlayerMP) player).connection.sendPacket(packetTitle);
 			((EntityPlayerMP) player).connection.sendPacket(packetSubtitle);
 			
-			spawnLevelUpParticles(player.getEntityWorld(), player, playerInfo.getPlayerLevel()); // bugged
+			if (Configs.playerCategory.spawnLevelUpParticles)
+			{
+				spawnLevelUpParticles(player.getEntityWorld(), player, playerInfo.getPlayerLevel()); // bugged
+			}
 			
 			playerInfo.setSkillPoints(playerInfo.getSkillPoints() + skillPoints);
 		}

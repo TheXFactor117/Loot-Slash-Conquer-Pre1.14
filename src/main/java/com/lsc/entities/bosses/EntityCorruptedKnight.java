@@ -2,6 +2,7 @@ package com.lsc.entities.bosses;
 
 import java.util.UUID;
 
+import com.lsc.config.Configs;
 import com.lsc.entities.EntityMonster;
 import com.lsc.entities.ai.EntityAICKSlam;
 import com.lsc.entities.ai.EntityAIMeleeCharge;
@@ -71,12 +72,12 @@ public class EntityCorruptedKnight extends EntityMonster
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(300);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(40);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10);
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(32);
-		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.1);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(Configs.monsterStatsCategory.corruptedKnightHealth);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(Configs.monsterStatsCategory.corruptedKnightDamage);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(Configs.monsterStatsCategory.corruptedKnightArmor);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(Configs.monsterStatsCategory.corruptedKnightMovementSpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(Configs.monsterStatsCategory.corruptedKnightFollowRange);
+		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(Configs.monsterStatsCategory.corruptedKnightKnockbackResistance);
 	}
 
 	@Override

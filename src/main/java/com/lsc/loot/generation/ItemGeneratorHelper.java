@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
+import com.lsc.config.Configs;
 import com.lsc.entities.projectiles.Rune;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
@@ -83,6 +84,7 @@ public class ItemGeneratorHelper
 	 */
 	public static void setRandomAttributes(ItemStack stack, NBTTagCompound nbt, Rarity rarity)
 	{
+		// TODO: add config options for the amount of attributes per rarity.
 		int amount = 0;
 		// sets the amount of attributes should be generated depending on rarity.
 		if (rarity == Rarity.COMMON) amount = (int) (Math.random() * 2); // max 1
@@ -198,11 +200,11 @@ public class ItemGeneratorHelper
 	public static void setMinMaxDamage(NBTTagCompound nbt, double damage)
 	{
 		// min/max rand factor control the range of the random decimal. The higher the factors, the bigger range
-		double minRandFactor = 0.5; 
-		double maxRandFactor = 0.7;
+		double minRandFactor = Configs.weaponCategory.rangeMinRandFactor; 
+		double maxRandFactor = Configs.weaponCategory.rangeMaxRandFactor;
 		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
 		// scales the range by level (higher level items have greater ranges
-		double rangeMultiplier = nbt.getInteger("Level") * 0.3;
+		double rangeMultiplier = nbt.getInteger("Level") * Configs.weaponCategory.rangeMultiplier;
 		// the actual range is calculated here
 		// take the random multiplier and multiply it by some value (the higher the value, the bigger the range)
 		// add 0.5 so it can't be zero
@@ -232,31 +234,32 @@ public class ItemGeneratorHelper
 	 */
 	public static double getWeightedDamage(int level, Rarity rarity, double base)
 	{
-		double baseFactor = 1.109;
+		double baseFactor = Configs.weaponCategory.damageBaseFactor;
 		// min/max rand factor controls the range of the random decimal (this creates a sort of range for the damage to fall in,
 		// based on the base damage.
-		double minRandFactor = 0.7;
-		double maxRandFactor = 0.9;
+		double minRandFactor = Configs.weaponCategory.damageMinRandFactor;
+		double maxRandFactor = Configs.weaponCategory.damageMaxRandFactor;
 		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
 		
 		// set the new damage equal to the base multiplied by the multiplier and the rarity factor.
 		switch (rarity)
 		{
 			case COMMON:
-				return (Math.pow(baseFactor, level) * (base * (0.85 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.commonFactor * multiplier)));
 			case UNCOMMON:
-				return (Math.pow(baseFactor, level) * (base * (1 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.uncommonFactor * multiplier)));
 			case RARE:
-				return (Math.pow(baseFactor, level) * (base * (1.2 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.rareFactor * multiplier)));
 			case EPIC:
-				return (Math.pow(baseFactor, level) * (base * (1.45 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.epicFactor * multiplier)));
 			case LEGENDARY:
-				return (Math.pow(baseFactor, level) * (base * (1.8 * multiplier)));
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.legendaryFactor * multiplier)));
 			default:
 				return base;
 		}
 	}
 	
+	// TODO: add attack speed values to config.
 	public static double getWeightedAttackSpeed(Rarity rarity, double base)
 	{
 		double speed = base;
@@ -282,7 +285,7 @@ public class ItemGeneratorHelper
 				break;
 			case LEGENDARY:
 				range = 0.65;
-				speed = Math.random() * range + (base - 0.2);
+				speed = Math.random() * range + (base + 0.2);
 				break;
 			default:
 				break;
@@ -291,6 +294,7 @@ public class ItemGeneratorHelper
 		return speed;
 	}
 	
+	// TODO: add armor values to config.
 	public static double getWeightedArmor(Rarity rarity, double base)
 	{
 		double armor = base;
@@ -325,6 +329,7 @@ public class ItemGeneratorHelper
 		return armor;
 	}
 	
+	// TODO: add armor toughness to config.
 	public static double getWeightedArmorToughness(Rarity rarity, double base)
 	{
 		double toughness = base;

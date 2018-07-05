@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.lsc.capabilities.implementation.EnemyInfo;
+import com.lsc.config.Configs;
 import com.lsc.entities.EntityMonster;
 import com.lsc.loot.NameGenerator;
 import com.lsc.loot.generation.ItemGenerator;
@@ -70,12 +71,12 @@ public class EntityBarbarian extends EntityMonster
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30);
-		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5);
-		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(4);
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3);
-		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50);
-		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0);
+		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(Configs.monsterStatsCategory.barbarianMaxHealth);
+		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(Configs.monsterStatsCategory.barbarianDamage);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(Configs.monsterStatsCategory.barbarianArmor);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(Configs.monsterStatsCategory.barbarianMovementSpeed);
+		this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(Configs.monsterStatsCategory.barbarianFollowRange);
+		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(Configs.monsterStatsCategory.barbarianKnockbackResistance);
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import com.lsc.config.Configs;
 import com.lsc.init.ModBlocks;
 import com.lsc.init.ModItems;
 import com.lsc.util.Reference;
@@ -43,7 +44,7 @@ public class StructureCorruptedTower implements IWorldGenerator
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-		if (world.getWorldInfo().isMapFeaturesEnabled())
+		if (world.getWorldInfo().isMapFeaturesEnabled() && Configs.worldgenCategory.enableLSCWorldGen && Configs.worldgenCategory.enableBossStructures)
 		{
 			// try and spawn additional parts if possible
 			for (int i = 0; i < parts.size(); i++)
@@ -61,7 +62,7 @@ public class StructureCorruptedTower implements IWorldGenerator
 			
 			// preliminary spawn check, including a weight
 			// TODO: make it spawn somewhere in a specific area range (e.g. Areas 10-15).
-			if ((int) (Math.random() * 300) == 0 && LSCWorldSavedData.get(world).getCorruptedTowers() < 3 && world.provider.getDimension() == 0)
+			if ((int) (Math.random() * Configs.worldgenCategory.corruptedTowerSpawnRate) == 0 && LSCWorldSavedData.get(world).getCorruptedTowers() < Configs.worldgenCategory.maxCorruptedTowers && world.provider.getDimension() == 0)
 			{
 				// get the specific block position of the structure
 				int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
@@ -251,8 +252,8 @@ public class StructureCorruptedTower implements IWorldGenerator
 					break;
 			}
 
-			StructureUtils.handleChests(world, dataBlockPos, e, 2);
-			StructureUtils.handleSpawners(world, dataBlockPos, e, 0);
+			StructureUtils.handleChests(world, dataBlockPos, e, Configs.worldgenCategory.corruptedTowerChestChance);
+			StructureUtils.handleSpawners(world, dataBlockPos, e, Configs.worldgenCategory.corruptedTowerSpawnerChance);
 		}
 	}
 }

@@ -5,6 +5,7 @@ import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
+import com.lsc.config.Configs;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.loot.Attribute;
 import com.lsc.network.PacketUpdateCoreStats;
@@ -46,7 +47,7 @@ public class EventPlayerTick
 			regenTicks++;
 			
 			// TODO: possibly optimize this? 3 packets get sent every second
-			if (ticks % 10 == 0)
+			if (ticks % Configs.ticksPerStatUpdate == 0)
 			{
 				PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 				

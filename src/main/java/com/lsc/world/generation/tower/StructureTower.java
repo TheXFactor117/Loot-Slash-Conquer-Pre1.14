@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import com.lsc.config.Configs;
 import com.lsc.world.generation.util.StructureBlockProcessor;
 import com.lsc.world.generation.util.StructureOutline;
 import com.lsc.world.generation.util.StructureUtils;
@@ -33,7 +34,7 @@ public class StructureTower implements IWorldGenerator
 	@Override
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
 	{
-		if (world.getWorldInfo().isMapFeaturesEnabled())
+		if (world.getWorldInfo().isMapFeaturesEnabled() && Configs.worldgenCategory.enableLSCWorldGen && Configs.worldgenCategory.enableTowerGeneration)
 		{
 			// try and spawn additional parts if possible
 			for (int i = 0; i < parts.size(); i++)
@@ -54,15 +55,15 @@ public class StructureTower implements IWorldGenerator
 
 			// check to make sure spawning works as it should for Alpha release
 			// TODO: restrict to certain biomes?
-			if ((int) (Math.random() * 300) == 0 && world.provider.getDimension() == 0)
+			if ((int) (Math.random() * Configs.worldgenCategory.towerSpawnRate) == 0 && world.provider.getDimension() == 0)
 			{
 				int blockX = chunkX * 16 + (rand.nextInt(16) + 8);
 				int blockZ = chunkZ * 16 + (rand.nextInt(16) + 8);
 				int blockY = StructureUtils.getGroundFromAbove(world, blockX, blockZ);
 				BlockPos pos = new BlockPos(blockX, blockY, blockZ);
 				Rotation mainRotation = Rotation.values()[(int) (Math.random() * 4)]; // random rotation for the odd floor
-				this.towerHeight = (int) (Math.random() * 5) + 5;
-				this.towerDepth = (int) (Math.random() * 3) + 3;
+				this.towerHeight = (int) (Math.random() * Configs.worldgenCategory.towerAdditionalHeight) + Configs.worldgenCategory.towerMinHeight;
+				this.towerDepth = (int) (Math.random() * Configs.worldgenCategory.towerAdditionalDepth) + Configs.worldgenCategory.towerMinDepth;
 
 				if (generateEntrance(world, pos, mainRotation))
 				{
@@ -226,13 +227,12 @@ public class StructureTower implements IWorldGenerator
 			{
 				// NORMAL FLOOR/ENTRANCE
 				case 0:
-					StructureUtils.handleChests(world, dataBlockPos, e, 4);
-					StructureUtils.handleSpawners(world, dataBlockPos, e, 0);
+					StructureUtils.handleChests(world, dataBlockPos, e, Configs.worldgenCategory.towerNormalChestChance);
+					StructureUtils.handleSpawners(world, dataBlockPos, e, Configs.worldgenCategory.towerNormalSpawnerChance);
 					break;
 				// TREASURE ROOM
 				case 1:
-					StructureUtils.handleChests(world, dataBlockPos, e, 2);
-					StructureUtils.handleSpawners(world, dataBlockPos, e, 0);
+					StructureUtils.handleChests(world, dataBlockPos, e, Configs.worldgenCategory.towerTreasureChestChance);
 					break;
 			}
 		}		

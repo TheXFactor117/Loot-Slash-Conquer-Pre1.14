@@ -3,6 +3,7 @@ package com.lsc.capabilities.implementation;
 import javax.annotation.Nullable;
 
 import com.lsc.capabilities.api.IPlayerInformation;
+import com.lsc.config.Configs;
 
 import net.minecraft.entity.EntityLivingBase;
 
@@ -44,7 +45,7 @@ public class PlayerInformation implements IPlayerInformation
 	/** Returns the amount of experience needed to level up given the current level. */
 	public int getLevelUpExperience(int currentLevel) 
 	{
-		return (int) (Math.pow(currentLevel + 1, 3.52) + 250);
+		return (int) (Math.pow(currentLevel + 1, Configs.playerCategory.levelUpExpPower) + Configs.playerCategory.levelUpAdditive);
 	}
 	
 	/** Sets all bonus stats to zero. */

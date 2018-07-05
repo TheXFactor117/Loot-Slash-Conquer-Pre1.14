@@ -3,6 +3,7 @@ package com.lsc.client.events;
 import com.lsc.capabilities.api.IChunkLevel;
 import com.lsc.capabilities.api.IChunkLevelHolder;
 import com.lsc.capabilities.cap.CapabilityChunkLevel;
+import com.lsc.config.Configs;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,7 +32,7 @@ public class EventRenderOverlayText
 		IChunkLevelHolder chunkLevelHolder = world.getCapability(CapabilityChunkLevel.CHUNK_LEVEL, null);
 		IChunkLevel chunkLevel = chunkLevelHolder.getChunkLevel(new ChunkPos(player.getPosition()));
 		
-		if (chunkLevelHolder != null && chunkLevel != null)
+		if (chunkLevelHolder != null && chunkLevel != null && Configs.renderingCategory.renderAreaLevel)
 		{
 			Minecraft.getMinecraft().fontRenderer.drawStringWithShadow("Area Level: " + chunkLevel.getChunkLevel(), 10, 10, 0xFFFFFF);
 		}

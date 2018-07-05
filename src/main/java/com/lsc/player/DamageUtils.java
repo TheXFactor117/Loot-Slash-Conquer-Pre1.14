@@ -2,6 +2,7 @@ package com.lsc.player;
 
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
+import com.lsc.config.Configs;
 
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -12,10 +13,6 @@ import net.minecraft.nbt.NBTTagCompound;
  */
 public class DamageUtils
 {
-	public static final double MIN_RAND_FACTOR = 0.7;
-	public static final double MAX_RAND_FACTOR = 0.9;
-	public static final double BASE_FACTOR = 1.109;
-	
 	/**
 	 * Applies damage modifiers to the damage passed in. This adds additional damage based on
 	 * stats like Strength, Dexterity, and Intelligence, where applicable.
@@ -67,19 +64,19 @@ public class DamageUtils
 	
 	public static double getMeleePower(PlayerInformation playerInfo)
 	{
-		double multiplier = (Math.random() * (MAX_RAND_FACTOR - MIN_RAND_FACTOR) + MIN_RAND_FACTOR);
-		return (Math.pow(BASE_FACTOR, playerInfo.getPlayerLevel()) + playerInfo.getTotalStrength()) * (0.85 * multiplier);
+		double multiplier = (Math.random() * (Configs.weaponCategory.damageMaxRandFactor - Configs.weaponCategory.damageMinRandFactor) + Configs.weaponCategory.damageMinRandFactor);
+		return (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getTotalStrength()) * (0.85 * multiplier);
 	}
 	
 	public static double getRangedPower(PlayerInformation playerInfo)
 	{
-		double multiplier = (Math.random() * (MAX_RAND_FACTOR - MIN_RAND_FACTOR) + MIN_RAND_FACTOR);
-		return (Math.pow(BASE_FACTOR, playerInfo.getPlayerLevel()) + playerInfo.getBonusDexterityStat()) * (0.85 * multiplier);
+		double multiplier = (Math.random() * (Configs.weaponCategory.damageMaxRandFactor - Configs.weaponCategory.damageMinRandFactor) + Configs.weaponCategory.damageMinRandFactor);
+		return (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getBonusDexterityStat()) * (0.85 * multiplier);
 	}
 	
 	public static double getMagicalPower(PlayerInformation playerInfo)
 	{
-		double multiplier = (Math.random() * (MAX_RAND_FACTOR - MIN_RAND_FACTOR) + MIN_RAND_FACTOR);
-		return (Math.pow(BASE_FACTOR, playerInfo.getPlayerLevel()) + playerInfo.getTotalIntelligence()) * (0.85 * multiplier);
+		double multiplier = (Math.random() * (Configs.weaponCategory.damageMaxRandFactor - Configs.weaponCategory.damageMinRandFactor) + Configs.weaponCategory.damageMinRandFactor);
+		return (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getTotalIntelligence()) * (0.85 * multiplier);
 	}
 }

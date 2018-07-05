@@ -33,6 +33,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber
 public class ModWeapons 
 {
+	// TODO: add basic stats into the config.
+	
 	public static class ToolMaterials
 	{
 		/* Tool Materials */

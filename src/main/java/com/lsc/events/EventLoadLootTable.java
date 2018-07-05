@@ -1,5 +1,6 @@
 package com.lsc.events;
 
+import com.lsc.config.Configs;
 import com.lsc.init.ModLootTables;
 import com.lsc.loot.table.CustomLootTable;
 
@@ -32,7 +33,10 @@ public class EventLoadLootTable
 		else if (event.getName() == ModLootTables.epic_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		else if (event.getName() == ModLootTables.legendary_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		
-		changeVanillaTables(event);
+		if (Configs.enableVanillaLoot)
+		{
+			changeVanillaTables(event);
+		}
 	}
 	
 	private static void changeVanillaTables(LootTableLoadEvent event)

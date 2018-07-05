@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.Stats;
+import com.lsc.config.Configs;
 import com.lsc.util.Reference;
 
 import net.minecraft.client.Minecraft;
@@ -31,31 +32,34 @@ public class GuiMana extends Gui
 	@SubscribeEvent
 	public void onRenderOverlay(RenderGameOverlayEvent.Post event)
 	{
-		if (event.getType() != ElementType.EXPERIENCE) return;
-		else
+		if (Configs.renderingCategory.renderCustomManabar)
 		{
-			ScaledResolution sr = event.getResolution();
-			EntityPlayer player = mc.player;
-			
-			if (!player.capabilities.isCreativeMode)
+			if (event.getType() != ElementType.EXPERIENCE) return;
+			else
 			{
-				Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+				ScaledResolution sr = event.getResolution();
+				EntityPlayer player = mc.player;
 				
-				if (statsCap != null)
+				if (!player.capabilities.isCreativeMode)
 				{
-					if (statsCap.getMaxMana() != 0)
+					Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+					
+					if (statsCap != null)
 					{
-						double manaBarWidth = (double) statsCap.getMana() / statsCap.getMaxMana() * 81.0;
-						int xPos = sr.getScaledWidth() / 2 + 10;
-						int yPos = sr.getScaledHeight() - 38;
-						
-						mc.renderEngine.bindTexture(location);
+						if (statsCap.getMaxMana() != 0)
+						{
+							double manaBarWidth = (double) statsCap.getMana() / statsCap.getMaxMana() * 81.0;
+							int xPos = sr.getScaledWidth() / 2 + 10;
+							int yPos = sr.getScaledHeight() - 38;
+							
+							mc.renderEngine.bindTexture(location);
 
-						//if (capMana.getMana() != capMana.getMaxMana())
-						//{
-							this.drawTexturedModalRect(xPos, yPos, 0, 18, 81, 6);
-							this.drawTexturedModalRect(xPos, yPos, 0, 24, (int) manaBarWidth, 5);
-						//}
+							//if (capMana.getMana() != capMana.getMaxMana())
+							//{
+								this.drawTexturedModalRect(xPos, yPos, 0, 18, 81, 6);
+								this.drawTexturedModalRect(xPos, yPos, 0, 24, (int) manaBarWidth, 5);
+							//}
+						}
 					}
 				}
 			}
@@ -65,18 +69,21 @@ public class GuiMana extends Gui
 	@SubscribeEvent
 	public void onRenderOverlayText(RenderGameOverlayEvent.Text event)
 	{
-		ScaledResolution sr = event.getResolution();
-		EntityPlayer player = Minecraft.getMinecraft().player;
-		Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
-		
-		if (!player.capabilities.isCreativeMode && statsCap != null)
+		if (Configs.renderingCategory.renderCustomManabar)
 		{
-			String mana = statsCap.getMana() + " / " + statsCap.getMaxMana();
+			ScaledResolution sr = event.getResolution();
+			EntityPlayer player = Minecraft.getMinecraft().player;
+			Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 			
-			GL11.glPushMatrix();
-			GL11.glScalef(0.5F, 0.5F, 0.5F);
-			Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(mana, (sr.getScaledWidth() / 2 + 37) * 2, (sr.getScaledHeight() - 37) * 2, 0xFFFFFF);
-			GL11.glPopMatrix();
+			if (!player.capabilities.isCreativeMode && statsCap != null)
+			{
+				String mana = statsCap.getMana() + " / " + statsCap.getMaxMana();
+				
+				GL11.glPushMatrix();
+				GL11.glScalef(0.5F, 0.5F, 0.5F);
+				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(mana, (sr.getScaledWidth() / 2 + 37) * 2, (sr.getScaledHeight() - 37) * 2, 0xFFFFFF);
+				GL11.glPopMatrix();
+			}
 		}
 	}
 }

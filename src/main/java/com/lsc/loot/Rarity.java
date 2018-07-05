@@ -2,6 +2,7 @@ package com.lsc.loot;
 
 import java.util.Random;
 
+import com.lsc.config.Configs;
 import com.lsc.util.RandomCollection;
 
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,11 +16,11 @@ import net.minecraft.util.text.TextFormatting;
 public enum Rarity 
 {
 	DEFAULT("default", TextFormatting.DARK_GRAY, 0),
-	COMMON("Common", TextFormatting.WHITE, 62),
-	UNCOMMON("Uncommon", TextFormatting.DARK_GREEN, 20),
-	RARE("Rare", TextFormatting.AQUA, 10),
-	EPIC("Epic", TextFormatting.DARK_PURPLE, 6),
-	LEGENDARY("Legendary", TextFormatting.GOLD, 2);
+	COMMON("Common", TextFormatting.WHITE, Configs.weaponCategory.commonChance),
+	UNCOMMON("Uncommon", TextFormatting.DARK_GREEN, Configs.weaponCategory.uncommonChance),
+	RARE("Rare", TextFormatting.AQUA, Configs.weaponCategory.rareChance),
+	EPIC("Epic", TextFormatting.DARK_PURPLE, Configs.weaponCategory.epicChance),
+	LEGENDARY("Legendary", TextFormatting.GOLD, Configs.weaponCategory.legendaryChance);
 	
 	private String name;
 	private String color;

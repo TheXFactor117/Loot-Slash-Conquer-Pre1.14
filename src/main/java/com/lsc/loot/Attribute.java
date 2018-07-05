@@ -194,6 +194,8 @@ public enum Attribute
 	
 	static
 	{
+		// TODO: add config options for disabling specific attributes
+		
 		// weapon attributes
 		WEAPON_ATTRIBUTES.add(FIRE.getBaseRarity().getChance(), FIRE);
 		WEAPON_ATTRIBUTES.add(FROST.getBaseRarity().getChance(), FROST);

@@ -3,6 +3,7 @@ package com.lsc.init;
 import java.lang.reflect.Field;
 
 import com.lsc.LootSlashConquer;
+import com.lsc.config.Configs;
 import com.lsc.entities.bosses.EntityCorruptedKnight;
 import com.lsc.entities.monsters.EntityBandit;
 import com.lsc.entities.monsters.EntityBanshee;
@@ -78,11 +79,11 @@ public class ModEntities
 		Biome[] cold = new Biome[] { Biomes.COLD_TAIGA, Biomes.COLD_TAIGA_HILLS, Biomes.ICE_MOUNTAINS, Biomes.ICE_PLAINS };
 		Biome[] warm = new Biome[] { Biomes.DESERT, Biomes.DESERT_HILLS, Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU, Biomes.MESA, Biomes.MESA_CLEAR_ROCK, Biomes.MESA_ROCK };
 		
-		EntityRegistry.addSpawn(EntityBarbarian.class, 100, 2, 3, EnumCreatureType.MONSTER, main);
-		EntityRegistry.addSpawn(EntityGhost.class, 80, 1, 2, EnumCreatureType.MONSTER, main);
-		EntityRegistry.addSpawn(EntityMummy.class, 90, 1, 2, EnumCreatureType.MONSTER, warm);
-		EntityRegistry.addSpawn(EntityBanshee.class, 50, 1, 1, EnumCreatureType.MONSTER, neutral);
-		EntityRegistry.addSpawn(EntityGolem.class, 10, 1, 1, EnumCreatureType.MONSTER, main);
+		EntityRegistry.addSpawn(EntityBarbarian.class, Configs.mainMonsterCategory.barbarianSpawnWeight, 2, 3, EnumCreatureType.MONSTER, main);
+		EntityRegistry.addSpawn(EntityGhost.class, Configs.mainMonsterCategory.ghostSpawnWeight, 1, 2, EnumCreatureType.MONSTER, main);
+		EntityRegistry.addSpawn(EntityMummy.class, Configs.mainMonsterCategory.mummySpawnWeight, 1, 2, EnumCreatureType.MONSTER, warm);
+		EntityRegistry.addSpawn(EntityBanshee.class, Configs.mainMonsterCategory.bansheeSpawnWeight, 1, 1, EnumCreatureType.MONSTER, neutral);
+		EntityRegistry.addSpawn(EntityGolem.class, Configs.mainMonsterCategory.golemSpawnWeight, 1, 1, EnumCreatureType.MONSTER, main);
 		
 		/*LootSlashConquer.LOGGER.info("Attempting reflection...");
 		

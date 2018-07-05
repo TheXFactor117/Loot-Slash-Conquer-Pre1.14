@@ -4,6 +4,7 @@ import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
+import com.lsc.config.Configs;
 import com.lsc.items.base.ItemAdvancedMelee;
 import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
@@ -96,7 +97,11 @@ public class EventLivingHurtAttack
 					}
 					else
 					{
-						stack.damageItem((int) (stack.getMaxDamage() * 0.20), player);
+						if (Configs.damageHighLeveledEquipment)
+						{
+							stack.damageItem((int) (stack.getMaxDamage() * 0.20), player);
+						}
+						
 						player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
 					}
 				}
@@ -138,7 +143,12 @@ public class EventLivingHurtAttack
 			if (playerInfo.getPlayerLevel() < nbt.getInteger("Level")) 
 			{
 				event.setAmount(0);
-				stack.damageItem((int) (stack.getMaxDamage() * 0.20), player);
+				
+				if (Configs.damageHighLeveledEquipment)
+				{
+					stack.damageItem((int) (stack.getMaxDamage() * 0.20), player);
+				}
+				
 				player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
 			}
 			else
@@ -162,7 +172,12 @@ public class EventLivingHurtAttack
 			if (playerInfo.getPlayerLevel() < nbt.getInteger("Level")) 
 			{
 				event.setAmount(0);
-				stack.damageItem((int) (stack.getMaxDamage() * 0.20), player);
+				
+				if (Configs.damageHighLeveledEquipment)
+				{
+					stack.damageItem((int) (stack.getMaxDamage() * 0.20), player);
+				}
+				
 				player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
 			}
 			else

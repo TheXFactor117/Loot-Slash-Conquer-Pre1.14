@@ -7,6 +7,7 @@ import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
+import com.lsc.config.Configs;
 import com.lsc.entities.projectiles.EntityFireball;
 import com.lsc.entities.projectiles.EntityIcebolt;
 import com.lsc.entities.projectiles.EntityLightning;
@@ -14,7 +15,6 @@ import com.lsc.entities.projectiles.Rune;
 import com.lsc.events.EventPlayerTick;
 import com.lsc.init.ModTabs;
 import com.lsc.network.PacketUpdateStats;
-import com.lsc.player.PlayerStatUtils;
 import com.lsc.util.NBTHelper;
 import com.lsc.util.Reference;
 
@@ -80,7 +80,7 @@ public class ItemMagical extends Item
 					
 					if (playerInfo != null)
 					{
-						double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (playerInfo.getTotalAgility()));
+						double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (playerInfo.getTotalAgility()));
 						
 						return player.isHandActive() && player.getActiveItemStack() == stack && player.getItemInUseCount() < (stack.getMaxItemUseDuration() - (1 / attackSpeed) * 20) ? 1 : 0;
 					}
@@ -153,7 +153,7 @@ public class ItemMagical extends Item
 			if (info != null)
 			{
 				// check to see if we have held it long enough
-				double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
+				double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()));
 				
 				if (count > (this.getMaxItemUseDuration(stack) - ((1 / attackSpeed) * 20))) 
 				{

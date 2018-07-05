@@ -2,6 +2,7 @@ package com.lsc.client.events;
 
 import com.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.lsc.capabilities.implementation.EnemyInfo;
+import com.lsc.config.Configs;
 import com.lsc.entities.EnemyTier;
 
 import net.minecraft.client.gui.FontRenderer;
@@ -48,7 +49,7 @@ public class EventRenderLiving
 			//this.renderNameplate(entity, event.getRenderer().getRenderManager(), tier, x, y + entity.height + 1.75, z, 16);
 			String test = EnemyTier.getEnemyTier(enemyInfo).getColor() + EnemyTier.getEnemyTier(enemyInfo).getName() + " Level " + enemyInfo.getEnemyLevel();
 			
-			if (!entity.isInvisible())
+			if (!entity.isInvisible() && Configs.renderingCategory.renderNameplate)
 			{
 				renderNameplate(entity, event.getRenderer().getRenderManager(), test, x, y + entity.height + 0.5, z, 16);
 			}

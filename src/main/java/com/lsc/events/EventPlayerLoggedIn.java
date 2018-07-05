@@ -5,6 +5,7 @@ import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
+import com.lsc.config.Configs;
 import com.lsc.network.PacketClassGui;
 import com.lsc.network.PacketUpdatePlayerInformation;
 import com.lsc.network.PacketUpdateStats;
@@ -34,10 +35,10 @@ public class EventPlayerLoggedIn
 			LootSlashConquer.network.sendTo(new PacketClassGui(), (EntityPlayerMP) event.player);
 
 			// setup max mana + send it to client.
-			statsCap.setMaxMana(100);
+			statsCap.setMaxMana(Configs.playerCategory.maxMana);
 			statsCap.setMana(statsCap.getMaxMana());
-			statsCap.setManaPerSecond(10);
-			statsCap.setHealthPerSecond(1);
+			statsCap.setManaPerSecond(Configs.playerCategory.manaPer5);
+			statsCap.setHealthPerSecond(Configs.playerCategory.healthPer5);
 			statsCap.setMagicalPower(0);
 			statsCap.setCriticalChance(0);
 			statsCap.setCriticalDamage(0);

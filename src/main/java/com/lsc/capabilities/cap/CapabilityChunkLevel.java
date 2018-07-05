@@ -7,6 +7,7 @@ import com.lsc.capabilities.api.IChunkLevel;
 import com.lsc.capabilities.api.IChunkLevelHolder;
 import com.lsc.capabilities.implementation.ChunkLevel;
 import com.lsc.capabilities.implementation.ChunkLevelHolder;
+import com.lsc.config.Configs;
 import com.lsc.network.PacketUpdateChunkLevel;
 import com.lsc.util.CapabilityUtils;
 import com.lsc.util.Reference;
@@ -164,7 +165,7 @@ public class CapabilityChunkLevel
 			ChunkPos spawnChunk = new ChunkPos(world.getSpawnPoint());
 			
 			double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
-			return (int) (distance / 10 + 1);
+			return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + 1);
 		}
 	}
 }

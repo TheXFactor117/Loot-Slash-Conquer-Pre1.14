@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.implementation.PlayerInformation;
+import com.lsc.config.Configs;
 import com.lsc.entities.projectiles.Rune;
 import com.lsc.items.base.ItemBauble;
 import com.lsc.items.base.ItemMagical;
 import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
-import com.lsc.player.PlayerStatUtils;
 import com.lsc.util.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -106,7 +106,7 @@ public class EventItemTooltip
 		NBTTagCompound speedNbt = taglist.getCompoundTagAt(1);
 		DecimalFormat format = new DecimalFormat("#.##");
 		
-		double attackSpeed = speedNbt.getDouble("Amount") + 4 + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (double) (info.getTotalAgility()));
+		double attackSpeed = speedNbt.getDouble("Amount") + 4 + (Configs.playerCategory.attackSpeedMultiplier * (double) (info.getTotalAgility()));
 
 		tooltip.add(TextFormatting.BLUE + " +" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + " +" + format.format(attackSpeed) + " Attack Speed");
@@ -190,7 +190,7 @@ public class EventItemTooltip
 		
 		// Damage and Attack Speed
 		DecimalFormat format = new DecimalFormat("#.##");
-		double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
+		double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()));
 
 		tooltip.add(TextFormatting.BLUE + "+" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + "+" + format.format(attackSpeed) + " Attack Speed");
@@ -243,7 +243,7 @@ public class EventItemTooltip
 		
 		// Damage and Attack Speed
 		DecimalFormat format = new DecimalFormat("#.##");
-		double attackSpeed = nbt.getDouble("AttackSpeed") + (PlayerStatUtils.ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()));
+		double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()));
 
 		tooltip.add(TextFormatting.BLUE + "+" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + "+" + format.format(attackSpeed) + " Attack Speed");

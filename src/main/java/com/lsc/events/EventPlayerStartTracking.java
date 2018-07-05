@@ -8,6 +8,7 @@ import com.lsc.capabilities.api.IChunkLevelHolder;
 import com.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.lsc.capabilities.implementation.EnemyInfo;
+import com.lsc.config.Configs;
 import com.lsc.entities.EnemyTier;
 import com.lsc.network.PacketUpdateEnemyInfo;
 
@@ -31,10 +32,6 @@ public class EventPlayerStartTracking
 {
 	private static final UUID ATTACK_DAMAGE = UUID.fromString("708b7d5f-9e4d-4bb5-9bdc-437ebcd0fb52");
 	private static final UUID MAX_HEALTH = UUID.fromString("136ed593-8c70-4ba8-98e9-42c93e64fff0");
-	private static final double HEALTH_TIER_POWER = 2.25;
-	private static final double HEALTH_BASE_FACTOR = 1.13;
-	private static final double DAMAGE_TIER_POWER = 1.3;
-	private static final double DAMAGE_BASE_FACTOR = 1.06;
 	
 	@SubscribeEvent
 	public static void onPlayerStartTracking(PlayerEvent.StartTracking event)
@@ -57,7 +54,7 @@ public class EventPlayerStartTracking
 						{
 							IChunkLevel chunkLevelCap = chunkLevelHolder.getChunkLevel(new ChunkPos(entity.getPosition()));
 							int chunkLevel = chunkLevelCap.getChunkLevel();
-							int level = info.getRandomEnemyLevel(chunkLevel, chunkLevel + 3);
+							int level = info.getRandomEnemyLevel(chunkLevel, chunkLevel + Configs.monsterLevelTierCategory.levelSpawnRange);
 							
 							info.setEnemyTier(EnemyTier.getRandomEnemyTier(world.rand).ordinal());
 							info.setEnemyLevel(level);
@@ -77,8 +74,8 @@ public class EventPlayerStartTracking
 	{
 		double baseDamage = entity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getBaseValue();
 		double baseHealth = entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue();
-		double damageMultiplier = (Math.pow(DAMAGE_BASE_FACTOR, level) * (baseDamage + (Math.pow(tier, DAMAGE_TIER_POWER))) - (baseDamage * 2));
-		double healthMultiplier = (Math.pow(HEALTH_BASE_FACTOR, level) * (baseHealth + (Math.pow(tier, HEALTH_TIER_POWER))) - (baseHealth * 2));
+		double damageMultiplier = (Math.pow(Configs.monsterLevelTierCategory.damageBaseFactor, level) * (baseDamage + (Math.pow(tier, Configs.monsterLevelTierCategory.damageTierPower))) - (baseDamage * 2));
+		double healthMultiplier = (Math.pow(Configs.monsterLevelTierCategory.healthBaseFactor, level) * (baseHealth + (Math.pow(tier, Configs.monsterLevelTierCategory.healthTierPower))) - (baseHealth * 2));
 		
 		AttributeModifier attackDamage = new AttributeModifier(ATTACK_DAMAGE, "attackDamage", damageMultiplier, 0);
 		AttributeModifier maxHealth = new AttributeModifier(MAX_HEALTH, "maxHealth", healthMultiplier, 0);

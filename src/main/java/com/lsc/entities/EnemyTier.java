@@ -3,6 +3,7 @@ package com.lsc.entities;
 import java.util.Random;
 
 import com.lsc.capabilities.implementation.EnemyInfo;
+import com.lsc.config.Configs;
 import com.lsc.util.RandomCollection;
 
 import net.minecraft.util.text.TextFormatting;
@@ -15,11 +16,11 @@ import net.minecraft.util.text.TextFormatting;
 public enum EnemyTier 
 {
 	DEFAULT("default", TextFormatting.DARK_GRAY, 0),
-	NORMAL("Normal", TextFormatting.WHITE, 62),
-	HARDENED("Hardened", TextFormatting.DARK_GREEN, 20),
-	SUPERIOR("Superior", TextFormatting.AQUA, 10),
-	ELITE("Elite", TextFormatting.DARK_PURPLE, 6),
-	LEGENDARY("Legendary", TextFormatting.GOLD, 2);
+	NORMAL("Normal", TextFormatting.WHITE, Configs.monsterLevelTierCategory.normalChance),
+	HARDENED("Hardened", TextFormatting.DARK_GREEN, Configs.monsterLevelTierCategory.hardenedChance),
+	SUPERIOR("Superior", TextFormatting.AQUA, Configs.monsterLevelTierCategory.superiorChance),
+	ELITE("Elite", TextFormatting.DARK_PURPLE, Configs.monsterLevelTierCategory.eliteChance),
+	LEGENDARY("Legendary", TextFormatting.GOLD, Configs.monsterLevelTierCategory.legendaryChance);
 	
 	public String name;
 	public Object color;
@@ -41,21 +42,46 @@ public enum EnemyTier
 	
 	public static EnemyTier getEnemyTier(EnemyInfo info)
 	{
-		if (info.getEnemyTier() == 1) return NORMAL;
-		else if (info.getEnemyTier() == 2) return HARDENED;
-		else if (info.getEnemyTier() == 3) return SUPERIOR;
-		else if (info.getEnemyTier() == 4) return ELITE;
-		else if (info.getEnemyTier() == 5) return LEGENDARY;
-		else return DEFAULT;
+		switch (info.getEnemyLevel())
+		{
+			case 1:
+				return NORMAL;
+			case 2:
+				return HARDENED;
+			case 3:
+				return SUPERIOR;
+			case 4:
+				return ELITE;
+			case 5:
+				return LEGENDARY;
+			default:
+				return DEFAULT;
+		}
 	}
 	
 	public static void setEnemyTier(EnemyInfo info, EnemyTier tier)
 	{
-		if (tier == NORMAL) info.setEnemyTier(1);
-		else if (tier == HARDENED) info.setEnemyTier(2);
-		else if (tier == SUPERIOR) info.setEnemyTier(3);
-		else if (tier == ELITE) info.setEnemyTier(4);
-		else if (tier == LEGENDARY) info.setEnemyTier(5);
+		switch (tier)
+		{
+			case NORMAL:
+				info.setEnemyTier(1);
+				break;
+			case HARDENED:
+				info.setEnemyTier(2);
+				break;
+			case SUPERIOR:
+				info.setEnemyTier(3);
+				break;
+			case ELITE:
+				info.setEnemyTier(4);
+				break;
+			case LEGENDARY:
+				info.setEnemyTier(5);
+				break;
+			default:
+				info.setEnemyTier(0);
+				break;
+		}
 	}
 	
 	public String getName()

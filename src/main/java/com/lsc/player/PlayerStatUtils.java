@@ -7,6 +7,7 @@ import com.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
+import com.lsc.config.Configs;
 import com.lsc.network.PacketUpdateStats;
 
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -25,15 +26,6 @@ public class PlayerStatUtils
 	private static final String MOVEMENT_SPEED = "50ac5b8b-00a6-436c-bdc3-9848393bb7b7";
 	private static final String ATTACK_SPEED = "e574e861-e5bd-4906-b72e-f6be6e4c9563";
 	private static final String MAX_HEALTH = "e3762718-bbd8-4763-bfe9-1d18d70eaa76";
-	
-	public static final double ATTACK_DAMAGE_MULTIPLIER = 2;
-	public static final double MOVEMENT_SPEED_MULTIPLIER = 0.001;
-	public static final double ATTACK_SPEED_MULTIPLIER = 0.1;
-	public static final double CRIT_CHANCE_MULTIPLIER = 0.05;
-	public static final double CRIT_DAMAGE_MULTIPLIER = 0.05;
-	public static final double MAX_HEALTH_MULTIPLIER = 2;
-	public static final double MAX_MANA_MULTIPLIER = 2;
-	public static final double MAGICAL_POWER_MULTIPLIER = 2;
 	
 	/**
 	 * Helper method to update player attributes based on current stats.
@@ -65,7 +57,7 @@ public class PlayerStatUtils
 			 * AGILITY
 			 */
 			// increase agility
-			AttributeModifier agilityMovementSpeed = new AttributeModifier(UUID.fromString(MOVEMENT_SPEED), "agilityMovementSpeed", MOVEMENT_SPEED_MULTIPLIER * (info.getTotalAgility()), 0);
+			AttributeModifier agilityMovementSpeed = new AttributeModifier(UUID.fromString(MOVEMENT_SPEED), "agilityMovementSpeed", Configs.playerCategory.movementSpeedMultiplier * (info.getTotalAgility()), 0);
 			
 			if (player.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(UUID.fromString(MOVEMENT_SPEED)) != null)
 			{
@@ -76,7 +68,7 @@ public class PlayerStatUtils
 				player.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(agilityMovementSpeed);
 			
 			// increase attack speed
-			AttributeModifier agilityAttackSpeed = new AttributeModifier(UUID.fromString(ATTACK_SPEED), "agilityAttackSpeed", ATTACK_SPEED_MULTIPLIER * (info.getTotalAgility()), 0);
+			AttributeModifier agilityAttackSpeed = new AttributeModifier(UUID.fromString(ATTACK_SPEED), "agilityAttackSpeed", Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()), 0);
 			
 			if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_SPEED).getModifier(UUID.fromString(ATTACK_SPEED)) != null)
 			{
@@ -99,19 +91,19 @@ public class PlayerStatUtils
 					bonus = 1;
 				}
 				
-				stats.setCriticalChance(CRIT_CHANCE_MULTIPLIER * ((info.getTotalDexterity() / 5) + bonus));
-				stats.setCriticalDamage(CRIT_DAMAGE_MULTIPLIER * ((info.getTotalDexterity() / 2) + bonus));
+				stats.setCriticalChance(Configs.playerCategory.critChanceMultiplier * ((info.getTotalDexterity() / 5) + bonus));
+				stats.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((info.getTotalDexterity() / 2) + bonus));
 				
 				
 				/*
 				 * INTELLIGENCE
 				 */
-				stats.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (info.getTotalIntelligence()));
+				//stats.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (info.getTotalIntelligence()));
 				
 				/*
 				 * WISDOM
 				 */			
-				stats.setMaxMana((int) ((MAX_MANA_MULTIPLIER * info.getTotalWisdom()) + 100));
+				stats.setMaxMana((int) ((Configs.playerCategory.maxMana * info.getTotalWisdom()) + 100));
 				
 				LootSlashConquer.network.sendTo(new PacketUpdateStats(stats), (EntityPlayerMP) player);
 			}
@@ -121,7 +113,7 @@ public class PlayerStatUtils
 			 * FORTITUDE
 			 */
 			// increases max health
-			AttributeModifier fortitudeMaxHealth = new AttributeModifier(UUID.fromString(MAX_HEALTH), "maxHealth", MAX_HEALTH_MULTIPLIER * (info.getTotalFortitude()), 0);
+			AttributeModifier fortitudeMaxHealth = new AttributeModifier(UUID.fromString(MAX_HEALTH), "maxHealth", Configs.playerCategory.maxHealthMultiplier * (info.getTotalFortitude()), 0);
 			
 			if (player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(UUID.fromString(MAX_HEALTH)) != null)
 			{
