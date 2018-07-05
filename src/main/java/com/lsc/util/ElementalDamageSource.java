@@ -29,7 +29,7 @@ public class ElementalDamageSource extends DamageSource
 		return damageSourceEntity;
 	}
 	
-	public static ElementalDamageSource causeElementalDamage(EntityLivingBase entity, ElementalDamageSource source)
+	public static DamageSource causeElementalDamage(EntityLivingBase entity, DamageSource source)
 	{
 		return new ElementalDamageSource(source.damageType, entity);
 	}
