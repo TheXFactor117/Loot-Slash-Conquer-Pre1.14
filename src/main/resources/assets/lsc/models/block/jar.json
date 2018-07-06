@@ -1,4 +1,6 @@
 {
+	"parent": "block/block",
+	
 	"textures": {
 		"side": "lsc:blocks/jar_common_side",
 		"top": "lsc:blocks/jar_common_top",
