@@ -32,6 +32,11 @@ public class EventLoadLootTable
 		else if (event.getName() == ModLootTables.rare_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		else if (event.getName() == ModLootTables.epic_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		else if (event.getName() == ModLootTables.legendary_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.common_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.uncommon_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.rare_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.epic_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.legendary_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		
 		if (Configs.enableVanillaLoot)
 		{

@@ -75,27 +75,27 @@ public class BlockJar extends Block
 		switch (rarity)
 		{
 			case COMMON:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "chests/common_chest"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/common_jar"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;
 			case UNCOMMON:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "chests/uncommon_chest"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/uncommon_jar"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;
 			case RARE:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "chests/rare_chest"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/rare_jar"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;
 			case EPIC:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "chests/epic_chest"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/epic_jar"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;
 			case LEGENDARY:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "chests/legendary_chest"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/legendary_jar"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;
