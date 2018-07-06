@@ -21,11 +21,6 @@
 				},
 				{
 					"type": "loot_table",
-					"name": "lsc:base/uncommon/specific/wands",
-					"weight": 1
-				},
-				{
-					"type": "loot_table",
 					"name": "lsc:base/uncommon/specific/staffs",
 					"weight": 1
 				},
