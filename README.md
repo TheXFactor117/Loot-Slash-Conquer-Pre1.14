@@ -2,25 +2,25 @@
 An immersive, action-RPG mod based off of Hack/Mine.
 
 ## About
-Loot Slash Conquer will be released in an Alpha stage shortly. Join our Discord if you would like to talk with the developers.
+Loot Slash Conquer is an immersive, action-RPG mod inspired by the legendary Hack/Mine mod. Explore large, randomly generated towers and dungeons, collect many different kinds of loot, and experiment with thousands of different weapon possibilities as you conquer the world of Minecraft.
 
-[Join our Discord server](https://discord.gg/qDtkjke) to stay up to date with development!
-
+## Features
+* Player classes and abilities, allowing you to diversify your playstyle.
+* Player stats which influence many different things, such as damage, health, attack speed, movement speed, mana, health regeneration, criticals, and much more.
+* Player leveling and experience system, allowing you to gain power as you level up.
+* Randomly generated weapons and armor, including levels, rarities, customized damage and armor values, and attributes.
+* Custom monsters, each with their own unique attack, AI, and abilities.
+* Complex bosses with unique stages and abilities.
+* Procedurally generated dungeons and towers, offering truly amazing places to explore, loot, and conquer.
+* Massive hand-made boss dungeons, requiring you to traverse the entire dungeon before fighting the boss.
+* Complex loot system, allowing you to find randomly generated loot all over the world, regardless of where it comes from.
+* Area leveling system - the world becomes much more difficult, but equally rewarding, the farther out you travel from spawn.
+* Randomly generated stats for all monsters which spawn in the world, which scale in difficulty according to the Area level.
+* Plus much more!
 
 ## Downloads
-Loot Slash Conquer is currently unreleased. Pre-Alpha versions can be found on our Discord. This part will be updated when Loot Slash Conquer enters the Alpha stage.
+Loot Slash Conquer is currently in the Alpha stage. [You can find all of LSC's downloads here](https://minecraft.curseforge.com/projects/loot-slash-conquer).
 
-## License and Legal Information
-Loot Slash Conquer does not have a specific license and is therefore copyright of TheXFactor117. Below is a list of common things you can and cannot do with the mod and its code/assets.
-
-* You MAY NOT take large portions of the mod's code and/or assets and create an entirely new project under your own name.
-* You MAY NOT host download files personally on any website. The only download links to the mods files should be on the OFFICIAL CurseForge project.
-* You MAY NOT compile and build the project's source code and publicly release the resulting file.
-  * However, you MAY compile and build the project's source code for private use (this does not mean public modpacks).
-* You MAY take portions of the mod's code to help implement certain features within your own mod.
-* You MAY NOT use any of the assets bundled with the mod for any reason, including artwork, models, sounds, structures, or other forms of assets.
-* You MAY use this mod in modpacks so long as you provide a link back to the GITHUB REPOSITORY and give credit where necessary.
-* You MAY compile the source code and help contribute your own code/assets to the project.
-* If this project is ever abandoned and you wish to take over the mod (code, assets, name, and everything else associated with it), you MAY do so if you have written permission from myself. If I have not been active on GitHub, Discord, MCF, or CurseForge for a significant amount of time and therefore cannot get in touch with me, you may take over the mod.
-
-TLDR: Be smart. You can use this in modpacks with appropriate credit, you can use the mod's source code as a reference for your own projects, but you cannot directly copy large portions of the mod's code and release it as your own.
+Dependencies:
+* The recommended Forge version.
+* Baubles 1.5.x
