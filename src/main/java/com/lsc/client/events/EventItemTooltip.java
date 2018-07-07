@@ -93,7 +93,7 @@ public class EventItemTooltip
 		}
 		
 		
-		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
+		tooltip.add(2, Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
 		
 		// Level
 		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
