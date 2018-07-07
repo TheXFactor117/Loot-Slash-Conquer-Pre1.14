@@ -33,18 +33,18 @@ import net.minecraft.world.WorldServer;
  * @author TheXFactor117
  *
  */
-public class BlockJar extends Block
+public class BlockLootBarrel extends Block
 {
 	public Rarity rarity;
 	
-	public BlockJar(String name, Rarity rarity)
+	public BlockLootBarrel(String name, Rarity rarity)
 	{
-		super(Material.CLAY);
+		super(Material.WOOD);
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(ModTabs.lscTab);
-		this.setSoundType(SoundType.GLASS);
-		this.setHardness(0F);
+		this.setSoundType(SoundType.WOOD);
+		this.setHardness(1F);
 		this.rarity = rarity;
 	}
 	
@@ -75,27 +75,27 @@ public class BlockJar extends Block
 		switch (rarity)
 		{
 			case COMMON:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/common_jar"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "blocks/common_barrel"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;
 			case UNCOMMON:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/uncommon_jar"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "blocks/uncommon_barrel"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;
 			case RARE:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/rare_jar"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "blocks/rare_barrel"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;
 			case EPIC:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/epic_jar"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "blocks/epic_barrel"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;
 			case LEGENDARY:
-				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "jars/legendary_jar"));
+				table = (CustomLootTable) world.getLootTableManager().getLootTableFromLocation(new ResourceLocation(Reference.MODID, "blocks/legendary_barrel"));
 				context = new CustomLootContext.Builder((WorldServer) world).withChestPos(pos).build();
 				stacks = table.generateLootForPools(world.rand, context);
 				break;

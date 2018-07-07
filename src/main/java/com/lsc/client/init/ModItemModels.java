@@ -114,6 +114,16 @@ public class ModItemModels
 		registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_JAR));
 		registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_JAR));
 		registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_JAR));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_BARREL));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_BARREL));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_BARREL));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_BARREL));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_BARREL));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_CRATE));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_CRATE));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_CRATE));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_CRATE));
+		registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_CRATE));
 	}
 	
 	private static void registerItemModel(Item item)

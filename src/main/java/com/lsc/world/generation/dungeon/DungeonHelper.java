@@ -91,12 +91,12 @@ public class DungeonHelper
 		
 		RandomCollection<ResourceLocation> loottables = new RandomCollection<ResourceLocation>();
 		
-		loottables.add(common, ModLootTables.common_chest);
+		loottables.add(common, ModLootTables.COMMON_CHEST);
 		
 		ResourceLocation table = loottables.next(world.rand);
 		chestEntity.setLootTable(table, world.rand.nextLong());
 		
-		if (table == ModLootTables.common_chest) chestEntity.setCustomName("Common Chest");
+		if (table == ModLootTables.COMMON_CHEST) chestEntity.setCustomName("Common Chest");
 	}
 	
 	private static ResourceLocation getRandomMonster()

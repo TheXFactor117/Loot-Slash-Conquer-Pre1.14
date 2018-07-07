@@ -149,6 +149,16 @@ tile.uncommon_jar.name=Uncommon Jar
 tile.rare_jar.name=Rare Jar
 tile.epic_jar.name=Epic Jar
 tile.legendary_jar.name=Legendary Jar
+tile.common_barrel.name=Common Barrel
+tile.uncommon_barrel.name=Uncommon Barrel
+tile.rare_barrel.name=Rare Barrel
+tile.epic_barrel.name=Epic Barrel
+tile.legendary_barrel.name=Legendary Barrel
+tile.common_crate.name=Common Crate
+tile.uncommon_crate.name=Uncommon Crate
+tile.rare_crate.name=Rare Crate
+tile.epic_crate.name=Epic Crate
+tile.legendary_crate.name=Legendary Crate
 
 
 

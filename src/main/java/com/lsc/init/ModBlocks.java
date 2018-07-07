@@ -2,8 +2,10 @@ package com.lsc.init;
 
 import com.lsc.blocks.BlockBossDoor;
 import com.lsc.blocks.BlockDungeonBrick;
-import com.lsc.blocks.BlockJar;
+import com.lsc.blocks.BlockLootBarrel;
 import com.lsc.blocks.BlockLootChest;
+import com.lsc.blocks.BlockLootCrate;
+import com.lsc.blocks.BlockLootJar;
 import com.lsc.loot.Rarity;
 import com.lsc.tileentity.TileEntityLootChest;
 import com.lsc.util.Reference;
@@ -33,11 +35,21 @@ public class ModBlocks
 	public static final Block RARE_LOOT_CHEST = new BlockLootChest("rare_loot_chest", Rarity.RARE);
 	public static final Block EPIC_LOOT_CHEST = new BlockLootChest("epic_loot_chest", Rarity.EPIC);
 	public static final Block LEGENDARY_LOOT_CHEST = new BlockLootChest("legendary_loot_chest", Rarity.LEGENDARY);
-	public static final Block COMMON_JAR = new BlockJar("common_jar", Rarity.COMMON);
-	public static final Block UNCOMMON_JAR = new BlockJar("uncommon_jar", Rarity.UNCOMMON);
-	public static final Block RARE_JAR = new BlockJar("rare_jar", Rarity.RARE);
-	public static final Block EPIC_JAR = new BlockJar("epic_jar", Rarity.EPIC);
-	public static final Block LEGENDARY_JAR = new BlockJar("legendary_jar", Rarity.LEGENDARY);
+	public static final Block COMMON_JAR = new BlockLootJar("common_jar", Rarity.COMMON);
+	public static final Block UNCOMMON_JAR = new BlockLootJar("uncommon_jar", Rarity.UNCOMMON);
+	public static final Block RARE_JAR = new BlockLootJar("rare_jar", Rarity.RARE);
+	public static final Block EPIC_JAR = new BlockLootJar("epic_jar", Rarity.EPIC);
+	public static final Block LEGENDARY_JAR = new BlockLootJar("legendary_jar", Rarity.LEGENDARY);
+	public static final Block COMMON_BARREL = new BlockLootBarrel("common_barrel", Rarity.COMMON);
+	public static final Block UNCOMMON_BARREL = new BlockLootBarrel("uncommon_barrel", Rarity.UNCOMMON);
+	public static final Block RARE_BARREL = new BlockLootBarrel("rare_barrel", Rarity.RARE);
+	public static final Block EPIC_BARREL = new BlockLootBarrel("epic_barrel", Rarity.EPIC);
+	public static final Block LEGENDARY_BARREL = new BlockLootBarrel("legendary_barrel", Rarity.LEGENDARY);
+	public static final Block COMMON_CRATE = new BlockLootCrate("common_crate", Rarity.COMMON);
+	public static final Block UNCOMMON_CRATE = new BlockLootCrate("uncommon_crate", Rarity.UNCOMMON);
+	public static final Block RARE_CRATE = new BlockLootCrate("rare_crate", Rarity.RARE);
+	public static final Block EPIC_CRATE = new BlockLootCrate("epic_crate", Rarity.EPIC);
+	public static final Block LEGENDARY_CRATE = new BlockLootCrate("legendary_crate", Rarity.LEGENDARY);
 	
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event)
@@ -54,6 +66,16 @@ public class ModBlocks
 		event.getRegistry().register(RARE_JAR);
 		event.getRegistry().register(EPIC_JAR);
 		event.getRegistry().register(LEGENDARY_JAR);
+		event.getRegistry().register(COMMON_BARREL);
+		event.getRegistry().register(UNCOMMON_BARREL);
+		event.getRegistry().register(RARE_BARREL);
+		event.getRegistry().register(EPIC_BARREL);
+		event.getRegistry().register(LEGENDARY_BARREL);
+		event.getRegistry().register(COMMON_CRATE);
+		event.getRegistry().register(UNCOMMON_CRATE);
+		event.getRegistry().register(RARE_CRATE);
+		event.getRegistry().register(EPIC_CRATE);
+		event.getRegistry().register(LEGENDARY_CRATE);
 		
 		// register tile entities
 		GameRegistry.registerTileEntity(TileEntityLootChest.class, new ResourceLocation(Reference.MODID, "loot_chest"));
@@ -74,5 +96,15 @@ public class ModBlocks
 		event.getRegistry().register(new ItemBlock(RARE_JAR).setRegistryName(RARE_JAR.getRegistryName()));
 		event.getRegistry().register(new ItemBlock(EPIC_JAR).setRegistryName(EPIC_JAR.getRegistryName()));
 		event.getRegistry().register(new ItemBlock(LEGENDARY_JAR).setRegistryName(LEGENDARY_JAR.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(COMMON_BARREL).setRegistryName(COMMON_BARREL.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(UNCOMMON_BARREL).setRegistryName(UNCOMMON_BARREL.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(RARE_BARREL).setRegistryName(RARE_BARREL.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(EPIC_BARREL).setRegistryName(EPIC_BARREL.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(LEGENDARY_BARREL).setRegistryName(LEGENDARY_BARREL.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(COMMON_CRATE).setRegistryName(COMMON_CRATE.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(UNCOMMON_CRATE).setRegistryName(UNCOMMON_CRATE.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(RARE_CRATE).setRegistryName(RARE_CRATE.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(EPIC_CRATE).setRegistryName(EPIC_CRATE.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(LEGENDARY_CRATE).setRegistryName(LEGENDARY_CRATE.getRegistryName()));
 	}
 }

@@ -249,23 +249,23 @@ public class StructureUtils
 		switch (chestRarity)
 		{
 			case COMMON:
-				chest.setLootTable(ModLootTables.common_chest, world.rand.nextLong());
+				chest.setLootTable(ModLootTables.COMMON_CHEST, world.rand.nextLong());
 				chest.setCustomName("Common Chest");
 				break;
 			case UNCOMMON:
-				chest.setLootTable(ModLootTables.uncommon_chest, world.rand.nextLong());
+				chest.setLootTable(ModLootTables.UNCOMMON_CHEST, world.rand.nextLong());
 				chest.setCustomName("Uncommon Chest");
 				break;
 			case RARE:
-				chest.setLootTable(ModLootTables.rare_chest, world.rand.nextLong());
+				chest.setLootTable(ModLootTables.RARE_CHEST, world.rand.nextLong());
 				chest.setCustomName("Rare Chest");
 				break;
 			case EPIC:
-				chest.setLootTable(ModLootTables.epic_chest, world.rand.nextLong());
+				chest.setLootTable(ModLootTables.EPIC_CHEST, world.rand.nextLong());
 				chest.setCustomName("Epic Chest");
 				break;
 			case LEGENDARY:
-				chest.setLootTable(ModLootTables.legendary_chest, world.rand.nextLong());
+				chest.setLootTable(ModLootTables.LEGENDARY_CHEST, world.rand.nextLong());
 				chest.setCustomName("Legendary Chest");
 				break;
 			default:

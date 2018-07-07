@@ -27,16 +27,26 @@ public class EventLoadLootTable
 	@SubscribeEvent
 	public static void onLootTableLoad(LootTableLoadEvent event)
 	{	
-		if (event.getName() == ModLootTables.common_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		else if (event.getName() == ModLootTables.uncommon_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		else if (event.getName() == ModLootTables.rare_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		else if (event.getName() == ModLootTables.epic_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		else if (event.getName() == ModLootTables.legendary_chest) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		else if (event.getName() == ModLootTables.common_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		else if (event.getName() == ModLootTables.uncommon_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		else if (event.getName() == ModLootTables.rare_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		else if (event.getName() == ModLootTables.epic_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
-		else if (event.getName() == ModLootTables.legendary_jar) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		if (event.getName() == ModLootTables.COMMON_CHEST) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.UNCOMMON_CHEST) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.RARE_CHEST) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.EPIC_CHEST) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.LEGENDARY_CHEST) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.COMMON_JAR) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.UNCOMMON_JAR) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.RARE_JAR) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.EPIC_JAR) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.LEGENDARY_JAR) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.COMMON_BARREL) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.UNCOMMON_BARREL) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.RARE_BARREL) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.EPIC_BARREL) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.LEGENDARY_BARREL) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.COMMON_CRATE) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.UNCOMMON_CRATE) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.RARE_CRATE) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.EPIC_CRATE) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
+		else if (event.getName() == ModLootTables.LEGENDARY_CRATE) event.setTable(new CustomLootTable(new LootPool[] { event.getTable().getPool("main") }));
 		
 		if (Configs.enableVanillaLoot)
 		{
