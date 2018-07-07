@@ -1,6 +1,6 @@
-package com.lsc.client.render;
+package com.lsc.client.render.entities;
 
-import com.lsc.client.models.ModelBarbarian;
+import com.lsc.client.models.entities.ModelBarbarian;
 import com.lsc.entities.monsters.EntityBarbarian;
 import com.lsc.util.Reference;
 

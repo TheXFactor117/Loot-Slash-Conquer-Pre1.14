@@ -1,11 +1,16 @@
-package com.lsc.client.models;
+package com.lsc.client.models.entities;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class ModelGhost extends ModelBase
+/**
+ * 
+ * @author TheXFactor117
+ *
+ */
+public class ModelBanshee extends ModelBase
 {
 	private ModelRenderer head;
 	private ModelRenderer body;
@@ -14,7 +19,7 @@ public class ModelGhost extends ModelBase
 	private ModelRenderer rightleg;
 	private ModelRenderer leftleg;
 
-	public ModelGhost()
+	public ModelBanshee()
 	{
 		textureWidth = 64;
 		textureHeight = 64;
@@ -84,12 +89,6 @@ public class ModelGhost extends ModelBase
 
 		this.head.rotateAngleY = f3 / (180F / (float) Math.PI);
 		this.head.rotateAngleX = f4 / (180F / (float) Math.PI);
-		/*
-		 * this.rightarm.rotateAngleX = MathHelper.cos(f * 0.6662F +
-		 * (float)Math.PI) * 2.0F * f1 * 0.5F; this.leftarm.rotateAngleX =
-		 * MathHelper.cos(f * 0.6662F) * 2.0F * f1 * 0.5F;
-		 * this.rightarm.rotateAngleZ = 0.0F; this.leftarm.rotateAngleZ = 0.0F;
-		 */
 		float f6 = MathHelper.sin(this.swingProgress * (float) Math.PI);
 		float f7 = MathHelper.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
 		this.rightarm.rotateAngleZ = 0.0F;
@@ -105,5 +104,4 @@ public class ModelGhost extends ModelBase
 		this.rightarm.rotateAngleX += MathHelper.sin(f2 * 0.067F) * 0.05F;
 		this.leftarm.rotateAngleX -= MathHelper.sin(f2 * 0.067F) * 0.05F;
 	}
-
 }

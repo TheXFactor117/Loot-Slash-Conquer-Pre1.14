@@ -4,13 +4,14 @@ import org.lwjgl.input.Keyboard;
 
 import com.lsc.client.gui.GuiHealth;
 import com.lsc.client.gui.GuiMana;
-import com.lsc.client.render.RenderBanshee;
-import com.lsc.client.render.RenderBarbarian;
-import com.lsc.client.render.RenderCorruptedKnight;
-import com.lsc.client.render.RenderGhost;
-import com.lsc.client.render.RenderGolem;
-import com.lsc.client.render.RenderMummy;
-import com.lsc.client.render.RenderSpectralKnight;
+import com.lsc.client.render.blocks.TileEntityLootChestRenderer;
+import com.lsc.client.render.entities.RenderBanshee;
+import com.lsc.client.render.entities.RenderBarbarian;
+import com.lsc.client.render.entities.RenderCorruptedKnight;
+import com.lsc.client.render.entities.RenderGhost;
+import com.lsc.client.render.entities.RenderGolem;
+import com.lsc.client.render.entities.RenderMummy;
+import com.lsc.client.render.entities.RenderSpectralKnight;
 import com.lsc.entities.bosses.EntityCorruptedKnight;
 import com.lsc.entities.monsters.EntityBanshee;
 import com.lsc.entities.monsters.EntityBarbarian;
@@ -18,6 +19,7 @@ import com.lsc.entities.monsters.EntityGhost;
 import com.lsc.entities.monsters.EntityGolem;
 import com.lsc.entities.monsters.EntityMummy;
 import com.lsc.entities.monsters.EntitySpectralKnight;
+import com.lsc.tileentity.TileEntityLootChest;
 
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
@@ -53,7 +55,7 @@ public class ClientProxy extends ServerProxy
 		openClass = new KeyBinding("Open Class Gui", Keyboard.KEY_O, "Loot Slash Conquer");
 		
 		ClientRegistry.registerKeyBinding(bindingP);
-		ClientRegistry.registerKeyBinding(openClass);
+		ClientRegistry.registerKeyBinding(openClass);		
 	}
 	
 	@Override
@@ -71,5 +73,7 @@ public class ClientProxy extends ServerProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, RenderMummy::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityCorruptedKnight.class, RenderCorruptedKnight::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySpectralKnight.class, RenderSpectralKnight::new);
+		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLootChest.class, new TileEntityLootChestRenderer());
 	}
 }

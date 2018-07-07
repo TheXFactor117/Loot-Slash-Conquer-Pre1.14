@@ -1,6 +1,4 @@
-package com.lsc.client.models;
-
-import org.lwjgl.opengl.GL11;
+package com.lsc.client.models.entities;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -12,7 +10,7 @@ import net.minecraft.util.math.MathHelper;
  * @author TheXFactor117
  *
  */
-public class ModelMiniGolem extends ModelBase
+public class ModelGolem extends ModelBase
 {
 	private ModelRenderer leg1;
 	private ModelRenderer leg2;
@@ -27,7 +25,7 @@ public class ModelMiniGolem extends ModelBase
 	private ModelRenderer armBottom1;
 	private ModelRenderer armBottom2;
 
-	public ModelMiniGolem()
+	public ModelGolem()
 	{
 		textureWidth = 128;
 		textureHeight = 64;
@@ -119,12 +117,6 @@ public class ModelMiniGolem extends ModelBase
 	{
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-
-		float scaleFactor = 0.4F;
-		GL11.glPushMatrix();
-		GL11.glTranslatef(0.0F, 1.5F - 1.5F * scaleFactor, 0.0F);
-		GL11.glScalef(scaleFactor, scaleFactor, scaleFactor);
-
 		leg1.render(f5);
 		leg2.render(f5);
 		body3.render(f5);
@@ -137,8 +129,6 @@ public class ModelMiniGolem extends ModelBase
 		armMiddle2.render(f5);
 		armBottom1.render(f5);
 		armBottom2.render(f5);
-
-		GL11.glPopMatrix();
 	}
 
 	private void setRotation(ModelRenderer model, float x, float y, float z)

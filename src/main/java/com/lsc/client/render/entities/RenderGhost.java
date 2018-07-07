@@ -1,6 +1,6 @@
-package com.lsc.client.render;
+package com.lsc.client.render.entities;
 
-import com.lsc.client.models.ModelGhost;
+import com.lsc.client.models.entities.ModelGhost;
 import com.lsc.entities.monsters.EntityGhost;
 import com.lsc.util.Reference;
 

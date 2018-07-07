@@ -19,6 +19,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
+// TODO: fix bounding box
 public class BlockLootChest extends BlockChest
 {
 	public Rarity rarity;
@@ -28,7 +29,7 @@ public class BlockLootChest extends BlockChest
 		super(BlockChest.Type.BASIC);
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscDevTab);
 		this.setBlockUnbreakable();
 		this.setResistance(100000); // TODO: find a less hacky way?
 		this.rarity = rarity;

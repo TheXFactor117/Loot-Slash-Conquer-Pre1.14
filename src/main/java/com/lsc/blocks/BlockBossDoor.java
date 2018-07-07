@@ -22,7 +22,7 @@ public class BlockBossDoor extends BlockBase
 {
 	public BlockBossDoor(String name)
 	{
-		super(Material.ROCK, name, ModTabs.tabLE);
+		super(Material.ROCK, name, ModTabs.lscDevTab);
 		this.setBlockUnbreakable();
 	}
 	

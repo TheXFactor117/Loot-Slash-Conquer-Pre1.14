@@ -1,4 +1,4 @@
-package com.lsc.client.models;
+package com.lsc.client.models.entities;
 
 import org.lwjgl.opengl.GL11;
 

@@ -32,7 +32,7 @@ public class ItemInvisibilityScroll extends ItemBase
 	
 	public ItemInvisibilityScroll(String name, Rarity rarity)
 	{
-		super(name, ModTabs.tabLE);
+		super(name, ModTabs.lscTab);
 		this.rarity = rarity;
 	}
 	

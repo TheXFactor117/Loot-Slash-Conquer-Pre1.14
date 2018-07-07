@@ -7,26 +7,26 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class LETab extends CreativeTabs
+public class LSCTab extends CreativeTabs
 {
-	String name;
+	private String name;
 	
-	public LETab(int par1, String par2)
+	public LSCTab(int index, String name)
 	{
-		super(par1, par2);
-		this.name = par2;
+		super(index, name);
+		this.name = name;
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public ItemStack getTabIconItem()
 	{
-		if (this.name == "tab_le") 
+		if (this.name == "tab_lsc") 
 		{
 			return new ItemStack(ModWeapons.DIVINE_RAPIER);
 		} 
-		else if (this.name == "tab_le_test")
+		else if (this.name == "tab_lsc_dev")
 		{
-			return new ItemStack(ModWeapons.test);
+			return new ItemStack(ModWeapons.GAZE_OF_TRUTH);
 		}
 		return null;
 	}

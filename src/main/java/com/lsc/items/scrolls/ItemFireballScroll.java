@@ -32,7 +32,7 @@ public class ItemFireballScroll extends ItemBase
 	
 	public ItemFireballScroll(String name, Rarity rarity)
 	{
-		super(name, ModTabs.tabLE);
+		super(name, ModTabs.lscTab);
 		this.rarity = rarity;
 	}
 	

@@ -1,6 +1,6 @@
-package com.lsc.client.render;
+package com.lsc.client.render.entities;
 
-import com.lsc.client.models.ModelSpectralKnight;
+import com.lsc.client.models.entities.ModelSpectralKnight;
 import com.lsc.entities.monsters.EntitySpectralKnight;
 import com.lsc.util.Reference;
 

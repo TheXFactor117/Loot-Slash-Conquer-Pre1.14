@@ -31,7 +31,7 @@ public class ItemBauble extends Item implements IBauble
 		super();
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 		this.setMaxStackSize(1);
 		this.type = type;
 	}

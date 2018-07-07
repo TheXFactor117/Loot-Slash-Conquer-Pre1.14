@@ -1,4 +1,4 @@
-package com.lsc.client.models;
+package com.lsc.client.models.entities;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;

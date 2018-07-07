@@ -25,7 +25,7 @@ public class ItemDivineRapier extends ItemMelee implements ISpecial
 	public ItemDivineRapier(ToolMaterial material, String name, String type)
 	{
 		super(material, name, type);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 	}
 
 	@Override

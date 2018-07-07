@@ -104,11 +104,11 @@ public class ModItemModels
 		 */
 		registerItemModel(Item.getItemFromBlock(ModBlocks.DUNGEON_BRICK));
 		registerItemModel(Item.getItemFromBlock(ModBlocks.BOSS_DOOR));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_LOOT_CHEST));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_LOOT_CHEST));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_LOOT_CHEST));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_LOOT_CHEST));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_LOOT_CHEST));
+		//registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_LOOT_CHEST));
+		//registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_LOOT_CHEST));
+		//registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_LOOT_CHEST));
+		//registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_LOOT_CHEST));
+		//registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_LOOT_CHEST));
 		registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_JAR));
 		registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_JAR));
 		registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_JAR));

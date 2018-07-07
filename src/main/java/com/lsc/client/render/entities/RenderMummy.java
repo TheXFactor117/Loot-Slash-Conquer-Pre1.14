@@ -1,6 +1,6 @@
-package com.lsc.client.render;
+package com.lsc.client.render.entities;
 
-import com.lsc.client.models.ModelMummy;
+import com.lsc.client.models.entities.ModelMummy;
 import com.lsc.entities.monsters.EntityMummy;
 import com.lsc.util.Reference;
 

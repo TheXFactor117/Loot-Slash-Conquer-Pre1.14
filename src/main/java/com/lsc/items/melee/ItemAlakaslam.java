@@ -25,7 +25,7 @@ public class ItemAlakaslam extends ItemAdvancedMelee implements ISpecial
 	public ItemAlakaslam(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
 	{
 		super(material, name, type, damageMultiplier, speedMultiplier);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 	}
 
 	@Override

@@ -28,7 +28,7 @@ public class ItemMelee extends ItemSword
 		super(material);
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 		this.type = type;
 	}
 	

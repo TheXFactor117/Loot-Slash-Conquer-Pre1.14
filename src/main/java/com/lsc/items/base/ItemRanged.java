@@ -47,7 +47,7 @@ public class ItemRanged extends ItemBow
 		this.baseDamage = damage;
 		this.baseDrawSpeed = drawSpeed;
         this.setMaxDamage(durability);
-        this.setCreativeTab(ModTabs.tabLE);
+        this.setCreativeTab(ModTabs.lscTab);
         this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)

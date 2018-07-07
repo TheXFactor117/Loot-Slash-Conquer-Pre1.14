@@ -42,7 +42,7 @@ public class BlockJar extends Block
 		super(Material.CLAY);
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 		this.setSoundType(SoundType.GLASS);
 		this.setHardness(0F);
 		this.rarity = rarity;

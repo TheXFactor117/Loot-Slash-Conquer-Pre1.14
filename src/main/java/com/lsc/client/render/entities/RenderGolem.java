@@ -1,6 +1,6 @@
-package com.lsc.client.render;
+package com.lsc.client.render.entities;
 
-import com.lsc.client.models.ModelGolem;
+import com.lsc.client.models.entities.ModelGolem;
 import com.lsc.entities.monsters.EntityGolem;
 import com.lsc.util.Reference;
 

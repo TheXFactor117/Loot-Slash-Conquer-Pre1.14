@@ -20,7 +20,7 @@ public class ItemRequiem extends ItemMelee implements ISpecial
 	public ItemRequiem(ToolMaterial material, String name, String type)
 	{
 		super(material, name, type);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 	}
 
 	@Override

@@ -139,6 +139,17 @@ gui.playerinfo.bonuses.mp5=MP5
 tile.dungeon_brick.name=Dungeon Brick
 tile.boss_door.name=Boss Door
 
+tile.common_loot_chest.name=Common Chest
+tile.uncommon_loot_chest.name=Uncommon Chest
+tile.rare_loot_chest.name=Rare Chest
+tile.epic_loot_chest.name=Epic Chest
+tile.legendary_loot_chest.name=Legendary Loot Chest
+tile.common_jar.name=Common Jar
+tile.uncommon_jar.name=Uncommon Jar
+tile.rare_jar.name=Rare Jar
+tile.epic_jar.name=Epic Jar
+tile.legendary_jar.name=Legendary Jar
+
 
 
 ##########################################
@@ -176,3 +187,7 @@ death.attack.lightning=%1$s was disintegrated by a stray lightning bolt.
 death.attack.frost.player=%1$s was blasted with lightning bolts by %2$s.
 death.attack.poison=%1$s might have eaten something bad for lunch...
 death.attack.poison.player=%2$s poisoned %1$s's lunch! %1$s didn't quite make it.
+
+### Tabs
+itemGroup.tab_lsc=Loot Slash Conquer
+itemGroup.tab_lsc_dev=Loot Slash Conquer - Development

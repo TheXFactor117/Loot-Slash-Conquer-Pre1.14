@@ -58,7 +58,7 @@ public class ItemMagical extends Item
 		super();
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 		this.setMaxStackSize(1);
 		this.setNoRepair();
 		this.setMaxDamage(durability);

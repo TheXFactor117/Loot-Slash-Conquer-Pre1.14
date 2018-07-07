@@ -37,7 +37,7 @@ public class ItemDischargeScroll extends ItemBase
 	
 	public ItemDischargeScroll(String name, Rarity rarity)
 	{
-		super(name, ModTabs.tabLE);
+		super(name, ModTabs.lscTab);
 		this.rarity = rarity;
 	}
 	

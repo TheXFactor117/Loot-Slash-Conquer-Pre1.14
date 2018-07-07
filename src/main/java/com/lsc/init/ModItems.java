@@ -46,7 +46,7 @@ public class ModItems
 	public static final Item VOID_SCROLL = new ItemVoidScroll("void_scroll", Rarity.LEGENDARY);
 	
 	// miscellaneous
-	public static final Item CORRUPTED_TOWER_KEY = new ItemBase("corrupted_tower_key", ModTabs.tabLE);
+	public static final Item CORRUPTED_TOWER_KEY = new ItemBase("corrupted_tower_key", ModTabs.lscTab);
 		
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)

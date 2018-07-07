@@ -31,7 +31,7 @@ public class BlockOre extends BlockBase
 	public BlockOre(String name, float hardness, float resistance, float lightValue, int harvestLevel, Item item)
 	{
 		super(Material.ROCK, name);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 		this.setSoundType(SoundType.STONE);
 		this.setHardness(hardness);
 		this.setResistance(resistance);
@@ -51,7 +51,7 @@ public class BlockOre extends BlockBase
 	public BlockOre(String name, float hardness, float resistance, float lightValue, int harvestLevel)
 	{
 		super(Material.ROCK, name);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 		this.setSoundType(SoundType.STONE);
 		this.setHardness(hardness);
 		this.setResistance(resistance);

@@ -1,6 +1,6 @@
-package com.lsc.client.render;
+package com.lsc.client.render.entities;
 
-import com.lsc.client.models.ModelBanshee;
+import com.lsc.client.models.entities.ModelBanshee;
 import com.lsc.entities.monsters.EntityBanshee;
 import com.lsc.util.Reference;
 

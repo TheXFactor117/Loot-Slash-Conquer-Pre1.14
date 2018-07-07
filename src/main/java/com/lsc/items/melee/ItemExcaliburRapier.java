@@ -25,7 +25,7 @@ public class ItemExcaliburRapier extends ItemMelee implements ISpecial
 	public ItemExcaliburRapier(ToolMaterial material, String name, String type)
 	{
 		super(material, name, type);
-		this.setCreativeTab(ModTabs.tabLE);
+		this.setCreativeTab(ModTabs.lscTab);
 	}
 
 	@Override
