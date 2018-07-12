@@ -71,6 +71,46 @@ public class Configs
 		@RangeInt(min = 1)
 		public int chunksPerAreaLevel = 10;
 		
+		@Comment("Sets the starting Area Level in the Overworld.")
+		@RangeInt(min = 1)
+		public int overworldStartingAreaLevel = 1;
+		
+		@Comment("Sets the starting Area Level in the Nether.")
+		@RangeInt(min = 1)
+		public int netherStartingAreaLevel = 15;
+		
+		@Comment("Sets the starting Area Level in the End")
+		@RangeInt(min = 1)
+		public int endStartingAreaLevel = 35;
+		
+		@Comment("Sets the starting Area Level for modded dimensions. All modded dimensions will use this value.")
+		@RangeInt(min = 1)
+		public int defaultDimensionAreaLevel = 15;
+		
+		@Comment({
+			"Set this to true if you want the Overworld to have a static Area Level (won't change).",
+			"This will use the starting Area Level for the corresponding dimension as the static level."
+		})
+		public boolean overworldStaticAreaLevel = false;
+		
+		@Comment({
+			"Set this to true if you want the Nether to have a static Area Level (won't change).",
+			"This will use the starting Area Level for the corresponding dimension as the static level."
+		})
+		public boolean netherStaticAreaLevel = false;
+		
+		@Comment({
+			"Set this to true if you want the End to have a static Area Level (won't change).",
+			"This will use the starting Area Level for the corresponding dimension as the static level."
+		})
+		public boolean endStaticAreaLevel = false;
+		
+		@Comment({
+			"Set this to true if you want modded dimensions to have a static Area Level (won't change).",
+			"This will use the starting Area Level for the corresponding dimension as the static level."
+		})
+		public boolean moddedDimensionsStaticAreaLevel = false;
+		
 		// towers
 		@Comment({
 			"Controls the frequency of Tower Dungeons.",

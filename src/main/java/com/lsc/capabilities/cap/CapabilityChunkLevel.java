@@ -164,8 +164,58 @@ public class CapabilityChunkLevel
 		{	
 			ChunkPos spawnChunk = new ChunkPos(world.getSpawnPoint());
 			
-			double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
-			return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + 1);
+			// overworld
+			if (world.provider.getDimension() == 0)
+			{	
+				if (Configs.worldgenCategory.overworldStaticAreaLevel)
+				{
+					return Configs.worldgenCategory.overworldStartingAreaLevel;
+				}
+				else
+				{
+					double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
+					return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.overworldStartingAreaLevel);
+				}
+			}
+			// nether
+			else if (world.provider.getDimension() == 1)
+			{
+				if (Configs.worldgenCategory.netherStaticAreaLevel)
+				{
+					return Configs.worldgenCategory.netherStartingAreaLevel;
+				}
+				else
+				{
+					double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
+					return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.netherStartingAreaLevel);
+				}
+			}
+			// end
+			else if (world.provider.getDimension() == 2)
+			{
+				if (Configs.worldgenCategory.endStaticAreaLevel)
+				{
+					return Configs.worldgenCategory.endStartingAreaLevel;
+				}
+				else
+				{
+					double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
+					return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.endStartingAreaLevel);
+				}
+			}
+			// modded dimensions
+			else
+			{
+				if (Configs.worldgenCategory.moddedDimensionsStaticAreaLevel)
+				{
+					return Configs.worldgenCategory.defaultDimensionAreaLevel;
+				}
+				else
+				{
+					double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
+					return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.defaultDimensionAreaLevel);
+				}
+			}
 		}
 	}
 }

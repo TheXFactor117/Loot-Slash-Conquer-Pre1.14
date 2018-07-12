@@ -12,7 +12,6 @@ import com.lsc.entities.projectiles.EntityFireball;
 import com.lsc.entities.projectiles.EntityIcebolt;
 import com.lsc.entities.projectiles.EntityLightning;
 import com.lsc.entities.projectiles.Rune;
-import com.lsc.events.EventPlayerTick;
 import com.lsc.init.ModTabs;
 import com.lsc.network.PacketUpdateStats;
 import com.lsc.util.NBTHelper;
