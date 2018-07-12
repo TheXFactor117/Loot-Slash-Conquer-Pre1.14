@@ -45,6 +45,7 @@ public class EventPlayerLoggedIn
 			statsCap.setCriticalChance(0);
 			statsCap.setCriticalDamage(0);
 			LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
+			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
 		}
 		else if (playerInfo != null && statsCap != null && playerInfo.getPlayerClass() > 0)
 		{

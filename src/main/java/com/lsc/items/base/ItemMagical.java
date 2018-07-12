@@ -103,14 +103,14 @@ public class ItemMagical extends Item
 			{
 				if (selected && !isBonusActive)
 				{
-					EventPlayerTick.updateStats(player, info, 1);
-					isBonusActive = true;
+					//EventPlayerTick.updateStats(player, info, 1);
+					//isBonusActive = true;
 				}
 				
 				if (!selected && isBonusActive)
 				{
-					EventPlayerTick.updateStats(player, info, 1);
-					isBonusActive = false;
+					//EventPlayerTick.updateStats(player, info, 1);
+					//isBonusActive = false;
 				}
 			}
 		}

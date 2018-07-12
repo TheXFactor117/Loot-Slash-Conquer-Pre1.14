@@ -103,7 +103,7 @@ public class PlayerStatUtils
 				/*
 				 * WISDOM
 				 */			
-				stats.setMaxMana((int) ((Configs.playerCategory.maxMana * info.getTotalWisdom()) + 100));
+				stats.setMaxMana((int) ((Configs.playerCategory.maxManaMultiplier * info.getTotalWisdom()) + 100));
 				
 				LootSlashConquer.network.sendTo(new PacketUpdateStats(stats), (EntityPlayerMP) player);
 			}
