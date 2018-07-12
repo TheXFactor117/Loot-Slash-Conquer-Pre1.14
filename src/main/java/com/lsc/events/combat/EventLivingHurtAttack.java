@@ -5,7 +5,6 @@ import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.PlayerInformation;
 import com.lsc.capabilities.implementation.Stats;
 import com.lsc.config.Configs;
-import com.lsc.items.base.ItemAdvancedMelee;
 import com.lsc.loot.Attribute;
 import com.lsc.loot.Rarity;
 import com.lsc.player.DamageType;
@@ -110,19 +109,19 @@ public class EventLivingHurtAttack
 	}
 	
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
-	public void onLivingAttack(LivingAttackEvent event)
+	public static void onLivingAttack(LivingAttackEvent event)
 	{
 		/*
 		 * Player attacks a monster OR another player
 		 */
-		if (event.getSource().getTrueSource() instanceof EntityPlayer && !event.getSource().getTrueSource().getEntityWorld().isRemote)
+		if (event.getSource().getTrueSource() instanceof EntityPlayer && !event.getSource().getTrueSource().getEntityWorld().isRemote && !(event.getSource() instanceof ElementalDamageSource))
 		{
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 			EntityLivingBase enemy = event.getEntityLiving();
 			ItemStack stack = player.inventory.getCurrentItem();
 			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (playerInfo != null && stack != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemBow) && !(stack.getItem() instanceof ItemAdvancedMelee))
+			if (playerInfo != null && stack != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemBow))
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				

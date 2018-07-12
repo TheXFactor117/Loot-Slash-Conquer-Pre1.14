@@ -3,6 +3,7 @@ package com.lsc.player;
 import java.util.Iterator;
 import java.util.List;
 
+import com.lsc.LootSlashConquer;
 import com.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.lsc.capabilities.implementation.Stats;
 import com.lsc.loot.Attribute;
@@ -65,7 +66,11 @@ public class WeaponUtils
 			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, ElementalDamageSource.POISON), (float) Attribute.POISON.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 		}
-		if (Attribute.LIFE_STEAL.hasAttribute(nbt)) attacker.setHealth((float) (attacker.getHealth() + (damage * Attribute.LIFE_STEAL.getAmount(nbt))));
+		if (Attribute.LIFE_STEAL.hasAttribute(nbt)) 
+		{
+			LootSlashConquer.LOGGER.info("Testing Life Steal attribute.");
+			attacker.setHealth((float) (attacker.getHealth() + (damage * Attribute.LIFE_STEAL.getAmount(nbt))));
+		}
 		if (Attribute.MANA_STEAL.hasAttribute(nbt))
 		{
 			Stats statsCap = (Stats) enemy.getCapability(CapabilityPlayerStats.STATS, null);
