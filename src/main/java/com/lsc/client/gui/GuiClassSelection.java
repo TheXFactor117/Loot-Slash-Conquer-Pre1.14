@@ -83,8 +83,6 @@ public class GuiClassSelection extends GuiScreen
 				LootSlashConquer.network.sendToServer(new PacketClassSelection(3));
 			}
 			
-			playerInfo.setPlayerLevel(1);
-			
 			this.mc.player.closeScreen();
 		}
 	}

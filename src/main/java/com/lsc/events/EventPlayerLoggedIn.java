@@ -34,6 +34,8 @@ public class EventPlayerLoggedIn
 			// send Class Selection gui to client on first join.
 			LootSlashConquer.network.sendTo(new PacketClassGui(), (EntityPlayerMP) event.player);
 
+			playerInfo.setPlayerLevel(1);
+			
 			// setup max mana + send it to client.
 			statsCap.setMaxMana(Configs.playerCategory.maxMana);
 			statsCap.setMana(statsCap.getMaxMana());
