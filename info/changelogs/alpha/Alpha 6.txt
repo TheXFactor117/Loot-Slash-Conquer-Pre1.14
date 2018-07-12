@@ -5,6 +5,19 @@
 
 
 #####
+### 0.6.1.1-alpha
+#####
+
++ Added config options for Area Level.
+	+ You can now specify the starting Area Level of the three vanilla dimensions, plus a default value for modded dimensions.
+	+ You can make a specific dimension have a static level, so that the Area Level remains the same throughout.
+* Fixes crash when crafting a weapon when you haven't selected a class yet.
+* Fixes stats glitching health/mana values when switching weapons/tools.
+* Fixed issue with the max mana multiplier causing you to have massive amounts of mana when upgrading Wisdom.
+
+
+
+#####
 ### 0.6.1.0-alpha
 #####
 

@@ -12,7 +12,6 @@ import com.lsc.entities.projectiles.EntityFireball;
 import com.lsc.entities.projectiles.EntityIcebolt;
 import com.lsc.entities.projectiles.EntityLightning;
 import com.lsc.entities.projectiles.Rune;
-import com.lsc.events.EventPlayerTick;
 import com.lsc.init.ModTabs;
 import com.lsc.network.PacketUpdateStats;
 import com.lsc.util.NBTHelper;
@@ -103,14 +102,14 @@ public class ItemMagical extends Item
 			{
 				if (selected && !isBonusActive)
 				{
-					EventPlayerTick.updateStats(player, info, 1);
-					isBonusActive = true;
+					//EventPlayerTick.updateStats(player, info, 1);
+					//isBonusActive = true;
 				}
 				
 				if (!selected && isBonusActive)
 				{
-					EventPlayerTick.updateStats(player, info, 1);
-					isBonusActive = false;
+					//EventPlayerTick.updateStats(player, info, 1);
+					//isBonusActive = false;
 				}
 			}
 		}
