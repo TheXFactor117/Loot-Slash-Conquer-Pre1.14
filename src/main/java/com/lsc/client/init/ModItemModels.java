@@ -6,6 +6,7 @@ import com.lsc.init.ModWeapons;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
@@ -104,26 +105,30 @@ public class ModItemModels
 		 */
 		registerItemModel(Item.getItemFromBlock(ModBlocks.DUNGEON_BRICK));
 		registerItemModel(Item.getItemFromBlock(ModBlocks.BOSS_DOOR));
-		//registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_LOOT_CHEST));
-		//registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_LOOT_CHEST));
-		//registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_LOOT_CHEST));
-		//registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_LOOT_CHEST));
-		//registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_LOOT_CHEST));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_JAR));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_JAR));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_JAR));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_JAR));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_JAR));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_BARREL));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_BARREL));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_BARREL));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_BARREL));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_BARREL));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_CRATE));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_CRATE));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_CRATE));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_CRATE));
-		registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_CRATE));
+		
+		if ((boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment"))
+		{
+			//registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_LOOT_CHEST));
+			//registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_LOOT_CHEST));
+			//registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_LOOT_CHEST));
+			//registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_LOOT_CHEST));
+			//registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_LOOT_CHEST));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_JAR));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_JAR));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_JAR));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_JAR));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_JAR));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_BARREL));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_BARREL));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_BARREL));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_BARREL));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_BARREL));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.COMMON_CRATE));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.UNCOMMON_CRATE));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.RARE_CRATE));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.EPIC_CRATE));
+			registerItemModel(Item.getItemFromBlock(ModBlocks.LEGENDARY_CRATE));
+		}
 	}
 	
 	private static void registerItemModel(Item item)

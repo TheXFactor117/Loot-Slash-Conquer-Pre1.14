@@ -14,6 +14,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.launchwrapper.Launch;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -56,26 +57,30 @@ public class ModBlocks
 	{
 		event.getRegistry().register(DUNGEON_BRICK);
 		event.getRegistry().register(BOSS_DOOR);
-		event.getRegistry().register(COMMON_LOOT_CHEST);
-		event.getRegistry().register(UNCOMMON_LOOT_CHEST);
-		event.getRegistry().register(RARE_LOOT_CHEST);
-		event.getRegistry().register(EPIC_LOOT_CHEST);
-		event.getRegistry().register(LEGENDARY_LOOT_CHEST);
-		event.getRegistry().register(COMMON_JAR);
-		event.getRegistry().register(UNCOMMON_JAR);
-		event.getRegistry().register(RARE_JAR);
-		event.getRegistry().register(EPIC_JAR);
-		event.getRegistry().register(LEGENDARY_JAR);
-		event.getRegistry().register(COMMON_BARREL);
-		event.getRegistry().register(UNCOMMON_BARREL);
-		event.getRegistry().register(RARE_BARREL);
-		event.getRegistry().register(EPIC_BARREL);
-		event.getRegistry().register(LEGENDARY_BARREL);
-		event.getRegistry().register(COMMON_CRATE);
-		event.getRegistry().register(UNCOMMON_CRATE);
-		event.getRegistry().register(RARE_CRATE);
-		event.getRegistry().register(EPIC_CRATE);
-		event.getRegistry().register(LEGENDARY_CRATE);
+		
+		if ((boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment"))
+		{
+			event.getRegistry().register(COMMON_LOOT_CHEST);
+			event.getRegistry().register(UNCOMMON_LOOT_CHEST);
+			event.getRegistry().register(RARE_LOOT_CHEST);
+			event.getRegistry().register(EPIC_LOOT_CHEST);
+			event.getRegistry().register(LEGENDARY_LOOT_CHEST);
+			event.getRegistry().register(COMMON_JAR);
+			event.getRegistry().register(UNCOMMON_JAR);
+			event.getRegistry().register(RARE_JAR);
+			event.getRegistry().register(EPIC_JAR);
+			event.getRegistry().register(LEGENDARY_JAR);
+			event.getRegistry().register(COMMON_BARREL);
+			event.getRegistry().register(UNCOMMON_BARREL);
+			event.getRegistry().register(RARE_BARREL);
+			event.getRegistry().register(EPIC_BARREL);
+			event.getRegistry().register(LEGENDARY_BARREL);
+			event.getRegistry().register(COMMON_CRATE);
+			event.getRegistry().register(UNCOMMON_CRATE);
+			event.getRegistry().register(RARE_CRATE);
+			event.getRegistry().register(EPIC_CRATE);
+			event.getRegistry().register(LEGENDARY_CRATE);
+		}
 		
 		// register tile entities
 		GameRegistry.registerTileEntity(TileEntityLootChest.class, new ResourceLocation(Reference.MODID, "loot_chest"));
@@ -86,25 +91,29 @@ public class ModBlocks
 	{
 		event.getRegistry().register(new ItemBlock(DUNGEON_BRICK).setRegistryName(DUNGEON_BRICK.getRegistryName()));
 		event.getRegistry().register(new ItemBlock(BOSS_DOOR).setRegistryName(BOSS_DOOR.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(COMMON_LOOT_CHEST).setRegistryName(COMMON_LOOT_CHEST.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(UNCOMMON_LOOT_CHEST).setRegistryName(UNCOMMON_LOOT_CHEST.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(RARE_LOOT_CHEST).setRegistryName(RARE_LOOT_CHEST.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(EPIC_LOOT_CHEST).setRegistryName(EPIC_LOOT_CHEST.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(LEGENDARY_LOOT_CHEST).setRegistryName(LEGENDARY_LOOT_CHEST.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(COMMON_JAR).setRegistryName(COMMON_JAR.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(UNCOMMON_JAR).setRegistryName(UNCOMMON_JAR.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(RARE_JAR).setRegistryName(RARE_JAR.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(EPIC_JAR).setRegistryName(EPIC_JAR.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(LEGENDARY_JAR).setRegistryName(LEGENDARY_JAR.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(COMMON_BARREL).setRegistryName(COMMON_BARREL.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(UNCOMMON_BARREL).setRegistryName(UNCOMMON_BARREL.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(RARE_BARREL).setRegistryName(RARE_BARREL.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(EPIC_BARREL).setRegistryName(EPIC_BARREL.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(LEGENDARY_BARREL).setRegistryName(LEGENDARY_BARREL.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(COMMON_CRATE).setRegistryName(COMMON_CRATE.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(UNCOMMON_CRATE).setRegistryName(UNCOMMON_CRATE.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(RARE_CRATE).setRegistryName(RARE_CRATE.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(EPIC_CRATE).setRegistryName(EPIC_CRATE.getRegistryName()));
-		event.getRegistry().register(new ItemBlock(LEGENDARY_CRATE).setRegistryName(LEGENDARY_CRATE.getRegistryName()));
+		
+		if ((boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment"))
+		{
+			event.getRegistry().register(new ItemBlock(COMMON_LOOT_CHEST).setRegistryName(COMMON_LOOT_CHEST.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(UNCOMMON_LOOT_CHEST).setRegistryName(UNCOMMON_LOOT_CHEST.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(RARE_LOOT_CHEST).setRegistryName(RARE_LOOT_CHEST.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(EPIC_LOOT_CHEST).setRegistryName(EPIC_LOOT_CHEST.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(LEGENDARY_LOOT_CHEST).setRegistryName(LEGENDARY_LOOT_CHEST.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(COMMON_JAR).setRegistryName(COMMON_JAR.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(UNCOMMON_JAR).setRegistryName(UNCOMMON_JAR.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(RARE_JAR).setRegistryName(RARE_JAR.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(EPIC_JAR).setRegistryName(EPIC_JAR.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(LEGENDARY_JAR).setRegistryName(LEGENDARY_JAR.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(COMMON_BARREL).setRegistryName(COMMON_BARREL.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(UNCOMMON_BARREL).setRegistryName(UNCOMMON_BARREL.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(RARE_BARREL).setRegistryName(RARE_BARREL.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(EPIC_BARREL).setRegistryName(EPIC_BARREL.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(LEGENDARY_BARREL).setRegistryName(LEGENDARY_BARREL.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(COMMON_CRATE).setRegistryName(COMMON_CRATE.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(UNCOMMON_CRATE).setRegistryName(UNCOMMON_CRATE.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(RARE_CRATE).setRegistryName(RARE_CRATE.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(EPIC_CRATE).setRegistryName(EPIC_CRATE.getRegistryName()));
+			event.getRegistry().register(new ItemBlock(LEGENDARY_CRATE).setRegistryName(LEGENDARY_CRATE.getRegistryName()));
+		}
 	}
 }

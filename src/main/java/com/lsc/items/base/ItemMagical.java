@@ -17,7 +17,6 @@ import com.lsc.network.PacketUpdateStats;
 import com.lsc.util.NBTHelper;
 import com.lsc.util.Reference;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -46,8 +45,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 public class ItemMagical extends Item
 {
-	private boolean isBonusActive = false; // controls whether or not player stats should update. See onUpdate
-	
 	private double baseDamage;
 	private double baseAttackSpeed;
 	private int manaPerUse;
@@ -88,31 +85,6 @@ public class ItemMagical extends Item
 				return 0;
 			}
 		});
-	}
-	
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected)
-	{
-		if (entity instanceof EntityPlayer)
-		{
-			EntityPlayer player = (EntityPlayer) entity;
-			PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-			
-			if (!world.isRemote && info != null && info.getPlayerLevel() >= NBTHelper.loadStackNBT(stack).getInteger("Level"))
-			{
-				if (selected && !isBonusActive)
-				{
-					//EventPlayerTick.updateStats(player, info, 1);
-					//isBonusActive = true;
-				}
-				
-				if (!selected && isBonusActive)
-				{
-					//EventPlayerTick.updateStats(player, info, 1);
-					//isBonusActive = false;
-				}
-			}
-		}
 	}
 	
 	@Override
