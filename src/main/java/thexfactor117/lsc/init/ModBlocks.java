@@ -79,10 +79,10 @@ public class ModBlocks
 			event.getRegistry().register(RARE_CRATE);
 			event.getRegistry().register(EPIC_CRATE);
 			event.getRegistry().register(LEGENDARY_CRATE);
+			
+			// register tile entities
+			GameRegistry.registerTileEntity(TileEntityLootChest.class, new ResourceLocation(Reference.MODID, "loot_chest"));
 		}
-		
-		// register tile entities
-		GameRegistry.registerTileEntity(TileEntityLootChest.class, new ResourceLocation(Reference.MODID, "loot_chest"));
 	}
 	
 	@SubscribeEvent

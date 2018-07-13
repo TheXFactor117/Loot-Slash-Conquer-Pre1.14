@@ -5,6 +5,17 @@
 
 
 #####
+### 0.6.1.2-alpha
+#####
+
++ Added Chinese and Russian translation files.
+* Fixed stats glitching health/mana when switching weapons/tools (not all cases were handled last update).
+* Fixed weapon attributes not firing correctly when attacking.
+* Small miscellaneous tweaks and fixes.
+
+
+
+#####
 ### 0.6.1.1-alpha
 #####
 
