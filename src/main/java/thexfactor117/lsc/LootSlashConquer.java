@@ -3,6 +3,8 @@ package thexfactor117.lsc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -21,6 +23,7 @@ import thexfactor117.lsc.init.ModWorldGenerators;
 import thexfactor117.lsc.proxies.ServerProxy;
 import thexfactor117.lsc.util.GuiHandler;
 import thexfactor117.lsc.util.Reference;
+import thexfactor117.lsc.util.ReflectionUtils;
 
 /**
  * 
@@ -49,6 +52,10 @@ public class LootSlashConquer
 		ModEntities.registerEntities();
 		ModLootFunctions.registerFunctions();
 		ModPackets.registerPackets();
+		
+		// change the max health and attack damage cap.
+		ReflectionUtils.setPrivateFinalValue(RangedAttribute.class, (RangedAttribute) SharedMonsterAttributes.MAX_HEALTH, 10000000, "maximumValue", "field_111118_b");
+		ReflectionUtils.setPrivateFinalValue(RangedAttribute.class, (RangedAttribute) SharedMonsterAttributes.ATTACK_DAMAGE, 100000, "maximumValue", "field_111118_b");
 		
 		proxy.preInit(event);
 	}
