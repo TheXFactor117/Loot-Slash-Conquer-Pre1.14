@@ -41,7 +41,7 @@ public enum EnemyTier
 	
 	public static EnemyTier getEnemyTier(EnemyInfo info)
 	{
-		switch (info.getEnemyLevel())
+		switch (info.getEnemyTier())
 		{
 			case 1:
 				return NORMAL;
