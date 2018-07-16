@@ -16,11 +16,10 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
-import thexfactor117.lsc.LootSlashConquer;
 import thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
 import thexfactor117.lsc.capabilities.implementation.Stats;
 import thexfactor117.lsc.loot.Attribute;
-import thexfactor117.lsc.util.ElementalDamageSource;
+import thexfactor117.lsc.util.LSCDamageSource;
 
 /**
  * 
@@ -40,13 +39,13 @@ public class WeaponUtils
 		}
 		if (Attribute.FROST.hasAttribute(nbt))
 		{
-			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, ElementalDamageSource.FROST), (float) Attribute.FROST.getAmount(nbt));
+			enemy.attackEntityFrom(LSCDamageSource.causeFrostDamage(attacker), (float) Attribute.FROST.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 			enemy.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 3, 5));
 		}
 		if (Attribute.LIGHTNING.hasAttribute(nbt))
 		{
-			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, ElementalDamageSource.LIGHTNING), (float) Attribute.LIGHTNING.getAmount(nbt));
+			enemy.attackEntityFrom(LSCDamageSource.causeLightningDamage(attacker), (float) Attribute.LIGHTNING.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 			
 			// remove half the lightning damage dealt from mana.
@@ -62,12 +61,11 @@ public class WeaponUtils
 		}
 		if (Attribute.POISON.hasAttribute(nbt)) 
 		{
-			enemy.attackEntityFrom(ElementalDamageSource.causeElementalDamage(attacker, ElementalDamageSource.POISON), (float) Attribute.POISON.getAmount(nbt));
+			enemy.attackEntityFrom(LSCDamageSource.causePoisonDamage(attacker), (float) Attribute.POISON.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
 		}
 		if (Attribute.LIFE_STEAL.hasAttribute(nbt)) 
 		{
-			LootSlashConquer.LOGGER.info("Testing Life Steal attribute.");
 			attacker.setHealth((float) (attacker.getHealth() + (damage * Attribute.LIFE_STEAL.getAmount(nbt))));
 		}
 		if (Attribute.MANA_STEAL.hasAttribute(nbt))
@@ -94,13 +92,13 @@ public class WeaponUtils
                 // IF PLAYER IS THE ATTACKER
 				if (entity instanceof EntityLivingBase && attacker instanceof EntityPlayer && !(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && !(entity instanceof EntitySlime))
 				{
-					entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), (float) (damage * 0.25));
+					entity.attackEntityFrom(LSCDamageSource.causeChainedDamage(attacker), (float) (damage * 0.25));
 					entity.hurtResistantTime = 0;
 				}
 				// IF A MOB IS THE ATTACKER
 				else if (entity instanceof EntityPlayer && attacker instanceof EntityMob)
 				{
-					entity.attackEntityFrom(DamageSource.causeMobDamage(attacker), (float) (damage * 0.25));
+					entity.attackEntityFrom(LSCDamageSource.causeChainedDamage(attacker), (float) (damage * 0.25));
 				}
 			}
 		}

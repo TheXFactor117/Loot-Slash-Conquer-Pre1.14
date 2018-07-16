@@ -174,6 +174,8 @@ public class ItemGeneratorHelper
 			double newArmor = getWeightedArmor(Rarity.getRarity(nbt), baseArmor);
 			double newToughness = getWeightedArmorToughness(Rarity.getRarity(nbt), baseToughness);
 			
+			nbt.setDouble("ArmorPoints", newArmor);
+			
 			// Creates new AttributeModifier's and applies them to the stack's NBT tag compound.
 			AttributeModifier armor = new AttributeModifier(ARMOR, "armor", newArmor, 0);
 			AttributeModifier toughness = new AttributeModifier(ARMOR_TOUGHNESS, "armorToughness", newToughness, 0);

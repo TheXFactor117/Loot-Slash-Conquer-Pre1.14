@@ -1,9 +1,16 @@
 package thexfactor117.lsc.player;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import thexfactor117.lsc.LootSlashConquer;
 import thexfactor117.lsc.capabilities.implementation.PlayerInformation;
 import thexfactor117.lsc.capabilities.implementation.Stats;
 import thexfactor117.lsc.config.Configs;
+import thexfactor117.lsc.loot.Attribute;
+import thexfactor117.lsc.util.LSCDamageSource;
+import thexfactor117.lsc.util.NBTHelper;
 
 /**
  *
@@ -56,6 +63,43 @@ public class DamageUtils
 		}
 		
 		return damage;
+	}
+	
+	public static double applyArmorReductions(double damage, EntityPlayer player, PlayerInformation playerInfo)
+	{
+		double totalArmorPoints = 0;
+		
+		// checks total armor points
+		for (ItemStack stack : player.getArmorInventoryList())
+		{
+			if (stack.getItem() instanceof ItemArmor)
+			{
+				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+				totalArmorPoints += nbt.getDouble("ArmorPoints");
+			}
+		}
+		LootSlashConquer.LOGGER.info("Total Armor: " + totalArmorPoints);
+		
+		return damage * (damage / (damage + totalArmorPoints));
+	}
+	
+	public static double applyElementalResistance(double damage, LSCDamageSource source, EntityPlayer player)
+	{
+		double reducedDamage = damage;
+		
+		for (ItemStack stack : player.getArmorInventoryList())
+		{
+			if (stack.getItem() instanceof ItemArmor)
+			{
+				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+
+				if (source.isFireDamage() && Attribute.FIRE_RESIST.hasAttribute(nbt)) reducedDamage *= Attribute.FIRE_RESIST.getAmount(nbt);
+				else if (source.isFrostDamage() && Attribute.FROST_RESIST.hasAttribute(nbt)) reducedDamage *= Attribute.FROST_RESIST.getAmount(nbt);
+				else if (source.isLightningDamage() && Attribute.LIGHTNING_RESIST.hasAttribute(nbt)) reducedDamage *= Attribute.LIGHTNING_RESIST.getAmount(nbt);
+			}
+		}
+		
+		return reducedDamage;
 	}
 	
 	// TODO: if power is less than 1 (decimal), set to zero to prevent the decimal being added on as extra damage.
