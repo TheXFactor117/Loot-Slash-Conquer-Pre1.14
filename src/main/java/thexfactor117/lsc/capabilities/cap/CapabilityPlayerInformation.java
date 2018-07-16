@@ -18,6 +18,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent;
 import thexfactor117.lsc.LootSlashConquer;
 import thexfactor117.lsc.capabilities.api.IPlayerInformation;
 import thexfactor117.lsc.capabilities.implementation.PlayerInformation;
@@ -126,14 +127,15 @@ public class CapabilityPlayerInformation
 			}
 		}
 		
+		// handles synchronizing data when the player dies and respawns (or comes back via the end gateway)
 		@SubscribeEvent
 		public static void playerClone(PlayerEvent.Clone event) 
 		{
 			IPlayerInformation oldInfo = getPlayerInformation(event.getOriginal());
 			IPlayerInformation newInfo = getPlayerInformation(event.getEntityLiving());
-
+			
 			if (newInfo != null && oldInfo != null)
-			{
+			{	
 				newInfo.setPlayerClass(oldInfo.getPlayerClass());
 				newInfo.setPlayerLevel(oldInfo.getPlayerLevel());
 				newInfo.setPlayerExperience(oldInfo.getPlayerExperience());
@@ -155,6 +157,18 @@ public class CapabilityPlayerInformation
 				newInfo.setBonusFortitudeStat(oldInfo.getBonusFortitudeStat());
 
 				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation((PlayerInformation) newInfo), (EntityPlayerMP) event.getEntityLiving());
+			}
+		}
+		
+		@SubscribeEvent
+		public static void onPlayerChangeDimension(PlayerChangedDimensionEvent event)
+		{
+			EntityPlayer player = event.player;
+			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			
+			if (playerInfo != null)
+			{
+				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) player);
 			}
 		}
 		

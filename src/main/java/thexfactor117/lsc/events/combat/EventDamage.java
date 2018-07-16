@@ -7,7 +7,6 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -85,7 +84,7 @@ public class EventDamage
 			if (event.getEntityLiving() instanceof EntityPlayer && (event.getSource().getTrueSource() instanceof EntityLivingBase || (event.getSource() instanceof LSCDamageSource) || event.getSource().isFireDamage()))
 			{
 				EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-				EntityLivingBase enemy = (EntityLivingBase) event.getSource().getTrueSource();
+				//EntityLivingBase enemy = (EntityLivingBase) event.getSource().getTrueSource();
 				PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 				Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
 				
