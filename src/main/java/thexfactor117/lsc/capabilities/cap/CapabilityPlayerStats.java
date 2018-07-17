@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
@@ -17,8 +18,11 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent;
+import thexfactor117.lsc.LootSlashConquer;
 import thexfactor117.lsc.capabilities.api.IStats;
 import thexfactor117.lsc.capabilities.implementation.Stats;
+import thexfactor117.lsc.network.PacketUpdateStats;
 import thexfactor117.lsc.util.CapabilityUtils;
 import thexfactor117.lsc.util.Reference;
 import thexfactor117.lsc.util.SimpleCapabilityProvider;
@@ -120,6 +124,18 @@ public class CapabilityPlayerStats
 				
 				newStats.setCriticalChance(oldStats.getCriticalChance());
 				newStats.setCriticalDamage(oldStats.getCriticalDamage());
+			}
+		}
+		
+		@SubscribeEvent
+		public static void onPlayerChangeDimension(PlayerChangedDimensionEvent event)
+		{
+			EntityPlayer player = event.player;
+			Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+			
+			if (stats != null)
+			{
+				LootSlashConquer.network.sendTo(new PacketUpdateStats(stats), (EntityPlayerMP) player);
 			}
 		}
 	}
