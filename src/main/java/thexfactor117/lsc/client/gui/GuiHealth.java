@@ -48,7 +48,8 @@ public class GuiHealth extends Gui
 			
 			if (event.getType() == ElementType.ARMOR)
 			{
-				GuiIngameForge.left_height = 49;
+				event.setCanceled(true);
+				//GuiIngameForge.left_height = 49;
 			}
 			
 			if (event.getType() == ElementType.FOOD)

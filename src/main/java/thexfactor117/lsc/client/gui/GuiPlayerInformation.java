@@ -8,7 +8,6 @@ import java.util.List;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.client.config.HoverChecker;
@@ -19,6 +18,7 @@ import thexfactor117.lsc.capabilities.implementation.PlayerInformation;
 import thexfactor117.lsc.capabilities.implementation.Stats;
 import thexfactor117.lsc.config.Configs;
 import thexfactor117.lsc.network.PacketUpdateIncreaseStat;
+import thexfactor117.lsc.player.DamageUtils;
 import thexfactor117.lsc.player.PlayerStatUtils;
 
 /**
@@ -103,14 +103,14 @@ public class GuiPlayerInformation extends GuiScreen
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.playerdamage") + ": " + TextFormatting.WHITE + "+" + format.format(playerDamage), this.width / 2 - 160, 140, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.magicalpower") + ": " + TextFormatting.WHITE + "+" + format.format(magicalPower), this.width / 2 - 160, 150, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + format.format((Configs.playerCategory.attackSpeedMultiplier* (playerInfo.getTotalAgility()))), this.width / 2 - 160, 160, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR).getAttributeValue()), this.width / 2 - 160, 170, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.toughness") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue()), this.width / 2 - 160, 180, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critchance") + ": " + TextFormatting.WHITE + ((int) (statsCap.getCriticalChance() * 100)) + "%", this.width / 2 - 160, 190, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critdamage") + ": " + TextFormatting.WHITE + ((int) (statsCap.getCriticalDamage() * 100)) + "%", this.width / 2 - 160, 200, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.health") + ": " + TextFormatting.WHITE + "+" + (int) (Configs.playerCategory.maxHealthMultiplier * (playerInfo.getTotalFortitude())), this.width / 2 - 160, 210, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.hp5") + ": " + TextFormatting.WHITE + statsCap.getHealthPerSecond(), this.width / 2 - 160, 220, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mana") + ": " + TextFormatting.WHITE + "+" + (int) (Configs.playerCategory.maxManaMultiplier * (playerInfo.getTotalWisdom())), this.width / 2 - 160, 230, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mp5") + ": " + TextFormatting.WHITE + statsCap.getManaPerSecond(), this.width / 2 - 160, 240, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(DamageUtils.getTotalArmor(player, playerInfo)), this.width / 2 - 160, 170, 0xFFFFFF);
+			//this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.toughness") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue()), this.width / 2 - 160, 180, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critchance") + ": " + TextFormatting.WHITE + ((int) (statsCap.getCriticalChance() * 100)) + "%", this.width / 2 - 160, 180, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critdamage") + ": " + TextFormatting.WHITE + ((int) (statsCap.getCriticalDamage() * 100)) + "%", this.width / 2 - 160, 190, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.health") + ": " + TextFormatting.WHITE + "+" + (int) (Configs.playerCategory.maxHealthMultiplier * (playerInfo.getTotalFortitude())), this.width / 2 - 160, 200, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.hp5") + ": " + TextFormatting.WHITE + statsCap.getHealthPerSecond(), this.width / 2 - 160, 210, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mana") + ": " + TextFormatting.WHITE + "+" + (int) (Configs.playerCategory.maxManaMultiplier * (playerInfo.getTotalWisdom())), this.width / 2 - 160, 220, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mp5") + ": " + TextFormatting.WHITE + statsCap.getManaPerSecond(), this.width / 2 - 160, 230, 0xFFFFFF);
 		
 			drawTooltips(mouseX, mouseY);
 		}

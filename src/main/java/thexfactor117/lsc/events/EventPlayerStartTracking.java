@@ -73,7 +73,7 @@ public class EventPlayerStartTracking
 	{
 		double baseDamage = entity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getBaseValue();
 		double baseHealth = entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue();
-		double damageMultiplier = (Math.pow(Configs.monsterLevelTierCategory.damageBaseFactor, level) * (baseDamage + (Math.pow(tier, Configs.monsterLevelTierCategory.damageTierPower))) - (baseDamage * 2));
+		double damageMultiplier = (Math.pow(Configs.monsterLevelTierCategory.damageBaseFactor, level) * (baseDamage + (Math.pow(tier, Configs.monsterLevelTierCategory.damageTierPower))));
 		double healthMultiplier = (Math.pow(Configs.monsterLevelTierCategory.healthBaseFactor, level) * (baseHealth + (Math.pow(tier, Configs.monsterLevelTierCategory.healthTierPower))) - (baseHealth * 2));
 		
 		AttributeModifier attackDamage = new AttributeModifier(ATTACK_DAMAGE, "attackDamage", damageMultiplier, 0);

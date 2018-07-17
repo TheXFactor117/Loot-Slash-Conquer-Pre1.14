@@ -35,7 +35,6 @@ public class ItemGeneratorHelper
 	private static final UUID ATTACK_DAMAGE = UUID.fromString("06dbc47d-eaf1-4604-9b91-926e475012c2");
 	private static final UUID ATTACK_SPEED = UUID.fromString("335ede30-242d-41b6-a4f7-dd24ed2adce5");
 	private static final UUID ARMOR = UUID.fromString("81a2ee21-fe83-41fb-8b2f-bf5ef33a71a8");
-	private static final UUID ARMOR_TOUGHNESS = UUID.fromString("2cdb1e5e-3937-41e1-98a4-6a6eac2cf458");
 	
 	public static Random rand = new Random();
 	
@@ -165,25 +164,18 @@ public class ItemGeneratorHelper
 		{
 			Multimap<String, AttributeModifier> map = ((ItemArmor) item).getAttributeModifiers(((ItemArmor) item).armorType, stack);
 			Collection<AttributeModifier> armorCollection = map.get(SharedMonsterAttributes.ARMOR.getName());
-			Collection<AttributeModifier> toughnessCollection = map.get(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName());
 			AttributeModifier armorModifier = (AttributeModifier) armorCollection.toArray()[0];
-			AttributeModifier toughnessModifier = (AttributeModifier) toughnessCollection.toArray()[0];
 			
 			double baseArmor = armorModifier.getAmount();
-			double baseToughness = toughnessModifier.getAmount();
-			double newArmor = getWeightedArmor(Rarity.getRarity(nbt), baseArmor);
-			double newToughness = getWeightedArmorToughness(Rarity.getRarity(nbt), baseToughness);
+			double newArmor = getWeightedArmor(Rarity.getRarity(nbt), nbt.getInteger("Level"), baseArmor);
 			
 			nbt.setDouble("ArmorPoints", newArmor);
 			
 			// Creates new AttributeModifier's and applies them to the stack's NBT tag compound.
 			AttributeModifier armor = new AttributeModifier(ARMOR, "armor", newArmor, 0);
-			AttributeModifier toughness = new AttributeModifier(ARMOR_TOUGHNESS, "armorToughness", newToughness, 0);
 			NBTTagCompound armorNbt = writeAttributeModifierToNBT(SharedMonsterAttributes.ARMOR, armor, ((ItemArmor) item).armorType);
-			NBTTagCompound toughnessNbt = writeAttributeModifierToNBT(SharedMonsterAttributes.ARMOR_TOUGHNESS, toughness, ((ItemArmor) item).armorType);
 			NBTTagList list = new NBTTagList();
 			list.appendTag(armorNbt);
-			list.appendTag(toughnessNbt);
 			nbt.setTag("AttributeModifiers", list);
 		}
 	}
@@ -297,75 +289,28 @@ public class ItemGeneratorHelper
 	}
 	
 	// TODO: add armor values to config.
-	public static double getWeightedArmor(Rarity rarity, double base)
+	public static double getWeightedArmor(Rarity rarity, int level, double base)
 	{
-		double armor = base;
-		double range = 0;
+		double baseFactor = 1.05;
+		double minRandFactor = 0.5;
+		double maxRandFactor = 0.7;
+		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
 		
-		if (rarity == Rarity.COMMON)
+		switch (rarity)
 		{
-			range = 0.2;
-			armor = Math.random() * range + (base - 0.2);
+			case COMMON:
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.commonFactor * multiplier)));
+			case UNCOMMON:
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.uncommonFactor * multiplier)));
+			case RARE:
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.rareFactor * multiplier)));
+			case EPIC:
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.epicFactor * multiplier)));
+			case LEGENDARY:
+				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.legendaryFactor * multiplier)));
+			default:
+				return base;
 		}
-		else if (rarity == Rarity.UNCOMMON)
-		{
-			range = 0.3;
-			armor = Math.random() * range + (base - 0.1);
-		}
-		else if (rarity == Rarity.RARE)
-		{
-			range = 0.5;
-			armor = Math.random() * range + (base);
-		}
-		else if (rarity == Rarity.EPIC)
-		{
-			range = 0.7;
-			armor = Math.random() * range + (base + 0.1);
-		}
-		else if (rarity == Rarity.LEGENDARY)
-		{
-			range = 1;
-			armor = Math.random() * range + (base + 0.2);
-		}
-		
-		return armor;
-	}
-	
-	// TODO: add armor toughness to config.
-	public static double getWeightedArmorToughness(Rarity rarity, double base)
-	{
-		double toughness = base;
-		double range = 0;
-		
-		if (rarity == Rarity.COMMON)
-		{
-			toughness = 0;
-		}
-		else if (rarity == Rarity.UNCOMMON)
-		{
-			range = 0.2;
-			toughness = Math.random() * range + (base - 0.1);
-		}
-		else if (rarity == Rarity.RARE)
-		{
-			range = 0.4;
-			toughness = Math.random() * range + (base);
-		}
-		else if (rarity == Rarity.EPIC)
-		{
-			range = 0.7;
-			toughness = Math.random() * range + (base + 0.1);
-		}
-		else if (rarity == Rarity.LEGENDARY)
-		{
-			range = 1;
-			toughness = Math.random() * range + (base + 0.2);
-		}
-		
-		if (toughness < 0)
-			toughness = 0;
-		
-		return toughness;
 	}
 	
 	/**

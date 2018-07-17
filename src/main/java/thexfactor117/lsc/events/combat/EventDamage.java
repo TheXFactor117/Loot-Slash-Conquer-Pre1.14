@@ -101,11 +101,11 @@ public class EventDamage
 					// if it isn't elemental damage, let's apply armor reductions (so elemental damage bypasses armor).
 					else
 					{
-						//LootSlashConquer.LOGGER.info("Applying armor reductions.");
-						//LootSlashConquer.LOGGER.info("Before reduction: " + event.getAmount());
+						LootSlashConquer.LOGGER.info("Applying armor reductions.");
+						LootSlashConquer.LOGGER.info("Before reduction: " + event.getAmount());
 						double damage = DamageUtils.applyArmorReductions(event.getAmount(), player, playerInfo);
 						event.setAmount((float) damage);
-						//LootSlashConquer.LOGGER.info("After reduction: " + event.getAmount());
+						LootSlashConquer.LOGGER.info("After reduction: " + event.getAmount());
 						
 						// loop through all armor pieces to use the durability attribute
 						for (ItemStack stack : player.getArmorInventoryList())

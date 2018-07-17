@@ -4,7 +4,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import thexfactor117.lsc.LootSlashConquer;
 import thexfactor117.lsc.capabilities.implementation.PlayerInformation;
 import thexfactor117.lsc.capabilities.implementation.Stats;
 import thexfactor117.lsc.config.Configs;
@@ -66,21 +65,8 @@ public class DamageUtils
 	}
 	
 	public static double applyArmorReductions(double damage, EntityPlayer player, PlayerInformation playerInfo)
-	{
-		double totalArmorPoints = 0;
-		
-		// checks total armor points
-		for (ItemStack stack : player.getArmorInventoryList())
-		{
-			if (stack.getItem() instanceof ItemArmor)
-			{
-				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				totalArmorPoints += nbt.getDouble("ArmorPoints");
-			}
-		}
-		LootSlashConquer.LOGGER.info("Total Armor: " + totalArmorPoints);
-		
-		return damage * (damage / (damage + totalArmorPoints));
+	{	
+		return damage * (damage / (damage + getTotalArmor(player, playerInfo)));
 	}
 	
 	public static double applyElementalResistance(double damage, LSCDamageSource source, EntityPlayer player)
@@ -121,5 +107,22 @@ public class DamageUtils
 	{
 		double multiplier = (Math.random() * (Configs.weaponCategory.damageMaxRandFactor - Configs.weaponCategory.damageMinRandFactor) + Configs.weaponCategory.damageMinRandFactor);
 		return (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getTotalIntelligence()) * (0.85 * multiplier);
+	}
+	
+	public static double getTotalArmor(EntityPlayer player, PlayerInformation playerInfo)
+	{
+		double totalArmorPoints = 0;
+		
+		// checks total armor points
+		for (ItemStack stack : player.getArmorInventoryList())
+		{
+			if (stack.getItem() instanceof ItemArmor)
+			{
+				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+				totalArmorPoints += nbt.getDouble("ArmorPoints");
+			}
+		}
+		
+		return totalArmorPoints;
 	}
 }

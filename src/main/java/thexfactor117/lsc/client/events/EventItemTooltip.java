@@ -151,13 +151,9 @@ public class EventItemTooltip
 		tooltip.add("");
 		
 		// Armor and Toughness
-		NBTTagList taglist = nbt.getTagList("AttributeModifiers", 10);
-		NBTTagCompound armorNbt = taglist.getCompoundTagAt(0);
-		NBTTagCompound toughnessNbt = taglist.getCompoundTagAt(1);
 		DecimalFormat format = new DecimalFormat("#.##");
 		
-		tooltip.add(TextFormatting.BLUE + " +" + format.format(armorNbt.getDouble("Amount")) + " Armor");
-		tooltip.add(TextFormatting.BLUE + " +" + format.format(toughnessNbt.getDouble("Amount")) + " Armor Toughness");
+		tooltip.add(TextFormatting.BLUE + " +" + format.format(nbt.getDouble("ArmorPoints")) + " Armor");
 		tooltip.add("");
 		
 		// Durability

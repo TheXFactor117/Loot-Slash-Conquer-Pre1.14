@@ -477,7 +477,7 @@ public class Configs
 		@Comment({
 			"Only change this if you know how the algorithm works. Small changes can screw things up.",
 			"Sets the base factor for the damage scaling algorithm.",
-			"If you change this, make it small changes. 1.08 is a SIGNFICANT change, for example."
+			"If you change this, make it small changes. 1.1 is a SIGNFICANT change, for example."
 		})
 		public double damageBaseFactor = 1.06;
 		
