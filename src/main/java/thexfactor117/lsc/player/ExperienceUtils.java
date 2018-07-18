@@ -24,6 +24,12 @@ import thexfactor117.lsc.network.PacketUpdatePlayerInformation;
  */
 public class ExperienceUtils 
 {
+	/** Returns the amount of experience needed to level up given the current level. */
+	public static int getLevelUpExperience(int currentLevel) 
+	{
+		return (int) (Math.pow(currentLevel + 1, Configs.playerCategory.levelUpExpPower) + Configs.playerCategory.levelUpAdditive);
+	}
+	
 	public static void addExperience(EntityPlayer player, PlayerInformation playerInfo, EntityLivingBase enemy)
 	{
 		int experience = 0;
@@ -61,9 +67,9 @@ public class ExperienceUtils
 		SPacketTitle packetActionbar = new SPacketTitle(SPacketTitle.Type.ACTIONBAR, new TextComponentString("You killed " + enemy.getName() + " and gained " + experience + " experience!"), -1, -1, -1);
 		((EntityPlayerMP) player).connection.sendPacket(packetActionbar);
 		
-		while (playerInfo.getPlayerExperience() > playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel())) 
+		while (playerInfo.getPlayerExperience() > getLevelUpExperience(playerInfo.getPlayerLevel())) 
 		{
-			int leftOverExperience = playerInfo.getPlayerExperience() - playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel());
+			int leftOverExperience = playerInfo.getPlayerExperience() - getLevelUpExperience(playerInfo.getPlayerLevel());
 			int skillPoints = 0;
 			
 			playerInfo.setPlayerLevel(playerInfo.getPlayerLevel() + 1); // increase level

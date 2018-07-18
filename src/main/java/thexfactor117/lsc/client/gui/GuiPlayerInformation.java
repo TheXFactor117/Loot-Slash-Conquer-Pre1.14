@@ -19,6 +19,7 @@ import thexfactor117.lsc.capabilities.implementation.Stats;
 import thexfactor117.lsc.config.Configs;
 import thexfactor117.lsc.network.PacketUpdateIncreaseStat;
 import thexfactor117.lsc.player.DamageUtils;
+import thexfactor117.lsc.player.ExperienceUtils;
 import thexfactor117.lsc.player.PlayerStatUtils;
 
 /**
@@ -71,8 +72,8 @@ public class GuiPlayerInformation extends GuiScreen
 			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.class") + ": " + I18n.format("gui.playerinfo.class." + playerInfo.getPlayerClass()), this.width / 2 - 50, 40, 0xFFFFFF); // level
 			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.level") + ": " + playerInfo.getPlayerLevel(), this.width / 2 - 50, 50, 0xFFFFFF); // level
 			
-			String experience = I18n.format("gui.playerinfo.experience") + ": " + playerInfo.getPlayerExperience() + " / " + playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel());
-			double percent = (((double) playerInfo.getPlayerExperience() * 100) / (double) (playerInfo.getLevelUpExperience(playerInfo.getPlayerLevel())));
+			String experience = I18n.format("gui.playerinfo.experience") + ": " + playerInfo.getPlayerExperience() + " / " + ExperienceUtils.getLevelUpExperience(playerInfo.getPlayerLevel());
+			double percent = (((double) playerInfo.getPlayerExperience() * 100) / (double) (ExperienceUtils.getLevelUpExperience(playerInfo.getPlayerLevel())));
 			String percentString = "  (" + String.format("%.0f%%", percent) + ")";
 			this.drawString(this.fontRenderer, experience + percentString, this.width / 2 - 50, 60, 0xFFFFFF); // experience
 			

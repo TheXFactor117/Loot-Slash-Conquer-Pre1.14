@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 
 import net.minecraft.entity.EntityLivingBase;
 import thexfactor117.lsc.capabilities.api.IPlayerInformation;
-import thexfactor117.lsc.config.Configs;
 
 /**
  * 
@@ -39,12 +38,6 @@ public class PlayerInformation implements IPlayerInformation
 	public PlayerInformation(@Nullable EntityLivingBase entity)
 	{
 		this.entity = entity;
-	}
-	
-	/** Returns the amount of experience needed to level up given the current level. */
-	public int getLevelUpExperience(int currentLevel) 
-	{
-		return (int) (Math.pow(currentLevel + 1, Configs.playerCategory.levelUpExpPower) + Configs.playerCategory.levelUpAdditive);
 	}
 	
 	/** Sets all bonus stats to zero. */

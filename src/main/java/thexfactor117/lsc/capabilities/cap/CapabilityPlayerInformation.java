@@ -108,7 +108,7 @@ public class CapabilityPlayerInformation
 		return CapabilityUtils.getCapability(entity, PLAYER_INFORMATION, DEFAULT_FACING);
 	}
 	
-	public static ICapabilityProvider createProvider(IPlayerInformation playerInfo) 
+	public static ICapabilityProvider createProvider(IPlayerInformation playerInfo)
 	{
 		return new SimpleCapabilityProvider<>(PLAYER_INFORMATION, DEFAULT_FACING, playerInfo);
 	}
