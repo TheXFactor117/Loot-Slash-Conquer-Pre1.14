@@ -142,13 +142,19 @@ public class DamageUtils
 		return (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getTotalIntelligence()) * (0.85 * multiplier);
 	}
 	
+	public static double getPhysicalResistance(PlayerInformation playerInfo)
+	{
+		double multiplier = (Math.random() * (Configs.weaponCategory.damageMaxRandFactor - Configs.weaponCategory.damageMinRandFactor) + Configs.weaponCategory.damageMinRandFactor);
+		return (Math.pow(1.05, playerInfo.getPlayerLevel()) + playerInfo.getTotalStrength()) * (0.85 * multiplier);
+	}
+	
 	/**
 	 * Returns the total number of Armor Points on all the equipped pieces of armor the player currently has.
 	 * @param player
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double getTotalArmor(EntityPlayer player, PlayerInformation playerInfo)
+	public static double getEquippedArmor(EntityPlayer player, PlayerInformation playerInfo)
 	{
 		double totalArmorPoints = 0;
 		
@@ -163,5 +169,16 @@ public class DamageUtils
 		}
 		
 		return totalArmorPoints;
+	}
+	
+	/**
+	 * Returns the total amount of Armor Points for a player, includding equipped Armor and Physical Resistance.
+	 * @param player
+	 * @param playerInfo
+	 * @return
+	 */
+	public static double getTotalArmor(EntityPlayer player, PlayerInformation playerInfo)
+	{
+		return getEquippedArmor(player, playerInfo) + getPhysicalResistance(playerInfo);
 	}
 }
