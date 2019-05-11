@@ -63,6 +63,9 @@ public class Configs
 		@Comment("If false, ALL Tower Dungeons world generation will be cancelled.")
 		public boolean enableTowerGeneration = true;
 		
+		@Comment("Sets the max level an area can be. Avoid using high numbers because it can cause issues. Test carefully.")
+		public int maxAreaLevel = 100;
+		
 		@Comment({
 			"Sets the amount of chunks needed to increase the Area Level.",
 			"For example, by default, Area Level will increase every 10 chunks",

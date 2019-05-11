@@ -174,7 +174,8 @@ public class CapabilityChunkLevel
 				else
 				{
 					double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
-					return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.overworldStartingAreaLevel);
+					int level = (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.overworldStartingAreaLevel);
+					return level <= 100 ? level : 100;
 				}
 			}
 			// nether
@@ -187,7 +188,8 @@ public class CapabilityChunkLevel
 				else
 				{
 					double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
-					return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.netherStartingAreaLevel);
+					int level = (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.netherStartingAreaLevel);
+					return level <= 100 ? level : 100;
 				}
 			}
 			// end
@@ -200,7 +202,8 @@ public class CapabilityChunkLevel
 				else
 				{
 					double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
-					return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.endStartingAreaLevel);
+					int level = (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.endStartingAreaLevel);
+					return level <= 100 ? level : 100;
 				}
 			}
 			// modded dimensions
@@ -213,7 +216,8 @@ public class CapabilityChunkLevel
 				else
 				{
 					double distance = Math.sqrt(Math.pow(pos.x - spawnChunk.x, 2) + Math.pow(pos.z - spawnChunk.z, 2));
-					return (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.defaultDimensionAreaLevel);
+					int level = (int) (distance / Configs.worldgenCategory.chunksPerAreaLevel + Configs.worldgenCategory.defaultDimensionAreaLevel);
+					return level <= 100 ? level : 100;
 				}
 			}
 		}
