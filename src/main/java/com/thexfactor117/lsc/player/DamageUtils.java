@@ -1,12 +1,17 @@
 package com.thexfactor117.lsc.player;
 
+import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
 import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.config.Configs;
+import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.util.LSCDamageSource;
 import com.thexfactor117.lsc.util.NBTHelper;
 
+import baubles.api.BaublesApi;
+import baubles.api.cap.BaublesCapabilities;
+import baubles.api.cap.IBaublesItemHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -75,6 +80,7 @@ public class DamageUtils
 	 */
 	public static double applyArmorReductions(double damage, EntityPlayer player, PlayerInformation playerInfo)
 	{	
+		LootSlashConquer.LOGGER.info("Total Armor: " + getTotalArmor(player, playerInfo));
 		return damage * (damage / (damage + getTotalArmor(player, playerInfo)));
 	}
 	
@@ -89,23 +95,46 @@ public class DamageUtils
 	{
 		double reducedDamage = damage;
 		
+		// reductions for armor
 		for (ItemStack stack : player.getArmorInventoryList())
 		{
 			if (stack.getItem() instanceof ItemArmor)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 
-				if (source.isFireDamage() && Attribute.FIRE_RESIST.hasAttribute(nbt)) reducedDamage *= Attribute.FIRE_RESIST.getAmount(nbt);
-				else if (source.isFrostDamage() && Attribute.FROST_RESIST.hasAttribute(nbt)) reducedDamage *= Attribute.FROST_RESIST.getAmount(nbt);
-				else if (source.isLightningDamage() && Attribute.LIGHTNING_RESIST.hasAttribute(nbt)) reducedDamage *= Attribute.LIGHTNING_RESIST.getAmount(nbt);
+				if (source.isFireDamage() && Attribute.FIRE_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.FIRE_RESIST.getAmount(nbt) * damage);
+				else if (source.isFrostDamage() && Attribute.FROST_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.FROST_RESIST.getAmount(nbt) * damage);
+				else if (source.isLightningDamage() && Attribute.LIGHTNING_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.LIGHTNING_RESIST.getAmount(nbt) * damage);
+				else if (source.isPoisonDamage() && Attribute.POISON_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.POISON_RESIST.getAmount(nbt) * damage);
 			}
 		}
 		
-		return reducedDamage;
+		// reductions for baubles
+		if (player.hasCapability(BaublesCapabilities.CAPABILITY_BAUBLES, null))
+		{
+			IBaublesItemHandler baubles = BaublesApi.getBaublesHandler(player);
+			
+			for (int i = 0; i < baubles.getSlots(); i++)
+			{
+				if (baubles.getStackInSlot(i).getItem() instanceof ItemBauble)
+				{
+					NBTTagCompound nbt = NBTHelper.loadStackNBT(baubles.getStackInSlot(i));
+					
+					if (source.isFireDamage() && Attribute.FIRE_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.FIRE_RESIST.getAmount(nbt) * damage);
+					else if (source.isFrostDamage() && Attribute.FROST_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.FROST_RESIST.getAmount(nbt) * damage);
+					else if (source.isLightningDamage() && Attribute.LIGHTNING_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.LIGHTNING_RESIST.getAmount(nbt) * damage);
+					else if (source.isPoisonDamage() && Attribute.POISON_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.POISON_RESIST.getAmount(nbt) * damage);
+				}
+			}
+		}
+		
+		return reducedDamage >= 0 ? reducedDamage : 0;
 	}
 	
 	// TODO: if power is less than 1 (decimal), set to zero to prevent the decimal being added on as extra damage.
 	// not too important but still a thing.
+	//
+	// Wtf was the written for???
 	
 	/**
 	 * Returns the player's raw melee power. This will take the player's Strength stat and run it through an algorithm
@@ -145,8 +174,7 @@ public class DamageUtils
 	
 	public static double getPhysicalResistance(PlayerInformation playerInfo)
 	{
-		double multiplier = (Math.random() * (Configs.weaponCategory.damageMaxRandFactor - Configs.weaponCategory.damageMinRandFactor) + Configs.weaponCategory.damageMinRandFactor);
-		return (Math.pow(1.05, playerInfo.getPlayerLevel()) + playerInfo.getTotalStrength()) * (0.85 * multiplier);
+		return (Math.pow(1.05, playerInfo.getPlayerLevel()) + playerInfo.getTotalStrength()) * (0.85 * 0.8);
 	}
 	
 	/**
@@ -165,7 +193,11 @@ public class DamageUtils
 			if (stack.getItem() instanceof ItemArmor)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				totalArmorPoints += nbt.getDouble("ArmorPoints");
+				
+				if (nbt.getInteger("Level") <= playerInfo.getPlayerLevel())
+				{
+					totalArmorPoints += nbt.getDouble("ArmorPoints");
+				}
 			}
 		}
 		

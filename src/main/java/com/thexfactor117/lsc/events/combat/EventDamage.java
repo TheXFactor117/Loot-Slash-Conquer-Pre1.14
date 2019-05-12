@@ -1,6 +1,5 @@
 package com.thexfactor117.lsc.events.combat;
 
-import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
@@ -41,11 +40,6 @@ public class EventDamage
 	{
 		if (!event.getEntityLiving().world.isRemote)
 		{
-			if (event.getSource() instanceof LSCDamageSource)
-			{
-				
-			}
-			
 			/* 
 			 * Player attacks Player/Monster
 			 * -----------------------------
@@ -90,34 +84,29 @@ public class EventDamage
 			{
 				EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 				//EntityLivingBase enemy = (EntityLivingBase) event.getSource().getTrueSource();
-				PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-				PlayerStats stats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+				PlayerInformation playerinfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+				PlayerStats playerstats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 				
-				if (playerInfo != null && stats != null)
+				if (playerinfo != null && playerstats != null)
 				{
-					LootSlashConquer.LOGGER.info("Player is being attacked..." + event.getSource().damageType);
-					
 					// check if the damage is elemental damage
-					if ((event.getSource() instanceof LSCDamageSource || event.getSource().isFireDamage()) || (event.getSource() instanceof LSCDamageSource && ((LSCDamageSource) event.getSource()).isChainedDamage()))
+					if ((event.getSource() instanceof LSCDamageSource || event.getSource().isFireDamage()) && (event.getSource() instanceof LSCDamageSource && !((LSCDamageSource) event.getSource()).isChainedDamage()))
 					{
 						double damage = DamageUtils.applyElementalResistance(event.getAmount(), (LSCDamageSource) event.getSource(), player);
-						event.setAmount((float) damage);						
+						event.setAmount((float) damage);					
 					}
 					// if it isn't elemental damage, let's apply armor reductions (so elemental damage bypasses armor).
 					else
 					{
-						LootSlashConquer.LOGGER.info("Applying armor reductions.");
-						LootSlashConquer.LOGGER.info("Before reduction: " + event.getAmount());
-						double damage = DamageUtils.applyArmorReductions(event.getAmount(), player, playerInfo);
+						double damage = DamageUtils.applyArmorReductions(event.getAmount(), player, playerinfo);
 						event.setAmount((float) damage);
-						LootSlashConquer.LOGGER.info("After reduction: " + event.getAmount());
 						
 						// loop through all armor pieces to use the durability attribute
 						for (ItemStack stack : player.getArmorInventoryList())
 						{
 							NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 							
-							if (Attribute.DURABLE.hasAttribute(nbt) && Math.random() < Attribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
+							if (Attribute.DURABLE.hasAttribute(nbt) && Math.random() < Attribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() - 1);
 						}
 					}
 				}
