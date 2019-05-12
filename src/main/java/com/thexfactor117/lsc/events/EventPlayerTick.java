@@ -4,12 +4,12 @@ import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
-import com.thexfactor117.lsc.network.PacketUpdateStats;
+import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
 import com.thexfactor117.lsc.util.NBTHelper;
 
@@ -61,7 +61,7 @@ public class EventPlayerTick
 			
 			if (regenTicks % 100 == 0)
 			{
-				Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);
+				PlayerStats statsCap = (PlayerStats) event.player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 				
 				if (statsCap != null)
 				{
@@ -75,7 +75,7 @@ public class EventPlayerTick
 						event.player.heal(statsCap.getHealthPerSecond());
 					}
 					
-					LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
+					LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) event.player);
 				}
 				
 				regenTicks = 0;

@@ -4,11 +4,11 @@ import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.network.PacketClassGui;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
-import com.thexfactor117.lsc.network.PacketUpdateStats;
+import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.Mod;
@@ -27,7 +27,7 @@ public class EventPlayerLoggedIn
 	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
 	{
 		PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);
+		PlayerStats statsCap = (PlayerStats) event.player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 
 		if (playerInfo != null && playerInfo.getPlayerClass() == 0 && statsCap != null && statsCap.getMaxMana() == 0)
 		{
@@ -44,12 +44,12 @@ public class EventPlayerLoggedIn
 			statsCap.setMagicalPower(0);
 			statsCap.setCriticalChance(0);
 			statsCap.setCriticalDamage(0);
-			LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
+			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) event.player);
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
 		}
 		else if (playerInfo != null && statsCap != null && playerInfo.getPlayerClass() > 0)
 		{
-			LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
+			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) event.player);
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
 		}
 	}

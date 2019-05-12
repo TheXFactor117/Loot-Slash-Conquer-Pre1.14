@@ -5,7 +5,7 @@ package com.thexfactor117.lsc.capabilities.api;
  * @author TheXFactor117
  *
  */
-public interface IStats 
+public interface IPlayerStats 
 {
 	/*
 	 * MANA

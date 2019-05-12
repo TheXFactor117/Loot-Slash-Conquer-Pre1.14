@@ -3,7 +3,7 @@ package com.thexfactor117.lsc.items.scrolls;
 import java.util.List;
 
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.entities.projectiles.EntityFireball;
 import com.thexfactor117.lsc.init.ModItems;
 import com.thexfactor117.lsc.init.ModTabs;
@@ -40,7 +40,7 @@ public class ItemFireballScroll extends ItemBase
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{		
 		ItemStack stack = player.inventory.getCurrentItem();
-		Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+		PlayerStats stats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 		
 		if (player.inventory.getCurrentItem().getItem() == ModItems.FIREBALL_SCROLL && stats != null)
 		{

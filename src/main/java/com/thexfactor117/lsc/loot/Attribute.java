@@ -95,6 +95,19 @@ public enum Attribute
 		return list.size() > 0 ? list.get((int) (Math.random() * list.size())) : null;
 	}
 	
+	public static Attribute getAttributeFromName(String name)
+	{
+		for (Attribute attribute : Attribute.values())
+		{
+			if (attribute.getLocalizedName().equals(name))
+			{
+				return attribute;
+			}
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * Returns true if the NBT tag compound has the specified Attribute.
 	 * @param nbt

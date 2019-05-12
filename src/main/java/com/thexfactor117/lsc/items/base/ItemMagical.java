@@ -6,14 +6,14 @@ import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.projectiles.EntityFireball;
 import com.thexfactor117.lsc.entities.projectiles.EntityIcebolt;
 import com.thexfactor117.lsc.entities.projectiles.EntityLightning;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.init.ModTabs;
-import com.thexfactor117.lsc.network.PacketUpdateStats;
+import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.util.NBTHelper;
 import com.thexfactor117.lsc.util.Reference;
 
@@ -90,7 +90,7 @@ public class ItemMagical extends Item
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{
-		Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+		PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 		PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 		ItemStack currentStack = player.getHeldItem(hand);
 		
@@ -117,7 +117,7 @@ public class ItemMagical extends Item
 		if (entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) entity;
-			Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);	
+			PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);	
 			PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 			
@@ -145,7 +145,7 @@ public class ItemMagical extends Item
 						
 						// update mana and send to client
 						statsCap.decreaseMana(this.manaPerUse);
-						LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) player);
+						LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) player);
 						
 						// damage item
 						stack.damageItem(1, player);

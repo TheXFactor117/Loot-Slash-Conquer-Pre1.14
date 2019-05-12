@@ -1,7 +1,7 @@
 package com.thexfactor117.lsc.player;
 
 import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.util.LSCDamageSource;
@@ -50,15 +50,15 @@ public class DamageUtils
 	 * @param nbt
 	 * @return
 	 */
-	public static double applyCriticalModifier(Stats stats, double damage, NBTTagCompound nbt)
+	public static double applyCriticalModifier(PlayerStats playerstats, double damage, NBTTagCompound nbt)
 	{
 		double damageBeforeCrit = damage;
 		
-		if (stats.getCriticalChance() > 0)
+		if (playerstats.getCriticalChance() > 0)
 		{
-			if (Math.random() < stats.getCriticalChance())
+			if (Math.random() < playerstats.getCriticalChance())
 			{
-				damage = (stats.getCriticalDamage() * damageBeforeCrit) + damageBeforeCrit;
+				damage = (playerstats.getCriticalDamage() * damageBeforeCrit) + damageBeforeCrit;
 			}
 		}
 		
@@ -113,10 +113,10 @@ public class DamageUtils
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double getMeleePower(PlayerInformation playerInfo)
+	public static double getMeleePower(PlayerInformation playerinfo)
 	{
-		double multiplier = (Math.random() * (Configs.weaponCategory.damageMaxRandFactor - Configs.weaponCategory.damageMinRandFactor) + Configs.weaponCategory.damageMinRandFactor);
-		return (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getTotalStrength()) * (0.85 * multiplier);
+		double meleePower = (Math.pow(Configs.weaponCategory.damageBaseFactor, playerinfo.getPlayerLevel()) + playerinfo.getTotalStrength()) * (0.85 * 0.8);
+		return playerinfo.getTotalStrength() != 0 ? meleePower : 0;
 	}
 	
 	/**
@@ -125,10 +125,10 @@ public class DamageUtils
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double getRangedPower(PlayerInformation playerInfo)
+	public static double getRangedPower(PlayerInformation playerinfo)
 	{
-		double multiplier = (Math.random() * (Configs.weaponCategory.damageMaxRandFactor - Configs.weaponCategory.damageMinRandFactor) + Configs.weaponCategory.damageMinRandFactor);
-		return (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getBonusDexterityStat()) * (0.85 * multiplier);
+		double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, playerinfo.getPlayerLevel()) + playerinfo.getTotalDexterity()) * (0.85 * 0.8);
+		return playerinfo.getTotalDexterity() != 0 ? rangedPower : 0;
 	}
 	
 	/**
@@ -137,10 +137,10 @@ public class DamageUtils
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double getMagicalPower(PlayerInformation playerInfo)
+	public static double getMagicalPower(PlayerInformation playerinfo)
 	{
-		double multiplier = (Math.random() * (Configs.weaponCategory.damageMaxRandFactor - Configs.weaponCategory.damageMinRandFactor) + Configs.weaponCategory.damageMinRandFactor);
-		return (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getTotalIntelligence()) * (0.85 * multiplier);
+		double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, playerinfo.getPlayerLevel()) + playerinfo.getTotalIntelligence()) * (0.85 * 0.8);
+		return playerinfo.getTotalIntelligence() != 0 ? magicalPower : 0;
 	}
 	
 	public static double getPhysicalResistance(PlayerInformation playerInfo)

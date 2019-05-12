@@ -5,9 +5,9 @@ import javax.annotation.Nullable;
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.api.IPlayerInformation;
 import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
-import com.thexfactor117.lsc.network.PacketUpdateStats;
+import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
 import com.thexfactor117.lsc.util.CapabilityUtils;
 import com.thexfactor117.lsc.util.Reference;
@@ -177,14 +177,14 @@ public class CapabilityPlayerInformation
 		public static void onPlayerRespawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event)
 		{
 			PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-			Stats statsCap = (Stats) event.player.getCapability(CapabilityPlayerStats.STATS, null);
+			PlayerStats statsCap = (PlayerStats) event.player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 			
 			if (playerInfo != null && statsCap != null)
 			{
 				statsCap.setMana(statsCap.getMaxMana());
 				
 				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
-				LootSlashConquer.network.sendTo(new PacketUpdateStats(statsCap), (EntityPlayerMP) event.player);
+				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) event.player);
 				PlayerStatUtils.updateAttributes(event.player);
 				
 				event.player.setHealth(event.player.getMaxHealth());

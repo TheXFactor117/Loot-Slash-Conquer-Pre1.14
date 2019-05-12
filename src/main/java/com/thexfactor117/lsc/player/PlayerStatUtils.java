@@ -6,9 +6,9 @@ import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.network.PacketUpdateStats;
+import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -33,7 +33,7 @@ public class PlayerStatUtils
 	public static void updateAttributes(EntityPlayer player)
 	{
 		PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+		PlayerStats stats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 		
 		if (info != null && stats != null)
 		{
@@ -105,7 +105,7 @@ public class PlayerStatUtils
 				 */			
 				stats.setMaxMana((int) ((Configs.playerCategory.maxManaMultiplier * info.getTotalWisdom()) + 100));
 				
-				LootSlashConquer.network.sendTo(new PacketUpdateStats(stats), (EntityPlayerMP) player);
+				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(stats), (EntityPlayerMP) player);
 			}
 			
 			

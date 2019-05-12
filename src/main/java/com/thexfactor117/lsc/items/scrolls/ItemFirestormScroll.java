@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.init.ModItems;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.items.base.ItemBase;
@@ -45,7 +45,7 @@ public class ItemFirestormScroll extends ItemBase
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{		
 		ItemStack stack = player.inventory.getCurrentItem();
-		Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+		PlayerStats stats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 		
 		if (player.inventory.getCurrentItem().getItem() == ModItems.FIRESTORM_SCROLL && stats != null)
 		{

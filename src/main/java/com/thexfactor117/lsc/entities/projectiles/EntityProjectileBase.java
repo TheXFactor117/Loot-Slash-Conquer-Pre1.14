@@ -3,7 +3,7 @@ package com.thexfactor117.lsc.entities.projectiles;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
 import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.player.DamageType;
 import com.thexfactor117.lsc.player.DamageUtils;
 import com.thexfactor117.lsc.player.WeaponUtils;
@@ -62,7 +62,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 	{
 		if (!this.getEntityWorld().isRemote && player != null)
 		{
-			Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+			PlayerStats stats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
 			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && result.entityHit != player && stats != null && playerInfo != null)

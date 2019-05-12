@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.util.LSCDamageSource;
 
@@ -31,28 +31,29 @@ public class WeaponUtils
 {
 	/** Called to use the current stack's attributes. Called from LivingAttackEvent and projectiles. */
 	public static void useWeaponAttributes(float damage, EntityLivingBase attacker, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)
-	{
-		if (Attribute.DURABLE.hasAttribute(nbt) && Math.random() < Attribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() + 1);
+	{		
+		if (Attribute.DURABLE.hasAttribute(nbt) && Math.random() < Attribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() - 1);
 		if (Attribute.FIRE.hasAttribute(nbt)) 
 		{
-			enemy.attackEntityFrom(DamageSource.ON_FIRE, (float) Attribute.FIRE.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
+			// change damage type to custom LSC damage type?
+			enemy.attackEntityFrom(DamageSource.ON_FIRE, (float) Attribute.FIRE.getAmount(nbt));
 		}
 		if (Attribute.FROST.hasAttribute(nbt))
 		{
-			enemy.attackEntityFrom(LSCDamageSource.causeFrostDamage(attacker), (float) Attribute.FROST.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
+			enemy.attackEntityFrom(LSCDamageSource.causeFrostDamage(attacker), (float) Attribute.FROST.getAmount(nbt));
 			enemy.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 3, 5));
 		}
 		if (Attribute.LIGHTNING.hasAttribute(nbt))
 		{
-			enemy.attackEntityFrom(LSCDamageSource.causeLightningDamage(attacker), (float) Attribute.LIGHTNING.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
+			enemy.attackEntityFrom(LSCDamageSource.causeLightningDamage(attacker), (float) Attribute.LIGHTNING.getAmount(nbt));
 			
 			// remove half the lightning damage dealt from mana.
 			if (enemy instanceof EntityPlayer)
 			{
-				Stats statsCap = (Stats) enemy.getCapability(CapabilityPlayerStats.STATS, null);
+				PlayerStats statsCap = (PlayerStats) enemy.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 				
 				if (statsCap != null)
 				{
@@ -62,8 +63,8 @@ public class WeaponUtils
 		}
 		if (Attribute.POISON.hasAttribute(nbt)) 
 		{
-			enemy.attackEntityFrom(LSCDamageSource.causePoisonDamage(attacker), (float) Attribute.POISON.getAmount(nbt));
 			enemy.hurtResistantTime = 0;
+			enemy.attackEntityFrom(LSCDamageSource.causePoisonDamage(attacker), (float) Attribute.POISON.getAmount(nbt));
 		}
 		if (Attribute.LIFE_STEAL.hasAttribute(nbt)) 
 		{
@@ -71,7 +72,7 @@ public class WeaponUtils
 		}
 		if (Attribute.MANA_STEAL.hasAttribute(nbt))
 		{
-			Stats statsCap = (Stats) enemy.getCapability(CapabilityPlayerStats.STATS, null);
+			PlayerStats statsCap = (PlayerStats) enemy.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 			
 			if (statsCap != null)
 			{
@@ -93,16 +94,17 @@ public class WeaponUtils
                 // IF PLAYER IS THE ATTACKER
 				if (entity instanceof EntityLivingBase && attacker instanceof EntityPlayer && !(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && !(entity instanceof EntitySlime))
 				{
-					entity.attackEntityFrom(LSCDamageSource.causeChainedDamage(attacker), (float) (damage * 0.25));
 					entity.hurtResistantTime = 0;
+					entity.attackEntityFrom(LSCDamageSource.causeChainedDamage(attacker), (float) (damage * 0.25));
 				}
 				// IF A MOB IS THE ATTACKER
 				else if (entity instanceof EntityPlayer && attacker instanceof EntityMob)
 				{
+					entity.hurtResistantTime = 0;
 					entity.attackEntityFrom(LSCDamageSource.causeChainedDamage(attacker), (float) (damage * 0.25));
 				}
 			}
 		}
-		if (Attribute.VOID.hasAttribute(nbt) && Math.random() < Attribute.VOID.getAmount(nbt)) enemy.setHealth(0.00001F);
+		if (Attribute.VOID.hasAttribute(nbt) && Math.random() < Attribute.VOID.getAmount(nbt)) enemy.setHealth(0.1F);
 	}
 }

@@ -1,7 +1,7 @@
 package com.thexfactor117.lsc.network;
 
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
  * @author TheXFactor117
  *
  */
-public class PacketUpdateStats implements IMessage
+public class PacketUpdatePlayerStats implements IMessage
 {
 	private int maxMana;
 	private int mana;
@@ -29,9 +29,9 @@ public class PacketUpdateStats implements IMessage
 	private double criticalChance;
 	private double criticalDamage;
 	
-	public PacketUpdateStats() {}
+	public PacketUpdatePlayerStats() {}
 	
-	public PacketUpdateStats(Stats statsCap)
+	public PacketUpdatePlayerStats(PlayerStats statsCap)
 	{
 		this.maxMana = statsCap.getMaxMana();
 		this.mana = statsCap.getMana();
@@ -75,10 +75,10 @@ public class PacketUpdateStats implements IMessage
 		buf.writeDouble(criticalDamage);
 	}
 	
-	public static class Handler implements IMessageHandler<PacketUpdateStats, IMessage>
+	public static class Handler implements IMessageHandler<PacketUpdatePlayerStats, IMessage>
 	{
 		@Override
-		public IMessage onMessage(final PacketUpdateStats message, final MessageContext ctx) 
+		public IMessage onMessage(final PacketUpdatePlayerStats message, final MessageContext ctx) 
 		{			
 			IThreadListener mainThread = Minecraft.getMinecraft();
 			mainThread.addScheduledTask(new Runnable()
@@ -87,7 +87,7 @@ public class PacketUpdateStats implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = Minecraft.getMinecraft().player;
-					Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+					PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 					
 					if (statsCap != null)
 					{

@@ -3,9 +3,9 @@ package com.thexfactor117.lsc.capabilities.cap;
 import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.api.IStats;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
-import com.thexfactor117.lsc.network.PacketUpdateStats;
+import com.thexfactor117.lsc.capabilities.api.IPlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.util.CapabilityUtils;
 import com.thexfactor117.lsc.util.Reference;
 import com.thexfactor117.lsc.util.SimpleCapabilityProvider;
@@ -35,17 +35,17 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensio
  */
 public class CapabilityPlayerStats 
 {
-	@CapabilityInject(IStats.class)
-	public static final Capability<IStats> STATS = null;
+	@CapabilityInject(IPlayerStats.class)
+	public static final Capability<IPlayerStats> PLAYER_STATS = null;
 	public static final EnumFacing DEFAULT_FACING = null;
-	public static final ResourceLocation ID = new ResourceLocation(Reference.MODID, "Stats");
+	public static final ResourceLocation ID = new ResourceLocation(Reference.MODID, "PlayerStats");
 	
 	public static void register() 
 	{
-		CapabilityManager.INSTANCE.register(IStats.class, new Capability.IStorage<IStats>() 
+		CapabilityManager.INSTANCE.register(IPlayerStats.class, new Capability.IStorage<IPlayerStats>() 
 		{
 			@Override
-			public NBTBase writeNBT(Capability<IStats> capability, IStats instance, EnumFacing side) 
+			public NBTBase writeNBT(Capability<IPlayerStats> capability, IPlayerStats instance, EnumFacing side) 
 			{
 				NBTTagCompound nbt = new NBTTagCompound();
 				
@@ -64,7 +64,7 @@ public class CapabilityPlayerStats
 			}
 
 			@Override
-			public void readNBT(Capability<IStats> capability, IStats instance, EnumFacing side, NBTBase nbt) 
+			public void readNBT(Capability<IPlayerStats> capability, IPlayerStats instance, EnumFacing side, NBTBase nbt) 
 			{
 				NBTTagCompound compound = (NBTTagCompound) nbt;
 				
@@ -79,18 +79,18 @@ public class CapabilityPlayerStats
 				instance.setCriticalChance(compound.getDouble("CriticalChance"));
 				instance.setCriticalDamage(compound.getDouble("CriticalDamage"));
 			}
-		}, () -> new Stats(null));
+		}, () -> new PlayerStats(null));
 	}
 	
 	@Nullable
-	public static IStats getStats(EntityLivingBase entity) 
+	public static IPlayerStats getStats(EntityLivingBase entity) 
 	{
-		return CapabilityUtils.getCapability(entity, STATS, DEFAULT_FACING);
+		return CapabilityUtils.getCapability(entity, PLAYER_STATS, DEFAULT_FACING);
 	}
 	
-	public static ICapabilityProvider createProvider(IStats stats) 
+	public static ICapabilityProvider createProvider(IPlayerStats stats) 
 	{
-		return new SimpleCapabilityProvider<>(STATS, DEFAULT_FACING, stats);
+		return new SimpleCapabilityProvider<>(PLAYER_STATS, DEFAULT_FACING, stats);
 	}
 	
 	@Mod.EventBusSubscriber
@@ -101,7 +101,7 @@ public class CapabilityPlayerStats
 		{
 			if (event.getObject() instanceof EntityPlayer) 
 			{
-				final Stats stats = new Stats((EntityPlayer) event.getObject());
+				final PlayerStats stats = new PlayerStats((EntityPlayer) event.getObject());
 				
 				event.addCapability(ID, createProvider(stats));
 			}
@@ -110,8 +110,8 @@ public class CapabilityPlayerStats
 		@SubscribeEvent
 		public static void playerClone(PlayerEvent.Clone event) 
 		{
-			IStats oldStats = getStats(event.getOriginal());
-			IStats newStats = getStats(event.getEntityLiving());
+			IPlayerStats oldStats = getStats(event.getOriginal());
+			IPlayerStats newStats = getStats(event.getEntityLiving());
 
 			if (newStats != null && oldStats != null)
 			{
@@ -132,11 +132,11 @@ public class CapabilityPlayerStats
 		public static void onPlayerChangeDimension(PlayerChangedDimensionEvent event)
 		{
 			EntityPlayer player = event.player;
-			Stats stats = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+			PlayerStats playerstats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 			
-			if (stats != null)
+			if (playerstats != null)
 			{
-				LootSlashConquer.network.sendTo(new PacketUpdateStats(stats), (EntityPlayerMP) player);
+				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(playerstats), (EntityPlayerMP) player);
 			}
 		}
 	}

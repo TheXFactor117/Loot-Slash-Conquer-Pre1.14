@@ -2,7 +2,7 @@ package com.thexfactor117.lsc.capabilities.implementation;
 
 import javax.annotation.Nullable;
 
-import com.thexfactor117.lsc.capabilities.api.IStats;
+import com.thexfactor117.lsc.capabilities.api.IPlayerStats;
 
 import net.minecraft.entity.EntityLivingBase;
 
@@ -11,7 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
  * @author TheXFactor117
  *
  */
-public class Stats implements IStats
+public class PlayerStats implements IPlayerStats
 {
 	private int mana;
 	private int maxMana;
@@ -27,7 +27,7 @@ public class Stats implements IStats
 	@SuppressWarnings("unused")
 	private final EntityLivingBase entity;
 	
-	public Stats(@Nullable EntityLivingBase entity)
+	public PlayerStats(@Nullable EntityLivingBase entity)
 	{
 		this.entity = entity;
 	}

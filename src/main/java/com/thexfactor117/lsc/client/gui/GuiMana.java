@@ -3,7 +3,7 @@ package com.thexfactor117.lsc.client.gui;
 import org.lwjgl.opengl.GL11;
 
 import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.Stats;
+import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.util.Reference;
 
@@ -42,7 +42,7 @@ public class GuiMana extends Gui
 				
 				if (!player.capabilities.isCreativeMode)
 				{
-					Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+					PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 					
 					if (statsCap != null)
 					{
@@ -73,7 +73,7 @@ public class GuiMana extends Gui
 		{
 			ScaledResolution sr = event.getResolution();
 			EntityPlayer player = Minecraft.getMinecraft().player;
-			Stats statsCap = (Stats) player.getCapability(CapabilityPlayerStats.STATS, null);
+			PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
 			
 			if (!player.capabilities.isCreativeMode && statsCap != null)
 			{
