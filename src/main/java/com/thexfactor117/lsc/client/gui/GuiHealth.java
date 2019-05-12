@@ -109,5 +109,5 @@ public class GuiHealth extends Gui
 				GL11.glPopMatrix();
 			}
 		}
-		}
+	}
 }

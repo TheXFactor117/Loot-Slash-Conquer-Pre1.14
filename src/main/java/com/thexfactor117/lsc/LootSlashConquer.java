@@ -3,8 +3,8 @@ package com.thexfactor117.lsc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.thexfactor117.lsc.commands.CommandAddAttribute;
 import com.thexfactor117.lsc.init.ModCapabilities;
+import com.thexfactor117.lsc.init.ModCommands;
 import com.thexfactor117.lsc.init.ModEntities;
 import com.thexfactor117.lsc.init.ModLootFunctions;
 import com.thexfactor117.lsc.init.ModLootTables;
@@ -82,6 +82,6 @@ public class LootSlashConquer
 	@EventHandler
 	public void onServerStart(FMLServerStartingEvent event)
 	{
-		event.registerServerCommand(new CommandAddAttribute());
+		ModCommands.registerCommands(event);
 	}
 }
