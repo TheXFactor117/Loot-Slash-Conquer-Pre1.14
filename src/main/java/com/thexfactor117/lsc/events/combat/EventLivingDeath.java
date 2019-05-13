@@ -7,6 +7,7 @@ import com.thexfactor117.lsc.player.ExperienceUtils;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -31,7 +32,7 @@ public class EventLivingDeath
 			EntityLivingBase enemy = event.getEntityLiving();
 			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			if (!player.getEntityWorld().isRemote && playerInfo != null)
+			if (!player.getEntityWorld().isRemote && playerInfo != null && player.getClass() == EntityPlayerMP.class)
 			{
 				ExperienceUtils.addExperience(player, playerInfo, enemy);
 			}
