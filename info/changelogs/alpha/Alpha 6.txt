@@ -5,6 +5,23 @@
 
 
 #####
+### 0.6.2.0-alpha
+#####
+
++ Added a level 100 cap to the area leveling system.
++ Added a few debug commands which are available to all players for now (addAttribute and setItemLevel).
++ New Barbarian model and texture.
+* Fixed max health issues and crashes. Extended the maximum values.
+* Fixed enemy tiers changing to default past level 6.
+* Fixed bug with stats not syncronizing to the client when changing dimensions.
+* Changed and fixed existing damage calculations.
+* Fixed some minor naming issues.
+* Strength now influences armor reduction by adding a hidden physical resistance stat.
+* Other smaller tweaks and fixes.
+* Updated to Forge version 2768.
+
+
+#####
 ### 0.6.1.2-alpha
 #####
 
