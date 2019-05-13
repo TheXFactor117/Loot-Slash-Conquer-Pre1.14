@@ -24,6 +24,9 @@ public class PlayerStats implements IPlayerStats
 	private double criticalChance;
 	private double criticalDamage;
 	
+	private int updateTicks;
+	private int regenTicks;
+	
 	@SuppressWarnings("unused")
 	private final EntityLivingBase entity;
 	
@@ -156,5 +159,53 @@ public class PlayerStats implements IPlayerStats
 	public double getCriticalDamage() 
 	{
 		return criticalDamage;
+	}
+	
+	/*
+	 * TICKS
+	 */
+	
+	public void incrementUpdateTicks()
+	{
+		this.updateTicks += 1;
+	}
+	
+	public void incrementRegenTicks()
+	{
+		this.regenTicks += 1;
+	}
+	
+	public void resetUpdateTicks()
+	{
+		this.updateTicks = 0;
+	}
+	
+	public void resetRegenTicks()
+	{
+		this.regenTicks = 0;
+	}
+	
+	@Override
+	public void setUpdateTicks(int ticks)
+	{
+		this.updateTicks = ticks;
+	}
+	
+	@Override
+	public int getUpdateTicks()
+	{
+		return updateTicks;
+	}
+	
+	@Override
+	public void setRegenTicks(int ticks)
+	{
+		this.regenTicks = ticks;
+	}
+	
+	@Override
+	public int getRegenTicks()
+	{
+		return regenTicks;
 	}
 }

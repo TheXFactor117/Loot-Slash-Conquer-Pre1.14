@@ -34,51 +34,44 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 @Mod.EventBusSubscriber
 public class EventPlayerTick 
 {
-	private static int ticks;
-	private static int regenTicks;
-	
 	/* Called ever second to check for slots and update stat bonuses. Might need to be re-worked. */
 	@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent event)
 	{
 		if (event.phase == Phase.START && !event.player.getEntityWorld().isRemote)
 		{
-			ticks++;
-			regenTicks++;
+			PlayerStats playerstats = (PlayerStats) event.player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+			PlayerInformation playerinfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
 			
-			// TODO: possibly optimize this? 3 packets get sent every second
-			if (ticks % Configs.ticksPerStatUpdate == 0)
+			if (playerstats != null && playerinfo != null)
 			{
-				PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+				playerstats.incrementUpdateTicks();
+				playerstats.incrementRegenTicks();
 				
-				if (event.player != null && playerInfo != null)
+				// TODO: possibly optimize this? 3 packets get sent every second
+				if (playerstats.getUpdateTicks() % Configs.ticksPerStatUpdate == 0)
 				{	
-					updateStats(event.player, playerInfo, 3);
+					updateStats(event.player, playerinfo, 3);
+					
+					playerstats.resetUpdateTicks();
 				}
 				
-				ticks = 0;
-			}
-			
-			if (regenTicks % 100 == 0)
-			{
-				PlayerStats statsCap = (PlayerStats) event.player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
-				
-				if (statsCap != null)
-				{
-					if (statsCap.getMana() < statsCap.getMaxMana())
+				if (playerstats.getRegenTicks() % 100 == 0)
+				{	
+					if (playerstats.getMana() < playerstats.getMaxMana())
 					{
-						statsCap.increaseMana(statsCap.getManaPerSecond());
+						playerstats.increaseMana(playerstats.getManaPerSecond());
 					}
 					
 					if (event.player.getHealth() < event.player.getMaxHealth())
 					{
-						event.player.heal(statsCap.getHealthPerSecond());
+						event.player.heal(playerstats.getHealthPerSecond());
 					}
 					
-					LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) event.player);
+					LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(playerstats), (EntityPlayerMP) event.player);
+					
+					playerstats.resetRegenTicks();
 				}
-				
-				regenTicks = 0;
 			}
 		}
 	}

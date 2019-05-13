@@ -60,6 +60,9 @@ public class CapabilityPlayerStats
 				nbt.setDouble("CriticalChance", instance.getCriticalChance());
 				nbt.setDouble("CriticalDamage", instance.getCriticalDamage());
 				
+				nbt.setInteger("UpdateTicks", instance.getUpdateTicks());
+				nbt.setInteger("RegenTicks", instance.getRegenTicks());
+				
 				return nbt;
 			}
 
@@ -78,6 +81,9 @@ public class CapabilityPlayerStats
 				
 				instance.setCriticalChance(compound.getDouble("CriticalChance"));
 				instance.setCriticalDamage(compound.getDouble("CriticalDamage"));
+				
+				instance.setUpdateTicks(compound.getInteger("UpdateTicks"));
+				instance.setUpdateTicks(compound.getInteger("RegenTicks"));
 			}
 		}, () -> new PlayerStats(null));
 	}
@@ -125,6 +131,9 @@ public class CapabilityPlayerStats
 				
 				newStats.setCriticalChance(oldStats.getCriticalChance());
 				newStats.setCriticalDamage(oldStats.getCriticalDamage());
+				
+				newStats.setUpdateTicks(oldStats.getUpdateTicks());
+				newStats.setRegenTicks(oldStats.getRegenTicks());
 			}
 		}
 		

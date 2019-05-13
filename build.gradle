@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 loadProperties()
 
 version = config.minecraft_version + "-" + config.minor_version + "-" + config.major_version
-group = "thexfactor117.lsc"
+group = "com.thexfactor117.lsc"
 archivesBaseName = "Loot Slash Conquer"
 
 sourceCompatibility = targetCompatibility = '1.8'

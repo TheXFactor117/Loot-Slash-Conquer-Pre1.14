@@ -39,4 +39,13 @@ public interface IPlayerStats
 	
 	public void setCriticalDamage(double criticalDamage);
 	public double getCriticalDamage();
+	
+	/*
+	 * TICKS
+	 */
+	public void setUpdateTicks(int ticks);
+	public int getUpdateTicks();
+	
+	public void setRegenTicks(int ticks);
+	public int getRegenTicks();
 }
