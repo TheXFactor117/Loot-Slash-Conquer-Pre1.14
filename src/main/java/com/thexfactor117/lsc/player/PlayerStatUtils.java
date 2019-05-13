@@ -84,12 +84,7 @@ public class PlayerStatUtils
 				/*
 				 * DEXTERITY
 				 */
-				int bonus = 0;
-				
-				if (info.getTotalDexterity() > 0)
-				{
-					bonus = 1;
-				}
+				int bonus = info.getTotalDexterity() > 0 ? 1 : 0;
 				
 				stats.setCriticalChance(Configs.playerCategory.critChanceMultiplier * ((info.getTotalDexterity() / 5) + bonus));
 				stats.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((info.getTotalDexterity() / 2) + bonus));
@@ -105,7 +100,7 @@ public class PlayerStatUtils
 				 */			
 				stats.setMaxMana((int) ((Configs.playerCategory.maxManaMultiplier * info.getTotalWisdom()) + 100));
 				
-				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(stats), (EntityPlayerMP) player);
+				stats.setManaPerSecond(Configs.playerCategory.manaPer5 * info.getTotalWisdom());
 			}
 			
 			
@@ -127,6 +122,11 @@ public class PlayerStatUtils
 			{
 				player.setHealth(player.getMaxHealth());
 			}
+			
+			stats.setHealthPerSecond(Configs.playerCategory.healthPer5 * info.getTotalFortitude());
+			
+			
+			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(stats), (EntityPlayerMP) player);
 		}
 	}
 }
