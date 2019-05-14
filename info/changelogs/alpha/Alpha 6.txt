@@ -5,18 +5,15 @@
 
 
 #####
-### 0.6.2.1-alpha
+### Alpha 6.2
 #####
 
+Bugfix 2
+* Fixed console error spam.
+Bugfix 1
 * Fixed multiplayer bugs where update/regen ticks only worked for one player.
 * Should fix crashes with "fake players"
-
-
-
-#####
-### 0.6.2.0-alpha
-#####
-
+Initial
 + Added a level 100 cap to the area leveling system.
 + Added a few debug commands which are available to all players for now (addAttribute and setItemLevel).
 + New Barbarian model and texture.
