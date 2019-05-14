@@ -101,6 +101,10 @@ public class PlayerStatUtils
 				stats.setMaxMana((int) ((Configs.playerCategory.maxManaMultiplier * info.getTotalWisdom()) + 100));
 				
 				stats.setManaPerSecond(Configs.playerCategory.manaPer5 * info.getTotalWisdom());
+				
+				//fortitude
+				stats.setHealthPerSecond(Configs.playerCategory.healthPer5 * info.getTotalFortitude());
+				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(stats), (EntityPlayerMP) player);
 			}
 			
 			
@@ -122,11 +126,6 @@ public class PlayerStatUtils
 			{
 				player.setHealth(player.getMaxHealth());
 			}
-			
-			stats.setHealthPerSecond(Configs.playerCategory.healthPer5 * info.getTotalFortitude());
-			
-			
-			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(stats), (EntityPlayerMP) player);
 		}
 	}
 }
