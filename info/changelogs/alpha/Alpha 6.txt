@@ -5,6 +5,15 @@
 
 
 #####
+### 0.6.2.1-alpha
+#####
+
+* Fixed multiplayer bugs where update/regen ticks only worked for one player.
+* Should fix crashes with "fake players"
+
+
+
+#####
 ### 0.6.2.0-alpha
 #####
 
