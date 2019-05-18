@@ -1,7 +1,7 @@
 package com.thexfactor117.lsc.network;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.cap.CapabilityLSCPlayer;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -31,18 +31,18 @@ public class PacketUpdatePlayerStats implements IMessage
 	
 	public PacketUpdatePlayerStats() {}
 	
-	public PacketUpdatePlayerStats(PlayerStats statsCap)
+	public PacketUpdatePlayerStats(LSCPlayerCapability playercap)
 	{
-		this.maxMana = statsCap.getMaxMana();
-		this.mana = statsCap.getMana();
-		this.manaPerSecond = statsCap.getManaPerSecond();
+		this.maxMana = playercap.getMaxMana();
+		this.mana = playercap.getMana();
+		this.manaPerSecond = playercap.getManaPerSecond();
 		
-		this.magicalPower = statsCap.getMagicalPower();
+		this.magicalPower = playercap.getMagicalPower();
 		
-		this.healthPerSecond = statsCap.getHealthPerSecond();
+		this.healthPerSecond = playercap.getHealthPerSecond();
 		
-		this.criticalChance = statsCap.getCriticalChance();
-		this.criticalDamage = statsCap.getCriticalDamage();
+		this.criticalChance = playercap.getCriticalChance();
+		this.criticalDamage = playercap.getCriticalDamage();
 	}
 
 	@Override
@@ -87,20 +87,20 @@ public class PacketUpdatePlayerStats implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = Minecraft.getMinecraft().player;
-					PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+					LSCPlayerCapability playercap = (LSCPlayerCapability) player.getCapability(CapabilityLSCPlayer.PLAYER_CAP, null);
 					
-					if (statsCap != null)
+					if (playercap != null)
 					{
-						statsCap.setMaxMana(message.maxMana);
-						statsCap.setMana(message.mana);
-						statsCap.setManaPerSecond(message.manaPerSecond);
+						playercap.setMaxMana(message.maxMana);
+						playercap.setMana(message.mana);
+						playercap.setManaPerSecond(message.manaPerSecond);
 						
-						statsCap.setMagicalPower(message.magicalPower);
+						playercap.setMagicalPower(message.magicalPower);
 						
-						statsCap.setHealthPerSecond(message.healthPerSecond);
+						playercap.setHealthPerSecond(message.healthPerSecond);
 						
-						statsCap.setCriticalChance(message.criticalChance);
-						statsCap.setCriticalDamage(message.criticalDamage);
+						playercap.setCriticalChance(message.criticalChance);
+						playercap.setCriticalDamage(message.criticalDamage);
 					}
 				}
 			});

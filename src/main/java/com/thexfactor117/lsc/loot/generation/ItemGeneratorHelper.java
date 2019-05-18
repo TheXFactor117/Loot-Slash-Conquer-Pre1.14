@@ -12,6 +12,7 @@ import com.thexfactor117.lsc.items.base.ItemMagical;
 import com.thexfactor117.lsc.items.base.ItemMelee;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
+import com.thexfactor117.lsc.loot.attributes.AttributeBase;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -83,6 +84,9 @@ public class ItemGeneratorHelper
 	 */
 	public static void setRandomAttributes(ItemStack stack, NBTTagCompound nbt, Rarity rarity)
 	{
+		AttributeBase.FIRE_DAMAGE.addAttribute(nbt, rand);
+		
+		/*
 		// TODO: add config options for the amount of attributes per rarity.
 		int amount = 0;
 		// sets the amount of attributes should be generated depending on rarity.
@@ -121,7 +125,7 @@ public class ItemGeneratorHelper
 				else
 					attribute.addAttribute(nbt, rand); // add attribute - this method will handle setting up all the attribute unique modifiers, such as custom rarity, values, etc...
 			}
-		}
+		}*/
 	}
 	
 	/**
@@ -212,7 +216,7 @@ public class ItemGeneratorHelper
 		else if (Attribute.MAX_DAMAGE.hasAttribute(nbt)) maxDamage += Attribute.MAX_DAMAGE.getAmount(nbt);
 		
 		if (minDamage == maxDamage) minDamage -= 1;
-		if (minDamage == 0) minDamage = 1;
+		if (minDamage <= 0) minDamage = 1;
 		while (minDamage >= maxDamage) maxDamage += 1;
 		
 		nbt.setInteger("MinDamage", minDamage);

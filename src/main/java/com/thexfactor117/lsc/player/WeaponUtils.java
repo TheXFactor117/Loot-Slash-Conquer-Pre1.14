@@ -3,8 +3,7 @@ package com.thexfactor117.lsc.player;
 import java.util.Iterator;
 import java.util.List;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.util.LSCDamageSource;
 
@@ -32,6 +31,18 @@ public class WeaponUtils
 	/** Called to use the current stack's attributes. Called from LivingAttackEvent and projectiles. */
 	public static void useWeaponAttributes(float damage, EntityLivingBase attacker, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)
 	{		
+
+		/*
+		 * for (all weapon attributes)
+		 * {
+		 *     if (hasAttribute && instanceof AttributeWeapon)
+		 *     {
+		 *         attribute.executeAttribute(...);
+		 *     }
+		 * }
+		 */
+		
+		
 		if (Attribute.DURABLE.hasAttribute(nbt) && Math.random() < Attribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() - 1);
 		if (Attribute.FIRE.hasAttribute(nbt)) 
 		{
@@ -53,11 +64,11 @@ public class WeaponUtils
 			// remove half the lightning damage dealt from mana.
 			if (enemy instanceof EntityPlayer)
 			{
-				PlayerStats statsCap = (PlayerStats) enemy.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+				LSCPlayerCapability cap = PlayerUtil.getLSCPlayer((EntityPlayer) enemy);
 				
-				if (statsCap != null)
+				if (cap != null)
 				{
-					statsCap.decreaseMana((int) (Attribute.LIGHTNING.getAmount(nbt) / 2));
+					cap.decreaseMana((int) (Attribute.LIGHTNING.getAmount(nbt) / 2));
 				}
 			}
 		}
@@ -72,12 +83,12 @@ public class WeaponUtils
 		}
 		if (Attribute.MANA_STEAL.hasAttribute(nbt))
 		{
-			PlayerStats statsCap = (PlayerStats) enemy.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer((EntityPlayer) attacker);
 			
-			if (statsCap != null)
+			if (cap != null)
 			{
 				// adds mana to the player each attack.
-				statsCap.increaseMana((int) (Attribute.MANA_STEAL.getAmount(nbt) * damage));
+				cap.increaseMana((int) (Attribute.MANA_STEAL.getAmount(nbt) * damage));
 			}
 		}
 		if (Attribute.CHAINED.hasAttribute(nbt))

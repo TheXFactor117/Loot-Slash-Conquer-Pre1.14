@@ -2,12 +2,12 @@ package com.thexfactor117.lsc.items.scrolls;
 
 import java.util.List;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.init.ModItems;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.items.base.ItemBase;
 import com.thexfactor117.lsc.loot.Rarity;
+import com.thexfactor117.lsc.player.PlayerUtil;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -40,15 +40,15 @@ public class ItemInvisibilityScroll extends ItemBase
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{		
 		ItemStack stack = player.inventory.getCurrentItem();
-		PlayerStats stats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 		
-		if (player.inventory.getCurrentItem().getItem() == ModItems.INVISIBILITY_SCROLL && stats != null)
+		if (player.inventory.getCurrentItem().getItem() == ModItems.INVISIBILITY_SCROLL && cap != null)
 		{
-			if (!world.isRemote && stats.getMana() >= 10)
+			if (!world.isRemote && cap.getMana() >= 10)
 			{
 				player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20*10, 1, false, false));
 				stack.shrink(1);
-				stats.decreaseMana(10);
+				cap.decreaseMana(10);
 			}
 		}
 		

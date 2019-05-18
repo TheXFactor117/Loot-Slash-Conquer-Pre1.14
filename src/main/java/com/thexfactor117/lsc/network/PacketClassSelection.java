@@ -1,7 +1,7 @@
 package com.thexfactor117.lsc.network;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
+import com.thexfactor117.lsc.player.PlayerUtil;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
@@ -51,15 +51,15 @@ public class PacketClassSelection implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = ctx.getServerHandler().player;
-					PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+					LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 					
-					if (playerInfo != null && !player.getEntityWorld().isRemote)
+					if (cap != null && !player.getEntityWorld().isRemote)
 					{
-						if (message.playerClass == 1) playerInfo.setPlayerClass(1); // 1 for warrior
-						else if (message.playerClass == 2) playerInfo.setPlayerClass(2); // 2 for mage
-						else if (message.playerClass == 3) playerInfo.setPlayerClass(3); // 3 for hunter
+						if (message.playerClass == 1) cap.setPlayerClass(1); // 1 for warrior
+						else if (message.playerClass == 2) cap.setPlayerClass(2); // 2 for mage
+						else if (message.playerClass == 3) cap.setPlayerClass(3); // 3 for hunter
 						
-						playerInfo.setPlayerLevel(1);
+						cap.setPlayerLevel(1);
 					}
 				}
 			});

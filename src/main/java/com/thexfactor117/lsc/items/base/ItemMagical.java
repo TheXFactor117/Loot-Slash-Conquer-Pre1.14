@@ -3,10 +3,7 @@ package com.thexfactor117.lsc.items.base;
 import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.projectiles.EntityFireball;
 import com.thexfactor117.lsc.entities.projectiles.EntityIcebolt;
@@ -14,6 +11,7 @@ import com.thexfactor117.lsc.entities.projectiles.EntityLightning;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.util.NBTHelper;
 import com.thexfactor117.lsc.util.Reference;
 
@@ -72,11 +70,11 @@ public class ItemMagical extends Item
 				{
 					EntityPlayer player = (EntityPlayer) entity;
 					NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-					PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+					LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 					
-					if (playerInfo != null)
+					if (cap != null)
 					{
-						double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (playerInfo.getTotalAgility()));
+						double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
 						
 						return player.isHandActive() && player.getActiveItemStack() == stack && player.getItemInUseCount() < (stack.getMaxItemUseDuration() - (1 / attackSpeed) * 20) ? 1 : 0;
 					}
@@ -90,20 +88,19 @@ public class ItemMagical extends Item
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{
-		PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
-		PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 		ItemStack currentStack = player.getHeldItem(hand);
 		
-		if (statsCap != null && playerInfo != null && currentStack != null)
+		if (cap != null && currentStack != null)
 		{
-			if ((statsCap.getMana() - this.manaPerUse >= 0 && playerInfo.getPlayerLevel() >= NBTHelper.loadStackNBT(currentStack).getInteger("Level")) || player.isCreative())
+			if ((cap.getMana() - this.manaPerUse >= 0 && cap.getPlayerLevel() >= NBTHelper.loadStackNBT(currentStack).getInteger("Level")) || player.isCreative())
 			{	
 				player.setActiveHand(hand);
 				return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, currentStack);
 			}
 		}
 		
-		if (playerInfo.getPlayerLevel() < NBTHelper.loadStackNBT(currentStack).getInteger("Level"))
+		if (cap.getPlayerLevel() < NBTHelper.loadStackNBT(currentStack).getInteger("Level"))
 		{
 			player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will take significantly more damage if it is not removed."));
 		}
@@ -117,14 +114,13 @@ public class ItemMagical extends Item
 		if (entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) entity;
-			PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);	
-			PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 			NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 			
-			if (info != null)
+			if (cap != null)
 			{
 				// check to see if we have held it long enough
-				double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()));
+				double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
 				
 				if (count > (this.getMaxItemUseDuration(stack) - ((1 / attackSpeed) * 20))) 
 				{
@@ -132,24 +128,21 @@ public class ItemMagical extends Item
 				}
 				
 				// fire projectile because check passed
-				if (statsCap != null)
+				world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+				
+				if (!world.isRemote)
 				{
-					world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-					
-					if (!world.isRemote)
-					{
-						// spawn entity and set position to specified direction
-						Vec3d look = player.getLookVec();
+					// spawn entity and set position to specified direction
+					Vec3d look = player.getLookVec();
 
-						fireProjectile(world, player, stack, nbt, look);
-						
-						// update mana and send to client
-						statsCap.decreaseMana(this.manaPerUse);
-						LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) player);
-						
-						// damage item
-						stack.damageItem(1, player);
-					}
+					fireProjectile(world, player, stack, nbt, look);
+					
+					// update mana and send to client
+					cap.decreaseMana(this.manaPerUse);
+					LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
+					
+					// damage item
+					stack.damageItem(1, player);
 				}
 			}
 		}

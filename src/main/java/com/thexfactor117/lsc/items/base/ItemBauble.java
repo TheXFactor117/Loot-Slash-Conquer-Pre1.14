@@ -1,9 +1,9 @@
 package com.thexfactor117.lsc.items.base;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.events.EventPlayerTick;
 import com.thexfactor117.lsc.init.ModTabs;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.util.NBTHelper;
 import com.thexfactor117.lsc.util.Reference;
 
@@ -51,11 +51,11 @@ public class ItemBauble extends Item implements IBauble
 			if (entity instanceof EntityPlayer)
 			{
 				EntityPlayer player = (EntityPlayer) entity;
-				PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+				LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 				
-				if (info != null && info.getPlayerLevel() >= NBTHelper.loadStackNBT(stack).getInteger("Level"))
+				if (cap != null && cap.getPlayerLevel() >= NBTHelper.loadStackNBT(stack).getInteger("Level"))
 				{
-					EventPlayerTick.updateStats(player, info, 3);
+					EventPlayerTick.updateStats(player, cap, 3);
 				}
 				else player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will not provide any bonuses."));
 			}
@@ -70,11 +70,11 @@ public class ItemBauble extends Item implements IBauble
 			if (entity instanceof EntityPlayer)
 			{
 				EntityPlayer player = (EntityPlayer) entity;
-				PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+				LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 				
-				if (info != null)
+				if (cap != null)
 				{
-					EventPlayerTick.updateStats(player, info, 3);
+					EventPlayerTick.updateStats(player, cap, 3);
 				}
 			}
 		}

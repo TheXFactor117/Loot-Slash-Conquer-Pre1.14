@@ -5,7 +5,7 @@ import java.util.Random;
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.EntityMonster;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
@@ -31,7 +31,7 @@ public class ExperienceUtils
 		return (int) (Math.pow(currentLevel + 1, Configs.playerCategory.levelUpExpPower) + Configs.playerCategory.levelUpAdditive);
 	}
 	
-	public static void addExperience(EntityPlayer player, PlayerInformation playerInfo, EntityLivingBase enemy)
+	public static void addExperience(EntityPlayer player, LSCPlayerCapability cap, EntityLivingBase enemy)
 	{
 		int experience = 0;
 		
@@ -62,27 +62,27 @@ public class ExperienceUtils
 		}
 		
 		// update experience on client AND server; increase level if need be.
-		playerInfo.setPlayerExperience(playerInfo.getPlayerExperience() + experience);
+		cap.setPlayerExperience(cap.getPlayerExperience() + experience);
 		
 		// Minecraft bug with actionbar times - it doesn't actually handle specifying times for the actionbar.
 		SPacketTitle packetActionbar = new SPacketTitle(SPacketTitle.Type.ACTIONBAR, new TextComponentString("You killed " + enemy.getName() + " and gained " + experience + " experience!"), -1, -1, -1);
 		((EntityPlayerMP) player).connection.sendPacket(packetActionbar);
 		
-		while (playerInfo.getPlayerExperience() > getLevelUpExperience(playerInfo.getPlayerLevel())) 
+		while (cap.getPlayerExperience() > getLevelUpExperience(cap.getPlayerLevel())) 
 		{
-			int leftOverExperience = playerInfo.getPlayerExperience() - getLevelUpExperience(playerInfo.getPlayerLevel());
+			int leftOverExperience = cap.getPlayerExperience() - getLevelUpExperience(cap.getPlayerLevel());
 			int skillPoints = 0;
 			
-			playerInfo.setPlayerLevel(playerInfo.getPlayerLevel() + 1); // increase level
-			playerInfo.setPlayerExperience(leftOverExperience);
+			cap.setPlayerLevel(cap.getPlayerLevel() + 1); // increase level
+			cap.setPlayerExperience(leftOverExperience);
 			
 			if (Configs.playerCategory.useTieredSkillPointDistribution)
 			{
 				// Every level add 1 skill point.
 				// Every 5 levels add an additional 2 skill points (total 3)
 				// Every 10 levels add an additional 4 skill points (total 5)
-				if (playerInfo.getPlayerLevel() % 10 == 0) skillPoints = Configs.playerCategory.skillPointsPer10Levels;
-				else if (playerInfo.getPlayerLevel() % 5 == 0) skillPoints = Configs.playerCategory.skillPointsPer5Levels;
+				if (cap.getPlayerLevel() % 10 == 0) skillPoints = Configs.playerCategory.skillPointsPer10Levels;
+				else if (cap.getPlayerLevel() % 5 == 0) skillPoints = Configs.playerCategory.skillPointsPer5Levels;
 				else skillPoints = Configs.playerCategory.skillPointsPerLevel;
 			}
 			else
@@ -90,20 +90,20 @@ public class ExperienceUtils
 				skillPoints = Configs.playerCategory.skillPointsPerLevel;
 			}
 			
-			SPacketTitle packetTitle = new SPacketTitle(SPacketTitle.Type.TITLE, new TextComponentString("Level " + playerInfo.getPlayerLevel()));
+			SPacketTitle packetTitle = new SPacketTitle(SPacketTitle.Type.TITLE, new TextComponentString("Level " + cap.getPlayerLevel()));
 			SPacketTitle packetSubtitle = new SPacketTitle(SPacketTitle.Type.SUBTITLE, new TextComponentString("You have leveled up! You've gained " + skillPoints + " Skill Points."));
 			((EntityPlayerMP) player).connection.sendPacket(packetTitle);
 			((EntityPlayerMP) player).connection.sendPacket(packetSubtitle);
 			
 			if (Configs.playerCategory.spawnLevelUpParticles)
 			{
-				spawnLevelUpParticles(player.getEntityWorld(), player, playerInfo.getPlayerLevel()); // bugged
+				spawnLevelUpParticles(player.getEntityWorld(), player, cap.getPlayerLevel()); // bugged
 			}
 			
-			playerInfo.setSkillPoints(playerInfo.getSkillPoints() + skillPoints);
+			cap.setSkillPoints(cap.getSkillPoints() + skillPoints);
 		}
 		
-		LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) player); 
+		LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(cap), (EntityPlayerMP) player); 
 	}
 	
 	private static void spawnLevelUpParticles(World world, EntityPlayer player, int level)

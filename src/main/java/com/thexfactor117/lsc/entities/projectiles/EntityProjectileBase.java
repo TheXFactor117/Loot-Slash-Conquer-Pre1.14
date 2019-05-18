@@ -1,11 +1,9 @@
 package com.thexfactor117.lsc.entities.projectiles;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.player.DamageType;
 import com.thexfactor117.lsc.player.DamageUtils;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.player.WeaponUtils;
 import com.thexfactor117.lsc.util.NBTHelper;
 
@@ -62,15 +60,14 @@ public abstract class EntityProjectileBase extends EntityThrowable
 	{
 		if (!this.getEntityWorld().isRemote && player != null)
 		{
-			PlayerStats stats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
-			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 			
-			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && result.entityHit != player && stats != null && playerInfo != null)
+			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && result.entityHit != player && cap != null)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage"));
-				damage = DamageUtils.applyDamageModifiers(playerInfo, damage, DamageType.MAGICAL);
-				damage = DamageUtils.applyCriticalModifier(stats, damage, nbt);
+				damage = DamageUtils.applyDamageModifiers(cap, damage, DamageType.MAGICAL);
+				damage = DamageUtils.applyCriticalModifier(cap, damage, nbt);
 				
 				// apply damage
 				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);

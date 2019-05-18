@@ -671,6 +671,7 @@ public class Configs
 			"Only change this if you know what you're doing.",
 			"Influences the affect the Level has on the range. For bigger damage ranges, increase this value."
 		})
+		@RangeDouble(min = 0.1)
 		public double rangeMultiplier = 0.3;
 		
 		// damage

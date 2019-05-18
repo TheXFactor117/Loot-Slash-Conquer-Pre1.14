@@ -1,14 +1,12 @@
 package com.thexfactor117.lsc.events.combat;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.player.DamageType;
 import com.thexfactor117.lsc.player.DamageUtils;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.player.WeaponUtils;
 import com.thexfactor117.lsc.util.LSCDamageSource;
 import com.thexfactor117.lsc.util.NBTHelper;
@@ -53,20 +51,19 @@ public class EventDamage
 				EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 				EntityLivingBase enemy = event.getEntityLiving();
 				ItemStack weapon = player.getHeldItem(player.getActiveHand());
-				PlayerInformation playerinfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-				PlayerStats playerstats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+				LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 				
-				if (playerinfo != null && playerstats != null && weapon != ItemStack.EMPTY)
+				if (cap != null && weapon != ItemStack.EMPTY)
 				{
 					// melee attack
 					if (weapon.getItem() instanceof ItemSword)
 					{
-						playerMeleeAttack(event, player, enemy, weapon, playerinfo, playerstats);
+						playerMeleeAttack(event, player, enemy, weapon, cap);
 					}
 					// TODO: ranged attack
 					else if (weapon.getItem() instanceof ItemBow && event.getSource().getImmediateSource() instanceof EntityArrow)
 					{
-						playerRangedAttack(event, player, enemy, weapon, playerinfo, playerstats);
+						playerRangedAttack(event, player, enemy, weapon, cap);
 					}
 					
 					// NOTE: magical attacks are handled inside its own class.
@@ -84,10 +81,9 @@ public class EventDamage
 			{
 				EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 				//EntityLivingBase enemy = (EntityLivingBase) event.getSource().getTrueSource();
-				PlayerInformation playerinfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-				PlayerStats playerstats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+				LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 				
-				if (playerinfo != null && playerstats != null)
+				if (cap != null)
 				{
 					// check if the damage is elemental damage
 					if ((event.getSource() instanceof LSCDamageSource || event.getSource().isFireDamage()) && (event.getSource() instanceof LSCDamageSource && !((LSCDamageSource) event.getSource()).isChainedDamage()))
@@ -98,7 +94,7 @@ public class EventDamage
 					// if it isn't elemental damage, let's apply armor reductions (so elemental damage bypasses armor).
 					else
 					{
-						double damage = DamageUtils.applyArmorReductions(event.getAmount(), player, playerinfo);
+						double damage = DamageUtils.applyArmorReductions(event.getAmount(), player, cap);
 						event.setAmount((float) damage);
 						
 						// loop through all armor pieces to use the durability attribute
@@ -129,13 +125,13 @@ public class EventDamage
 	}
 	
 	// working properly
-	private static void playerMeleeAttack(LivingHurtEvent event, EntityPlayer player, EntityLivingBase enemy, ItemStack weapon, PlayerInformation playerInfo, PlayerStats stats)
+	private static void playerMeleeAttack(LivingHurtEvent event, EntityPlayer player, EntityLivingBase enemy, ItemStack weapon, LSCPlayerCapability cap)
 	{
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(weapon);
 		
 		if (Rarity.getRarity(nbt) != Rarity.DEFAULT)
 		{
-			if (playerInfo.getPlayerLevel() < nbt.getInteger("Level"))
+			if (cap.getPlayerLevel() < nbt.getInteger("Level"))
 			{
 				underLevelAttack(event, player, weapon);
 			}
@@ -143,8 +139,8 @@ public class EventDamage
 			{
 				// set the true amount of damage.
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-				trueDamage = DamageUtils.applyDamageModifiers(playerInfo, trueDamage, DamageType.PHYSICAL_MELEE);
-				trueDamage = DamageUtils.applyCriticalModifier(stats, trueDamage, nbt);
+				trueDamage = DamageUtils.applyDamageModifiers(cap, trueDamage, DamageType.PHYSICAL_MELEE);
+				trueDamage = DamageUtils.applyCriticalModifier(cap, trueDamage, nbt);
 
 				WeaponUtils.useWeaponAttributes((float) trueDamage, player, enemy, weapon, nbt);
 				
@@ -154,13 +150,13 @@ public class EventDamage
 	}
 	
 	// working properly
-	private static void playerRangedAttack(LivingHurtEvent event, EntityPlayer player, EntityLivingBase enemy, ItemStack weapon, PlayerInformation playerInfo, PlayerStats stats) 
+	private static void playerRangedAttack(LivingHurtEvent event, EntityPlayer player, EntityLivingBase enemy, ItemStack weapon, LSCPlayerCapability cap) 
 	{
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(weapon);
 		
 		if (Rarity.getRarity(nbt) != Rarity.DEFAULT)
 		{
-			if (playerInfo.getPlayerLevel() < nbt.getInteger("Level"))
+			if (cap.getPlayerLevel() < nbt.getInteger("Level"))
 			{
 				underLevelAttack(event, player, weapon);
 			}
@@ -168,8 +164,8 @@ public class EventDamage
 			{
 				// set the true amount of damage.
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-				trueDamage = DamageUtils.applyDamageModifiers(playerInfo, trueDamage, DamageType.PHYSICAL_RANGED);
-				trueDamage = DamageUtils.applyCriticalModifier(stats, trueDamage, nbt);
+				trueDamage = DamageUtils.applyDamageModifiers(cap, trueDamage, DamageType.PHYSICAL_RANGED);
+				trueDamage = DamageUtils.applyCriticalModifier(cap, trueDamage, nbt);
 				
 				event.setAmount((float) trueDamage);
 				WeaponUtils.useWeaponAttributes(event.getAmount(), player, enemy, weapon, nbt);

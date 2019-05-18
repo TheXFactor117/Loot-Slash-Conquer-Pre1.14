@@ -3,14 +3,15 @@ package com.thexfactor117.lsc.client.events;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.items.base.ItemMagical;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
+import com.thexfactor117.lsc.loot.attributes.AttributeBase;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.util.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -44,20 +45,20 @@ public class EventItemTooltip
 		
 		if (event.getEntityPlayer() != null)
 		{
-			PlayerInformation info = (PlayerInformation) event.getEntityPlayer().getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(event.getEntityPlayer());
 			
-			if (info != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor || stack.getItem() instanceof ItemBow || 
+			if (cap != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor || stack.getItem() instanceof ItemBow || 
 					stack.getItem() instanceof ItemMagical || stack.getItem() instanceof ItemBauble))
 			{
 				Rarity rarity = Rarity.getRarity(nbt);
 				
 				if (rarity != Rarity.DEFAULT)
 				{
-					if (stack.getItem() instanceof ItemSword) drawMelee(tooltip, stack, nbt, event.getEntityPlayer(), info);
-					else if (stack.getItem() instanceof ItemArmor) drawArmor(tooltip, stack, nbt, event.getEntityPlayer(), info);
-					else if (stack.getItem() instanceof ItemBow) drawRanged(tooltip, stack, nbt, event.getEntityPlayer(), info);
-					else if (stack.getItem() instanceof ItemMagical) drawMagical(tooltip, stack, nbt, event.getEntityPlayer(), info);
-					else if (stack.getItem() instanceof ItemBauble) drawBauble(tooltip, stack, nbt, event.getEntityPlayer(), info);
+					if (stack.getItem() instanceof ItemSword) drawMelee(tooltip, stack, nbt, event.getEntityPlayer(), cap);
+					else if (stack.getItem() instanceof ItemArmor) drawArmor(tooltip, stack, nbt, event.getEntityPlayer(), cap);
+					else if (stack.getItem() instanceof ItemBow) drawRanged(tooltip, stack, nbt, event.getEntityPlayer(), cap);
+					else if (stack.getItem() instanceof ItemMagical) drawMagical(tooltip, stack, nbt, event.getEntityPlayer(), cap);
+					else if (stack.getItem() instanceof ItemBauble) drawBauble(tooltip, stack, nbt, event.getEntityPlayer(), cap);
 				}
 				else
 				{
@@ -68,7 +69,7 @@ public class EventItemTooltip
 		}
 	}
 	
-	private static void drawMelee(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawMelee(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)
 	{
 		/*
 		 * NAME
@@ -96,7 +97,7 @@ public class EventItemTooltip
 		tooltip.add(2, Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
 		
 		// Level
-		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		if (cap.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
 		else tooltip.add("Level: " + nbt.getInteger("Level"));
 		
 		tooltip.add("");
@@ -106,7 +107,7 @@ public class EventItemTooltip
 		NBTTagCompound speedNbt = taglist.getCompoundTagAt(1);
 		DecimalFormat format = new DecimalFormat("#.##");
 		
-		double attackSpeed = speedNbt.getDouble("Amount") + 4 + (Configs.playerCategory.attackSpeedMultiplier * (double) (info.getTotalAgility()));
+		double attackSpeed = speedNbt.getDouble("Amount") + 4 + (Configs.playerCategory.attackSpeedMultiplier * (double) (cap.getTotalAgility()));
 
 		tooltip.add(TextFormatting.BLUE + " +" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + " +" + format.format(attackSpeed) + " Attack Speed");
@@ -119,6 +120,10 @@ public class EventItemTooltip
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 
+		tooltip.add(TextFormatting.RED + " *" + format.format((int) (AttributeBase.FIRE_DAMAGE.getAttributeValue(nbt))) + " Fire Damage"
+				+ TextFormatting.GRAY + " (" + AttributeBase.FIRE_DAMAGE.getAttributeMinValue(nbt) + " - " + AttributeBase.FIRE_DAMAGE.getAttributeMaxValue(nbt)
+				+ ")");
+		
 		for (Attribute attribute : Attribute.values())
 		{
 			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
@@ -128,7 +133,7 @@ public class EventItemTooltip
 		}
 	}
 	
-	private static void drawArmor(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawArmor(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)
 	{
 		/*
 		 * NAME
@@ -146,7 +151,7 @@ public class EventItemTooltip
 		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
 		
 		// Level
-		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		if (cap.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
 		else tooltip.add("Level: " + nbt.getInteger("Level"));
 		
 		tooltip.add("");
@@ -173,20 +178,20 @@ public class EventItemTooltip
 		}
 	}
 	
-	private static void drawRanged(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawRanged(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)
 	{
 		tooltip.add(1, "");
 		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
 		
 		// Level
-		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		if (cap.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
 		else tooltip.add("Level: " + nbt.getInteger("Level"));
 		
 		tooltip.add("");
 		
 		// Damage and Attack Speed
 		DecimalFormat format = new DecimalFormat("#.##");
-		double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()));
+		double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
 
 		tooltip.add(TextFormatting.BLUE + "+" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + "+" + format.format(attackSpeed) + " Attack Speed");
@@ -208,7 +213,7 @@ public class EventItemTooltip
 		}
 	}
 	
-	private static void drawMagical(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawMagical(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)
 	{
 		/*
 		 * NAME
@@ -228,7 +233,7 @@ public class EventItemTooltip
 		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
 		
 		// Level
-		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		if (cap.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
 		else tooltip.add("Level: " + nbt.getInteger("Level"));
 		
 		tooltip.add("");
@@ -239,7 +244,7 @@ public class EventItemTooltip
 		
 		// Damage and Attack Speed
 		DecimalFormat format = new DecimalFormat("#.##");
-		double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()));
+		double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
 
 		tooltip.add(TextFormatting.BLUE + "+" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
 		tooltip.add(TextFormatting.BLUE + "+" + format.format(attackSpeed) + " Attack Speed");
@@ -261,7 +266,7 @@ public class EventItemTooltip
 		}
 	}
 	
-	private static void drawBauble(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, PlayerInformation info)
+	private static void drawBauble(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)
 	{
 		/*
 		 * NAME
@@ -274,7 +279,7 @@ public class EventItemTooltip
 		tooltip.add(Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
 		
 		// Level
-		if (info.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
+		if (cap.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
 		else tooltip.add("Level: " + nbt.getInteger("Level"));
 		
 		tooltip.add("");

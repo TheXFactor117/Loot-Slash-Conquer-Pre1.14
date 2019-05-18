@@ -3,10 +3,7 @@ package com.thexfactor117.lsc.player;
 import java.util.UUID;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 
@@ -28,21 +25,20 @@ public class PlayerStatUtils
 	private static final String MAX_HEALTH = "e3762718-bbd8-4763-bfe9-1d18d70eaa76";
 	
 	/**
-	 * Helper method to update player attributes based on current stats.
+	 * Helper method to update player attributes based on current cap.
 	 */
 	public static void updateAttributes(EntityPlayer player)
 	{
-		PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		PlayerStats stats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 		
-		if (info != null && stats != null)
+		if (cap != null)
 		{
 			/* 
 			 * STRENGTH
 			 */
 			// TODO: convert new damage to add to the player's attribute...look into this more, the whole system is all sorts of fucked up.
 			// increase attack damage
-			/*AttributeModifier strengthAttackDamage = new AttributeModifier(UUID.fromString(ATTACK_DAMAGE), "playerStrength", ATTACK_DAMAGE_MULTIPLIER * (info.getTotalStrength()), 0);
+			/*AttributeModifier strengthAttackDamage = new AttributeModifier(UUID.fromString(ATTACK_DAMAGE), "playerStrength", ATTACK_DAMAGE_MULTIPLIER * (cap.getTotalStrength()), 0);
 
 			if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getModifier(UUID.fromString(ATTACK_DAMAGE)) != null)
 			{
@@ -57,7 +53,7 @@ public class PlayerStatUtils
 			 * AGILITY
 			 */
 			// increase agility
-			AttributeModifier agilityMovementSpeed = new AttributeModifier(UUID.fromString(MOVEMENT_SPEED), "agilityMovementSpeed", Configs.playerCategory.movementSpeedMultiplier * (info.getTotalAgility()), 0);
+			AttributeModifier agilityMovementSpeed = new AttributeModifier(UUID.fromString(MOVEMENT_SPEED), "agilityMovementSpeed", Configs.playerCategory.movementSpeedMultiplier * (cap.getTotalAgility()), 0);
 			
 			if (player.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).getModifier(UUID.fromString(MOVEMENT_SPEED)) != null)
 			{
@@ -68,7 +64,7 @@ public class PlayerStatUtils
 				player.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).applyModifier(agilityMovementSpeed);
 			
 			// increase attack speed
-			AttributeModifier agilityAttackSpeed = new AttributeModifier(UUID.fromString(ATTACK_SPEED), "agilityAttackSpeed", Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()), 0);
+			AttributeModifier agilityAttackSpeed = new AttributeModifier(UUID.fromString(ATTACK_SPEED), "agilityAttackSpeed", Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()), 0);
 			
 			if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_SPEED).getModifier(UUID.fromString(ATTACK_SPEED)) != null)
 			{
@@ -84,27 +80,27 @@ public class PlayerStatUtils
 				/*
 				 * DEXTERITY
 				 */
-				int bonus = info.getTotalDexterity() > 0 ? 1 : 0;
+				int bonus = cap.getTotalDexterity() > 0 ? 1 : 0;
 				
-				stats.setCriticalChance(Configs.playerCategory.critChanceMultiplier * ((info.getTotalDexterity() / 5) + bonus));
-				stats.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((info.getTotalDexterity() / 2) + bonus));
+				cap.setCriticalChance(Configs.playerCategory.critChanceMultiplier * ((cap.getTotalDexterity() / 5) + bonus));
+				cap.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((cap.getTotalDexterity() / 2) + bonus));
 				
 				
 				/*
 				 * INTELLIGENCE
 				 */
-				//stats.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (info.getTotalIntelligence()));
+				//cap.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (cap.getTotalIntelligence()));
 				
 				/*
 				 * WISDOM
 				 */			
-				stats.setMaxMana((int) ((Configs.playerCategory.maxManaMultiplier * info.getTotalWisdom()) + 100));
+				cap.setMaxMana((int) ((Configs.playerCategory.maxManaMultiplier * cap.getTotalWisdom()) + 100));
 				
-				stats.setManaPerSecond(Configs.playerCategory.manaPer5 * info.getTotalWisdom());
+				cap.setManaPerSecond(Configs.playerCategory.manaPer5 * cap.getTotalWisdom());
 				
 				//fortitude
-				stats.setHealthPerSecond(Configs.playerCategory.healthPer5 * info.getTotalFortitude());
-				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(stats), (EntityPlayerMP) player);
+				cap.setHealthPerSecond(Configs.playerCategory.healthPer5 * cap.getTotalFortitude());
+				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
 			}
 			
 			
@@ -112,7 +108,7 @@ public class PlayerStatUtils
 			 * FORTITUDE
 			 */
 			// increases max health
-			AttributeModifier fortitudeMaxHealth = new AttributeModifier(UUID.fromString(MAX_HEALTH), "maxHealth", Configs.playerCategory.maxHealthMultiplier * (info.getTotalFortitude()), 0);
+			AttributeModifier fortitudeMaxHealth = new AttributeModifier(UUID.fromString(MAX_HEALTH), "maxHealth", Configs.playerCategory.maxHealthMultiplier * (cap.getTotalFortitude()), 0);
 			
 			if (player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(UUID.fromString(MAX_HEALTH)) != null)
 			{

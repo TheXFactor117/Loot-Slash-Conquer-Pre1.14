@@ -3,9 +3,8 @@ package com.thexfactor117.lsc.capabilities.cap;
 import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.api.IPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
@@ -32,31 +31,47 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent;
 
 /**
- * 
+ *
  * @author TheXFactor117
  *
  */
-public class CapabilityPlayerInformation 
+public class CapabilityLSCPlayer
 {
-	@CapabilityInject(IPlayerInformation.class)
-	public static final Capability<IPlayerInformation> PLAYER_INFORMATION = null;
+	@CapabilityInject(ILSCPlayer.class)
+	public static final Capability<ILSCPlayer> PLAYER_CAP = null;
 	public static final EnumFacing DEFAULT_FACING = null;
-	public static final ResourceLocation ID = new ResourceLocation(Reference.MODID, "PlayerInformation");
+	public static final ResourceLocation ID = new ResourceLocation(Reference.MODID, "LSCPlayerCap");
 	
 	public static void register() 
 	{
-		CapabilityManager.INSTANCE.register(IPlayerInformation.class, new Capability.IStorage<IPlayerInformation>() 
+		CapabilityManager.INSTANCE.register(ILSCPlayer.class, new Capability.IStorage<ILSCPlayer>() 
 		{
 			@Override
-			public NBTBase writeNBT(Capability<IPlayerInformation> capability, IPlayerInformation instance, EnumFacing side) 
+			public NBTBase writeNBT(Capability<ILSCPlayer> capability, ILSCPlayer instance, EnumFacing side) 
 			{
 				NBTTagCompound nbt = new NBTTagCompound();
 				
+				// basic info
 				nbt.setInteger("PlayerClass", instance.getPlayerClass());
 				nbt.setInteger("PlayerLevel", instance.getPlayerLevel());
 				nbt.setInteger("PlayerExperience", instance.getPlayerExperience());
 				nbt.setInteger("PlayerSkillPoints", instance.getSkillPoints());
-
+				
+				// modifiers
+				nbt.setInteger("MaxMana", instance.getMaxMana());
+				nbt.setInteger("Mana", instance.getMana());
+				nbt.setInteger("ManaPerSecond", instance.getManaPerSecond());
+				
+				nbt.setDouble("MagicalPower", instance.getMagicalPower());
+				
+				nbt.setInteger("HealthPerSecond", instance.getHealthPerSecond());
+				
+				nbt.setDouble("CriticalChance", instance.getCriticalChance());
+				nbt.setDouble("CriticalDamage", instance.getCriticalDamage());
+				
+				nbt.setInteger("UpdateTicks", instance.getUpdateTicks());
+				nbt.setInteger("RegenTicks", instance.getRegenTicks());
+				
 				// stats
 				nbt.setInteger("StrengthStat", instance.getStrengthStat());
 				nbt.setInteger("AgilityStat", instance.getAgilityStat());
@@ -76,14 +91,30 @@ public class CapabilityPlayerInformation
 			}
 
 			@Override
-			public void readNBT(Capability<IPlayerInformation> capability, IPlayerInformation instance, EnumFacing side, NBTBase nbt) 
+			public void readNBT(Capability<ILSCPlayer> capability, ILSCPlayer instance, EnumFacing side, NBTBase nbt) 
 			{
 				NBTTagCompound compound = (NBTTagCompound) nbt;
 				
+				// basic info
 				instance.setPlayerClass(compound.getInteger("PlayerClass"));
 				instance.setPlayerLevel(compound.getInteger("PlayerLevel"));
 				instance.setPlayerExperience(compound.getInteger("PlayerExperience"));
 				instance.setSkillPoints(compound.getInteger("PlayerSkillPoints"));
+				
+				// modifiers
+				instance.setMaxMana(compound.getInteger("MaxMana"));
+				instance.setMana(compound.getInteger("Mana"));
+				instance.setManaPerSecond(compound.getInteger("ManaPerSecond"));
+				
+				instance.setMagicalPower(compound.getDouble("MagicalPower"));
+				
+				instance.setHealthPerSecond(compound.getInteger("HealthPerSecond"));
+				
+				instance.setCriticalChance(compound.getDouble("CriticalChance"));
+				instance.setCriticalDamage(compound.getDouble("CriticalDamage"));
+				
+				instance.setUpdateTicks(compound.getInteger("UpdateTicks"));
+				instance.setUpdateTicks(compound.getInteger("RegenTicks"));
 				
 				// stats
 				instance.setStrengthStat(compound.getInteger("StrengthStat"));
@@ -100,18 +131,18 @@ public class CapabilityPlayerInformation
 				instance.setBonusWisdomStat(compound.getInteger("WisdomBonusStat"));
 				instance.setBonusFortitudeStat(compound.getInteger("FortitudeBonusStat"));
 			}
-		}, () -> new PlayerInformation(null));
+		}, () -> new LSCPlayerCapability(null));
 	}
 	
 	@Nullable
-	public static IPlayerInformation getPlayerInformation(EntityLivingBase entity) 
+	public static ILSCPlayer getPlayerCapability(EntityLivingBase entity) 
 	{
-		return CapabilityUtils.getCapability(entity, PLAYER_INFORMATION, DEFAULT_FACING);
+		return CapabilityUtils.getCapability(entity, PLAYER_CAP, DEFAULT_FACING);
 	}
 	
-	public static ICapabilityProvider createProvider(IPlayerInformation playerInfo)
+	public static ICapabilityProvider createProvider(ILSCPlayer playercap) 
 	{
-		return new SimpleCapabilityProvider<>(PLAYER_INFORMATION, DEFAULT_FACING, playerInfo);
+		return new SimpleCapabilityProvider<>(PLAYER_CAP, DEFAULT_FACING, playercap);
 	}
 	
 	@Mod.EventBusSubscriber
@@ -122,42 +153,55 @@ public class CapabilityPlayerInformation
 		{
 			if (event.getObject() instanceof EntityPlayer) 
 			{
-				final PlayerInformation playerInfo = new PlayerInformation((EntityPlayer) event.getObject());
+				final LSCPlayerCapability playercap = new LSCPlayerCapability((EntityPlayer) event.getObject());
 				
-				event.addCapability(ID, createProvider(playerInfo));
+				event.addCapability(ID, createProvider(playercap));
 			}
 		}
 		
-		// handles synchronizing data when the player dies and respawns (or comes back via the end gateway)
 		@SubscribeEvent
 		public static void playerClone(PlayerEvent.Clone event) 
 		{
-			IPlayerInformation oldInfo = getPlayerInformation(event.getOriginal());
-			IPlayerInformation newInfo = getPlayerInformation(event.getEntityLiving());
-			
-			if (newInfo != null && oldInfo != null)
-			{	
-				newInfo.setPlayerClass(oldInfo.getPlayerClass());
-				newInfo.setPlayerLevel(oldInfo.getPlayerLevel());
-				newInfo.setPlayerExperience(oldInfo.getPlayerExperience());
-				newInfo.setSkillPoints(oldInfo.getSkillPoints());
+			ILSCPlayer oldCap = getPlayerCapability(event.getOriginal());
+			ILSCPlayer newCap = getPlayerCapability(event.getEntityLiving());
+
+			if (newCap != null && oldCap != null)
+			{
+				// basic info
+				newCap.setPlayerClass(oldCap.getPlayerClass());
+				newCap.setPlayerLevel(oldCap.getPlayerLevel());
+				newCap.setPlayerExperience(oldCap.getPlayerExperience());
+				newCap.setSkillPoints(oldCap.getSkillPoints());
+				
+				// modifiers
+				newCap.setMaxMana(oldCap.getMaxMana());
+				newCap.setMana(oldCap.getMana());
+				newCap.setManaPerSecond(oldCap.getManaPerSecond());
+				
+				newCap.setMagicalPower(oldCap.getMagicalPower());
+				
+				newCap.setHealthPerSecond(oldCap.getHealthPerSecond());
+				
+				newCap.setCriticalChance(oldCap.getCriticalChance());
+				newCap.setCriticalDamage(oldCap.getCriticalDamage());
+				
+				newCap.setUpdateTicks(oldCap.getUpdateTicks());
+				newCap.setRegenTicks(oldCap.getRegenTicks());
 				
 				// stats
-				newInfo.setStrengthStat(oldInfo.getStrengthStat());
-				newInfo.setAgilityStat(oldInfo.getAgilityStat());
-				newInfo.setDexterityStat(oldInfo.getDexterityStat());
-				newInfo.setIntelligenceStat(oldInfo.getIntelligenceStat());
-				newInfo.setWisdomStat(oldInfo.getWisdomStat());
-				newInfo.setFortitudeStat(oldInfo.getFortitudeStat());
+				newCap.setStrengthStat(oldCap.getStrengthStat());
+				newCap.setAgilityStat(oldCap.getAgilityStat());
+				newCap.setDexterityStat(oldCap.getDexterityStat());
+				newCap.setIntelligenceStat(oldCap.getIntelligenceStat());
+				newCap.setWisdomStat(oldCap.getWisdomStat());
+				newCap.setFortitudeStat(oldCap.getFortitudeStat());
 				
-				newInfo.setBonusStrengthStat(oldInfo.getBonusStrengthStat());
-				newInfo.setBonusAgilityStat(oldInfo.getBonusAgilityStat());
-				newInfo.setBonusDexterityStat(oldInfo.getBonusDexterityStat());
-				newInfo.setBonusIntelligenceStat(oldInfo.getBonusIntelligenceStat());
-				newInfo.setBonusWisdomStat(oldInfo.getBonusWisdomStat());
-				newInfo.setBonusFortitudeStat(oldInfo.getBonusFortitudeStat());
-
-				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation((PlayerInformation) newInfo), (EntityPlayerMP) event.getEntityLiving());
+				newCap.setBonusStrengthStat(oldCap.getBonusStrengthStat());
+				newCap.setBonusAgilityStat(oldCap.getBonusAgilityStat());
+				newCap.setBonusDexterityStat(oldCap.getBonusDexterityStat());
+				newCap.setBonusIntelligenceStat(oldCap.getBonusIntelligenceStat());
+				newCap.setBonusWisdomStat(oldCap.getBonusWisdomStat());
+				newCap.setBonusFortitudeStat(oldCap.getBonusFortitudeStat());
 			}
 		}
 		
@@ -165,26 +209,25 @@ public class CapabilityPlayerInformation
 		public static void onPlayerChangeDimension(PlayerChangedDimensionEvent event)
 		{
 			EntityPlayer player = event.player;
-			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			LSCPlayerCapability playercap = (LSCPlayerCapability) player.getCapability(CapabilityLSCPlayer.PLAYER_CAP, null);
 			
-			if (playerInfo != null)
+			if (playercap != null)
 			{
-				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) player);
+				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playercap), (EntityPlayerMP) player);
 			}
 		}
 		
 		@SubscribeEvent
 		public static void onPlayerRespawn(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event)
 		{
-			PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-			PlayerStats statsCap = (PlayerStats) event.player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+			LSCPlayerCapability playercap = (LSCPlayerCapability) event.player.getCapability(CapabilityLSCPlayer.PLAYER_CAP, null);
 			
-			if (playerInfo != null && statsCap != null)
+			if (playercap != null)
 			{
-				statsCap.setMana(statsCap.getMaxMana());
+				playercap.setMana(playercap.getMaxMana());
 				
-				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
-				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) event.player);
+				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playercap), (EntityPlayerMP) event.player);
+				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(playercap), (EntityPlayerMP) event.player);
 				PlayerStatUtils.updateAttributes(event.player);
 				
 				event.player.setHealth(event.player.getMaxHealth());

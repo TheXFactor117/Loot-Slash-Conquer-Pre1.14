@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.network.PacketClassSelection;
+import com.thexfactor117.lsc.player.PlayerUtil;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -63,23 +63,23 @@ public class GuiClassSelection extends GuiScreen
 		 */
 		
 		EntityPlayer player = mc.player;
-		PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 		
-		if (player != null && playerInfo != null)
+		if (player != null && cap != null)
 		{
 			if (button == warrior) 
 			{
-				playerInfo.setPlayerClass(1);
+				cap.setPlayerClass(1);
 				LootSlashConquer.network.sendToServer(new PacketClassSelection(1));
 			}
 			else if (button == mage) 
 			{
-				playerInfo.setPlayerClass(2);
+				cap.setPlayerClass(2);
 				LootSlashConquer.network.sendToServer(new PacketClassSelection(2));
 			}
 			else if (button == hunter) 
 			{
-				playerInfo.setPlayerClass(3);
+				cap.setPlayerClass(3);
 				LootSlashConquer.network.sendToServer(new PacketClassSelection(3));
 			}
 			

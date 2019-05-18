@@ -1,16 +1,14 @@
 package com.thexfactor117.lsc.events;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.util.NBTHelper;
 
 import baubles.api.BaublesApi;
@@ -40,37 +38,36 @@ public class EventPlayerTick
 	{
 		if (event.phase == Phase.START && !event.player.getEntityWorld().isRemote)
 		{
-			PlayerStats playerstats = (PlayerStats) event.player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
-			PlayerInformation playerinfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(event.player);
 			
-			if (playerstats != null && playerinfo != null)
+			if (cap != null)
 			{
-				playerstats.incrementUpdateTicks();
-				playerstats.incrementRegenTicks();
+				cap.incrementUpdateTicks();
+				cap.incrementRegenTicks();
 				
 				// TODO: possibly optimize this? 3 packets get sent every second
-				if (playerstats.getUpdateTicks() % Configs.ticksPerStatUpdate == 0)
+				if (cap.getUpdateTicks() % Configs.ticksPerStatUpdate == 0)
 				{	
-					updateStats(event.player, playerinfo, 3);
+					updateStats(event.player, cap, 3);
 					
-					playerstats.resetUpdateTicks();
+					cap.resetUpdateTicks();
 				}
 				
-				if (playerstats.getRegenTicks() % 100 == 0)
+				if (cap.getRegenTicks() % 100 == 0)
 				{	
-					if (playerstats.getMana() < playerstats.getMaxMana())
+					if (cap.getMana() < cap.getMaxMana())
 					{
-						playerstats.increaseMana(playerstats.getManaPerSecond());
+						cap.increaseMana(cap.getManaPerSecond());
 					}
 					
 					if (event.player.getHealth() < event.player.getMaxHealth())
 					{
-						event.player.heal(playerstats.getHealthPerSecond());
+						event.player.heal(cap.getHealthPerSecond());
 					}
 					
-					LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(playerstats), (EntityPlayerMP) event.player);
+					LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) event.player);
 					
-					playerstats.resetRegenTicks();
+					cap.resetRegenTicks();
 				}
 			}
 		}
@@ -84,12 +81,12 @@ public class EventPlayerTick
 	 * Flag 3 = update all
 	 * 
 	 * @param player
-	 * @param info
+	 * @param cap
 	 * @param flag
 	 */
-	public static void updateStats(EntityPlayer player, PlayerInformation info, int flag)
+	public static void updateStats(EntityPlayer player, LSCPlayerCapability cap, int flag)
 	{	
-		info.removeBonusStats();
+		cap.removeBonusStats();
 		
 		if (flag == 1 || flag == 3)
 		{
@@ -99,20 +96,20 @@ public class EventPlayerTick
 				{
 					NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 					
-					if (Attribute.STRENGTH.hasAttribute(nbt)) info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) Attribute.STRENGTH.getAmount(nbt));
-					if (Attribute.AGILITY.hasAttribute(nbt)) info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) Attribute.AGILITY.getAmount(nbt));
-					if (Attribute.DEXTERITY.hasAttribute(nbt)) info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) Attribute.DEXTERITY.getAmount(nbt));
-					if (Attribute.INTELLIGENCE.hasAttribute(nbt)) info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) Attribute.INTELLIGENCE.getAmount(nbt));
-					if (Attribute.WISDOM.hasAttribute(nbt)) info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) Attribute.WISDOM.getAmount(nbt));
-					if (Attribute.FORTITUDE.hasAttribute(nbt)) info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) Attribute.FORTITUDE.getAmount(nbt));
+					if (Attribute.STRENGTH.hasAttribute(nbt)) cap.setBonusStrengthStat(cap.getBonusStrengthStat() + (int) Attribute.STRENGTH.getAmount(nbt));
+					if (Attribute.AGILITY.hasAttribute(nbt)) cap.setBonusAgilityStat(cap.getBonusAgilityStat() + (int) Attribute.AGILITY.getAmount(nbt));
+					if (Attribute.DEXTERITY.hasAttribute(nbt)) cap.setBonusDexterityStat(cap.getBonusDexterityStat() + (int) Attribute.DEXTERITY.getAmount(nbt));
+					if (Attribute.INTELLIGENCE.hasAttribute(nbt)) cap.setBonusIntelligenceStat(cap.getBonusIntelligenceStat() + (int) Attribute.INTELLIGENCE.getAmount(nbt));
+					if (Attribute.WISDOM.hasAttribute(nbt)) cap.setBonusWisdomStat(cap.getBonusWisdomStat() + (int) Attribute.WISDOM.getAmount(nbt));
+					if (Attribute.FORTITUDE.hasAttribute(nbt)) cap.setBonusFortitudeStat(cap.getBonusFortitudeStat() + (int) Attribute.FORTITUDE.getAmount(nbt));
 					if (Attribute.ALL_STATS.hasAttribute(nbt))
 					{
-						info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-						info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-						info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-						info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-						info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-						info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+						cap.setBonusStrengthStat(cap.getBonusStrengthStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+						cap.setBonusAgilityStat(cap.getBonusAgilityStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+						cap.setBonusDexterityStat(cap.getBonusDexterityStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+						cap.setBonusIntelligenceStat(cap.getBonusIntelligenceStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+						cap.setBonusWisdomStat(cap.getBonusWisdomStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+						cap.setBonusFortitudeStat(cap.getBonusFortitudeStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
 					}
 				}
 			}
@@ -130,20 +127,20 @@ public class EventPlayerTick
 					{
 						NBTTagCompound nbt = NBTHelper.loadStackNBT(baubles.getStackInSlot(i));
 						
-						if (Attribute.STRENGTH.hasAttribute(nbt)) info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) Attribute.STRENGTH.getAmount(nbt));
-						if (Attribute.AGILITY.hasAttribute(nbt)) info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) Attribute.AGILITY.getAmount(nbt));
-						if (Attribute.DEXTERITY.hasAttribute(nbt)) info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) Attribute.DEXTERITY.getAmount(nbt));
-						if (Attribute.INTELLIGENCE.hasAttribute(nbt)) info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) Attribute.INTELLIGENCE.getAmount(nbt));
-						if (Attribute.WISDOM.hasAttribute(nbt)) info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) Attribute.WISDOM.getAmount(nbt));
-						if (Attribute.FORTITUDE.hasAttribute(nbt)) info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) Attribute.FORTITUDE.getAmount(nbt));
+						if (Attribute.STRENGTH.hasAttribute(nbt)) cap.setBonusStrengthStat(cap.getBonusStrengthStat() + (int) Attribute.STRENGTH.getAmount(nbt));
+						if (Attribute.AGILITY.hasAttribute(nbt)) cap.setBonusAgilityStat(cap.getBonusAgilityStat() + (int) Attribute.AGILITY.getAmount(nbt));
+						if (Attribute.DEXTERITY.hasAttribute(nbt)) cap.setBonusDexterityStat(cap.getBonusDexterityStat() + (int) Attribute.DEXTERITY.getAmount(nbt));
+						if (Attribute.INTELLIGENCE.hasAttribute(nbt)) cap.setBonusIntelligenceStat(cap.getBonusIntelligenceStat() + (int) Attribute.INTELLIGENCE.getAmount(nbt));
+						if (Attribute.WISDOM.hasAttribute(nbt)) cap.setBonusWisdomStat(cap.getBonusWisdomStat() + (int) Attribute.WISDOM.getAmount(nbt));
+						if (Attribute.FORTITUDE.hasAttribute(nbt)) cap.setBonusFortitudeStat(cap.getBonusFortitudeStat() + (int) Attribute.FORTITUDE.getAmount(nbt));
 						if (Attribute.ALL_STATS.hasAttribute(nbt))
 						{
-							info.setBonusStrengthStat(info.getBonusStrengthStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-							info.setBonusAgilityStat(info.getBonusAgilityStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-							info.setBonusDexterityStat(info.getBonusDexterityStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-							info.setBonusIntelligenceStat(info.getBonusIntelligenceStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-							info.setBonusWisdomStat(info.getBonusWisdomStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
-							info.setBonusFortitudeStat(info.getBonusFortitudeStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+							cap.setBonusStrengthStat(cap.getBonusStrengthStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+							cap.setBonusAgilityStat(cap.getBonusAgilityStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+							cap.setBonusDexterityStat(cap.getBonusDexterityStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+							cap.setBonusIntelligenceStat(cap.getBonusIntelligenceStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+							cap.setBonusWisdomStat(cap.getBonusWisdomStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
+							cap.setBonusFortitudeStat(cap.getBonusFortitudeStat() + (int) Attribute.ALL_STATS.getAmount(nbt));
 						}
 					}
 				}
@@ -152,6 +149,6 @@ public class EventPlayerTick
 		
 		PlayerStatUtils.updateAttributes(player);
 		
-		LootSlashConquer.network.sendTo(new PacketUpdateCoreStats(info), (EntityPlayerMP) player);
+		LootSlashConquer.network.sendTo(new PacketUpdateCoreStats(cap), (EntityPlayerMP) player);
 	}
 }

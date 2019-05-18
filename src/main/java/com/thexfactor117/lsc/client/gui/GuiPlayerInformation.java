@@ -6,15 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.network.PacketUpdateIncreaseStat;
 import com.thexfactor117.lsc.player.DamageUtils;
 import com.thexfactor117.lsc.player.ExperienceUtils;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
+import com.thexfactor117.lsc.player.PlayerUtil;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -63,22 +61,21 @@ public class GuiPlayerInformation extends GuiScreen
 		
 		DecimalFormat format = new DecimalFormat("#.##");
 		EntityPlayer player = mc.player;
-		PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 		
-		if (player != null && playerInfo != null && statsCap != null)
+		if (player != null && cap != null)
 		{
 			// main info
 			this.drawCenteredString(this.fontRenderer, I18n.format("gui.playerinfo.title"), this.width / 2, 20, 0xFFFFFF); // title
-			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.class") + ": " + I18n.format("gui.playerinfo.class." + playerInfo.getPlayerClass()), this.width / 2 - 50, 40, 0xFFFFFF); // level
-			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.level") + ": " + playerInfo.getPlayerLevel(), this.width / 2 - 50, 50, 0xFFFFFF); // level
+			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.class") + ": " + I18n.format("gui.playerinfo.class." + cap.getPlayerClass()), this.width / 2 - 50, 40, 0xFFFFFF); // level
+			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.level") + ": " + cap.getPlayerLevel(), this.width / 2 - 50, 50, 0xFFFFFF); // level
 			
-			String experience = I18n.format("gui.playerinfo.experience") + ": " + playerInfo.getPlayerExperience() + " / " + ExperienceUtils.getLevelUpExperience(playerInfo.getPlayerLevel());
-			double percent = (((double) playerInfo.getPlayerExperience() * 100) / (double) (ExperienceUtils.getLevelUpExperience(playerInfo.getPlayerLevel())));
+			String experience = I18n.format("gui.playerinfo.experience") + ": " + cap.getPlayerExperience() + " / " + ExperienceUtils.getLevelUpExperience(cap.getPlayerLevel());
+			double percent = (((double) cap.getPlayerExperience() * 100) / (double) (ExperienceUtils.getLevelUpExperience(cap.getPlayerLevel())));
 			String percentString = "  (" + String.format("%.0f%%", percent) + ")";
 			this.drawString(this.fontRenderer, experience + percentString, this.width / 2 - 50, 60, 0xFFFFFF); // experience
 			
-			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.skillpoints") + ": " + playerInfo.getSkillPoints(), this.width / 2 - 50, 70, 0xFFFFFF); // skill points
+			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.skillpoints") + ": " + cap.getSkillPoints(), this.width / 2 - 50, 70, 0xFFFFFF); // skill points
 
 			// stats
 			this.drawCenteredString(this.fontRenderer, I18n.format("gui.playerinfo.stats"), this.width / 2 + 120, 120, 0xFFFFFF);
@@ -89,17 +86,17 @@ public class GuiPlayerInformation extends GuiScreen
 			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.wisdom") + ":", this.width / 2 + 80, 180, 0xFFFFFF);
 			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.stats.fortitude") + ":", this.width / 2 + 80, 190, 0xFFFFFF);
 			
-			this.drawString(this.fontRenderer, "" + (playerInfo.getStrengthStat() + playerInfo.getBonusStrengthStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusStrengthStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 140, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + (playerInfo.getAgilityStat() + playerInfo.getBonusAgilityStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusAgilityStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 150, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + (playerInfo.getDexterityStat() + playerInfo.getBonusDexterityStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusDexterityStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 160, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + (playerInfo.getIntelligenceStat() + playerInfo.getBonusIntelligenceStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusIntelligenceStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 170, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + (playerInfo.getWisdomStat() + playerInfo.getBonusWisdomStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusWisdomStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 180, 0xFFFFFF);
-			this.drawString(this.fontRenderer, "" + (playerInfo.getFortitudeStat() + playerInfo.getBonusFortitudeStat()) + " (" + TextFormatting.GREEN + "+" + playerInfo.getBonusFortitudeStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 190, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (cap.getStrengthStat() + cap.getBonusStrengthStat()) + " (" + TextFormatting.GREEN + "+" + cap.getBonusStrengthStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 140, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (cap.getAgilityStat() + cap.getBonusAgilityStat()) + " (" + TextFormatting.GREEN + "+" + cap.getBonusAgilityStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 150, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (cap.getDexterityStat() + cap.getBonusDexterityStat()) + " (" + TextFormatting.GREEN + "+" + cap.getBonusDexterityStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 160, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (cap.getIntelligenceStat() + cap.getBonusIntelligenceStat()) + " (" + TextFormatting.GREEN + "+" + cap.getBonusIntelligenceStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 170, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (cap.getWisdomStat() + cap.getBonusWisdomStat()) + " (" + TextFormatting.GREEN + "+" + cap.getBonusWisdomStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 180, 0xFFFFFF);
+			this.drawString(this.fontRenderer, "" + (cap.getFortitudeStat() + cap.getBonusFortitudeStat()) + " (" + TextFormatting.GREEN + "+" + cap.getBonusFortitudeStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 190, 0xFFFFFF);
 			
 			// bonuses
-			double playerDamage = (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getTotalStrength()) * (0.85 * 0.8);
-			double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getTotalDexterity()) * (0.85 * 0.8);
-			double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, playerInfo.getPlayerLevel()) + playerInfo.getTotalIntelligence()) * (0.85 * 0.8);
+			double playerDamage = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalStrength()) * (0.85 * 0.8);
+			double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalDexterity()) * (0.85 * 0.8);
+			double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalIntelligence()) * (0.85 * 0.8);
 			playerDamage = playerDamage < 1 ? 0 : playerDamage;
 			rangedPower = rangedPower < 1 ? 0 : rangedPower;
 			magicalPower = magicalPower < 1 ? 0 : magicalPower;
@@ -107,15 +104,15 @@ public class GuiPlayerInformation extends GuiScreen
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.playerdamage") + ": " + TextFormatting.WHITE + "+" + format.format(playerDamage), this.width / 2 - 160, 140, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.rangedpower") + ": " + TextFormatting.WHITE + "+" + format.format(rangedPower), this.width / 2 - 160, 150, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.magicalpower") + ": " + TextFormatting.WHITE + "+" + format.format(magicalPower), this.width / 2 - 160, 160, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + format.format((Configs.playerCategory.attackSpeedMultiplier* (playerInfo.getTotalAgility()))), this.width / 2 - 160, 170, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(DamageUtils.getEquippedArmor(player, playerInfo)), this.width / 2 - 160, 180, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + format.format((Configs.playerCategory.attackSpeedMultiplier* (cap.getTotalAgility()))), this.width / 2 - 160, 170, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(DamageUtils.getEquippedArmor(player, cap)), this.width / 2 - 160, 180, 0xFFFFFF);
 			//this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.toughness") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue()), this.width / 2 - 160, 180, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critchance") + ": " + TextFormatting.WHITE + ((int) (statsCap.getCriticalChance() * 100)) + "%", this.width / 2 - 160, 190, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critdamage") + ": " + TextFormatting.WHITE + ((int) (statsCap.getCriticalDamage() * 100)) + "%", this.width / 2 - 160, 200, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.health") + ": " + TextFormatting.WHITE + "+" + (int) (Configs.playerCategory.maxHealthMultiplier * (playerInfo.getTotalFortitude())), this.width / 2 - 160, 210, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.hp5") + ": " + TextFormatting.WHITE + statsCap.getHealthPerSecond(), this.width / 2 - 160, 220, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mana") + ": " + TextFormatting.WHITE + "+" + (int) (Configs.playerCategory.maxManaMultiplier * (playerInfo.getTotalWisdom())), this.width / 2 - 160, 230, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mp5") + ": " + TextFormatting.WHITE + statsCap.getManaPerSecond(), this.width / 2 - 160, 240, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critchance") + ": " + TextFormatting.WHITE + ((int) (cap.getCriticalChance() * 100)) + "%", this.width / 2 - 160, 190, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critdamage") + ": " + TextFormatting.WHITE + ((int) (cap.getCriticalDamage() * 100)) + "%", this.width / 2 - 160, 200, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.health") + ": " + TextFormatting.WHITE + "+" + (int) (Configs.playerCategory.maxHealthMultiplier * (cap.getTotalFortitude())), this.width / 2 - 160, 210, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.hp5") + ": " + TextFormatting.WHITE + cap.getHealthPerSecond(), this.width / 2 - 160, 220, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mana") + ": " + TextFormatting.WHITE + "+" + (int) (Configs.playerCategory.maxManaMultiplier * (cap.getTotalWisdom())), this.width / 2 - 160, 230, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.mp5") + ": " + TextFormatting.WHITE + cap.getManaPerSecond(), this.width / 2 - 160, 240, 0xFFFFFF);
 		
 			drawTooltips(mouseX, mouseY);
 		}
@@ -125,45 +122,45 @@ public class GuiPlayerInformation extends GuiScreen
 	protected void actionPerformed(GuiButton button) throws IOException
 	{
 		EntityPlayer player = mc.player;
-		PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 		
 		// REMEMBER TO UPDATE CLIENT SIDE TOO
 		
-		if (player != null && playerInfo != null && playerInfo.getSkillPoints() > 0)
+		if (player != null && cap != null && cap.getSkillPoints() > 0)
 		{
 			// increase stat by one.
 			if (button == plusStrength) 
 			{
-				playerInfo.setStrengthStat(playerInfo.getStrengthStat() + 1);
+				cap.setStrengthStat(cap.getStrengthStat() + 1);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(1));
 			}
 			else if (button == plusAgility) 
 			{
-				playerInfo.setAgilityStat(playerInfo.getAgilityStat() + 1);
+				cap.setAgilityStat(cap.getAgilityStat() + 1);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(2));
 			}
 			else if (button == plusDexterity) 
 			{
-				playerInfo.setDexterityStat(playerInfo.getDexterityStat() + 1);
+				cap.setDexterityStat(cap.getDexterityStat() + 1);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(3));
 			}
 			else if (button == plusIntelligence) 
 			{
-				playerInfo.setIntelligenceStat(playerInfo.getIntelligenceStat() + 1);
+				cap.setIntelligenceStat(cap.getIntelligenceStat() + 1);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(4));
 			}
 			else if (button == plusWisdom) 
 			{
-				playerInfo.setWisdomStat(playerInfo.getWisdomStat() + 1);
+				cap.setWisdomStat(cap.getWisdomStat() + 1);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(5));
 			}
 			else if (button == plusFortitude) 
 			{
-				playerInfo.setFortitudeStat(playerInfo.getFortitudeStat() + 1);
+				cap.setFortitudeStat(cap.getFortitudeStat() + 1);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(6));
 			}
 			
-			playerInfo.setSkillPoints(playerInfo.getSkillPoints() - 1);
+			cap.setSkillPoints(cap.getSkillPoints() - 1);
 			
 			PlayerStatUtils.updateAttributes(player);
 		}

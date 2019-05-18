@@ -2,9 +2,9 @@ package com.thexfactor117.lsc.client.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.util.Reference;
 
 import net.minecraft.client.Minecraft;
@@ -42,13 +42,13 @@ public class GuiMana extends Gui
 				
 				if (!player.capabilities.isCreativeMode)
 				{
-					PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+					LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 					
-					if (statsCap != null)
+					if (cap != null)
 					{
-						if (statsCap.getMaxMana() != 0)
+						if (cap.getMaxMana() != 0)
 						{
-							double manaBarWidth = (double) statsCap.getMana() / statsCap.getMaxMana() * 81.0;
+							double manaBarWidth = (double) cap.getMana() / cap.getMaxMana() * 81.0;
 							int xPos = sr.getScaledWidth() / 2 + 10;
 							int yPos = sr.getScaledHeight() - 38;
 							
@@ -73,11 +73,11 @@ public class GuiMana extends Gui
 		{
 			ScaledResolution sr = event.getResolution();
 			EntityPlayer player = Minecraft.getMinecraft().player;
-			PlayerStats statsCap = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 			
-			if (!player.capabilities.isCreativeMode && statsCap != null)
+			if (!player.capabilities.isCreativeMode && cap != null)
 			{
-				String mana = statsCap.getMana() + " / " + statsCap.getMaxMana();
+				String mana = cap.getMana() + " / " + cap.getMaxMana();
 				
 				GL11.glPushMatrix();
 				GL11.glScalef(0.5F, 0.5F, 0.5F);

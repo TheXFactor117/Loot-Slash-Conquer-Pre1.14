@@ -1,14 +1,12 @@
 package com.thexfactor117.lsc.events;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.network.PacketClassGui;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
+import com.thexfactor117.lsc.player.PlayerUtil;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.Mod;
@@ -26,31 +24,30 @@ public class EventPlayerLoggedIn
 	@SubscribeEvent
 	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)
 	{
-		PlayerInformation playerInfo = (PlayerInformation) event.player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-		PlayerStats statsCap = (PlayerStats) event.player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(event.player);
 
-		if (playerInfo != null && playerInfo.getPlayerClass() == 0 && statsCap != null && statsCap.getMaxMana() == 0)
+		if (cap != null && cap.getPlayerClass() == 0 && cap.getMaxMana() == 0)
 		{
 			// send Class Selection gui to client on first join.
 			LootSlashConquer.network.sendTo(new PacketClassGui(), (EntityPlayerMP) event.player);
 
-			playerInfo.setPlayerLevel(1);
+			cap.setPlayerLevel(1);
 			
 			// setup max mana + send it to client.
-			statsCap.setMaxMana(Configs.playerCategory.maxMana);
-			statsCap.setMana(statsCap.getMaxMana());
-			statsCap.setManaPerSecond(Configs.playerCategory.manaPer5);
-			statsCap.setHealthPerSecond(Configs.playerCategory.healthPer5);
-			statsCap.setMagicalPower(0);
-			statsCap.setCriticalChance(0);
-			statsCap.setCriticalDamage(0);
-			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) event.player);
-			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
+			cap.setMaxMana(Configs.playerCategory.maxMana);
+			cap.setMana(cap.getMaxMana());
+			cap.setManaPerSecond(Configs.playerCategory.manaPer5);
+			cap.setHealthPerSecond(Configs.playerCategory.healthPer5);
+			cap.setMagicalPower(0);
+			cap.setCriticalChance(0);
+			cap.setCriticalDamage(0);
+			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) event.player);
+			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(cap), (EntityPlayerMP) event.player);
 		}
-		else if (playerInfo != null && statsCap != null && playerInfo.getPlayerClass() > 0)
+		else if (cap != null && cap.getPlayerClass() > 0)
 		{
-			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(statsCap), (EntityPlayerMP) event.player);
-			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playerInfo), (EntityPlayerMP) event.player);
+			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) event.player);
+			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(cap), (EntityPlayerMP) event.player);
 		}
 	}
 }

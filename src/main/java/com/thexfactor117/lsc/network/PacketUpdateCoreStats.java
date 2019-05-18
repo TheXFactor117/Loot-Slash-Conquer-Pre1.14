@@ -1,8 +1,8 @@
 package com.thexfactor117.lsc.network;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
+import com.thexfactor117.lsc.player.PlayerUtil;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -35,21 +35,21 @@ public class PacketUpdateCoreStats implements IMessage
 	
 	public PacketUpdateCoreStats() {}
 	
-	public PacketUpdateCoreStats(PlayerInformation info)
+	public PacketUpdateCoreStats(LSCPlayerCapability cap)
 	{	
-		this.strength = info.getStrengthStat();
-		this.agility = info.getAgilityStat();
-		this.dexterity = info.getDexterityStat();
-		this.intelligence = info.getIntelligenceStat();
-		this.wisdom = info.getWisdomStat();
-		this.fortitude = info.getFortitudeStat();
+		this.strength = cap.getStrengthStat();
+		this.agility = cap.getAgilityStat();
+		this.dexterity = cap.getDexterityStat();
+		this.intelligence = cap.getIntelligenceStat();
+		this.wisdom = cap.getWisdomStat();
+		this.fortitude = cap.getFortitudeStat();
 		
-		this.strengthBonus = info.getBonusStrengthStat();
-		this.agilityBonus = info.getBonusAgilityStat();
-		this.dexterityBonus = info.getBonusDexterityStat();
-		this.intelligenceBonus = info.getBonusIntelligenceStat();
-		this.wisdomBonus = info.getBonusWisdomStat();
-		this.fortitudeBonus = info.getBonusFortitudeStat();
+		this.strengthBonus = cap.getBonusStrengthStat();
+		this.agilityBonus = cap.getBonusAgilityStat();
+		this.dexterityBonus = cap.getBonusDexterityStat();
+		this.intelligenceBonus = cap.getBonusIntelligenceStat();
+		this.wisdomBonus = cap.getBonusWisdomStat();
+		this.fortitudeBonus = cap.getBonusFortitudeStat();
 	}
 
 	@Override
@@ -100,23 +100,23 @@ public class PacketUpdateCoreStats implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = Minecraft.getMinecraft().player;
-					PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+					LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 					
-					if (playerInfo != null)
+					if (cap != null)
 					{
-						playerInfo.setStrengthStat(message.strength);
-						playerInfo.setAgilityStat(message.agility);
-						playerInfo.setDexterityStat(message.dexterity);
-						playerInfo.setIntelligenceStat(message.intelligence);
-						playerInfo.setWisdomStat(message.wisdom);
-						playerInfo.setFortitudeStat(message.fortitude);
+						cap.setStrengthStat(message.strength);
+						cap.setAgilityStat(message.agility);
+						cap.setDexterityStat(message.dexterity);
+						cap.setIntelligenceStat(message.intelligence);
+						cap.setWisdomStat(message.wisdom);
+						cap.setFortitudeStat(message.fortitude);
 						
-						playerInfo.setBonusStrengthStat(message.strengthBonus);
-						playerInfo.setBonusAgilityStat(message.agilityBonus);
-						playerInfo.setBonusDexterityStat(message.dexterityBonus);
-						playerInfo.setBonusIntelligenceStat(message.intelligenceBonus);
-						playerInfo.setBonusWisdomStat(message.wisdomBonus);
-						playerInfo.setBonusFortitudeStat(message.fortitudeBonus);
+						cap.setBonusStrengthStat(message.strengthBonus);
+						cap.setBonusAgilityStat(message.agilityBonus);
+						cap.setBonusDexterityStat(message.dexterityBonus);
+						cap.setBonusIntelligenceStat(message.intelligenceBonus);
+						cap.setBonusWisdomStat(message.wisdomBonus);
+						cap.setBonusFortitudeStat(message.fortitudeBonus);
 						
 						PlayerStatUtils.updateAttributes(player);
 					}

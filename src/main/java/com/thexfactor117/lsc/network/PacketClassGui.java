@@ -1,8 +1,8 @@
 package com.thexfactor117.lsc.network;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.util.GuiHandler;
 
 import io.netty.buffer.ByteBuf;
@@ -46,9 +46,9 @@ public class PacketClassGui implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = Minecraft.getMinecraft().player;
-					PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+					LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 					
-					if (playerInfo != null && playerInfo.getPlayerClass() == 0)
+					if (cap != null && cap.getPlayerClass() == 0)
 					{
 						player.openGui(LootSlashConquer.instance, GuiHandler.CLASS_SELECTION, player.getEntityWorld(), player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ());
 					}

@@ -1,14 +1,15 @@
 package com.thexfactor117.lsc.capabilities.api;
 
 /**
- * 
+ *
  * @author TheXFactor117
  *
- * Capability interface for storing player information (class, level, experience, stats, etc...)
- *
  */
-public interface IPlayerInformation 
+public interface ILSCPlayer
 {
+	/*
+	 * Basic Player Info
+	 */
 	int getPlayerClass();
 	void setPlayerClass(int playerClass);
 	
@@ -20,6 +21,41 @@ public interface IPlayerInformation
 	
 	int getSkillPoints();
 	void setSkillPoints(int skillPoints);
+	
+	/*
+	 * Player Modifiers
+	 */
+	
+	// magic
+	public void setMana(int mana);
+	public int getMana();
+	
+	public void setMaxMana(int maxMana);
+	public int getMaxMana();
+	
+	public void setManaPerSecond(int manaPerSecond);
+	public int getManaPerSecond();
+	
+	public void setMagicalPower(double power);
+	public double getMagicalPower();
+	
+	// health
+	public void setHealthPerSecond(int healthPerSecond);
+	public int getHealthPerSecond();
+	
+	// criticals
+	public void setCriticalChance(double criticalChance);
+	public double getCriticalChance();
+	
+	public void setCriticalDamage(double criticalDamage);
+	public double getCriticalDamage();
+
+	// update ticks
+	public void setUpdateTicks(int ticks);
+	public int getUpdateTicks();
+	
+	public void setRegenTicks(int ticks);
+	public int getRegenTicks();
 	
 	/*
 	 * Player Stats

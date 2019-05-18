@@ -3,12 +3,12 @@ package com.thexfactor117.lsc.items.scrolls;
 import java.util.Iterator;
 import java.util.List;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.init.ModItems;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.items.base.ItemBase;
 import com.thexfactor117.lsc.loot.Rarity;
+import com.thexfactor117.lsc.player.PlayerUtil;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -45,11 +45,11 @@ public class ItemDischargeScroll extends ItemBase
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand)
 	{		
 		ItemStack stack = player.inventory.getCurrentItem();
-		PlayerStats stats = (PlayerStats) player.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 		
-		if (player.inventory.getCurrentItem().getItem() == ModItems.DISCHARGE_SCROLL && stats != null)
+		if (player.inventory.getCurrentItem().getItem() == ModItems.DISCHARGE_SCROLL && cap != null)
 		{
-			if (!world.isRemote && stats.getMana() >= 10)
+			if (!world.isRemote && cap.getMana() >= 10)
 			{
 				int radius = 10;
 				List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(player.posX - radius, player.posY - radius, player.posZ - radius, player.posX + radius, player.posY + radius, player.posZ + radius));
@@ -61,24 +61,19 @@ public class ItemDischargeScroll extends ItemBase
 					
 					if (entity instanceof EntityLivingBase && !(entity instanceof EntityPlayer) && !(entity instanceof EntityAnimal) && !(entity instanceof EntitySlime))
 					{
-						entity.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) (stats.getMagicalPower()));
+						entity.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) (cap.getMagicalPower()));
 						EntityLivingBase enemy = (EntityLivingBase) entity;
 						
 						// remove half the lightning damage dealt from mana.
 						if (enemy instanceof EntityPlayer)
 						{
-							PlayerStats statsCap = (PlayerStats) enemy.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
-							
-							if (statsCap != null)
-							{
-								statsCap.decreaseMana((int) (stats.getMagicalPower() / 2));
-							}
+							cap.decreaseMana((int) (cap.getMagicalPower() / 2));
 						}
 					}
 				}
 				
 				stack.shrink(1); // decrease stack size by 1
-				stats.decreaseMana(10);
+				cap.decreaseMana(10);
 			}
 		}
 		

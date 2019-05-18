@@ -1,7 +1,7 @@
 package com.thexfactor117.lsc.entities.projectiles;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerStats;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
+import com.thexfactor117.lsc.player.PlayerUtil;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -38,11 +38,11 @@ public class EntityLightning extends EntityProjectileBase
 		{
 			if (result.entityHit != null && result.entityHit instanceof EntityPlayer && result.entityHit != player)
 			{
-				PlayerStats statsCap = (PlayerStats) result.entityHit.getCapability(CapabilityPlayerStats.PLAYER_STATS, null);
+				LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 				
-				if (statsCap != null)
+				if (cap != null)
 				{
-					statsCap.decreaseMana(amount);
+					cap.decreaseMana(amount);
 				}
 			}
 			

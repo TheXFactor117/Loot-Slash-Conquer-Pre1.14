@@ -2,10 +2,10 @@ package com.thexfactor117.lsc.items.base;
 
 import javax.annotation.Nullable;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.init.ModTabs;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.util.NBTHelper;
 import com.thexfactor117.lsc.util.Reference;
 
@@ -62,9 +62,9 @@ public class ItemRanged extends ItemBow
                 	if (entityIn instanceof EntityPlayer)
                 	{
                 		EntityPlayer player = (EntityPlayer) entityIn;
-                		PlayerInformation info = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+                		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
                 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-                    	double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()));
+                    	double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
                     	float drawSpeed = (float) (20.0F / attackSpeed);
                         return !(entityIn.getActiveItemStack().getItem() instanceof ItemRanged)  ? 0.0F : (float)(stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) / drawSpeed;
                 	}
@@ -133,8 +133,8 @@ public class ItemRanged extends ItemBow
                     itemstack = new ItemStack(Items.ARROW);
                 }
                 
-                PlayerInformation playerInfo = (PlayerInformation) entityplayer.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-                float f = getArrowVelocity(NBTHelper.loadStackNBT(stack), playerInfo, i);
+                LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(entityplayer);
+                float f = getArrowVelocity(NBTHelper.loadStackNBT(stack), cap, i);
 
                 if ((double)f >= 0.1D)
                 {
@@ -201,9 +201,9 @@ public class ItemRanged extends ItemBow
 	/**
      * Gets the velocity of the arrow entity from the bow's charge
      */
-    public static float getArrowVelocity(NBTTagCompound nbt, PlayerInformation info, int charge)
+    public static float getArrowVelocity(NBTTagCompound nbt, LSCPlayerCapability cap, int charge)
     {
-    	double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (info.getTotalAgility()));
+    	double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
     	float drawSpeed = (float) (20.0F / attackSpeed);
         float f = (float) charge / drawSpeed;
         f = (f * f + f * 2.0F) / 3.0F;

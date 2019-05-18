@@ -1,8 +1,8 @@
 package com.thexfactor117.lsc.events.combat;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.player.ExperienceUtils;
+import com.thexfactor117.lsc.player.PlayerUtil;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
@@ -30,11 +30,11 @@ public class EventLivingDeath
 		{
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 			EntityLivingBase enemy = event.getEntityLiving();
-			PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 			
-			if (!player.getEntityWorld().isRemote && playerInfo != null && player.getClass() == EntityPlayerMP.class)
+			if (!player.getEntityWorld().isRemote && cap != null && player.getClass() == EntityPlayerMP.class)
 			{
-				ExperienceUtils.addExperience(player, playerInfo, enemy);
+				ExperienceUtils.addExperience(player, cap, enemy);
 			}
 		}
 	}

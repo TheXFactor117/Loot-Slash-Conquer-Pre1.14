@@ -1,12 +1,11 @@
 package com.thexfactor117.lsc.events;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.loot.NameGenerator;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.generation.ItemGenerator;
+import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.util.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -54,8 +53,8 @@ public class EventContainerOpen
 							}
 							else
 							{
-								PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
-								nbt.setInteger("TagLevel", playerInfo.getPlayerLevel());
+								LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
+								nbt.setInteger("TagLevel", cap.getPlayerLevel());
 								
 								generate(stack, nbt, player.world, nbt.getInteger("TagLevel"));
 							}
@@ -76,6 +75,6 @@ public class EventContainerOpen
 		ItemGenerator.create(stack, nbt, world, level);
 
 		stack.setTagCompound(nbt);
-		NameGenerator.generateName(stack, nbt);
+		//NameGenerator.generateName(stack, nbt);
 	}
 }

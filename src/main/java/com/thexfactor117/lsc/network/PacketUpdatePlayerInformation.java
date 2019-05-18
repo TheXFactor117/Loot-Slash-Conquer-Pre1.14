@@ -1,7 +1,7 @@
 package com.thexfactor117.lsc.network;
 
-import com.thexfactor117.lsc.capabilities.cap.CapabilityPlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
+import com.thexfactor117.lsc.capabilities.cap.CapabilityLSCPlayer;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
@@ -25,12 +25,12 @@ public class PacketUpdatePlayerInformation implements IMessage
 	
 	public PacketUpdatePlayerInformation() {}
 	
-	public PacketUpdatePlayerInformation(PlayerInformation info)
+	public PacketUpdatePlayerInformation(LSCPlayerCapability playercap)
 	{
-		this.playerClass = info.getPlayerClass();
-		this.level = info.getPlayerLevel();
-		this.experience = info.getPlayerExperience();
-		this.skillPoints = info.getSkillPoints();
+		this.playerClass = playercap.getPlayerClass();
+		this.level = playercap.getPlayerLevel();
+		this.experience = playercap.getPlayerExperience();
+		this.skillPoints = playercap.getSkillPoints();
 	}
 
 	@Override
@@ -63,14 +63,14 @@ public class PacketUpdatePlayerInformation implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = Minecraft.getMinecraft().player;
-					PlayerInformation playerInfo = (PlayerInformation) player.getCapability(CapabilityPlayerInformation.PLAYER_INFORMATION, null);
+					LSCPlayerCapability playercap = (LSCPlayerCapability) player.getCapability(CapabilityLSCPlayer.PLAYER_CAP, null);
 					
-					if (playerInfo != null)
+					if (playercap != null)
 					{
-						playerInfo.setPlayerClass(message.playerClass);
-						playerInfo.setPlayerLevel(message.level);
-						playerInfo.setPlayerExperience(message.experience);
-						playerInfo.setSkillPoints(message.skillPoints);
+						playercap.setPlayerClass(message.playerClass);
+						playercap.setPlayerLevel(message.level);
+						playercap.setPlayerExperience(message.experience);
+						playercap.setSkillPoints(message.skillPoints);
 					}
 				}
 			});

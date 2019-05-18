@@ -1,8 +1,7 @@
 package com.thexfactor117.lsc.player;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerInformation;
-import com.thexfactor117.lsc.capabilities.implementation.PlayerStats;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.loot.Attribute;
@@ -32,16 +31,16 @@ public class DamageUtils
 	 * @param type
 	 * @return
 	 */
-	public static double applyDamageModifiers(PlayerInformation playerInfo, double damage, DamageType type)
+	public static double applyDamageModifiers(LSCPlayerCapability cap, double damage, DamageType type)
 	{
 		switch (type)
 		{
 			case PHYSICAL_MELEE:
-				return damage + getMeleePower(playerInfo);
+				return damage + getMeleePower(cap);
 			case PHYSICAL_RANGED:
-				return damage + getRangedPower(playerInfo);
+				return damage + getRangedPower(cap);
 			case MAGICAL:
-				return damage + getMagicalPower(playerInfo);
+				return damage + getMagicalPower(cap);
 			default:
 				return damage;
 		}
@@ -55,15 +54,15 @@ public class DamageUtils
 	 * @param nbt
 	 * @return
 	 */
-	public static double applyCriticalModifier(PlayerStats playerstats, double damage, NBTTagCompound nbt)
+	public static double applyCriticalModifier(LSCPlayerCapability cap, double damage, NBTTagCompound nbt)
 	{
 		double damageBeforeCrit = damage;
 		
-		if (playerstats.getCriticalChance() > 0)
+		if (cap.getCriticalChance() > 0)
 		{
-			if (Math.random() < playerstats.getCriticalChance())
+			if (Math.random() < cap.getCriticalChance())
 			{
-				damage = (playerstats.getCriticalDamage() * damageBeforeCrit) + damageBeforeCrit;
+				damage = (cap.getCriticalDamage() * damageBeforeCrit) + damageBeforeCrit;
 			}
 		}
 		
@@ -78,10 +77,10 @@ public class DamageUtils
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double applyArmorReductions(double damage, EntityPlayer player, PlayerInformation playerInfo)
+	public static double applyArmorReductions(double damage, EntityPlayer player, LSCPlayerCapability cap)
 	{	
-		LootSlashConquer.LOGGER.info("Total Armor: " + getTotalArmor(player, playerInfo));
-		return damage * (damage / (damage + getTotalArmor(player, playerInfo)));
+		LootSlashConquer.LOGGER.info("Total Armor: " + getTotalArmor(player, cap));
+		return damage * (damage / (damage + getTotalArmor(player, cap)));
 	}
 	
 	/**
@@ -142,10 +141,10 @@ public class DamageUtils
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double getMeleePower(PlayerInformation playerinfo)
+	public static double getMeleePower(LSCPlayerCapability cap)
 	{
-		double meleePower = (Math.pow(Configs.weaponCategory.damageBaseFactor, playerinfo.getPlayerLevel()) + playerinfo.getTotalStrength()) * (0.85 * 0.8);
-		return playerinfo.getTotalStrength() != 0 ? meleePower : 0;
+		double meleePower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalStrength()) * (0.85 * 0.8);
+		return cap.getTotalStrength() != 0 ? meleePower : 0;
 	}
 	
 	/**
@@ -154,10 +153,10 @@ public class DamageUtils
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double getRangedPower(PlayerInformation playerinfo)
+	public static double getRangedPower(LSCPlayerCapability cap)
 	{
-		double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, playerinfo.getPlayerLevel()) + playerinfo.getTotalDexterity()) * (0.85 * 0.8);
-		return playerinfo.getTotalDexterity() != 0 ? rangedPower : 0;
+		double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalDexterity()) * (0.85 * 0.8);
+		return cap.getTotalDexterity() != 0 ? rangedPower : 0;
 	}
 	
 	/**
@@ -166,15 +165,15 @@ public class DamageUtils
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double getMagicalPower(PlayerInformation playerinfo)
+	public static double getMagicalPower(LSCPlayerCapability cap)
 	{
-		double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, playerinfo.getPlayerLevel()) + playerinfo.getTotalIntelligence()) * (0.85 * 0.8);
-		return playerinfo.getTotalIntelligence() != 0 ? magicalPower : 0;
+		double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalIntelligence()) * (0.85 * 0.8);
+		return cap.getTotalIntelligence() != 0 ? magicalPower : 0;
 	}
 	
-	public static double getPhysicalResistance(PlayerInformation playerInfo)
+	public static double getPhysicalResistance(LSCPlayerCapability cap)
 	{
-		return (Math.pow(1.05, playerInfo.getPlayerLevel()) + playerInfo.getTotalStrength()) * (0.85 * 0.8);
+		return (Math.pow(1.05, cap.getPlayerLevel()) + cap.getTotalStrength()) * (0.85 * 0.8);
 	}
 	
 	/**
@@ -183,7 +182,7 @@ public class DamageUtils
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double getEquippedArmor(EntityPlayer player, PlayerInformation playerInfo)
+	public static double getEquippedArmor(EntityPlayer player, LSCPlayerCapability cap)
 	{
 		double totalArmorPoints = 0;
 		
@@ -194,7 +193,7 @@ public class DamageUtils
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				
-				if (nbt.getInteger("Level") <= playerInfo.getPlayerLevel())
+				if (nbt.getInteger("Level") <= cap.getPlayerLevel())
 				{
 					totalArmorPoints += nbt.getDouble("ArmorPoints");
 				}
@@ -210,8 +209,8 @@ public class DamageUtils
 	 * @param playerInfo
 	 * @return
 	 */
-	public static double getTotalArmor(EntityPlayer player, PlayerInformation playerInfo)
+	public static double getTotalArmor(EntityPlayer player, LSCPlayerCapability cap)
 	{
-		return getEquippedArmor(player, playerInfo) + getPhysicalResistance(playerInfo);
+		return getEquippedArmor(player, cap) + getPhysicalResistance(cap);
 	}
 }
