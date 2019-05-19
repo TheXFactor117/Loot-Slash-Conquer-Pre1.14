@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.util.NBTHelper;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;

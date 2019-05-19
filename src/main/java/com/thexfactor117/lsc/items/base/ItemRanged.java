@@ -5,9 +5,9 @@ import javax.annotation.Nullable;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.init.ModTabs;
-import com.thexfactor117.lsc.player.PlayerUtil;
-import com.thexfactor117.lsc.util.NBTHelper;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;

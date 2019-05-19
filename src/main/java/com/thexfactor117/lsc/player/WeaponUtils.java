@@ -5,7 +5,8 @@ import java.util.List;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.loot.Attribute;
-import com.thexfactor117.lsc.util.LSCDamageSource;
+import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.LSCDamageSource;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

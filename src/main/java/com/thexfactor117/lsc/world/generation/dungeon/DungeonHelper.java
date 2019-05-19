@@ -5,8 +5,8 @@ import java.util.Map.Entry;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.init.ModLootTables;
-import com.thexfactor117.lsc.util.RandomCollection;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.RandomCollection;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.monster.EntityCaveSpider;

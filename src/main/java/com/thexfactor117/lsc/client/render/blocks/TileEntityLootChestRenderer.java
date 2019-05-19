@@ -4,7 +4,7 @@ import com.thexfactor117.lsc.client.models.blocks.ModelLegendaryLootChest;
 import com.thexfactor117.lsc.client.models.blocks.ModelLootChest;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.tileentity.TileEntityLootChest;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.client.renderer.GlStateManager;

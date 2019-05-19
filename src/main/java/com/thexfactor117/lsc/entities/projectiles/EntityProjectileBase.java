@@ -1,11 +1,10 @@
 package com.thexfactor117.lsc.entities.projectiles;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.player.DamageType;
 import com.thexfactor117.lsc.player.DamageUtils;
-import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.player.WeaponUtils;
-import com.thexfactor117.lsc.util.NBTHelper;
+import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -66,7 +65,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage"));
-				damage = DamageUtils.applyDamageModifiers(cap, damage, DamageType.MAGICAL);
+				damage = DamageUtils.applyDamageModifiers(cap, damage, DamageUtils.DamageType.MAGICAL);
 				damage = DamageUtils.applyCriticalModifier(cap, damage, nbt);
 				
 				// apply damage

@@ -11,8 +11,8 @@ import com.thexfactor117.lsc.entities.EntityMonster;
 import com.thexfactor117.lsc.loot.NameGenerator;
 import com.thexfactor117.lsc.loot.generation.ItemGenerator;
 import com.thexfactor117.lsc.player.WeaponUtils;
-import com.thexfactor117.lsc.util.NBTHelper;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;

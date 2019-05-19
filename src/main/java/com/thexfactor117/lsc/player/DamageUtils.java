@@ -5,8 +5,8 @@ import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.loot.Attribute;
-import com.thexfactor117.lsc.util.LSCDamageSource;
-import com.thexfactor117.lsc.util.NBTHelper;
+import com.thexfactor117.lsc.util.misc.LSCDamageSource;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import baubles.api.BaublesApi;
 import baubles.api.cap.BaublesCapabilities;
@@ -212,5 +212,12 @@ public class DamageUtils
 	public static double getTotalArmor(EntityPlayer player, LSCPlayerCapability cap)
 	{
 		return getEquippedArmor(player, cap) + getPhysicalResistance(cap);
+	}
+	
+	public static enum DamageType
+	{
+		PHYSICAL_MELEE(),
+		PHYSICAL_RANGED(),
+		MAGICAL();
 	}
 }

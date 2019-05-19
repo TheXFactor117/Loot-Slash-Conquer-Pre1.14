@@ -12,7 +12,7 @@ import com.thexfactor117.lsc.network.PacketUpdateIncreaseStat;
 import com.thexfactor117.lsc.player.DamageUtils;
 import com.thexfactor117.lsc.player.ExperienceUtils;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
-import com.thexfactor117.lsc.player.PlayerUtil;
+import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;

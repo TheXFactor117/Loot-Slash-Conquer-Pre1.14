@@ -4,7 +4,8 @@ import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
 
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 
 /**
  *
@@ -51,20 +52,96 @@ public class LSCPlayerCapability implements ILSCPlayer
 	private int wisdomBonusStat;
 	private int fortitudeBonusStat;
 	
-	@SuppressWarnings("unused")
-	private final EntityLivingBase entity;
+	private final EntityPlayer player;
 	
-	public LSCPlayerCapability(@Nullable EntityLivingBase entity)
+	private ItemStack helmet;
+	private ItemStack chestplate;
+	private ItemStack leggings;
+	private ItemStack boots;
+	
+	public LSCPlayerCapability(@Nullable EntityPlayer player)
 	{
-		this.entity = entity;
+		this.player = player;
+	}
+	
+	/**
+	 * Updates the LSC player state.
+	 */
+	public void tickPlayer()
+	{
+		if (player == null || player.world.isRemote) return;
+		
+		ItemStack stackHelmet = player.inventory.armorInventory.get(3);
+		ItemStack stackChestplate = player.inventory.armorInventory.get(2);
+		ItemStack stackLeggings = player.inventory.armorInventory.get(1);
+		ItemStack stackBoots = player.inventory.armorInventory.get(0);
+		
+		boolean armorChanged = false;
+		
+		if (!ItemStack.areItemStacksEqual(stackHelmet, helmet))
+		{
+			armorChanged = true;
+			this.helmet = stackHelmet;
+		}
+		
+		if (!ItemStack.areItemStacksEqual(stackChestplate, chestplate))
+		{
+			armorChanged = true;
+			this.chestplate = stackChestplate;
+		}
+		
+		if (!ItemStack.areItemStacksEqual(stackLeggings, leggings))
+		{
+			armorChanged = true;
+			this.leggings = stackLeggings;
+		}
+		
+		if (!ItemStack.areItemStacksEqual(stackBoots, boots))
+		{
+			armorChanged = true;
+			this.boots = stackBoots;
+		}
+		
+		if (armorChanged)
+		{
+			
+		}
 	}
 	
 	
 	
+	/*
+	 * 
+	 * Miscellaneous Getters and Setters
+	 * 
+	 */
+	
+	public ItemStack getHelmet()
+	{
+		return helmet;
+	}
+	
+	public ItemStack getChestplate()
+	{
+		return chestplate;
+	}
+	
+	public ItemStack getLeggings()
+	{
+		return leggings;
+	}
+	
+	public ItemStack getBoots()
+	{
+		return boots;
+	}
+	
 	
 	
 	/*
-	 * Getters and Setters
+	 * 
+	 * Interface Getters and Setters
+	 * 
 	 */
 	
 	@Override

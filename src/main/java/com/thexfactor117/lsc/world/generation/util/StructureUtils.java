@@ -8,7 +8,7 @@ import com.thexfactor117.lsc.entities.monsters.EntityGhost;
 import com.thexfactor117.lsc.entities.monsters.EntityGolem;
 import com.thexfactor117.lsc.init.ModLootTables;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.util.RandomCollection;
+import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import java.util.Random;
 

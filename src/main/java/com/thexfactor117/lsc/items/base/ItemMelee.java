@@ -1,7 +1,7 @@
 package com.thexfactor117.lsc.items.base;
 
 import com.thexfactor117.lsc.init.ModTabs;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemSword;

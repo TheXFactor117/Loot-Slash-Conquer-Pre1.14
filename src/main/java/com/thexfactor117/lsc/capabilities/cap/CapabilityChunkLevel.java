@@ -9,9 +9,9 @@ import com.thexfactor117.lsc.capabilities.implementation.ChunkLevel;
 import com.thexfactor117.lsc.capabilities.implementation.ChunkLevelHolder;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.network.PacketUpdateChunkLevel;
-import com.thexfactor117.lsc.util.CapabilityUtils;
-import com.thexfactor117.lsc.util.Reference;
-import com.thexfactor117.lsc.util.SimpleCapabilityProvider;
+import com.thexfactor117.lsc.util.CapabilityUtil;
+import com.thexfactor117.lsc.util.misc.Reference;
+import com.thexfactor117.lsc.util.misc.SimpleCapabilityProvider;
 
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -66,7 +66,7 @@ public class CapabilityChunkLevel
 	@Nullable
 	public static IChunkLevelHolder getChunkLevelHolder(final World world) 
 	{
-		return CapabilityUtils.getCapability(world, CHUNK_LEVEL, DEFAULT_FACING);
+		return CapabilityUtil.getCapability(world, CHUNK_LEVEL, DEFAULT_FACING);
 	}
 	
 	@Nullable

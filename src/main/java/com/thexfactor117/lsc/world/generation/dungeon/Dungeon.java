@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;

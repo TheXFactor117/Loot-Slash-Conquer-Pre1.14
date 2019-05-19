@@ -2,8 +2,8 @@ package com.thexfactor117.lsc.network;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.player.PlayerUtil;
-import com.thexfactor117.lsc.util.GuiHandler;
+import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.GuiHandler;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;

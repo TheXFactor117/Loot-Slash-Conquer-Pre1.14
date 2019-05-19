@@ -1,6 +1,6 @@
 package com.thexfactor117.lsc.config;
 
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;

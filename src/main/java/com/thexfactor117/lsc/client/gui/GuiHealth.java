@@ -3,7 +3,7 @@ package com.thexfactor117.lsc.client.gui;
 import org.lwjgl.opengl.GL11;
 
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;

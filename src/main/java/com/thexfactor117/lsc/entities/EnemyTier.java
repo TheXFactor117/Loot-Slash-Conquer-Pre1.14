@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.util.RandomCollection;
+import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import net.minecraft.util.text.TextFormatting;
 

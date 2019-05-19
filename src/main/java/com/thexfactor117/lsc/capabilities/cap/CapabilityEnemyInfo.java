@@ -4,9 +4,9 @@ import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.capabilities.api.IEnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
-import com.thexfactor117.lsc.util.CapabilityUtils;
-import com.thexfactor117.lsc.util.Reference;
-import com.thexfactor117.lsc.util.SimpleCapabilityProvider;
+import com.thexfactor117.lsc.util.CapabilityUtil;
+import com.thexfactor117.lsc.util.misc.Reference;
+import com.thexfactor117.lsc.util.misc.SimpleCapabilityProvider;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -64,7 +64,7 @@ public class CapabilityEnemyInfo
 	@Nullable
 	public static IEnemyInfo getEnemyLevel(EntityLivingBase entity) 
 	{
-		return CapabilityUtils.getCapability(entity, ENEMY_INFO, DEFAULT_FACING);
+		return CapabilityUtil.getCapability(entity, ENEMY_INFO, DEFAULT_FACING);
 	}
 	
 	public static ICapabilityProvider createProvider(IEnemyInfo level) 

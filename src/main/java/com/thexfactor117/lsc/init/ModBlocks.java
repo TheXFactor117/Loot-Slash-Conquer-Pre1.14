@@ -8,7 +8,7 @@ import com.thexfactor117.lsc.blocks.BlockLootCrate;
 import com.thexfactor117.lsc.blocks.BlockLootJar;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.tileentity.TileEntityLootChest;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

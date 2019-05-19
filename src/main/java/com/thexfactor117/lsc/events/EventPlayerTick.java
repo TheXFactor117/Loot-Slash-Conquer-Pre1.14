@@ -8,8 +8,8 @@ import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
-import com.thexfactor117.lsc.player.PlayerUtil;
-import com.thexfactor117.lsc.util.NBTHelper;
+import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import baubles.api.BaublesApi;
 import baubles.api.cap.BaublesCapabilities;

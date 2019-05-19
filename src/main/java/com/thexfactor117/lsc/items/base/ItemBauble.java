@@ -3,9 +3,9 @@ package com.thexfactor117.lsc.items.base;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.events.EventPlayerTick;
 import com.thexfactor117.lsc.init.ModTabs;
-import com.thexfactor117.lsc.player.PlayerUtil;
-import com.thexfactor117.lsc.util.NBTHelper;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;

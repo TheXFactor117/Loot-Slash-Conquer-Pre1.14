@@ -11,7 +11,7 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.loot.table.CustomLootContext;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;

@@ -9,7 +9,7 @@ import com.thexfactor117.lsc.network.PacketUpdateEnemyInfo;
 import com.thexfactor117.lsc.network.PacketUpdateIncreaseStat;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;

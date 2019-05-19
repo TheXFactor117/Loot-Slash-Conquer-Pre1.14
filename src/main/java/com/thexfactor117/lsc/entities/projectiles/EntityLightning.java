@@ -1,7 +1,7 @@
 package com.thexfactor117.lsc.entities.projectiles;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.player.PlayerUtil;
+import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

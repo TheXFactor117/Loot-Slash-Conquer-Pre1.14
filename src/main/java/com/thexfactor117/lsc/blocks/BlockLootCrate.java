@@ -9,8 +9,8 @@ import com.thexfactor117.lsc.items.base.ItemMagical;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.table.CustomLootContext;
 import com.thexfactor117.lsc.loot.table.CustomLootTable;
-import com.thexfactor117.lsc.util.NBTHelper;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

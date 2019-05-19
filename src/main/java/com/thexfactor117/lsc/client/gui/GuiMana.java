@@ -4,8 +4,8 @@ import org.lwjgl.opengl.GL11;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.player.PlayerUtil;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;

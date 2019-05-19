@@ -6,7 +6,7 @@ import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeStrength;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeFireDamage;
-import com.thexfactor117.lsc.util.RandomCollection;
+import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import net.minecraft.nbt.NBTTagCompound;
 

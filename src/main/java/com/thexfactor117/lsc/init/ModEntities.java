@@ -15,7 +15,7 @@ import com.thexfactor117.lsc.entities.monsters.EntitySpectralKnight;
 import com.thexfactor117.lsc.entities.projectiles.EntityFireball;
 import com.thexfactor117.lsc.entities.projectiles.EntityIcebolt;
 import com.thexfactor117.lsc.entities.projectiles.EntityLightning;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EnumCreatureType;

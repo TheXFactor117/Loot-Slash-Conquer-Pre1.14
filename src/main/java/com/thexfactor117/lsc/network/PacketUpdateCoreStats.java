@@ -2,7 +2,7 @@ package com.thexfactor117.lsc.network;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
-import com.thexfactor117.lsc.player.PlayerUtil;
+import com.thexfactor117.lsc.util.PlayerUtil;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;

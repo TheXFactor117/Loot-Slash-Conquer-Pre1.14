@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.tileentity.TileEntityLootChest;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.block.BlockChest;
 import net.minecraft.tileentity.TileEntity;

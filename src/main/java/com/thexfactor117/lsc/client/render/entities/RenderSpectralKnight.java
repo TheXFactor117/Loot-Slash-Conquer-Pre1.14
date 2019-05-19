@@ -2,7 +2,7 @@ package com.thexfactor117.lsc.client.render.entities;
 
 import com.thexfactor117.lsc.client.models.entities.ModelSpectralKnight;
 import com.thexfactor117.lsc.entities.monsters.EntitySpectralKnight;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

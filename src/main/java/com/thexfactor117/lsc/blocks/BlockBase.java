@@ -1,6 +1,6 @@
 package com.thexfactor117.lsc.blocks;
 
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

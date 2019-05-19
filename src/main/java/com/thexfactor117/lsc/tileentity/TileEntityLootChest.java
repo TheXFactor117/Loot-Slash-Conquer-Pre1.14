@@ -3,7 +3,7 @@ package com.thexfactor117.lsc.tileentity;
 import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.block.BlockChest;
 import net.minecraft.tileentity.TileEntityChest;

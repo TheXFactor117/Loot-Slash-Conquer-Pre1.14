@@ -5,8 +5,8 @@ import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.items.base.ItemMagical;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.generation.ItemGenerator;
-import com.thexfactor117.lsc.player.PlayerUtil;
-import com.thexfactor117.lsc.util.NBTHelper;
+import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;

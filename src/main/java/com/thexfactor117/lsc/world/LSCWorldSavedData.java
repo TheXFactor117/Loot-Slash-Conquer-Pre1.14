@@ -1,6 +1,6 @@
 package com.thexfactor117.lsc.world;
 
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;

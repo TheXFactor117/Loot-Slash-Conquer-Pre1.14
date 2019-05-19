@@ -8,9 +8,9 @@ import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.player.PlayerStatUtils;
-import com.thexfactor117.lsc.util.CapabilityUtils;
-import com.thexfactor117.lsc.util.Reference;
-import com.thexfactor117.lsc.util.SimpleCapabilityProvider;
+import com.thexfactor117.lsc.util.CapabilityUtil;
+import com.thexfactor117.lsc.util.misc.Reference;
+import com.thexfactor117.lsc.util.misc.SimpleCapabilityProvider;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -137,7 +137,7 @@ public class CapabilityLSCPlayer
 	@Nullable
 	public static ILSCPlayer getPlayerCapability(EntityLivingBase entity) 
 	{
-		return CapabilityUtils.getCapability(entity, PLAYER_CAP, DEFAULT_FACING);
+		return CapabilityUtil.getCapability(entity, PLAYER_CAP, DEFAULT_FACING);
 	}
 	
 	public static ICapabilityProvider createProvider(ILSCPlayer playercap) 

@@ -2,7 +2,7 @@ package com.thexfactor117.lsc.events.combat;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.player.ExperienceUtils;
-import com.thexfactor117.lsc.player.PlayerUtil;
+import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;

@@ -4,12 +4,11 @@ import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.player.DamageType;
 import com.thexfactor117.lsc.player.DamageUtils;
-import com.thexfactor117.lsc.player.PlayerUtil;
 import com.thexfactor117.lsc.player.WeaponUtils;
-import com.thexfactor117.lsc.util.LSCDamageSource;
-import com.thexfactor117.lsc.util.NBTHelper;
+import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.LSCDamageSource;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -139,7 +138,7 @@ public class EventDamage
 			{
 				// set the true amount of damage.
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-				trueDamage = DamageUtils.applyDamageModifiers(cap, trueDamage, DamageType.PHYSICAL_MELEE);
+				trueDamage = DamageUtils.applyDamageModifiers(cap, trueDamage, DamageUtils.DamageType.PHYSICAL_MELEE);
 				trueDamage = DamageUtils.applyCriticalModifier(cap, trueDamage, nbt);
 
 				WeaponUtils.useWeaponAttributes((float) trueDamage, player, enemy, weapon, nbt);
@@ -164,7 +163,7 @@ public class EventDamage
 			{
 				// set the true amount of damage.
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-				trueDamage = DamageUtils.applyDamageModifiers(cap, trueDamage, DamageType.PHYSICAL_RANGED);
+				trueDamage = DamageUtils.applyDamageModifiers(cap, trueDamage, DamageUtils.DamageType.PHYSICAL_RANGED);
 				trueDamage = DamageUtils.applyCriticalModifier(cap, trueDamage, nbt);
 				
 				event.setAmount((float) trueDamage);

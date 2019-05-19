@@ -6,7 +6,7 @@ import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.network.PacketClassGui;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
-import com.thexfactor117.lsc.player.PlayerUtil;
+import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.Mod;

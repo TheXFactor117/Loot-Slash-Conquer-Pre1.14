@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.init.ModBlocks;
 import com.thexfactor117.lsc.init.ModItems;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 import com.thexfactor117.lsc.world.LSCWorldSavedData;
 import com.thexfactor117.lsc.world.generation.util.StructureOutline;
 import com.thexfactor117.lsc.world.generation.util.StructureUtils;

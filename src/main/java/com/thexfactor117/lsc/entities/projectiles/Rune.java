@@ -2,7 +2,7 @@ package com.thexfactor117.lsc.entities.projectiles;
 
 import java.util.Random;
 
-import com.thexfactor117.lsc.util.RandomCollection;
+import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextFormatting;

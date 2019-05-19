@@ -5,7 +5,7 @@ import java.util.Random;
 
 import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.loot.generation.ItemGeneratorHelper;
-import com.thexfactor117.lsc.util.RandomCollection;
+import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import net.minecraft.nbt.NBTTagCompound;
 

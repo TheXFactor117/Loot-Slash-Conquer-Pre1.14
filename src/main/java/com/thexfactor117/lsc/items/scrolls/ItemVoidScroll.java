@@ -8,7 +8,7 @@ import com.thexfactor117.lsc.init.ModItems;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.items.base.ItemBase;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.player.PlayerUtil;
+import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;

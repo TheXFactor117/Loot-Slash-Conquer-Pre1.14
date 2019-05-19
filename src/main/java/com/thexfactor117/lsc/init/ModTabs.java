@@ -1,6 +1,6 @@
 package com.thexfactor117.lsc.init;
 
-import com.thexfactor117.lsc.util.LSCTab;
+import com.thexfactor117.lsc.util.misc.LSCTab;
 
 import net.minecraft.creativetab.CreativeTabs;
 

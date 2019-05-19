@@ -6,8 +6,8 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.util.NBTHelper;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;

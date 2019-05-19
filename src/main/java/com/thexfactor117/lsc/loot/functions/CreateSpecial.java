@@ -8,7 +8,7 @@ import com.google.gson.JsonSerializationContext;
 import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.table.CustomLootContext;
-import com.thexfactor117.lsc.util.Reference;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
