@@ -7,8 +7,8 @@ import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
-import com.thexfactor117.lsc.player.PlayerStatUtils;
 import com.thexfactor117.lsc.util.CapabilityUtil;
+import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.Reference;
 import com.thexfactor117.lsc.util.misc.SimpleCapabilityProvider;
 
@@ -228,7 +228,7 @@ public class CapabilityLSCPlayer
 				
 				LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(playercap), (EntityPlayerMP) event.player);
 				LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(playercap), (EntityPlayerMP) event.player);
-				PlayerStatUtils.updateAttributes(event.player);
+				PlayerUtil.updateAllStats(event.player);
 				
 				event.player.setHealth(event.player.getMaxHealth());
 			}

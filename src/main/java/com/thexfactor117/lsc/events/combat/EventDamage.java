@@ -4,8 +4,8 @@ import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.player.DamageUtils;
 import com.thexfactor117.lsc.player.WeaponUtils;
+import com.thexfactor117.lsc.util.DamageUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
@@ -87,13 +87,13 @@ public class EventDamage
 					// check if the damage is elemental damage
 					if ((event.getSource() instanceof LSCDamageSource || event.getSource().isFireDamage()) && (event.getSource() instanceof LSCDamageSource && !((LSCDamageSource) event.getSource()).isChainedDamage()))
 					{
-						double damage = DamageUtils.applyElementalResistance(event.getAmount(), (LSCDamageSource) event.getSource(), player);
+						double damage = DamageUtil.applyElementalResistance(event.getAmount(), (LSCDamageSource) event.getSource(), player);
 						event.setAmount((float) damage);					
 					}
 					// if it isn't elemental damage, let's apply armor reductions (so elemental damage bypasses armor).
 					else
 					{
-						double damage = DamageUtils.applyArmorReductions(event.getAmount(), player, cap);
+						double damage = DamageUtil.applyArmorReductions(event.getAmount(), player, cap);
 						event.setAmount((float) damage);
 						
 						// loop through all armor pieces to use the durability attribute
@@ -138,8 +138,8 @@ public class EventDamage
 			{
 				// set the true amount of damage.
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-				trueDamage = DamageUtils.applyDamageModifiers(cap, trueDamage, DamageUtils.DamageType.PHYSICAL_MELEE);
-				trueDamage = DamageUtils.applyCriticalModifier(cap, trueDamage, nbt);
+				trueDamage = DamageUtil.applyDamageModifiers(cap, trueDamage, DamageUtil.DamageType.PHYSICAL_MELEE);
+				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage, nbt);
 
 				WeaponUtils.useWeaponAttributes((float) trueDamage, player, enemy, weapon, nbt);
 				
@@ -163,8 +163,8 @@ public class EventDamage
 			{
 				// set the true amount of damage.
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-				trueDamage = DamageUtils.applyDamageModifiers(cap, trueDamage, DamageUtils.DamageType.PHYSICAL_RANGED);
-				trueDamage = DamageUtils.applyCriticalModifier(cap, trueDamage, nbt);
+				trueDamage = DamageUtil.applyDamageModifiers(cap, trueDamage, DamageUtil.DamageType.PHYSICAL_RANGED);
+				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage, nbt);
 				
 				event.setAmount((float) trueDamage);
 				WeaponUtils.useWeaponAttributes(event.getAmount(), player, enemy, weapon, nbt);

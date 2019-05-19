@@ -7,7 +7,6 @@ import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
-import com.thexfactor117.lsc.player.PlayerStatUtils;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
@@ -146,8 +145,6 @@ public class EventPlayerTick
 				}
 			}
 		}
-		
-		PlayerStatUtils.updateAttributes(player);
 		
 		LootSlashConquer.network.sendTo(new PacketUpdateCoreStats(cap), (EntityPlayerMP) player);
 	}

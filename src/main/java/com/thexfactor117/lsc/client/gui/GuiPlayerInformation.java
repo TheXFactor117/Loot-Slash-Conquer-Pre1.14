@@ -9,9 +9,8 @@ import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.network.PacketUpdateIncreaseStat;
-import com.thexfactor117.lsc.player.DamageUtils;
-import com.thexfactor117.lsc.player.ExperienceUtils;
-import com.thexfactor117.lsc.player.PlayerStatUtils;
+import com.thexfactor117.lsc.util.DamageUtil;
+import com.thexfactor117.lsc.util.ExperienceUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.client.gui.GuiButton;
@@ -70,8 +69,8 @@ public class GuiPlayerInformation extends GuiScreen
 			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.class") + ": " + I18n.format("gui.playerinfo.class." + cap.getPlayerClass()), this.width / 2 - 50, 40, 0xFFFFFF); // level
 			this.drawString(this.fontRenderer, I18n.format("gui.playerinfo.level") + ": " + cap.getPlayerLevel(), this.width / 2 - 50, 50, 0xFFFFFF); // level
 			
-			String experience = I18n.format("gui.playerinfo.experience") + ": " + cap.getPlayerExperience() + " / " + ExperienceUtils.getLevelUpExperience(cap.getPlayerLevel());
-			double percent = (((double) cap.getPlayerExperience() * 100) / (double) (ExperienceUtils.getLevelUpExperience(cap.getPlayerLevel())));
+			String experience = I18n.format("gui.playerinfo.experience") + ": " + cap.getPlayerExperience() + " / " + ExperienceUtil.getLevelUpExperience(cap.getPlayerLevel());
+			double percent = (((double) cap.getPlayerExperience() * 100) / (double) (ExperienceUtil.getLevelUpExperience(cap.getPlayerLevel())));
 			String percentString = "  (" + String.format("%.0f%%", percent) + ")";
 			this.drawString(this.fontRenderer, experience + percentString, this.width / 2 - 50, 60, 0xFFFFFF); // experience
 			
@@ -105,7 +104,7 @@ public class GuiPlayerInformation extends GuiScreen
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.rangedpower") + ": " + TextFormatting.WHITE + "+" + format.format(rangedPower), this.width / 2 - 160, 150, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.magicalpower") + ": " + TextFormatting.WHITE + "+" + format.format(magicalPower), this.width / 2 - 160, 160, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.attackspeed") + ": " + TextFormatting.WHITE + "+" + format.format((Configs.playerCategory.attackSpeedMultiplier* (cap.getTotalAgility()))), this.width / 2 - 160, 170, 0xFFFFFF);
-			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(DamageUtils.getEquippedArmor(player, cap)), this.width / 2 - 160, 180, 0xFFFFFF);
+			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.armor") + ": " + TextFormatting.WHITE + "+" + format.format(DamageUtil.getEquippedArmor(player, cap)), this.width / 2 - 160, 180, 0xFFFFFF);
 			//this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.toughness") + ": " + TextFormatting.WHITE + "+" + format.format(player.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getAttributeValue()), this.width / 2 - 160, 180, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critchance") + ": " + TextFormatting.WHITE + ((int) (cap.getCriticalChance() * 100)) + "%", this.width / 2 - 160, 190, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.critdamage") + ": " + TextFormatting.WHITE + ((int) (cap.getCriticalDamage() * 100)) + "%", this.width / 2 - 160, 200, 0xFFFFFF);
@@ -132,37 +131,41 @@ public class GuiPlayerInformation extends GuiScreen
 			if (button == plusStrength) 
 			{
 				cap.setStrengthStat(cap.getStrengthStat() + 1);
+				PlayerUtil.updateStrengthStat(player);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(1));
 			}
 			else if (button == plusAgility) 
 			{
 				cap.setAgilityStat(cap.getAgilityStat() + 1);
+				PlayerUtil.updateAgilityStat(player);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(2));
 			}
 			else if (button == plusDexterity) 
 			{
 				cap.setDexterityStat(cap.getDexterityStat() + 1);
+				PlayerUtil.updateDexterityStat(player);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(3));
 			}
 			else if (button == plusIntelligence) 
 			{
 				cap.setIntelligenceStat(cap.getIntelligenceStat() + 1);
+				PlayerUtil.updateIntelligenceStat(player);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(4));
 			}
 			else if (button == plusWisdom) 
 			{
 				cap.setWisdomStat(cap.getWisdomStat() + 1);
+				PlayerUtil.updateWisdomStat(player);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(5));
 			}
 			else if (button == plusFortitude) 
 			{
 				cap.setFortitudeStat(cap.getFortitudeStat() + 1);
+				PlayerUtil.updateFortitudeStat(player);
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(6));
 			}
 			
 			cap.setSkillPoints(cap.getSkillPoints() - 1);
-			
-			PlayerStatUtils.updateAttributes(player);
 		}
 	}
 	

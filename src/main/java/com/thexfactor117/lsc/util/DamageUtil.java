@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.player;
+package com.thexfactor117.lsc.util;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
@@ -21,7 +21,7 @@ import net.minecraft.nbt.NBTTagCompound;
  * @author TheXFactor117
  *
  */
-public class DamageUtils
+public class DamageUtil
 {
 	/**
 	 * Applies damage modifiers to the damage passed in. This adds additional damage based on

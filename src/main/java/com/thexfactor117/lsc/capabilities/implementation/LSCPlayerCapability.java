@@ -2,9 +2,13 @@ package com.thexfactor117.lsc.capabilities.implementation;
 
 import javax.annotation.Nullable;
 
+import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
+import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
+import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 
 /**
@@ -71,6 +75,8 @@ public class LSCPlayerCapability implements ILSCPlayer
 	{
 		if (player == null || player.world.isRemote) return;
 		
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
+		
 		ItemStack stackHelmet = player.inventory.armorInventory.get(3);
 		ItemStack stackChestplate = player.inventory.armorInventory.get(2);
 		ItemStack stackLeggings = player.inventory.armorInventory.get(1);
@@ -106,6 +112,26 @@ public class LSCPlayerCapability implements ILSCPlayer
 		{
 			
 		}
+		
+		// health and mana regeneration
+		if (cap.getRegenTicks() % 100 == 0)
+		{	
+			if (cap.getMana() < cap.getMaxMana())
+			{
+				cap.increaseMana(cap.getManaPerSecond());
+			}
+			
+			if (player.getHealth() < player.getMaxHealth())
+			{
+				player.heal(cap.getHealthPerSecond());
+			}
+			
+			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
+			
+			cap.resetRegenTicks();
+		}
+		
+		cap.incrementRegenTicks();
 	}
 	
 	

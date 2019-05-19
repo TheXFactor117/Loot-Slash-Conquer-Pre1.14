@@ -1,8 +1,8 @@
 package com.thexfactor117.lsc.entities.projectiles;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.player.DamageUtils;
 import com.thexfactor117.lsc.player.WeaponUtils;
+import com.thexfactor117.lsc.util.DamageUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
@@ -65,8 +65,8 @@ public abstract class EntityProjectileBase extends EntityThrowable
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage"));
-				damage = DamageUtils.applyDamageModifiers(cap, damage, DamageUtils.DamageType.MAGICAL);
-				damage = DamageUtils.applyCriticalModifier(cap, damage, nbt);
+				damage = DamageUtil.applyDamageModifiers(cap, damage, DamageUtil.DamageType.MAGICAL);
+				damage = DamageUtil.applyCriticalModifier(cap, damage, nbt);
 				
 				// apply damage
 				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);

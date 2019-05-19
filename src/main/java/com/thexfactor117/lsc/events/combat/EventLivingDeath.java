@@ -1,7 +1,7 @@
 package com.thexfactor117.lsc.events.combat;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.player.ExperienceUtils;
+import com.thexfactor117.lsc.util.ExperienceUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -34,7 +34,7 @@ public class EventLivingDeath
 			
 			if (!player.getEntityWorld().isRemote && cap != null && player.getClass() == EntityPlayerMP.class)
 			{
-				ExperienceUtils.addExperience(player, cap, enemy);
+				ExperienceUtil.addExperience(player, cap, enemy);
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.player;
+package com.thexfactor117.lsc.util;
 
 import java.util.Random;
 
@@ -23,7 +23,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ExperienceUtils 
+public class ExperienceUtil 
 {
 	/** Returns the amount of experience needed to level up given the current level. */
 	public static int getLevelUpExperience(int currentLevel) 

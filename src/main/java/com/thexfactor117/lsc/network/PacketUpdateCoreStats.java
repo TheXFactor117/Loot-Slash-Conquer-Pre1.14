@@ -1,7 +1,6 @@
 package com.thexfactor117.lsc.network;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.player.PlayerStatUtils;
 import com.thexfactor117.lsc.util.PlayerUtil;
 
 import io.netty.buffer.ByteBuf;
@@ -118,7 +117,7 @@ public class PacketUpdateCoreStats implements IMessage
 						cap.setBonusWisdomStat(message.wisdomBonus);
 						cap.setBonusFortitudeStat(message.fortitudeBonus);
 						
-						PlayerStatUtils.updateAttributes(player);
+						PlayerUtil.updateAllStats(player);
 					}
 				}
 			});
