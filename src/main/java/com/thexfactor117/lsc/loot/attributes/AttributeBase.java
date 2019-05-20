@@ -1,12 +1,13 @@
 package com.thexfactor117.lsc.loot.attributes;
 
+import java.util.ArrayList;
 import java.util.Random;
 
+import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeStrength;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeFireDamage;
-import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -27,10 +28,10 @@ public class AttributeBase
 	
 	public static final AttributeBase STRENGTH = new AttributeStrength();
 	
-	public static final RandomCollection<AttributeBase> WEAPON_SECONDARY_ATTRIBUTES = new RandomCollection<AttributeBase>();
-	public static final RandomCollection<AttributeBase> WEAPON_BONUS_ATTRIBUTES = new RandomCollection<AttributeBase>();
-	public static final RandomCollection<AttributeBase> ARMOR_SECONDARY_ATTRIBUTES = new RandomCollection<AttributeBase>();
-	public static final RandomCollection<AttributeBase> ARMOR_BONUS_ATTRIBUTES = new RandomCollection<AttributeBase>();
+	
+	private static final ArrayList<AttributeBase> ALL_ATTRIBUTES = Lists.newArrayList();
+	public static ArrayList<AttributeBase> WEAPON_ATTRIBUTES = Lists.newArrayList();
+	public static ArrayList<AttributeBase> ARMOR_ATTRIBUTES = Lists.newArrayList();
 	
 	public AttributeBase(String name, String key, double min, double max, boolean upgradeable)
 	{
@@ -149,9 +150,25 @@ public class AttributeBase
 	
 	static
 	{
-		WEAPON_SECONDARY_ATTRIBUTES.add(1, FIRE_DAMAGE);
+		ALL_ATTRIBUTES.add(FIRE_DAMAGE);
 		
-		ARMOR_SECONDARY_ATTRIBUTES.add(1, STRENGTH);
+		ALL_ATTRIBUTES.add(STRENGTH);
+		
+		for (String name : Configs.weaponCategory.weaponAttributes)
+		{
+			if (getAttributeFromString(name) != null)
+			{
+				WEAPON_ATTRIBUTES.add(getAttributeFromString(name));
+			}
+		}
+		
+		for (String name : Configs.weaponCategory.armorAttributes)
+		{
+			if (getAttributeFromString(name) != null)
+			{
+				ARMOR_ATTRIBUTES.add(getAttributeFromString(name));
+			}
+		}
 	}
 	
 	public enum AttributeType
@@ -160,6 +177,19 @@ public class AttributeBase
 		DAMAGE_INTEGER(),
 		ROUNDED_PERCENTAGE(),
 		PERCENTAGE();
+	}
+	
+	public static AttributeBase getAttributeFromString(String name)
+	{
+		for (AttributeBase attribute : ALL_ATTRIBUTES)
+		{
+			if (attribute.getName().equals(name))
+			{
+				return attribute;
+			}
+		}
+		
+		return null;
 	}
 	
 	public String getName()

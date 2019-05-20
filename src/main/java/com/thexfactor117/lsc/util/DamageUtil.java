@@ -54,7 +54,7 @@ public class DamageUtil
 	 * @param nbt
 	 * @return
 	 */
-	public static double applyCriticalModifier(LSCPlayerCapability cap, double damage, NBTTagCompound nbt)
+	public static double applyCriticalModifier(LSCPlayerCapability cap, double damage)
 	{
 		double damageBeforeCrit = damage;
 		

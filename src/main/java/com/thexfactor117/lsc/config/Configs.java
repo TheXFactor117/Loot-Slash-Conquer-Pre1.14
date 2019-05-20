@@ -628,6 +628,12 @@ public class Configs
 	
 	public static class WeaponCategory
 	{
+		@Comment("A list of active weapon attributes. Remove a value to remove the attribute from generating on items.")
+		public String[] weaponAttributes = new String[] { "fire_damage", "frost_damage" };
+		
+		@Comment("A list of active armor attributes. Remove a value to remove the attribute from generating on items.")
+		public String[] armorAttributes = new String[] { "strength", "agility" };
+		
 		// rarity chances
 		@Comment({
 			"The chance at which the Common rarity gets applied to weapons/armor.",

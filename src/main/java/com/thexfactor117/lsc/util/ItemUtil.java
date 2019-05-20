@@ -1,10 +1,13 @@
 package com.thexfactor117.lsc.util;
 
+import java.util.ArrayList;
+
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.attributes.AttributeArmor;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
+import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
 /**
@@ -29,12 +32,17 @@ public class ItemUtil
 		return NBTHelper.loadStackNBT(stack).getInteger("RequiredLevel");
 	}
 	
-	public static AttributeBase[] getSecondaryAttributes(ItemStack stack)
+	public static ArrayList<AttributeBase> getSecondaryAttributes(ItemStack stack)
 	{
 		return null;
 	}
 	
-	public static AttributeBase[] getBonusAttributes(ItemStack stack)
+	public static ArrayList<AttributeBase> getBonusAttributes(ItemStack stack)
+	{
+		return null;
+	}
+	
+	public static ArrayList<AttributeBase> getAllAttributes(ItemStack stack)
 	{
 		return null;
 	}
@@ -62,6 +70,22 @@ public class ItemUtil
 		return NBTHelper.loadStackNBT(stack).getDouble("AttackSpeed");
 	}
 	
+	public static void useWeaponAttributes(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy)
+	{
+		for (AttributeBase attributeBase : getAllAttributes(stack))
+		{
+			if (attributeBase instanceof AttributeWeapon)
+			{
+				AttributeWeapon attribute = (AttributeWeapon) attributeBase;
+				
+				if (attribute.isActive())
+				{
+					attribute.onHit(stack, damage, attacker, enemy);
+				}
+			}
+		}
+	}
+	
 	
 	
 	// armor
@@ -72,17 +96,9 @@ public class ItemUtil
 	
 	public static void onEquip(ItemStack stack)
 	{
-		if (getSecondaryAttributes(stack) != null && getSecondaryAttributes(stack).length > 0)
+		if (getAllAttributes(stack) != null && getAllAttributes(stack).size() > 0)
 		{
-			for (AttributeBase attribute : getSecondaryAttributes(stack))
-			{
-				// attribute.onEquip
-			}
-		}
-		
-		if (getBonusAttributes(stack) != null && getBonusAttributes(stack).length > 0)
-		{
-			for (AttributeBase attribute : getBonusAttributes(stack))
+			for (AttributeBase attribute : getAllAttributes(stack))
 			{
 				// attribute.onEquip
 			}
@@ -91,17 +107,9 @@ public class ItemUtil
 	
 	public static void onUnequip(ItemStack stack)
 	{
-		if (getSecondaryAttributes(stack) != null && getSecondaryAttributes(stack).length > 0)
+		if (getAllAttributes(stack) != null && getAllAttributes(stack).size() > 0)
 		{
-			for (AttributeBase attribute : getSecondaryAttributes(stack))
-			{
-				// attribute.onUnequip
-			}
-		}
-		
-		if (getBonusAttributes(stack) != null && getBonusAttributes(stack).length > 0)
-		{
-			for (AttributeBase attribute : getBonusAttributes(stack))
+			for (AttributeBase attribute : getAllAttributes(stack))
 			{
 				// attribute.onUnequip
 			}

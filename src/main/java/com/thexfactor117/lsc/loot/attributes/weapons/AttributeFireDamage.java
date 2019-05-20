@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.loot.attributes.weapons;
 import java.util.Random;
 
 import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -18,14 +19,14 @@ public class AttributeFireDamage extends AttributeWeapon
 {
 	public AttributeFireDamage()
 	{
-		super("fire_damage", "attributes.weapon.fire_damage", 1, 5, true);
+		super("fire_damage", "attributes.weapon.fire_damage", 1, 5, true, true);
 	}
 	
 	@Override
-	public void executeAttribute(float damage, EntityLivingBase attacker, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)
+	public void onHit(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy)
 	{
 		enemy.hurtResistantTime = 0;
-		enemy.attackEntityFrom(DamageSource.ON_FIRE, (float) this.getAttributeValue(nbt));
+		enemy.attackEntityFrom(DamageSource.ON_FIRE, (float) this.getAttributeValue(NBTHelper.loadStackNBT(stack)));
 	}
 	
 	@Override

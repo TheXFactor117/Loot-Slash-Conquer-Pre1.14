@@ -16,10 +16,24 @@ import net.minecraft.nbt.NBTTagCompound;
  */
 public class AttributeWeapon extends AttributeBase
 {
-	public AttributeWeapon(String name, String key, double min, double max, boolean upgradeable)
+	private boolean isActive;
+
+	public AttributeWeapon(String name, String key, double min, double max, boolean upgradeable, boolean isActive)
 	{
 		super(name, key, min, max, upgradeable);
+		this.isActive = isActive;
 	}
+
+	/**
+	 * Called every time a weapon strikes and deals damage. Each attribute will implement its own effect.
+	 * 
+	 * @param damage
+	 * @param attacker
+	 * @param enemy
+	 * @param stack
+	 * @param nbt
+	 */
+	public void onHit(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy) { }
 
 	// e.g. Elemental Damage
 	public void addDamageAttribute(NBTTagCompound nbt, Random rand)
@@ -32,8 +46,13 @@ public class AttributeWeapon extends AttributeBase
 		nbt.setDouble(this.getName() + "_value", trueDamage);
 	}
 
-	public void executeAttribute(float damage, EntityLivingBase attacker, EntityLivingBase enemy, ItemStack stack, NBTTagCompound nbt)
+	/**
+	 * Returns whether or not this is an active or passive attribute.
+	 * 
+	 * @return
+	 */
+	public boolean isActive()
 	{
-		
+		return isActive;
 	}
 }

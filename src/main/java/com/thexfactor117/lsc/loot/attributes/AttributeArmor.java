@@ -16,16 +16,15 @@ public class AttributeArmor extends AttributeBase
 		super(name, key, min, max, upgradeable);
 	}
 
+	public void onEquip() { }
+	
+	public void onUnequip() { }
+	
 	// e.g. Strength
 	public void addStatAttribute(NBTTagCompound nbt, Random rand)
 	{
 		int randomizedBase = (int) (Math.random() * (this.getMaxBaseValue() - this.getMinBaseValue()) + this.getMinBaseValue());
 		// add scaling for stat bonuses??
 		nbt.setDouble(this.getName() + "_value", randomizedBase);
-	}
-
-	public void updateStat()
-	{
-
 	}
 }

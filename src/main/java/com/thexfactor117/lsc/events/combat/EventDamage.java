@@ -6,6 +6,7 @@ import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.player.WeaponUtils;
 import com.thexfactor117.lsc.util.DamageUtil;
+import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
@@ -126,22 +127,20 @@ public class EventDamage
 	// working properly
 	private static void playerMeleeAttack(LivingHurtEvent event, EntityPlayer player, EntityLivingBase enemy, ItemStack weapon, LSCPlayerCapability cap)
 	{
-		NBTTagCompound nbt = NBTHelper.loadStackNBT(weapon);
-		
-		if (Rarity.getRarity(nbt) != Rarity.DEFAULT)
+		if (ItemUtil.getItemRarity(weapon) != Rarity.DEFAULT)
 		{
-			if (cap.getPlayerLevel() < nbt.getInteger("Level"))
+			if (cap.getPlayerLevel() < ItemUtil.getItemLevel(weapon))
 			{
 				underLevelAttack(event, player, weapon);
 			}
 			else
 			{
 				// set the true amount of damage.
-				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+				double trueDamage = ItemUtil.getItemDamage(weapon);
 				trueDamage = DamageUtil.applyDamageModifiers(cap, trueDamage, DamageUtil.DamageType.PHYSICAL_MELEE);
-				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage, nbt);
+				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage);
 
-				WeaponUtils.useWeaponAttributes((float) trueDamage, player, enemy, weapon, nbt);
+				//WeaponUtils.useWeaponAttributes((float) trueDamage, player, enemy, weapon, nbt);
 				
 				event.setAmount((float) trueDamage);
 			}
@@ -164,7 +163,7 @@ public class EventDamage
 				// set the true amount of damage.
 				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
 				trueDamage = DamageUtil.applyDamageModifiers(cap, trueDamage, DamageUtil.DamageType.PHYSICAL_RANGED);
-				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage, nbt);
+				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage);
 				
 				event.setAmount((float) trueDamage);
 				WeaponUtils.useWeaponAttributes(event.getAmount(), player, enemy, weapon, nbt);

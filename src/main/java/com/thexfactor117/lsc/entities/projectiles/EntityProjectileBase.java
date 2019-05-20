@@ -66,7 +66,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage"));
 				damage = DamageUtil.applyDamageModifiers(cap, damage, DamageUtil.DamageType.MAGICAL);
-				damage = DamageUtil.applyCriticalModifier(cap, damage, nbt);
+				damage = DamageUtil.applyCriticalModifier(cap, damage);
 				
 				// apply damage
 				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);
