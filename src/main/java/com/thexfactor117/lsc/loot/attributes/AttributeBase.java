@@ -131,10 +131,10 @@ public class AttributeBase
 	
 	public void setMinMaxPercentages(NBTTagCompound nbt, double baseValue, double rangeMultiplier)
 	{
-		double minRandFactor = Configs.weaponCategory.rangeMinRandFactor / 10;
-		double maxRandFactor = Configs.weaponCategory.rangeMaxRandFactor / 10;
+		double minRandFactor = Configs.weaponCategory.rangeMinRandFactor;
+		double maxRandFactor = Configs.weaponCategory.rangeMaxRandFactor;
 		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
-		
+		// avg. 0.56
 		double range = (multiplier * 0.85 + 0.05) * rangeMultiplier;
 		
 		double minValue = baseValue - (range / 2);

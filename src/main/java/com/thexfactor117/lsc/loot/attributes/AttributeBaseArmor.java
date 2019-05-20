@@ -9,9 +9,9 @@ import net.minecraft.nbt.NBTTagCompound;
  * @author TheXFactor117
  *
  */
-public class AttributeArmor extends AttributeBase
+public class AttributeBaseArmor extends AttributeBase
 {
-	public AttributeArmor(String name, String key, double min, double max, boolean upgradeable)
+	public AttributeBaseArmor(String name, String key, double min, double max, boolean upgradeable)
 	{
 		super(name, key, min, max, upgradeable);
 	}

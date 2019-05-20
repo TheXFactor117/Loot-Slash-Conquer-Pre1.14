@@ -14,11 +14,11 @@ import net.minecraft.nbt.NBTTagCompound;
  * @author TheXFactor117
  *
  */
-public class AttributeWeapon extends AttributeBase
+public class AttributeBaseWeapon extends AttributeBase
 {
 	private boolean isActive;
 
-	public AttributeWeapon(String name, String key, double min, double max, boolean upgradeable, boolean isActive)
+	public AttributeBaseWeapon(String name, String key, double min, double max, boolean upgradeable, boolean isActive)
 	{
 		super(name, key, min, max, upgradeable);
 		this.isActive = isActive;
@@ -34,6 +34,11 @@ public class AttributeWeapon extends AttributeBase
 	 * @param nbt
 	 */
 	public void onHit(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy) { }
+	
+	public double getPassiveValue(NBTTagCompound nbt)
+	{
+		return 0;
+	}
 
 	// e.g. Elemental Damage
 	public void addDamageAttribute(NBTTagCompound nbt, Random rand)
@@ -44,6 +49,15 @@ public class AttributeWeapon extends AttributeBase
 		double trueDamage = Math.random() * (this.getAttributeMaxValue(nbt) - this.getAttributeMinValue(nbt)) + this.getAttributeMinValue(nbt);
 
 		nbt.setDouble(this.getName() + "_value", trueDamage);
+	}
+	
+	public void addPercentageAttribute(NBTTagCompound nbt, Random rand, double rangeMultiplier)
+	{
+		double randomizedBase = Math.random() * (this.getMaxBaseValue() - this.getMinBaseValue()) + this.getMinBaseValue();
+		this.setMinMaxPercentages(nbt, randomizedBase, rangeMultiplier);
+		double truePercentage = Math.random() * (this.getAttributeMaxValue(nbt) - this.getAttributeMinValue(nbt)) + this.getAttributeMinValue(nbt);
+		
+		nbt.setDouble(this.getName() + "_value", truePercentage);
 	}
 
 	/**

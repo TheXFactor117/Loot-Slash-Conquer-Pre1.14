@@ -2,7 +2,7 @@ package com.thexfactor117.lsc.loot.attributes.armor;
 
 import java.util.Random;
 
-import com.thexfactor117.lsc.loot.attributes.AttributeArmor;
+import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
 
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
  * @author TheXFactor117
  *
  */
-public class AttributeStrength extends AttributeArmor
+public class AttributeStrength extends AttributeBaseArmor
 {
 	public AttributeStrength()
 	{

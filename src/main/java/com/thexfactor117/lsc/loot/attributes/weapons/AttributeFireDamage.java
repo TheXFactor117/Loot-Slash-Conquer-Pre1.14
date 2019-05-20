@@ -2,7 +2,7 @@ package com.thexfactor117.lsc.loot.attributes.weapons;
 
 import java.util.Random;
 
-import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
+import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -15,7 +15,7 @@ import net.minecraft.util.DamageSource;
  * @author TheXFactor117
  *
  */
-public class AttributeFireDamage extends AttributeWeapon
+public class AttributeFireDamage extends AttributeBaseWeapon
 {
 	public AttributeFireDamage()
 	{

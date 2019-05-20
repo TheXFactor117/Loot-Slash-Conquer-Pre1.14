@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
-import com.thexfactor117.lsc.loot.attributes.AttributeArmor;
+import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
 import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
@@ -146,17 +146,17 @@ public class LSCPlayerCapability implements ILSCPlayer
 	{
 		for (AttributeBase attribute : ItemUtil.getAllAttributes(oldStack))
 		{
-			if (attribute instanceof AttributeArmor)
+			if (attribute instanceof AttributeBaseArmor)
 			{
-				((AttributeArmor) attribute).onUnequip();
+				((AttributeBaseArmor) attribute).onUnequip();
 			}
 		}
 		
 		for (AttributeBase attribute : ItemUtil.getAllAttributes(newStack))
 		{
-			if (attribute instanceof AttributeArmor)
+			if (attribute instanceof AttributeBaseArmor)
 			{
-				((AttributeArmor) attribute).onEquip();
+				((AttributeBaseArmor) attribute).onEquip();
 			}
 		}
 	}

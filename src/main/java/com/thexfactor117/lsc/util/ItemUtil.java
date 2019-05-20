@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
-import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
+import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -74,9 +74,9 @@ public class ItemUtil
 	{
 		for (AttributeBase attributeBase : getAllAttributes(stack))
 		{
-			if (attributeBase instanceof AttributeWeapon)
+			if (attributeBase instanceof AttributeBaseWeapon)
 			{
-				AttributeWeapon attribute = (AttributeWeapon) attributeBase;
+				AttributeBaseWeapon attribute = (AttributeBaseWeapon) attributeBase;
 				
 				if (attribute.isActive())
 				{
