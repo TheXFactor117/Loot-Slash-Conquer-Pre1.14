@@ -19,18 +19,18 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author TheXFactor117
  *
  */
-public class AttributeFireDamage extends AttributeBaseWeapon
+public class AttributePoisonDamage extends AttributeBaseWeapon
 {
-	public AttributeFireDamage()
+	public AttributePoisonDamage()
 	{
-		super("fire_damage", "attributes.weapon.fire_damage", 2, true, false, true);
+		super("poison_damage", "attributes.weapon.poison_damage", 2, true, false, true);
 	}
 	
 	@Override
 	public void onHit(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy)
 	{
 		enemy.hurtResistantTime = 0;
-		enemy.attackEntityFrom(LSCDamageSource.causeFireDamage(attacker), (float) this.getAttributeValue(NBTHelper.loadStackNBT(stack)));
+		enemy.attackEntityFrom(LSCDamageSource.causePoisonDamage(attacker), (float) this.getAttributeValue(NBTHelper.loadStackNBT(stack)));
 	}
 	
 	@Override

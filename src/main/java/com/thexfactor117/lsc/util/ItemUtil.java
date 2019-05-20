@@ -2,8 +2,10 @@ package com.thexfactor117.lsc.util;
 
 import java.util.ArrayList;
 
+import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
+import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
@@ -34,17 +36,47 @@ public class ItemUtil
 	
 	public static ArrayList<AttributeBase> getSecondaryAttributes(ItemStack stack)
 	{
-		return null;
+		ArrayList<AttributeBase> list = Lists.newArrayList();
+		
+		for (AttributeBase attribute : AttributeBase.ALL_ATTRIBUTES)
+		{
+			if (attribute.hasAttribute(NBTHelper.loadStackNBT(stack)) && !attribute.isBonusAttribute())
+			{
+				list.add(attribute);
+			}
+		}
+		
+		return list;
 	}
 	
 	public static ArrayList<AttributeBase> getBonusAttributes(ItemStack stack)
 	{
-		return null;
+		ArrayList<AttributeBase> list = Lists.newArrayList();
+		
+		for (AttributeBase attribute : AttributeBase.ALL_ATTRIBUTES)
+		{
+			if (attribute.hasAttribute(NBTHelper.loadStackNBT(stack)) && attribute.isBonusAttribute())
+			{
+				list.add(attribute);
+			}
+		}
+		
+		return list;
 	}
 	
 	public static ArrayList<AttributeBase> getAllAttributes(ItemStack stack)
 	{
-		return null;
+		ArrayList<AttributeBase> list = Lists.newArrayList();
+		
+		for (AttributeBase attribute : AttributeBase.ALL_ATTRIBUTES)
+		{
+			if (attribute.hasAttribute(NBTHelper.loadStackNBT(stack)))
+			{
+				list.add(attribute);
+			}
+		}
+		
+		return list;
 	}
 	
 	
@@ -100,7 +132,10 @@ public class ItemUtil
 		{
 			for (AttributeBase attribute : getAllAttributes(stack))
 			{
-				// attribute.onEquip
+				if (attribute instanceof AttributeBaseArmor)
+				{
+					((AttributeBaseArmor) attribute).onEquip();
+				}
 			}
 		}
 	}
@@ -111,7 +146,10 @@ public class ItemUtil
 		{
 			for (AttributeBase attribute : getAllAttributes(stack))
 			{
-				// attribute.onUnequip
+				if (attribute instanceof AttributeBaseArmor)
+				{
+					((AttributeBaseArmor) attribute).onUnequip();
+				}
 			}
 		}
 	}

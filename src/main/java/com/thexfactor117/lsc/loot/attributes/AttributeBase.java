@@ -7,9 +7,14 @@ import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeStrength;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeBonusExperience;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeFireDamage;
+import com.thexfactor117.lsc.util.ItemUtil;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  *
@@ -20,26 +25,28 @@ public class AttributeBase
 {
 	private String name;
 	private String key;
-	private double minAmount;
-	private double maxAmount;
+	private double baseValue;
 	private boolean upgradeable;
+	private boolean isBonus;
 	
 	public static final AttributeBase FIRE_DAMAGE = new AttributeFireDamage();
+	
+	public static final AttributeBase BONUS_EXPERIENCE = new AttributeBonusExperience();
 	
 	public static final AttributeBase STRENGTH = new AttributeStrength();
 	
 	
-	private static final ArrayList<AttributeBase> ALL_ATTRIBUTES = Lists.newArrayList();
+	public static final ArrayList<AttributeBase> ALL_ATTRIBUTES = Lists.newArrayList();
 	public static ArrayList<AttributeBase> WEAPON_ATTRIBUTES = Lists.newArrayList();
 	public static ArrayList<AttributeBase> ARMOR_ATTRIBUTES = Lists.newArrayList();
 	
-	public AttributeBase(String name, String key, double min, double max, boolean upgradeable)
+	public AttributeBase(String name, String key, double baseValue, boolean upgradeable, boolean isBonus)
 	{
 		this.name = name;
 		this.key = key;
-		this.minAmount = min;
-		this.maxAmount = max;
+		this.baseValue = baseValue;
 		this.upgradeable = upgradeable;
+		this.isBonus = isBonus;
 	}
 
 	/**
@@ -52,10 +59,10 @@ public class AttributeBase
 		return nbt.getBoolean(name);
 	}
 	
-	public void addAttribute(NBTTagCompound nbt, Random rand)
+	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		nbt.setBoolean(name, true);
-		nbt.setInteger(name + "_rarity", Rarity.getRandomRarity(nbt, rand).ordinal());
+		nbt.setInteger(name + "_rarity", Rarity.getWeightedRarity(rand, ItemUtil.getItemRarity(stack)).ordinal());
 	}
 	
 	public void removeAttribute(NBTTagCompound nbt)
@@ -102,6 +109,12 @@ public class AttributeBase
 		}
 	}
 	
+	@SideOnly(Side.CLIENT)
+	public String getTooltipDisplay(NBTTagCompound nbt)
+	{
+		return "";
+	}
+	
 	/**
 	 * Creates a randomized min/max value using the given baseValue. The value given should already
 	 * be scaled if it is damage related. Percentages do not need to be scaled.
@@ -146,6 +159,25 @@ public class AttributeBase
 		
 		nbt.setDouble(name + "_minvalue", minValue);
 		nbt.setDouble(name + "_maxvalue", maxValue);
+	}
+	
+	public double getWeightedPercentage(Rarity rarity, double baseValue)
+	{
+		switch (rarity)
+		{
+			case COMMON:
+				return baseValue * Configs.weaponCategory.commonFactor;
+			case UNCOMMON:
+				return baseValue * Configs.weaponCategory.uncommonFactor;
+			case RARE:
+				return baseValue * Configs.weaponCategory.rareFactor;
+			case EPIC:
+				return baseValue * Configs.weaponCategory.epicFactor;
+			case LEGENDARY:
+				return baseValue * Configs.weaponCategory.legendaryFactor;
+			default:
+				return 0;
+		}
 	}
 	
 	static
@@ -202,18 +234,18 @@ public class AttributeBase
 		return key;
 	}
 	
-	public double getMinBaseValue()
+	public double getBaseValue()
 	{
-		return minAmount;
-	}
-	
-	public double getMaxBaseValue()
-	{
-		return maxAmount;
+		return baseValue;
 	}
 	
 	public boolean isUpgradeable()
 	{
 		return upgradeable;
+	}
+	
+	public boolean isBonusAttribute()
+	{
+		return isBonus;
 	}
 }

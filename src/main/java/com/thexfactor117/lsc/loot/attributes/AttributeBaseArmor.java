@@ -11,9 +11,9 @@ import net.minecraft.nbt.NBTTagCompound;
  */
 public class AttributeBaseArmor extends AttributeBase
 {
-	public AttributeBaseArmor(String name, String key, double min, double max, boolean upgradeable)
+	public AttributeBaseArmor(String name, String key, double baseValue, boolean upgradeable, boolean isBonus)
 	{
-		super(name, key, min, max, upgradeable);
+		super(name, key, baseValue, upgradeable, isBonus);
 	}
 
 	public void onEquip() { }
@@ -23,8 +23,7 @@ public class AttributeBaseArmor extends AttributeBase
 	// e.g. Strength
 	public void addStatAttribute(NBTTagCompound nbt, Random rand)
 	{
-		int randomizedBase = (int) (Math.random() * (this.getMaxBaseValue() - this.getMinBaseValue()) + this.getMinBaseValue());
 		// add scaling for stat bonuses??
-		nbt.setDouble(this.getName() + "_value", randomizedBase);
+		nbt.setDouble(this.getName() + "_value", this.getBaseValue());
 	}
 }

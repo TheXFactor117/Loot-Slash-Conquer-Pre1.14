@@ -11,6 +11,7 @@ import com.thexfactor117.lsc.items.base.ItemMagical;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
+import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
@@ -120,17 +121,18 @@ public class EventItemTooltip
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 
-		tooltip.add(TextFormatting.RED + " *" + format.format((int) (AttributeBase.FIRE_DAMAGE.getAttributeValue(nbt))) + " Fire Damage"
-				+ TextFormatting.GRAY + " (" + AttributeBase.FIRE_DAMAGE.getAttributeMinValue(nbt) + " - " + AttributeBase.FIRE_DAMAGE.getAttributeMaxValue(nbt)
-				+ ")");
+		for (AttributeBase attribute : ItemUtil.getSecondaryAttributes(stack))
+		{
+			tooltip.add(attribute.getTooltipDisplay(nbt));
+		}
 		
-		for (Attribute attribute : Attribute.values())
+		/*for (Attribute attribute : Attribute.values())
 		{
 			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
 				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
 			else if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) >= 1)
 				tooltip.add(TextFormatting.BLUE + " +" + format.format(attribute.getAmount(nbt)) + " " + attribute.getName());
-		}
+		}*/
 	}
 	
 	private static void drawArmor(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)

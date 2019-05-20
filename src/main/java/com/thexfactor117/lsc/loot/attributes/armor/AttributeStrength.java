@@ -4,6 +4,7 @@ import java.util.Random;
 
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
@@ -15,13 +16,13 @@ public class AttributeStrength extends AttributeBaseArmor
 {
 	public AttributeStrength()
 	{
-		super("strength", "attributes.armor.strength", 1, 4, false);
+		super("strength", "attributes.armor.strength", 2, false, false);
 	}
 	
 	@Override
-	public void addAttribute(NBTTagCompound nbt, Random rand)
+	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
-		super.addAttribute(nbt, rand);
+		super.addAttribute(stack, nbt, rand);
 		this.addStatAttribute(nbt, rand);
 	}
 }

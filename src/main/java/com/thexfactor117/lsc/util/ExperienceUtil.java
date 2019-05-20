@@ -8,11 +8,19 @@ import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.EntityMonster;
+import com.thexfactor117.lsc.items.base.ItemMagical;
+import com.thexfactor117.lsc.loot.attributes.AttributeBase;
+import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketTitle;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.text.TextComponentString;
@@ -59,6 +67,21 @@ public class ExperienceUtil
 			
 			// base experience is 10 for now...
 			experience = (int) (Math.pow(baseFactor, enemyLevel + 1) * (Configs.monsterLevelTierCategory.baseExperience + multiplier));
+			
+			double bonusExperience = 0;
+			ItemStack stack = player.getHeldItem(player.getActiveHand());
+			
+			if (stack != ItemStack.EMPTY && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemBow || stack.getItem() instanceof ItemMagical))
+			{
+				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+				
+				if (AttributeBase.BONUS_EXPERIENCE.hasAttribute(nbt))
+				{
+					bonusExperience = ((AttributeBaseWeapon) AttributeBase.BONUS_EXPERIENCE).getPassiveValue(nbt) * experience;
+				}
+			}
+			
+			experience += bonusExperience;
 		}
 		
 		// update experience on client AND server; increase level if need be.

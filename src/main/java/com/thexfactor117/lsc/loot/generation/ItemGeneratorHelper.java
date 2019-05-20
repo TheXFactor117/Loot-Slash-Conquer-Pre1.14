@@ -84,7 +84,7 @@ public class ItemGeneratorHelper
 	 */
 	public static void setRandomAttributes(ItemStack stack, NBTTagCompound nbt, Rarity rarity)
 	{
-		AttributeBase.FIRE_DAMAGE.addAttribute(nbt, rand);
+		AttributeBase.FIRE_DAMAGE.addAttribute(stack, nbt, rand);
 		
 		/*
 		// TODO: add config options for the amount of attributes per rarity.

@@ -18,9 +18,9 @@ public class AttributeBaseWeapon extends AttributeBase
 {
 	private boolean isActive;
 
-	public AttributeBaseWeapon(String name, String key, double min, double max, boolean upgradeable, boolean isActive)
+	public AttributeBaseWeapon(String name, String key, double baseValue, boolean upgradeable, boolean isBonus, boolean isActive)
 	{
-		super(name, key, min, max, upgradeable);
+		super(name, key, baseValue, upgradeable, isBonus);
 		this.isActive = isActive;
 	}
 
@@ -37,24 +37,23 @@ public class AttributeBaseWeapon extends AttributeBase
 	
 	public double getPassiveValue(NBTTagCompound nbt)
 	{
-		return 0;
+		return nbt.getDouble(this.getName() + "_value");
 	}
 
 	// e.g. Elemental Damage
 	public void addDamageAttribute(NBTTagCompound nbt, Random rand)
 	{
-		int randomizedBase = (int) (Math.random() * (this.getMaxBaseValue() - this.getMinBaseValue()) + this.getMinBaseValue());
-		double weightedBase = ItemGeneratorHelper.getWeightedDamage(nbt.getInteger("Level"), this.getAttributeRarity(nbt), randomizedBase);
+		double weightedBase = ItemGeneratorHelper.getWeightedDamage(nbt.getInteger("Level"), this.getAttributeRarity(nbt), this.getBaseValue());
 		this.setMinMaxIntegers(nbt, weightedBase, Configs.weaponCategory.rangeMultiplier - 0.1);
-		double trueDamage = Math.random() * (this.getAttributeMaxValue(nbt) - this.getAttributeMinValue(nbt)) + this.getAttributeMinValue(nbt);
+		int trueDamage = (int) (Math.random() * (this.getAttributeMaxValue(nbt) - this.getAttributeMinValue(nbt)) + this.getAttributeMinValue(nbt));
 
 		nbt.setDouble(this.getName() + "_value", trueDamage);
 	}
 	
 	public void addPercentageAttribute(NBTTagCompound nbt, Random rand, double rangeMultiplier)
 	{
-		double randomizedBase = Math.random() * (this.getMaxBaseValue() - this.getMinBaseValue()) + this.getMinBaseValue();
-		this.setMinMaxPercentages(nbt, randomizedBase, rangeMultiplier);
+		double weightedPercentage = this.getWeightedPercentage(this.getAttributeRarity(nbt), this.getBaseValue());
+		this.setMinMaxPercentages(nbt, weightedPercentage, rangeMultiplier);
 		double truePercentage = Math.random() * (this.getAttributeMaxValue(nbt) - this.getAttributeMinValue(nbt)) + this.getAttributeMinValue(nbt);
 		
 		nbt.setDouble(this.getName() + "_value", truePercentage);
