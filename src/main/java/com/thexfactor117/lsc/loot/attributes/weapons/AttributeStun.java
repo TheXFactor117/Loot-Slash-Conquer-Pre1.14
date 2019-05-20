@@ -47,7 +47,9 @@ public class AttributeStun extends AttributeBaseWeapon
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
 		int value = (int) (this.getAttributeValue(nbt) * 100);
+		int minValue = (int) (this.getAttributeMinValue(nbt) * 100);
+		int maxValue = (int) (this.getAttributeMaxValue(nbt) * 100);
 		
-		return TextFormatting.RED + " * +" + value + "% chance to stun the enemy.";
+		return TextFormatting.RED + " * +" + value + "% chance to stun the enemy " + TextFormatting.GRAY + "[" + minValue + " - " + maxValue + "]";
 	}
 }

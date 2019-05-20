@@ -47,7 +47,9 @@ public class AttributeBlind extends AttributeBaseWeapon
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
 		int value = (int) (this.getAttributeValue(nbt) * 100);
+		int minValue = (int) (this.getAttributeMinValue(nbt) * 100);
+		int maxValue = (int) (this.getAttributeMaxValue(nbt) * 100);
 		
-		return TextFormatting.RED + " * +" + value + "% chance to cause blindness.";
+		return TextFormatting.RED + " * +" + value + "% chance to cause blindness " + TextFormatting.GRAY + "[" + minValue + " - " + maxValue + "]";
 	}
 }
