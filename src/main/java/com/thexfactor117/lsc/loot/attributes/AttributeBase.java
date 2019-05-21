@@ -7,8 +7,24 @@ import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeStrength;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeAttackSpeed;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeBlind;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeBonusExperience;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeCriticalChance;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeCriticalDamage;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeFireDamage;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeFrostDamage;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeLifeSteal;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeLightningDamage;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeManaSteal;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeMaximumDamage;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeMinimumDamage;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeNausea;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributePoisonDamage;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeSlow;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeStun;
+import com.thexfactor117.lsc.loot.attributes.weapons.bonus.AttributeChained;
+import com.thexfactor117.lsc.loot.attributes.weapons.bonus.AttributeVoid;
 import com.thexfactor117.lsc.util.ItemUtil;
 
 import net.minecraft.item.ItemStack;
@@ -30,8 +46,24 @@ public class AttributeBase
 	private boolean isBonus;
 	
 	public static final AttributeBase FIRE_DAMAGE = new AttributeFireDamage();
-	
+	public static final AttributeBase FROST_DAMAGE = new AttributeFrostDamage();
+	public static final AttributeBase LIGHTNING_DAMAGE = new AttributeLightningDamage();
+	public static final AttributeBase POISON_DAMAGE = new AttributePoisonDamage();
+	public static final AttributeBase ATTACK_SPEED = new AttributeAttackSpeed();
 	public static final AttributeBase BONUS_EXPERIENCE = new AttributeBonusExperience();
+	public static final AttributeBase CRITICAL_DAMAGE = new AttributeCriticalDamage();
+	public static final AttributeBase CRITICAL_CHANCE = new AttributeCriticalChance();
+	public static final AttributeBase LIFE_STEAL = new AttributeLifeSteal();
+	public static final AttributeBase MANA_STEAL = new AttributeManaSteal();
+	public static final AttributeBase MINIMUM_DAMAGE = new AttributeMinimumDamage();
+	public static final AttributeBase MAXIMUM_DAMAGE = new AttributeMaximumDamage();
+	public static final AttributeBase STUN = new AttributeStun();
+	public static final AttributeBase SLOW = new AttributeSlow();
+	public static final AttributeBase BLIND = new AttributeBlind();
+	public static final AttributeBase NAUSEA = new AttributeNausea();
+	// bonus
+	public static final AttributeBase CHAINED = new AttributeChained();
+	public static final AttributeBase VOID = new AttributeVoid();
 	
 	public static final AttributeBase STRENGTH = new AttributeStrength();
 	
@@ -144,17 +176,19 @@ public class AttributeBase
 	
 	public void setMinMaxPercentages(NBTTagCompound nbt, double baseValue, double rangeMultiplier)
 	{
-		double minRandFactor = Configs.weaponCategory.rangeMinRandFactor;
-		double maxRandFactor = Configs.weaponCategory.rangeMaxRandFactor;
+		// randomize a value between a min/max. This will be our starting range.
+		double minRandFactor = 0.01;
+		double maxRandFactor = 0.2;
 		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
-		// avg. 0.56
-		double range = (multiplier * 0.85 + 0.05) * rangeMultiplier;
+
+		// range is calculated by multiplying the base range by a multiplier and adding 0.01 to the end to prevent it from being 0.
+		double range = (multiplier + 0.01) * rangeMultiplier;
 		
-		double minValue = baseValue - (range / 2);
+		double minValue = baseValue;
 		double maxValue = baseValue + (range / 2);
 		
 		if (minValue == maxValue) minValue -= 0.01;
-		if (minValue == 0) minValue = 0.01;
+		if (minValue <= 0) minValue = 0.01;
 		while (minValue >= maxValue) maxValue += 0.01;
 		
 		nbt.setDouble(name + "_minvalue", minValue);
@@ -166,15 +200,15 @@ public class AttributeBase
 		switch (rarity)
 		{
 			case COMMON:
-				return baseValue * Configs.weaponCategory.commonFactor;
+				return baseValue * 1;
 			case UNCOMMON:
-				return baseValue * Configs.weaponCategory.uncommonFactor;
+				return baseValue * 1.25;
 			case RARE:
-				return baseValue * Configs.weaponCategory.rareFactor;
+				return baseValue * 2;
 			case EPIC:
-				return baseValue * Configs.weaponCategory.epicFactor;
+				return baseValue * 3.1;
 			case LEGENDARY:
-				return baseValue * Configs.weaponCategory.legendaryFactor;
+				return baseValue * 4.5;
 			default:
 				return 0;
 		}
@@ -182,8 +216,26 @@ public class AttributeBase
 	
 	static
 	{
+		// weapon
 		ALL_ATTRIBUTES.add(FIRE_DAMAGE);
+		ALL_ATTRIBUTES.add(FROST_DAMAGE);
+		ALL_ATTRIBUTES.add(LIGHTNING_DAMAGE);
+		ALL_ATTRIBUTES.add(POISON_DAMAGE);
+		ALL_ATTRIBUTES.add(ATTACK_SPEED);
+		ALL_ATTRIBUTES.add(BONUS_EXPERIENCE);
+		ALL_ATTRIBUTES.add(CRITICAL_DAMAGE);
+		ALL_ATTRIBUTES.add(CRITICAL_CHANCE);
+		ALL_ATTRIBUTES.add(LIFE_STEAL);
+		ALL_ATTRIBUTES.add(MANA_STEAL);
+		ALL_ATTRIBUTES.add(STUN);
+		ALL_ATTRIBUTES.add(SLOW);
+		ALL_ATTRIBUTES.add(BLIND);
+		ALL_ATTRIBUTES.add(NAUSEA);
+		// bonus
+		ALL_ATTRIBUTES.add(CHAINED);
+		ALL_ATTRIBUTES.add(VOID);
 		
+		// armor
 		ALL_ATTRIBUTES.add(STRENGTH);
 		
 		for (String name : Configs.weaponCategory.weaponAttributes)

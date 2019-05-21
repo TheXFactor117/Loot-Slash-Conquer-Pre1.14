@@ -39,7 +39,7 @@ public class AttributeStun extends AttributeBaseWeapon
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		super.addAttribute(stack, nbt, rand);
-		this.addPercentageAttribute(nbt, rand, 1);
+		this.addPercentageAttribute(nbt, rand, 0.6);
 	}
 	
 	@Override
@@ -50,6 +50,6 @@ public class AttributeStun extends AttributeBaseWeapon
 		int minValue = (int) (this.getAttributeMinValue(nbt) * 100);
 		int maxValue = (int) (this.getAttributeMaxValue(nbt) * 100);
 		
-		return TextFormatting.RED + " * +" + value + "% chance to stun the enemy " + TextFormatting.GRAY + "[" + minValue + " - " + maxValue + "]";
+		return TextFormatting.RED + " * +" + value + "% chance to stun the enemy " + TextFormatting.GRAY + "[" + minValue + "% - " + maxValue + "%]";
 	}
 }

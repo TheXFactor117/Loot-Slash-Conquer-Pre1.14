@@ -29,7 +29,7 @@ public class NameGenerator
 	 */
 	public static void generateName(ItemStack stack, NBTTagCompound nbt)
 	{
-		if (Rarity.getRarity(nbt) == Rarity.COMMON)
+		/*if (Rarity.getRarity(nbt) == Rarity.COMMON)
 		{
 			String type = NameGenerator.getType(nbt.getString("Type") + "_type");
 			
@@ -71,7 +71,7 @@ public class NameGenerator
 				String suffix = NameGenerator.getSuffix(getAttributeString(nbt) + "_suffix");
 				stack.setStackDisplayName(Rarity.getRarity(nbt).getColor() + prefix + " " + type + " " + suffix);
 			}
-		}
+		}*/
 	}
 	
 	/** Returns a randomized, localized name of a current attribute to lookup in name files. */

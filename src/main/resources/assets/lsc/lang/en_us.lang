@@ -199,6 +199,27 @@ death.attack.frost.player=%1$s was blasted with lightning bolts by %2$s.
 death.attack.poison=%1$s might have eaten something bad for lunch...
 death.attack.poison.player=%2$s poisoned %1$s's lunch! %1$s didn't quite make it.
 
+### Attributes
+attributes.weapon.fire_damage=Fire Damage
+attributes.weapon.frost_damage=Frost Damage
+attributes.weapon.lightning_damage=Lightning Damage
+attributes.weapon.poison_damage=Poison Damage
+attributes.weapon.attack_speed=Attack Speed
+attributes.weapon.bonus_experience=Experience
+attributes.weapon.critical_damage=Critical Damage
+attributes.weapon.critical_chance=Critical Chance
+attributes.weapon.life_steal=Life Steal
+attributes.weapon.mana_steal=Mana Steal
+attributes.weapon.minimum_damage=Minimum Damage
+attributes.weapon.maximum_damage=Maximum Damage
+attributes.weapon.stun=Stun
+attributes.weapon.slow=Slow
+attributes.weapon.blind=Blind
+attributes.weapon.nausea=Nausea
+
+attributes.weapon.chained=Chained
+attributes.weapon.void=Void
+
 ### Tabs
 itemGroup.tab_lsc=Loot Slash Conquer
 itemGroup.tab_lsc_dev=Loot Slash Conquer - Development

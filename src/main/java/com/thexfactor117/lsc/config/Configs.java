@@ -629,7 +629,8 @@ public class Configs
 	public static class WeaponCategory
 	{
 		@Comment("A list of active weapon attributes. Remove a value to remove the attribute from generating on items.")
-		public String[] weaponAttributes = new String[] { "fire_damage", "frost_damage" };
+		public String[] weaponAttributes = new String[] { "fire_damage", "frost_damage", "lightning_damage", "poison_damage", "attack_speed", "bonus_experience",
+				"critical_damage", "critical_chance", "life_steal", "mana_steal", "minimum_damage", "maximum_damage", "stun", "slow", "blind", "nausea" };
 		
 		@Comment("A list of active armor attributes. Remove a value to remove the attribute from generating on items.")
 		public String[] armorAttributes = new String[] { "strength", "agility" };
