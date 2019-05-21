@@ -2,6 +2,7 @@ package com.thexfactor117.lsc.loot.attributes;
 
 import java.util.Random;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
@@ -25,5 +26,14 @@ public class AttributeBaseArmor extends AttributeBase
 	{
 		// add scaling for stat bonuses??
 		nbt.setDouble(this.getName() + "_value", this.getBaseValue());
+	}
+	
+	private void setStatMinMax(ItemStack stack, NBTTagCompound nbt, double startingValue)
+	{
+		double minRandomFactor = 0.1;
+		double maxRandomFactor = 0.4;
+		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
+		
+		
 	}
 }

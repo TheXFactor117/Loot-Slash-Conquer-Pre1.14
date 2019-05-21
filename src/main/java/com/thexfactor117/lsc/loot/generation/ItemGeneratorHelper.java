@@ -84,6 +84,9 @@ public class ItemGeneratorHelper
 	 */
 	public static void setRandomAttributes(ItemStack stack, NBTTagCompound nbt, Rarity rarity)
 	{
+		AttributeBase.FIRE_DAMAGE.addAttribute(stack, nbt, rand);
+		AttributeBase.FROST_DAMAGE.addAttribute(stack, nbt, rand);
+		
 		AttributeBase.ATTACK_SPEED.addAttribute(stack, nbt, rand);
 		AttributeBase.STUN.addAttribute(stack, nbt, rand);
 		AttributeBase.SLOW.addAttribute(stack, nbt, rand);

@@ -74,8 +74,8 @@ public class AttributeBaseWeapon extends AttributeBase
 	private void setDamageMinMax(ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
 		// adds randomization to the range - controls how big the range is.
-		double minRandomFactor = 0.4;
-		double maxRandomFactor = 0.1;
+		double minRandomFactor = 0.1;
+		double maxRandomFactor = 0.4;
 		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
 		
 		// scales the range by the item's level.
@@ -97,8 +97,8 @@ public class AttributeBaseWeapon extends AttributeBase
 	private void setPercentageMinMax(ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
 		// adds randomization to the range - controls how big the range is.
-		double minRandomFactor = 0.4;
-		double maxRandomFactor = 0.1;
+		double minRandomFactor = 0.1;
+		double maxRandomFactor = 0.4;
 		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
 		
 		// scales range?
@@ -117,8 +117,8 @@ public class AttributeBaseWeapon extends AttributeBase
 	
 	private double getWeightedPercentage(Rarity rarity, double baseValue, double optionalMultiplier)
 	{
-		double minRandomFactor = 0.9;
-		double maxRandomFactor = 0.6;
+		double minRandomFactor = 0.6;
+		double maxRandomFactor = 0.9;
 		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
 		
 		double multiplier = randomMultiplier * optionalMultiplier;
