@@ -11,6 +11,7 @@ import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 /**
  *
@@ -37,10 +38,11 @@ public class ItemUtil
 	public static ArrayList<AttributeBase> getSecondaryAttributes(ItemStack stack)
 	{
 		ArrayList<AttributeBase> list = Lists.newArrayList();
+		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 		
 		for (AttributeBase attribute : AttributeBase.ALL_ATTRIBUTES)
 		{
-			if (attribute.hasAttribute(NBTHelper.loadStackNBT(stack)) && !attribute.isBonusAttribute())
+			if (attribute.hasAttribute(nbt) && !attribute.isBonusAttribute())
 			{
 				list.add(attribute);
 			}

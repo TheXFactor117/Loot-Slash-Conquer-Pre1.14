@@ -147,73 +147,6 @@ public class AttributeBase
 		return "";
 	}
 	
-	/**
-	 * Creates a randomized min/max value using the given baseValue. The value given should already
-	 * be scaled if it is damage related. Percentages do not need to be scaled.
-	 * @param nbt
-	 * @param baseValue
-	 * @param rangeMultiplier
-	 */
-	public void setMinMaxIntegers(NBTTagCompound nbt, double baseValue, double rangeFactor)
-	{
-		double minRandFactor = Configs.weaponCategory.rangeMinRandFactor;
-		double maxRandFactor = Configs.weaponCategory.rangeMaxRandFactor;
-		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
-		
-		double rangeMultiplier = nbt.getInteger("Level") * rangeFactor;
-		int range = (int) ((multiplier * 4 + 0.5) * rangeMultiplier);
-		
-		int minValue = (int) (baseValue - (range / 2));
-		int maxValue = (int) (baseValue + (range / 2));
-		
-		if (minValue == maxValue) minValue -= 1;
-		if (minValue <= 0) minValue = 1;
-		while (minValue >= maxValue) maxValue += 1;
-		
-		nbt.setDouble(name + "_minvalue", minValue);
-		nbt.setDouble(name + "_maxvalue", maxValue);
-	}
-	
-	public void setMinMaxPercentages(NBTTagCompound nbt, double baseValue, double rangeMultiplier)
-	{
-		// randomize a value between a min/max. This will be our starting range.
-		double minRandFactor = 0.01;
-		double maxRandFactor = 0.2;
-		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
-
-		// range is calculated by multiplying the base range by a multiplier and adding 0.01 to the end to prevent it from being 0.
-		double range = (multiplier + 0.01) * rangeMultiplier;
-		
-		double minValue = baseValue;
-		double maxValue = baseValue + (range / 2);
-		
-		if (minValue == maxValue) minValue -= 0.01;
-		if (minValue <= 0) minValue = 0.01;
-		while (minValue >= maxValue) maxValue += 0.01;
-		
-		nbt.setDouble(name + "_minvalue", minValue);
-		nbt.setDouble(name + "_maxvalue", maxValue);
-	}
-	
-	public double getWeightedPercentage(Rarity rarity, double baseValue)
-	{
-		switch (rarity)
-		{
-			case COMMON:
-				return baseValue * 1;
-			case UNCOMMON:
-				return baseValue * 1.25;
-			case RARE:
-				return baseValue * 2;
-			case EPIC:
-				return baseValue * 3.1;
-			case LEGENDARY:
-				return baseValue * 4.5;
-			default:
-				return 0;
-		}
-	}
-	
 	static
 	{
 		// weapon
@@ -227,6 +160,8 @@ public class AttributeBase
 		ALL_ATTRIBUTES.add(CRITICAL_CHANCE);
 		ALL_ATTRIBUTES.add(LIFE_STEAL);
 		ALL_ATTRIBUTES.add(MANA_STEAL);
+		ALL_ATTRIBUTES.add(MINIMUM_DAMAGE);
+		ALL_ATTRIBUTES.add(MAXIMUM_DAMAGE);
 		ALL_ATTRIBUTES.add(STUN);
 		ALL_ATTRIBUTES.add(SLOW);
 		ALL_ATTRIBUTES.add(BLIND);

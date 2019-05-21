@@ -114,10 +114,6 @@ public class EventItemTooltip
 		tooltip.add(TextFormatting.BLUE + " +" + format.format(attackSpeed) + " Attack Speed");
 		tooltip.add("");
 		
-		// Durability
-		tooltip.add("Durability: " + (stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage());
-		tooltip.add("");
-		
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 

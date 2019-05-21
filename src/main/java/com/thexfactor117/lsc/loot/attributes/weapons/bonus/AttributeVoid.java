@@ -37,7 +37,7 @@ public class AttributeVoid extends AttributeBaseWeapon
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		super.addAttribute(stack, nbt, rand);
-		this.addPercentageAttribute(nbt, rand, 1);
+		this.addPercentageAttribute(stack, nbt, rand, 1);
 	}
 	
 	@Override

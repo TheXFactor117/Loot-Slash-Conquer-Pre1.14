@@ -37,7 +37,7 @@ public class AttributeLightningDamage extends AttributeBaseWeapon
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		super.addAttribute(stack, nbt, rand);
-		this.addDamageAttribute(nbt, rand);
+		this.addDamageAttribute(stack, nbt, rand);
 	}
 	
 	@Override
