@@ -2,11 +2,9 @@ package com.thexfactor117.lsc.events;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
-import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
@@ -35,7 +33,14 @@ public class EventPlayerTick
 	@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent event)
 	{
-		if (event.phase == Phase.START && !event.player.getEntityWorld().isRemote)
+		if (event.phase == Phase.START)
+		{
+			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(event.player);
+			
+			cap.tickPlayer();
+		}
+		
+		/*if (event.phase == Phase.START && !event.player.getEntityWorld().isRemote)
 		{
 			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(event.player);
 			
@@ -69,7 +74,7 @@ public class EventPlayerTick
 					cap.resetRegenTicks();
 				}
 			}
-		}
+		}*/
 	}
 	
 	/**

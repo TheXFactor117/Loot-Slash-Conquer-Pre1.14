@@ -21,9 +21,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 public class PlayerUtil
 {
 	// private static final String ATTACK_DAMAGE = "ece5e91f-afc9-4883-a169-c7b5883c12dc";
-	private static final String MOVEMENT_SPEED = "50ac5b8b-00a6-436c-bdc3-9848393bb7b7";
-	private static final String ATTACK_SPEED = "e574e861-e5bd-4906-b72e-f6be6e4c9563";
-	private static final String MAX_HEALTH = "e3762718-bbd8-4763-bfe9-1d18d70eaa76";
+	public static final String MOVEMENT_SPEED = "50ac5b8b-00a6-436c-bdc3-9848393bb7b7";
+	public static final String ATTACK_SPEED = "e574e861-e5bd-4906-b72e-f6be6e4c9563";
+	public static final String MAX_HEALTH = "e3762718-bbd8-4763-bfe9-1d18d70eaa76";
 
 	/**
 	 * Returns the LSC player capability.

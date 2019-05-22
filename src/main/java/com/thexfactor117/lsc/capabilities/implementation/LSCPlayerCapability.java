@@ -71,10 +71,10 @@ public class LSCPlayerCapability implements ILSCPlayer
 
 	private final EntityPlayer player;
 
-	private ItemStack helmet;
-	private ItemStack chestplate;
-	private ItemStack leggings;
-	private ItemStack boots;
+	private ItemStack helmet = ItemStack.EMPTY;
+	private ItemStack chestplate = ItemStack.EMPTY;
+	private ItemStack leggings = ItemStack.EMPTY;
+	private ItemStack boots = ItemStack.EMPTY;
 
 	public LSCPlayerCapability(@Nullable EntityPlayer player)
 	{
