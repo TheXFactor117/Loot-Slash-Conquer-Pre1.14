@@ -3,14 +3,9 @@ package com.thexfactor117.lsc.util;
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.items.base.ItemBauble;
-import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
-import baubles.api.BaublesApi;
-import baubles.api.cap.BaublesCapabilities;
-import baubles.api.cap.IBaublesItemHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -84,48 +79,20 @@ public class DamageUtil
 	}
 	
 	/**
-	 * Applies elemental resistances to the damage passed in. Note, this method only handles elemental resistances for the Player's Armor.
+	 * Applies elemental resistances to the damage passed in. Note, this method only handles elemental resistances for the player.
 	 * @param damage
 	 * @param source
 	 * @param player
 	 * @return
 	 */
-	public static double applyElementalResistance(double damage, LSCDamageSource source, EntityPlayer player)
+	public static double applyElementalResistance(double damage, LSCDamageSource source, LSCPlayerCapability cap)
 	{
 		double reducedDamage = damage;
 		
-		// reductions for armor
-		for (ItemStack stack : player.getArmorInventoryList())
-		{
-			if (stack.getItem() instanceof ItemArmor)
-			{
-				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-
-				if (source.isFireDamage() && Attribute.FIRE_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.FIRE_RESIST.getAmount(nbt) * damage);
-				else if (source.isFrostDamage() && Attribute.FROST_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.FROST_RESIST.getAmount(nbt) * damage);
-				else if (source.isLightningDamage() && Attribute.LIGHTNING_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.LIGHTNING_RESIST.getAmount(nbt) * damage);
-				else if (source.isPoisonDamage() && Attribute.POISON_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.POISON_RESIST.getAmount(nbt) * damage);
-			}
-		}
-		
-		// reductions for baubles
-		if (player.hasCapability(BaublesCapabilities.CAPABILITY_BAUBLES, null))
-		{
-			IBaublesItemHandler baubles = BaublesApi.getBaublesHandler(player);
-			
-			for (int i = 0; i < baubles.getSlots(); i++)
-			{
-				if (baubles.getStackInSlot(i).getItem() instanceof ItemBauble)
-				{
-					NBTTagCompound nbt = NBTHelper.loadStackNBT(baubles.getStackInSlot(i));
-					
-					if (source.isFireDamage() && Attribute.FIRE_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.FIRE_RESIST.getAmount(nbt) * damage);
-					else if (source.isFrostDamage() && Attribute.FROST_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.FROST_RESIST.getAmount(nbt) * damage);
-					else if (source.isLightningDamage() && Attribute.LIGHTNING_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.LIGHTNING_RESIST.getAmount(nbt) * damage);
-					else if (source.isPoisonDamage() && Attribute.POISON_RESIST.hasAttribute(nbt)) reducedDamage = damage - (Attribute.POISON_RESIST.getAmount(nbt) * damage);
-				}
-			}
-		}
+		if (source.isFireDamage()) reducedDamage = damage * (damage / (damage + cap.getFireResistance()));
+		else if (source.isFrostDamage()) reducedDamage = damage * (damage / (damage + cap.getFrostResistance()));
+		else if (source.isLightningDamage()) reducedDamage = damage * (damage / (damage + cap.getLightningResistance()));
+		else if (source.isPoisonDamage()) reducedDamage = damage * (damage / (damage + cap.getPoisonResistance()));
 		
 		return reducedDamage >= 0 ? reducedDamage : 0;
 	}

@@ -88,7 +88,7 @@ public class EventDamage
 					// check if the damage is elemental damage
 					if ((event.getSource() instanceof LSCDamageSource || event.getSource().isFireDamage()) && (event.getSource() instanceof LSCDamageSource && !((LSCDamageSource) event.getSource()).isChainedDamage()))
 					{
-						double damage = DamageUtil.applyElementalResistance(event.getAmount(), (LSCDamageSource) event.getSource(), player);
+						double damage = DamageUtil.applyElementalResistance(event.getAmount(), (LSCDamageSource) event.getSource(), cap);
 						event.setAmount((float) damage);					
 					}
 					// if it isn't elemental damage, let's apply armor reductions (so elemental damage bypasses armor).
