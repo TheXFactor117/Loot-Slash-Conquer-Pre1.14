@@ -55,7 +55,9 @@ public class AttributeFireResistance extends AttributeBaseArmor
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
 		int value = (int) this.getAttributeValue(nbt);
+		int minValue = (int) this.getAttributeMinValue(nbt);
+		int maxValue = (int) this.getAttributeMaxValue(nbt);
 		
-		return TextFormatting.BLUE + " * +" + value + " " + I18n.format(this.getKey());
+		return TextFormatting.BLUE + " * +" + value + " " + I18n.format(this.getKey()) + TextFormatting.GRAY + " [" + minValue + " - " + maxValue + "]";
 	}
 }
