@@ -13,6 +13,8 @@ import net.minecraft.nbt.NBTTagCompound;
 /**
  *
  * @author TheXFactor117
+ * 
+ * TODO: consolidate code
  *
  */
 public class AttributeUtil
@@ -81,6 +83,17 @@ public class AttributeUtil
 		int trueStat = (int) (Math.random() * (attribute.getAttributeMaxValue(nbt) - attribute.getAttributeMinValue(nbt)) + attribute.getAttributeMinValue(nbt));
 		
 		nbt.setDouble(attribute.getName() + "_value", trueStat);
+	}
+	
+	public static void addResistanceAttribute(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt)
+	{
+		double weightedResistance = ItemGeneratorHelper.getWeightedArmor(ItemUtil.getItemRarity(stack), ItemUtil.getItemLevel(stack), attribute.getBaseValue());
+		
+		setResistanceMinMax(attribute, stack, nbt, weightedResistance);
+		
+		int trueResistance = (int) (Math.random() * (attribute.getAttributeMaxValue(nbt) - attribute.getAttributeMinValue(nbt)) + attribute.getAttributeMinValue(nbt));
+		
+		nbt.setDouble(attribute.getName() + "_value", trueResistance);
 	}
 	
 	/**
@@ -157,6 +170,27 @@ public class AttributeUtil
 		
 		// scale range based off of item level.
 		double levelMultiplier = ItemUtil.getItemLevel(stack) * 0.05;
+		
+		int range = (int) ((randomMultiplier * startingValue + 0.5) * levelMultiplier);
+		
+		int minValue = (int) (startingValue - (range / 2));
+		int maxValue = (int) (startingValue + (range / 2));
+		
+		if (minValue == maxValue) minValue -= 1;
+		if (minValue <= 0) minValue = 1;
+		while (minValue >= maxValue) maxValue += 1;
+		
+		nbt.setDouble(attribute.getName() + "_minvalue", minValue);
+		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
+	}
+	
+	private static void setResistanceMinMax(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
+	{
+		double minRandomFactor = 0.1;
+		double maxRandomFactor = 0.4;
+		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
+		
+		double levelMultiplier = ItemUtil.getItemLevel(stack) * 0.1;
 		
 		int range = (int) ((randomMultiplier * startingValue + 0.5) * levelMultiplier);
 		

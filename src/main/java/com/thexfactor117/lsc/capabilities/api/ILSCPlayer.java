@@ -69,6 +69,10 @@ public interface ILSCPlayer
 	
 	public void setCriticalDamage(double criticalDamage);
 	public double getCriticalDamage();
+	
+	// cooldown
+	public void setCooldownReduction(double cooldown);
+	public double getCooldownReduction();
 
 	// update ticks
 	public void setUpdateTicks(int ticks);

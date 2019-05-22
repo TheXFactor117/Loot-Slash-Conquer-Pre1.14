@@ -76,6 +76,8 @@ public class CapabilityLSCPlayer
 				nbt.setDouble("CriticalChance", instance.getCriticalChance());
 				nbt.setDouble("CriticalDamage", instance.getCriticalDamage());
 				
+				nbt.setDouble("CooldownReduction", instance.getCooldownReduction());
+				
 				nbt.setInteger("UpdateTicks", instance.getUpdateTicks());
 				nbt.setInteger("RegenTicks", instance.getRegenTicks());
 				
@@ -126,6 +128,8 @@ public class CapabilityLSCPlayer
 				
 				instance.setCriticalChance(compound.getDouble("CriticalChance"));
 				instance.setCriticalDamage(compound.getDouble("CriticalDamage"));
+				
+				instance.setCooldownReduction(compound.getDouble("CooldownReduction"));
 				
 				instance.setUpdateTicks(compound.getInteger("UpdateTicks"));
 				instance.setUpdateTicks(compound.getInteger("RegenTicks"));
@@ -205,6 +209,8 @@ public class CapabilityLSCPlayer
 				
 				newCap.setCriticalChance(oldCap.getCriticalChance());
 				newCap.setCriticalDamage(oldCap.getCriticalDamage());
+				
+				newCap.setCooldownReduction(oldCap.getCooldownReduction());
 				
 				newCap.setUpdateTicks(oldCap.getUpdateTicks());
 				newCap.setRegenTicks(oldCap.getRegenTicks());

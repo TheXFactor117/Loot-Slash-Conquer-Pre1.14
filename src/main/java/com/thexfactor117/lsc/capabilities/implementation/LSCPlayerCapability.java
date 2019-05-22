@@ -48,6 +48,8 @@ public class LSCPlayerCapability implements ILSCPlayer
 
 	private double criticalChance;
 	private double criticalDamage;
+	
+	private double cooldownReduction;
 
 	private int updateTicks;
 	private int regenTicks;
@@ -441,6 +443,20 @@ public class LSCPlayerCapability implements ILSCPlayer
 	public double getCriticalDamage()
 	{
 		return criticalDamage;
+	}
+	
+	/*
+	 * COOLDOWN
+	 */
+	
+	public void setCooldownReduction(double cooldown)
+	{
+		this.cooldownReduction = cooldown;
+	}
+	
+	public double getCooldownReduction()
+	{
+		return cooldownReduction;
 	}
 
 	/*
