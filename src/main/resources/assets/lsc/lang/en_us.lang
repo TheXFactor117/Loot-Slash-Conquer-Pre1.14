@@ -220,6 +220,21 @@ attributes.weapon.nausea=Nausea
 attributes.weapon.chained=Chained
 attributes.weapon.void=Void
 
+
+attributes.armor.strength=Strength
+attributes.armor.agility=Agility
+attributes.armor.dexterity=Dexterity
+attributes.armor.intelligence=Intelligence
+attributes.armor.wisdom=Wisdom
+attributes.armor.fortitude=Fortitude
+attributes.armor.fire_resistance=Fire Resistance
+attributes.armor.frost_resistance=Frost Resistance
+attributes.armor.lightning_resistance=Lightning Resistance
+attributes.armor.poison_resistance=Poison Resistance
+attributes.armor.cooldown_reduction=Cooldown Reduction
+
+attributes.armor.all_stats=All Stats
+
 ### Tabs
 itemGroup.tab_lsc=Loot Slash Conquer
 itemGroup.tab_lsc_dev=Loot Slash Conquer - Development

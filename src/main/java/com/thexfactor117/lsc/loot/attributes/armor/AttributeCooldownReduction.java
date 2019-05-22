@@ -54,8 +54,8 @@ public class AttributeCooldownReduction extends AttributeBaseArmor
 	@SideOnly(Side.CLIENT)
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
-		int value = (int) this.getAttributeValue(nbt);
+		int value = (int) (this.getAttributeValue(nbt) * 100);
 		
-		return TextFormatting.BLUE + " * +" + value + " " + I18n.format(this.getKey());
+		return TextFormatting.BLUE + " * +" + value + "% " + I18n.format(this.getKey());
 	}
 }

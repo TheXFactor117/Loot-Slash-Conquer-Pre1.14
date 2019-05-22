@@ -94,6 +94,10 @@ public class ItemGeneratorHelper
 		AttributeBase.MANA_STEAL.addAttribute(stack, nbt, rand);*/
 		
 		AttributeBase.STRENGTH.addAttribute(stack, nbt, rand);
+		AttributeBase.AGILITY.addAttribute(stack, nbt, rand);
+		AttributeBase.FIRE_RESISTANCE.addAttribute(stack, nbt, rand);
+		AttributeBase.FROST_RESISTANCE.addAttribute(stack, nbt, rand);
+		AttributeBase.COOLDOWN_REDUCTION.addAttribute(stack, nbt, rand);
 		
 		/*
 		// TODO: add config options for the amount of attributes per rarity.

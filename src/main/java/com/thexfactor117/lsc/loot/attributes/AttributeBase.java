@@ -5,7 +5,18 @@ import java.util.Random;
 
 import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.config.Configs;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeAgility;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeCooldownReduction;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeDexterity;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeFireResistance;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeFortitude;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeFrostResistance;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeIntelligence;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeLightningResistance;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributePoisonResistance;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeStrength;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeWisdom;
+import com.thexfactor117.lsc.loot.attributes.armor.bonus.AttributeAllStats;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeAttackSpeed;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeBlind;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeBonusExperience;
@@ -43,6 +54,7 @@ public class AttributeBase
 	private boolean upgradeable;
 	private boolean isBonus;
 	
+	// weapons
 	public static final AttributeBase FIRE_DAMAGE = new AttributeFireDamage();
 	public static final AttributeBase FROST_DAMAGE = new AttributeFrostDamage();
 	public static final AttributeBase LIGHTNING_DAMAGE = new AttributeLightningDamage();
@@ -63,7 +75,21 @@ public class AttributeBase
 	public static final AttributeBase CHAINED = new AttributeChained();
 	public static final AttributeBase VOID = new AttributeVoid();
 	
+	// armor
 	public static final AttributeBase STRENGTH = new AttributeStrength();
+	public static final AttributeBase AGILITY = new AttributeAgility();
+	public static final AttributeBase DEXTERITY = new AttributeDexterity();
+	public static final AttributeBase INTELLIGENCE = new AttributeIntelligence();
+	public static final AttributeBase WISDOM = new AttributeWisdom();
+	public static final AttributeBase FORTITUDE = new AttributeFortitude();
+	public static final AttributeBase FIRE_RESISTANCE = new AttributeFireResistance();
+	public static final AttributeBase FROST_RESISTANCE = new AttributeFrostResistance();
+	public static final AttributeBase LIGHTNING_RESISTANCE = new AttributeLightningResistance();
+	public static final AttributeBase POISON_RESISTANCE = new AttributePoisonResistance();
+	public static final AttributeBase COOLDOWN_REDUCTION = new AttributeCooldownReduction();
+	//bonus
+	public static final AttributeBase ALL_STATS = new AttributeAllStats();
+	
 	
 	
 	public static final ArrayList<AttributeBase> ALL_ATTRIBUTES = Lists.newArrayList();
@@ -150,6 +176,18 @@ public class AttributeBase
 		
 		// armor
 		ALL_ATTRIBUTES.add(STRENGTH);
+		ALL_ATTRIBUTES.add(AGILITY);
+		ALL_ATTRIBUTES.add(DEXTERITY);
+		ALL_ATTRIBUTES.add(INTELLIGENCE);
+		ALL_ATTRIBUTES.add(WISDOM);
+		ALL_ATTRIBUTES.add(FORTITUDE);
+		ALL_ATTRIBUTES.add(FIRE_RESISTANCE);
+		ALL_ATTRIBUTES.add(FROST_RESISTANCE);
+		ALL_ATTRIBUTES.add(LIGHTNING_RESISTANCE);
+		ALL_ATTRIBUTES.add(POISON_RESISTANCE);
+		ALL_ATTRIBUTES.add(COOLDOWN_REDUCTION);
+		// bonus
+		ALL_ATTRIBUTES.add(ALL_STATS);
 		
 		for (String name : Configs.weaponCategory.weaponAttributes)
 		{
