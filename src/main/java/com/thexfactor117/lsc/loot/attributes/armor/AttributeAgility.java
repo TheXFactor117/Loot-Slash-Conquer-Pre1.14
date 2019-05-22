@@ -19,11 +19,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author TheXFactor117
  *
  */
-public class AttributeStrength extends AttributeBaseArmor
+public class AttributeAgility extends AttributeBaseArmor
 {
-	public AttributeStrength()
+	public AttributeAgility()
 	{
-		super("strength", "attributes.armor.strength", 2, false, false);
+		super("agility", "attributes.armor.agility", 2, false, false);
 	}
 	
 	@Override
@@ -32,7 +32,7 @@ public class AttributeStrength extends AttributeBaseArmor
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 		int value = (int) this.getAttributeValue(nbt);
 		
-		cap.setBonusStrengthStat(cap.getBonusStrengthStat() + value);
+		cap.setBonusAgilityStat(cap.getBonusAgilityStat() + value);
 	}
 	
 	@Override
@@ -41,7 +41,7 @@ public class AttributeStrength extends AttributeBaseArmor
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 		int value = (int) this.getAttributeValue(nbt);
 		
-		cap.setBonusStrengthStat(cap.getBonusStrengthStat() - value);
+		cap.setBonusAgilityStat(cap.getBonusAgilityStat() - value);
 	}
 	
 	@Override

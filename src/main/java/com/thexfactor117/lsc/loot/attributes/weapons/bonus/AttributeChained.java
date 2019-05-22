@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
+import com.thexfactor117.lsc.loot.attributes.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
@@ -65,7 +66,7 @@ public class AttributeChained extends AttributeBaseWeapon
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		super.addAttribute(stack, nbt, rand);
-		this.addPercentageAttribute(stack, nbt, rand, 1);
+		AttributeUtil.addPercentageAttribute(this, stack, nbt, rand, 1);
 	}
 	
 	@Override

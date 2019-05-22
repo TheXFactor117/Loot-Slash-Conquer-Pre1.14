@@ -167,13 +167,18 @@ public class EventItemTooltip
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 		
-		for (Attribute attribute : Attribute.values())
+		for (AttributeBase attribute : ItemUtil.getSecondaryAttributes(stack))
+		{
+			tooltip.add(attribute.getTooltipDisplay(nbt));
+		}
+		
+		/*for (Attribute attribute : Attribute.values())
 		{
 			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
 				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
 			else if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) >= 1)
 				tooltip.add(TextFormatting.BLUE + " +" + format.format(attribute.getAmount(nbt)) + " " + attribute.getName());
-		}
+		}*/
 	}
 	
 	private static void drawRanged(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)

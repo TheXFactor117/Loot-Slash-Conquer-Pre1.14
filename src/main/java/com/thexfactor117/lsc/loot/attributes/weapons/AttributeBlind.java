@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.loot.attributes.weapons;
 import java.util.Random;
 
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
+import com.thexfactor117.lsc.loot.attributes.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -39,7 +40,7 @@ public class AttributeBlind extends AttributeBaseWeapon
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		super.addAttribute(stack, nbt, rand);
-		this.addPercentageAttribute(stack, nbt, rand, 0.6);
+		AttributeUtil.addPercentageAttribute(this, stack, nbt, rand, 0.6);
 	}
 	
 	@Override

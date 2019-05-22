@@ -4,8 +4,8 @@ import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
-import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
+import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
 import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.util.ItemUtil;
@@ -31,11 +31,18 @@ public class LSCPlayerCapability implements ILSCPlayer
 	private int skillPoints;
 
 	// modifiers
+	private double physicalPower;
+	private double rangedPower;
+	private double magicalPower;
+	
+	private int fireResistance;
+	private int frostResistance;
+	private int lightningResistance;
+	private int poisonResistance;
+	
 	private int mana;
 	private int maxMana;
 	private int manaPerSecond;
-
-	private double magicalPower;
 
 	private int healthPerSecond;
 
@@ -93,25 +100,25 @@ public class LSCPlayerCapability implements ILSCPlayer
 		if (!ItemStack.areItemStacksEqual(stackHelmet, helmet))
 		{
 			armorChanged = true;
-			updateArmorAttributes(helmet, stackHelmet);
+			updateArmorAttributes(helmet, stackHelmet, cap);
 			this.helmet = stackHelmet;
 		}
 		if (!ItemStack.areItemStacksEqual(stackChestplate, chestplate))
 		{
 			armorChanged = true;
-			updateArmorAttributes(chestplate, stackChestplate);
+			updateArmorAttributes(chestplate, stackChestplate, cap);
 			this.chestplate = stackChestplate;
 		}
 		if (!ItemStack.areItemStacksEqual(stackLeggings, leggings))
 		{
 			armorChanged = true;
-			updateArmorAttributes(leggings, stackLeggings);
+			updateArmorAttributes(leggings, stackLeggings, cap);
 			this.leggings = stackLeggings;
 		}
 		if (!ItemStack.areItemStacksEqual(stackBoots, boots))
 		{
 			armorChanged = true;
-			updateArmorAttributes(boots, stackBoots);
+			updateArmorAttributes(boots, stackBoots, cap);
 			this.boots = stackBoots;
 		}
 		
@@ -142,13 +149,13 @@ public class LSCPlayerCapability implements ILSCPlayer
 		cap.incrementRegenTicks();
 	}
 	
-	private void updateArmorAttributes(ItemStack oldStack, ItemStack newStack)
+	private void updateArmorAttributes(ItemStack oldStack, ItemStack newStack, LSCPlayerCapability cap)
 	{
 		for (AttributeBase attribute : ItemUtil.getAllAttributes(oldStack))
 		{
 			if (attribute instanceof AttributeBaseArmor)
 			{
-				((AttributeBaseArmor) attribute).onUnequip();
+				((AttributeBaseArmor) attribute).onUnequip(cap, oldStack);
 			}
 		}
 		
@@ -156,7 +163,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 		{
 			if (attribute instanceof AttributeBaseArmor)
 			{
-				((AttributeBaseArmor) attribute).onEquip();
+				((AttributeBaseArmor) attribute).onEquip(cap, newStack);
 			}
 		}
 	}
@@ -240,6 +247,98 @@ public class LSCPlayerCapability implements ILSCPlayer
 	{
 		this.skillPoints = skillPoints;
 	}
+	
+	/*
+	 * POWER
+	 */
+	
+	@Override
+	public void setPhysicalPower(double power)
+	{
+		this.physicalPower = power;
+	}
+	
+	@Override
+	public double getPhysicalPower()
+	{
+		return physicalPower;
+	}
+	
+	@Override
+	public void setRangedPower(double power)
+	{
+		this.rangedPower = power;
+	}
+	
+	@Override
+	public double getRangedPower()
+	{
+		return rangedPower;
+	}
+	
+	@Override
+	public void setMagicalPower(double power)
+	{
+		this.magicalPower = power;
+	}
+
+	@Override
+	public double getMagicalPower()
+	{
+		return magicalPower;
+	}
+	
+	/*
+	 * RESISTANCE
+	 */
+	
+	@Override
+	public void setFireResistance(int resistance)
+	{
+		this.fireResistance = resistance;
+	}
+	
+	@Override
+	public int getFireResistance()
+	{
+		return fireResistance;
+	}
+	
+	@Override
+	public void setFrostResistance(int resistance)
+	{
+		this.frostResistance = resistance;
+	}
+	
+	@Override
+	public int getFrostResistance()
+	{
+		return frostResistance;
+	}
+	
+	@Override
+	public void setLightningResistance(int resistance)
+	{
+		this.lightningResistance = resistance;
+	}
+	
+	@Override
+	public int getLightningResistance()
+	{
+		return lightningResistance;
+	}
+	
+	@Override
+	public void setPoisonResistance(int resistance)
+	{
+		this.poisonResistance = resistance;
+	}
+	
+	@Override
+	public int getPoisonResistance()
+	{
+		return poisonResistance;
+	}
 
 	/*
 	 * MANA
@@ -298,21 +397,6 @@ public class LSCPlayerCapability implements ILSCPlayer
 	public int getManaPerSecond()
 	{
 		return manaPerSecond;
-	}
-
-	/*
-	 * MAGICAL POWER
-	 */
-	@Override
-	public void setMagicalPower(double power)
-	{
-		this.magicalPower = power;
-	}
-
-	@Override
-	public double getMagicalPower()
-	{
-		return magicalPower;
 	}
 
 	/*

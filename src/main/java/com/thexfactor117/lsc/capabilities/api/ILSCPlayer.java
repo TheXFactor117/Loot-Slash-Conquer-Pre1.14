@@ -26,6 +26,29 @@ public interface ILSCPlayer
 	 * Player Modifiers
 	 */
 	
+	// power
+	public void setPhysicalPower(double power);
+	public double getPhysicalPower();
+	
+	public void setRangedPower(double power);
+	public double getRangedPower();
+	
+	public void setMagicalPower(double power);
+	public double getMagicalPower();
+	
+	// resistance
+	public void setFireResistance(int resistance);
+	public int getFireResistance();
+	
+	public void setFrostResistance(int resistance);
+	public int getFrostResistance();
+	
+	public void setLightningResistance(int resistance);
+	public int getLightningResistance();
+	
+	public void setPoisonResistance(int resistance);
+	public int getPoisonResistance();
+	
 	// magic
 	public void setMana(int mana);
 	public int getMana();
@@ -35,9 +58,6 @@ public interface ILSCPlayer
 	
 	public void setManaPerSecond(int manaPerSecond);
 	public int getManaPerSecond();
-	
-	public void setMagicalPower(double power);
-	public double getMagicalPower();
 	
 	// health
 	public void setHealthPerSecond(int healthPerSecond);

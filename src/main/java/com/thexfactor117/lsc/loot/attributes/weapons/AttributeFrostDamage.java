@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.loot.attributes.weapons;
 import java.util.Random;
 
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
+import com.thexfactor117.lsc.loot.attributes.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
@@ -37,7 +38,7 @@ public class AttributeFrostDamage extends AttributeBaseWeapon
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		super.addAttribute(stack, nbt, rand);
-		this.addDamageAttribute(stack, nbt, rand);
+		AttributeUtil.addDamageAttribute(this, stack, nbt, rand);
 	}
 	
 	@Override

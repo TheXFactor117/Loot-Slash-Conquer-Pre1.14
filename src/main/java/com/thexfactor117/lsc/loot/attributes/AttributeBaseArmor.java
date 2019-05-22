@@ -1,9 +1,8 @@
 package com.thexfactor117.lsc.loot.attributes;
 
-import java.util.Random;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 /**
  *
@@ -17,23 +16,7 @@ public class AttributeBaseArmor extends AttributeBase
 		super(name, key, baseValue, upgradeable, isBonus);
 	}
 
-	public void onEquip() { }
+	public void onEquip(LSCPlayerCapability cap, ItemStack stack) { }
 	
-	public void onUnequip() { }
-	
-	// e.g. Strength
-	public void addStatAttribute(NBTTagCompound nbt, Random rand)
-	{
-		// add scaling for stat bonuses??
-		nbt.setDouble(this.getName() + "_value", this.getBaseValue());
-	}
-	
-	private void setStatMinMax(ItemStack stack, NBTTagCompound nbt, double startingValue)
-	{
-		double minRandomFactor = 0.1;
-		double maxRandomFactor = 0.4;
-		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
-		
-		
-	}
+	public void onUnequip(LSCPlayerCapability cap, ItemStack stack) { }
 }

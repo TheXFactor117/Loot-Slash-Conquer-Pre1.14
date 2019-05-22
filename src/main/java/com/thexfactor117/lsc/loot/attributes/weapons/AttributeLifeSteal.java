@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.loot.attributes.weapons;
 import java.util.Random;
 
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
+import com.thexfactor117.lsc.loot.attributes.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.client.resources.I18n;
@@ -35,7 +36,7 @@ public class AttributeLifeSteal extends AttributeBaseWeapon
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		super.addAttribute(stack, nbt, rand);
-		this.addPercentageAttribute(stack, nbt, rand, 1.2);
+		AttributeUtil.addPercentageAttribute(this, stack, nbt, rand, 1.2);
 	}
 	
 	@Override

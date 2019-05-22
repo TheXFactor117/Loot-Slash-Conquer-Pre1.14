@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.util;
 import java.util.ArrayList;
 
 import com.google.common.collect.Lists;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
@@ -128,7 +129,7 @@ public class ItemUtil
 		return NBTHelper.loadStackNBT(stack).getDouble("ArmorPoints");
 	}
 	
-	public static void onEquip(ItemStack stack)
+	public static void onEquip(LSCPlayerCapability cap, ItemStack stack)
 	{
 		if (getAllAttributes(stack) != null && getAllAttributes(stack).size() > 0)
 		{
@@ -136,13 +137,13 @@ public class ItemUtil
 			{
 				if (attribute instanceof AttributeBaseArmor)
 				{
-					((AttributeBaseArmor) attribute).onEquip();
+					((AttributeBaseArmor) attribute).onEquip(cap, stack);
 				}
 			}
 		}
 	}
 	
-	public static void onUnequip(ItemStack stack)
+	public static void onUnequip(LSCPlayerCapability cap, ItemStack stack)
 	{
 		if (getAllAttributes(stack) != null && getAllAttributes(stack).size() > 0)
 		{
@@ -150,7 +151,7 @@ public class ItemUtil
 			{
 				if (attribute instanceof AttributeBaseArmor)
 				{
-					((AttributeBaseArmor) attribute).onUnequip();
+					((AttributeBaseArmor) attribute).onUnequip(cap, stack);
 				}
 			}
 		}

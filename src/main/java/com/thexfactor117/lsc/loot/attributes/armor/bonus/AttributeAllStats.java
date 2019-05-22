@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.loot.attributes.armor;
+package com.thexfactor117.lsc.loot.attributes.armor.bonus;
 
 import java.util.Random;
 
@@ -19,11 +19,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author TheXFactor117
  *
  */
-public class AttributeStrength extends AttributeBaseArmor
+public class AttributeAllStats extends AttributeBaseArmor
 {
-	public AttributeStrength()
+	public AttributeAllStats()
 	{
-		super("strength", "attributes.armor.strength", 2, false, false);
+		super("strength", "attributes.armor.strength", 2, false, true);
 	}
 	
 	@Override
@@ -33,6 +33,11 @@ public class AttributeStrength extends AttributeBaseArmor
 		int value = (int) this.getAttributeValue(nbt);
 		
 		cap.setBonusStrengthStat(cap.getBonusStrengthStat() + value);
+		cap.setBonusAgilityStat(cap.getBonusAgilityStat() + value);
+		cap.setBonusDexterityStat(cap.getBonusDexterityStat() + value);
+		cap.setBonusIntelligenceStat(cap.getBonusIntelligenceStat() + value);
+		cap.setBonusWisdomStat(cap.getBonusWisdomStat() + value);
+		cap.setBonusFortitudeStat(cap.getBonusFortitudeStat() + value);
 	}
 	
 	@Override
@@ -42,6 +47,11 @@ public class AttributeStrength extends AttributeBaseArmor
 		int value = (int) this.getAttributeValue(nbt);
 		
 		cap.setBonusStrengthStat(cap.getBonusStrengthStat() - value);
+		cap.setBonusAgilityStat(cap.getBonusAgilityStat() - value);
+		cap.setBonusDexterityStat(cap.getBonusDexterityStat() - value);
+		cap.setBonusIntelligenceStat(cap.getBonusIntelligenceStat() - value);
+		cap.setBonusWisdomStat(cap.getBonusWisdomStat() - value);
+		cap.setBonusFortitudeStat(cap.getBonusFortitudeStat() - value);
 	}
 	
 	@Override

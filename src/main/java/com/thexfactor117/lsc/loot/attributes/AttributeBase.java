@@ -5,7 +5,6 @@ import java.util.Random;
 
 import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeStrength;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeAttackSpeed;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeBlind;
@@ -25,7 +24,6 @@ import com.thexfactor117.lsc.loot.attributes.weapons.AttributeSlow;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeStun;
 import com.thexfactor117.lsc.loot.attributes.weapons.bonus.AttributeChained;
 import com.thexfactor117.lsc.loot.attributes.weapons.bonus.AttributeVoid;
-import com.thexfactor117.lsc.util.ItemUtil;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -94,7 +92,6 @@ public class AttributeBase
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		nbt.setBoolean(name, true);
-		nbt.setInteger(name + "_rarity", Rarity.getWeightedRarity(rand, ItemUtil.getItemRarity(stack)).ordinal());
 	}
 	
 	public void removeAttribute(NBTTagCompound nbt)
@@ -120,25 +117,6 @@ public class AttributeBase
 	public double getAttributeMaxValue(NBTTagCompound nbt)
 	{
 		return nbt.getDouble(name + "_maxvalue");
-	}
-	
-	public Rarity getAttributeRarity(NBTTagCompound nbt)
-	{
-		switch (nbt.getInteger(name + "_rarity"))
-		{
-			case 1:
-				return Rarity.COMMON;
-			case 2:
-				return Rarity.UNCOMMON;
-			case 3:
-				return Rarity.RARE;
-			case 4:
-				return Rarity.EPIC;
-			case 5:
-				return Rarity.LEGENDARY;
-			default:
-				return Rarity.DEFAULT;
-		}
 	}
 	
 	@SideOnly(Side.CLIENT)

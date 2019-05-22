@@ -19,11 +19,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author TheXFactor117
  *
  */
-public class AttributeStrength extends AttributeBaseArmor
+public class AttributeWisdom extends AttributeBaseArmor
 {
-	public AttributeStrength()
+	public AttributeWisdom()
 	{
-		super("strength", "attributes.armor.strength", 2, false, false);
+		super("wisdom", "attributes.armor.wisdom", 2, false, false);
 	}
 	
 	@Override
@@ -32,7 +32,7 @@ public class AttributeStrength extends AttributeBaseArmor
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 		int value = (int) this.getAttributeValue(nbt);
 		
-		cap.setBonusStrengthStat(cap.getBonusStrengthStat() + value);
+		cap.setBonusWisdomStat(cap.getBonusWisdomStat() + value);
 	}
 	
 	@Override
@@ -41,7 +41,7 @@ public class AttributeStrength extends AttributeBaseArmor
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 		int value = (int) this.getAttributeValue(nbt);
 		
-		cap.setBonusStrengthStat(cap.getBonusStrengthStat() - value);
+		cap.setBonusWisdomStat(cap.getBonusWisdomStat() - value);
 	}
 	
 	@Override

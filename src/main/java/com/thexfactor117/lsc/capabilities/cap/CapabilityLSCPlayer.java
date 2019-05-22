@@ -58,11 +58,18 @@ public class CapabilityLSCPlayer
 				nbt.setInteger("PlayerSkillPoints", instance.getSkillPoints());
 				
 				// modifiers
+				nbt.setDouble("PhysicalPower", instance.getPhysicalPower());
+				nbt.setDouble("RangedPower", instance.getRangedPower());
+				nbt.setDouble("MagicalPower", instance.getMagicalPower());
+				
+				nbt.setInteger("FireResistance", instance.getFireResistance());
+				nbt.setInteger("FrostResistance", instance.getFrostResistance());
+				nbt.setInteger("LightningResistance", instance.getLightningResistance());
+				nbt.setInteger("PoisonResistance", instance.getPoisonResistance());
+				
 				nbt.setInteger("MaxMana", instance.getMaxMana());
 				nbt.setInteger("Mana", instance.getMana());
 				nbt.setInteger("ManaPerSecond", instance.getManaPerSecond());
-				
-				nbt.setDouble("MagicalPower", instance.getMagicalPower());
 				
 				nbt.setInteger("HealthPerSecond", instance.getHealthPerSecond());
 				
@@ -102,11 +109,18 @@ public class CapabilityLSCPlayer
 				instance.setSkillPoints(compound.getInteger("PlayerSkillPoints"));
 				
 				// modifiers
+				instance.setPhysicalPower(compound.getDouble("PhysicalPower"));
+				instance.setRangedPower(compound.getDouble("RangedPower"));
+				instance.setMagicalPower(compound.getDouble("MagicalPower"));
+				
+				instance.setFireResistance(compound.getInteger("FireResistance"));
+				instance.setFrostResistance(compound.getInteger("FrostResistance"));
+				instance.setLightningResistance(compound.getInteger("LightningResistance"));
+				instance.setPoisonResistance(compound.getInteger("PoisonResistance"));
+				
 				instance.setMaxMana(compound.getInteger("MaxMana"));
 				instance.setMana(compound.getInteger("Mana"));
 				instance.setManaPerSecond(compound.getInteger("ManaPerSecond"));
-				
-				instance.setMagicalPower(compound.getDouble("MagicalPower"));
 				
 				instance.setHealthPerSecond(compound.getInteger("HealthPerSecond"));
 				
@@ -174,11 +188,18 @@ public class CapabilityLSCPlayer
 				newCap.setSkillPoints(oldCap.getSkillPoints());
 				
 				// modifiers
+				newCap.setPhysicalPower(oldCap.getPhysicalPower());
+				newCap.setRangedPower(oldCap.getRangedPower());
+				newCap.setMagicalPower(oldCap.getMagicalPower());
+				
+				newCap.setFireResistance(oldCap.getFireResistance());
+				newCap.setFrostResistance(oldCap.getFrostResistance());
+				newCap.setLightningResistance(oldCap.getLightningResistance());
+				newCap.setPoisonResistance(oldCap.getPoisonResistance());
+				
 				newCap.setMaxMana(oldCap.getMaxMana());
 				newCap.setMana(oldCap.getMana());
 				newCap.setManaPerSecond(oldCap.getManaPerSecond());
-				
-				newCap.setMagicalPower(oldCap.getMagicalPower());
 				
 				newCap.setHealthPerSecond(oldCap.getHealthPerSecond());
 				

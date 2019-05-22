@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.loot.attributes.weapons;
 import java.util.Random;
 
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
+import com.thexfactor117.lsc.loot.attributes.AttributeUtil;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
@@ -27,7 +28,7 @@ public class AttributeMinimumDamage extends AttributeBaseWeapon
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		super.addAttribute(stack, nbt, rand);
-		this.addDamageAttribute(stack, nbt, rand);
+		AttributeUtil.addDamageAttribute(this, stack, nbt, rand);
 	}
 	
 	@Override
