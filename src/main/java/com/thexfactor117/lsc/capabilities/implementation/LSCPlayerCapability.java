@@ -86,7 +86,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 	 */
 	public void tickPlayer()
 	{
-		if (player == null || player.world.isRemote) return;
+		if (player == null) return;
 
 		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 

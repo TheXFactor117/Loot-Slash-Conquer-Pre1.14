@@ -1,8 +1,10 @@
 package com.thexfactor117.lsc.items.base;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.events.EventPlayerTick;
 import com.thexfactor117.lsc.init.ModTabs;
+import com.thexfactor117.lsc.loot.attributes.AttributeBase;
+import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
+import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 import com.thexfactor117.lsc.util.misc.Reference;
@@ -55,7 +57,13 @@ public class ItemBauble extends Item implements IBauble
 				
 				if (cap != null && cap.getPlayerLevel() >= NBTHelper.loadStackNBT(stack).getInteger("Level"))
 				{
-					EventPlayerTick.updateStats(player, cap, 3);
+					for (AttributeBase attribute : ItemUtil.getAllAttributes(stack))
+					{
+						if (attribute instanceof AttributeBaseArmor)
+						{
+							((AttributeBaseArmor) attribute).onEquip(cap, stack);
+						}
+					}
 				}
 				else player.sendMessage(new TextComponentString(TextFormatting.RED + "WARNING: You are using a high-leveled item. It will be useless and will not provide any bonuses."));
 			}
@@ -74,7 +82,13 @@ public class ItemBauble extends Item implements IBauble
 				
 				if (cap != null)
 				{
-					EventPlayerTick.updateStats(player, cap, 3);
+					for (AttributeBase attribute : ItemUtil.getAllAttributes(stack))
+					{
+						if (attribute instanceof AttributeBaseArmor)
+						{
+							((AttributeBaseArmor) attribute).onUnequip(cap, stack);
+						}
+					}
 				}
 			}
 		}

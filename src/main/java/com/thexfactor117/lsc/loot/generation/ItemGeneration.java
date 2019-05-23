@@ -1,12 +1,9 @@
 package com.thexfactor117.lsc.loot.generation;
 
-import com.thexfactor117.lsc.items.base.ItemBauble;
-import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.items.base.ItemRanged;
 import com.thexfactor117.lsc.loot.Rarity;
+import com.thexfactor117.lsc.util.ItemGenerationUtil;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,22 +14,23 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class ItemGenerator 
+public class ItemGeneration 
 {
 	/** Creates a melee weapon/armor with randomized stats. */
-	public static void create(ItemStack stack, NBTTagCompound nbt, World world, int level)
+	public static void create(ItemStack stack, World world, int level)
 	{
+		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+		
 		if (Rarity.getRarity(nbt) != Rarity.DEFAULT)
-		{
-			if (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemArmor)
-			{
-				ItemGeneratorHelper.setTypes(stack, nbt);
-				nbt.setInteger("Level", level); // set level to current player level
-				ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
-				ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
-				nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
+		{	
+			if (stack.getItem() instanceof ItemSword)
+			{	
+				nbt.setInteger("Level", level);
+				ItemGenerationUtil.setRandomWeaponAttributes(stack);
+				ItemGenerationUtil.setPrimaryAttributes(stack);
+				ItemGenerationUtil.hideFlags(nbt);
 			}
-			else if (stack.getItem() instanceof ItemBow)
+			/*else if (stack.getItem() instanceof ItemBow)
 			{
 				ItemGeneratorHelper.setTypes(stack, nbt);
 				nbt.setInteger("Level", level);
@@ -85,7 +83,7 @@ public class ItemGenerator
 				ItemGeneratorHelper.setTypes(stack, nbt);
 				nbt.setInteger("Level", level);
 				ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
-			}
+			}*/
 		}
 	}
 }

@@ -8,7 +8,6 @@ import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemMelee;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -43,7 +42,5 @@ public class ItemDivineRapier extends ItemMelee implements ISpecial
 		Attribute.FIRE.addAttribute(nbt, world.rand, 5);
 		Attribute.STRENGTH.addAttribute(nbt, world.rand, 3);
 		Attribute.DURABLE.addAttribute(nbt, world.rand, 0.3);
-		
-		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}
 }

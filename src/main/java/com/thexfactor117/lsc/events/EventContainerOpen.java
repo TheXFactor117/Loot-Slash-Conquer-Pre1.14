@@ -4,7 +4,7 @@ import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.items.base.ItemMagical;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.generation.ItemGenerator;
+import com.thexfactor117.lsc.loot.generation.ItemGeneration;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
@@ -72,7 +72,7 @@ public class EventContainerOpen
 			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, world.rand));
 		}
 		
-		ItemGenerator.create(stack, nbt, world, level);
+		ItemGeneration.create(stack, world, level);
 
 		stack.setTagCompound(nbt);
 		//NameGenerator.generateName(stack, nbt);

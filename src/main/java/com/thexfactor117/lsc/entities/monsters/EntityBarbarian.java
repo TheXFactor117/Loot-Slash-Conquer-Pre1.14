@@ -8,8 +8,8 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.EntityMonster;
-import com.thexfactor117.lsc.loot.NameGenerator;
-import com.thexfactor117.lsc.loot.generation.ItemGenerator;
+import com.thexfactor117.lsc.loot.generation.ItemGeneration;
+import com.thexfactor117.lsc.loot.generation.NameGenerator;
 import com.thexfactor117.lsc.player.WeaponUtils;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 import com.thexfactor117.lsc.util.misc.Reference;
@@ -194,7 +194,7 @@ public class EntityBarbarian extends EntityMonster
 			if (stack != null)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				ItemGenerator.create(stack, nbt, world, nbt.getInteger("TagLevel"));
+				ItemGeneration.create(stack, world, nbt.getInteger("TagLevel"));
 				stack.setTagCompound(nbt);
 				NameGenerator.generateName(stack, nbt);
 				return stack;

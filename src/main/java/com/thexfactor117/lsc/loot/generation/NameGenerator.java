@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.loot;
+package com.thexfactor117.lsc.loot.generation;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Properties;
 
 import com.google.common.collect.Lists;
+import com.thexfactor117.lsc.loot.Attribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

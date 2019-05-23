@@ -8,7 +8,6 @@ import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemAdvancedMelee;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -45,7 +44,5 @@ public class ItemAnnihilation extends ItemAdvancedMelee implements ISpecial
 		Attribute.GOLD.addAttribute(nbt, world.rand, 10);
 		Attribute.LIFE_STEAL.addAttribute(nbt, world.rand, 0.1);
 		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.1);
-		
-		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}
 }

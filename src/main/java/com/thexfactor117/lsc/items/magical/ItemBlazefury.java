@@ -7,7 +7,7 @@ import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemMagical;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.generation.ItemGeneratorHelper;
+import com.thexfactor117.lsc.util.ItemGenerationUtil;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -36,7 +36,7 @@ public class ItemBlazefury extends ItemMagical implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
-		ItemGeneratorHelper.setRune(nbt);
+		ItemGenerationUtil.setRune(nbt);
 		
 		// Attributes
 		Attribute.FIRE.addAttribute(nbt, world.rand, 3);
@@ -46,10 +46,10 @@ public class ItemBlazefury extends ItemMagical implements ISpecial
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();
 		double baseAttackSpeed = this.getBaseAttackSpeed();
-		double weightedDamage = ItemGeneratorHelper.getWeightedDamage(level, Rarity.getRarity(nbt), baseDamage);
-		double weightedAttackSpeed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseAttackSpeed);
+		double weightedDamage = ItemGenerationUtil.getWeightedDamage(level, Rarity.getRarity(nbt), baseDamage);
+		double weightedAttackSpeed = ItemGenerationUtil.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseAttackSpeed);
 		
-		ItemGeneratorHelper.setMinMaxDamage(nbt, weightedDamage);
+		ItemGenerationUtil.setMinMaxDamage(nbt, weightedDamage);
 		nbt.setDouble("AttackSpeed", weightedAttackSpeed);
 	}
 }

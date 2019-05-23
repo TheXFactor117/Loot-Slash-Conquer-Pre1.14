@@ -35,6 +35,7 @@ import com.thexfactor117.lsc.loot.attributes.weapons.AttributeSlow;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeStun;
 import com.thexfactor117.lsc.loot.attributes.weapons.bonus.AttributeChained;
 import com.thexfactor117.lsc.loot.attributes.weapons.bonus.AttributeVoid;
+import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -93,8 +94,10 @@ public class AttributeBase
 	
 	
 	public static final ArrayList<AttributeBase> ALL_ATTRIBUTES = Lists.newArrayList();
-	public static ArrayList<AttributeBase> WEAPON_ATTRIBUTES = Lists.newArrayList();
-	public static ArrayList<AttributeBase> ARMOR_ATTRIBUTES = Lists.newArrayList();
+	public static RandomCollection<AttributeBase> WEAPON_ATTRIBUTES = new RandomCollection<AttributeBase>();
+	public static RandomCollection<AttributeBase> ARMOR_ATTRIBUTES = new RandomCollection<AttributeBase>();
+	public static RandomCollection<AttributeBase> WEAPON_BONUS_ATTRIBUTES = new RandomCollection<AttributeBase>();
+	public static RandomCollection<AttributeBase> ARMOR_BONUS_ATTRIBUTES = new RandomCollection<AttributeBase>();
 	
 	public AttributeBase(String name, String key, double baseValue, boolean upgradeable, boolean isBonus)
 	{
@@ -191,17 +194,33 @@ public class AttributeBase
 		
 		for (String name : Configs.weaponCategory.weaponAttributes)
 		{
-			if (getAttributeFromString(name) != null)
+			if (getAttributeFromString(name) != null && !getAttributeFromString(name).isBonusAttribute())
 			{
-				WEAPON_ATTRIBUTES.add(getAttributeFromString(name));
+				WEAPON_ATTRIBUTES.add(1, getAttributeFromString(name));
 			}
 		}
 		
 		for (String name : Configs.weaponCategory.armorAttributes)
 		{
-			if (getAttributeFromString(name) != null)
+			if (getAttributeFromString(name) != null && !getAttributeFromString(name).isBonusAttribute())
 			{
-				ARMOR_ATTRIBUTES.add(getAttributeFromString(name));
+				ARMOR_ATTRIBUTES.add(1, getAttributeFromString(name));
+			}
+		}
+		
+		for (String name : Configs.weaponCategory.weaponAttributes)
+		{
+			if (getAttributeFromString(name) != null && getAttributeFromString(name).isBonusAttribute())
+			{
+				WEAPON_BONUS_ATTRIBUTES.add(1, getAttributeFromString(name));
+			}
+		}
+		
+		for (String name : Configs.weaponCategory.armorAttributes)
+		{
+			if (getAttributeFromString(name) != null && getAttributeFromString(name).isBonusAttribute())
+			{
+				ARMOR_BONUS_ATTRIBUTES.add(1, getAttributeFromString(name));
 			}
 		}
 	}

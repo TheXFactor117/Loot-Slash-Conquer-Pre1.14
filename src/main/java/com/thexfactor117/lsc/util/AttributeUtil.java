@@ -1,11 +1,10 @@
-package com.thexfactor117.lsc.loot.attributes;
+package com.thexfactor117.lsc.util;
 
 import java.util.Random;
 
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.generation.ItemGeneratorHelper;
-import com.thexfactor117.lsc.util.ItemUtil;
+import com.thexfactor117.lsc.loot.attributes.AttributeBase;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,7 +17,27 @@ import net.minecraft.nbt.NBTTagCompound;
  *
  */
 public class AttributeUtil
-{
+{	
+	public static AttributeBase getRandomWeaponAttribute()
+	{
+		return AttributeBase.WEAPON_ATTRIBUTES.next(ItemGenerationUtil.rand);
+	}
+	
+	public static AttributeBase getRandomArmorAttribute()
+	{
+		return AttributeBase.ARMOR_ATTRIBUTES.next(ItemGenerationUtil.rand);
+	}
+	
+	public static AttributeBase getRandomWeaponBonusAttribute()
+	{
+		return AttributeBase.WEAPON_BONUS_ATTRIBUTES.next(ItemGenerationUtil.rand);
+	}
+	
+	public static AttributeBase getRandomArmorBonusAttribute()
+	{
+		return AttributeBase.ARMOR_BONUS_ATTRIBUTES.next(ItemGenerationUtil.rand);
+	}
+	
 	/**
 	 * Adds the supplied attribute as a damage attribute.
 	 * base value is weighted by level/item rarity
@@ -32,7 +51,7 @@ public class AttributeUtil
 	public static void addDamageAttribute(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		// weight the base value by level and rarity.
-		double weightedBase = ItemGeneratorHelper.getWeightedDamage(nbt.getInteger("Level"), ItemUtil.getItemRarity(stack), attribute.getBaseValue());
+		double weightedBase = ItemGenerationUtil.getWeightedDamage(nbt.getInteger("Level"), ItemUtil.getItemRarity(stack), attribute.getBaseValue());
 		// set min/max values
 		setDamageMinMax(attribute, stack, nbt, weightedBase);
 		// calculate the actual value by randomizing between min/max.
@@ -87,7 +106,7 @@ public class AttributeUtil
 	
 	public static void addResistanceAttribute(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt)
 	{
-		double weightedResistance = ItemGeneratorHelper.getWeightedArmor(ItemUtil.getItemRarity(stack), ItemUtil.getItemLevel(stack), attribute.getBaseValue());
+		double weightedResistance = ItemGenerationUtil.getWeightedArmor(ItemUtil.getItemRarity(stack), ItemUtil.getItemLevel(stack), attribute.getBaseValue());
 		
 		setResistanceMinMax(attribute, stack, nbt, weightedResistance);
 		

@@ -8,7 +8,6 @@ import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemMelee;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -39,7 +38,5 @@ public class ItemRequiem extends ItemMelee implements ISpecial
 		Attribute.DEXTERITY.addAttribute(nbt, world.rand, 5);
 		Attribute.LIFE_STEAL.addAttribute(nbt, world.rand, 0.05);
 		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.05);
-		
-		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}
 }

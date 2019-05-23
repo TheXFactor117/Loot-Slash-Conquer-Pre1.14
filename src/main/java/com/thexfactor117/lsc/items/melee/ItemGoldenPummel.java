@@ -8,7 +8,6 @@ import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemAdvancedMelee;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -43,7 +42,5 @@ public class ItemGoldenPummel extends ItemAdvancedMelee implements ISpecial
 		Attribute.FORTITUDE.addAttribute(nbt, world.rand, 10);
 		Attribute.LIGHTNING.addAttribute(nbt, world.rand, 7);
 		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.2);
-		
-		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}
 }

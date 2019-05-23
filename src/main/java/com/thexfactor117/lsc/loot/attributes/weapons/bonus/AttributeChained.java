@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
-import com.thexfactor117.lsc.loot.attributes.AttributeUtil;
+import com.thexfactor117.lsc.util.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 

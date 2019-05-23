@@ -21,7 +21,6 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -71,64 +70,53 @@ public class EventItemTooltip
 	}
 	
 	private static void drawMelee(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)
-	{
-		/*
-		 * NAME
-		 * Level
-		 * 
-		 * Damage
-		 * Attack Speed
-		 * 
-		 * Durability
-		 * 
-		 * Attributes
-		 */
-		
+	{		
 		if (nbt.hasKey("IsSpecial") && nbt.getBoolean("IsSpecial"))
 		{
 			tooltip.add(1, TextFormatting.LIGHT_PURPLE + "" + TextFormatting.ITALIC + "Special");
 			tooltip.add("");
 		}
-		else
-		{
-			tooltip.add(1, "");
-		}
 		
-		
-		tooltip.add(2, Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
+		tooltip.add(1, Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
 		
 		// Level
-		if (cap.getPlayerLevel() < nbt.getInteger("Level")) tooltip.add(TextFormatting.RED + "Level: " + nbt.getInteger("Level"));
-		else tooltip.add("Level: " + nbt.getInteger("Level"));
+		if (cap.getPlayerLevel() < ItemUtil.getItemLevel(stack)) tooltip.add(TextFormatting.RED + "Level: " + ItemUtil.getItemLevel(stack));
+		else tooltip.add("Level: " + ItemUtil.getItemLevel(stack));
 		
 		tooltip.add("");
 		
-		// Damage and Attack Speed
-		NBTTagList taglist = nbt.getTagList("AttributeModifiers", 10);
-		NBTTagCompound speedNbt = taglist.getCompoundTagAt(1);
-		DecimalFormat format = new DecimalFormat("#.##");
+		// Primary Attributes - damage/attack speed
+		tooltip.add(TextFormatting.ITALIC + "Primary Attributes");
 		
-		double attackSpeed = speedNbt.getDouble("Amount") + 4 + (Configs.playerCategory.attackSpeedMultiplier * (double) (cap.getTotalAgility()));
-
-		tooltip.add(TextFormatting.BLUE + " +" + nbt.getInteger("MinDamage") + "-" + nbt.getInteger("MaxDamage") + " Damage");
-		tooltip.add(TextFormatting.BLUE + " +" + format.format(attackSpeed) + " Attack Speed");
-		tooltip.add("");
+		int damage = ItemUtil.getItemDamage(stack);
+		double attackSpeed = ItemUtil.getItemAttackSpeed(stack) + 4;
 		
-		// Attributes
-		tooltip.add(TextFormatting.ITALIC + "Attributes");
-
-		for (AttributeBase attribute : ItemUtil.getSecondaryAttributes(stack))
+		tooltip.add(TextFormatting.BLUE + " * " + damage + " Damage");
+		tooltip.add(TextFormatting.BLUE + " * " + ItemUtil.FORMAT.format(attackSpeed) + " Attack Speed");
+		
+		// Secondary Attributes - attributes
+		if (!ItemUtil.getSecondaryAttributes(stack).isEmpty())
 		{
-			tooltip.add(attribute.getTooltipDisplay(nbt));
+			tooltip.add("");
+			tooltip.add(TextFormatting.ITALIC + "Secondary Attributes");
+			
+			for (AttributeBase attribute : ItemUtil.getSecondaryAttributes(stack))
+			{
+				tooltip.add(attribute.getTooltipDisplay(nbt));
+			}
 		}
 		
-		/*for (Attribute attribute : Attribute.values())
+		// Bonus Attributes - bonus attributes
+		if (!ItemUtil.getBonusAttributes(stack).isEmpty())
 		{
-			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
-				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
-			else if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) >= 1)
-				tooltip.add(TextFormatting.BLUE + " +" + format.format(attribute.getAmount(nbt)) + " " + attribute.getName());
-		}*/
+			tooltip.add("");
+			tooltip.add(TextFormatting.ITALIC + "Bonus Attributes");
+			
+			for (AttributeBase attribute : ItemUtil.getBonusAttributes(stack))
+			{
+				tooltip.add(attribute.getTooltipDisplay(nbt));
+			}
+		}
 	}
 	
 	private static void drawArmor(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)

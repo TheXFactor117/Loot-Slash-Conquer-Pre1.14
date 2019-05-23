@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
-import com.thexfactor117.lsc.loot.attributes.AttributeUtil;
+import com.thexfactor117.lsc.util.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.client.resources.I18n;

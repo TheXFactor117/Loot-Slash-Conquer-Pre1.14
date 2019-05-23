@@ -8,7 +8,6 @@ import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemAdvancedMelee;
 import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.generation.ItemGeneratorHelper;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -38,7 +37,5 @@ public class ItemDoomshadow extends ItemAdvancedMelee implements ISpecial
 		Attribute.STRENGTH.addAttribute(nbt, world.rand, 6);
 		Attribute.FORTITUDE.addAttribute(nbt, world.rand, 4);
 		Attribute.CHAINED.addAttribute(nbt, world.rand, 10);
-		
-		ItemGeneratorHelper.setAttributeModifiers(nbt, stack);
 	}
 }

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.google.common.collect.Lists;
-import com.thexfactor117.lsc.loot.generation.ItemGeneratorHelper;
+import com.thexfactor117.lsc.util.ItemGenerationUtil;
 import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import net.minecraft.nbt.NBTTagCompound;
@@ -148,7 +148,7 @@ public enum Attribute
 				break;
 			case DAMAGE_INTEGER:
 				int baseDamage = (int) ((Math.random() * (maxAmount - minAmount)) + minAmount) + 1; // add one so base damage doesn't become zero.
-				double trueDamage = ItemGeneratorHelper.getWeightedDamage(nbt.getInteger("Level"), this.getAttributeRarity(nbt), baseDamage);
+				double trueDamage = ItemGenerationUtil.getWeightedDamage(nbt.getInteger("Level"), this.getAttributeRarity(nbt), baseDamage);
 				nbt.setDouble(localizedName + "_amount", (int) trueDamage);
 				break;
 			case ROUNDED_PERCENTAGE:

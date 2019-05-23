@@ -3,7 +3,7 @@ package com.thexfactor117.lsc.loot.attributes.weapons;
 import java.util.Random;
 
 import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
-import com.thexfactor117.lsc.loot.attributes.AttributeUtil;
+import com.thexfactor117.lsc.util.AttributeUtil;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
