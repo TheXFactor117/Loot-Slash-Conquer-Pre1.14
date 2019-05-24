@@ -6,7 +6,6 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemAdvancedMelee;
-import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 
 import net.minecraft.item.ItemStack;
@@ -37,10 +36,5 @@ public class ItemGoldenPummel extends ItemAdvancedMelee implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
-		
-		// Attributes
-		Attribute.FORTITUDE.addAttribute(nbt, world.rand, 10);
-		Attribute.LIGHTNING.addAttribute(nbt, world.rand, 7);
-		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.2);
 	}
 }

@@ -37,8 +37,8 @@ public class AttributeChained extends AttributeBaseWeapon
 	
 	@Override
 	public void onHit(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy)
-	{
-		double radius = 8;
+	{	
+		double radius = 5;
 		World world = enemy.getEntityWorld();
 		List<EntityLivingBase> entityList = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(attacker.posX - radius, attacker.posY - radius, attacker.posZ - radius, attacker.posX + radius, attacker.posY + radius, attacker.posZ + radius));
 		Iterator<EntityLivingBase> iterator = entityList.iterator();

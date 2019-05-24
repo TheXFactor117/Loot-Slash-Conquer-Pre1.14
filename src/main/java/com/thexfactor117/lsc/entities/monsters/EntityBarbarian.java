@@ -10,7 +10,6 @@ import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.EntityMonster;
 import com.thexfactor117.lsc.loot.generation.ItemGeneration;
 import com.thexfactor117.lsc.loot.generation.NameGenerator;
-import com.thexfactor117.lsc.player.WeaponUtils;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 import com.thexfactor117.lsc.util.misc.Reference;
 
@@ -113,7 +112,7 @@ public class EntityBarbarian extends EntityMonster
 			if (hasAttacked)
 			{				
 				// apply attributes from weapon
-				WeaponUtils.useWeaponAttributes((float) damage, this, (EntityLivingBase) enemy, stack, nbt);
+				
 				
 				// apply knockback if attack was successful
 				int knockback = EnchantmentHelper.getKnockbackModifier(this);

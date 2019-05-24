@@ -2,9 +2,7 @@ package com.thexfactor117.lsc.events.combat;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.player.WeaponUtils;
 import com.thexfactor117.lsc.util.DamageUtil;
 import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
@@ -96,14 +94,6 @@ public class EventDamage
 					{
 						double damage = DamageUtil.applyArmorReductions(event.getAmount(), player, cap);
 						event.setAmount((float) damage);
-						
-						// loop through all armor pieces to use the durability attribute
-						for (ItemStack stack : player.getArmorInventoryList())
-						{
-							NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-							
-							if (Attribute.DURABLE.hasAttribute(nbt) && Math.random() < Attribute.DURABLE.getAmount(nbt)) stack.setItemDamage(stack.getItemDamage() - 1);
-						}
 					}
 				}
 			}
@@ -166,7 +156,6 @@ public class EventDamage
 				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage);
 				
 				event.setAmount((float) trueDamage);
-				WeaponUtils.useWeaponAttributes(event.getAmount(), player, enemy, weapon, nbt);
 			}
 		}
 	}

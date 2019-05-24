@@ -5,7 +5,6 @@ import com.thexfactor117.lsc.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.util.ItemGenerationUtil;
 
@@ -37,12 +36,6 @@ public class ItemGazeOfTruth extends ItemMagical implements ISpecial
 		Rarity.setRarity(nbt, Rarity.LEGENDARY);
 		nbt.setInteger("Level", level);
 		ItemGenerationUtil.setRune(nbt);
-		
-		// Attributes
-		Attribute.FIRE.addAttribute(nbt, world.rand, 5);
-		Attribute.MIN_DAMAGE.addAttribute(nbt, world.rand, 3);
-		Attribute.FORTITUDE.addAttribute(nbt, world.rand, 5);
-		Attribute.CHAINED.addAttribute(nbt, world.rand, 15);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

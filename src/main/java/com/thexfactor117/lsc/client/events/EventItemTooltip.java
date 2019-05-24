@@ -8,7 +8,6 @@ import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
 import com.thexfactor117.lsc.util.ItemUtil;
@@ -195,13 +194,6 @@ public class EventItemTooltip
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 		
-		for (Attribute attribute : Attribute.values())
-		{
-			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
-				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
-			else if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) >= 1)
-				tooltip.add(TextFormatting.BLUE + " +" + format.format(attribute.getAmount(nbt)) + " " + attribute.getName());
-		}
 	}
 	
 	private static void drawMagical(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)
@@ -248,13 +240,6 @@ public class EventItemTooltip
 		// Attributes
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 		
-		for (Attribute attribute : Attribute.values())
-		{
-			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
-				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
-			else if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) >= 1)
-				tooltip.add(TextFormatting.BLUE + " +" + format.format(attribute.getAmount(nbt)) + " " + attribute.getName());
-		}
 	}
 	
 	private static void drawBauble(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)
@@ -279,13 +264,6 @@ public class EventItemTooltip
 		DecimalFormat format = new DecimalFormat("#.##");
 		tooltip.add(TextFormatting.ITALIC + "Attributes");
 		
-		for (Attribute attribute : Attribute.values())
-		{
-			if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) < 1)
-				tooltip.add(TextFormatting.BLUE + " +" + String.format("%.0f%%", attribute.getAmount(nbt) * 100) + " " + attribute.getName());
-			else if (attribute.hasAttribute(nbt) && attribute.getAmount(nbt) >= 1)
-				tooltip.add(TextFormatting.BLUE + " +" + format.format(attribute.getAmount(nbt)) + " " + attribute.getName());
-		}
 		
 		tooltip.add("");
 	}

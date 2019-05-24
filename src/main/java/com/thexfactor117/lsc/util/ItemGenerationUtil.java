@@ -1,10 +1,8 @@
 package com.thexfactor117.lsc.util;
 
-import java.util.Collection;
 import java.util.Random;
 import java.util.UUID;
 
-import com.google.common.collect.Multimap;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.items.base.ItemBauble;
@@ -18,13 +16,11 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 
 /**
  * 

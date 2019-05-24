@@ -5,7 +5,6 @@ import com.thexfactor117.lsc.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.util.ItemGenerationUtil;
 
@@ -37,11 +36,6 @@ public class ItemVisageOfWizardry extends ItemMagical implements ISpecial
 		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
 		ItemGenerationUtil.setRune(nbt);
-		
-		// Attributes
-		Attribute.INTELLIGENCE.addAttribute(nbt, world.rand, 10);
-		Attribute.WISDOM.addAttribute(nbt, world.rand, 10);
-		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.2);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

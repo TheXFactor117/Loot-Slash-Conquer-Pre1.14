@@ -6,7 +6,6 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemAdvancedMelee;
-import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 
 import net.minecraft.item.ItemStack;
@@ -37,10 +36,5 @@ public class ItemShadowfall extends ItemAdvancedMelee implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
-		
-		// Attributes
-		Attribute.DEXTERITY.addAttribute(nbt, world.rand, 10);
-		Attribute.MAX_DAMAGE.addAttribute(nbt, world.rand, 3);
-		Attribute.LIFE_STEAL.addAttribute(nbt, world.rand, 0.15);
 	}
 }

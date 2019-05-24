@@ -3,24 +3,12 @@ package com.thexfactor117.lsc.commands;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.thexfactor117.lsc.items.base.ItemBauble;
-import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.loot.Attribute;
-import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
 
 /**
  *
@@ -51,7 +39,7 @@ public class CommandAddAttribute extends CommandBase
 		return "addAttribute <attribute> <amount>";
 	}
 
-	@Override
+	/*@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
 	{
 		World world = sender.getEntityWorld();
@@ -104,7 +92,7 @@ public class CommandAddAttribute extends CommandBase
 				return;
 			}
 		}
-	}
+	}*/
 	
 	@Override
 	public List<String> getAliases()
@@ -126,10 +114,6 @@ public class CommandAddAttribute extends CommandBase
 		{
 			List<String> list = Lists.newArrayList();
 			
-			for (Attribute attribute : Attribute.values())
-			{
-				list.add(attribute.getLocalizedName());
-			}
 			
 			return getListOfStringsMatchingLastWord(args, list);
 		}
@@ -141,5 +125,12 @@ public class CommandAddAttribute extends CommandBase
 	public boolean isUsernameIndex(String[] args, int index)
 	{
 		return false;
+	}
+
+	@Override
+	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }

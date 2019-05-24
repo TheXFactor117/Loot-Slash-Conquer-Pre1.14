@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Properties;
 
 import com.google.common.collect.Lists;
-import com.thexfactor117.lsc.loot.Attribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -76,10 +75,10 @@ public class NameGenerator
 	}
 	
 	/** Returns a randomized, localized name of a current attribute to lookup in name files. */
-	private static String getAttributeString(NBTTagCompound nbt)
+	/*private static String getAttributeString(NBTTagCompound nbt)
 	{
 		return Attribute.getRandomAttribute(nbt).getLocalizedName();
-	}
+	}*/
 	
 	public static String getPrefix(String property)
 	{

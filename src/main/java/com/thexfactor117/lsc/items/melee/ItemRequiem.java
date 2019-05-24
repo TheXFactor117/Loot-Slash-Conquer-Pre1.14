@@ -6,7 +6,6 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemMelee;
-import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 
 import net.minecraft.item.ItemStack;
@@ -32,11 +31,5 @@ public class ItemRequiem extends ItemMelee implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
-		
-		// Attributes
-		Attribute.AGILITY.addAttribute(nbt, world.rand, 5);
-		Attribute.DEXTERITY.addAttribute(nbt, world.rand, 5);
-		Attribute.LIFE_STEAL.addAttribute(nbt, world.rand, 0.05);
-		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.05);
 	}
 }

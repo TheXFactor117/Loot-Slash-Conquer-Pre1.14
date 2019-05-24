@@ -1,7 +1,6 @@
 package com.thexfactor117.lsc.entities.projectiles;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.player.WeaponUtils;
 import com.thexfactor117.lsc.util.DamageUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
@@ -73,7 +72,6 @@ public abstract class EntityProjectileBase extends EntityThrowable
 				result.entityHit.hurtResistantTime = 0; // set hurt resistant time to zero because other calculations might be added.
 
 				// apply attributes
-				WeaponUtils.useWeaponAttributes((float) damage, player, (EntityLivingBase) result.entityHit, stack, NBTHelper.loadStackNBT(stack));
 			}
 		}
 	}

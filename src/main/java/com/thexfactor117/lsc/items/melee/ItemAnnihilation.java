@@ -6,7 +6,6 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.items.base.ISpecial;
 import com.thexfactor117.lsc.items.base.ItemAdvancedMelee;
-import com.thexfactor117.lsc.loot.Attribute;
 import com.thexfactor117.lsc.loot.Rarity;
 
 import net.minecraft.item.ItemStack;
@@ -37,12 +36,5 @@ public class ItemAnnihilation extends ItemAdvancedMelee implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.LEGENDARY);
 		nbt.setInteger("Level", level);
-		
-		// Attributes
-		Attribute.AGILITY.addAttribute(nbt, world.rand, 10);
-		Attribute.DEXTERITY.addAttribute(nbt, world.rand, 10);
-		Attribute.GOLD.addAttribute(nbt, world.rand, 10);
-		Attribute.LIFE_STEAL.addAttribute(nbt, world.rand, 0.1);
-		Attribute.MANA_STEAL.addAttribute(nbt, world.rand, 0.1);
 	}
 }
