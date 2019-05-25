@@ -23,7 +23,7 @@ public class AttributePoisonResistance extends AttributeBaseArmor
 {
 	public AttributePoisonResistance()
 	{
-		super("poison_resistance", "attributes.armor.poison_resistance", 1, true, false);
+		super("poison_resistance", "attributes.armor.poison_resistance", 1, true);
 	}
 	
 	@Override

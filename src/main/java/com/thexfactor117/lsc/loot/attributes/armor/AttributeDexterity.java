@@ -23,7 +23,7 @@ public class AttributeDexterity extends AttributeBaseArmor
 {
 	public AttributeDexterity()
 	{
-		super("dexterity", "attributes.armor.dexterity", 2, false, false);
+		super("dexterity", "attributes.armor.dexterity", 2, false);
 	}
 	
 	@Override

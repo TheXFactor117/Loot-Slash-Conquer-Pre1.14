@@ -23,7 +23,7 @@ public class AttributeLifeSteal extends AttributeBaseWeapon
 {
 	public AttributeLifeSteal()
 	{
-		super("life_steal", "attributes.weapon.life_steal", 0.05, false, false, true);
+		super("life_steal", "attributes.weapon.life_steal", 0.05, false, true);
 	}
 	
 	@Override

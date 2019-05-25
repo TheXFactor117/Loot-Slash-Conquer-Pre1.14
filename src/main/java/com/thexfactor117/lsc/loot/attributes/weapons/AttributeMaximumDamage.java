@@ -21,7 +21,7 @@ public class AttributeMaximumDamage extends AttributeBaseWeapon
 {
 	public AttributeMaximumDamage()
 	{
-		super("maximum_damage", "attributes.weapon.maximum_damage", 2, false, false, false);
+		super("maximum_damage", "attributes.weapon.maximum_damage", 2, false, false);
 	}
 	
 	@Override

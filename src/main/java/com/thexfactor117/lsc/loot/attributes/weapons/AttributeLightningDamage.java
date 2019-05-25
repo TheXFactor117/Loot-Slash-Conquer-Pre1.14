@@ -24,7 +24,7 @@ public class AttributeLightningDamage extends AttributeBaseWeapon
 {
 	public AttributeLightningDamage()
 	{
-		super("lightning_damage", "attributes.weapon.lightning_damage", 2, true, false, true);
+		super("lightning_damage", "attributes.weapon.lightning_damage", 2, true, true);
 	}
 	
 	@Override

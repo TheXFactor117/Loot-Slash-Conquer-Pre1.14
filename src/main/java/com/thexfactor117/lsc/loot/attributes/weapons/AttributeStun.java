@@ -24,7 +24,7 @@ public class AttributeStun extends AttributeBaseWeapon
 {
 	public AttributeStun()
 	{
-		super("stun", "attributes.weapon.stun", 0.03, true, false, true);
+		super("stun", "attributes.weapon.stun", 0.03, true, true);
 	}
 	
 	@Override

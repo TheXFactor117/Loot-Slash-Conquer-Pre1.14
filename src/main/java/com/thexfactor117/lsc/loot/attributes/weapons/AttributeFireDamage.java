@@ -24,7 +24,7 @@ public class AttributeFireDamage extends AttributeBaseWeapon
 {
 	public AttributeFireDamage()
 	{
-		super("fire_damage", "attributes.weapon.fire_damage", 2, true, false, true);
+		super("fire_damage", "attributes.weapon.fire_damage", 2, true, true);
 	}
 	
 	@Override

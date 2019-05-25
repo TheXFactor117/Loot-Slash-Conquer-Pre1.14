@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.loot.attributes.weapons.bonus;
+package com.thexfactor117.lsc.loot.attributes.weapons;
 
 import java.util.Iterator;
 import java.util.List;
@@ -32,7 +32,7 @@ public class AttributeChained extends AttributeBaseWeapon
 {
 	public AttributeChained()
 	{
-		super("chained", "attributes.weapon.chained", 0.2, true, true, true);
+		super("chained", "attributes.weapon.chained", 0.2, true, true);
 	}
 	
 	@Override

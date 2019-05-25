@@ -26,7 +26,7 @@ public class AttributeManaSteal extends AttributeBaseWeapon
 {
 	public AttributeManaSteal()
 	{
-		super("mana_steal", "attributes.weapon.mana_steal", 0.05, false, false, true);
+		super("mana_steal", "attributes.weapon.mana_steal", 0.05, false, true);
 	}
 	
 	@Override

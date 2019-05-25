@@ -21,7 +21,7 @@ public class AttributeCriticalChance extends AttributeBaseWeapon
 {
 	public AttributeCriticalChance()
 	{
-		super("critical_chance", "attributes.weapon.critical_chance", 0.05, false, false, false);
+		super("critical_chance", "attributes.weapon.critical_chance", 0.05, false, false);
 	}
 	
 	@Override

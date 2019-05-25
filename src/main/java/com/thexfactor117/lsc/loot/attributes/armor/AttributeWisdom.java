@@ -23,7 +23,7 @@ public class AttributeWisdom extends AttributeBaseArmor
 {
 	public AttributeWisdom()
 	{
-		super("wisdom", "attributes.armor.wisdom", 2, false, false);
+		super("wisdom", "attributes.armor.wisdom", 2, false);
 	}
 	
 	@Override

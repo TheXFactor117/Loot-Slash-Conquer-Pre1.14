@@ -21,7 +21,7 @@ public class AttributeBonusExperience extends AttributeBaseWeapon
 {
 	public AttributeBonusExperience()
 	{
-		super("bonus_experience", "attributes.weapon.bonus_experience", 0.1, false, false, false);
+		super("bonus_experience", "attributes.weapon.bonus_experience", 0.1, false, false);
 	}
 	
 	@Override

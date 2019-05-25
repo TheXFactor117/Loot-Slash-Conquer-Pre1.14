@@ -24,7 +24,7 @@ public class AttributeFrostDamage extends AttributeBaseWeapon
 {
 	public AttributeFrostDamage()
 	{
-		super("frost_damage", "attributes.weapon.frost_damage", 2, true, false, true);
+		super("frost_damage", "attributes.weapon.frost_damage", 2, true, true);
 	}
 	
 	@Override

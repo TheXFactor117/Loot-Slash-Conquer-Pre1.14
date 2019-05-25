@@ -28,16 +28,6 @@ public class AttributeUtil
 		return AttributeBase.ARMOR_ATTRIBUTES.next(ItemGenerationUtil.rand);
 	}
 	
-	public static AttributeBase getRandomWeaponBonusAttribute()
-	{
-		return AttributeBase.WEAPON_BONUS_ATTRIBUTES.next(ItemGenerationUtil.rand);
-	}
-	
-	public static AttributeBase getRandomArmorBonusAttribute()
-	{
-		return AttributeBase.ARMOR_BONUS_ATTRIBUTES.next(ItemGenerationUtil.rand);
-	}
-	
 	/**
 	 * Adds the supplied attribute as a damage attribute.
 	 * base value is weighted by level/item rarity

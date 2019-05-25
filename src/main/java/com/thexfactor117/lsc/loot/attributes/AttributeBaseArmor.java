@@ -11,9 +11,9 @@ import net.minecraft.item.ItemStack;
  */
 public class AttributeBaseArmor extends AttributeBase
 {
-	public AttributeBaseArmor(String name, String key, double baseValue, boolean upgradeable, boolean isBonus)
+	public AttributeBaseArmor(String name, String key, double baseValue, boolean upgradeable)
 	{
-		super(name, key, baseValue, upgradeable, isBonus);
+		super(name, key, baseValue, upgradeable);
 	}
 
 	public void onEquip(LSCPlayerCapability cap, ItemStack stack) { }

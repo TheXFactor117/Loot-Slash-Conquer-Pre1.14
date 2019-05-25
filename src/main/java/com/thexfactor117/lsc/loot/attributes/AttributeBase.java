@@ -5,7 +5,9 @@ import java.util.Random;
 
 import com.google.common.collect.Lists;
 import com.thexfactor117.lsc.config.Configs;
+import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeAgility;
+import com.thexfactor117.lsc.loot.attributes.armor.AttributeAllStats;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeCooldownReduction;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeDexterity;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeFireResistance;
@@ -16,10 +18,10 @@ import com.thexfactor117.lsc.loot.attributes.armor.AttributeLightningResistance;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributePoisonResistance;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeStrength;
 import com.thexfactor117.lsc.loot.attributes.armor.AttributeWisdom;
-import com.thexfactor117.lsc.loot.attributes.armor.bonus.AttributeAllStats;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeAttackSpeed;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeBlind;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeBonusExperience;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeChained;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeCriticalChance;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeCriticalDamage;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeFireDamage;
@@ -33,8 +35,8 @@ import com.thexfactor117.lsc.loot.attributes.weapons.AttributeNausea;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributePoisonDamage;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeSlow;
 import com.thexfactor117.lsc.loot.attributes.weapons.AttributeStun;
-import com.thexfactor117.lsc.loot.attributes.weapons.bonus.AttributeChained;
-import com.thexfactor117.lsc.loot.attributes.weapons.bonus.AttributeVoid;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeVoid;
+import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import net.minecraft.item.ItemStack;
@@ -53,7 +55,6 @@ public class AttributeBase
 	private String key;
 	private double baseValue;
 	private boolean upgradeable;
-	private boolean isBonus;
 	
 	// weapons
 	public static final AttributeBase FIRE_DAMAGE = new AttributeFireDamage();
@@ -99,13 +100,12 @@ public class AttributeBase
 	public static RandomCollection<AttributeBase> WEAPON_BONUS_ATTRIBUTES = new RandomCollection<AttributeBase>();
 	public static RandomCollection<AttributeBase> ARMOR_BONUS_ATTRIBUTES = new RandomCollection<AttributeBase>();
 	
-	public AttributeBase(String name, String key, double baseValue, boolean upgradeable, boolean isBonus)
+	public AttributeBase(String name, String key, double baseValue, boolean upgradeable)
 	{
 		this.name = name;
 		this.key = key;
 		this.baseValue = baseValue;
 		this.upgradeable = upgradeable;
-		this.isBonus = isBonus;
 	}
 
 	/**
@@ -121,6 +121,7 @@ public class AttributeBase
 	public void addAttribute(ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		nbt.setBoolean(name, true);
+		nbt.setInteger(name + "_rarity", Rarity.getWeightedRarity(rand, ItemUtil.getItemRarity(stack)).ordinal());
 	}
 	
 	public void removeAttribute(NBTTagCompound nbt)
@@ -194,7 +195,7 @@ public class AttributeBase
 		
 		for (String name : Configs.weaponCategory.weaponAttributes)
 		{
-			if (getAttributeFromString(name) != null && !getAttributeFromString(name).isBonusAttribute())
+			if (getAttributeFromString(name) != null)
 			{
 				WEAPON_ATTRIBUTES.add(1, getAttributeFromString(name));
 			}
@@ -202,25 +203,9 @@ public class AttributeBase
 		
 		for (String name : Configs.weaponCategory.armorAttributes)
 		{
-			if (getAttributeFromString(name) != null && !getAttributeFromString(name).isBonusAttribute())
+			if (getAttributeFromString(name) != null)
 			{
 				ARMOR_ATTRIBUTES.add(1, getAttributeFromString(name));
-			}
-		}
-		
-		for (String name : Configs.weaponCategory.weaponAttributes)
-		{
-			if (getAttributeFromString(name) != null && getAttributeFromString(name).isBonusAttribute())
-			{
-				WEAPON_BONUS_ATTRIBUTES.add(1, getAttributeFromString(name));
-			}
-		}
-		
-		for (String name : Configs.weaponCategory.armorAttributes)
-		{
-			if (getAttributeFromString(name) != null && getAttributeFromString(name).isBonusAttribute())
-			{
-				ARMOR_BONUS_ATTRIBUTES.add(1, getAttributeFromString(name));
 			}
 		}
 	}
@@ -264,10 +249,5 @@ public class AttributeBase
 	public boolean isUpgradeable()
 	{
 		return upgradeable;
-	}
-	
-	public boolean isBonusAttribute()
-	{
-		return isBonus;
 	}
 }

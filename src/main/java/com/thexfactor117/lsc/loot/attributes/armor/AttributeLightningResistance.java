@@ -23,7 +23,7 @@ public class AttributeLightningResistance extends AttributeBaseArmor
 {
 	public AttributeLightningResistance()
 	{
-		super("lightning_resistance", "attributes.armor.lightning_resistance", 1, true, false);
+		super("lightning_resistance", "attributes.armor.lightning_resistance", 1, true);
 	}
 	
 	@Override

@@ -1,13 +1,9 @@
 package com.thexfactor117.lsc.util;
 
 import java.util.Random;
-import java.util.UUID;
 
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
-import com.thexfactor117.lsc.items.base.ItemBauble;
-import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.items.base.ItemMelee;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
@@ -17,7 +13,6 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -29,47 +24,11 @@ import net.minecraft.nbt.NBTTagCompound;
  */
 public class ItemGenerationUtil
 {
-	private static final UUID ATTACK_DAMAGE = UUID.fromString("06dbc47d-eaf1-4604-9b91-926e475012c2");
-	private static final UUID ATTACK_SPEED = UUID.fromString("335ede30-242d-41b6-a4f7-dd24ed2adce5");
-	private static final UUID ARMOR = UUID.fromString("81a2ee21-fe83-41fb-8b2f-bf5ef33a71a8");
+	//private static final UUID ATTACK_DAMAGE = UUID.fromString("06dbc47d-eaf1-4604-9b91-926e475012c2");
+	//private static final UUID ATTACK_SPEED = UUID.fromString("335ede30-242d-41b6-a4f7-dd24ed2adce5");
+	//private static final UUID ARMOR = UUID.fromString("81a2ee21-fe83-41fb-8b2f-bf5ef33a71a8");
 
 	public static Random rand = new Random();
-
-	/** Set the type of the item to NBT for use in generating names. */
-	public static void setTypes(ItemStack stack, NBTTagCompound nbt)
-	{
-		if (stack.getItem() instanceof ItemSword)
-		{
-			if (stack.getItem() instanceof ItemMelee)
-			{
-				ItemMelee item = (ItemMelee) stack.getItem();
-
-				nbt.setString("Type", item.getType());
-			}
-			else nbt.setString("Type", "sword");
-		}
-		else if (stack.getItem() instanceof ItemArmor)
-		{
-			if (((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.HEAD) nbt.setString("Type", "helmet");
-			else if (((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.CHEST) nbt.setString("Type", "chestplate");
-			else if (((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.LEGS) nbt.setString("Type", "leggings");
-			else if (((ItemArmor) stack.getItem()).armorType == EntityEquipmentSlot.FEET) nbt.setString("Type", "boots");
-		}
-		else if (stack.getItem() instanceof ItemBow)
-		{
-			nbt.setString("Type", "bow");
-		}
-		else if (stack.getItem() instanceof ItemMagical)
-		{
-			nbt.setString("Type", "staff");
-		}
-		else if (stack.getItem() instanceof ItemBauble)
-		{
-			ItemBauble item = (ItemBauble) stack.getItem();
-
-			nbt.setString("Type", item.getBaubleType(stack).toString().toLowerCase());
-		}
-	}
 
 	/**
 	 * Sets a certain amount of random attributes to the stack depending on the Rarity.
@@ -82,56 +41,35 @@ public class ItemGenerationUtil
 	public static void setRandomWeaponAttributes(ItemStack stack)
 	{
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-		int[] amounts = getAttributeAmounts(stack);
-		int amount = amounts[0];
-		int bonusAmount = amounts[1];
-		
+		int amount = getAttributeAmounts(stack);
+
 		for (int i = 0; i < amount; i++)
 		{
 			AttributeBase attribute = AttributeUtil.getRandomWeaponAttribute();
-			
+
 			if (attribute.hasAttribute(nbt)) i--;
 			else attribute.addAttribute(stack, nbt, rand);
 		}
-
-		for (int j = 0; j < bonusAmount; j++)
-		{
-			AttributeBase attribute = AttributeUtil.getRandomWeaponBonusAttribute();
-
-			if (attribute.hasAttribute(nbt)) j--;
-			else attribute.addAttribute(stack, nbt, rand);
-		}
 	}
-	
+
 	public static void setRandomArmorAttributes(ItemStack stack)
 	{
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-		int[] amounts = getAttributeAmounts(stack);
-		int amount = amounts[0];
-		int bonusAmount = amounts[1];
-		
+		int amount = getAttributeAmounts(stack);
+
 		for (int i = 0; i < amount; i++)
 		{
 			AttributeBase attribute = AttributeUtil.getRandomArmorAttribute();
-			
+
 			if (attribute.hasAttribute(nbt)) i--;
 			else attribute.addAttribute(stack, nbt, rand);
 		}
-
-		for (int j = 0; j < bonusAmount; j++)
-		{
-			AttributeBase attribute = AttributeUtil.getRandomArmorBonusAttribute();
-
-			if (attribute.hasAttribute(nbt)) j--;
-			else attribute.addAttribute(stack, nbt, rand);
-		}
 	}
-	
-	private static int[] getAttributeAmounts(ItemStack stack)
+
+	private static int getAttributeAmounts(ItemStack stack)
 	{
 		Rarity rarity = ItemUtil.getItemRarity(stack);
 		int amount = 0;
-		int bonusAmount = 0;
 
 		// determine how many attributes should be applied.
 		switch (rarity)
@@ -147,19 +85,22 @@ public class ItemGenerationUtil
 				break;
 			case EPIC:
 				amount = (int) (Math.random() * 3 + 3); // 3 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
-				bonusAmount = Math.random() < 0.1 ? 1 : 0; // 10% chance for a bonus attribute
 				break;
 			case LEGENDARY:
 				amount = (int) (Math.random() * 5 + 3); // 3 guaranteed attributes, chance for up to 4 additional attributes
-				bonusAmount = Math.random() < 0.5 ? 1 : 0; // 50% chance for a bonus attribute
 				break;
 			default:
 				break;
 		}
-		
-		return new int[] { amount, bonusAmount };
+
+		return amount;
 	}
 
+	/**
+	 * Sets the item's primary attributes, such as damage and attack speed.
+	 * 
+	 * @param stack
+	 */
 	public static void setPrimaryAttributes(ItemStack stack)
 	{
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
@@ -174,16 +115,18 @@ public class ItemGenerationUtil
 			setMinMaxDamage(nbt, weightedDamage);
 			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
 
-			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ATTACK_DAMAGE, ItemUtil.VANILLA_ATTACK_DAMAGE_MODIFIER, ItemUtil.getItemDamage(stack));
-			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ATTACK_SPEED, ItemUtil.VANILLA_ATTACK_SPEED_MODIFIER, weightedAttackSpeed);
+			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ATTACK_DAMAGE, ItemUtil.VANILLA_ATTACK_DAMAGE_MODIFIER,
+					ItemUtil.getItemDamage(stack));
+			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ATTACK_SPEED, ItemUtil.VANILLA_ATTACK_SPEED_MODIFIER,
+					weightedAttackSpeed);
 		}
 		else if (stack.getItem() instanceof ItemArmor)
 		{
 			double baseArmor = ItemUtil.getAttributeModifierValue(stack, SharedMonsterAttributes.ARMOR, EntityEquipmentSlot.MAINHAND, ItemUtil.VANILLA_ARMOR_MODIFIER);
 			double weightedArmor = getWeightedArmor(ItemUtil.getItemRarity(stack), ItemUtil.getItemLevel(stack), baseArmor);
-			
+
 			setMinMaxArmor(stack, weightedArmor);
-			
+
 			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ARMOR, ItemUtil.VANILLA_ARMOR_MODIFIER, ItemUtil.getItemArmor(stack));
 		}
 	}
@@ -229,25 +172,26 @@ public class ItemGenerationUtil
 		nbt.setInteger("DamageMaxValue", maxDamage);
 		nbt.setInteger("DamageValue", (int) (Math.random() * (maxDamage - minDamage) + minDamage));
 	}
-	
+
 	public static void setMinMaxArmor(ItemStack stack, double armor)
 	{
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 		double minRandFactor = Configs.weaponCategory.rangeMinRandFactor;
 		double maxRandFactor = Configs.weaponCategory.rangeMaxRandFactor;
 		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
-		
+
 		double rangeMultiplier = nbt.getInteger("Level") * Configs.weaponCategory.rangeMultiplier;
-		
+
 		int range = (int) ((multiplier * 4 + 0.5) * rangeMultiplier);
-		
+
 		int minArmor = (int) (armor - (range / 2));
 		int maxArmor = (int) (armor + (range / 2));
-		
+
 		if (minArmor == maxArmor) minArmor -= 1;
 		if (minArmor <= 0) minArmor = 1;
-		while (minArmor >= maxArmor) maxArmor += 1;
-		
+		while (minArmor >= maxArmor)
+			maxArmor += 1;
+
 		nbt.setInteger("ArmorMinValue", minArmor);
 		nbt.setInteger("ArmorMaxValue", maxArmor);
 		nbt.setInteger("ArmorValue", (int) (Math.random() * (maxArmor - minArmor) + minArmor));
@@ -348,6 +292,10 @@ public class ItemGenerationUtil
 		}
 	}
 	
+	/**
+	 * Hides different flags from appearing on the item's tooltip.
+	 * @param nbt
+	 */
 	public static void hideFlags(NBTTagCompound nbt)
 	{
 		nbt.setInteger("HideFlags", 6);

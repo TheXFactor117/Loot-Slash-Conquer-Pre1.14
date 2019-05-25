@@ -24,7 +24,7 @@ public class AttributeBlind extends AttributeBaseWeapon
 {
 	public AttributeBlind()
 	{
-		super("blind", "attributes.weapon.blind", 0.03, true, false, true);
+		super("blind", "attributes.weapon.blind", 0.03, true, true);
 	}
 	
 	@Override

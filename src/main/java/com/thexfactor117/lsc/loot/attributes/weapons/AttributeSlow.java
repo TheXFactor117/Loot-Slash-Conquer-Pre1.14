@@ -24,7 +24,7 @@ public class AttributeSlow extends AttributeBaseWeapon
 {
 	public AttributeSlow()
 	{
-		super("slow", "attributes.weapon.slow", 0.03, true, false, true);
+		super("slow", "attributes.weapon.slow", 0.03, true, true);
 	}
 	
 	@Override

@@ -23,7 +23,7 @@ public class AttributeCooldownReduction extends AttributeBaseArmor
 {
 	public AttributeCooldownReduction()
 	{
-		super("cooldown_reduction", "attributes.armor.cooldown_reduction", 0.03, false, false);
+		super("cooldown_reduction", "attributes.armor.cooldown_reduction", 0.03, false);
 	}
 	
 	@Override

@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.loot.attributes.armor.bonus;
+package com.thexfactor117.lsc.loot.attributes.armor;
 
 import java.util.Random;
 
@@ -23,7 +23,7 @@ public class AttributeAllStats extends AttributeBaseArmor
 {
 	public AttributeAllStats()
 	{
-		super("strength", "attributes.armor.strength", 2, false, true);
+		super("strength", "attributes.armor.strength", 2, false);
 	}
 	
 	@Override

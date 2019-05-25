@@ -23,7 +23,7 @@ public class AttributeAgility extends AttributeBaseArmor
 {
 	public AttributeAgility()
 	{
-		super("agility", "attributes.armor.agility", 2, false, false);
+		super("agility", "attributes.armor.agility", 2, false);
 	}
 	
 	@Override

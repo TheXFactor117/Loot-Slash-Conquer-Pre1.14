@@ -23,7 +23,7 @@ public class AttributeFireResistance extends AttributeBaseArmor
 {
 	public AttributeFireResistance()
 	{
-		super("fire_resistance", "attributes.armor.fire_resistance", 1, true, false);
+		super("fire_resistance", "attributes.armor.fire_resistance", 1, true);
 	}
 	
 	@Override

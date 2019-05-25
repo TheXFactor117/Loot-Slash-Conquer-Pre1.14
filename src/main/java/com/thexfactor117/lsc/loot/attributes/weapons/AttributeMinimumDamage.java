@@ -21,7 +21,7 @@ public class AttributeMinimumDamage extends AttributeBaseWeapon
 {
 	public AttributeMinimumDamage()
 	{
-		super("minimum_damage", "attributes.weapon.minimum_damage", 2, false, false, false);
+		super("minimum_damage", "attributes.weapon.minimum_damage", 2, false, false);
 	}
 	
 	@Override

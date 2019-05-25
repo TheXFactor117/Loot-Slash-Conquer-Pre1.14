@@ -57,22 +57,7 @@ public class ItemUtil
 		
 		for (AttributeBase attribute : AttributeBase.ALL_ATTRIBUTES)
 		{
-			if (attribute.hasAttribute(nbt) && !attribute.isBonusAttribute())
-			{
-				list.add(attribute);
-			}
-		}
-		
-		return list;
-	}
-	
-	public static ArrayList<AttributeBase> getBonusAttributes(ItemStack stack)
-	{
-		ArrayList<AttributeBase> list = Lists.newArrayList();
-		
-		for (AttributeBase attribute : AttributeBase.ALL_ATTRIBUTES)
-		{
-			if (attribute.hasAttribute(NBTHelper.loadStackNBT(stack)) && attribute.isBonusAttribute())
+			if (attribute.hasAttribute(nbt))
 			{
 				list.add(attribute);
 			}

@@ -23,7 +23,7 @@ public class AttributeStrength extends AttributeBaseArmor
 {
 	public AttributeStrength()
 	{
-		super("strength", "attributes.armor.strength", 2, false, false);
+		super("strength", "attributes.armor.strength", 2, false);
 	}
 	
 	@Override

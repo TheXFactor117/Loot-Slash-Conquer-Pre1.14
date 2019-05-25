@@ -23,7 +23,7 @@ public class AttributeFortitude extends AttributeBaseArmor
 {
 	public AttributeFortitude()
 	{
-		super("fortitude", "attributes.armor.fortitude", 2, false, false);
+		super("fortitude", "attributes.armor.fortitude", 2, false);
 	}
 	
 	@Override

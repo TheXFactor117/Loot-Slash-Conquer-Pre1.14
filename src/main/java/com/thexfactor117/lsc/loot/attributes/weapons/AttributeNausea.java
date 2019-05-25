@@ -24,7 +24,7 @@ public class AttributeNausea extends AttributeBaseWeapon
 {
 	public AttributeNausea()
 	{
-		super("nausea", "attributes.weapon.nausea", 0.03, true, false, true);
+		super("nausea", "attributes.weapon.nausea", 0.03, true, true);
 	}
 	
 	@Override

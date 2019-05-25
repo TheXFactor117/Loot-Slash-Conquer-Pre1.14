@@ -23,7 +23,7 @@ public class AttributeIntelligence extends AttributeBaseArmor
 {
 	public AttributeIntelligence()
 	{
-		super("intelligence", "attributes.armor.intelligence", 2, false, false);
+		super("intelligence", "attributes.armor.intelligence", 2, false);
 	}
 	
 	@Override

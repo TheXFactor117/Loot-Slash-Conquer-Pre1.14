@@ -104,18 +104,6 @@ public class EventItemTooltip
 				tooltip.add(attribute.getTooltipDisplay(nbt));
 			}
 		}
-		
-		// Bonus Attributes - bonus attributes
-		if (!ItemUtil.getBonusAttributes(stack).isEmpty())
-		{
-			tooltip.add("");
-			tooltip.add(TextFormatting.ITALIC + "Bonus Attributes");
-			
-			for (AttributeBase attribute : ItemUtil.getBonusAttributes(stack))
-			{
-				tooltip.add(attribute.getTooltipDisplay(nbt));
-			}
-		}
 	}
 	
 	private static void drawArmor(ArrayList<String> tooltip, ItemStack stack, NBTTagCompound nbt, EntityPlayer player, LSCPlayerCapability cap)

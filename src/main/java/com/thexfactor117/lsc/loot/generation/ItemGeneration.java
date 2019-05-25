@@ -25,10 +25,11 @@ public class ItemGeneration
 		{	
 			if (stack.getItem() instanceof ItemSword)
 			{	
+				
 				nbt.setInteger("Level", level);
 				ItemGenerationUtil.setRandomWeaponAttributes(stack);
 				ItemGenerationUtil.setPrimaryAttributes(stack);
-				ItemGenerationUtil.hideFlags(nbt);
+				//ItemGenerationUtil.hideFlags(nbt);
 			}
 			/*else if (stack.getItem() instanceof ItemBow)
 			{

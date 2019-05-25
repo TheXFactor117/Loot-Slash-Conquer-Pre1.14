@@ -21,7 +21,7 @@ public class AttributeAttackSpeed extends AttributeBaseWeapon
 {
 	public AttributeAttackSpeed()
 	{
-		super("attack_speed", "attributes.weapon.attack_speed", 0.03, false, false, false);
+		super("attack_speed", "attributes.weapon.attack_speed", 0.03, false, false);
 	}
 	
 	@Override

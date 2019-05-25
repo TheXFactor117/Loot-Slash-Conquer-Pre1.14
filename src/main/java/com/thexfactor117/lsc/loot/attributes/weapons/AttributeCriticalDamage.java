@@ -21,7 +21,7 @@ public class AttributeCriticalDamage extends AttributeBaseWeapon
 {
 	public AttributeCriticalDamage()
 	{
-		super("critical_damage", "attributes.weapon.critical_damage", 0.03, false, false, false);
+		super("critical_damage", "attributes.weapon.critical_damage", 0.03, false, false);
 	}
 	
 	@Override

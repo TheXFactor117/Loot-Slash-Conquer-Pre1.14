@@ -23,7 +23,7 @@ public class AttributeFrostResistance extends AttributeBaseArmor
 {
 	public AttributeFrostResistance()
 	{
-		super("frost_resistance", "attributes.armor.frost_resistance", 1, true, false);
+		super("frost_resistance", "attributes.armor.frost_resistance", 1, true);
 	}
 	
 	@Override

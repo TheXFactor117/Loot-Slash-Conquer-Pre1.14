@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.loot.attributes.weapons.bonus;
+package com.thexfactor117.lsc.loot.attributes.weapons;
 
 import java.util.Random;
 
@@ -22,7 +22,7 @@ public class AttributeVoid extends AttributeBaseWeapon
 {
 	public AttributeVoid()
 	{
-		super("void", "attributes.weapon.void", 0.01, true, true, true);
+		super("void", "attributes.weapon.void", 0.01, true, true);
 	}
 	
 	@Override

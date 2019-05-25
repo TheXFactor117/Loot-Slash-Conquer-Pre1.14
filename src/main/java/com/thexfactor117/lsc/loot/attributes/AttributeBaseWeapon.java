@@ -13,9 +13,9 @@ public class AttributeBaseWeapon extends AttributeBase
 {
 	private boolean isActive;
 
-	public AttributeBaseWeapon(String name, String key, double baseValue, boolean upgradeable, boolean isBonus, boolean isActive)
+	public AttributeBaseWeapon(String name, String key, double baseValue, boolean upgradeable, boolean isActive)
 	{
-		super(name, key, baseValue, upgradeable, isBonus);
+		super(name, key, baseValue, upgradeable);
 		this.isActive = isActive;
 	}
 
