@@ -3,9 +3,8 @@ package com.thexfactor117.lsc.items.melee;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevel;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
-import com.thexfactor117.lsc.init.ModTabs;
-import com.thexfactor117.lsc.items.base.ISpecial;
-import com.thexfactor117.lsc.items.base.ItemMelee;
+import com.thexfactor117.lsc.items.base.weapons.ISpecial;
+import com.thexfactor117.lsc.items.base.weapons.ItemMelee;
 import com.thexfactor117.lsc.loot.Rarity;
 
 import net.minecraft.item.ItemStack;
@@ -15,10 +14,9 @@ import net.minecraft.world.World;
 
 public class ItemRequiem extends ItemMelee implements ISpecial
 {
-	public ItemRequiem(ToolMaterial material, String name, String type)
+	public ItemRequiem(ToolMaterial material, String name)
 	{
-		super(material, name, type);
-		this.setCreativeTab(ModTabs.lscTab);
+		super(material, name, 1, 1);
 	}
 
 	@Override

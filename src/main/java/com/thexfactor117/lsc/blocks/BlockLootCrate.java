@@ -5,7 +5,7 @@ import java.util.List;
 import com.thexfactor117.lsc.events.EventContainerOpen;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.items.base.ItemBauble;
-import com.thexfactor117.lsc.items.base.ItemMagical;
+import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.table.CustomLootContext;
 import com.thexfactor117.lsc.loot.table.CustomLootTable;

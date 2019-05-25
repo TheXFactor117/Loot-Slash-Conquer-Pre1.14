@@ -3,8 +3,8 @@ package com.thexfactor117.lsc.items.magical;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevel;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
-import com.thexfactor117.lsc.items.base.ISpecial;
-import com.thexfactor117.lsc.items.base.ItemMagical;
+import com.thexfactor117.lsc.items.base.weapons.ISpecial;
+import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.util.ItemGenerationUtil;
 

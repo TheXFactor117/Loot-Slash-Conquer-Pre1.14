@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.items.base;
+package com.thexfactor117.lsc.items.base.weapons;
 
 import javax.annotation.Nullable;
 

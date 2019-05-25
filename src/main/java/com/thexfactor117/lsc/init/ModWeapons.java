@@ -1,9 +1,10 @@
  package com.thexfactor117.lsc.init;
 
-import com.thexfactor117.lsc.items.base.ItemAdvancedMelee;
-import com.thexfactor117.lsc.items.base.ItemMagical;
-import com.thexfactor117.lsc.items.base.ItemRanged;
 import com.thexfactor117.lsc.items.base.ItemTest;
+import com.thexfactor117.lsc.items.base.weapons.ItemDagger;
+import com.thexfactor117.lsc.items.base.weapons.ItemMace;
+import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
+import com.thexfactor117.lsc.items.base.weapons.ItemRanged;
 import com.thexfactor117.lsc.items.magical.ItemBlazefury;
 import com.thexfactor117.lsc.items.magical.ItemEpilogue;
 import com.thexfactor117.lsc.items.magical.ItemGazeOfTruth;
@@ -55,27 +56,27 @@ public class ModWeapons
 	public static Item test = new ItemTest("test");
 	
 	// melee
-	public static final Item WOOD_DAGGER = new ItemAdvancedMelee(ToolMaterial.WOOD, "wood_dagger", "dagger", 0.5, 0.5, 90);
-	public static final Item WOOD_MACE = new ItemAdvancedMelee(ToolMaterial.WOOD, "wood_mace", "mace", 1.25, 1.25, 45);
-	public static final Item STONE_DAGGER = new ItemAdvancedMelee(ToolMaterial.STONE, "stone_dagger", "dagger", 0.5, 0.5, 195);
-	public static final Item STONE_MACE = new ItemAdvancedMelee(ToolMaterial.STONE, "stone_mace", "mace", 1.25, 1.25, 97);
-	public static final Item GOLD_DAGGER = new ItemAdvancedMelee(ToolMaterial.GOLD, "gold_dagger", "dagger", 0.5, 0.5, 45);
-	public static final Item GOLD_MACE = new ItemAdvancedMelee(ToolMaterial.GOLD, "gold_mace", "mace", 1.25, 1.25, 22);
-	public static final Item IRON_DAGGER = new ItemAdvancedMelee(ToolMaterial.IRON, "iron_dagger", "dagger", 0.5, 0.5, 376);
-	public static final Item IRON_MACE = new ItemAdvancedMelee(ToolMaterial.IRON, "iron_mace", "mace", 1.25, 1.25, 188);
-	public static final Item DIAMOND_DAGGER = new ItemAdvancedMelee(ToolMaterial.DIAMOND, "diamond_dagger", "dagger", 0.5, 0.5, 2343);
-	public static final Item DIAMOND_MACE = new ItemAdvancedMelee(ToolMaterial.DIAMOND, "diamond_mace", "mace", 1.25, 1.25, 1171);
+	public static final Item WOOD_DAGGER = new ItemDagger(ToolMaterial.WOOD, "wood_dagger", 0.5, 0.5, 90);
+	public static final Item WOOD_MACE = new ItemMace(ToolMaterial.WOOD, "wood_mace", 1.25, 1.25, 45);
+	public static final Item STONE_DAGGER = new ItemDagger(ToolMaterial.STONE, "stone_dagger", 0.5, 0.5, 195);
+	public static final Item STONE_MACE = new ItemMace(ToolMaterial.STONE, "stone_mace", 1.25, 1.25, 97);
+	public static final Item GOLD_DAGGER = new ItemDagger(ToolMaterial.GOLD, "gold_dagger", 0.5, 0.5, 45);
+	public static final Item GOLD_MACE = new ItemMace(ToolMaterial.GOLD, "gold_mace", 1.25, 1.25, 22);
+	public static final Item IRON_DAGGER = new ItemDagger(ToolMaterial.IRON, "iron_dagger", 0.5, 0.5, 376);
+	public static final Item IRON_MACE = new ItemMace(ToolMaterial.IRON, "iron_mace", 1.25, 1.25, 188);
+	public static final Item DIAMOND_DAGGER = new ItemDagger(ToolMaterial.DIAMOND, "diamond_dagger", 0.5, 0.5, 2343);
+	public static final Item DIAMOND_MACE = new ItemMace(ToolMaterial.DIAMOND, "diamond_mace", 1.25, 1.25, 1171);
 	
 	// melee special
-	public static final Item DIVINE_RAPIER = new ItemDivineRapier(ToolMaterials.DIVINE, "divine_rapier", "sword"); // add Legendary Rarity
-	public static final Item REQUIEM = new ItemRequiem(ToolMaterials.REQUIEM, "requiem", "sword");
-	public static final Item SHADOWFALL = new ItemShadowfall(ToolMaterials.SHADOWFALL, "shadowfall", "dagger", 1, 0.5);
-	public static final Item DOOMSHADOW = new ItemDoomshadow(ToolMaterials.DOOMSHADOW, "doomshadow", "mace", 1, 1.25);
-	public static final Item GOLDEN_PUMMEL = new ItemGoldenPummel(ToolMaterials.GOLDEN_PUMMEL, "golden_pummel", "mace", 1, 1.25);
+	public static final Item DIVINE_RAPIER = new ItemDivineRapier(ToolMaterials.DIVINE, "divine_rapier"); // add Legendary Rarity
+	public static final Item REQUIEM = new ItemRequiem(ToolMaterials.REQUIEM, "requiem");
+	public static final Item SHADOWFALL = new ItemShadowfall(ToolMaterials.SHADOWFALL, "shadowfall", 1, 0.5);
+	public static final Item DOOMSHADOW = new ItemDoomshadow(ToolMaterials.DOOMSHADOW, "doomshadow", 1, 1.25);
+	public static final Item GOLDEN_PUMMEL = new ItemGoldenPummel(ToolMaterials.GOLDEN_PUMMEL, "golden_pummel", 1, 1.25);
 	
-	public static final Item EXCALIBUR_RAPIER = new ItemExcaliburRapier(ToolMaterials.EXCALIBUR, "excalibur_rapier", "sword"); // add Exotic Rarity
-	public static final Item ALAKASLAM = new ItemAlakaslam(ToolMaterials.ALAKASLAM, "alakaslam", "mace", 1, 1.25);
-	public static final Item ANNIHILATION = new ItemAnnihilation(ToolMaterials.ANNIHILATION, "annihilation", "dagger", 1, 0.5);
+	public static final Item EXCALIBUR_RAPIER = new ItemExcaliburRapier(ToolMaterials.EXCALIBUR, "excalibur_rapier"); // add Exotic Rarity
+	public static final Item ALAKASLAM = new ItemAlakaslam(ToolMaterials.ALAKASLAM, "alakaslam", 1, 1.25);
+	public static final Item ANNIHILATION = new ItemAnnihilation(ToolMaterials.ANNIHILATION, "annihilation", 1, 0.5);
 	
 	
 	

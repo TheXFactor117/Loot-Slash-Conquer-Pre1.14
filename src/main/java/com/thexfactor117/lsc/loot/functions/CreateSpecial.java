@@ -5,7 +5,7 @@ import java.util.Random;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
-import com.thexfactor117.lsc.items.base.ISpecial;
+import com.thexfactor117.lsc.items.base.weapons.ISpecial;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.table.CustomLootContext;
 import com.thexfactor117.lsc.util.misc.Reference;

@@ -1,40 +1,45 @@
-package com.thexfactor117.lsc.items.base;
+package com.thexfactor117.lsc.items.base.weapons;
 
 import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
 
 import com.google.common.collect.Multimap;
+import com.thexfactor117.lsc.init.ModTabs;
+import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 
 /**
  * 
  * @author TheXFactor117
  *
  */
-public class ItemAdvancedMelee extends ItemMelee
+public class ItemMelee extends ItemSword
 {
 	private double damageMultiplier;
 	private double speedMultiplier;
 	
-	public ItemAdvancedMelee(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier, int maxUses) 
+	public ItemMelee(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier, int maxUses) 
 	{
-		super(material, name, type);
+		super(material);
+		this.setRegistryName(Reference.MODID, name);
+		this.setUnlocalizedName(name);
+		this.setCreativeTab(ModTabs.lscTab);
 		this.setMaxDamage(maxUses);
-		this.damageMultiplier = damageMultiplier;
-		this.speedMultiplier = speedMultiplier;
 	}
 	
-	public ItemAdvancedMelee(ToolMaterial material, String name, String type, double damageMultiplier, double speedMultiplier)
+	public ItemMelee(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier) 
 	{
-		super(material, name, type);
-		this.damageMultiplier = damageMultiplier;
-		this.speedMultiplier = speedMultiplier;
+		super(material);
+		this.setRegistryName(Reference.MODID, name);
+		this.setUnlocalizedName(name);
+		this.setCreativeTab(ModTabs.lscTab);
 	}
 	
 	@Override
