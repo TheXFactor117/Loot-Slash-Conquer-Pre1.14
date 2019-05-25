@@ -76,21 +76,25 @@ public class EventItemTooltip
 			tooltip.add("");
 		}
 		
-		tooltip.add(1, Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName());
+		tooltip.add(1, Rarity.getRarity(nbt).getColor() + Rarity.getRarity(nbt).getName() + " " + ItemUtil.getItemOriginalName(stack));
 		
 		// Level
 		if (cap.getPlayerLevel() < ItemUtil.getItemLevel(stack)) tooltip.add(TextFormatting.RED + "Level: " + ItemUtil.getItemLevel(stack));
 		else tooltip.add("Level: " + ItemUtil.getItemLevel(stack));
 		
 		tooltip.add("");
+		tooltip.add("DPS: " + ItemUtil.FORMAT.format(ItemUtil.getItemDamagePerSecond(stack, cap)));
+		tooltip.add("");
 		
 		// Primary Attributes - damage/attack speed
 		tooltip.add(TextFormatting.ITALIC + "Primary Attributes");
 		
 		int damage = ItemUtil.getItemDamage(stack);
+		int minDamage = ItemUtil.getItemMinDamage(stack);
+		int maxDamage = ItemUtil.getItemMaxDamage(stack);
 		double attackSpeed = ItemUtil.getItemAttackSpeed(stack) + 4;
 		
-		tooltip.add(TextFormatting.BLUE + " * " + damage + " Damage");
+		tooltip.add(TextFormatting.BLUE + " * " + damage + " Damage" + TextFormatting.GRAY + " [" + minDamage + " - " + maxDamage + "]");
 		tooltip.add(TextFormatting.BLUE + " * " + ItemUtil.FORMAT.format(attackSpeed) + " Attack Speed");
 		
 		// Secondary Attributes - attributes

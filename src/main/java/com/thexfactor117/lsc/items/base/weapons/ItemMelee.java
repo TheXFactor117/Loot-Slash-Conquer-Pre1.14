@@ -32,6 +32,8 @@ public class ItemMelee extends ItemSword
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(ModTabs.lscTab);
 		this.setMaxDamage(maxUses);
+		this.damageMultiplier = damageMultiplier;
+		this.speedMultiplier = speedMultiplier;
 	}
 	
 	public ItemMelee(ToolMaterial material, String name, double damageMultiplier, double speedMultiplier) 
@@ -40,6 +42,8 @@ public class ItemMelee extends ItemSword
 		this.setRegistryName(Reference.MODID, name);
 		this.setUnlocalizedName(name);
 		this.setCreativeTab(ModTabs.lscTab);
+		this.damageMultiplier = damageMultiplier;
+		this.speedMultiplier = speedMultiplier;
 	}
 	
 	@Override

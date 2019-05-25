@@ -1,5 +1,7 @@
 package com.thexfactor117.lsc.loot.generation;
 
+import com.thexfactor117.lsc.items.base.weapons.ItemDagger;
+import com.thexfactor117.lsc.items.base.weapons.ItemMace;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.util.ItemGenerationUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
@@ -25,6 +27,9 @@ public class ItemGeneration
 		{	
 			if (stack.getItem() instanceof ItemSword)
 			{	
+				if (stack.getItem() instanceof ItemDagger) nbt.setString("ItemType", "Dagger");
+				else if (stack.getItem() instanceof ItemMace) nbt.setString("ItemType", "Mace");
+				else nbt.setString("ItemType", "Sword");
 				nbt.setInteger("Level", level);
 				ItemGenerationUtil.setRandomWeaponAttributes(stack);
 				ItemGenerationUtil.setPrimaryAttributes(stack);

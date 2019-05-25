@@ -109,6 +109,7 @@ public class ItemGenerationUtil
 		{
 			double baseDamage = ItemUtil.getAttributeModifierValue(stack, SharedMonsterAttributes.ATTACK_DAMAGE, EntityEquipmentSlot.MAINHAND, ItemUtil.VANILLA_ATTACK_DAMAGE_MODIFIER);
 			double baseAttackSpeed = ItemUtil.getAttributeModifierValue(stack, SharedMonsterAttributes.ATTACK_SPEED, EntityEquipmentSlot.MAINHAND, ItemUtil.VANILLA_ATTACK_SPEED_MODIFIER);
+			//LootSlashConquer.LOGGER.info("Base Damage: " + baseDamage);
 			double weightedDamage = getWeightedDamage(ItemUtil.getItemLevel(stack), ItemUtil.getItemRarity(stack), baseDamage);
 			double weightedAttackSpeed = getWeightedAttackSpeed(ItemUtil.getItemRarity(stack), baseAttackSpeed);
 

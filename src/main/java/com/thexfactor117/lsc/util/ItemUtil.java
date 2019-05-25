@@ -9,6 +9,7 @@ import java.util.UUID;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
+import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.loot.attributes.AttributeBase;
@@ -35,6 +36,7 @@ public class ItemUtil
 	public static final UUID VANILLA_ARMOR_MODIFIER = UUID.fromString("7E0292F2-9434-48D5-A29F-9583AF7DF27F");
 	public static final DecimalFormat FORMAT = new DecimalFormat("#.##");
 	
+	// common
 	public static Rarity getItemRarity(ItemStack stack)
 	{
 		return Rarity.getRarity(NBTHelper.loadStackNBT(stack));
@@ -48,6 +50,11 @@ public class ItemUtil
 	public static int getItemRequiredLevel(ItemStack stack)
 	{
 		return NBTHelper.loadStackNBT(stack).getInteger("RequiredLevel");
+	}
+	
+	public static String getItemOriginalName(ItemStack stack)
+	{
+		return NBTHelper.loadStackNBT(stack).getString("ItemType");
 	}
 	
 	public static ArrayList<AttributeBase> getSecondaryAttributes(ItemStack stack)
@@ -102,6 +109,26 @@ public class ItemUtil
 	public static double getItemAttackSpeed(ItemStack stack)
 	{
 		return NBTHelper.loadStackNBT(stack).getDouble("AttackSpeed");
+	}
+	
+	public static double getItemDamagePerSecond(ItemStack stack, LSCPlayerCapability cap)
+	{
+		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+		
+		double criticalChance = cap.getCriticalChance();
+		double criticalDamage = cap.getCriticalDamage();
+		double elementalDamage = 0;
+		
+		if (AttributeBase.CRITICAL_CHANCE.hasAttribute(nbt)) criticalChance += AttributeBase.CRITICAL_CHANCE.getAttributeValue(nbt);
+		if (AttributeBase.CRITICAL_DAMAGE.hasAttribute(nbt)) criticalDamage += AttributeBase.CRITICAL_DAMAGE.getAttributeValue(nbt);
+		if (AttributeBase.FIRE_DAMAGE.hasAttribute(nbt)) elementalDamage += AttributeBase.FIRE_DAMAGE.getAttributeValue(nbt);
+		if (AttributeBase.FROST_DAMAGE.hasAttribute(nbt)) elementalDamage += AttributeBase.FROST_DAMAGE.getAttributeValue(nbt);
+		if (AttributeBase.LIGHTNING_DAMAGE.hasAttribute(nbt)) elementalDamage += AttributeBase.LIGHTNING_DAMAGE.getAttributeValue(nbt);
+		if (AttributeBase.POISON_DAMAGE.hasAttribute(nbt)) elementalDamage += AttributeBase.POISON_DAMAGE.getAttributeValue(nbt);
+		
+		double totalDamage = getItemDamage(stack) + elementalDamage;
+		
+		return totalDamage * (getItemAttackSpeed(stack) + 4) * (1 + (criticalChance * criticalDamage));
 	}
 	
 	public static void useWeaponAttributes(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy)
