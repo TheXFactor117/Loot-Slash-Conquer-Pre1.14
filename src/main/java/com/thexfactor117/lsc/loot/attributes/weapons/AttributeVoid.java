@@ -47,7 +47,7 @@ public class AttributeVoid extends AttributeWeapon
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
 		int value = (int) (this.getAttributeValue(nbt) * 100);
-		String tooltip = " * +" + value + "% chance to instantly kill.";
+		String tooltip = " * " + value + "% chance to instantly kill.";
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
 		{

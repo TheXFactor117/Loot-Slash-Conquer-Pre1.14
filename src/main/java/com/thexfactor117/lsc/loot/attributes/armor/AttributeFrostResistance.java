@@ -59,7 +59,7 @@ public class AttributeFrostResistance extends AttributeArmor
 		int value = (int) this.getAttributeValue(nbt);
 		int minValue = (int) this.getAttributeMinValue(nbt);
 		int maxValue = (int) this.getAttributeMaxValue(nbt);
-		String tooltip = " * +" + value + " " + I18n.format(this.getKey()) + TextFormatting.GRAY + " [" + minValue + " - " + maxValue + "]";
+		String tooltip = " * " + value + " " + I18n.format(this.getKey()) + TextFormatting.GRAY + " [" + minValue + " - " + maxValue + "]";
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
 		{

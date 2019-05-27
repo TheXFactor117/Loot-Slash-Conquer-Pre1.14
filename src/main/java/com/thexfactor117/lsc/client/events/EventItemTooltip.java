@@ -130,7 +130,7 @@ public class EventItemTooltip
 		
 		// Primary Attributes - armor
 		tooltip.add(TextFormatting.ITALIC + "Primary Attributes");
-		tooltip.add(TextFormatting.BLUE + " *" + ItemUtil.FORMAT.format(ItemUtil.getItemArmor(stack)) + " Armor");
+		tooltip.add(TextFormatting.BLUE + " * " + ItemUtil.FORMAT.format(ItemUtil.getItemArmor(stack)) + " Armor");
 		
 		// Secondary Attributes
 		if (!ItemUtil.getSecondaryAttributes(stack).isEmpty())

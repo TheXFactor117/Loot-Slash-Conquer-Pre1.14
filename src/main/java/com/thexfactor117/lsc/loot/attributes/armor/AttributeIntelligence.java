@@ -56,7 +56,7 @@ public class AttributeIntelligence extends AttributeArmor
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
 		int value = (int) this.getAttributeValue(nbt);
-		String tooltip = " * +" + value + " " + I18n.format(this.getKey());
+		String tooltip = " * " + value + " " + I18n.format(this.getKey());
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
 		{

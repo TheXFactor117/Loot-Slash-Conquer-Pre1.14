@@ -52,7 +52,7 @@ public class AttributeStun extends AttributeWeapon
 		int value = (int) (this.getAttributeValue(nbt) * 100);
 		int minValue = (int) (this.getAttributeMinValue(nbt) * 100);
 		int maxValue = (int) (this.getAttributeMaxValue(nbt) * 100);
-		String tooltip = " * +" + value + "% chance to stun the enemy " + TextFormatting.GRAY + "[" + minValue + "% - " + maxValue + "%]";
+		String tooltip = " * " + value + "% chance to stun the enemy " + TextFormatting.GRAY + "[" + minValue + "% - " + maxValue + "%]";
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
 		{

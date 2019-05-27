@@ -37,7 +37,7 @@ public class AttributeBonusExperience extends AttributeWeapon
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
 		int value = (int) (this.getAttributeValue(nbt) * 100);
-		String tooltip = " * +" + value + "% " + I18n.format(this.getKey());
+		String tooltip = " * " + value + "% " + I18n.format(this.getKey());
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
 		{
