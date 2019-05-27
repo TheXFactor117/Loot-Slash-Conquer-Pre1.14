@@ -2,7 +2,9 @@ package com.thexfactor117.lsc.loot.attributes.weapons;
 
 import java.util.Random;
 
-import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
+import org.lwjgl.input.Keyboard;
+
+import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.util.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
@@ -20,7 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author TheXFactor117
  *
  */
-public class AttributeBlind extends AttributeBaseWeapon
+public class AttributeBlind extends AttributeWeapon
 {
 	public AttributeBlind()
 	{
@@ -50,7 +52,13 @@ public class AttributeBlind extends AttributeBaseWeapon
 		int value = (int) (this.getAttributeValue(nbt) * 100);
 		int minValue = (int) (this.getAttributeMinValue(nbt) * 100);
 		int maxValue = (int) (this.getAttributeMaxValue(nbt) * 100);
+		String tooltip = " * +" + value + "% chance to cause blindness " + TextFormatting.GRAY + "[" + minValue + "% - " + maxValue + "%]";
 		
-		return TextFormatting.RED + " * +" + value + "% chance to cause blindness " + TextFormatting.GRAY + "[" + minValue + " - " + maxValue + "]";
+		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
+		{
+			return this.getAttributeRarity(nbt).getColor() + tooltip;
+		}
+		
+		return ATTRIBUTE_COLOR + tooltip;
 	}
 }

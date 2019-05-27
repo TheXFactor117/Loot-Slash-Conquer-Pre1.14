@@ -41,6 +41,7 @@ import com.thexfactor117.lsc.util.misc.RandomCollection;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -49,7 +50,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author TheXFactor117
  *
  */
-public class AttributeBase
+public class Attribute
 {
 	private String name;
 	private String key;
@@ -57,50 +58,50 @@ public class AttributeBase
 	private boolean upgradeable;
 	
 	// weapons
-	public static final AttributeBase FIRE_DAMAGE = new AttributeFireDamage();
-	public static final AttributeBase FROST_DAMAGE = new AttributeFrostDamage();
-	public static final AttributeBase LIGHTNING_DAMAGE = new AttributeLightningDamage();
-	public static final AttributeBase POISON_DAMAGE = new AttributePoisonDamage();
-	public static final AttributeBase ATTACK_SPEED = new AttributeAttackSpeed();
-	public static final AttributeBase BONUS_EXPERIENCE = new AttributeBonusExperience();
-	public static final AttributeBase CRITICAL_DAMAGE = new AttributeCriticalDamage();
-	public static final AttributeBase CRITICAL_CHANCE = new AttributeCriticalChance();
-	public static final AttributeBase LIFE_STEAL = new AttributeLifeSteal();
-	public static final AttributeBase MANA_STEAL = new AttributeManaSteal();
-	public static final AttributeBase MINIMUM_DAMAGE = new AttributeMinimumDamage();
-	public static final AttributeBase MAXIMUM_DAMAGE = new AttributeMaximumDamage();
-	public static final AttributeBase STUN = new AttributeStun();
-	public static final AttributeBase SLOW = new AttributeSlow();
-	public static final AttributeBase BLIND = new AttributeBlind();
-	public static final AttributeBase NAUSEA = new AttributeNausea();
+	public static final Attribute FIRE_DAMAGE = new AttributeFireDamage();
+	public static final Attribute FROST_DAMAGE = new AttributeFrostDamage();
+	public static final Attribute LIGHTNING_DAMAGE = new AttributeLightningDamage();
+	public static final Attribute POISON_DAMAGE = new AttributePoisonDamage();
+	public static final Attribute ATTACK_SPEED = new AttributeAttackSpeed();
+	public static final Attribute BONUS_EXPERIENCE = new AttributeBonusExperience();
+	public static final Attribute CRITICAL_DAMAGE = new AttributeCriticalDamage();
+	public static final Attribute CRITICAL_CHANCE = new AttributeCriticalChance();
+	public static final Attribute LIFE_STEAL = new AttributeLifeSteal();
+	public static final Attribute MANA_STEAL = new AttributeManaSteal();
+	public static final Attribute MINIMUM_DAMAGE = new AttributeMinimumDamage();
+	public static final Attribute MAXIMUM_DAMAGE = new AttributeMaximumDamage();
+	public static final Attribute STUN = new AttributeStun();
+	public static final Attribute SLOW = new AttributeSlow();
+	public static final Attribute BLIND = new AttributeBlind();
+	public static final Attribute NAUSEA = new AttributeNausea();
 	// bonus
-	public static final AttributeBase CHAINED = new AttributeChained();
-	public static final AttributeBase VOID = new AttributeVoid();
+	public static final Attribute CHAINED = new AttributeChained();
+	public static final Attribute VOID = new AttributeVoid();
 	
 	// armor
-	public static final AttributeBase STRENGTH = new AttributeStrength();
-	public static final AttributeBase AGILITY = new AttributeAgility();
-	public static final AttributeBase DEXTERITY = new AttributeDexterity();
-	public static final AttributeBase INTELLIGENCE = new AttributeIntelligence();
-	public static final AttributeBase WISDOM = new AttributeWisdom();
-	public static final AttributeBase FORTITUDE = new AttributeFortitude();
-	public static final AttributeBase FIRE_RESISTANCE = new AttributeFireResistance();
-	public static final AttributeBase FROST_RESISTANCE = new AttributeFrostResistance();
-	public static final AttributeBase LIGHTNING_RESISTANCE = new AttributeLightningResistance();
-	public static final AttributeBase POISON_RESISTANCE = new AttributePoisonResistance();
-	public static final AttributeBase COOLDOWN_REDUCTION = new AttributeCooldownReduction();
+	public static final Attribute STRENGTH = new AttributeStrength();
+	public static final Attribute AGILITY = new AttributeAgility();
+	public static final Attribute DEXTERITY = new AttributeDexterity();
+	public static final Attribute INTELLIGENCE = new AttributeIntelligence();
+	public static final Attribute WISDOM = new AttributeWisdom();
+	public static final Attribute FORTITUDE = new AttributeFortitude();
+	public static final Attribute FIRE_RESISTANCE = new AttributeFireResistance();
+	public static final Attribute FROST_RESISTANCE = new AttributeFrostResistance();
+	public static final Attribute LIGHTNING_RESISTANCE = new AttributeLightningResistance();
+	public static final Attribute POISON_RESISTANCE = new AttributePoisonResistance();
+	public static final Attribute COOLDOWN_REDUCTION = new AttributeCooldownReduction();
 	//bonus
-	public static final AttributeBase ALL_STATS = new AttributeAllStats();
+	public static final Attribute ALL_STATS = new AttributeAllStats();
 	
+	public static final ArrayList<Attribute> ALL_ATTRIBUTES = Lists.newArrayList();
+	public static RandomCollection<Attribute> WEAPON_ATTRIBUTES = new RandomCollection<Attribute>();
+	public static RandomCollection<Attribute> ARMOR_ATTRIBUTES = new RandomCollection<Attribute>();
+	public static RandomCollection<Attribute> WEAPON_BONUS_ATTRIBUTES = new RandomCollection<Attribute>();
+	public static RandomCollection<Attribute> ARMOR_BONUS_ATTRIBUTES = new RandomCollection<Attribute>();
 	
+	public static final TextFormatting ATTRIBUTE_COLOR = TextFormatting.BLUE;
 	
-	public static final ArrayList<AttributeBase> ALL_ATTRIBUTES = Lists.newArrayList();
-	public static RandomCollection<AttributeBase> WEAPON_ATTRIBUTES = new RandomCollection<AttributeBase>();
-	public static RandomCollection<AttributeBase> ARMOR_ATTRIBUTES = new RandomCollection<AttributeBase>();
-	public static RandomCollection<AttributeBase> WEAPON_BONUS_ATTRIBUTES = new RandomCollection<AttributeBase>();
-	public static RandomCollection<AttributeBase> ARMOR_BONUS_ATTRIBUTES = new RandomCollection<AttributeBase>();
-	
-	public AttributeBase(String name, String key, double baseValue, boolean upgradeable)
+	public Attribute(String name, String key, double baseValue, boolean upgradeable)
 	{
 		this.name = name;
 		this.key = key;
@@ -147,6 +148,25 @@ public class AttributeBase
 	public double getAttributeMaxValue(NBTTagCompound nbt)
 	{
 		return nbt.getDouble(name + "_maxvalue");
+	}
+	
+	public Rarity getAttributeRarity(NBTTagCompound nbt)
+	{
+		switch (nbt.getInteger(name + "_rarity"))
+		{
+			case 1:
+				return Rarity.COMMON;
+			case 2:
+				return Rarity.UNCOMMON;
+			case 3:
+				return Rarity.RARE;
+			case 4:
+				return Rarity.EPIC;
+			case 5:
+				return Rarity.LEGENDARY;
+			default:
+				return Rarity.DEFAULT;
+		}
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -218,9 +238,9 @@ public class AttributeBase
 		PERCENTAGE();
 	}
 	
-	public static AttributeBase getAttributeFromString(String name)
+	public static Attribute getAttributeFromString(String name)
 	{
-		for (AttributeBase attribute : ALL_ATTRIBUTES)
+		for (Attribute attribute : ALL_ATTRIBUTES)
 		{
 			if (attribute.getName().equals(name))
 			{

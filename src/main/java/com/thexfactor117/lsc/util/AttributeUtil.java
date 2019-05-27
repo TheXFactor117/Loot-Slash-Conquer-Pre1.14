@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.attributes.AttributeBase;
+import com.thexfactor117.lsc.loot.attributes.Attribute;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,14 +18,14 @@ import net.minecraft.nbt.NBTTagCompound;
  */
 public class AttributeUtil
 {	
-	public static AttributeBase getRandomWeaponAttribute()
+	public static Attribute getRandomWeaponAttribute()
 	{
-		return AttributeBase.WEAPON_ATTRIBUTES.next(ItemGenerationUtil.rand);
+		return Attribute.WEAPON_ATTRIBUTES.next(ItemGenerationUtil.rand);
 	}
 	
-	public static AttributeBase getRandomArmorAttribute()
+	public static Attribute getRandomArmorAttribute()
 	{
-		return AttributeBase.ARMOR_ATTRIBUTES.next(ItemGenerationUtil.rand);
+		return Attribute.ARMOR_ATTRIBUTES.next(ItemGenerationUtil.rand);
 	}
 	
 	/**
@@ -38,7 +38,7 @@ public class AttributeUtil
 	 * @param nbt
 	 * @param rand
 	 */
-	public static void addDamageAttribute(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt, Random rand)
+	public static void addDamageAttribute(Attribute attribute, ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		// weight the base value by level and rarity.
 		double weightedBase = ItemGenerationUtil.getWeightedDamage(nbt.getInteger("Level"), ItemUtil.getItemRarity(stack), attribute.getBaseValue());
@@ -61,7 +61,7 @@ public class AttributeUtil
 	 * @param rand
 	 * @param rangeMultiplier
 	 */
-	public static void addPercentageAttribute(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt, Random rand, double rangeMultiplier)
+	public static void addPercentageAttribute(Attribute attribute, ItemStack stack, NBTTagCompound nbt, Random rand, double rangeMultiplier)
 	{
 		// weight the base value by attribute rarity
 		double weightedPercentage = getWeightedPercentage(ItemUtil.getItemRarity(stack), attribute.getBaseValue(), rangeMultiplier);
@@ -83,7 +83,7 @@ public class AttributeUtil
 	 * @param nbt
 	 * @param rand
 	 */
-	public static void addStatAttribute(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt, Random rand)
+	public static void addStatAttribute(Attribute attribute, ItemStack stack, NBTTagCompound nbt, Random rand)
 	{
 		double weightedStat = getWeightedStat(stack, ItemUtil.getItemRarity(stack), attribute.getBaseValue());
 		
@@ -94,7 +94,7 @@ public class AttributeUtil
 		nbt.setDouble(attribute.getName() + "_value", trueStat);
 	}
 	
-	public static void addResistanceAttribute(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt)
+	public static void addResistanceAttribute(Attribute attribute, ItemStack stack, NBTTagCompound nbt)
 	{
 		double weightedResistance = ItemGenerationUtil.getWeightedArmor(ItemUtil.getItemRarity(stack), ItemUtil.getItemLevel(stack), attribute.getBaseValue());
 		
@@ -112,7 +112,7 @@ public class AttributeUtil
 	 * @param nbt
 	 * @param startingValue
 	 */
-	private static void setDamageMinMax(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
+	private static void setDamageMinMax(Attribute attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
 		// adds randomization to the range - controls how big the range is.
 		double minRandomFactor = 0.1;
@@ -142,7 +142,7 @@ public class AttributeUtil
 	 * @param nbt
 	 * @param startingValue
 	 */
-	private static void setPercentageMinMax(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
+	private static void setPercentageMinMax(Attribute attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
 		// adds randomization to the range - controls how big the range is.
 		double minRandomFactor = 0.1;
@@ -170,7 +170,7 @@ public class AttributeUtil
 	 * @param nbt
 	 * @param startingValue
 	 */
-	private static void setStatMinMax(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
+	private static void setStatMinMax(Attribute attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
 		// adds randomization to the range - controls how big it is.
 		double minRandomFactor = 0.1;
@@ -193,7 +193,7 @@ public class AttributeUtil
 		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
 	}
 	
-	private static void setResistanceMinMax(AttributeBase attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
+	private static void setResistanceMinMax(Attribute attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
 		double minRandomFactor = 0.1;
 		double maxRandomFactor = 0.4;

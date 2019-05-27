@@ -2,8 +2,8 @@ package com.thexfactor117.lsc.items.base;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.init.ModTabs;
-import com.thexfactor117.lsc.loot.attributes.AttributeBase;
-import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
+import com.thexfactor117.lsc.loot.attributes.Attribute;
+import com.thexfactor117.lsc.loot.attributes.AttributeArmor;
 import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
@@ -57,11 +57,11 @@ public class ItemBauble extends Item implements IBauble
 				
 				if (cap != null && cap.getPlayerLevel() >= NBTHelper.loadStackNBT(stack).getInteger("Level"))
 				{
-					for (AttributeBase attribute : ItemUtil.getAllAttributes(stack))
+					for (Attribute attribute : ItemUtil.getAllAttributes(stack))
 					{
-						if (attribute instanceof AttributeBaseArmor)
+						if (attribute instanceof AttributeArmor)
 						{
-							((AttributeBaseArmor) attribute).onEquip(cap, stack);
+							((AttributeArmor) attribute).onEquip(cap, stack);
 						}
 					}
 				}
@@ -82,11 +82,11 @@ public class ItemBauble extends Item implements IBauble
 				
 				if (cap != null)
 				{
-					for (AttributeBase attribute : ItemUtil.getAllAttributes(stack))
+					for (Attribute attribute : ItemUtil.getAllAttributes(stack))
 					{
-						if (attribute instanceof AttributeBaseArmor)
+						if (attribute instanceof AttributeArmor)
 						{
-							((AttributeBaseArmor) attribute).onUnequip(cap, stack);
+							((AttributeArmor) attribute).onUnequip(cap, stack);
 						}
 					}
 				}

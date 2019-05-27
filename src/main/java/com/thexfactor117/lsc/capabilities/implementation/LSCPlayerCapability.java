@@ -4,8 +4,8 @@ import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
-import com.thexfactor117.lsc.loot.attributes.AttributeBase;
-import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
+import com.thexfactor117.lsc.loot.attributes.Attribute;
+import com.thexfactor117.lsc.loot.attributes.AttributeArmor;
 import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
 import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.util.ItemUtil;
@@ -153,19 +153,19 @@ public class LSCPlayerCapability implements ILSCPlayer
 	
 	private void updateArmorAttributes(ItemStack oldStack, ItemStack newStack, LSCPlayerCapability cap)
 	{
-		for (AttributeBase attribute : ItemUtil.getAllAttributes(oldStack))
+		for (Attribute attribute : ItemUtil.getAllAttributes(oldStack))
 		{
-			if (attribute instanceof AttributeBaseArmor)
+			if (attribute instanceof AttributeArmor)
 			{
-				((AttributeBaseArmor) attribute).onUnequip(cap, oldStack);
+				((AttributeArmor) attribute).onUnequip(cap, oldStack);
 			}
 		}
 		
-		for (AttributeBase attribute : ItemUtil.getAllAttributes(newStack))
+		for (Attribute attribute : ItemUtil.getAllAttributes(newStack))
 		{
-			if (attribute instanceof AttributeBaseArmor)
+			if (attribute instanceof AttributeArmor)
 			{
-				((AttributeBaseArmor) attribute).onEquip(cap, newStack);
+				((AttributeArmor) attribute).onEquip(cap, newStack);
 			}
 		}
 	}

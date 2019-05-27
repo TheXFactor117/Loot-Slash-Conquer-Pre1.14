@@ -2,14 +2,15 @@ package com.thexfactor117.lsc.loot.attributes.weapons;
 
 import java.util.Random;
 
-import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
+import org.lwjgl.input.Keyboard;
+
+import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.util.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -18,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author TheXFactor117
  *
  */
-public class AttributeVoid extends AttributeBaseWeapon
+public class AttributeVoid extends AttributeWeapon
 {
 	public AttributeVoid()
 	{
@@ -46,7 +47,13 @@ public class AttributeVoid extends AttributeBaseWeapon
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
 		int value = (int) (this.getAttributeValue(nbt) * 100);
+		String tooltip = " * +" + value + "% chance to instantly kill.";
 		
-		return TextFormatting.RED + " * +" + value + "% chance to instantly kill.";
+		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
+		{
+			return this.getAttributeRarity(nbt).getColor() + tooltip;
+		}
+		
+		return ATTRIBUTE_COLOR + tooltip;
 	}
 }

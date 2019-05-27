@@ -9,9 +9,9 @@ import net.minecraft.item.ItemStack;
  * @author TheXFactor117
  *
  */
-public class AttributeBaseArmor extends AttributeBase
+public class AttributeArmor extends Attribute
 {
-	public AttributeBaseArmor(String name, String key, double baseValue, boolean upgradeable)
+	public AttributeArmor(String name, String key, double baseValue, boolean upgradeable)
 	{
 		super(name, key, baseValue, upgradeable);
 	}

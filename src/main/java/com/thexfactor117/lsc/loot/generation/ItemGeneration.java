@@ -1,11 +1,17 @@
 package com.thexfactor117.lsc.loot.generation;
 
+import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.items.base.weapons.ItemDagger;
 import com.thexfactor117.lsc.items.base.weapons.ItemMace;
+import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.util.ItemGenerationUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
+import baubles.api.BaubleType;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -30,65 +36,54 @@ public class ItemGeneration
 				if (stack.getItem() instanceof ItemDagger) nbt.setString("ItemType", "Dagger");
 				else if (stack.getItem() instanceof ItemMace) nbt.setString("ItemType", "Mace");
 				else nbt.setString("ItemType", "Sword");
+				
 				nbt.setInteger("Level", level);
 				ItemGenerationUtil.setRandomWeaponAttributes(stack);
 				ItemGenerationUtil.setPrimaryAttributes(stack);
 				ItemGenerationUtil.hideFlags(nbt);
 			}
-			/*else if (stack.getItem() instanceof ItemBow)
+			else if (stack.getItem() instanceof ItemArmor)
 			{
-				ItemGeneratorHelper.setTypes(stack, nbt);
+				ItemArmor item = (ItemArmor) stack.getItem();
+				
+				if (item.armorType == EntityEquipmentSlot.HEAD) nbt.setString("ItemType", "Helmet");
+				else if (item.armorType == EntityEquipmentSlot.CHEST) nbt.setString("ItemType", "Chestplate");
+				else if (item.armorType == EntityEquipmentSlot.LEGS) nbt.setString("ItemType", "Leggings");
+				else if (item.armorType == EntityEquipmentSlot.FEET) nbt.setString("ItemType", "Boots");
+				
 				nbt.setInteger("Level", level);
-				ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
-				
-				double baseDamage = 0;
-				double baseDrawSpeed = 0;
-				
-				// handle custom bows
-				if (stack.getItem() instanceof ItemRanged)
-				{
-					ItemRanged ranged = (ItemRanged) stack.getItem();
-					baseDamage = ranged.getBaseDamage();
-					baseDrawSpeed = ranged.getBaseDrawSpeed();
-				}
-				else // handle vanilla/modded bows
-				{
-					baseDamage = 3;
-					baseDrawSpeed = 2;
-				}
-				
-				double weightedDamage = ItemGeneratorHelper.getWeightedDamage(level, Rarity.getRarity(nbt), baseDamage);
-				double weightedDrawSpeed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseDrawSpeed);
-				
-				ItemGeneratorHelper.setMinMaxDamage(nbt, weightedDamage);
-				nbt.setDouble("AttackSpeed", weightedDrawSpeed);
-				nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
+				ItemGenerationUtil.setRandomArmorAttributes(stack);
+				ItemGenerationUtil.setPrimaryAttributes(stack);
+				ItemGenerationUtil.hideFlags(nbt);
+			}
+			else if (stack.getItem() instanceof ItemBow)
+			{
+				nbt.setString("ItemType", "Bow");
+				nbt.setInteger("Level", level);
+				ItemGenerationUtil.setRandomWeaponAttributes(stack);
+				ItemGenerationUtil.setPrimaryAttributes(stack);
+				ItemGenerationUtil.hideFlags(nbt);
 			}
 			else if (stack.getItem() instanceof ItemMagical)
 			{
-				ItemMagical magical = (ItemMagical) stack.getItem();
-				
-				ItemGeneratorHelper.setTypes(stack, nbt);
+				nbt.setString("ItemType", "Staff");
 				nbt.setInteger("Level", level);
-				ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
-				
-				// handles setting weighted damage/attack speed and min/max damage
-				double baseDamage = magical.getBaseDamage();
-				double baseAttackSpeed = magical.getBaseAttackSpeed();
-				double weightedDamage = ItemGeneratorHelper.getWeightedDamage(level, Rarity.getRarity(nbt), baseDamage);
-				double weightedAttackSpeed = ItemGeneratorHelper.getWeightedAttackSpeed(Rarity.getRarity(nbt), baseAttackSpeed);
-				
-				ItemGeneratorHelper.setMinMaxDamage(nbt, weightedDamage);
-				nbt.setDouble("AttackSpeed", weightedAttackSpeed);
-				ItemGeneratorHelper.setRune(nbt);
-				nbt.setInteger("HideFlags", 6); // hides Attribute Modifier and Unbreakable tags
+				ItemGenerationUtil.setRandomWeaponAttributes(stack);
+				ItemGenerationUtil.setPrimaryAttributes(stack);
+				ItemGenerationUtil.setRune(nbt);
+				ItemGenerationUtil.hideFlags(nbt);
 			}
 			else if (stack.getItem() instanceof ItemBauble)
 			{
-				ItemGeneratorHelper.setTypes(stack, nbt);
+				ItemBauble item = (ItemBauble) stack.getItem();
+				
+				if (item.getBaubleType(stack) == BaubleType.RING) nbt.setString("ItemType", "Ring");
+				else if (item.getBaubleType(stack) == BaubleType.AMULET) nbt.setString("ItemType", "Amulet");
+				else if (item.getBaubleType(stack) == BaubleType.BELT) nbt.setString("ItemType", "Belt");
+				
 				nbt.setInteger("Level", level);
-				ItemGeneratorHelper.setRandomAttributes(stack, nbt, Rarity.getRarity(nbt));
-			}*/
+				ItemGenerationUtil.setRandomArmorAttributes(stack);
+			}
 		}
 	}
 }

@@ -9,12 +9,11 @@ import java.util.UUID;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
-import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.attributes.AttributeBase;
-import com.thexfactor117.lsc.loot.attributes.AttributeBaseArmor;
-import com.thexfactor117.lsc.loot.attributes.AttributeBaseWeapon;
+import com.thexfactor117.lsc.loot.attributes.Attribute;
+import com.thexfactor117.lsc.loot.attributes.AttributeArmor;
+import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -57,12 +56,12 @@ public class ItemUtil
 		return NBTHelper.loadStackNBT(stack).getString("ItemType");
 	}
 	
-	public static ArrayList<AttributeBase> getSecondaryAttributes(ItemStack stack)
+	public static ArrayList<Attribute> getSecondaryAttributes(ItemStack stack)
 	{
-		ArrayList<AttributeBase> list = Lists.newArrayList();
+		ArrayList<Attribute> list = Lists.newArrayList();
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 		
-		for (AttributeBase attribute : AttributeBase.ALL_ATTRIBUTES)
+		for (Attribute attribute : Attribute.ALL_ATTRIBUTES)
 		{
 			if (attribute.hasAttribute(nbt))
 			{
@@ -73,11 +72,11 @@ public class ItemUtil
 		return list;
 	}
 	
-	public static ArrayList<AttributeBase> getAllAttributes(ItemStack stack)
+	public static ArrayList<Attribute> getAllAttributes(ItemStack stack)
 	{
-		ArrayList<AttributeBase> list = Lists.newArrayList();
+		ArrayList<Attribute> list = Lists.newArrayList();
 		
-		for (AttributeBase attribute : AttributeBase.ALL_ATTRIBUTES)
+		for (Attribute attribute : Attribute.ALL_ATTRIBUTES)
 		{
 			if (attribute.hasAttribute(NBTHelper.loadStackNBT(stack)))
 			{
@@ -119,12 +118,12 @@ public class ItemUtil
 		double criticalDamage = cap.getCriticalDamage();
 		double elementalDamage = 0;
 		
-		if (AttributeBase.CRITICAL_CHANCE.hasAttribute(nbt)) criticalChance += AttributeBase.CRITICAL_CHANCE.getAttributeValue(nbt);
-		if (AttributeBase.CRITICAL_DAMAGE.hasAttribute(nbt)) criticalDamage += AttributeBase.CRITICAL_DAMAGE.getAttributeValue(nbt);
-		if (AttributeBase.FIRE_DAMAGE.hasAttribute(nbt)) elementalDamage += AttributeBase.FIRE_DAMAGE.getAttributeValue(nbt);
-		if (AttributeBase.FROST_DAMAGE.hasAttribute(nbt)) elementalDamage += AttributeBase.FROST_DAMAGE.getAttributeValue(nbt);
-		if (AttributeBase.LIGHTNING_DAMAGE.hasAttribute(nbt)) elementalDamage += AttributeBase.LIGHTNING_DAMAGE.getAttributeValue(nbt);
-		if (AttributeBase.POISON_DAMAGE.hasAttribute(nbt)) elementalDamage += AttributeBase.POISON_DAMAGE.getAttributeValue(nbt);
+		if (Attribute.CRITICAL_CHANCE.hasAttribute(nbt)) criticalChance += Attribute.CRITICAL_CHANCE.getAttributeValue(nbt);
+		if (Attribute.CRITICAL_DAMAGE.hasAttribute(nbt)) criticalDamage += Attribute.CRITICAL_DAMAGE.getAttributeValue(nbt);
+		if (Attribute.FIRE_DAMAGE.hasAttribute(nbt)) elementalDamage += Attribute.FIRE_DAMAGE.getAttributeValue(nbt);
+		if (Attribute.FROST_DAMAGE.hasAttribute(nbt)) elementalDamage += Attribute.FROST_DAMAGE.getAttributeValue(nbt);
+		if (Attribute.LIGHTNING_DAMAGE.hasAttribute(nbt)) elementalDamage += Attribute.LIGHTNING_DAMAGE.getAttributeValue(nbt);
+		if (Attribute.POISON_DAMAGE.hasAttribute(nbt)) elementalDamage += Attribute.POISON_DAMAGE.getAttributeValue(nbt);
 		
 		double totalDamage = getItemDamage(stack) + elementalDamage;
 		
@@ -133,11 +132,11 @@ public class ItemUtil
 	
 	public static void useWeaponAttributes(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy)
 	{
-		for (AttributeBase attributeBase : getAllAttributes(stack))
+		for (Attribute attributeBase : getAllAttributes(stack))
 		{
-			if (attributeBase instanceof AttributeBaseWeapon)
+			if (attributeBase instanceof AttributeWeapon)
 			{
-				AttributeBaseWeapon attribute = (AttributeBaseWeapon) attributeBase;
+				AttributeWeapon attribute = (AttributeWeapon) attributeBase;
 				
 				if (attribute.isActive())
 				{
@@ -169,11 +168,11 @@ public class ItemUtil
 	{
 		if (getAllAttributes(stack) != null && getAllAttributes(stack).size() > 0)
 		{
-			for (AttributeBase attribute : getAllAttributes(stack))
+			for (Attribute attribute : getAllAttributes(stack))
 			{
-				if (attribute instanceof AttributeBaseArmor)
+				if (attribute instanceof AttributeArmor)
 				{
-					((AttributeBaseArmor) attribute).onEquip(cap, stack);
+					((AttributeArmor) attribute).onEquip(cap, stack);
 				}
 			}
 		}
@@ -183,11 +182,11 @@ public class ItemUtil
 	{
 		if (getAllAttributes(stack) != null && getAllAttributes(stack).size() > 0)
 		{
-			for (AttributeBase attribute : getAllAttributes(stack))
+			for (Attribute attribute : getAllAttributes(stack))
 			{
-				if (attribute instanceof AttributeBaseArmor)
+				if (attribute instanceof AttributeArmor)
 				{
-					((AttributeBaseArmor) attribute).onUnequip(cap, stack);
+					((AttributeArmor) attribute).onUnequip(cap, stack);
 				}
 			}
 		}

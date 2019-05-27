@@ -4,8 +4,10 @@ import java.util.Random;
 
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
+import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
+import com.thexfactor117.lsc.items.base.weapons.ItemRanged;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.attributes.AttributeBase;
+import com.thexfactor117.lsc.loot.attributes.Attribute;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,6 +15,7 @@ import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
@@ -45,7 +48,7 @@ public class ItemGenerationUtil
 
 		for (int i = 0; i < amount; i++)
 		{
-			AttributeBase attribute = AttributeUtil.getRandomWeaponAttribute();
+			Attribute attribute = AttributeUtil.getRandomWeaponAttribute();
 
 			if (attribute.hasAttribute(nbt)) i--;
 			else attribute.addAttribute(stack, nbt, rand);
@@ -59,7 +62,7 @@ public class ItemGenerationUtil
 
 		for (int i = 0; i < amount; i++)
 		{
-			AttributeBase attribute = AttributeUtil.getRandomArmorAttribute();
+			Attribute attribute = AttributeUtil.getRandomArmorAttribute();
 
 			if (attribute.hasAttribute(nbt)) i--;
 			else attribute.addAttribute(stack, nbt, rand);
@@ -130,6 +133,39 @@ public class ItemGenerationUtil
 
 			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ARMOR, ItemUtil.VANILLA_ARMOR_MODIFIER, ItemUtil.getItemArmor(stack));
 		}
+		else if (stack.getItem() instanceof ItemBow)
+		{
+			double baseDamage = 0;
+			double baseAttackSpeed = 0;
+			
+			if (stack.getItem() instanceof ItemRanged) // handle our bows
+			{
+				baseDamage = ((ItemRanged) stack.getItem()).getBaseDamage();
+				baseAttackSpeed = ((ItemRanged) stack.getItem()).getBaseDrawSpeed();
+			}
+			// TODO: fix this implementation?
+			else // handle vanilla/modded bows
+			{
+				baseDamage = 3;
+				baseAttackSpeed = 2;
+			}
+			
+			double weightedDamage = getWeightedDamage(ItemUtil.getItemLevel(stack), ItemUtil.getItemRarity(stack), baseDamage);
+			double weightedAttackSpeed = getWeightedAttackSpeed(ItemUtil.getItemRarity(stack), baseAttackSpeed);
+			
+			setMinMaxDamage(nbt, weightedDamage);
+			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
+		}
+		else if (stack.getItem() instanceof ItemMagical)
+		{
+			ItemMagical item = (ItemMagical) stack.getItem();
+			
+			double weightedDamage = getWeightedDamage(ItemUtil.getItemLevel(stack), ItemUtil.getItemRarity(stack), item.getBaseDamage());
+			double weightedAttackSpeed = getWeightedAttackSpeed(ItemUtil.getItemRarity(stack), item.getBaseAttackSpeed());
+			
+			setMinMaxDamage(nbt, weightedDamage);
+			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
+		}
 	}
 
 	/** Sets the rune of the current magical weapon. Only used for magical weapons. */
@@ -161,8 +197,8 @@ public class ItemGenerationUtil
 		int minDamage = (int) (damage - (range / 2));
 		int maxDamage = (int) (damage + (range / 2));
 
-		if (AttributeBase.MINIMUM_DAMAGE.hasAttribute(nbt)) minDamage += AttributeBase.MINIMUM_DAMAGE.getAttributeValue(nbt);
-		if (AttributeBase.MAXIMUM_DAMAGE.hasAttribute(nbt)) maxDamage += AttributeBase.MAXIMUM_DAMAGE.getAttributeValue(nbt);
+		if (Attribute.MINIMUM_DAMAGE.hasAttribute(nbt)) minDamage += Attribute.MINIMUM_DAMAGE.getAttributeValue(nbt);
+		if (Attribute.MAXIMUM_DAMAGE.hasAttribute(nbt)) maxDamage += Attribute.MAXIMUM_DAMAGE.getAttributeValue(nbt);
 
 		if (minDamage == maxDamage) minDamage -= 1;
 		if (minDamage <= 0) minDamage = 1;
