@@ -22,6 +22,9 @@ public class PacketUpdatePlayerStats implements IMessage
 	private int mana;
 	private int manaPerSecond;
 	
+	private int physicalResistance;
+	private int magicalResistance;
+	
 	private double physicalPower;
 	private double rangedPower;
 	private double magicalPower;
@@ -38,6 +41,9 @@ public class PacketUpdatePlayerStats implements IMessage
 		this.maxMana = cap.getMaxMana();
 		this.mana = cap.getMana();
 		this.manaPerSecond = cap.getManaPerSecond();
+		
+		this.physicalResistance = cap.getPhysicalResistance();
+		this.magicalResistance = cap.getMagicalResistance();
 		
 		this.physicalPower = cap.getPhysicalPower();
 		this.rangedPower = cap.getRangedPower();
@@ -56,6 +62,9 @@ public class PacketUpdatePlayerStats implements IMessage
 		mana = buf.readInt();
 		manaPerSecond = buf.readInt();
 		
+		physicalResistance = buf.readInt();
+		magicalResistance = buf.readInt();
+		
 		physicalPower = buf.readDouble();
 		rangedPower = buf.readDouble();
 		magicalPower = buf.readDouble();
@@ -72,6 +81,9 @@ public class PacketUpdatePlayerStats implements IMessage
 		buf.writeInt(maxMana);
 		buf.writeInt(mana);
 		buf.writeInt(manaPerSecond);
+		
+		buf.writeInt(physicalResistance);
+		buf.writeInt(magicalResistance);
 		
 		buf.writeDouble(physicalPower);
 		buf.writeDouble(rangedPower);
@@ -102,6 +114,9 @@ public class PacketUpdatePlayerStats implements IMessage
 						cap.setMaxMana(message.maxMana);
 						cap.setMana(message.mana);
 						cap.setManaPerSecond(message.manaPerSecond);
+						
+						cap.setPhysicalResistance(message.physicalResistance);
+						cap.setMagicalResistance(message.magicalResistance);
 						
 						cap.setPhysicalPower(message.physicalPower);
 						cap.setRangedPower(message.rangedPower);

@@ -58,7 +58,7 @@ public class EventDamage
 					{
 						playerMeleeAttack(event, player, enemy, weapon, cap);
 					}
-					// TODO: ranged attack
+					// ranged attack
 					else if (weapon.getItem() instanceof ItemBow && event.getSource().getImmediateSource() instanceof EntityArrow)
 					{
 						playerRangedAttack(event, player, enemy, weapon, cap);
@@ -129,8 +129,7 @@ public class EventDamage
 				double trueDamage = ItemUtil.getItemDamage(weapon);
 				trueDamage = DamageUtil.applyDamageModifiers(cap, trueDamage, DamageUtil.DamageType.PHYSICAL_MELEE);
 				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage);
-
-				//WeaponUtils.useWeaponAttributes((float) trueDamage, player, enemy, weapon, nbt);
+				DamageUtil.applyAttributes(cap, weapon, player, enemy, trueDamage);
 				
 				event.setAmount((float) trueDamage);
 			}
@@ -151,9 +150,10 @@ public class EventDamage
 			else
 			{
 				// set the true amount of damage.
-				double trueDamage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+				double trueDamage = ItemUtil.getItemDamage(weapon);
 				trueDamage = DamageUtil.applyDamageModifiers(cap, trueDamage, DamageUtil.DamageType.PHYSICAL_RANGED);
 				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage);
+				DamageUtil.applyAttributes(cap, weapon, player, enemy, trueDamage);
 				
 				event.setAmount((float) trueDamage);
 			}

@@ -2,8 +2,11 @@ package com.thexfactor117.lsc.util;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
+import com.thexfactor117.lsc.loot.attributes.Attribute;
+import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
 
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -62,6 +65,25 @@ public class DamageUtil
 	}
 	
 	/**
+	 * Iterates through all of the attributes that the stack has, calling its onHit method.
+	 * @param cap
+	 * @param stack
+	 * @param attacker
+	 * @param enemy
+	 * @param damage
+	 */
+	public static void applyAttributes(LSCPlayerCapability cap, ItemStack stack, EntityLivingBase attacker, EntityLivingBase enemy, double damage)
+	{
+		for (Attribute attribute : ItemUtil.getSecondaryAttributes(stack))
+		{
+			if (attribute instanceof AttributeWeapon)
+			{
+				((AttributeWeapon) attribute).onHit(stack, (float) damage, attacker, enemy);
+			}
+		}
+	}
+	
+	/**
 	 * Applies custom armor reductions to the passed in damage value. This uses a custom algorithm separate from Vanilla's,
 	 * allowing us to fully customize the damage algorithm and force all damage to use this instead of Vanilla's.
 	 * @param damage
@@ -92,16 +114,6 @@ public class DamageUtil
 		else if (source.isPoisonDamage()) reducedDamage = damage * (damage / (damage + cap.getPoisonResistance()));
 		
 		return reducedDamage >= 0 ? reducedDamage : 0;
-	}
-	
-	// TODO: if power is less than 1 (decimal), set to zero to prevent the decimal being added on as extra damage.
-	// not too important but still a thing.
-	//
-	// Wtf was the written for???
-	
-	public static double getPhysicalResistance(LSCPlayerCapability cap)
-	{
-		return (Math.pow(1.05, cap.getPlayerLevel()) + cap.getTotalStrength()) * (0.85 * 0.8);
 	}
 	
 	/**
@@ -137,7 +149,7 @@ public class DamageUtil
 	 */
 	public static double getTotalArmor(EntityPlayer player, LSCPlayerCapability cap)
 	{
-		return getEquippedArmor(player, cap) + getPhysicalResistance(cap);
+		return getEquippedArmor(player, cap) + cap.getPhysicalResistance();
 	}
 	
 	public static enum DamageType

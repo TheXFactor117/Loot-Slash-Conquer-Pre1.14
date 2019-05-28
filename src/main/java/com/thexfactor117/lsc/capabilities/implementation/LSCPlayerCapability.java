@@ -181,6 +181,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 		}
 
 		updatePlayerPower();
+		updatePlayerResistance();
 		LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
 	}
 	
@@ -196,6 +197,15 @@ public class LSCPlayerCapability implements ILSCPlayer
 		this.physicalPower = getTotalStrength() != 0 ? physicalPower : 0;
 		this.rangedPower = getTotalDexterity() != 0 ? rangedPower : 0;
 		this.magicalPower = getTotalIntelligence() != 0 ? magicalPower : 0;
+	}
+	
+	public void updatePlayerResistance()
+	{
+		int physicalResistance = (int) ((Math.pow(1.05, getPlayerLevel()) + getTotalStrength()) * (0.85 * 0.8));
+		int magicalResistance = (int) ((Math.pow(1.05, getPlayerLevel()) + getTotalIntelligence()) * (0.85 * 0.8));
+		
+		this.physicalResistance = getTotalStrength() != 0 ? physicalResistance : 0;
+		this.magicalResistance = getTotalIntelligence() != 0 ? magicalResistance : 0;
 	}
 
 	/*

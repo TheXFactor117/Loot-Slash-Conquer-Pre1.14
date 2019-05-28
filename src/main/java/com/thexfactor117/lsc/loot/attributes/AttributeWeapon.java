@@ -29,7 +29,7 @@ public class AttributeWeapon extends Attribute
 	 * @param nbt
 	 */
 	public void onHit(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy) { }
-	
+
 	public double getPassiveValue(NBTTagCompound nbt)
 	{
 		return nbt.getDouble(this.getName() + "_value");

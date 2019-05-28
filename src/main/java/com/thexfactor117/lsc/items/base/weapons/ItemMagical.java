@@ -11,6 +11,7 @@ import com.thexfactor117.lsc.entities.projectiles.EntityLightning;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.init.ModTabs;
 import com.thexfactor117.lsc.network.client.PacketUpdatePlayerStats;
+import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 import com.thexfactor117.lsc.util.misc.Reference;
@@ -69,12 +70,11 @@ public class ItemMagical extends Item
 				if (entity instanceof EntityPlayer)
 				{
 					EntityPlayer player = (EntityPlayer) entity;
-					NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 					LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 					
 					if (cap != null)
 					{
-						double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
+						double attackSpeed = ItemUtil.getItemAttackSpeed(stack) + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
 						
 						return player.isHandActive() && player.getActiveItemStack() == stack && player.getItemInUseCount() < (stack.getMaxItemUseDuration() - (1 / attackSpeed) * 20) ? 1 : 0;
 					}
@@ -120,7 +120,7 @@ public class ItemMagical extends Item
 			if (cap != null)
 			{
 				// check to see if we have held it long enough
-				double attackSpeed = nbt.getDouble("AttackSpeed") + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
+				double attackSpeed = ItemUtil.getItemAttackSpeed(stack) + (Configs.playerCategory.attackSpeedMultiplier * (cap.getTotalAgility()));
 				
 				if (count > (this.getMaxItemUseDuration(stack) - ((1 / attackSpeed) * 20))) 
 				{

@@ -2,14 +2,13 @@ package com.thexfactor117.lsc.entities.projectiles;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.util.DamageUtil;
+import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
-import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
@@ -62,16 +61,14 @@ public abstract class EntityProjectileBase extends EntityThrowable
 			
 			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && result.entityHit != player && cap != null)
 			{
-				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				double damage = (Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage"))) + (nbt.getInteger("MinDamage"));
+				double damage = ItemUtil.getItemDamage(stack);
 				damage = DamageUtil.applyDamageModifiers(cap, damage, DamageUtil.DamageType.MAGICAL);
 				damage = DamageUtil.applyCriticalModifier(cap, damage);
+				DamageUtil.applyAttributes(cap, stack, player, (EntityLivingBase) result.entityHit, damage);
 				
 				// apply damage
-				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);
 				result.entityHit.hurtResistantTime = 0; // set hurt resistant time to zero because other calculations might be added.
-
-				// apply attributes
+				result.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), (float) damage);
 			}
 		}
 	}
