@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.network.PacketClassSelection;
+import com.thexfactor117.lsc.network.server.PacketClassSelection;
 import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.client.gui.GuiButton;

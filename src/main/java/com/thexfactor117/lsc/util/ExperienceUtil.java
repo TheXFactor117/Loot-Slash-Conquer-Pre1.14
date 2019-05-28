@@ -11,7 +11,7 @@ import com.thexfactor117.lsc.entities.EntityMonster;
 import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
 import com.thexfactor117.lsc.loot.attributes.Attribute;
 import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
-import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
+import com.thexfactor117.lsc.network.client.PacketUpdatePlayerInformation;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;

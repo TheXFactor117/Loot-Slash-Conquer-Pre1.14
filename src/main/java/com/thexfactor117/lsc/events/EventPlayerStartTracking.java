@@ -10,7 +10,7 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.EnemyTier;
-import com.thexfactor117.lsc.network.PacketUpdateEnemyInfo;
+import com.thexfactor117.lsc.network.client.PacketUpdateEnemyInfo;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;

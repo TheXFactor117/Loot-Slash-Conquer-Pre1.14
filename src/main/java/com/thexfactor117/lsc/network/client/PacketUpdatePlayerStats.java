@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.network;
+package com.thexfactor117.lsc.network.client;
 
 import com.thexfactor117.lsc.capabilities.cap.CapabilityLSCPlayer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
@@ -22,6 +22,8 @@ public class PacketUpdatePlayerStats implements IMessage
 	private int mana;
 	private int manaPerSecond;
 	
+	private double physicalPower;
+	private double rangedPower;
 	private double magicalPower;
 	
 	private int healthPerSecond;
@@ -31,18 +33,20 @@ public class PacketUpdatePlayerStats implements IMessage
 	
 	public PacketUpdatePlayerStats() {}
 	
-	public PacketUpdatePlayerStats(LSCPlayerCapability playercap)
+	public PacketUpdatePlayerStats(LSCPlayerCapability cap)
 	{
-		this.maxMana = playercap.getMaxMana();
-		this.mana = playercap.getMana();
-		this.manaPerSecond = playercap.getManaPerSecond();
+		this.maxMana = cap.getMaxMana();
+		this.mana = cap.getMana();
+		this.manaPerSecond = cap.getManaPerSecond();
 		
-		this.magicalPower = playercap.getMagicalPower();
+		this.physicalPower = cap.getPhysicalPower();
+		this.rangedPower = cap.getRangedPower();
+		this.magicalPower = cap.getMagicalPower();
 		
-		this.healthPerSecond = playercap.getHealthPerSecond();
+		this.healthPerSecond = cap.getHealthPerSecond();
 		
-		this.criticalChance = playercap.getCriticalChance();
-		this.criticalDamage = playercap.getCriticalDamage();
+		this.criticalChance = cap.getCriticalChance();
+		this.criticalDamage = cap.getCriticalDamage();
 	}
 
 	@Override
@@ -52,6 +56,8 @@ public class PacketUpdatePlayerStats implements IMessage
 		mana = buf.readInt();
 		manaPerSecond = buf.readInt();
 		
+		physicalPower = buf.readDouble();
+		rangedPower = buf.readDouble();
 		magicalPower = buf.readDouble();
 		
 		healthPerSecond = buf.readInt();
@@ -67,6 +73,8 @@ public class PacketUpdatePlayerStats implements IMessage
 		buf.writeInt(mana);
 		buf.writeInt(manaPerSecond);
 		
+		buf.writeDouble(physicalPower);
+		buf.writeDouble(rangedPower);
 		buf.writeDouble(magicalPower);
 		
 		buf.writeInt(healthPerSecond);
@@ -87,20 +95,22 @@ public class PacketUpdatePlayerStats implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = Minecraft.getMinecraft().player;
-					LSCPlayerCapability playercap = (LSCPlayerCapability) player.getCapability(CapabilityLSCPlayer.PLAYER_CAP, null);
+					LSCPlayerCapability cap = (LSCPlayerCapability) player.getCapability(CapabilityLSCPlayer.PLAYER_CAP, null);
 					
-					if (playercap != null)
+					if (cap != null)
 					{
-						playercap.setMaxMana(message.maxMana);
-						playercap.setMana(message.mana);
-						playercap.setManaPerSecond(message.manaPerSecond);
+						cap.setMaxMana(message.maxMana);
+						cap.setMana(message.mana);
+						cap.setManaPerSecond(message.manaPerSecond);
 						
-						playercap.setMagicalPower(message.magicalPower);
+						cap.setPhysicalPower(message.physicalPower);
+						cap.setRangedPower(message.rangedPower);
+						cap.setMagicalPower(message.magicalPower);
 						
-						playercap.setHealthPerSecond(message.healthPerSecond);
+						cap.setHealthPerSecond(message.healthPerSecond);
 						
-						playercap.setCriticalChance(message.criticalChance);
-						playercap.setCriticalDamage(message.criticalDamage);
+						cap.setCriticalChance(message.criticalChance);
+						cap.setCriticalDamage(message.criticalDamage);
 					}
 				}
 			});

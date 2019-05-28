@@ -10,7 +10,7 @@ import com.thexfactor117.lsc.entities.projectiles.EntityIcebolt;
 import com.thexfactor117.lsc.entities.projectiles.EntityLightning;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.init.ModTabs;
-import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
+import com.thexfactor117.lsc.network.client.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 import com.thexfactor117.lsc.util.misc.Reference;

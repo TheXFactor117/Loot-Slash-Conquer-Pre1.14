@@ -2,14 +2,11 @@ package com.thexfactor117.lsc.util;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
-import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
 /**
  *
@@ -31,11 +28,11 @@ public class DamageUtil
 		switch (type)
 		{
 			case PHYSICAL_MELEE:
-				return damage + getMeleePower(cap);
+				return damage + cap.getPhysicalPower();
 			case PHYSICAL_RANGED:
-				return damage + getRangedPower(cap);
+				return damage + cap.getRangedPower();
 			case MAGICAL:
-				return damage + getMagicalPower(cap);
+				return damage + cap.getMagicalPower();
 			default:
 				return damage;
 		}
@@ -102,42 +99,6 @@ public class DamageUtil
 	//
 	// Wtf was the written for???
 	
-	/**
-	 * Returns the player's raw melee power. This will take the player's Strength stat and run it through an algorithm
-	 * to determine bonus damage. The result is already scaled by the player's Level.
-	 * @param playerInfo
-	 * @return
-	 */
-	public static double getMeleePower(LSCPlayerCapability cap)
-	{
-		double meleePower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalStrength()) * (0.85 * 0.8);
-		return cap.getTotalStrength() != 0 ? meleePower : 0;
-	}
-	
-	/**
-	 * Returns the player's raw ranged power. This will take the player's Dexterity stat and run it through an algorithm
-	 * to determine bonus damage. The result is already scaled by the player's Level.
-	 * @param playerInfo
-	 * @return
-	 */
-	public static double getRangedPower(LSCPlayerCapability cap)
-	{
-		double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalDexterity()) * (0.85 * 0.8);
-		return cap.getTotalDexterity() != 0 ? rangedPower : 0;
-	}
-	
-	/**
-	 * Returns the player's raw magical power. This will take the player's Intelligence stat and run it through an algorithm
-	 * to determine bonus damage. The result is already scaled by the player's Level.
-	 * @param playerInfo
-	 * @return
-	 */
-	public static double getMagicalPower(LSCPlayerCapability cap)
-	{
-		double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalIntelligence()) * (0.85 * 0.8);
-		return cap.getTotalIntelligence() != 0 ? magicalPower : 0;
-	}
-	
 	public static double getPhysicalResistance(LSCPlayerCapability cap)
 	{
 		return (Math.pow(1.05, cap.getPlayerLevel()) + cap.getTotalStrength()) * (0.85 * 0.8);
@@ -158,11 +119,9 @@ public class DamageUtil
 		{
 			if (stack.getItem() instanceof ItemArmor)
 			{
-				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				
-				if (nbt.getInteger("Level") <= cap.getPlayerLevel())
+				if (ItemUtil.getItemLevel(stack) <= cap.getPlayerLevel())
 				{
-					totalArmorPoints += nbt.getDouble("ArmorPoints");
+					totalArmorPoints += ItemUtil.getItemArmor(stack);
 				}
 			}
 		}

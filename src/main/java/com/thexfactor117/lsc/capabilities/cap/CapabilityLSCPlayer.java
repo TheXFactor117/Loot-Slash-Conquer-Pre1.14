@@ -5,8 +5,8 @@ import javax.annotation.Nullable;
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
-import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
-import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
+import com.thexfactor117.lsc.network.client.PacketUpdatePlayerInformation;
+import com.thexfactor117.lsc.network.client.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.util.CapabilityUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 import com.thexfactor117.lsc.util.misc.Reference;
@@ -62,6 +62,9 @@ public class CapabilityLSCPlayer
 				nbt.setDouble("RangedPower", instance.getRangedPower());
 				nbt.setDouble("MagicalPower", instance.getMagicalPower());
 				
+				nbt.setInteger("PhysicalResistance", instance.getPhysicalResistance());
+				nbt.setInteger("MagicalResistance", instance.getMagicalResistance());
+				
 				nbt.setInteger("FireResistance", instance.getFireResistance());
 				nbt.setInteger("FrostResistance", instance.getFrostResistance());
 				nbt.setInteger("LightningResistance", instance.getLightningResistance());
@@ -114,6 +117,9 @@ public class CapabilityLSCPlayer
 				instance.setPhysicalPower(compound.getDouble("PhysicalPower"));
 				instance.setRangedPower(compound.getDouble("RangedPower"));
 				instance.setMagicalPower(compound.getDouble("MagicalPower"));
+				
+				instance.setPhysicalResistance(compound.getInteger("PhysicalResistance"));
+				instance.setMagicalResistance(compound.getInteger("MagicalResistance"));
 				
 				instance.setFireResistance(compound.getInteger("FireResistance"));
 				instance.setFrostResistance(compound.getInteger("FrostResistance"));
@@ -195,6 +201,9 @@ public class CapabilityLSCPlayer
 				newCap.setPhysicalPower(oldCap.getPhysicalPower());
 				newCap.setRangedPower(oldCap.getRangedPower());
 				newCap.setMagicalPower(oldCap.getMagicalPower());
+				
+				newCap.setPhysicalResistance(oldCap.getPhysicalResistance());
+				newCap.setMagicalResistance(oldCap.getMagicalResistance());
 				
 				newCap.setFireResistance(oldCap.getFireResistance());
 				newCap.setFrostResistance(oldCap.getFrostResistance());

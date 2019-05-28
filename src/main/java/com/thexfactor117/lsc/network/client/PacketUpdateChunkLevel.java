@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.network;
+package com.thexfactor117.lsc.network.client;
 
 import com.thexfactor117.lsc.capabilities.api.IChunkLevel;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevelHolder;

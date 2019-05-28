@@ -1,4 +1,4 @@
-package com.thexfactor117.lsc.network;
+package com.thexfactor117.lsc.network.server;
 
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.util.PlayerUtil;
@@ -83,6 +83,7 @@ public class PacketUpdateIncreaseStat implements IMessage
 							PlayerUtil.updateFortitudeStat(player);
 						}
 
+						cap.updatePlayerPower();
 						cap.setSkillPoints(cap.getSkillPoints() - 1);
 					}
 				}

@@ -8,7 +8,7 @@ import java.util.List;
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.network.PacketUpdateIncreaseStat;
+import com.thexfactor117.lsc.network.server.PacketUpdateIncreaseStat;
 import com.thexfactor117.lsc.util.DamageUtil;
 import com.thexfactor117.lsc.util.ExperienceUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
@@ -165,6 +165,7 @@ public class GuiPlayerInformation extends GuiScreen
 				LootSlashConquer.network.sendToServer(new PacketUpdateIncreaseStat(6));
 			}
 			
+			cap.updatePlayerPower();
 			cap.setSkillPoints(cap.getSkillPoints() - 1);
 		}
 	}

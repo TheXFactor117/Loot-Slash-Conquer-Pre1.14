@@ -37,6 +37,13 @@ public interface ILSCPlayer
 	public double getMagicalPower();
 	
 	// resistance
+	public void setPhysicalResistance(int resistance);
+	public int getPhysicalResistance();
+	
+	public void setMagicalResistance(int resistance);
+	public int getMagicalResistance();
+	
+	// elemental resistance
 	public void setFireResistance(int resistance);
 	public int getFireResistance();
 	

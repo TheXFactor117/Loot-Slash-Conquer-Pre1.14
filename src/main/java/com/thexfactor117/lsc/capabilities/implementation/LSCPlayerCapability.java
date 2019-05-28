@@ -4,10 +4,11 @@ import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
+import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.attributes.Attribute;
 import com.thexfactor117.lsc.loot.attributes.AttributeArmor;
-import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
-import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
+import com.thexfactor117.lsc.network.client.PacketUpdateCoreStats;
+import com.thexfactor117.lsc.network.client.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
 
@@ -19,7 +20,7 @@ import net.minecraft.item.ItemStack;
  *
  * @author TheXFactor117
  * 
- *         Implementation of the player capability.
+ * Implementation of the player capability.
  *
  */
 public class LSCPlayerCapability implements ILSCPlayer
@@ -34,12 +35,15 @@ public class LSCPlayerCapability implements ILSCPlayer
 	private double physicalPower;
 	private double rangedPower;
 	private double magicalPower;
+
+	private int physicalResistance;
+	private int magicalResistance;
 	
 	private int fireResistance;
 	private int frostResistance;
 	private int lightningResistance;
 	private int poisonResistance;
-	
+
 	private int mana;
 	private int maxMana;
 	private int manaPerSecond;
@@ -48,7 +52,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 
 	private double criticalChance;
 	private double criticalDamage;
-	
+
 	private double cooldownReduction;
 
 	private int updateTicks;
@@ -123,7 +127,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 			updateArmorAttributes(boots, stackBoots, cap);
 			this.boots = stackBoots;
 		}
-		
+
 		if (armorChanged)
 		{
 			// send update packet?
@@ -151,6 +155,13 @@ public class LSCPlayerCapability implements ILSCPlayer
 		cap.incrementRegenTicks();
 	}
 	
+	/**
+	 * Iterates through all of the attributes on the oldStack and newStack, unequipping effects of
+	 * the oldStack and equipping effects on the newStack.
+	 * @param oldStack
+	 * @param newStack
+	 * @param cap
+	 */
 	private void updateArmorAttributes(ItemStack oldStack, ItemStack newStack, LSCPlayerCapability cap)
 	{
 		for (Attribute attribute : ItemUtil.getAllAttributes(oldStack))
@@ -160,7 +171,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 				((AttributeArmor) attribute).onUnequip(cap, oldStack);
 			}
 		}
-		
+
 		for (Attribute attribute : ItemUtil.getAllAttributes(newStack))
 		{
 			if (attribute instanceof AttributeArmor)
@@ -168,6 +179,23 @@ public class LSCPlayerCapability implements ILSCPlayer
 				((AttributeArmor) attribute).onEquip(cap, newStack);
 			}
 		}
+
+		updatePlayerPower();
+		LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
+	}
+	
+	/**
+	 * Updates the player's physical, ranged, and magical power.
+	 */
+	public void updatePlayerPower()
+	{
+		double physicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, getPlayerLevel()) + getTotalStrength()) * (0.85 * 0.8);
+		double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, getPlayerLevel()) + getTotalDexterity()) * (0.85 * 0.8);
+		double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, getPlayerLevel()) + getTotalIntelligence()) * (0.85 * 0.8);
+
+		this.physicalPower = getTotalStrength() != 0 ? physicalPower : 0;
+		this.rangedPower = getTotalDexterity() != 0 ? rangedPower : 0;
+		this.magicalPower = getTotalIntelligence() != 0 ? magicalPower : 0;
 	}
 
 	/*
@@ -249,35 +277,35 @@ public class LSCPlayerCapability implements ILSCPlayer
 	{
 		this.skillPoints = skillPoints;
 	}
-	
+
 	/*
 	 * POWER
 	 */
-	
+
 	@Override
 	public void setPhysicalPower(double power)
 	{
 		this.physicalPower = power;
 	}
-	
+
 	@Override
 	public double getPhysicalPower()
 	{
 		return physicalPower;
 	}
-	
+
 	@Override
 	public void setRangedPower(double power)
 	{
 		this.rangedPower = power;
 	}
-	
+
 	@Override
 	public double getRangedPower()
 	{
 		return rangedPower;
 	}
-	
+
 	@Override
 	public void setMagicalPower(double power)
 	{
@@ -289,53 +317,77 @@ public class LSCPlayerCapability implements ILSCPlayer
 	{
 		return magicalPower;
 	}
-	
+
 	/*
 	 * RESISTANCE
 	 */
 	
 	@Override
+	public void setPhysicalResistance(int resistance)
+	{
+		this.physicalResistance = resistance;
+	}
+	
+	@Override
+	public int getPhysicalResistance()
+	{
+		return physicalResistance;
+	}
+	
+	@Override
+	public void setMagicalResistance(int resistance)
+	{
+		this.magicalResistance = resistance;
+	}
+	
+	@Override
+	public int getMagicalResistance()
+	{
+		return magicalResistance;
+	}
+
+	@Override
 	public void setFireResistance(int resistance)
 	{
 		this.fireResistance = resistance;
 	}
-	
+
 	@Override
 	public int getFireResistance()
 	{
 		return fireResistance;
 	}
-	
+
 	@Override
 	public void setFrostResistance(int resistance)
 	{
 		this.frostResistance = resistance;
 	}
-	
+
 	@Override
 	public int getFrostResistance()
 	{
 		return frostResistance;
 	}
-	
+
 	@Override
 	public void setLightningResistance(int resistance)
 	{
 		this.lightningResistance = resistance;
 	}
-	
+
 	@Override
 	public int getLightningResistance()
 	{
 		return lightningResistance;
 	}
-	
+
 	@Override
 	public void setPoisonResistance(int resistance)
 	{
 		this.poisonResistance = resistance;
 	}
-	
+
 	@Override
 	public int getPoisonResistance()
 	{
@@ -444,16 +496,16 @@ public class LSCPlayerCapability implements ILSCPlayer
 	{
 		return criticalDamage;
 	}
-	
+
 	/*
 	 * COOLDOWN
 	 */
-	
+
 	public void setCooldownReduction(double cooldown)
 	{
 		this.cooldownReduction = cooldown;
 	}
-	
+
 	public double getCooldownReduction()
 	{
 		return cooldownReduction;

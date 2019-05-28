@@ -1,14 +1,14 @@
 package com.thexfactor117.lsc.init;
 
 import com.thexfactor117.lsc.LootSlashConquer;
-import com.thexfactor117.lsc.network.PacketClassGui;
-import com.thexfactor117.lsc.network.PacketClassSelection;
-import com.thexfactor117.lsc.network.PacketUpdateChunkLevel;
-import com.thexfactor117.lsc.network.PacketUpdateCoreStats;
-import com.thexfactor117.lsc.network.PacketUpdateEnemyInfo;
-import com.thexfactor117.lsc.network.PacketUpdateIncreaseStat;
-import com.thexfactor117.lsc.network.PacketUpdatePlayerInformation;
-import com.thexfactor117.lsc.network.PacketUpdatePlayerStats;
+import com.thexfactor117.lsc.network.client.PacketClassGui;
+import com.thexfactor117.lsc.network.client.PacketUpdateChunkLevel;
+import com.thexfactor117.lsc.network.client.PacketUpdateCoreStats;
+import com.thexfactor117.lsc.network.client.PacketUpdateEnemyInfo;
+import com.thexfactor117.lsc.network.client.PacketUpdatePlayerInformation;
+import com.thexfactor117.lsc.network.client.PacketUpdatePlayerStats;
+import com.thexfactor117.lsc.network.server.PacketClassSelection;
+import com.thexfactor117.lsc.network.server.PacketUpdateIncreaseStat;
 import com.thexfactor117.lsc.util.misc.Reference;
 
 import net.minecraftforge.fml.common.network.NetworkRegistry;

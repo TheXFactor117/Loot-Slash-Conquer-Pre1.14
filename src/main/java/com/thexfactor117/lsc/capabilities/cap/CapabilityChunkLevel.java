@@ -8,7 +8,7 @@ import com.thexfactor117.lsc.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.lsc.capabilities.implementation.ChunkLevel;
 import com.thexfactor117.lsc.capabilities.implementation.ChunkLevelHolder;
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.network.PacketUpdateChunkLevel;
+import com.thexfactor117.lsc.network.client.PacketUpdateChunkLevel;
 import com.thexfactor117.lsc.util.CapabilityUtil;
 import com.thexfactor117.lsc.util.misc.Reference;
 import com.thexfactor117.lsc.util.misc.SimpleCapabilityProvider;
