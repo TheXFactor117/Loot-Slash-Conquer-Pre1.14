@@ -27,9 +27,9 @@ import net.minecraft.nbt.NBTTagCompound;
  */
 public class ItemGenerationUtil
 {
-	//private static final UUID ATTACK_DAMAGE = UUID.fromString("06dbc47d-eaf1-4604-9b91-926e475012c2");
-	//private static final UUID ATTACK_SPEED = UUID.fromString("335ede30-242d-41b6-a4f7-dd24ed2adce5");
-	//private static final UUID ARMOR = UUID.fromString("81a2ee21-fe83-41fb-8b2f-bf5ef33a71a8");
+	// private static final UUID ATTACK_DAMAGE = UUID.fromString("06dbc47d-eaf1-4604-9b91-926e475012c2");
+	// private static final UUID ATTACK_SPEED = UUID.fromString("335ede30-242d-41b6-a4f7-dd24ed2adce5");
+	// private static final UUID ARMOR = UUID.fromString("81a2ee21-fe83-41fb-8b2f-bf5ef33a71a8");
 
 	public static Random rand = new Random();
 
@@ -112,17 +112,16 @@ public class ItemGenerationUtil
 		{
 			double baseDamage = ItemUtil.getAttributeModifierValue(stack, SharedMonsterAttributes.ATTACK_DAMAGE, EntityEquipmentSlot.MAINHAND, ItemUtil.VANILLA_ATTACK_DAMAGE_MODIFIER);
 			double baseAttackSpeed = ItemUtil.getAttributeModifierValue(stack, SharedMonsterAttributes.ATTACK_SPEED, EntityEquipmentSlot.MAINHAND, ItemUtil.VANILLA_ATTACK_SPEED_MODIFIER);
-			//LootSlashConquer.LOGGER.info("Base Damage: " + baseDamage);
+			// LootSlashConquer.LOGGER.info("Base Damage: " + baseDamage);
 			double weightedDamage = getWeightedDamage(ItemUtil.getItemLevel(stack), ItemUtil.getItemRarity(stack), baseDamage);
 			double weightedAttackSpeed = getWeightedAttackSpeed(ItemUtil.getItemRarity(stack), baseAttackSpeed);
 
 			setMinMaxDamage(nbt, weightedDamage);
+			if (Attribute.ATTACK_SPEED.hasAttribute(nbt)) weightedAttackSpeed += (weightedAttackSpeed * Attribute.ATTACK_SPEED.getAttributeValue(nbt));
 			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
 
-			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ATTACK_DAMAGE, ItemUtil.VANILLA_ATTACK_DAMAGE_MODIFIER,
-					ItemUtil.getItemDamage(stack));
-			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ATTACK_SPEED, ItemUtil.VANILLA_ATTACK_SPEED_MODIFIER,
-					weightedAttackSpeed);
+			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ATTACK_DAMAGE, ItemUtil.VANILLA_ATTACK_DAMAGE_MODIFIER, ItemUtil.getItemDamage(stack));
+			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ATTACK_SPEED, ItemUtil.VANILLA_ATTACK_SPEED_MODIFIER, weightedAttackSpeed);
 		}
 		else if (stack.getItem() instanceof ItemArmor)
 		{
@@ -137,7 +136,7 @@ public class ItemGenerationUtil
 		{
 			double baseDamage = 0;
 			double baseAttackSpeed = 0;
-			
+
 			if (stack.getItem() instanceof ItemRanged) // handle our bows
 			{
 				baseDamage = ((ItemRanged) stack.getItem()).getBaseDamage();
@@ -149,21 +148,23 @@ public class ItemGenerationUtil
 				baseDamage = 3;
 				baseAttackSpeed = 2;
 			}
-			
+
 			double weightedDamage = getWeightedDamage(ItemUtil.getItemLevel(stack), ItemUtil.getItemRarity(stack), baseDamage);
 			double weightedAttackSpeed = getWeightedAttackSpeed(ItemUtil.getItemRarity(stack), baseAttackSpeed);
-			
+
 			setMinMaxDamage(nbt, weightedDamage);
+			if (Attribute.ATTACK_SPEED.hasAttribute(nbt)) weightedAttackSpeed += (weightedAttackSpeed * Attribute.ATTACK_SPEED.getAttributeValue(nbt));
 			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
 		}
 		else if (stack.getItem() instanceof ItemMagical)
 		{
 			ItemMagical item = (ItemMagical) stack.getItem();
-			
+
 			double weightedDamage = getWeightedDamage(ItemUtil.getItemLevel(stack), ItemUtil.getItemRarity(stack), item.getBaseDamage());
 			double weightedAttackSpeed = getWeightedAttackSpeed(ItemUtil.getItemRarity(stack), item.getBaseAttackSpeed());
-			
+
 			setMinMaxDamage(nbt, weightedDamage);
+			if (Attribute.ATTACK_SPEED.hasAttribute(nbt)) weightedAttackSpeed += (weightedAttackSpeed * Attribute.ATTACK_SPEED.getAttributeValue(nbt));
 			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
 		}
 	}
@@ -328,9 +329,10 @@ public class ItemGenerationUtil
 				return base;
 		}
 	}
-	
+
 	/**
 	 * Hides different flags from appearing on the item's tooltip.
+	 * 
 	 * @param nbt
 	 */
 	public static void hideFlags(NBTTagCompound nbt)

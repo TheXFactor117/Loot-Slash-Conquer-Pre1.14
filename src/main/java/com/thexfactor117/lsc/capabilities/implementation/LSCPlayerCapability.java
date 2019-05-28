@@ -11,10 +11,12 @@ import com.thexfactor117.lsc.network.client.PacketUpdateCoreStats;
 import com.thexfactor117.lsc.network.client.PacketUpdatePlayerStats;
 import com.thexfactor117.lsc.util.ItemUtil;
 import com.thexfactor117.lsc.util.PlayerUtil;
+import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 /**
  *
@@ -199,6 +201,9 @@ public class LSCPlayerCapability implements ILSCPlayer
 		this.magicalPower = getTotalIntelligence() != 0 ? magicalPower : 0;
 	}
 	
+	/**
+	 * Updates the player's physical and magical resistance.
+	 */
 	public void updatePlayerResistance()
 	{
 		int physicalResistance = (int) ((Math.pow(1.05, getPlayerLevel()) + getTotalStrength()) * (0.85 * 0.8));
@@ -494,6 +499,20 @@ public class LSCPlayerCapability implements ILSCPlayer
 	{
 		return criticalChance;
 	}
+	
+	public double getCriticalChance(ItemStack stack)
+	{
+		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+		
+		if (Attribute.CRITICAL_CHANCE.hasAttribute(nbt))
+		{
+			return criticalChance + Attribute.CRITICAL_CHANCE.getAttributeValue(nbt);
+		}
+		else
+		{
+			return criticalChance;
+		}
+	}
 
 	@Override
 	public void setCriticalDamage(double criticalDamage)
@@ -505,6 +524,20 @@ public class LSCPlayerCapability implements ILSCPlayer
 	public double getCriticalDamage()
 	{
 		return criticalDamage;
+	}
+	
+	public double getCriticalDamage(ItemStack stack)
+	{
+		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+		
+		if (Attribute.CRITICAL_DAMAGE.hasAttribute(nbt))
+		{
+			return criticalDamage + Attribute.CRITICAL_DAMAGE.getAttributeValue(nbt);
+		}
+		else
+		{
+			return criticalDamage;
+		}
 	}
 
 	/*

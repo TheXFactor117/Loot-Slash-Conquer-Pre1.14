@@ -1,6 +1,5 @@
 package com.thexfactor117.lsc.util;
 
-import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.loot.attributes.Attribute;
 import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
@@ -49,15 +48,15 @@ public class DamageUtil
 	 * @param nbt
 	 * @return
 	 */
-	public static double applyCriticalModifier(LSCPlayerCapability cap, double damage)
+	public static double applyCriticalModifier(LSCPlayerCapability cap, ItemStack stack, double damage)
 	{
 		double damageBeforeCrit = damage;
 		
-		if (cap.getCriticalChance() > 0)
+		if (cap.getCriticalChance(stack) > 0)
 		{
-			if (Math.random() < cap.getCriticalChance())
+			if (Math.random() < cap.getCriticalChance(stack))
 			{
-				damage = (cap.getCriticalDamage() * damageBeforeCrit) + damageBeforeCrit;
+				damage = (cap.getCriticalDamage(stack) * damageBeforeCrit) + damageBeforeCrit;
 			}
 		}
 		
@@ -92,8 +91,7 @@ public class DamageUtil
 	 * @return
 	 */
 	public static double applyArmorReductions(double damage, EntityPlayer player, LSCPlayerCapability cap)
-	{	
-		LootSlashConquer.LOGGER.info("Total Armor: " + getTotalArmor(player, cap));
+	{
 		return damage * (damage / (damage + getTotalArmor(player, cap)));
 	}
 	

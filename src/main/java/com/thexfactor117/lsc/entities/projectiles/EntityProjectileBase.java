@@ -63,7 +63,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 			{
 				double damage = ItemUtil.getItemDamage(stack);
 				damage = DamageUtil.applyDamageModifiers(cap, damage, DamageUtil.DamageType.MAGICAL);
-				damage = DamageUtil.applyCriticalModifier(cap, damage);
+				damage = DamageUtil.applyCriticalModifier(cap, stack, damage);
 				DamageUtil.applyAttributes(cap, stack, player, (EntityLivingBase) result.entityHit, damage);
 				
 				// apply damage

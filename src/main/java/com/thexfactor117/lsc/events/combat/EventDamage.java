@@ -128,7 +128,7 @@ public class EventDamage
 				// set the true amount of damage.
 				double trueDamage = ItemUtil.getItemDamage(weapon);
 				trueDamage = DamageUtil.applyDamageModifiers(cap, trueDamage, DamageUtil.DamageType.PHYSICAL_MELEE);
-				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage);
+				trueDamage = DamageUtil.applyCriticalModifier(cap, weapon, trueDamage);
 				DamageUtil.applyAttributes(cap, weapon, player, enemy, trueDamage);
 				
 				event.setAmount((float) trueDamage);
@@ -152,7 +152,7 @@ public class EventDamage
 				// set the true amount of damage.
 				double trueDamage = ItemUtil.getItemDamage(weapon);
 				trueDamage = DamageUtil.applyDamageModifiers(cap, trueDamage, DamageUtil.DamageType.PHYSICAL_RANGED);
-				trueDamage = DamageUtil.applyCriticalModifier(cap, trueDamage);
+				trueDamage = DamageUtil.applyCriticalModifier(cap, weapon, trueDamage);
 				DamageUtil.applyAttributes(cap, weapon, player, enemy, trueDamage);
 				
 				event.setAmount((float) trueDamage);
