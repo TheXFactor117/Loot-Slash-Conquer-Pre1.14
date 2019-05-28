@@ -50,4 +50,11 @@ public class EventPlayerLoggedIn
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(cap), (EntityPlayerMP) event.player);
 		}
 	}
+	
+	@SubscribeEvent
+	public static void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event)
+	{
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(event.player);
+		cap.removeBonusStats();
+	}
 }
