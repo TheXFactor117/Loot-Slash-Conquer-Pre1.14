@@ -266,6 +266,11 @@ public class Attribute
 		return baseValue;
 	}
 	
+	public void setBaseValue(double newBaseValue)
+	{
+		this.baseValue = newBaseValue;
+	}
+	
 	public boolean isUpgradeable()
 	{
 		return upgradeable;

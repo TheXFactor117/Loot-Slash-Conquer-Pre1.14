@@ -6,6 +6,10 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.items.base.weapons.ISpecial;
 import com.thexfactor117.lsc.items.base.weapons.ItemMelee;
 import com.thexfactor117.lsc.loot.Rarity;
+import com.thexfactor117.lsc.loot.attributes.Attribute;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeAttackSpeed;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeCriticalDamage;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeFireDamage;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -34,5 +38,15 @@ public class ItemDivineRapier extends ItemMelee implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
+		
+		Attribute fire = new AttributeFireDamage();
+		fire.setBaseValue(5);
+		fire.addAttribute(stack, nbt, world.rand);
+		Attribute attackSpeed = new AttributeAttackSpeed();
+		attackSpeed.setBaseValue(0.2);
+		attackSpeed.addAttribute(stack, nbt, world.rand);
+		Attribute criticalDamage = new AttributeCriticalDamage();
+		criticalDamage.setBaseValue(0.3);
+		criticalDamage.addAttribute(stack, nbt, world.rand);
 	}
 }
