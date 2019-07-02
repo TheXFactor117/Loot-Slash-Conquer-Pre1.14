@@ -124,8 +124,8 @@ public class PlayerUtil
 
 			int bonus = cap.getTotalDexterity() > 0 ? 1 : 0;
 
-			cap.setCriticalChance(Configs.playerCategory.critChanceMultiplier * ((cap.getTotalDexterity() / 5) + bonus));
-			cap.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((cap.getTotalDexterity() / 2) + bonus));
+			cap.setCriticalChance(Configs.playerCategory.critChanceMultiplier * ((cap.getTotalDexterity() / 5.0) + bonus));
+			cap.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((cap.getTotalDexterity() / 2.0) + bonus));
 
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
 		}
