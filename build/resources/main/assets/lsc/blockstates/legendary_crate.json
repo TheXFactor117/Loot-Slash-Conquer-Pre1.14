@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"side": "lsc:blocks/crate_legendary_side",
+			"end": "lsc:blocks/crate_legendary_end"
+		}
+	},
+	"variants": {
+		"normal": {
+			"model": "cube_column"
+		},
+		"inventory": {
+			"model": "cube_column"
+		}
+	}
+}

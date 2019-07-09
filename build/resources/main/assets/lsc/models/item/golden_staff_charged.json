@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/golden_staff",
+	"textures": {
+		"layer0": "lsc:items/golden_staff_charged"
+	}
+}

@@ -2,6 +2,7 @@ package com.thexfactor117.lsc.entities;
 
 import java.util.Random;
 
+import akka.actor.FSM;
 import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.util.misc.RandomCollection;

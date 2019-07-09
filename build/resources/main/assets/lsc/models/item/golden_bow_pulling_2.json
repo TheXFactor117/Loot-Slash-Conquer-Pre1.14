@@ -1,0 +1,6 @@
+{
+    "parent": "lsc:item/golden_bow",
+    "textures": {
+        "layer0": "lsc:items/golden_bow_pulling_2"
+    }
+}

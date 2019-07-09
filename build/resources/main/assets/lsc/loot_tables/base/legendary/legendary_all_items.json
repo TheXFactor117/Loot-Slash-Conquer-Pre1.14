@@ -1,0 +1,65 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/daggers",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/swords",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/maces",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/staffs",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/helmets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/chestplates",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/leggings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/boots",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/amulets",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/rings",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/legendary/specific/belts",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

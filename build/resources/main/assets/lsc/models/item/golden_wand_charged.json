@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/golden_wand",
+	"textures": {
+		"layer0": "lsc:items/golden_wand_charged"
+	}
+}

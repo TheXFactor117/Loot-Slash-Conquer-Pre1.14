@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/gaze_of_truth",
+	"textures": {
+		"layer0": "lsc:items/gaze_of_truth_charged"
+	}
+}
