@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.lwjgl.input.Keyboard;
 
+import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.util.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
@@ -32,6 +33,7 @@ public class AttributeFireDamage extends AttributeWeapon
 	@Override
 	public void onHit(ItemStack stack, float damage, EntityLivingBase attacker, EntityLivingBase enemy)
 	{
+		LootSlashConquer.LOGGER.info("Hello?");
 		enemy.hurtResistantTime = 0;
 		enemy.attackEntityFrom(LSCDamageSource.causeFireDamage(attacker), (float) this.getAttributeValue(NBTHelper.loadStackNBT(stack)));
 	}

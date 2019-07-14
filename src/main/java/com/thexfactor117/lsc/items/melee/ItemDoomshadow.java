@@ -6,6 +6,9 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.items.base.weapons.ISpecial;
 import com.thexfactor117.lsc.items.base.weapons.ItemMelee;
 import com.thexfactor117.lsc.loot.Rarity;
+import com.thexfactor117.lsc.loot.attributes.Attribute;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeChained;
+import com.thexfactor117.lsc.loot.attributes.weapons.AttributeVoid;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -29,5 +32,12 @@ public class ItemDoomshadow extends ItemMelee implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
+		
+		Attribute chained = new AttributeChained();
+		chained.setBaseValue(0.25);
+		chained.addAttribute(stack, nbt, world.rand);
+		Attribute voidDamage = new AttributeVoid();
+		voidDamage.setBaseValue(0.05);
+		voidDamage.addAttribute(stack, nbt, world.rand);
 	}
 }
