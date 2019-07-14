@@ -6,10 +6,6 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
 import com.thexfactor117.lsc.items.base.weapons.ISpecial;
 import com.thexfactor117.lsc.items.base.weapons.ItemMelee;
 import com.thexfactor117.lsc.loot.Rarity;
-import com.thexfactor117.lsc.loot.attributes.Attribute;
-import com.thexfactor117.lsc.loot.attributes.weapons.AttributeFrostDamage;
-import com.thexfactor117.lsc.loot.attributes.weapons.AttributeSlow;
-import com.thexfactor117.lsc.loot.attributes.weapons.AttributeStun;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -38,15 +34,5 @@ public class ItemAlakaslam extends ItemMelee implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.LEGENDARY);
 		nbt.setInteger("Level", level);
-		
-		Attribute frost = new AttributeFrostDamage();
-		frost.setBaseValue(7);
-		frost.addAttribute(stack, nbt, world.rand);
-		Attribute stun = new AttributeStun();
-		stun.setBaseValue(0.2);
-		stun.addAttribute(stack, nbt, world.rand);
-		Attribute slow = new AttributeSlow();
-		slow.setBaseValue(0.2);
-		slow.addAttribute(stack, nbt, world.rand);
 	}
 }

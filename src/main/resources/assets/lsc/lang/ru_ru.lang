@@ -1,5 +1,5 @@
 ##########################################
-### Lost Eclipse RUSSIAN Language File ###
+### Lost Eclipse ENGLISH Language File ###
 ##########################################
 
 
@@ -14,21 +14,21 @@ item.golden_ring.name=Золотое кольцо
 item.diamond_ring.name=Алмазное кольцо
 item.golden_amulet.name=Золотой амулет
 item.diamond_amulet.name=Алмазный амулет
-item.leather_sash.name=Кожаный пояс
+item.leather_sash.name=Кожаный створ
 
 # Scrolls
 item.fireball_scroll.name=Огненый шар
 item.frostbite_scroll.name=Леденой шар
-item.minor_ethereal_scroll.name=Незначительный эфирный свиток
+item.minor_ethereal_scroll.name=Несовершенный эфирный свиток?
 item.firestorm_scroll.name=Свиток огенного шторма
 item.blizzard_scroll.name=Свиток ледяного шторма
-item.discharge_scroll.name=Свиток разряда
-item.major_ethereal_scroll.name=Главный эфирный свиток
+item.discharge_scroll.name=Discharge Scroll
+item.major_ethereal_scroll.name=Major Ethereal Scroll
 item.invisibility_scroll.name=Свиток невидимости
 item.void_scroll.name=Пустотный свиток
 
 # Misc
-item.corrupted_tower_key.name=Поврежденный ключ башни
+item.corrupted_tower_key.name=Заражённый ключ башни
 
 
 
@@ -50,11 +50,11 @@ item.divine_rapier.name=Божественная рапира
 item.requiem.name=Requiem
 item.shadowfall.name=Падение тьмы
 item.doomshadow.name=Рок смерти
-item.golden_pummel.name=Золотой молот
+item.golden_pummel.name=Golden Pummel
 
 item.excalibur_rapier.name=Рапира Экскалбура
 item.alakaslam.name=Алакаслам
-item.annihilation.name=Аннигиляция
+item.annihilation.name=Annihilation
 
 # Physical Ranged
 item.golden_bow.name=Золотой лук
@@ -67,15 +67,15 @@ item.golden_wand.name=Золотая палочка
 item.diamond_wand.name=Алмазная палочка
 item.wooden_staff.name=Деревянный посох
 item.golden_staff.name=Золотой посох
-item.diamond_staff.name=Алмазный посох
+item.d iamond_staff.name=Алмазный посох
 
 # Special Magical
 item.blazefury.name=Огненная ярость
 item.moonlit_rod.name=Лунный стержень
-item.epilogue.name=Эпилог
+item.epilogue.name=Epilogue
 
 item.gaze_of_truth.name=Взгляд правды
-item.visage_of_wizardry.name=Лик волшебства
+item.visage_of_wizardry.name=Лицо магии?
 
 
 
@@ -115,14 +115,13 @@ gui.playerinfo.stats.intelligence.info=Интеллект увеличивает
 gui.playerinfo.stats.wisdom=Мудрость
 gui.playerinfo.stats.wisdom.info=Мудрость увеличивает вашу ману, а также повышает регенерацию маны.
 gui.playerinfo.stats.fortitude=Стойкость
-gui.playerinfo.stats.fortitude.info=Стойкость повышает ваше здоровье, а также повышает регенерацию здоровья.
+gui.playerinfo.stats.fortitude.info=Fortitude повышает ваше здоровье, а также повышает регенерацию здоровья.
 gui.playerinfo.bonuses=Бонусы
-gui.playerinfo.bonuses.playerdamage=Урон ближнего боя
-gui.playerinfo.bonuses.rangedpower=Дальность урона
+gui.playerinfo.bonuses.playerdamage=Урон игрока?
 gui.playerinfo.bonuses.magicalpower=Магический урон
 gui.playerinfo.bonuses.attackspeed=Скорость атаки
 gui.playerinfo.bonuses.armor=Броня
-gui.playerinfo.bonuses.toughness=Прочность
+gui.playerinfo.bonuses.toughness=Toughness
 gui.playerinfo.bonuses.critchance=Критический шанс
 gui.playerinfo.bonuses.critdamage=Критический урон
 gui.playerinfo.bonuses.health=Здоровье
@@ -137,29 +136,8 @@ gui.playerinfo.bonuses.mp5=MP5
 ##########################################
 
 ### Blocks
-tile.dungeon_brick.name=Кирпич подземелья
-tile.boss_door.name=Дверь босса
-
-tile.common_loot_chest.name=Обычный сундук
-tile.uncommon_loot_chest.name=Необычный сундук
-tile.rare_loot_chest.name=Редкий сундук
-tile.epic_loot_chest.name=Эпический сундук
-tile.legendary_loot_chest.name=Легендарный сундук
-tile.common_jar.name=Обычная банка
-tile.uncommon_jar.name=Необычная банка
-tile.rare_jar.name=Редкая банка
-tile.epic_jar.name=Эпическая банка
-tile.legendary_jar.name=Легендарная банка
-tile.common_barrel.name=Обычная бочка
-tile.uncommon_barrel.name=Необычная бочка
-tile.rare_barrel.name=Редкая бочка
-tile.epic_barrel.name=Эпическая бочка
-tile.legendary_barrel.name=Легендарная бочка
-tile.common_crate.name=Обычный ящик
-tile.uncommon_crate.name=Необычный ящик
-tile.rare_crate.name=Редкий ящик
-tile.epic_crate.name=Эпический ящик
-tile.legendary_crate.name=Легендарный ящик
+tile.dungeon_brick.name=Подземелье
+tile.boss_door.name=Boss Door
 
 
 
@@ -171,7 +149,7 @@ tile.legendary_crate.name=Легендарный ящик
 entity.barbarian.name=Варвар
 entity.ghost.name=Призрак
 entity.mummy.name=Мумия
-entity.spectralknight.name=Призрачный рыцарь
+entity.spectralknight.name=Спектральный призрак
 
 ### Uncommon Monsters
 entity.bandit.name=Бандит
@@ -183,7 +161,7 @@ entity.golem.name=Голем
 ### Semi-Bosses
 
 ### Bosses
-entity.corruptedknight.name=Поврежденный рыцарь
+entity.corruptedknight.name=Заражённый рыцарь
 
 
 
@@ -196,9 +174,5 @@ death.attack.frost=%1$s был заморожен в твердое вещест
 death.attack.frost.player=%1$s был заморожен в твердое на %2$s. К сожалению, %1$s не отреагировал вовремя.
 death.attack.lightning=%1$s был расчленен шунтирующим молниеотводом.
 death.attack.frost.player=%1$s был взломан молниями на %2$s.
-death.attack.poison=%1$s, возможно, съел что-то плохое на обед...
+death.attack.poison=%1$s , возможно, съел что-то плохое на обед ...
 death.attack.poison.player=%2$s отравленный %1$s's ланч! %1$s не совсем поняли.
-
-### Tabs
-itemGroup.tab_lsc=Loot Slash Conquer
-itemGroup.tab_lsc_dev=Loot Slash Conquer: Разработка
