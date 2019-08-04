@@ -1,6 +1,8 @@
 package com.thexfactor117.lsc.entities;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.world.EnumDifficulty;
@@ -42,7 +44,7 @@ public class EntityMonster extends EntityMob
 			chance = this.world.isDaytime() ? (int) (4 / (chunkLevel * 0.3) * 2) : 4;
 		}*/
 
-		return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel() && super.getCanSpawnHere();
+		 return this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.isValidLightLevel() && super.getCanSpawnHere();
 	}
 	
 	@Override

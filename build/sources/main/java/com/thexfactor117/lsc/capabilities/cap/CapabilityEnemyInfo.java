@@ -64,7 +64,7 @@ public class CapabilityEnemyInfo
 	}
 	
 	@Nullable
-	public static IEnemyInfo getEnemyLevel(EntityLivingBase entity) 
+	public static IEnemyInfo getEnemyLevel(Entity entity)
 	{
 		return CapabilityUtil.getCapability(entity, ENEMY_INFO, DEFAULT_FACING);
 	}
@@ -80,9 +80,9 @@ public class CapabilityEnemyInfo
 		@SubscribeEvent
 		public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event) 
 		{
-			if (event.getObject() instanceof EntityLivingBase)
+			if (event.getObject() instanceof Entity)
 			{
-				final EnemyInfo enemyLevel = new EnemyInfo((EntityLivingBase) event.getObject());
+				final EnemyInfo enemyLevel = new EnemyInfo((Entity) event.getObject());
 				event.addCapability(ID, createProvider(enemyLevel));
 			}
 		}

@@ -8,12 +8,14 @@ import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.EntityMonster;
+import com.thexfactor117.lsc.entities.EntityRarity;
 import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
 import com.thexfactor117.lsc.loot.attributes.Attribute;
 import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.network.client.PacketUpdatePlayerInformation;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -39,7 +41,7 @@ public class ExperienceUtil
 		return (int) (Math.pow(currentLevel + 1, Configs.playerCategory.levelUpExpPower) + Configs.playerCategory.levelUpAdditive);
 	}
 	
-	public static void addExperience(EntityPlayer player, LSCPlayerCapability cap, EntityLivingBase enemy)
+	public static void addExperience(EntityPlayer player, LSCPlayerCapability cap, Entity enemy)
 	{
 		int experience = 0;
 		
@@ -54,9 +56,9 @@ public class ExperienceUtil
 			int enemyTier = enemyInfo.getEnemyTier();
 			int rarity = 1;
 			
-			if (enemy instanceof EntityMonster)
+			if (enemy instanceof EntityRarity)
 			{
-				rarity = EntityMonster.rarity;
+				rarity = EntityRarity.rarity;
 			}
 			
 			// calculates the different multipliers and multiplies them together to get the total multiplier

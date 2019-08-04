@@ -56,7 +56,7 @@ public enum EnemyTier
 			case 5:
 				return LEGENDARY;
 			default:
-				return NORMAL;
+				return DEFAULT;
 		}
 	}
 	
@@ -80,7 +80,7 @@ public enum EnemyTier
 				info.setEnemyTier(5);
 				break;
 			default:
-				info.setEnemyTier(1);
+				info.setEnemyTier(0);
 				break;
 		}
 	}

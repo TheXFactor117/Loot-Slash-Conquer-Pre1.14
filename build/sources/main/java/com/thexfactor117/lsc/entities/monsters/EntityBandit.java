@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -21,7 +22,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class EntityBandit extends EntityMonster
+public class EntityBandit extends EntityMonster implements IMob
 {
 	public EntityBandit(World world)
 	{

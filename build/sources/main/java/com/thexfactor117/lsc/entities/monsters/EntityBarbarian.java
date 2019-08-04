@@ -25,6 +25,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -43,7 +44,7 @@ import net.minecraft.world.storage.loot.LootTable;
  * @author TheXFactor117
  *
  */
-public class EntityBarbarian extends EntityMonster
+public class EntityBarbarian extends EntityMonster implements IMob
 {
 	public EntityBarbarian(World world)
 	{

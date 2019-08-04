@@ -11,6 +11,7 @@ import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.util.DamageSource;
@@ -21,7 +22,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class EntityGhost extends EntityMonster
+public class EntityGhost extends EntityMonster implements IMob
 {
 	public EntityGhost(World world)
 	{

@@ -13,6 +13,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
@@ -24,7 +25,7 @@ import net.minecraft.world.World;
  * @author TheXFactor117
  *
  */
-public class EntityGolem extends EntityMonster
+public class EntityGolem extends EntityMonster implements IMob
 {
 	public EntityGolem(World world)
 	{

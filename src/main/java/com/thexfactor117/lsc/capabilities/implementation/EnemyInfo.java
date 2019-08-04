@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.capabilities.api.IEnemyInfo;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 
 public class EnemyInfo implements IEnemyInfo
@@ -12,9 +13,9 @@ public class EnemyInfo implements IEnemyInfo
 	private int tier;
 	
 	@SuppressWarnings("unused")
-	private final EntityLivingBase entity;
+	private final Entity entity;
 	
-	public EnemyInfo(@Nullable EntityLivingBase entity)
+	public EnemyInfo(@Nullable Entity entity)
 	{
 		this.entity = entity;
 	}

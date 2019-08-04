@@ -326,6 +326,7 @@ public class ItemGenerationUtil
 			case LEGENDARY:
 				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.legendaryFactor * multiplier)));
 			default:
+				if(base == 0.0) base = 1.0;
 				return base;
 		}
 	}
