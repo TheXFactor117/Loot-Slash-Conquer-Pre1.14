@@ -6,6 +6,7 @@ import com.thexfactor117.lsc.util.PlayerUtil;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityOwnable;
+import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.IAnimals;
@@ -29,7 +30,7 @@ public class EventLivingDeath
 		/*
 		 * Update player experience when they kill a monster. Experience gained is determined from how much health/damage the monsters has.
 		 */
-		if (event.getSource().getTrueSource() instanceof EntityPlayer && (event.getEntityLiving() instanceof IMob || event.getEntityLiving() instanceof IEntityOwnable))
+		if (event.getSource().getTrueSource() instanceof EntityPlayer && (event.getEntityLiving() instanceof IMob || event.getEntityLiving() instanceof EntityGhast || event.getEntityLiving() instanceof EntityPlayer || event.getEntityLiving() instanceof IEntityOwnable))
 		{
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 			EntityLivingBase enemy = event.getEntityLiving();
