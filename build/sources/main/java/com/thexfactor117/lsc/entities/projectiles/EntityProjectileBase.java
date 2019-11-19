@@ -62,7 +62,7 @@ public abstract class EntityProjectileBase extends EntityThrowable
 			if (result.entityHit != null && result.entityHit instanceof EntityLivingBase && result.entityHit != player && cap != null)
 			{
 				double damage = ItemUtil.getItemDamage(stack);
-				damage = DamageUtil.applyDamageModifiers(cap, damage, DamageUtil.DamageType.MAGICAL);
+				damage = DamageUtil.applyDamageModifiers(cap, damage, DamageUtil.DamageType.MAGICAL, (EntityLivingBase) result.entityHit);
 				damage = DamageUtil.applyCriticalModifier(cap, stack, damage);
 				DamageUtil.applyAttributes(cap, stack, player, (EntityLivingBase) result.entityHit, damage);
 				

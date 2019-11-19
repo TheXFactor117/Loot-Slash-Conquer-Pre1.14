@@ -24,7 +24,7 @@ public class AttributeAllStats extends AttributeArmor
 {
 	public AttributeAllStats()
 	{
-		super("strength", "attributes.armor.strength", 2, false);
+		super("allstats", "attributes.armor.allstats", 2, false);
 	}
 	
 	@Override

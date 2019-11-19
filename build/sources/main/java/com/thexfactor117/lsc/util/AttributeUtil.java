@@ -115,21 +115,17 @@ public class AttributeUtil
 	private static void setDamageMinMax(Attribute attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
 		// adds randomization to the range - controls how big the range is.
-		double minRandomFactor = 0.1;
-		double maxRandomFactor = 0.4;
-		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
+		double minRandFactor = Configs.weaponCategory.damageMinRandFactor;
+		double maxRandFactor = Configs.weaponCategory.damageMaxRandFactor;
+		double randomMultiplier = Math.random() * (maxRandFactor - minRandFactor) + minRandFactor;
 		
 		// scales the range by the item's level.
 		double levelMultiplier = ItemUtil.getItemLevel(stack) * 0.1;
 		
-		int range = (int) ((randomMultiplier * startingValue + 0.5) * levelMultiplier);
+		int range = (int) (randomMultiplier * levelMultiplier);
 
-		int minValue = (int) (startingValue - (range / 2));
-		int maxValue = (int) (startingValue + (range / 2));
-		
-		if (minValue == maxValue) minValue -= 1;
-		if (minValue <= 0) minValue = 1;
-		while (minValue >= maxValue) maxValue += 1;
+		int minValue = (int) (startingValue - range);
+		int maxValue = (int) (startingValue + levelMultiplier);
 		
 		nbt.setDouble(attribute.getName() + "_minvalue", minValue);
 		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
@@ -145,9 +141,9 @@ public class AttributeUtil
 	private static void setPercentageMinMax(Attribute attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
 		// adds randomization to the range - controls how big the range is.
-		double minRandomFactor = 0.1;
-		double maxRandomFactor = 0.4;
-		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
+		double minRandFactor = Configs.weaponCategory.damageMinRandFactor;
+		double maxRandFactor = Configs.weaponCategory.damageMaxRandFactor;
+		double randomMultiplier = Math.random() * (maxRandFactor - minRandFactor) + minRandFactor;
 		
 		// scales range?
 		
@@ -155,9 +151,6 @@ public class AttributeUtil
 		
 		double minValue = startingValue - (range / 2);
 		double maxValue = startingValue + (range / 2);
-		
-		if (minValue < 0.01) minValue = 0.01;
-		while (minValue >= maxValue) maxValue += 0.01;
 		
 		nbt.setDouble(attribute.getName() + "_minvalue", minValue);
 		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
@@ -173,21 +166,17 @@ public class AttributeUtil
 	private static void setStatMinMax(Attribute attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
 		// adds randomization to the range - controls how big it is.
-		double minRandomFactor = 0.1;
-		double maxRandomFactor = 0.4;
-		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
+		double minRandFactor = Configs.weaponCategory.damageMinRandFactor;
+		double maxRandFactor = Configs.weaponCategory.damageMaxRandFactor;
+		double randomMultiplier = Math.random() * (maxRandFactor - minRandFactor) + minRandFactor;
 		
 		// scale range based off of item level.
 		double levelMultiplier = ItemUtil.getItemLevel(stack) * 0.05;
 		
-		int range = (int) ((randomMultiplier * startingValue + 0.5) * levelMultiplier);
+		int range = (int) (randomMultiplier * levelMultiplier);
 		
-		int minValue = (int) (startingValue - (range / 2));
-		int maxValue = (int) (startingValue + (range / 2));
-		
-		if (minValue == maxValue) minValue -= 1;
-		if (minValue <= 0) minValue = 1;
-		while (minValue >= maxValue) maxValue += 1;
+		int minValue = (int) (startingValue + range);
+		int maxValue = (int) (startingValue + levelMultiplier);
 		
 		nbt.setDouble(attribute.getName() + "_minvalue", minValue);
 		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
@@ -195,20 +184,14 @@ public class AttributeUtil
 	
 	private static void setResistanceMinMax(Attribute attribute, ItemStack stack, NBTTagCompound nbt, double startingValue)
 	{
-		double minRandomFactor = 0.1;
-		double maxRandomFactor = 0.4;
-		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
+		double minRandFactor = Configs.weaponCategory.damageMinRandFactor;
+		double maxRandFactor = Configs.weaponCategory.damageMaxRandFactor;
+		double randomMultiplier = Math.random() * (maxRandFactor - minRandFactor) + minRandFactor;
 		
-		double levelMultiplier = ItemUtil.getItemLevel(stack) * 0.1;
+		double levelMultiplier = ItemUtil.getItemLevel(stack) * randomMultiplier;
 		
-		int range = (int) ((randomMultiplier * startingValue + 0.5) * levelMultiplier);
-		
-		int minValue = (int) (startingValue - (range / 2));
-		int maxValue = (int) (startingValue + (range / 2));
-		
-		if (minValue == maxValue) minValue -= 1;
-		if (minValue <= 0) minValue = 1;
-		while (minValue >= maxValue) maxValue += 1;
+		int minValue = (int) (startingValue + levelMultiplier * randomMultiplier);
+		int maxValue = (int) (startingValue + levelMultiplier);
 		
 		nbt.setDouble(attribute.getName() + "_minvalue", minValue);
 		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
@@ -226,9 +209,9 @@ public class AttributeUtil
 	 */
 	private static double getWeightedPercentage(Rarity rarity, double baseValue, double optionalMultiplier)
 	{
-		double minRandomFactor = 0.6;
-		double maxRandomFactor = 0.9;
-		double randomMultiplier = Math.random() * (maxRandomFactor - minRandomFactor) + minRandomFactor;
+		double minRandFactor = Configs.weaponCategory.damageMinRandFactor;
+		double maxRandFactor = Configs.weaponCategory.damageMaxRandFactor;
+		double randomMultiplier = Math.random() * (minRandFactor - minRandFactor) + minRandFactor;
 		
 		double multiplier = randomMultiplier * optionalMultiplier;
 		
@@ -261,7 +244,7 @@ public class AttributeUtil
 	 */
 	private static double getWeightedStat(ItemStack stack, Rarity rarity, double baseValue)
 	{
-		double baseFactor = 1.1;
+		double baseFactor = Configs.weaponCategory.damageBaseFactor;
 		// min/max rand factor controls the range of the random decimal (this creates a sort of range for the damage to fall in,
 		// based on the base damage.
 		double minRandFactor = Configs.weaponCategory.damageMinRandFactor;
@@ -272,15 +255,15 @@ public class AttributeUtil
 		switch (rarity)
 		{
 			case COMMON:
-				return (Math.pow(baseFactor, ItemUtil.getItemLevel(stack)) * (baseValue * (Configs.weaponCategory.commonFactor * multiplier)));
+				return baseValue * Math.pow(baseFactor, 1.0);
 			case UNCOMMON:
-				return (Math.pow(baseFactor, ItemUtil.getItemLevel(stack)) * (baseValue * (Configs.weaponCategory.uncommonFactor * multiplier)));
+				return baseValue * Math.pow(baseFactor, 2.0);
 			case RARE:
-				return (Math.pow(baseFactor, ItemUtil.getItemLevel(stack)) * (baseValue * (Configs.weaponCategory.rareFactor * multiplier)));
+				return baseValue * Math.pow(baseFactor, 3.0);
 			case EPIC:
-				return (Math.pow(baseFactor, ItemUtil.getItemLevel(stack)) * (baseValue * (Configs.weaponCategory.epicFactor * multiplier)));
+				return baseValue * Math.pow(baseFactor, 4.0);
 			case LEGENDARY:
-				return (Math.pow(baseFactor, ItemUtil.getItemLevel(stack)) * (baseValue * (Configs.weaponCategory.legendaryFactor * multiplier)));
+				return baseValue * Math.pow(baseFactor, 5.0);
 			default:
 				return baseValue;
 		}

@@ -2,7 +2,24 @@
 ### Alpha 6 Changelogs ###
 ##########################
 
+#####
+### Alpha 6.3
+#####
 
+Initial
++ Added a new item generation process.
++ Added an entirely new attribute system.
++ Added tons of new attributes.
++ Added a new elemental resistance formula.
+- Removed a few attributes.
+- Temporarily removed old commands. A new all-in-one command is being worked on as a replacement.
+* Tweaked attribute value algorithms.
+* Tweaked special weapon attributes. Some special weapons won't work properly, but they will be fixed soon.
+* FOV no longer changes when you increase your agility stat.
+* Updated internal capability system (instead of having updates happening every few ticks, they'll now happen when you change pieces of equipment).
+* Tons of internal re-working.
+* Russian lang file tweaked.
+* Tweaked Mob Health and Damage values. Should work with most mobs now.
 
 #####
 ### Alpha 6.2

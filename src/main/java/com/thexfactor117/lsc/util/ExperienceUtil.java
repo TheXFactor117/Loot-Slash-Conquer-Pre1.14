@@ -63,12 +63,12 @@ public class ExperienceUtil
 			
 			// calculates the different multipliers and multiplies them together to get the total multiplier
 			double baseFactor = Configs.monsterLevelTierCategory.experienceBaseFactor;
-			double tierMultiplier = (Math.pow(enemyTier, Configs.monsterLevelTierCategory.experienceTierPower) / Configs.monsterLevelTierCategory.experienceTierDivisor + 1) + 0.5;
-			double rarityMultiplier = (Math.pow(rarity, Configs.monsterLevelTierCategory.experienceRarityPower) / Configs.monsterLevelTierCategory.experienceRarityDivisor + 1) + 0.5;
+			double tierMultiplier = (Math.pow(enemyTier, Configs.monsterLevelTierCategory.experienceTierPower));
+			double rarityMultiplier = (Math.pow(rarity, Configs.monsterLevelTierCategory.experienceRarityPower));
 			int multiplier = (int) ((tierMultiplier * rarityMultiplier + 1) / Configs.monsterLevelTierCategory.experienceDivisor);
 			
 			// base experience is 10 for now...
-			experience = (int) (Math.pow(baseFactor, enemyLevel + 1) * (Configs.monsterLevelTierCategory.baseExperience + multiplier));
+			experience = (int) (((enemyLevel + 1) * (baseFactor + multiplier)) / cap.getPlayerLevel());
 			
 			double bonusExperience = 0;
 			ItemStack stack = player.getHeldItem(player.getActiveHand());

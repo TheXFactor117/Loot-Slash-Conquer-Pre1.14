@@ -1,5 +1,7 @@
 package com.thexfactor117.lsc.util;
 
+import com.thexfactor117.lsc.capabilities.cap.CapabilityEnemyInfo;
+import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.loot.attributes.Attribute;
 import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
@@ -26,16 +28,18 @@ public class DamageUtil
 	 * @param type
 	 * @return
 	 */
-	public static double applyDamageModifiers(LSCPlayerCapability cap, double damage, DamageType type)
+	public static double applyDamageModifiers(LSCPlayerCapability cap, double damage, DamageType type, EntityLivingBase entity)
 	{
+		EnemyInfo enemy = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
+
 		switch (type)
 		{
 			case PHYSICAL_MELEE:
-				return damage + cap.getPhysicalPower();
+				return damage + cap.getPhysicalPower() / cap.getPlayerLevel() / enemy.getEnemyLevel();
 			case PHYSICAL_RANGED:
-				return damage + cap.getRangedPower();
+				return damage + cap.getRangedPower() / cap.getPlayerLevel() / enemy.getEnemyLevel();
 			case MAGICAL:
-				return damage + cap.getMagicalPower();
+				return damage + cap.getMagicalPower() / cap.getPlayerLevel() / enemy.getEnemyLevel();
 			default:
 				return damage;
 		}

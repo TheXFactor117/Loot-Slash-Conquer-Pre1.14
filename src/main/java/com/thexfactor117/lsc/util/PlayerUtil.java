@@ -68,16 +68,11 @@ public class PlayerUtil
 	 */
 	public static void updateStrengthStat(EntityPlayer player)
 	{
-		// TODO: convert new damage to add to the player's attribute...look into this more, the whole system is all sorts of fucked up.
-		// increase attack damage
-		/*
-		 * AttributeModifier strengthAttackDamage = new AttributeModifier(UUID.fromString(ATTACK_DAMAGE), "playerStrength", ATTACK_DAMAGE_MULTIPLIER * (cap.getTotalStrength()), 0);
-		 * 
-		 * if (player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getModifier(UUID.fromString(ATTACK_DAMAGE)) != null) {
-		 * player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).removeModifier(UUID.fromString(ATTACK_DAMAGE));
-		 * player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(strengthAttackDamage); } else
-		 * player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).applyModifier(strengthAttackDamage);
-		 */
+		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer((EntityPlayer) player);
+
+		int bonus = cap.getTotalStrength() > 0 ? 1 : 0;
+
+		if (cap.getPlayerClass() == 3) cap.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((cap.getTotalStrength() / 2.0) + bonus));
 	}
 
 	/**
@@ -125,7 +120,7 @@ public class PlayerUtil
 			int bonus = cap.getTotalDexterity() > 0 ? 1 : 0;
 
 			cap.setCriticalChance(Configs.playerCategory.critChanceMultiplier * ((cap.getTotalDexterity() / 5.0) + bonus));
-			cap.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((cap.getTotalDexterity() / 2.0) + bonus));
+			if (cap.getPlayerClass() == 1) cap.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((cap.getTotalDexterity() / 2.0) + bonus));
 
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
 		}
@@ -140,11 +135,11 @@ public class PlayerUtil
 	{
 		if (!player.getEntityWorld().isRemote)
 		{
-			// LSCPlayerCapability cap = getLSCPlayer(player);
+			LSCPlayerCapability cap = PlayerUtil.getLSCPlayer((EntityPlayer) player);
 
-			// cap.setMagicalPower(MAGICAL_POWER_MULTIPLIER * (cap.getTotalIntelligence()));
+			int bonus = cap.getTotalIntelligence() > 0 ? 1 : 0;
 
-			// LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
+			if (cap.getPlayerClass() == 2) cap.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((cap.getTotalIntelligence() / 2.0) + bonus));
 		}
 	}
 	

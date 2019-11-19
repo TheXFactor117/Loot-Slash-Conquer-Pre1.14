@@ -19,6 +19,7 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
+import scala.util.hashing.Hashing;
 
 /**
  * 
@@ -78,19 +79,19 @@ public class ItemGenerationUtil
 		switch (rarity)
 		{
 			case COMMON:
-				amount = (int) (Math.random() * 2); // 50% chance for 1 attribute (no bonuses)
-				break;
-			case UNCOMMON:
 				amount = (int) (Math.random() * 2 + 1); // 1 guaranteed attribute, 50% chance for an additional 1 (no bonuses)
 				break;
+			case UNCOMMON:
+				amount = (int) (Math.random() * 2 + 2); // 2 guaranteed attribute, 33% chance for an additional one, 33% for an additional two
+				break;
 			case RARE:
-				amount = (int) (Math.random() * 2 + 2); // 2 guaranteed attributes, 50% chance for an additional 1 (no bonuses)
+				amount = (int) (Math.random() * 3 + 2); // 3 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
 				break;
 			case EPIC:
-				amount = (int) (Math.random() * 3 + 3); // 3 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
+				amount = (int) (Math.random() * 3 + 3); // 2 guaranteed attributes, 50% chance for an additional 1 (no bonuses)
 				break;
 			case LEGENDARY:
-				amount = (int) (Math.random() * 5 + 3); // 3 guaranteed attributes, chance for up to 4 additional attributes
+				amount = (int) (Math.random() * 4 + 3); // 3 guaranteed attributes, chance for up to 3 additional attributes
 				break;
 			default:
 				break;
@@ -101,7 +102,7 @@ public class ItemGenerationUtil
 
 	/**
 	 * Sets the item's primary attributes, such as damage and attack speed.
-	 * 
+	 *
 	 * @param stack
 	 */
 	public static void setPrimaryAttributes(ItemStack stack)
@@ -177,7 +178,7 @@ public class ItemGenerationUtil
 
 	/**
 	 * Sets the minimum and maximum damage an item can deal and sets it to NBT.
-	 * 
+	 *
 	 * @param nbt
 	 * @param damage
 	 */
@@ -189,22 +190,13 @@ public class ItemGenerationUtil
 		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
 		// scales the range by level (higher level items have greater ranges
 		double rangeMultiplier = nbt.getInteger("Level") * Configs.weaponCategory.rangeMultiplier;
-		// the actual range is calculated here
-		// take the random multiplier and multiply it by some value (the higher the value, the bigger the range)
-		// add 0.5 so it can't be zero
-		// multiply it by the range multiplier (increases the range dependent on the level)
-		int range = (int) ((multiplier * 4 + 0.5) * rangeMultiplier);
-		// set the min/max by subtracting/adding half the range to the new damage value.
-		int minDamage = (int) (damage - (range / 2));
-		int maxDamage = (int) (damage + (range / 2));
+
+		// set the min/max by adding range multiplied by level and user-defined range multiplier to the minimum damage value and adding the level multiplied by the user-defined range multiplier to the max value.
+		int minDamage = (int) (damage + multiplier * rangeMultiplier);
+		int maxDamage = (int) (damage + rangeMultiplier);
 
 		if (Attribute.MINIMUM_DAMAGE.hasAttribute(nbt)) minDamage += Attribute.MINIMUM_DAMAGE.getAttributeValue(nbt);
 		if (Attribute.MAXIMUM_DAMAGE.hasAttribute(nbt)) maxDamage += Attribute.MAXIMUM_DAMAGE.getAttributeValue(nbt);
-
-		if (minDamage == maxDamage) minDamage -= 1;
-		if (minDamage <= 0) minDamage = 1;
-		while (minDamage >= maxDamage)
-			maxDamage += 1;
 
 		nbt.setInteger("DamageMinValue", minDamage);
 		nbt.setInteger("DamageMaxValue", maxDamage);
@@ -214,21 +206,14 @@ public class ItemGenerationUtil
 	public static void setMinMaxArmor(ItemStack stack, double armor)
 	{
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+		double rangeMultiplier = nbt.getInteger("Level") * Configs.weaponCategory.rangeMultiplier;
+		double level = ItemUtil.getItemLevel(stack);
 		double minRandFactor = Configs.weaponCategory.rangeMinRandFactor;
 		double maxRandFactor = Configs.weaponCategory.rangeMaxRandFactor;
 		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
 
-		double rangeMultiplier = nbt.getInteger("Level") * Configs.weaponCategory.rangeMultiplier;
-
-		int range = (int) ((multiplier * 4 + 0.5) * rangeMultiplier);
-
-		int minArmor = (int) (armor - (range / 2));
-		int maxArmor = (int) (armor + (range / 2));
-
-		if (minArmor == maxArmor) minArmor -= 1;
-		if (minArmor <= 0) minArmor = 1;
-		while (minArmor >= maxArmor)
-			maxArmor += 1;
+		int minArmor = (int) (armor + level * multiplier * rangeMultiplier);
+		int maxArmor = (int) (armor + level * rangeMultiplier);
 
 		nbt.setInteger("ArmorMinValue", minArmor);
 		nbt.setInteger("ArmorMaxValue", maxArmor);
@@ -237,7 +222,7 @@ public class ItemGenerationUtil
 
 	/**
 	 * Returns a weighted damage value dependent on the Rarity and Level of the item.
-	 * 
+	 *
 	 * @param nbt
 	 * @param rarity
 	 * @param base
@@ -246,28 +231,26 @@ public class ItemGenerationUtil
 	public static double getWeightedDamage(int level, Rarity rarity, double base)
 	{
 		double baseFactor = Configs.weaponCategory.damageBaseFactor;
-		// min/max rand factor controls the range of the random decimal (this creates a sort of range for the damage to fall in,
-		// based on the base damage.
-		double minRandFactor = Configs.weaponCategory.damageMinRandFactor;
-		double maxRandFactor = Configs.weaponCategory.damageMaxRandFactor;
-		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
+		double tier = 0.0;
 
 		// set the new damage equal to the base multiplied by the multiplier and the rarity factor.
 		switch (rarity)
 		{
 			case COMMON:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.commonFactor * multiplier)));
+				tier = 1.0;
 			case UNCOMMON:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.uncommonFactor * multiplier)));
+				tier = 2.0;
 			case RARE:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.rareFactor * multiplier)));
+				tier = 3.0;
 			case EPIC:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.epicFactor * multiplier)));
+				tier = 4.0;
 			case LEGENDARY:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.legendaryFactor * multiplier)));
+				tier = 5.0;
 			default:
-				return base;
+				tier = 0.0;
 		}
+
+		return base * Math.pow(baseFactor, tier);
 	}
 
 	// TODO: add attack speed values to config.
@@ -279,24 +262,24 @@ public class ItemGenerationUtil
 		switch (rarity)
 		{
 			case COMMON:
-				range = 0.1;
-				speed = Math.random() * range + (base - 0.1);
+				range = 0.2;
+				speed = Math.random() * range + (base - 0.15);
 				break;
 			case UNCOMMON:
 				range = 0.15;
 				speed = Math.random() * range + (base - 0.05);
 				break;
 			case RARE:
-				range = 0.25;
-				speed = Math.random() * range + (base);
+				range = 0.20;
+				speed = Math.random() * range + (base - 0.05);
 				break;
 			case EPIC:
-				range = 0.4;
-				speed = Math.random() * range + (base + 0.1);
+				range = 0.25;
+				speed = Math.random() * range + (base - 0.05);
 				break;
 			case LEGENDARY:
-				range = 0.65;
-				speed = Math.random() * range + (base + 0.2);
+				range = 0.25;
+				speed = Math.random() * range + (base);
 				break;
 			default:
 				break;
@@ -308,32 +291,29 @@ public class ItemGenerationUtil
 	// TODO: add armor values to config.
 	public static double getWeightedArmor(Rarity rarity, int level, double base)
 	{
-		double baseFactor = 1.05;
-		double minRandFactor = 0.5;
-		double maxRandFactor = 0.7;
-		double multiplier = (Math.random() * (maxRandFactor - minRandFactor) + minRandFactor);
+		double baseFactor = Configs.weaponCategory.damageBaseFactor;
+		double tier = 0.0;
 
 		switch (rarity)
 		{
 			case COMMON:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.commonFactor * multiplier)));
+				tier = 1.0;
 			case UNCOMMON:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.uncommonFactor * multiplier)));
+				tier = 2.0;
 			case RARE:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.rareFactor * multiplier)));
+				tier = 3.0;
 			case EPIC:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.epicFactor * multiplier)));
+				tier = 4.0;
 			case LEGENDARY:
-				return (Math.pow(baseFactor, level) * (base * (Configs.weaponCategory.legendaryFactor * multiplier)));
-			default:
-				if(base == 0.0) base = 1.0;
-				return base;
+				tier = 5.0;
 		}
+
+		return base * (Math.pow(baseFactor, tier));
 	}
 
 	/**
 	 * Hides different flags from appearing on the item's tooltip.
-	 * 
+	 *
 	 * @param nbt
 	 */
 	public static void hideFlags(NBTTagCompound nbt)
@@ -343,7 +323,7 @@ public class ItemGenerationUtil
 
 	/**
 	 * Helper method for writing new attribute modifiers.
-	 * 
+	 *
 	 * @param attribute
 	 * @param modifier
 	 * @param slot

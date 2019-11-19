@@ -93,12 +93,14 @@ public class GuiPlayerInformation extends GuiScreen
 			this.drawString(this.fontRenderer, "" + (cap.getFortitudeStat() + cap.getBonusFortitudeStat()) + " (" + TextFormatting.GREEN + "+" + cap.getBonusFortitudeStat() + TextFormatting.WHITE + ")", this.width / 2 + 150, 190, 0xFFFFFF);
 			
 			// bonuses
-			double playerDamage = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalStrength()) * (0.85 * 0.8);
-			double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalDexterity()) * (0.85 * 0.8);
-			double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, cap.getPlayerLevel()) + cap.getTotalIntelligence()) * (0.85 * 0.8);
+			double playerDamage = Configs.weaponCategory.damageBaseFactor * cap.getTotalStrength();
+			double rangedPower = Configs.weaponCategory.damageBaseFactor * cap.getTotalDexterity();
+			double magicalPower = Configs.weaponCategory.damageBaseFactor * cap.getTotalIntelligence();
+
 			playerDamage = playerDamage < 1 ? 0 : playerDamage;
 			rangedPower = rangedPower < 1 ? 0 : rangedPower;
 			magicalPower = magicalPower < 1 ? 0 : magicalPower;
+
 			this.drawCenteredString(this.fontRenderer, I18n.format("gui.playerinfo.bonuses"), this.width / 2 - 130, 120, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.playerdamage") + ": " + TextFormatting.WHITE + "+" + format.format(playerDamage), this.width / 2 - 160, 140, 0xFFFFFF);
 			this.drawString(this.fontRenderer, TextFormatting.GRAY + I18n.format("gui.playerinfo.bonuses.rangedpower") + ": " + TextFormatting.WHITE + "+" + format.format(rangedPower), this.width / 2 - 160, 150, 0xFFFFFF);

@@ -105,25 +105,25 @@ public class LSCPlayerCapability implements ILSCPlayer
 		boolean armorChanged = false;
 
 		// update armor stacks if we find new ones
-		if (!ItemStack.areItemStacksEqual(stackHelmet, helmet))
+		if (!ItemStack.areItemStacksEqual(stackHelmet, helmet) || stackHelmet.equals(ItemStack.EMPTY))
 		{
 			armorChanged = true;
 			updateArmorAttributes(helmet, stackHelmet, cap);
 			this.helmet = stackHelmet;
 		}
-		if (!ItemStack.areItemStacksEqual(stackChestplate, chestplate))
+		if (!ItemStack.areItemStacksEqual(stackChestplate, chestplate) || stackChestplate.equals(ItemStack.EMPTY))
 		{
 			armorChanged = true;
 			updateArmorAttributes(chestplate, stackChestplate, cap);
 			this.chestplate = stackChestplate;
 		}
-		if (!ItemStack.areItemStacksEqual(stackLeggings, leggings))
+		if (!ItemStack.areItemStacksEqual(stackLeggings, leggings) || stackLeggings.equals(ItemStack.EMPTY))
 		{
 			armorChanged = true;
 			updateArmorAttributes(leggings, stackLeggings, cap);
 			this.leggings = stackLeggings;
 		}
-		if (!ItemStack.areItemStacksEqual(stackBoots, boots))
+		if (!ItemStack.areItemStacksEqual(stackBoots, boots) || stackBoots.equals(ItemStack.EMPTY))
 		{
 			armorChanged = true;
 			updateArmorAttributes(boots, stackBoots, cap);
