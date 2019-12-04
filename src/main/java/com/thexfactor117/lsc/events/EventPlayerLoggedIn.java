@@ -41,11 +41,17 @@ public class EventPlayerLoggedIn
 			cap.setMagicalPower(0);
 			cap.setCriticalChance(0);
 			cap.setCriticalDamage(0);
+
+			cap.setSkillPoints(1);
+
+			PlayerUtil.updateAllStats(event.player);
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) event.player);
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(cap), (EntityPlayerMP) event.player);
 		}
 		else if (cap != null && cap.getPlayerClass() > 0)
 		{
+			cap.removeBonusStats();
+			PlayerUtil.updateAllStats(event.player);
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) event.player);
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerInformation(cap), (EntityPlayerMP) event.player);
 		}

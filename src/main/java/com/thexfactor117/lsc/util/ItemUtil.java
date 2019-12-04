@@ -17,6 +17,7 @@ import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -222,7 +223,7 @@ public class ItemUtil
 				return value;
 			}
 		}
-		
-		return 0;
+
+		return 1;
 	}
 }

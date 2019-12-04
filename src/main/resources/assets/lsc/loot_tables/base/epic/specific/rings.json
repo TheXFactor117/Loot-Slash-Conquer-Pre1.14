@@ -7,7 +7,7 @@
 				{
 					"type": "item",
 					"name": "lsc:golden_ring",
-					"weight": 5,
+					"weight": 4,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -21,7 +21,7 @@
 				{
 					"type": "item",
 					"name": "lsc:diamond_ring",
-					"weight": 1,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

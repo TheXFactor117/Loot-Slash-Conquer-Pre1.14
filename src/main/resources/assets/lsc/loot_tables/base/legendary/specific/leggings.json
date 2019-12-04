@@ -7,7 +7,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:leather_leggings",
-					"weight": 12,
+					"weight": 1,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -21,7 +21,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:chainmail_leggings",
-					"weight": 5,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -35,7 +35,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:golden_leggings",
-					"weight": 8,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -63,7 +63,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:diamond_leggings",
-					"weight": 1,
+					"weight": 2,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

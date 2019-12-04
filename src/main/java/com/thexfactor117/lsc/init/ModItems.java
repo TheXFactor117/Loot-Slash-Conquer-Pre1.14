@@ -1,19 +1,10 @@
 package com.thexfactor117.lsc.init;
 
+import baubles.api.BaubleType;
 import com.thexfactor117.lsc.items.base.ItemBase;
 import com.thexfactor117.lsc.items.base.ItemBauble;
-import com.thexfactor117.lsc.items.scrolls.ItemBlizzardScroll;
-import com.thexfactor117.lsc.items.scrolls.ItemDischargeScroll;
-import com.thexfactor117.lsc.items.scrolls.ItemFireballScroll;
-import com.thexfactor117.lsc.items.scrolls.ItemFirestormScroll;
-import com.thexfactor117.lsc.items.scrolls.ItemFrostbiteScroll;
-import com.thexfactor117.lsc.items.scrolls.ItemInvisibilityScroll;
-import com.thexfactor117.lsc.items.scrolls.ItemMajorEtherealScroll;
-import com.thexfactor117.lsc.items.scrolls.ItemMinorEtherealScroll;
-import com.thexfactor117.lsc.items.scrolls.ItemVoidScroll;
+import com.thexfactor117.lsc.items.scrolls.*;
 import com.thexfactor117.lsc.loot.Rarity;
-
-import baubles.api.BaubleType;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;

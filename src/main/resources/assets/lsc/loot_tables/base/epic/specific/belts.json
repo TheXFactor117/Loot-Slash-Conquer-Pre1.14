@@ -7,7 +7,7 @@
 				{
 					"type": "item",
 					"name": "lsc:leather_sash",
-					"weight": 1,
+					"weight": 2,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

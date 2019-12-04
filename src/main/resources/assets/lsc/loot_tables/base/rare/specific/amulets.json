@@ -21,7 +21,7 @@
 				{
 					"type": "item",
 					"name": "lsc:diamond_amulet",
-					"weight": 1,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

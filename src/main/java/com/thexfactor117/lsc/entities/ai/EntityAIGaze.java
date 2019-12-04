@@ -76,8 +76,6 @@ public class EntityAIGaze extends EntityAIBase
 				
 				if (chance == 0)
 				{
-					double damage = this.entity.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue() / 4;
-					enemy.attackEntityFrom(DamageSource.causeMobDamage(this.entity), (float) damage);
 					enemy.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20 * 5, 10));
 					enemy.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 20 * 3, 1));
 					enemy.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, 20 * 3, 1));
