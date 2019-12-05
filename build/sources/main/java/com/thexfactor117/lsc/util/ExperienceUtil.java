@@ -38,12 +38,12 @@ public class ExperienceUtil
 	/** Returns the amount of experience needed to level up given the current level. */
 	public static int getLevelUpExperience(int currentLevel) 
 	{
-		return (int) (Math.pow(currentLevel + 1, Configs.playerCategory.levelUpExpPower) + Configs.playerCategory.levelUpAdditive);
+		return (int) (Math.pow(currentLevel, Configs.playerCategory.levelUpExpPower) + Configs.playerCategory.levelUpAdditive);
 	}
 	
 	public static void addExperience(EntityPlayer player, LSCPlayerCapability cap, Entity enemy)
 	{
-		int experience = 0;
+		double experience = 0;
 		
 		EnemyInfo enemyInfo = (EnemyInfo) enemy.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
 		
@@ -65,10 +65,10 @@ public class ExperienceUtil
 			double baseFactor = Configs.monsterLevelTierCategory.experienceBaseFactor;
 			double tierMultiplier = (Math.pow(enemyTier, Configs.monsterLevelTierCategory.experienceTierPower));
 			double rarityMultiplier = (Math.pow(rarity, Configs.monsterLevelTierCategory.experienceRarityPower));
-			int multiplier = (int) ((tierMultiplier * rarityMultiplier + 1) / Configs.monsterLevelTierCategory.experienceDivisor);
-			
+			double multiplier = ((tierMultiplier * rarityMultiplier) + 1 / Configs.monsterLevelTierCategory.experienceDivisor);
+
 			// base experience is 10 for now...
-			experience = (int) (((enemyLevel + 1) * (baseFactor + multiplier)) / cap.getPlayerLevel());
+			experience = ((enemyLevel) * (baseFactor * multiplier)) / cap.getPlayerLevel();
 			
 			double bonusExperience = 0;
 			ItemStack stack = player.getHeldItem(player.getActiveHand());
@@ -87,10 +87,10 @@ public class ExperienceUtil
 		}
 		
 		// update experience on client AND server; increase level if need be.
-		cap.setPlayerExperience(cap.getPlayerExperience() + experience);
+		cap.setPlayerExperience(cap.getPlayerExperience() + (int) experience);
 		
 		// Minecraft bug with actionbar times - it doesn't actually handle specifying times for the actionbar.
-		SPacketTitle packetActionbar = new SPacketTitle(SPacketTitle.Type.ACTIONBAR, new TextComponentString("You killed " + enemy.getName() + " and gained " + experience + " experience!"), -1, -1, -1);
+		SPacketTitle packetActionbar = new SPacketTitle(SPacketTitle.Type.ACTIONBAR, new TextComponentString("You killed " + enemy.getName() + " and gained " + (int) experience + " experience!"), -1, -1, -1);
 		((EntityPlayerMP) player).connection.sendPacket(packetActionbar);
 		
 		while (cap.getPlayerExperience() > getLevelUpExperience(cap.getPlayerLevel())) 

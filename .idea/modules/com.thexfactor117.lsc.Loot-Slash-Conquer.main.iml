@@ -115,5 +115,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Baubles-1.12-1.5.2" level="project" />
   </component>
 </module>

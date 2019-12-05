@@ -7,20 +7,6 @@
 				{
 					"type": "item",
 					"name": "lsc:wooden_staff",
-					"weight": 15,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 3
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "lsc:golden_staff",
 					"weight": 7,
 					"functions": [
 						{
@@ -34,8 +20,22 @@
 				},
 				{
 					"type": "item",
+					"name": "lsc:golden_staff",
+					"weight": 5,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 3
+						}
+					]
+				},
+				{
+					"type": "item",
 					"name": "lsc:diamond_staff",
-					"weight": 1,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

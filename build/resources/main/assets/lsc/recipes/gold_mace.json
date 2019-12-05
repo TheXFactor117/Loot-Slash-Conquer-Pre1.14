@@ -1,13 +1,13 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
-		"XXX",
-		"XYX",
-		" Y "
+		"  X",
+		" Y ",
+		"Y  "
 	],
 	"key": {
 		"X": {
-			"item": "minecraft:gold_ingot"
+			"item": "minecraft:gold_block"
 		},
 		"Y": {
 			"item": "minecraft:stick"

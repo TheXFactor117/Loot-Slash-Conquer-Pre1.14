@@ -511,7 +511,7 @@ public class Configs
 			"Only change this if you know what you are doing.",
 			"This number gets raised to the level+1 power."
 		})
-		public double experienceBaseFactor = 1.15;
+		public double experienceBaseFactor = 10;
 		
 		@Comment({
 			"Only change this if you know what you are doing.",
@@ -524,31 +524,13 @@ public class Configs
 			"This number influences the experience dropped difference between the different rarities. Bigger number = bigger difference."
 		})
 		public double experienceRarityPower = 1.75;
-		
-		@Comment({
-			"Only change this if you know what you are doing.",
-			"Divides the outcome of tier^tierPower. Recommended for people who understand the algorithm ENTIRELY."
-		})
-		public double experienceTierDivisor = 3;
-		
-		@Comment({
-			"Only change this if you know what you are doing.",
-			"Divides the outcome of rarity^rarityPower. Recommended for people who understand the algorithm ENTIRELY."
-		})
-		public double experienceRarityDivisor = 2.5;
-		
+
 		@Comment({
 			"Only change this if you know what you are doing.",
 			"Divides the ENTIRE experience amount by this number. Recommended for people who understand the algorithm ENTIRELY."
 		})
 		public double experienceDivisor = 1.5;
-		
-		@Comment({
-			"Base amount of experience for ALL monsters.",
-			"Placeholder number for now - could change in the future, or become permanent."
-		})
-		public double baseExperience = 10;
-		
+
 		// misc
 		@Comment({
 			"Defines the level range a monster can spawn at.",
@@ -569,7 +551,7 @@ public class Configs
 			"Sets the power of the level up algorithm for player experience."
 		})
 		@RangeDouble(min = 0)
-		public double levelUpExpPower = 3.52;
+		public double levelUpExpPower = 1.5;
 		
 		@Comment("If true, the player will gain Bonus skill points every 5 and 10 levels, in addition to every level.")
 		public boolean useTieredSkillPointDistribution = true;
@@ -608,7 +590,7 @@ public class Configs
 		
 		// player stats
 		@Comment("This amount gets added to the player's movement speed for every Agility point.")
-		public double movementSpeedMultiplier = 0.001;
+		public double movementSpeedMultiplier = 0.0001;
 		
 		@Comment("This amount gets added to the player's attack speed for every Dexterity point.")
 		public double attackSpeedMultiplier = 0.03;

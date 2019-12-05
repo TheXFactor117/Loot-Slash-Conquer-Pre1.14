@@ -107,7 +107,7 @@ public class AttributeChained extends AttributeWeapon
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
 		double value =(double) floor((this.getAttributeValue(nbt)) * 100.0);
-		String tooltip = " * " + value + "% chance to chain " + value + "% of damage to enemies within 8 blocks.";
+		String tooltip = " * " + value + "% chance to chain to nearby enemies.";
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
 		{

@@ -7,48 +7,6 @@
 				{
 					"type": "item",
 					"name": "lsc:wood_mace",
-					"weight": 10,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 1
-						}	
-					]
-				},
-				{
-					"type": "item",
-					"name": "lsc:stone_mace",
-					"weight": 6,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 1
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "lsc:gold_mace",
-					"weight": 7,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 1
-						}	
-					]
-				},
-				{
-					"type": "item",
-					"name": "lsc:iron_mace",
 					"weight": 3,
 					"functions": [
 						{
@@ -62,8 +20,50 @@
 				},
 				{
 					"type": "item",
+					"name": "lsc:stone_mace",
+					"weight": 12,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 1
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "lsc:gold_mace",
+					"weight": 8,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 1
+						}	
+					]
+				},
+				{
+					"type": "item",
+					"name": "lsc:iron_mace",
+					"weight": 10,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 1
+						}	
+					]
+				},
+				{
+					"type": "item",
 					"name": "lsc:diamond_mace",
-					"weight": 1,
+					"weight": 5,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

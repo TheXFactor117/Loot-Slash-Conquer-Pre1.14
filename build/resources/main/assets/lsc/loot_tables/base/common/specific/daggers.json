@@ -7,48 +7,6 @@
 				{
 					"type": "item",
 					"name": "lsc:wood_dagger",
-					"weight": 10,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 1
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "lsc:stone_dagger",
-					"weight": 6,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 1
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "lsc:gold_dagger",
-					"weight": 7,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 1
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "lsc:iron_dagger",
 					"weight": 3,
 					"functions": [
 						{
@@ -62,8 +20,50 @@
 				},
 				{
 					"type": "item",
+					"name": "lsc:stone_dagger",
+					"weight": 12,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 1
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "lsc:gold_dagger",
+					"weight": 8,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 1
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "lsc:iron_dagger",
+					"weight": 10,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 1
+						}
+					]
+				},
+				{
+					"type": "item",
 					"name": "lsc:diamond_dagger",
-					"weight": 1,
+					"weight": 5,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

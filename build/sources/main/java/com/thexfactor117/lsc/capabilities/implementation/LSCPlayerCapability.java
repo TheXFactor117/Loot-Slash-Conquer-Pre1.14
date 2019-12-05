@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.capabilities.implementation;
 import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.LootSlashConquer;
+import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.attributes.Attribute;
@@ -15,8 +16,13 @@ import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
+import baubles.api.BaublesApi;
+import baubles.api.cap.IBaublesItemHandler;
 
 /**
  *
@@ -77,11 +83,6 @@ public class LSCPlayerCapability implements ILSCPlayer
 
 	private final EntityPlayer player;
 
-	private ItemStack helmet = ItemStack.EMPTY;
-	private ItemStack chestplate = ItemStack.EMPTY;
-	private ItemStack leggings = ItemStack.EMPTY;
-	private ItemStack boots = ItemStack.EMPTY;
-
 	public LSCPlayerCapability(@Nullable EntityPlayer player)
 	{
 		this.player = player;
@@ -90,62 +91,49 @@ public class LSCPlayerCapability implements ILSCPlayer
 	/**
 	 * Updates the LSC player state.
 	 */
-	public void tickPlayer()
-	{
+	public void tickPlayer() {
 		if (player == null) return;
 
 		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
 
-		// current armor stacks
-		ItemStack stackHelmet = player.inventory.armorInventory.get(3);
-		ItemStack stackChestplate = player.inventory.armorInventory.get(2);
-		ItemStack stackLeggings = player.inventory.armorInventory.get(1);
-		ItemStack stackBoots = player.inventory.armorInventory.get(0);
+		cap.removeBonusStats();
 
-		boolean armorChanged = false;
-
-		// update armor stacks if we find new ones
-		if (!ItemStack.areItemStacksEqual(stackHelmet, helmet) || stackHelmet.equals(ItemStack.EMPTY))
-		{
-			armorChanged = true;
-			updateArmorAttributes(helmet, stackHelmet, cap);
-			this.helmet = stackHelmet;
-		}
-		if (!ItemStack.areItemStacksEqual(stackChestplate, chestplate) || stackChestplate.equals(ItemStack.EMPTY))
-		{
-			armorChanged = true;
-			updateArmorAttributes(chestplate, stackChestplate, cap);
-			this.chestplate = stackChestplate;
-		}
-		if (!ItemStack.areItemStacksEqual(stackLeggings, leggings) || stackLeggings.equals(ItemStack.EMPTY))
-		{
-			armorChanged = true;
-			updateArmorAttributes(leggings, stackLeggings, cap);
-			this.leggings = stackLeggings;
-		}
-		if (!ItemStack.areItemStacksEqual(stackBoots, boots) || stackBoots.equals(ItemStack.EMPTY))
-		{
-			armorChanged = true;
-			updateArmorAttributes(boots, stackBoots, cap);
-			this.boots = stackBoots;
+		IBaublesItemHandler baublesInventory = BaublesApi.getBaublesHandler(player);
+		for(int slot = 0; slot < baublesInventory.getSlots(); slot++)  {
+			ItemStack stack = baublesInventory.getStackInSlot(slot);
+			if (stack.getItem() instanceof ItemBauble) {
+				for (Attribute attribute : ItemUtil.getAllAttributes(stack)) {
+					if (attribute instanceof AttributeArmor) {
+						((AttributeArmor) attribute).onEquip(cap, stack);
+					}
+				}
+			}
 		}
 
-		if (armorChanged)
-		{
-			// send update packet?
-			LootSlashConquer.network.sendTo(new PacketUpdateCoreStats(cap), (EntityPlayerMP) player);
+		for (ItemStack stack : player.inventory.armorInventory) {
+			if (stack.getItem() instanceof ItemArmor) {
+				for (Attribute attribute : ItemUtil.getAllAttributes(stack)) {
+					if (attribute instanceof AttributeArmor) {
+						((AttributeArmor) attribute).onEquip(cap, stack);
+					}
+				}
+			}
 		}
+
+		assert cap != null;
+		LootSlashConquer.network.sendTo(new PacketUpdateCoreStats(cap), (EntityPlayerMP) player);
+
+		updatePlayerPower();
+		updatePlayerResistance();
+		LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
 
 		// health and mana regeneration
-		if (cap.getRegenTicks() % 100 == 0)
-		{
-			if (cap.getMana() < cap.getMaxMana())
-			{
+		if (cap.getRegenTicks() % 100 == 0) {
+			if (cap.getMana() < cap.getMaxMana()) {
 				cap.increaseMana(cap.getManaPerSecond());
 			}
 
-			if (player.getHealth() < player.getMaxHealth())
-			{
+			if (player.getHealth() < player.getMaxHealth()) {
 				player.heal(cap.getHealthPerSecond());
 			}
 
@@ -156,36 +144,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 
 		cap.incrementRegenTicks();
 	}
-	
-	/**
-	 * Iterates through all of the attributes on the oldStack and newStack, unequipping effects of
-	 * the oldStack and equipping effects on the newStack.
-	 * @param oldStack
-	 * @param newStack
-	 * @param cap
-	 */
-	private void updateArmorAttributes(ItemStack oldStack, ItemStack newStack, LSCPlayerCapability cap)
-	{
-		for (Attribute attribute : ItemUtil.getAllAttributes(oldStack))
-		{
-			if (attribute instanceof AttributeArmor)
-			{
-				((AttributeArmor) attribute).onUnequip(cap, oldStack);
-			}
-		}
 
-		for (Attribute attribute : ItemUtil.getAllAttributes(newStack))
-		{
-			if (attribute instanceof AttributeArmor)
-			{
-				((AttributeArmor) attribute).onEquip(cap, newStack);
-			}
-		}
-
-		updatePlayerPower();
-		updatePlayerResistance();
-		LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
-	}
 	
 	/**
 	 * Updates the player's physical, ranged, and magical power.
@@ -204,7 +163,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 	/**
 	 * Updates the player's physical and magical resistance.
 	 */
-	public void updatePlayerResistance()
+	private void updatePlayerResistance()
 	{
 		int physicalResistance = (int) ((Math.pow(1.05, getPlayerLevel()) + getTotalStrength()) * (0.85 * 0.8));
 		int magicalResistance = (int) ((Math.pow(1.05, getPlayerLevel()) + getTotalIntelligence()) * (0.85 * 0.8));
@@ -219,25 +178,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 	 * 
 	 */
 
-	public ItemStack getHelmet()
-	{
-		return helmet;
-	}
 
-	public ItemStack getChestplate()
-	{
-		return chestplate;
-	}
-
-	public ItemStack getLeggings()
-	{
-		return leggings;
-	}
-
-	public ItemStack getBoots()
-	{
-		return boots;
-	}
 
 	/*
 	 * 
@@ -615,6 +556,12 @@ public class LSCPlayerCapability implements ILSCPlayer
 		this.intelligenceBonusStat = 0;
 		this.wisdomBonusStat = 0;
 		this.fortitudeBonusStat = 0;
+		this.setLightningResistance(0);
+		this.setFrostResistance(0);
+		this.setFireResistance(0);
+		this.setPoisonResistance(0);
+		this.setMagicalResistance(0);
+		this.setPhysicalResistance(0);
 	}
 
 	public int getTotalStrength()

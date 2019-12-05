@@ -45,7 +45,7 @@ public class AttributeUtil
 		// set min/max values
 		setDamageMinMax(attribute, stack, nbt, weightedBase);
 		// calculate the actual value by randomizing between min/max.
-		int trueDamage = (int) (Math.random() * (attribute.getAttributeMaxValue(nbt) - attribute.getAttributeMinValue(nbt)) + attribute.getAttributeMinValue(nbt));
+		double trueDamage = Math.random() * (attribute.getAttributeMaxValue(nbt) - attribute.getAttributeMinValue(nbt)) + attribute.getAttributeMinValue(nbt);
 		
 		nbt.setDouble(attribute.getName() + "_value", trueDamage);
 	}
@@ -69,7 +69,10 @@ public class AttributeUtil
 		setPercentageMinMax(attribute, stack, nbt, weightedPercentage);
 		// calculate the actual value by randomizing between min/max.
 		double truePercentage = Math.random() * (attribute.getAttributeMaxValue(nbt) - attribute.getAttributeMinValue(nbt)) + attribute.getAttributeMinValue(nbt);
-		
+
+		if (truePercentage< 0.01) truePercentage = 0.01;
+		if (truePercentage > 0.95) truePercentage = 0.95;
+
 		nbt.setDouble(attribute.getName() + "_value", truePercentage);
 	}
 	
@@ -89,7 +92,7 @@ public class AttributeUtil
 		
 		setStatMinMax(attribute, stack, nbt, weightedStat);
 		
-		int trueStat = (int) (Math.random() * (attribute.getAttributeMaxValue(nbt) - attribute.getAttributeMinValue(nbt)) + attribute.getAttributeMinValue(nbt));
+		double trueStat = Math.random() * (attribute.getAttributeMaxValue(nbt) - attribute.getAttributeMinValue(nbt)) + attribute.getAttributeMinValue(nbt);
 		
 		nbt.setDouble(attribute.getName() + "_value", trueStat);
 	}
@@ -100,8 +103,10 @@ public class AttributeUtil
 		
 		setResistanceMinMax(attribute, stack, nbt, weightedResistance);
 		
-		int trueResistance = (int) (Math.random() * (attribute.getAttributeMaxValue(nbt) - attribute.getAttributeMinValue(nbt)) + attribute.getAttributeMinValue(nbt));
-		
+		double trueResistance = Math.random() * (attribute.getAttributeMaxValue(nbt) - attribute.getAttributeMinValue(nbt)) + attribute.getAttributeMinValue(nbt);
+
+		if (trueResistance < 1) trueResistance = 1;
+
 		nbt.setDouble(attribute.getName() + "_value", trueResistance);
 	}
 	
@@ -120,12 +125,12 @@ public class AttributeUtil
 		double randomMultiplier = Math.random() * (maxRandFactor - minRandFactor) + minRandFactor;
 		
 		// scales the range by the item's level.
-		double levelMultiplier = ItemUtil.getItemLevel(stack) * 0.1;
+		double levelMultiplier = 1.0 + ItemUtil.getItemLevel(stack) * 0.1;
 		
-		int range = (int) (randomMultiplier * levelMultiplier);
+		double range =  randomMultiplier * levelMultiplier;
 
-		int minValue = (int) (startingValue - range);
-		int maxValue = (int) (startingValue + levelMultiplier);
+		double minValue = startingValue * range;
+		double maxValue = startingValue * levelMultiplier;
 		
 		nbt.setDouble(attribute.getName() + "_minvalue", minValue);
 		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
@@ -146,11 +151,11 @@ public class AttributeUtil
 		double randomMultiplier = Math.random() * (maxRandFactor - minRandFactor) + minRandFactor;
 		
 		// scales range?
+		double levelMultiplier = ItemUtil.getItemLevel(stack);
+		double range = levelMultiplier * randomMultiplier * startingValue;
 		
-		double range = randomMultiplier * startingValue + 0.01;
-		
-		double minValue = startingValue - (range / 2);
-		double maxValue = startingValue + (range / 2);
+		double minValue = (levelMultiplier * 0.01) + (startingValue - (range / 2));
+		double maxValue = (levelMultiplier * 0.01) + (startingValue + (range / 2));
 		
 		nbt.setDouble(attribute.getName() + "_minvalue", minValue);
 		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
@@ -171,12 +176,12 @@ public class AttributeUtil
 		double randomMultiplier = Math.random() * (maxRandFactor - minRandFactor) + minRandFactor;
 		
 		// scale range based off of item level.
-		double levelMultiplier = ItemUtil.getItemLevel(stack) * 0.05;
+		double levelMultiplier = 1.0 + ItemUtil.getItemLevel(stack) * 0.01;
 		
-		int range = (int) (randomMultiplier * levelMultiplier);
+		double range = randomMultiplier * levelMultiplier;
 		
-		int minValue = (int) (startingValue + range);
-		int maxValue = (int) (startingValue + levelMultiplier);
+		double minValue = startingValue * range;
+		double maxValue = startingValue * levelMultiplier;
 		
 		nbt.setDouble(attribute.getName() + "_minvalue", minValue);
 		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
@@ -188,10 +193,10 @@ public class AttributeUtil
 		double maxRandFactor = Configs.weaponCategory.damageMaxRandFactor;
 		double randomMultiplier = Math.random() * (maxRandFactor - minRandFactor) + minRandFactor;
 		
-		double levelMultiplier = ItemUtil.getItemLevel(stack) * randomMultiplier;
+		double levelMultiplier = ItemUtil.getItemLevel(stack);
 		
-		int minValue = (int) (startingValue + levelMultiplier * randomMultiplier);
-		int maxValue = (int) (startingValue + levelMultiplier);
+		double minValue = startingValue * levelMultiplier * randomMultiplier;
+		double maxValue = startingValue * levelMultiplier;
 		
 		nbt.setDouble(attribute.getName() + "_minvalue", minValue);
 		nbt.setDouble(attribute.getName() + "_maxvalue", maxValue);
@@ -218,15 +223,15 @@ public class AttributeUtil
 		switch (rarity)
 		{
 			case COMMON:
-				return baseValue * 1 * multiplier;
+				return baseValue * 0.01 * multiplier;
 			case UNCOMMON:
-				return baseValue * 1.25 * multiplier;
+				return baseValue * 0.1 * multiplier;
 			case RARE:
-				return baseValue * 2 * multiplier;
+				return baseValue * 0.25 * multiplier;
 			case EPIC:
-				return baseValue * 3.1 * multiplier;
+				return baseValue * 0.31 * multiplier;
 			case LEGENDARY:
-				return baseValue * 4.5 * multiplier;
+				return baseValue * 0.45 * multiplier;
 			default:
 				return 0;
 		}
@@ -255,15 +260,15 @@ public class AttributeUtil
 		switch (rarity)
 		{
 			case COMMON:
-				return baseValue * Math.pow(baseFactor, 1.0);
+				return baseFactor * baseValue * multiplier * 1.0;
 			case UNCOMMON:
-				return baseValue * Math.pow(baseFactor, 2.0);
+				return baseFactor * baseValue * multiplier * 2.0;
 			case RARE:
-				return baseValue * Math.pow(baseFactor, 3.0);
+				return baseFactor * baseValue * multiplier * 3.0;
 			case EPIC:
-				return baseValue * Math.pow(baseFactor, 4.0);
+				return baseFactor * baseValue * multiplier * 4.0;
 			case LEGENDARY:
-				return baseValue * Math.pow(baseFactor, 5.0);
+				return baseFactor * baseValue * multiplier * 5.0;
 			default:
 				return baseValue;
 		}

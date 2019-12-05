@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.capabilities.implementation;
 import javax.annotation.Nullable;
 
 import com.thexfactor117.lsc.LootSlashConquer;
+import com.thexfactor117.lsc.items.base.ItemBauble;
 import com.thexfactor117.lsc.capabilities.api.ILSCPlayer;
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.loot.attributes.Attribute;
@@ -19,6 +20,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
+import baubles.api.BaublesApi;
+import baubles.api.cap.IBaublesItemHandler;
 
 /**
  *
@@ -94,8 +98,19 @@ public class LSCPlayerCapability implements ILSCPlayer
 
 		cap.removeBonusStats();
 
-		for (int slot = 0; slot < 4; slot++) {
-			ItemStack stack = player.inventory.armorInventory.get(slot);
+		IBaublesItemHandler baublesInventory = BaublesApi.getBaublesHandler(player);
+		for(int slot = 0; slot < baublesInventory.getSlots(); slot++)  {
+			ItemStack stack = baublesInventory.getStackInSlot(slot);
+			if (stack.getItem() instanceof ItemBauble) {
+				for (Attribute attribute : ItemUtil.getAllAttributes(stack)) {
+					if (attribute instanceof AttributeArmor) {
+						((AttributeArmor) attribute).onEquip(cap, stack);
+					}
+				}
+			}
+		}
+
+		for (ItemStack stack : player.inventory.armorInventory) {
 			if (stack.getItem() instanceof ItemArmor) {
 				for (Attribute attribute : ItemUtil.getAllAttributes(stack)) {
 					if (attribute instanceof AttributeArmor) {

@@ -7,7 +7,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:wooden_sword",
-					"weight": 10,
+					"weight": 2,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -21,20 +21,6 @@
 				{
 					"type": "item",
 					"name": "minecraft:stone_sword",
-					"weight": 6,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 3
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "minecraft:golden_sword",
 					"weight": 7,
 					"functions": [
 						{
@@ -48,8 +34,22 @@
 				},
 				{
 					"type": "item",
+					"name": "minecraft:golden_sword",
+					"weight": 5,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 3
+						}
+					]
+				},
+				{
+					"type": "item",
 					"name": "minecraft:iron_sword",
-					"weight": 3,
+					"weight": 6,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -63,7 +63,7 @@
 				{
 					"type": "item",
 					"name": "minecraft:diamond_sword",
-					"weight": 1,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

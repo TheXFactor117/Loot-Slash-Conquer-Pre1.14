@@ -30,7 +30,7 @@ public class EventLivingDeath
 		/*
 		 * Update player experience when they kill a monster. Experience gained is determined from how much health/damage the monsters has.
 		 */
-		if (event.getSource().getTrueSource() instanceof EntityPlayer && (event.getEntityLiving() instanceof IMob || event.getEntityLiving() instanceof EntityGhast || event.getEntityLiving() instanceof EntityPlayer || event.getEntityLiving() instanceof IEntityOwnable))
+		if (event.getSource().getTrueSource() instanceof EntityPlayer && (event.getEntity() instanceof IMob || event.getEntityLiving() instanceof EntityGhast || event.getEntityLiving() instanceof EntityPlayer || event.getEntityLiving() instanceof IEntityOwnable))
 		{
 			EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 			EntityLivingBase enemy = event.getEntityLiving();

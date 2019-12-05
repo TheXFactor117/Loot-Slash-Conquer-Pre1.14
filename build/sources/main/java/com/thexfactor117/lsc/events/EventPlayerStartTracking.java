@@ -36,7 +36,7 @@ public class EventPlayerStartTracking {
 	public static void onPlayerStartTracking(PlayerEvent.StartTracking event) {
 		if (!event.getEntityPlayer().world.isRemote) {
 
-			if (event.getTarget() instanceof EntityLivingBase && event.getTarget() instanceof EntityPlayerMP)
+			if (event.getTarget() instanceof EntityLivingBase && !(event.getTarget() instanceof EntityPlayerMP))
 			{
 
 			Entity entity = event.getTarget();

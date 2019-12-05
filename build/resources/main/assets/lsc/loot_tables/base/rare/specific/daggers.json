@@ -7,7 +7,7 @@
 				{
 					"type": "item",
 					"name": "lsc:wood_dagger",
-					"weight": 10,
+					"weight": 2,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -21,20 +21,6 @@
 				{
 					"type": "item",
 					"name": "lsc:stone_dagger",
-					"weight": 6,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 3
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "lsc:gold_dagger",
 					"weight": 7,
 					"functions": [
 						{
@@ -48,8 +34,22 @@
 				},
 				{
 					"type": "item",
+					"name": "lsc:gold_dagger",
+					"weight": 5,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 3
+						}
+					]
+				},
+				{
+					"type": "item",
 					"name": "lsc:iron_dagger",
-					"weight": 3,
+					"weight": 6,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -63,7 +63,7 @@
 				{
 					"type": "item",
 					"name": "lsc:diamond_dagger",
-					"weight": 1,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

@@ -50,14 +50,14 @@ public class GuiMana extends Gui
 						{
 							double manaBarWidth = (double) cap.getMana() / cap.getMaxMana() * 81.0;
 							int xPos = sr.getScaledWidth() / 2 + 10;
-							int yPos = sr.getScaledHeight() - 38;
+							int yPos = sr.getScaledHeight() - 39;
 							
 							mc.renderEngine.bindTexture(location);
 
 							//if (capMana.getMana() != capMana.getMaxMana())
 							//{
-								this.drawTexturedModalRect(xPos, yPos, 0, 18, 81, 6);
-								this.drawTexturedModalRect(xPos, yPos, 0, 24, (int) manaBarWidth, 5);
+								this.drawTexturedModalRect(xPos, yPos, 0, 0, 81, 9);
+								this.drawTexturedModalRect(xPos, yPos, 0, 27, (int) manaBarWidth, 8);
 							//}
 						}
 					}
@@ -81,7 +81,7 @@ public class GuiMana extends Gui
 				
 				GL11.glPushMatrix();
 				GL11.glScalef(0.5F, 0.5F, 0.5F);
-				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(mana, (sr.getScaledWidth() / 2 + 37) * 2, (sr.getScaledHeight() - 37) * 2, 0xFFFFFF);
+				Minecraft.getMinecraft().fontRenderer.drawStringWithShadow(mana, (sr.getScaledWidth() / 2 + 36) * 2, (sr.getScaledHeight() - 36) * 2, 0xFFFFFF);
 				GL11.glPopMatrix();
 			}
 		}

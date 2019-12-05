@@ -31,7 +31,7 @@ public class AttributeVoid extends AttributeWeapon
 	{
 		if (Math.random() < this.getAttributeValue(NBTHelper.loadStackNBT(stack)))
 		{
-			enemy.setHealth(0.1F);
+			enemy.setHealth(enemy.getHealth() - enemy.getHealth() * (float) this.getAttributeValue(NBTHelper.loadStackNBT(stack)));
 		}
 	}
 	
@@ -47,7 +47,7 @@ public class AttributeVoid extends AttributeWeapon
 	public String getTooltipDisplay(NBTTagCompound nbt)
 	{
 		int value = (int) (this.getAttributeValue(nbt) * 100);
-		String tooltip = " * " + value + "% chance to instantly kill.";
+		String tooltip = " * " + value + "% chance to pierce armor with "+ value + "% of damage.";
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
 		{

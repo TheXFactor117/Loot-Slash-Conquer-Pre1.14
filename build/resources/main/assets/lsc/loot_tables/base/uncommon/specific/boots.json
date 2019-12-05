@@ -7,48 +7,6 @@
 				{
 					"type": "item",
 					"name": "minecraft:leather_boots",
-					"weight": 12,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 2
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "minecraft:chainmail_boots",
-					"weight": 5,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 2
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "minecraft:golden_boots",
-					"weight": 8,
-					"functions": [
-						{
-							"function": "lsc:tag_loot"
-						},
-						{
-							"function": "lsc:set_rarity",
-							"rarity": 2
-						}
-					]
-				},
-				{
-					"type": "item",
-					"name": "minecraft:iron_boots",
 					"weight": 3,
 					"functions": [
 						{
@@ -62,8 +20,50 @@
 				},
 				{
 					"type": "item",
+					"name": "minecraft:chainmail_boots",
+					"weight": 10,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 2
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:golden_boots",
+					"weight": 7,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 2
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:iron_boots",
+					"weight": 9,
+					"functions": [
+						{
+							"function": "lsc:tag_loot"
+						},
+						{
+							"function": "lsc:set_rarity",
+							"rarity": 2
+						}
+					]
+				},
+				{
+					"type": "item",
 					"name": "minecraft:diamond_boots",
-					"weight": 1,
+					"weight": 4,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"

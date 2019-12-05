@@ -7,7 +7,7 @@
 				{
 					"type": "item",
 					"name": "lsc:wood_mace",
-					"weight": 10,
+					"weight": 1,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -21,7 +21,7 @@
 				{
 					"type": "item",
 					"name": "lsc:stone_mace",
-					"weight": 6,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -35,7 +35,7 @@
 				{
 					"type": "item",
 					"name": "lsc:gold_mace",
-					"weight": 7,
+					"weight": 3,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
@@ -63,7 +63,7 @@
 				{
 					"type": "item",
 					"name": "lsc:diamond_mace",
-					"weight": 1,
+					"weight": 2,
 					"functions": [
 						{
 							"function": "lsc:tag_loot"
