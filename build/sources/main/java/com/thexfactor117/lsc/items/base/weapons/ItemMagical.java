@@ -128,7 +128,7 @@ public class ItemMagical extends Item
 				}
 				
 				// fire projectile because check passed
-				world.playSound(player, player.getPosition(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+				world.playSound(player, player.getPosition(), SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F);
 				
 				if (!world.isRemote)
 				{

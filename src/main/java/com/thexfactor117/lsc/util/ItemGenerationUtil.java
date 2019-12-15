@@ -69,7 +69,7 @@ public class ItemGenerationUtil
 		}
 	}
 
-	private static int getAttributeAmounts(ItemStack stack)
+	public static int getAttributeAmounts(ItemStack stack)
 	{
 		Rarity rarity = ItemUtil.getItemRarity(stack);
 		int amount = 0;
@@ -78,19 +78,19 @@ public class ItemGenerationUtil
 		switch (rarity)
 		{
 			case COMMON:
-				amount = 1; // 1 guaranteed attribute
+				amount = 4; // 1 guaranteed attribute
 				break;
 			case UNCOMMON:
-				amount = (int) (Math.random() * 2 + 1); // 1 guaranteed attribute, 50% chance for an additional one.
+				amount = (int) (Math.random() * 2 + 3); // 1 guaranteed attribute, 50% chance for an additional one.
 				break;
 			case RARE:
-				amount = (int) (Math.random() * 2 + 2); // 2 guaranteed attributes, 50% chance for an additional one.
+				amount = (int) (Math.random() * 3 + 2); // 2 guaranteed attributes, 50% chance for an additional one.
 				break;
 			case EPIC:
-				amount = (int) (Math.random() * 3 + 2); // 2 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
+				amount = (int) (Math.random() * 2 + 2); // 2 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
 				break;
 			case LEGENDARY:
-				amount = (int) (Math.random() * 3 + 3); // 3 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
+				amount = (int) (Math.random() * 2 + 1); // 3 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
 				break;
 			default:
 				break;

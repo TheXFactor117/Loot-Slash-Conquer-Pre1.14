@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="lycanitesmobs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/lycanitesmobs.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

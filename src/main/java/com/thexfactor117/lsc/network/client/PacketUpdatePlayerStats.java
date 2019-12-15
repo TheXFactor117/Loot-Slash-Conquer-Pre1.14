@@ -107,6 +107,7 @@ public class PacketUpdatePlayerStats implements IMessage
 				public void run() 
 				{
 					EntityPlayer player = Minecraft.getMinecraft().player;
+					assert CapabilityLSCPlayer.PLAYER_CAP != null;
 					LSCPlayerCapability cap = (LSCPlayerCapability) player.getCapability(CapabilityLSCPlayer.PLAYER_CAP, null);
 					
 					if (cap != null)

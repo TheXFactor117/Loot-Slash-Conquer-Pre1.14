@@ -5,7 +5,6 @@ import javax.annotation.Nullable;
 import com.thexfactor117.lsc.capabilities.api.IEnemyInfo;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 
 public class EnemyInfo implements IEnemyInfo
 {

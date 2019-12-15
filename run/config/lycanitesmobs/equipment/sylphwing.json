@@ -1,0 +1,54 @@
+{
+  "itemName": "sylphwing",
+  "loadDefault": true,
+  "slotType": "base",
+  "dropMobId": "lycanitesmobs:sylph",
+  "dropChance": 0.1,
+  "levelMin": 1,
+  "levelMax": 3,
+  "features": [
+    {
+      "featureType": "slot",
+      "slotType": "head"
+    },
+    {
+      "featureType": "slot",
+      "slotType": "pommel"
+    },
+    {
+      "featureType": "effect",
+      "levelMin": 1,
+      "levelMax": 2,
+      "effectType": "lycanitesmobs:smited",
+      "effectTarget": "target",
+      "effectDuration": 60,
+      "effectStrength": 1
+    },
+    {
+      "featureType": "effect",
+      "levelMin": 2,
+      "levelMax": 3,
+      "effectType": "lycanitesmobs:smited",
+      "effectTarget": "target",
+      "effectDuration": 80,
+      "effectStrength": 2
+    },
+    {
+      "featureType": "effect",
+      "levelMin": 3,
+      "effectType": "lycanitesmobs:smited",
+      "effectTarget": "target",
+      "effectDuration": 100,
+      "effectStrength": 3
+    },
+    {
+      "featureType": "projectile",
+      "levelMin": 3,
+      "projectileName": "aetherwave",
+      "projectileTrigger": "melee",
+      "projectilePattern": "ring",
+      "projectileCount": 8,
+      "projectileChance": 0.25
+    }
+  ]
+}

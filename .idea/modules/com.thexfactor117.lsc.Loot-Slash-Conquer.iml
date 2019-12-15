@@ -10,5 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Baubles-1.12-1.5.2" level="project" />
+    <orderEntry type="library" name="lycanitesmobs" level="project" />
   </component>
 </module>

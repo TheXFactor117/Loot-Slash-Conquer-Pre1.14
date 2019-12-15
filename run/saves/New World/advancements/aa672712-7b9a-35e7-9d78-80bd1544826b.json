@@ -1,0 +1,14 @@
+{
+  "minecraft:story/shiny_gear": {
+    "criteria": {
+      "diamond_chestplate": "2019-12-14 20:49:14 -0500"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "plains": "2019-12-14 20:48:56 -0500"
+    },
+    "done": false
+  }
+}

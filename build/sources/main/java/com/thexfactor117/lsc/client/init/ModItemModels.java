@@ -50,6 +50,7 @@ public class ModItemModels
 		
 		// misc
 		registerItemModel(ModItems.CORRUPTED_TOWER_KEY);
+		registerItemModel(ModItems.ORB_OF_ALTERATION);
 		
 		
 		

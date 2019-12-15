@@ -4,8 +4,6 @@ import java.util.*;
 
 import org.lwjgl.input.Keyboard;
 
-import org.apache.logging.log4j.Logger;
-
 import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.util.AttributeUtil;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
@@ -14,8 +12,6 @@ import com.thexfactor117.lsc.util.misc.NBTHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

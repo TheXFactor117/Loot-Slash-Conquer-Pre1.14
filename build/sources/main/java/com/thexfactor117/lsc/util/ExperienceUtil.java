@@ -7,7 +7,6 @@ import com.thexfactor117.lsc.capabilities.cap.CapabilityEnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.EnemyInfo;
 import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
 import com.thexfactor117.lsc.config.Configs;
-import com.thexfactor117.lsc.entities.EntityMonster;
 import com.thexfactor117.lsc.entities.EntityRarity;
 import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
 import com.thexfactor117.lsc.loot.attributes.Attribute;
@@ -16,7 +15,6 @@ import com.thexfactor117.lsc.network.client.PacketUpdatePlayerInformation;
 import com.thexfactor117.lsc.util.misc.NBTHelper;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemBow;

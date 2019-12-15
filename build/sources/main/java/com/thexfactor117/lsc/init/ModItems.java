@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.init;
 import baubles.api.BaubleType;
 import com.thexfactor117.lsc.items.base.ItemBase;
 import com.thexfactor117.lsc.items.base.ItemBauble;
+import com.thexfactor117.lsc.items.currency.AlterationOrb;
 import com.thexfactor117.lsc.items.scrolls.*;
 import com.thexfactor117.lsc.loot.Rarity;
 import net.minecraft.item.Item;
@@ -38,6 +39,7 @@ public class ModItems
 	
 	// miscellaneous
 	public static final Item CORRUPTED_TOWER_KEY = new ItemBase("corrupted_tower_key", ModTabs.lscTab);
+	public static final Item ORB_OF_ALTERATION = new AlterationOrb("alteration_orb", ModTabs.lscTab);
 		
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
@@ -62,5 +64,6 @@ public class ModItems
 		
 		// miscellaneous
 		event.getRegistry().register(CORRUPTED_TOWER_KEY);
+		event.getRegistry().register(ORB_OF_ALTERATION);
 	}
 }

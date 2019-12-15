@@ -3,7 +3,6 @@ package com.thexfactor117.lsc.world.generation.dungeon;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 
-import com.thexfactor117.lsc.LootSlashConquer;
 import com.thexfactor117.lsc.init.ModLootTables;
 import com.thexfactor117.lsc.util.misc.RandomCollection;
 import com.thexfactor117.lsc.util.misc.Reference;

@@ -72,7 +72,7 @@ public class EventContainerOpen
 			Rarity.setRarity(nbt, Rarity.getRandomRarity(nbt, world.rand));
 		}
 		
-		ItemGeneration.create(stack, world, level);
+		ItemGeneration.create(stack, level);
 
 		stack.setTagCompound(nbt);
 		//NameGenerator.generateName(stack, nbt);

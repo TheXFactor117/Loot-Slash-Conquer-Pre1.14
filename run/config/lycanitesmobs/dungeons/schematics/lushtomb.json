@@ -1,0 +1,168 @@
+{
+  "name": "lushtomb",
+  "loadDefault": true,
+  "sectorCountMin": 5,
+  "sectorCountMax": 10,
+  "corridorToCorridorChance": 0.1,
+  "roomToRoomChance": 0.5,
+  "conditions": [
+    {
+      "type": "world",
+      "dimensionIds": [
+        0
+      ],
+      "dimensionListType": "whitelist",
+      "biomeTags": [
+        "forest",
+        "jungle",
+        "swamp"
+      ],
+      "biomeTagListType": "whitelist"
+    }
+  ],
+  "themes": [
+    "lush"
+  ],
+  "entrances": [
+    "entrancebasic"
+  ],
+  "rooms": [
+    "roombasic",
+    "roombasicloot",
+    "roombasicmob",
+    "roombasicpit"
+  ],
+  "corridors": [
+    "corridorbasic",
+    "corridorbasicdark",
+    "corridorbasicloot",
+    "corridorbasicmob"
+  ],
+  "stairs": [
+    "stairsbasic"
+  ],
+  "bossRooms": [
+    "roombasicboss"
+  ],
+  "finishes": [
+    "roombasicfinish"
+  ],
+  "lootTables": [
+    {
+      "id": "minecraft:chests/simple_dungeon"
+    },
+    {
+      "id": "minecraft:chests/village_blacksmith",
+      "level": 0
+    },
+    {
+      "id": "minecraft:chests/nether_bridge",
+      "level": 1
+    },
+    {
+      "id": "minecraft:chests/abandoned_mineshaft",
+      "level": 1
+    },
+    {
+      "id": "minecraft:chests/stronghold_corridor",
+      "level": 2
+    },
+    {
+      "id": "minecraft:chests/stronghold_crossing",
+      "level": 2
+    }
+  ],
+  "mobSpawns": [
+    {
+      "mobId": "lycanitesmobs:ghoul",
+      "weight": 14
+    },
+    {
+      "mobId": "lycanitesmobs:tarantula",
+      "weight": 14
+    },
+    {
+      "mobId": "lycanitesmobs:geken",
+      "weight": 14
+    },
+    {
+      "mobId": "lycanitesmobs:lurker",
+      "weight": 6,
+      "dungeonLevelMin": "1"
+    },
+    {
+      "mobId": "lycanitesmobs:spriggan",
+      "weight": 8,
+      "dungeonLevelMin": "1"
+    },
+    {
+      "mobId": "lycanitesmobs:sylph",
+      "weight": 4,
+      "dungeonLevelMin": "2"
+    },
+    {
+      "mobId": "lycanitesmobs:aglebemu",
+      "weight": 4,
+      "dungeonLevelMin": "2"
+    },
+    {
+      "mobId": "lycanitesmobs:eyewig",
+      "weight": 4,
+      "dungeonLevelMin": "2"
+    },
+    {
+      "mobId": "lycanitesmobs:conba",
+      "weight": 1,
+      "subspecies": 1,
+      "mobNameTag": "Pong Kong",
+      "mobSizeScale": 2,
+      "naturalDespawn": "false",
+      "mobLevel": 30,
+      "spawnAsBoss": true,
+      "dungeonLevelMin": "0",
+      "dungeonLevelMax": "0",
+      "dungeonBoss": true,
+      "mobDrops": [
+        {
+          "item": "lycanitesmobs:poopscepter"
+        }
+      ]
+    },
+    {
+      "mobId": "lycanitesmobs:jabberwock",
+      "weight": 1,
+      "subspecies": 0,
+      "mobNameTag": "Princess",
+      "mobSizeScale": 2,
+      "naturalDespawn": "false",
+      "mobLevel": 50,
+      "spawnAsBoss": true,
+      "dungeonLevelMin": "1",
+      "dungeonLevelMax": "1",
+      "dungeonBoss": true,
+      "mobDrops": [
+        {
+          "item": "minecraft:diamond",
+          "minAmount": 10
+        }
+      ]
+    },
+    {
+      "mobId": "lycanitesmobs:beholder",
+      "weight": 1,
+      "subspecies": 2,
+      "mobSizeScale": 1.25,
+      "mobNameTag": "Malevolent Observer",
+      "naturalDespawn": "false",
+      "mobLevel": 100,
+      "spawnAsBoss": true,
+      "dungeonLevelMin": "2",
+      "dungeonBoss": true,
+      "mobDrops": [
+        {
+          "item": "lycanitesmobs:arcanelaserstormscepter"
+        }
+      ]
+    }
+  ]
+}

@@ -15,7 +15,6 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
 
 /**
  * 
@@ -25,7 +24,7 @@ import net.minecraft.world.World;
 public class ItemGeneration 
 {
 	/** Creates a melee weapon/armor with randomized stats. */
-	public static void create(ItemStack stack, World world, int level)
+	public static void create(ItemStack stack, int level)
 	{
 		NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
 		

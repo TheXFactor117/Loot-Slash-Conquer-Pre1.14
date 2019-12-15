@@ -194,7 +194,7 @@ public class EntityBarbarian extends EntityMonster implements IMob
 			if (stack != null)
 			{
 				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-				ItemGeneration.create(stack, world, nbt.getInteger("TagLevel"));
+				ItemGeneration.create(stack, nbt.getInteger("TagLevel"));
 				stack.setTagCompound(nbt);
 				NameGenerator.generateName(stack, nbt);
 				return stack;

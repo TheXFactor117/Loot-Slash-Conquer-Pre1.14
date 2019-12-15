@@ -9,10 +9,6 @@ import com.thexfactor117.lsc.util.misc.Reference;
 import com.thexfactor117.lsc.util.misc.SimpleCapabilityProvider;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityOwnable;
-import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.passive.IAnimals;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;

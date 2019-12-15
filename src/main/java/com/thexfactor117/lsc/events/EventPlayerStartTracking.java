@@ -12,7 +12,6 @@ import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.EnemyTier;
 import com.thexfactor117.lsc.network.client.PacketUpdateEnemyInfo;
 
-import ibxm.Player;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayerMP;

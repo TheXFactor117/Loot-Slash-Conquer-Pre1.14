@@ -1,0 +1,26 @@
+{
+  "name": "ember",
+  "loadDefault": true,
+  "width": 1.0,
+  "height": 1.0,
+  "scale": 0.5,
+  "damage": 1,
+  "pierce": 1,
+  "knockbackChance": 0,
+  "effectDuration": 3,
+  "effectAmplifier": 1,
+  "velocity": 1.1,
+  "weight": 0,
+  "lifetime": 5,
+  "elements": [
+    "fire"
+  ],
+  "behaviours": [],
+  "waterproof": false,
+  "lavaproof": false,
+  "cutGrass": false,
+  "impactSound": false,
+  "ripper": false,
+  "pierceBlocks": false,
+  "glow": true
+}
