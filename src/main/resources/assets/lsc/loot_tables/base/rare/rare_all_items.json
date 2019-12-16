@@ -58,6 +58,11 @@
 					"type": "loot_table",
 					"name": "lsc:base/rare/specific/belts",
 					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/rare/specific/currency",
+					"weight": 12
 				}
 			]
 		}

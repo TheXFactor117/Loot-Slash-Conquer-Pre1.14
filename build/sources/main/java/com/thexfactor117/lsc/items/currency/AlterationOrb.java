@@ -19,9 +19,11 @@ import static com.thexfactor117.lsc.loot.generation.ItemGeneration.create;
 
 public class AlterationOrb extends ItemBase {
 
+
     public AlterationOrb(String name, CreativeTabs tab) {
 
         super(name, tab);
+        super.setMaxStackSize(64);
 
     }
 
@@ -51,7 +53,10 @@ public class AlterationOrb extends ItemBase {
         create(currentOffHandStack, playerLevel);
 
         if (!world.isRemote && !player.isCreative() && player.getHeldItemOffhand() != ItemStack.EMPTY && itemChanged == true)
-        player.setHeldItem(hand, ItemStack.EMPTY);
+        {
+            currentStack.setCount(currentStack.getCount()-1);
+            player.setHeldItem(hand, currentStack);
+        }
 
         return ActionResult.newResult(EnumActionResult.SUCCESS, currentStack);
     }

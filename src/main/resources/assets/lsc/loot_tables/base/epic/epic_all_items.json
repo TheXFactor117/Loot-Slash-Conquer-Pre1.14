@@ -58,6 +58,11 @@
 					"type": "loot_table",
 					"name": "lsc:base/epic/specific/belts",
 					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/epic/specific/currency",
+					"weight": 12
 				}
 			]
 		}

@@ -11,6 +11,7 @@ Initial
 + Added an entirely new attribute system.
 + Added tons of new attributes.
 + Added a new elemental resistance formula.
++ Added stat rerolling item.
 - Removed a few attributes.
 - Temporarily removed old commands. A new all-in-one command is being worked on as a replacement.
 * Tweaked attribute value algorithms.
