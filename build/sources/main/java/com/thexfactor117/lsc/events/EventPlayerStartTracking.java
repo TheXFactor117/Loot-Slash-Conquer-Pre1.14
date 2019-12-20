@@ -93,7 +93,7 @@ public class EventPlayerStartTracking {
 			if (entity.getEntityAttribute(SharedMonsterAttributes.ARMOR) != null) {
 
 				double baseArmor = entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).getBaseValue();
-				double armorMultiplier = Configs.monsterLevelTierCategory.healthBaseFactor * baseArmor * tier;
+				double armorMultiplier = Configs.monsterLevelTierCategory.healthBaseFactor * baseArmor * level * tier;
 
 				entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(armorMultiplier);
 			}
@@ -101,7 +101,7 @@ public class EventPlayerStartTracking {
 			if (entity.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS) != null) {
 
 				double baseToughness = entity.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getBaseValue();
-				double toughnessMultiplier = baseToughness * tier * Math.random() + 1;
+				double toughnessMultiplier = baseToughness * Math.pow(1.0 + 0.01 * tier, level) * Math.random() + 1;
 
 				entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(toughnessMultiplier);
 			}

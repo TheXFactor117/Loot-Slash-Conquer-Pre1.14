@@ -78,19 +78,19 @@ public class ItemGenerationUtil
 		switch (rarity)
 		{
 			case COMMON:
-				amount = 4; // 1 guaranteed attribute
+				amount = (int) (Math.random() * 6 + 1); // 1 guaranteed attribute
 				break;
 			case UNCOMMON:
-				amount = (int) (Math.random() * 2 + 3); // 1 guaranteed attribute, 50% chance for an additional one.
+				amount = (int) (Math.random() * 5 + 2); // 1 guaranteed attribute, 50% chance for an additional one.
 				break;
 			case RARE:
-				amount = (int) (Math.random() * 3 + 2); // 2 guaranteed attributes, 50% chance for an additional one.
+				amount = (int) (Math.random() * 4 + 3); // 2 guaranteed attributes, 50% chance for an additional one.
 				break;
 			case EPIC:
-				amount = (int) (Math.random() * 2 + 2); // 2 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
+				amount = (int) (Math.random() * 3 + 4); // 2 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
 				break;
 			case LEGENDARY:
-				amount = (int) (Math.random() * 2 + 1); // 3 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
+				amount = (int) (Math.random() * 2 + 5); // 3 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
 				break;
 			default:
 				break;

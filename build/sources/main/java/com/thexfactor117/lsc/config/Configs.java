@@ -509,9 +509,8 @@ public class Configs
 		// monster experience
 		@Comment({
 			"Only change this if you know what you are doing.",
-			"This number gets raised to the level+1 power."
 		})
-		public double experienceBaseFactor = 10;
+		public double experienceBaseFactor = 15;
 		
 		@Comment({
 			"Only change this if you know what you are doing.",
@@ -547,11 +546,34 @@ public class Configs
 	{
 		// experience
 		@Comment({
-			"Only change this if you know how the algorithm works. Small changes can screw things up.",
-			"Sets the power of the level up algorithm for player experience."
+			"Only change this if you know how the algorithm works. Large changes can screw things up.",
+			"Sets the power of the level up algorithm for player experience.",
+			"Default: 1.156023"
 		})
 		@RangeDouble(min = 0)
-		public double levelUpExpPower = 1.5;
+		public double levelUpExpPower = 1.156023;
+
+		// experience restriction
+		@Comment({
+				"Restricts experience drops to mobs close to the player's current level."
+		})
+		public boolean playerLevelingRestriction = true;
+
+		// Lower level limit of experience restriction
+		@Comment({
+				"Level range of mobs lower than player level able to grant experience.",
+				"Set this to -1 to ignore this feature. Default 10."
+		})
+		@RangeDouble(min = 0)
+		public int lowerLevelRestrictionRange = 10;
+
+		// Lower level limit of experience restriction
+		@Comment({
+				"Level range of mobs higher than player level able to grant experience.",
+				"Set this to -1 to ignore this feature. Default 10."
+		})
+		@RangeDouble(min = 0)
+		public int upperLevelRestrictionRange = 10;
 		
 		@Comment("If true, the player will gain Bonus skill points every 5 and 10 levels, in addition to every level.")
 		public boolean useTieredSkillPointDistribution = true;
@@ -617,7 +639,7 @@ public class Configs
 		
 		@Comment("A list of active armor attributes. Remove a value to remove the attribute from generating on items.")
 		public String[] armorAttributes = new String[] { "strength", "agility", "dexterity", "intelligence", "wisdom", "fortitude", "fire_resistance", "frost_resistance",
-				"lightning_resistance", "poison_resistance", "cooldown_reduction", "all_stats" };
+				"lightning_resistance", "poison_resistance", "cooldown_reduction"};
 		
 		// rarity chances
 		@Comment({

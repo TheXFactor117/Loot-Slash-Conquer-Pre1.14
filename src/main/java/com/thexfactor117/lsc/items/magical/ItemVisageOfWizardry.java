@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.items.magical;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevel;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
+import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.items.base.weapons.ISpecial;
 import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
 import com.thexfactor117.lsc.loot.Rarity;
@@ -33,9 +34,11 @@ public class ItemVisageOfWizardry extends ItemMagical implements ISpecial
 		int level = chunkLevel.getChunkLevel();
 		
 		nbt.setBoolean("IsSpecial", true);
-		Rarity.setRarity(nbt, Rarity.EPIC);
+		Rarity.setRarity(nbt, Rarity.LEGENDARY);
 		nbt.setInteger("Level", level);
-		ItemGenerationUtil.setRune(nbt);
+		Rune.setRune(nbt, Rune.FIRESTORM);
+		Rune.setRune(nbt, Rune.BLIZZARD);
+		Rune.setRune(nbt, Rune.DISCHARGE);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

@@ -3,6 +3,7 @@ package com.thexfactor117.lsc.items.magical;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevel;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
+import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.items.base.weapons.ISpecial;
 import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
 import com.thexfactor117.lsc.loot.Rarity;
@@ -35,7 +36,7 @@ public class ItemMoonlitRod extends ItemMagical implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
-		ItemGenerationUtil.setRune(nbt);
+		Rune.setRune(nbt, Rune.BLIZZARD);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

@@ -148,9 +148,9 @@ public class LSCPlayerCapability implements ILSCPlayer
 	 */
 	public void updatePlayerPower()
 	{
-		double physicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, getPlayerLevel()) + getTotalStrength()) * (0.85 * 0.8);
-		double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, getPlayerLevel()) + getTotalDexterity()) * (0.85 * 0.8);
-		double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, getPlayerLevel()) + getTotalIntelligence()) * (0.85 * 0.8);
+		double physicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, getTotalStrength()));
+		double rangedPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, getTotalDexterity()));
+		double magicalPower = (Math.pow(Configs.weaponCategory.damageBaseFactor, getTotalIntelligence()) * getPlayerLevel());
 
 		this.physicalPower = getTotalStrength() != 0 ? physicalPower : 0;
 		this.rangedPower = getTotalDexterity() != 0 ? rangedPower : 0;

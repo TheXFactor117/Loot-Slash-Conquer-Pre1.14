@@ -3,11 +3,14 @@ package com.thexfactor117.lsc.items.magical;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevel;
 import com.thexfactor117.lsc.capabilities.api.IChunkLevelHolder;
 import com.thexfactor117.lsc.capabilities.cap.CapabilityChunkLevel;
+import com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability;
+import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.items.base.weapons.ISpecial;
 import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
 import com.thexfactor117.lsc.loot.Rarity;
 import com.thexfactor117.lsc.util.ItemGenerationUtil;
 
+import com.thexfactor117.lsc.util.PlayerUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.ChunkPos;
@@ -35,7 +38,7 @@ public class ItemBlazefury extends ItemMagical implements ISpecial
 		nbt.setBoolean("IsSpecial", true);
 		Rarity.setRarity(nbt, Rarity.EPIC);
 		nbt.setInteger("Level", level);
-		ItemGenerationUtil.setRune(nbt);
+		Rune.setRune(nbt, Rune.FIRESTORM);
 		
 		// Damage and Attack Speed
 		double baseDamage = this.getBaseDamage();

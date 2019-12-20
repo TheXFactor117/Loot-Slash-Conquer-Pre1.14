@@ -36,12 +36,14 @@ public class ExperienceUtil
 	/** Returns the amount of experience needed to level up given the current level. */
 	public static int getLevelUpExperience(int currentLevel) 
 	{
-		return (int) (Math.pow(currentLevel, Configs.playerCategory.levelUpExpPower) + Configs.playerCategory.levelUpAdditive);
+		return (int) (Math.pow(Configs.playerCategory.levelUpExpPower, currentLevel) + Configs.playerCategory.levelUpAdditive);
 	}
 	
 	public static void addExperience(EntityPlayer player, LSCPlayerCapability cap, Entity enemy)
 	{
 		double experience = 0;
+		double expRestrictor = 1;
+		double playerLevel = cap.getPlayerLevel();
 		
 		EnemyInfo enemyInfo = (EnemyInfo) enemy.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
 		
@@ -53,11 +55,25 @@ public class ExperienceUtil
 			int enemyLevel = enemyInfo.getEnemyLevel();
 			int enemyTier = enemyInfo.getEnemyTier();
 			int rarity = 1;
+			double lowLevelRistr = Configs.playerCategory.lowerLevelRestrictionRange;
+			double upLevelRistr = Configs.playerCategory.upperLevelRestrictionRange;
+
 			
 			if (enemy instanceof EntityRarity)
 			{
 				rarity = EntityRarity.rarity;
 			}
+
+			if (Configs.playerCategory.playerLevelingRestriction){
+				if (enemyLevel < playerLevel && (playerLevel - enemyLevel) < lowLevelRistr + 1 && lowLevelRistr != -1){
+					expRestrictor = 1 - ((playerLevel - enemyLevel) / lowLevelRistr);
+				}else if (enemyLevel > playerLevel && enemyLevel - playerLevel < upLevelRistr + 1 && upLevelRistr != -1){
+					expRestrictor = 1 - ((enemyLevel - playerLevel) / upLevelRistr);
+				}else expRestrictor = 0;
+
+				if (expRestrictor < 0) expRestrictor = 0;
+
+			}else expRestrictor = 1;
 			
 			// calculates the different multipliers and multiplies them together to get the total multiplier
 			double baseFactor = Configs.monsterLevelTierCategory.experienceBaseFactor;
@@ -65,8 +81,7 @@ public class ExperienceUtil
 			double rarityMultiplier = (Math.pow(rarity, Configs.monsterLevelTierCategory.experienceRarityPower));
 			double multiplier = ((tierMultiplier * rarityMultiplier) + 1 / Configs.monsterLevelTierCategory.experienceDivisor);
 
-			// base experience is 10 for now...
-			experience = ((enemyLevel) * (baseFactor * multiplier)) / cap.getPlayerLevel();
+			experience = ((enemyLevel * expRestrictor) * (baseFactor * multiplier));
 			
 			double bonusExperience = 0;
 			ItemStack stack = player.getHeldItem(player.getActiveHand());

@@ -2,65 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59f25590-b774-4302-8bb5-65e16a923bb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/0/-1,0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/3/-1,0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/4/-1,0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-15-2.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-15-3.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-16-1.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-16-2.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-16-3.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-16-4.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-16-5.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-16-6.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-16-7.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/00b30fb1-4b45-3336-98e4-8adf600e5f5e.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/19b458ba-c952-3dc3-bceb-bb32067d178f.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/428a9eb8-eb59-3300-892c-1124ca047d38.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/446355e4-985a-3d9c-a63c-4d95aa4b0dff.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/55199b58-d04f-3d22-9ce2-5472509a024b.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/5606c356-f83a-3346-9cfd-7a4fa8e27776.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/6216d3be-96f5-3b55-9404-8ae4f0bc7784.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/6e05ecd8-b367-3929-8021-d89bbb1d2225.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/7a9eca9c-2306-3ccb-a260-5c2ec3a39f00.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/a288cb29-a681-33d0-bc05-44996f7b6ce1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/ac813ddb-b155-3ee2-ab2a-d375fb559a6a.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player213.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player29.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player356.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player438.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player621.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player633.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player681.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player705.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player808.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player828.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player835.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/00b30fb1-4b45-3336-98e4-8adf600e5f5e.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/19b458ba-c952-3dc3-bceb-bb32067d178f.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/428a9eb8-eb59-3300-892c-1124ca047d38.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/446355e4-985a-3d9c-a63c-4d95aa4b0dff.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/55199b58-d04f-3d22-9ce2-5472509a024b.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/5606c356-f83a-3346-9cfd-7a4fa8e27776.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/6216d3be-96f5-3b55-9404-8ae4f0bc7784.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/6e05ecd8-b367-3929-8021-d89bbb1d2225.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/7a9eca9c-2306-3ccb-a260-5c2ec3a39f00.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/a288cb29-a681-33d0-bc05-44996f7b6ce1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/ac813ddb-b155-3ee2-ab2a-d375fb559a6a.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/00b30fb1-4b45-3336-98e4-8adf600e5f5e.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/19b458ba-c952-3dc3-bceb-bb32067d178f.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/428a9eb8-eb59-3300-892c-1124ca047d38.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/446355e4-985a-3d9c-a63c-4d95aa4b0dff.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/55199b58-d04f-3d22-9ce2-5472509a024b.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/5606c356-f83a-3346-9cfd-7a4fa8e27776.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/6216d3be-96f5-3b55-9404-8ae4f0bc7784.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/6e05ecd8-b367-3929-8021-d89bbb1d2225.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/7a9eca9c-2306-3ccb-a260-5c2ec3a39f00.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/a288cb29-a681-33d0-bc05-44996f7b6ce1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/ac813ddb-b155-3ee2-ab2a-d375fb559a6a.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/epic/specific/currency.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/legendary/specific/currency.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/rare/specific/currency.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/0/0,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/0/6,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/0/9,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/4/6,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/0,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/10,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/10,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/12,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/12,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/13,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/13,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/19,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/19,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/20,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/20,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/6,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/6,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/9,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/9,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/0,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/10,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/10,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/12,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/12,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/13,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/13,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/19,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/19,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/20,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/20,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/6,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/6,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/9,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/9,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/0,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/10,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/10,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/12,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/12,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/13,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/13,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/19,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/19,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/20,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/20,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/6,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/6,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/9,-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/9,0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/waypoints/Death 7_35_53 AM 12_19_19_82,64,304.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-18-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-18-2.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-18-3.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-18-4.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-18-5.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-18-6.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-18-7.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-19-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-19-2.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-19-3.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/a73b0b5d-2d3b-3ddb-ba64-20632ca9f512.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/e10ba356-0952-343e-8ccb-a3b6e69bf75e.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player626.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player683.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/a73b0b5d-2d3b-3ddb-ba64-20632ca9f512.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/e10ba356-0952-343e-8ccb-a3b6e69bf75e.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/a73b0b5d-2d3b-3ddb-ba64-20632ca9f512.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/e10ba356-0952-343e-8ccb-a3b6e69bf75e.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/cache.properties.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/cache.properties.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/fileSnapshots.bin" afterDir="false" />
@@ -70,24 +80,52 @@
       <change beforePath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/treeSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/treeSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/gradle.log" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/gradle.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/currency/AlterationOrb.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/currency/AlterationOrb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/Loot Slash Conquer-1.12.2-0.6.3.2-beta.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Loot Slash Conquer-1.12.2-0.6.3.2-beta.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/lsc/loot_tables/base/epic/epic_all_items.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/lsc/loot_tables/base/epic/epic_all_items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/lsc/loot_tables/base/legendary/legendary_all_items.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/lsc/loot_tables/base/legendary/legendary_all_items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/lsc/loot_tables/base/rare/rare_all_items.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/lsc/loot_tables/base/rare/rare_all_items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/lsc/models/item/alteration_orb.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/lsc/models/item/alteration_orb.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/capabilities/implementation/LSCPlayerCapability.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/capabilities/implementation/LSCPlayerCapability.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/config/Configs$MonsterLevelTierCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/config/Configs$MonsterLevelTierCategory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/config/Configs$PlayerCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/config/Configs$PlayerCategory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/config/Configs$RenderingCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/config/Configs$RenderingCategory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/config/Configs$WeaponCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/config/Configs$WeaponCategory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/events/EventPlayerStartTracking.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/events/EventPlayerStartTracking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemBlazefury.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemBlazefury.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemEpilogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemEpilogue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemGazeOfTruth.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemGazeOfTruth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemMoonlitRod.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemMoonlitRod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemVisageOfWizardry.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/magical/ItemVisageOfWizardry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/DamageUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/DamageUtil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/DamageUtil$DamageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/DamageUtil$DamageType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/DamageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/DamageUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/ExperienceUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/ExperienceUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/ItemGenerationUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/ItemGenerationUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/PlayerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/util/PlayerUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Loot Slash Conquer-1.12.2-0.6.3.2-beta.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/Loot Slash Conquer-1.12.2-0.6.3.3-beta.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Loot Slash Conquer-1.12.2-0.6.3.3-beta.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/assets/lsc/textures/items/alteration_orb.png.mcmeta" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/lsc/textures/items/alteration_orb.png.mcmeta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/currency/AlterationOrb.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/currency/AlterationOrb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/capabilities/implementation/LSCPlayerCapability.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/capabilities/implementation/LSCPlayerCapability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/config/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/config/Configs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/events/EventPlayerStartTracking.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/events/EventPlayerStartTracking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemBlazefury.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemBlazefury.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemEpilogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemEpilogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemGazeOfTruth.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemGazeOfTruth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemMoonlitRod.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemMoonlitRod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemVisageOfWizardry.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/magical/ItemVisageOfWizardry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/util/DamageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/util/DamageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/util/ExperienceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/util/ExperienceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/util/ItemGenerationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/util/ItemGenerationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/util/PlayerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/util/PlayerUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/Loot Slash Conquer.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/Loot Slash Conquer.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/config/splash.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/splash.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/journeymap/config/5.5/journeymap.minimap.config" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/config/5.5/journeymap.minimap.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/-1,0.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/-1,0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/28,-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/28,-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/28,0.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/day/28,0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/-1,0.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/-1,0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/28,-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/28,-1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/28,0.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/night/28,0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/-1,0.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/data/sp/New World/DIM0/topo/-1,0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/journeymap/journeymap.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/journeymap.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2019-12-16-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2019-12-16-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2019-12-16-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2019-12-16-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2019-12-16-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2019-12-16-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2019-12-16-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2019-12-16-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2019-12-16-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2019-12-16-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2019-12-16-6.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2019-12-16-6.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2019-12-16-7.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2019-12-16-7.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
@@ -96,21 +134,235 @@
       <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/options.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/00b30fb1-4b45-3336-98e4-8adf600e5f5e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/02d7ab53-cc43-3dbe-bc5a-8521c04d75bb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/09805145-bb70-3fc1-9783-30845f8dd6d0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/198eff5d-ccf5-3ba5-aac5-eea0074f959b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/19b458ba-c952-3dc3-bceb-bb32067d178f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/1c0e06f3-9808-3189-8407-cec21f7f6640.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/24078ad8-d7e0-3e5c-a4a9-a3bc169a7177.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/2a040a11-2e73-3076-950d-54036bd62bd7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/2aad58e3-54f7-330f-a72b-452f50ba116d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/428a9eb8-eb59-3300-892c-1124ca047d38.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/4296a45d-fd1d-3a8b-9f25-0f078d10cc6b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/446355e4-985a-3d9c-a63c-4d95aa4b0dff.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/4e1f5e28-f05f-3acf-ac65-db01d9d51f95.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/533168cf-a4ab-3aac-8306-f7a8b71689a4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/55199b58-d04f-3d22-9ce2-5472509a024b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/5606c356-f83a-3346-9cfd-7a4fa8e27776.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/56194db1-2459-3533-bada-8561030dd064.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/5bf9c219-9b9d-3293-9d0d-11b90d104d35.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/6216d3be-96f5-3b55-9404-8ae4f0bc7784.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/62db38a8-8d21-3d78-b638-e74e59f2520a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/638f7175-5dde-3b0d-a13d-f593ecd79b38.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/681f539b-8bb8-3f85-85e5-a2945f6c6539.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/6db1171d-4fa6-31cb-b425-1896281a26e2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/6e05ecd8-b367-3929-8021-d89bbb1d2225.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/6ecd1629-dee4-373d-9457-481bd36b0826.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/6ef60f0d-ee89-3acd-9711-6e64aaf89fef.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/7a9eca9c-2306-3ccb-a260-5c2ec3a39f00.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/7e94e5c9-1ae4-352e-9cf6-8305e5b127c7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/8b099b45-7c1f-3749-8e57-5c8f500dad04.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/9558103d-7825-31db-a05b-a05b47d33b95.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/9c66b502-7304-3207-92e6-8d6afcf30d77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/a288cb29-a681-33d0-bc05-44996f7b6ce1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/a70a6712-7f92-3213-946b-c67e8479c034.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/aa672712-7b9a-35e7-9d78-80bd1544826b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/ac813ddb-b155-3ee2-ab2a-d375fb559a6a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/aed5efd4-551b-3965-bc28-ae21aa072a66.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/b25e3f31-3d0d-30a3-b307-8902510a505e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/bce7419c-5709-3ee4-a73f-d19725fe2893.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/c2506432-c159-30c0-93d8-64f2a6272277.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/c645540e-52c6-36d2-bbbe-373fe1591946.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/c72e77a5-a3ff-38a0-b468-253b21a4bd27.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/ccd8a3d4-50c5-39f5-a01f-10958af9df66.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/d0f5fb0c-30f8-3708-84d1-e619aef4d8f4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/d447d002-8f00-3c6c-8a29-93b028d90375.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/da0854f1-946e-3e92-942a-afd6fa88ef77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/e4e5b30f-b972-382c-b5e5-86c2e785a8a6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/f0c5379b-0e4e-34aa-808d-37fef9b5ce6c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/f189da80-d431-3f80-9126-43ccee16f040.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/f2c8593c-da65-363a-88be-1cceb3b57c61.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/f49b244f-2f6c-3574-ad7c-6686b5af67fc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/f72b2d25-9f45-36b9-af71-ec48f438787b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/LycanitesMobs.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/LycanitesMobs.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/Mineshaft.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/Mineshaft.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/Monument.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/Village.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player103.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player12.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player161.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player209.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player211.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player213.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player246.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player263.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player29.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player332.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player356.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player38.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player438.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player443.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player465.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player472.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player527.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player540.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player543.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player618.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player621.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player633.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player681.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player705.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player707.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player767.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player808.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player828.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player829.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player835.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player836.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player894.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player959.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/teams/singleplayer.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/teams/singleplayer.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/universe.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/universe.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/data/villages.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/villages.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/00b30fb1-4b45-3336-98e4-8adf600e5f5e.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/02d7ab53-cc43-3dbe-bc5a-8521c04d75bb.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/09805145-bb70-3fc1-9783-30845f8dd6d0.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/198eff5d-ccf5-3ba5-aac5-eea0074f959b.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/19b458ba-c952-3dc3-bceb-bb32067d178f.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/1c0e06f3-9808-3189-8407-cec21f7f6640.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/24078ad8-d7e0-3e5c-a4a9-a3bc169a7177.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/2a040a11-2e73-3076-950d-54036bd62bd7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/2aad58e3-54f7-330f-a72b-452f50ba116d.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/428a9eb8-eb59-3300-892c-1124ca047d38.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/4296a45d-fd1d-3a8b-9f25-0f078d10cc6b.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/446355e4-985a-3d9c-a63c-4d95aa4b0dff.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/4e1f5e28-f05f-3acf-ac65-db01d9d51f95.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/533168cf-a4ab-3aac-8306-f7a8b71689a4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/55199b58-d04f-3d22-9ce2-5472509a024b.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/5606c356-f83a-3346-9cfd-7a4fa8e27776.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/56194db1-2459-3533-bada-8561030dd064.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/5bf9c219-9b9d-3293-9d0d-11b90d104d35.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/6216d3be-96f5-3b55-9404-8ae4f0bc7784.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/62db38a8-8d21-3d78-b638-e74e59f2520a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/638f7175-5dde-3b0d-a13d-f593ecd79b38.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/681f539b-8bb8-3f85-85e5-a2945f6c6539.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/6db1171d-4fa6-31cb-b425-1896281a26e2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/6e05ecd8-b367-3929-8021-d89bbb1d2225.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/6ecd1629-dee4-373d-9457-481bd36b0826.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/6ef60f0d-ee89-3acd-9711-6e64aaf89fef.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/7a9eca9c-2306-3ccb-a260-5c2ec3a39f00.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/7e94e5c9-1ae4-352e-9cf6-8305e5b127c7.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/8b099b45-7c1f-3749-8e57-5c8f500dad04.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/9558103d-7825-31db-a05b-a05b47d33b95.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/9c66b502-7304-3207-92e6-8d6afcf30d77.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/a288cb29-a681-33d0-bc05-44996f7b6ce1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/a70a6712-7f92-3213-946b-c67e8479c034.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/aa672712-7b9a-35e7-9d78-80bd1544826b.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/ac813ddb-b155-3ee2-ab2a-d375fb559a6a.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/aed5efd4-551b-3965-bc28-ae21aa072a66.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/b25e3f31-3d0d-30a3-b307-8902510a505e.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/bce7419c-5709-3ee4-a73f-d19725fe2893.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/c2506432-c159-30c0-93d8-64f2a6272277.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/c645540e-52c6-36d2-bbbe-373fe1591946.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/c72e77a5-a3ff-38a0-b468-253b21a4bd27.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/ccd8a3d4-50c5-39f5-a01f-10958af9df66.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/d0f5fb0c-30f8-3708-84d1-e619aef4d8f4.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/d447d002-8f00-3c6c-8a29-93b028d90375.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/da0854f1-946e-3e92-942a-afd6fa88ef77.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/e4e5b30f-b972-382c-b5e5-86c2e785a8a6.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/f0c5379b-0e4e-34aa-808d-37fef9b5ce6c.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/f189da80-d431-3f80-9126-43ccee16f040.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/f2c8593c-da65-363a-88be-1cceb3b57c61.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/f49b244f-2f6c-3574-ad7c-6686b5af67fc.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/f72b2d25-9f45-36b9-af71-ec48f438787b.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.28.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.28.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.28.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.28.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.27.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.27.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.28.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.28.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.29.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.29.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.30.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.30.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.30.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.31.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.31.0.mca" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/run/saves/New World/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/session.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/00b30fb1-4b45-3336-98e4-8adf600e5f5e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/02d7ab53-cc43-3dbe-bc5a-8521c04d75bb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/09805145-bb70-3fc1-9783-30845f8dd6d0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/198eff5d-ccf5-3ba5-aac5-eea0074f959b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/19b458ba-c952-3dc3-bceb-bb32067d178f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/1c0e06f3-9808-3189-8407-cec21f7f6640.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/24078ad8-d7e0-3e5c-a4a9-a3bc169a7177.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/2a040a11-2e73-3076-950d-54036bd62bd7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/2aad58e3-54f7-330f-a72b-452f50ba116d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/428a9eb8-eb59-3300-892c-1124ca047d38.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/4296a45d-fd1d-3a8b-9f25-0f078d10cc6b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/446355e4-985a-3d9c-a63c-4d95aa4b0dff.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/4e1f5e28-f05f-3acf-ac65-db01d9d51f95.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/533168cf-a4ab-3aac-8306-f7a8b71689a4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/55199b58-d04f-3d22-9ce2-5472509a024b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/5606c356-f83a-3346-9cfd-7a4fa8e27776.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/56194db1-2459-3533-bada-8561030dd064.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/5bf9c219-9b9d-3293-9d0d-11b90d104d35.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/6216d3be-96f5-3b55-9404-8ae4f0bc7784.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/62db38a8-8d21-3d78-b638-e74e59f2520a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/638f7175-5dde-3b0d-a13d-f593ecd79b38.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/681f539b-8bb8-3f85-85e5-a2945f6c6539.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/6db1171d-4fa6-31cb-b425-1896281a26e2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/6e05ecd8-b367-3929-8021-d89bbb1d2225.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/6ecd1629-dee4-373d-9457-481bd36b0826.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/6ef60f0d-ee89-3acd-9711-6e64aaf89fef.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/7a9eca9c-2306-3ccb-a260-5c2ec3a39f00.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/7e94e5c9-1ae4-352e-9cf6-8305e5b127c7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/8b099b45-7c1f-3749-8e57-5c8f500dad04.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/9558103d-7825-31db-a05b-a05b47d33b95.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/9c66b502-7304-3207-92e6-8d6afcf30d77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/a288cb29-a681-33d0-bc05-44996f7b6ce1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/a70a6712-7f92-3213-946b-c67e8479c034.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/aa672712-7b9a-35e7-9d78-80bd1544826b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/ac813ddb-b155-3ee2-ab2a-d375fb559a6a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/aed5efd4-551b-3965-bc28-ae21aa072a66.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/b25e3f31-3d0d-30a3-b307-8902510a505e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/bce7419c-5709-3ee4-a73f-d19725fe2893.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/c2506432-c159-30c0-93d8-64f2a6272277.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/c645540e-52c6-36d2-bbbe-373fe1591946.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/c72e77a5-a3ff-38a0-b468-253b21a4bd27.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/ccd8a3d4-50c5-39f5-a01f-10958af9df66.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/d0f5fb0c-30f8-3708-84d1-e619aef4d8f4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/d447d002-8f00-3c6c-8a29-93b028d90375.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/da0854f1-946e-3e92-942a-afd6fa88ef77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/e4e5b30f-b972-382c-b5e5-86c2e785a8a6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/f0c5379b-0e4e-34aa-808d-37fef9b5ce6c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/f189da80-d431-3f80-9126-43ccee16f040.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/f2c8593c-da65-363a-88be-1cceb3b57c61.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/f49b244f-2f6c-3574-ad7c-6686b5af67fc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/f72b2d25-9f45-36b9-af71-ec48f438787b.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run/usernamecache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usernamecache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/currency/AlterationOrb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/currency/AlterationOrb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/epic/epic_all_items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/epic/epic_all_items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/legendary/legendary_all_items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/legendary/legendary_all_items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/rare/rare_all_items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/rare/rare_all_items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lsc/models/item/alteration_orb.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/models/item/alteration_orb.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/capabilities/implementation/LSCPlayerCapability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/capabilities/implementation/LSCPlayerCapability.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/config/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/config/Configs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/events/EventPlayerStartTracking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/events/EventPlayerStartTracking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemBlazefury.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemBlazefury.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemEpilogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemEpilogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemGazeOfTruth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemGazeOfTruth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemMoonlitRod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemMoonlitRod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemVisageOfWizardry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/magical/ItemVisageOfWizardry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/util/DamageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/util/DamageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/util/ExperienceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/util/ExperienceUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/util/ItemGenerationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/util/ItemGenerationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/util/PlayerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/util/PlayerUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lsc/textures/items/alteration_orb.png.mcmeta" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/textures/items/alteration_orb.png.mcmeta" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,6 +370,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="15" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -209,7 +464,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Gradle.Loot-Slash-Conquer-Pre1.14 [build]">
-    <configuration name="Loot-Slash-Conquer-Pre1.14 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Loot-Slash-Conquer-Pre1.14 [build]" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -250,7 +505,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Loot-Slash-Conquer-Pre1.14 [runClient]" />
-        <item itemvalue="Gradle.Loot-Slash-Conquer-Pre1.14 [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -282,5 +536,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Loot_Slash_Conquer_Pre1_14$Loot_Slash_Conquer_Pre1_14__runClient_.ic" NAME="Loot-Slash-Conquer-Pre1.14 [runClient] Coverage Results" MODIFIED="1576693104590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

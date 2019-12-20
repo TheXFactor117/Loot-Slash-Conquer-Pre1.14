@@ -8,6 +8,7 @@ import com.thexfactor117.lsc.loot.attributes.AttributeWeapon;
 import com.thexfactor117.lsc.util.misc.LSCDamageSource;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -30,15 +31,19 @@ public class DamageUtil
 	public static double applyDamageModifiers(LSCPlayerCapability cap, double damage, DamageType type, EntityLivingBase entity)
 	{
 		EnemyInfo enemy = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
+		int enemyLevel = enemy.getEnemyLevel();
+		double enemyArmor = entity.getEntityAttribute(SharedMonsterAttributes.ARMOR).getBaseValue();
+		double enemyToughness = entity.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).getBaseValue();
+
 
 		switch (type)
 		{
 			case PHYSICAL_MELEE:
-				return damage + cap.getPhysicalPower() / cap.getPlayerLevel() / enemy.getEnemyLevel();
+				return damage + cap.getPhysicalPower() / enemy.getEnemyLevel();
 			case PHYSICAL_RANGED:
-				return damage + cap.getRangedPower() / cap.getPlayerLevel() / enemy.getEnemyLevel();
+				return damage + cap.getRangedPower() / enemy.getEnemyLevel();
 			case MAGICAL:
-				return damage + cap.getMagicalPower() / cap.getPlayerLevel() / enemy.getEnemyLevel();
+				return damage + cap.getMagicalPower() / enemy.getEnemyLevel();
 			default:
 				return damage;
 		}
