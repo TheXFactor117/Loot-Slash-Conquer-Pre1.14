@@ -62,7 +62,7 @@
 				{
 					"type": "loot_table",
 					"name": "lsc:base/epic/specific/currency",
-					"weight": 12
+					"weight": 1
 				}
 			]
 		}
