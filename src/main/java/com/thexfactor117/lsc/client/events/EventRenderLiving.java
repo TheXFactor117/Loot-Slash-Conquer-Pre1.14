@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -29,7 +30,7 @@ public class EventRenderLiving
 		EntityLivingBase entity = event.getEntity();
 		EnemyInfo enemyInfo = (EnemyInfo) entity.getCapability(CapabilityEnemyInfo.ENEMY_INFO, null);
 		
-		if ((entity instanceof EntityLivingBase) && enemyInfo != null)
+		if (entity instanceof EntityLivingBase && enemyInfo != null && !(entity instanceof EntityPlayer))
 		{
 			Entity viewingEntity = event.getRenderer().getRenderManager().renderViewEntity;
 			//String level = "Level: " + enemyInfo.getEnemyLevel();

@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59f25590-b774-4302-8bb5-65e16a923bb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-19-4.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-19-5.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/logs/2019-12-21-1.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/5f90bf1f-575d-3542-89d7-731859eee6f2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/advancements/f4642d2b-29f9-34b7-8b90-e6570e856434.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player136.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/data/ftb_lib/players/player765.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/5f90bf1f-575d-3542-89d7-731859eee6f2.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/playerdata/f4642d2b-29f9-34b7-8b90-e6570e856434.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/5f90bf1f-575d-3542-89d7-731859eee6f2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/saves/New World/stats/f4642d2b-29f9-34b7-8b90-e6570e856434.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/cache.properties.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/cache.properties.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/fileSnapshots.bin" afterDir="false" />
@@ -22,31 +11,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/treeSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/2.14/taskArtifacts/treeSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/gradle.log" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/gradle.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/currency/AlterationOrb.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/thexfactor117/lsc/items/currency/AlterationOrb.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/Loot Slash Conquer-1.12.2-0.6.3.3-beta.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Loot Slash Conquer-1.12.2-0.6.3.3-beta.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/currency/AlterationOrb.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/com/thexfactor117/lsc/items/currency/AlterationOrb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/config/splash.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/splash.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/journeymap/journeymap.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/journeymap/journeymap.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/villages.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/villages.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/saves/New World/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/session.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/usernamecache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usernamecache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/currency/AlterationOrb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/items/currency/AlterationOrb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/epic/epic_all_items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/epic/epic_all_items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/epic/specific/currency.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/epic/specific/currency.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/rare/rare_all_items.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/rare/rare_all_items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/rare/specific/currency.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/lsc/loot_tables/base/rare/specific/currency.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/client/events/EventRenderLiving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thexfactor117/lsc/client/events/EventRenderLiving.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +112,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Loot-Slash-Conquer-Pre1.14 [build]">
+  <component name="RunManager" selected="Gradle.Loot-Slash-Conquer-Pre1.14 [runClient]">
     <configuration name="Loot-Slash-Conquer-Pre1.14 [build]" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />

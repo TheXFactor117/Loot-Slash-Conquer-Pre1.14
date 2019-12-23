@@ -1,8 +1,8 @@
-[11:34:14] [main/INFO] [JMLogger] JourneyMap log initialized.
-[11:34:14] [main/INFO] [JourneymapClient] initialize ENTER
-[11:34:14] [main/WARN] [PropertiesBase] core (Initialized) Bad configField entry during updateFrom(): optionsManagerViewed=null
-[11:34:14] [main/WARN] [PropertiesBase] core (Initialized) Bad configField entry during updateFrom(): splashViewed=null
-[11:34:14] [Client thread/INFO] [?] Version: JourneyMap 1.12.2-5.5.5, built with Forge 14.23.5.2768
+[18:52:22] [main/INFO] [JMLogger] JourneyMap log initialized.
+[18:52:22] [main/INFO] [JourneymapClient] initialize ENTER
+[18:52:22] [main/WARN] [PropertiesBase] core (Initialized) Bad configField entry during updateFrom(): optionsManagerViewed=null
+[18:52:22] [main/WARN] [PropertiesBase] core (Initialized) Bad configField entry during updateFrom(): splashViewed=null
+[18:52:22] [Client thread/INFO] [?] Version: JourneyMap 1.12.2-5.5.5, built with Forge 14.23.5.2768
 Forge: 14.23.5.2768
 Environment: os.name, os.arch, java.version, user.country, user.language=null, game language=en_us, locale=en_us
 Features: 
@@ -19,30 +19,30 @@ FullMapProperties{state=Valid, file=journeymap.fullmap.config, configVersion=5.5
 WaypointProperties{state=Valid, file=journeymap.waypoint.config, configVersion=5.5.5, createDeathpoints=true, showName=true, maxDistance=0, autoHideLabel=true, teleportCommand=/tp {name} {x} {y} {z}, showStaticBeam=true, minDistance=4, boldLabel=false, textureSmall=true, showDistance=true, showRotatingBeam=true, fontScale=2, showTexture=true, managerEnabled=true, beaconEnabled=true}
 WebMapProperties{state=Valid, file=journeymap.webmap.config, configVersion=5.5.5, zoomLevel=0, showWaypoints=true, showCaves=true, showSelf=true, port=8080, showGrid=true, showEntityNames=true, enabled=false, googleMapApiDomain=.com, preferredMapType=day}
 CoreProperties{state=Valid, file=journeymap.core.config, configVersion=5.5.5, verboseColorPalette=false, maxPlayersData=32, mapSurfaceAboveCaves=true, optionsManagerViewed=null, announceMod=true, colorPassive=#bbbbbb, renderOverlayEventTypeName=ALL, mapBlendWater=false, renderDistanceSurfaceMax=2, radarVerticalDistance=16, mapBlendGrass=true, recordCacheStats=false, hideSneakingEntities=true, revealShape=Circle, alwaysMapSurface=false, colorVillager=#88e188, mapPlants=false, colorPet=#0077ff, radarLateralDistance=64, mapBathymetry=false, mapCrops=true, maxMobsData=32, mapPlantShadows=false, alwaysMapCaves=false, checkUpdates=true, browserPoll=2000, mapBlendFoliage=true, mappingEnabled=true, colorPlayer=#ffffff, tileHighDisplayQuality=true, cacheVillagersData=2200, logLevel=INFO, maxVillagersData=32, maxAnimalsData=32, mapTransparency=true, tileRenderType=1, caveIgnoreGlass=true, mapTopography=true, renderDistanceCaveMax=2, mapAntialiasing=true, colorSelf=#0000ff, cachePlayersData=2000, cacheMobsData=3000, cachePlayerData=1000, splashViewed=null, colorHostile=#ff0000, cacheAnimalsData=3100, themeName=OceanMonument, mapCaveLighting=true, renderDelay=2, renderOverlayPreEvent=true, autoMapPoll=2000}
-[11:34:14] [main/INFO] [ClientAPI] [ClientAPI] built with JourneyMap API 1.4
-[11:34:14] [main/INFO] [PluginHelper] Initializing plugins with Client API: journeymap.client.api.impl.ClientAPI
-[11:34:14] [main/INFO] [PluginHelper] Initialized IClientPlugin: com.feed_the_beast.ftbutilities.integration.JourneyMapIntegration
-[11:34:14] [main/INFO] [JourneymapClient] initialize EXIT, elapsed count 0 avg ?ms
-[11:34:14] [main/DEBUG] [JourneymapClient] postInitialize ENTER
-[11:34:14] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.KeyEventHandler
-[11:34:14] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.ChatEventHandler
-[11:34:14] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.StateTickHandler
-[11:34:14] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.WorldEventHandler
-[11:34:14] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.WaypointBeaconHandler
-[11:34:14] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.TextureAtlasHandler
-[11:34:14] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.MiniMapOverlayHandler
-[11:34:14] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.PlayerConnectHandler
-[11:34:14] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.world.ChunkMonitor
-[11:34:14] [main/INFO] [IconSetFileHandler] Added entity icons from journeymap:icon/entity. Success: false
-[11:34:14] [main/TRACE] [ThemeLoader] Initializing themes ...
-[11:34:14] [main/INFO] [ThemeLoader] Preloaded theme textures: 72
-[11:34:15] [main/DEBUG] [JourneymapClient] postInitialize EXIT, elapsed§8 count §r1§8 avg §r592.35§8ms§r
-[11:34:16] [JM-VersionCheck-1/INFO] [VersionCheck$1] Newer version online: JourneyMap 5.5.6.jar for Minecraft 1.12.2 on http://minecraft.curseforge.com/projects/journeymap/files/2844789
-[11:35:12] [main/WARN] [PropertiesBase] core (Initialized) Bad configField entry during updateFrom(): optionsManagerViewed=null
-[11:35:12] [main/WARN] [PropertiesBase] core (Initialized) Bad configField entry during updateFrom(): splashViewed=null
-[11:35:12] [main/INFO] [WaypointStore] Loaded 1 waypoints from .\journeymap\data\sp\New World\waypoints
-[11:35:12] [main/INFO] [JourneymapClient] Mapping started in .\journeymap\data\sp\New World\DIM0. Memory: 1512MB total, 700MB free 
-[11:35:12] [main/INFO] [ChatLog] JourneyMap: Press [J]
-[11:35:12] [Netty Local Client IO #0/INFO] [JourneymapClient] Teleport Enabled:true
-[11:35:12] [Netty Local Client IO #0/INFO] [JourneymapClient] Server Admin Enabled:true
-[11:37:30] [main/INFO] [JourneymapClient] Mapping halted in .\journeymap\data\sp\New World\DIM0
+[18:52:22] [main/INFO] [ClientAPI] [ClientAPI] built with JourneyMap API 1.4
+[18:52:22] [main/INFO] [PluginHelper] Initializing plugins with Client API: journeymap.client.api.impl.ClientAPI
+[18:52:22] [main/INFO] [PluginHelper] Initialized IClientPlugin: com.feed_the_beast.ftbutilities.integration.JourneyMapIntegration
+[18:52:22] [main/INFO] [JourneymapClient] initialize EXIT, elapsed count 0 avg ?ms
+[18:52:23] [main/DEBUG] [JourneymapClient] postInitialize ENTER
+[18:52:23] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.KeyEventHandler
+[18:52:23] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.ChatEventHandler
+[18:52:23] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.StateTickHandler
+[18:52:23] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.WorldEventHandler
+[18:52:23] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.WaypointBeaconHandler
+[18:52:23] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.TextureAtlasHandler
+[18:52:23] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.MiniMapOverlayHandler
+[18:52:23] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.PlayerConnectHandler
+[18:52:23] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.world.ChunkMonitor
+[18:52:23] [main/INFO] [IconSetFileHandler] Added entity icons from journeymap:icon/entity. Success: false
+[18:52:23] [main/TRACE] [ThemeLoader] Initializing themes ...
+[18:52:23] [main/INFO] [ThemeLoader] Preloaded theme textures: 72
+[18:52:23] [main/DEBUG] [JourneymapClient] postInitialize EXIT, elapsed§8 count §r1§8 avg §r850.03§8ms§r
+[18:52:25] [JM-VersionCheck-1/INFO] [VersionCheck$1] Newer version online: JourneyMap 5.5.6.jar for Minecraft 1.12.2 on http://minecraft.curseforge.com/projects/journeymap/files/2844789
+[18:53:36] [main/WARN] [PropertiesBase] core (Initialized) Bad configField entry during updateFrom(): optionsManagerViewed=null
+[18:53:36] [main/WARN] [PropertiesBase] core (Initialized) Bad configField entry during updateFrom(): splashViewed=null
+[18:53:36] [main/INFO] [WaypointStore] Loaded 1 waypoints from .\journeymap\data\sp\New World\waypoints
+[18:53:36] [main/INFO] [JourneymapClient] Mapping started in .\journeymap\data\sp\New World\DIM0. Memory: 1532MB total, 961MB free 
+[18:53:36] [Netty Local Client IO #0/INFO] [JourneymapClient] Teleport Enabled:true
+[18:53:36] [Netty Local Client IO #0/INFO] [JourneymapClient] Server Admin Enabled:true
+[18:54:37] [main/INFO] [ChatLog] JourneyMap: Press [J]
+[18:54:43] [main/INFO] [JourneymapClient] Mapping halted in .\journeymap\data\sp\New World\DIM0
