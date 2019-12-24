@@ -167,9 +167,15 @@ public class PlayerUtil
 	public static void updateFortitudeStat(EntityPlayer player)
 	{
 		LSCPlayerCapability cap = getLSCPlayer(player);
-		
+
+		if (cap.getBonusFortitudeStat() < 0) {
+			cap.setBonusFortitudeStat(0);
+		}
+
 		// increases max health
-		AttributeModifier fortitudeMaxHealth = new AttributeModifier(UUID.fromString(MAX_HEALTH), "maxHealth", Configs.playerCategory.maxHealthMultiplier * (cap.getTotalFortitude() + 20), 0);
+		AttributeModifier fortitudeMaxHealth = new AttributeModifier(UUID.fromString(MAX_HEALTH), "maxHealth", Configs.playerCategory.maxHealthMultiplier * (cap.getTotalFortitude()), 0);
+
+
 
 		if (player.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(UUID.fromString(MAX_HEALTH)) != null)
 		{

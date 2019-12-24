@@ -64,24 +64,29 @@ public class ExperienceUtil
 				rarity = EntityRarity.rarity;
 			}
 
-			if (Configs.playerCategory.playerLevelingRestriction){
-				if (enemyLevel < playerLevel && (playerLevel - enemyLevel) < lowLevelRistr + 1 && lowLevelRistr != -1){
+			if (Configs.playerCategory.playerLevelingRestriction || (lowLevelRistr != -1 && upLevelRistr != -1) && 1 < playerLevel){
+				if (enemyLevel < playerLevel && ((playerLevel - enemyLevel) < lowLevelRistr) && lowLevelRistr != -1){
 					expRestrictor = 1 - ((playerLevel - enemyLevel) / lowLevelRistr);
-				}else if (enemyLevel > playerLevel && enemyLevel - playerLevel < upLevelRistr + 1 && upLevelRistr != -1){
+				}else if (playerLevel < enemyLevel && (enemyLevel - playerLevel) < upLevelRistr && upLevelRistr != -1){
 					expRestrictor = 1 - ((enemyLevel - playerLevel) / upLevelRistr);
+				}else if (enemyLevel == playerLevel) {
+					expRestrictor = 1;
 				}else expRestrictor = 0;
 
 				if (expRestrictor < 0) expRestrictor = 0;
 
 			}else expRestrictor = 1;
-			
+
 			// calculates the different multipliers and multiplies them together to get the total multiplier
 			double baseFactor = Configs.monsterLevelTierCategory.experienceBaseFactor;
 			double tierMultiplier = (Math.pow(enemyTier, Configs.monsterLevelTierCategory.experienceTierPower));
 			double rarityMultiplier = (Math.pow(rarity, Configs.monsterLevelTierCategory.experienceRarityPower));
 			double multiplier = ((tierMultiplier * rarityMultiplier) + 1 / Configs.monsterLevelTierCategory.experienceDivisor);
 
-			experience = ((enemyLevel * expRestrictor) * (baseFactor * multiplier));
+			experience = (Math.pow(enemyLevel, expRestrictor) * (baseFactor * (1 + 0.1 * multiplier)));
+
+			if (experience < 1 && 0 < expRestrictor) experience = 1;
+			if (expRestrictor == 0) experience = 0;
 			
 			double bonusExperience = 0;
 			ItemStack stack = player.getHeldItem(player.getActiveHand());
@@ -106,7 +111,7 @@ public class ExperienceUtil
 		SPacketTitle packetActionbar = new SPacketTitle(SPacketTitle.Type.ACTIONBAR, new TextComponentString("You killed " + enemy.getName() + " and gained " + (int) experience + " experience!"), -1, -1, -1);
 		((EntityPlayerMP) player).connection.sendPacket(packetActionbar);
 		
-		while (cap.getPlayerExperience() > getLevelUpExperience(cap.getPlayerLevel())) 
+		while (getLevelUpExperience(cap.getPlayerLevel()) < cap.getPlayerExperience())
 		{
 			int leftOverExperience = cap.getPlayerExperience() - getLevelUpExperience(cap.getPlayerLevel());
 			int skillPoints = 0;

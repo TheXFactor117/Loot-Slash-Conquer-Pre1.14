@@ -595,7 +595,7 @@ public class Configs
 			"Sets the additive to be added to the level up algorithm for player experience."
 		})
 		@RangeInt(min = 0)
-		public int levelUpAdditive = 250;
+		public int levelUpAdditive = 2500;
 		
 		// player characteristics
 		@Comment("Defines the starting Max Mana for players.")
@@ -606,7 +606,7 @@ public class Configs
 		@RangeInt(min = 1)
 		public int manaPer5 = 10;
 		
-		@Comment("Definies the starting HP5 for players.")
+		@Comment("Defines the starting HP5 for players.")
 		@RangeInt(min = 1)
 		public int healthPer5 = 1;
 		
