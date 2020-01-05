@@ -74,7 +74,7 @@ public class CapabilityLSCPlayer
 				nbt.setInteger("Mana", instance.getMana());
 				nbt.setInteger("ManaPerSecond", instance.getManaPerSecond());
 				
-				nbt.setInteger("HealthPerSecond", instance.getHealthPerSecond());
+				nbt.setDouble("HealthPerSecond", instance.getHealthPerSecond());
 				
 				nbt.setDouble("CriticalChance", instance.getCriticalChance());
 				nbt.setDouble("CriticalDamage", instance.getCriticalDamage());

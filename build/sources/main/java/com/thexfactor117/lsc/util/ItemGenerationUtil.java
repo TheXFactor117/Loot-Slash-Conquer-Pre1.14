@@ -2,6 +2,7 @@ package com.thexfactor117.lsc.util;
 
 import java.util.Random;
 
+
 import com.thexfactor117.lsc.config.Configs;
 import com.thexfactor117.lsc.entities.projectiles.Rune;
 import com.thexfactor117.lsc.items.base.weapons.ItemMagical;
@@ -19,6 +20,7 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
+
 
 /**
  * 
@@ -78,19 +80,19 @@ public class ItemGenerationUtil
 		switch (rarity)
 		{
 			case COMMON:
-				amount = (int) (Math.random() * 6 + 1); // 1 guaranteed attribute
+				amount = (int) (1); // 1 guaranteed attribute
 				break;
 			case UNCOMMON:
-				amount = (int) (Math.random() * 5 + 2); // 1 guaranteed attribute, 50% chance for an additional one.
+				amount = (int) (2); // 1 guaranteed attribute, 50% chance for an additional one.
 				break;
 			case RARE:
-				amount = (int) (Math.random() * 4 + 3); // 2 guaranteed attributes, 50% chance for an additional one.
+				amount = (int) (3); // 2 guaranteed attributes, 50% chance for an additional one.
 				break;
 			case EPIC:
-				amount = (int) (Math.random() * 3 + 4); // 2 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
+				amount = (int) (Math.random() * 2 + 3); // 2 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
 				break;
 			case LEGENDARY:
-				amount = (int) (Math.random() * 2 + 5); // 3 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
+				amount = (int) (Math.random() * 2 + 4); // 3 guaranteed attributes, 33% chance for an additional one, 33% for an additional two
 				break;
 			default:
 				break;
@@ -117,7 +119,6 @@ public class ItemGenerationUtil
 			double weightedAttackSpeed = getWeightedAttackSpeed(ItemUtil.getItemRarity(stack), baseAttackSpeed);
 
 			setMinMaxDamage(nbt, weightedDamage);
-			if (Attribute.ATTACK_SPEED.hasAttribute(nbt)) weightedAttackSpeed += (weightedAttackSpeed * Attribute.ATTACK_SPEED.getAttributeValue(nbt));
 			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
 
 			ItemUtil.setAttributeModifierValue(stack.getAttributeModifiers(EntityEquipmentSlot.MAINHAND), SharedMonsterAttributes.ATTACK_DAMAGE, ItemUtil.VANILLA_ATTACK_DAMAGE_MODIFIER, ItemUtil.getItemDamage(stack));
@@ -125,7 +126,7 @@ public class ItemGenerationUtil
 		}
 		else if (stack.getItem() instanceof ItemArmor)
 		{
-			double baseArmor = ItemUtil.getAttributeModifierValue(stack, SharedMonsterAttributes.ARMOR, EntityEquipmentSlot.MAINHAND, ItemUtil.VANILLA_ARMOR_MODIFIER);
+			double baseArmor = ((ItemArmor) stack.getItem()).damageReduceAmount;
 			double weightedArmor = getWeightedArmor(ItemUtil.getItemRarity(stack), ItemUtil.getItemLevel(stack), baseArmor);
 
 			setMinMaxArmor(stack, weightedArmor);
@@ -164,7 +165,6 @@ public class ItemGenerationUtil
 			double weightedAttackSpeed = getWeightedAttackSpeed(ItemUtil.getItemRarity(stack), item.getBaseAttackSpeed());
 
 			setMinMaxDamage(nbt, weightedDamage);
-			if (Attribute.ATTACK_SPEED.hasAttribute(nbt)) weightedAttackSpeed += (weightedAttackSpeed * Attribute.ATTACK_SPEED.getAttributeValue(nbt));
 			nbt.setDouble("AttackSpeed", weightedAttackSpeed);
 		}
 	}
@@ -237,58 +237,50 @@ public class ItemGenerationUtil
 		switch (rarity)
 		{
 			case COMMON:
-				tier = 1.0;
+				tier = 1.05;
 				break;
 			case UNCOMMON:
-				tier = 2.0;
+				tier = 1.1;
 				break;
 			case RARE:
-				tier = 3.0;
+				tier = 1.15;
 				break;
 			case EPIC:
-				tier = 4.0;
+				tier = 1.2;
 				break;
 			case LEGENDARY:
-				tier = 5.0;
+				tier = 1.25;
 				break;
 		}
 
-		return base * Math.pow(tier, baseFactor);
+		return baseFactor * (base + Math.pow(tier, base));
 	}
 
 	// TODO: add attack speed values to config.
 	public static double getWeightedAttackSpeed(Rarity rarity, double base)
 	{
 		double speed = base;
-		double range = 0;
 
 		switch (rarity)
 		{
 			case COMMON:
-				range = 0.05;
-				speed = Math.random() * range * (base + base * Configs.weaponCategory.commonFactor);
+				speed = base + Configs.weaponCategory.commonFactor;
 				break;
 			case UNCOMMON:
-				range = 0.1;
-				speed = Math.random() * range * (base + base * Configs.weaponCategory.uncommonFactor);
+				speed = base + Configs.weaponCategory.uncommonFactor;
 				break;
 			case RARE:
-				range = 0.15;
-				speed = Math.random() * range * (base + base * Configs.weaponCategory.rareFactor);
+				speed = base + Configs.weaponCategory.rareFactor;
 				break;
 			case EPIC:
-				range = 0.2;
-				speed = Math.random() * range * (base + base * Configs.weaponCategory.epicFactor);
+				speed = base + Configs.weaponCategory.epicFactor;
 				break;
 			case LEGENDARY:
-				range = 0.25;
-				speed = Math.random() * range + (base + base * Configs.weaponCategory.legendaryFactor);
+				speed = base + Configs.weaponCategory.legendaryFactor;
 				break;
 			default:
 				break;
 		}
-
-		if (speed < base) speed = base;
 
 		return speed;
 	}
@@ -302,23 +294,23 @@ public class ItemGenerationUtil
 		switch (rarity)
 		{
 			case COMMON:
-				tier = 1.0;
+				tier = 1.1;
 				break;
 			case UNCOMMON:
-				tier = 2.0;
+				tier = 1.2;
 				break;
 			case RARE:
-				tier = 3.0;
+				tier = 1.3;
 				break;
 			case EPIC:
-				tier = 4.0;
+				tier = 1.4;
 				break;
 			case LEGENDARY:
-				tier = 5.0;
+				tier = 1.5;
 				break;
 		}
 
-		return base * (Math.pow(tier, baseFactor));
+		return baseFactor * (Math.pow(base, tier));
 	}
 
 	/**

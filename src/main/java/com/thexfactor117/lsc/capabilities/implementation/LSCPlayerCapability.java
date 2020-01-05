@@ -54,7 +54,7 @@ public class LSCPlayerCapability implements ILSCPlayer
 	private int maxMana;
 	private int manaPerSecond;
 
-	private int healthPerSecond;
+	private double healthPerSecond;
 
 	private double criticalChance;
 	private double criticalDamage;
@@ -95,43 +95,41 @@ public class LSCPlayerCapability implements ILSCPlayer
 		if (player == null) return;
 
 		LSCPlayerCapability cap = PlayerUtil.getLSCPlayer(player);
-
+        cap.removeBonusStats();
 		for (int slot = 0; slot < 4; slot++) {
 			ItemStack stack = player.inventory.armorInventory.get(slot);
-			if (stack != armorStacks.get(slot)) {
 				if (stack.getItem() instanceof ItemArmor) {
 					for (Attribute attribute : ItemUtil.getAllAttributes(stack)) {
 						if (attribute instanceof AttributeArmor) {
 							((AttributeArmor) attribute).onEquip(cap, stack);
-						}
 					}
 				}
-				if (stack == ItemStack.EMPTY && armorStacks.get(slot) != null && armorStacks.get(slot) != ItemStack.EMPTY) {
-					for (Attribute attribute : ItemUtil.getAllAttributes(armorStacks.get(slot))) {
-						if (attribute instanceof AttributeArmor) {
-							((AttributeArmor) attribute).onUnequip(cap, armorStacks.get(slot));
-						}
-					}
+			}
+		}
+		for (int slot = 0; slot < baubles.api.BaublesApi.getBaublesHandler(player).getSlots(); slot++) {
+			ItemStack stack = baubles.api.BaublesApi.getBaublesHandler(player).getStackInSlot(slot);
+			for (Attribute attribute : ItemUtil.getAllAttributes(stack)) {
+				if (attribute instanceof AttributeArmor) {
+					((AttributeArmor) attribute).onEquip(cap, stack);
 				}
-				armorStacks.put(slot, stack);
 			}
 		}
 
-		assert cap != null;
-		LootSlashConquer.network.sendTo(new PacketUpdateCoreStats(cap), (EntityPlayerMP) player);
 
+		assert cap != null;
 		updatePlayerPower();
 		updatePlayerResistance();
+		LootSlashConquer.network.sendTo(new PacketUpdateCoreStats(cap), (EntityPlayerMP) player);
 		LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
 
 		// health and mana regeneration
-		if (cap.getRegenTicks() % 100 == 0) {
+		if (cap.getRegenTicks() % 150 == 0) {
 			if (cap.getMana() < cap.getMaxMana()) {
 				cap.increaseMana(cap.getManaPerSecond());
 			}
 
 			if (player.getHealth() < player.getMaxHealth()) {
-				player.heal(cap.getHealthPerSecond());
+				player.heal((float) cap.getHealthPerSecond());
 			}
 
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
@@ -411,13 +409,13 @@ public class LSCPlayerCapability implements ILSCPlayer
 	 */
 
 	@Override
-	public void setHealthPerSecond(int healthPerSecond)
+	public void setHealthPerSecond(double healthPerSecond)
 	{
 		this.healthPerSecond = healthPerSecond;
 	}
 
 	@Override
-	public int getHealthPerSecond()
+	public double getHealthPerSecond()
 	{
 		return healthPerSecond;
 	}

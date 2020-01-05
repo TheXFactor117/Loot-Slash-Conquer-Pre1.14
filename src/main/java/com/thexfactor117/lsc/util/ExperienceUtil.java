@@ -65,23 +65,27 @@ public class ExperienceUtil
 			}
 
 			if (Configs.playerCategory.playerLevelingRestriction || (lowLevelRistr != -1 && upLevelRistr != -1) && 1 < playerLevel){
-				if (enemyLevel < playerLevel && ((playerLevel - enemyLevel) < lowLevelRistr) && lowLevelRistr != -1){
-					expRestrictor = 1 - ((playerLevel - enemyLevel) / lowLevelRistr);
-				}else if (playerLevel < enemyLevel && (enemyLevel - playerLevel) < upLevelRistr && upLevelRistr != -1){
-					expRestrictor = 1 - ((enemyLevel - playerLevel) / upLevelRistr);
-				}else if (enemyLevel == playerLevel) {
+
+				expRestrictor = 0;
+
+				if (enemyLevel < playerLevel){
+					if(!(lowLevelRistr == -1) && (playerLevel - enemyLevel) < lowLevelRistr) expRestrictor = 1 - ((playerLevel - enemyLevel) / lowLevelRistr); else expRestrictor = 1;
+				}
+				if (playerLevel < enemyLevel) {
+					if(!(upLevelRistr == -1) && (enemyLevel - playerLevel) < upLevelRistr) expRestrictor = 1 - ((enemyLevel - playerLevel) / upLevelRistr); else expRestrictor = 1;
+				}
+				if (enemyLevel == playerLevel) {
 					expRestrictor = 1;
-				}else expRestrictor = 0;
+				}
 
 				if (expRestrictor < 0) expRestrictor = 0;
-
-			}else expRestrictor = 1;
+			}
 
 			// calculates the different multipliers and multiplies them together to get the total multiplier
-			double baseFactor = Configs.monsterLevelTierCategory.experienceBaseFactor;
-			double tierMultiplier = (Math.pow(enemyTier, Configs.monsterLevelTierCategory.experienceTierPower));
-			double rarityMultiplier = (Math.pow(rarity, Configs.monsterLevelTierCategory.experienceRarityPower));
-			double multiplier = ((tierMultiplier * rarityMultiplier) + 1 / Configs.monsterLevelTierCategory.experienceDivisor);
+			double baseFactor = Configs.monsterLevelTierCategory.experienceBaseFactor; // = 15
+			double tierMultiplier = (Math.pow(enemyTier, Configs.monsterLevelTierCategory.experienceTierPower)); // = 1, 4.75, 11.84, 22.63, 37.38
+			double rarityMultiplier = (Math.pow(rarity, Configs.monsterLevelTierCategory.experienceRarityPower)); // = 1, 3.36, 6.84
+			double multiplier = ((tierMultiplier * rarityMultiplier + 1) / Configs.monsterLevelTierCategory.experienceDivisor);
 
 			experience = (Math.pow(enemyLevel, expRestrictor) * (baseFactor * (1 + 0.1 * multiplier)));
 

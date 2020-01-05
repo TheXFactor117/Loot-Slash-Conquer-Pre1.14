@@ -100,36 +100,32 @@ public class EntityBarbarian extends EntityMonster implements IMob
 	public boolean attackEntityAsMob(Entity entity)
     {
 		ItemStack stack = this.getHeldItemMainhand();
-		
-		if (stack != null && entity instanceof EntityPlayer)
-		{
-			EntityPlayer enemy = (EntityPlayer) entity;
-			// damage enemy based on weapon's damage
-			NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
-			double damage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
-			
-			boolean hasAttacked = enemy.attackEntityFrom(DamageSource.causeMobDamage(this), (float) damage);
-			
-			if (hasAttacked)
-			{				
-				// apply attributes from weapon
-				
-				
-				// apply knockback if attack was successful
-				int knockback = EnchantmentHelper.getKnockbackModifier(this);
-				
-				if (knockback > 0)
-	            {
-	                ((EntityLivingBase) enemy).knockBack(this, (float) knockback * 0.5F, (double) MathHelper.sin(this.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(this.rotationYaw * 0.017453292F)));
-	                this.motionX *= 0.6D;
-	                this.motionZ *= 0.6D;
-	            }
-			}
-			
-			return hasAttacked;
-		}
-		else
-		{
+
+		if (super.attackEntityAsMob(entity) && !entity.world.isRemote && stack != null) {
+			//if (stack != null && entity instanceof EntityPlayer) {
+				EntityPlayer enemy = (EntityPlayer) entity;
+				// damage enemy based on weapon's damage
+				NBTTagCompound nbt = NBTHelper.loadStackNBT(stack);
+				double damage = Math.random() * (nbt.getInteger("MaxDamage") - nbt.getInteger("MinDamage")) + nbt.getInteger("MinDamage");
+
+				boolean hasAttacked = enemy.attackEntityFrom(DamageSource.causeMobDamage(this), (float) damage);
+
+				if (hasAttacked) {
+					// apply attributes from weapon
+
+
+					// apply knockback if attack was successful
+					int knockback = EnchantmentHelper.getKnockbackModifier(this);
+
+					if (knockback > 0) {
+						((EntityLivingBase) enemy).knockBack(this, (float) knockback * 0.5F, (double) MathHelper.sin(this.rotationYaw * 0.017453292F), (double) (-MathHelper.cos(this.rotationYaw * 0.017453292F)));
+						this.motionX *= 0.6D;
+						this.motionZ *= 0.6D;
+					}
+				}
+
+				return hasAttacked;
+			} else {
 			return false;
 		}
     }

@@ -117,6 +117,8 @@ public class ItemUtil
 		double criticalChance = cap.getCriticalChance();
 		double criticalDamage = cap.getCriticalDamage();
 		double elementalDamage = 0;
+
+		if(criticalChance < 0) criticalChance = 0;
 		
 		if (Attribute.CRITICAL_CHANCE.hasAttribute(nbt)) criticalChance += Attribute.CRITICAL_CHANCE.getAttributeValue(nbt);
 		if (Attribute.CRITICAL_DAMAGE.hasAttribute(nbt)) criticalDamage += Attribute.CRITICAL_DAMAGE.getAttributeValue(nbt);

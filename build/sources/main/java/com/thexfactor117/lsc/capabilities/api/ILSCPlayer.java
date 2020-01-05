@@ -67,8 +67,8 @@ public interface ILSCPlayer
 	public int getManaPerSecond();
 	
 	// health
-	public void setHealthPerSecond(int healthPerSecond);
-	public int getHealthPerSecond();
+	public void setHealthPerSecond(double healthPerSecond);
+	public double getHealthPerSecond();
 	
 	// criticals
 	public void setCriticalChance(double criticalChance);

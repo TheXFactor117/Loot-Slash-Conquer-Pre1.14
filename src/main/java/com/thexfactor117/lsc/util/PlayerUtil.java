@@ -120,6 +120,7 @@ public class PlayerUtil
 			int bonus = cap.getTotalDexterity() > 0 ? 1 : 0;
 
 			cap.setCriticalChance(Configs.playerCategory.critChanceMultiplier * ((cap.getTotalDexterity() / 5.0) + bonus));
+			if(cap.getCriticalChance() < 0.0) cap.setCriticalChance(0);
 			if (cap.getPlayerClass() == 1) cap.setCriticalDamage(Configs.playerCategory.critDamageMultiplier * ((cap.getTotalDexterity() / 2.0) + bonus));
 
 			LootSlashConquer.network.sendTo(new PacketUpdatePlayerStats(cap), (EntityPlayerMP) player);
@@ -186,7 +187,7 @@ public class PlayerUtil
 
 		if (!player.getEntityWorld().isRemote)
 		{
-			cap.setHealthPerSecond(Configs.playerCategory.healthPer5 * cap.getTotalFortitude());
+			cap.setHealthPerSecond(Configs.playerCategory.healthPer5 * (double) cap.getTotalFortitude());
 			
 			if (player.getHealth() > player.getMaxHealth())
 			{

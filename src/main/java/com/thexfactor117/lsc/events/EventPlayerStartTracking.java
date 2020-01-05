@@ -80,7 +80,7 @@ public class EventPlayerStartTracking {
 			if (entity.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH) != null) {
 
 				double baseHealth = (entity).getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getBaseValue();
-				double healthMultiplier = Configs.monsterLevelTierCategory.healthBaseFactor * baseHealth * level * tier;
+				double healthMultiplier = Configs.monsterLevelTierCategory.healthBaseFactor * baseHealth * (1 + 0.01 * level) * (1 + 0.1 * tier);
 
 				AttributeModifier maxHealth = new AttributeModifier(MAX_HEALTH, "maxHealth", healthMultiplier, 0);
 

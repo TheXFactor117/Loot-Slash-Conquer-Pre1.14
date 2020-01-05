@@ -29,7 +29,7 @@ public class PacketUpdatePlayerStats implements IMessage
 	private double rangedPower;
 	private double magicalPower;
 	
-	private int healthPerSecond;
+	private double healthPerSecond;
 	
 	private double criticalChance;
 	private double criticalDamage;
@@ -89,7 +89,7 @@ public class PacketUpdatePlayerStats implements IMessage
 		buf.writeDouble(rangedPower);
 		buf.writeDouble(magicalPower);
 		
-		buf.writeInt(healthPerSecond);
+		buf.writeDouble(healthPerSecond);
 		
 		buf.writeDouble(criticalChance);
 		buf.writeDouble(criticalDamage);

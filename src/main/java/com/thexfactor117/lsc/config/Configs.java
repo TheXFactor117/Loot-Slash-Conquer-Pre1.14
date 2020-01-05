@@ -564,7 +564,7 @@ public class Configs
 				"Level range of mobs lower than player level able to grant experience.",
 				"Set this to -1 to ignore this feature. Default 10."
 		})
-		@RangeDouble(min = 0)
+		@RangeDouble(min = 0, max = 1000)
 		public int lowerLevelRestrictionRange = 10;
 
 		// Lower level limit of experience restriction
@@ -572,7 +572,7 @@ public class Configs
 				"Level range of mobs higher than player level able to grant experience.",
 				"Set this to -1 to ignore this feature. Default 10."
 		})
-		@RangeDouble(min = 0)
+		@RangeDouble(min = 0, max = 1000)
 		public int upperLevelRestrictionRange = 10;
 		
 		@Comment("If true, the player will gain Bonus skill points every 5 and 10 levels, in addition to every level.")
@@ -607,8 +607,8 @@ public class Configs
 		public int manaPer5 = 10;
 		
 		@Comment("Defines the starting HP5 for players.")
-		@RangeInt(min = 1)
-		public int healthPer5 = 1;
+		@RangeDouble(min = 0.01, max = 10)
+		public double healthPer5 = 1;
 		
 		// player stats
 		@Comment("This amount gets added to the player's movement speed for every Agility point.")
@@ -699,42 +699,42 @@ public class Configs
 			"Changing this number slightly will have significant effects.",
 			"This number gets raised to the level power, then multiplied by the rest of the algorithm."
 		})
-		public double damageBaseFactor = 1.109;
+		public double damageBaseFactor = 0.825;
 		
 		@Comment({
 			"Only change this if you know what you're doing.",
 			"This influences the default damage depending on the rarity.",
 			"For example, if it's an Iron Sword, it would be this value multiplied by 6 (the default Iron Sword damage)."
 		})
-		public double commonFactor = 0.85;
+		public double commonFactor = 0.05;
 		
 		@Comment({
 			"Only change this if you know what you're doing.",
 			"This influences the default damage depending on the rarity.",
 			"For example, if it's an Iron Sword, it would be this value multiplied by 6 (the default Iron Sword damage)."
 		})
-		public double uncommonFactor = 1;
+		public double uncommonFactor = 0.1;
 		
 		@Comment({
 			"Only change this if you know what you're doing.",
 			"This influences the default damage depending on the rarity.",
 			"For example, if it's an Iron Sword, it would be this value multiplied by 6 (the default Iron Sword damage)."
 		})
-		public double rareFactor = 1.2;
+		public double rareFactor = 0.2;
 		
 		@Comment({
 			"Only change this if you know what you're doing.",
 			"This influences the default damage depending on the rarity.",
 			"For example, if it's an Iron Sword, it would be this value multiplied by 6 (the default Iron Sword damage)."
 		})
-		public double epicFactor = 1.45;
+		public double epicFactor = 0.4;
 		
 		@Comment({
 			"Only change this if you know what you're doing.",
 			"This influences the default damage depending on the rarity.",
 			"For example, if it's an Iron Sword, it would be this value multiplied by 6 (the default Iron Sword damage)."
 		})
-		public double legendaryFactor = 1.8;
+		public double legendaryFactor = 0.8;
 	}
 	
 	public static class RenderingCategory
