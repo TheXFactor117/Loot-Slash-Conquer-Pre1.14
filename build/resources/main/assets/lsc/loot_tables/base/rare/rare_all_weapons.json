@@ -1,0 +1,20 @@
+{
+	"pools": [
+		{
+			"name": "main",
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "loot_table",
+					"name": "lsc:base/rare/physical_weapons",
+					"weight": 1
+				},
+				{
+					"type": "loot_table",
+					"name": "lsc:base/rare/magical_weapons",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

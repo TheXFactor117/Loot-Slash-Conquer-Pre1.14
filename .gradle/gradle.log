@@ -1,0 +1,1326 @@
+This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.This mapping 'snapshot_20171003' was designed for MC 1.12! Use at your own peril.
+
+:deobfCompileDummyTask
+:deobfProvidedDummyTask
+:sourceApiJava UP-TO-DATE
+:compileApiJava UP-TO-DATE
+:processApiResources UP-TO-DATE
+:apiClasses UP-TO-DATE
+:sourceMainJava
+:compileJavaNote: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+:processResources UP-TO-DATE
+:classes
+:jar
+:getVersionJson
+:extractNatives SKIPPED
+:extractUserdev UP-TO-DATE
+:getAssetIndex UP-TO-DATE
+:getAssets
+:makeStart
+:runClient
+[14:55:11] [main/INFO] [GradleStart]: Extra: []
+[14:55:11] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:/Users/Rensik/.gradle/caches/minecraft/assets, --assetIndex, 1.12, --accessToken{REDACTED}, --version, 1.12.2, --tweakClass, net.minecraftforge.fml.common.launcher.FMLTweaker, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[14:55:11] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[14:55:12] [main/INFO] [LaunchWrapper]: Using primary tweak class name net.minecraftforge.fml.common.launcher.FMLTweaker
+[14:55:12] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[14:55:12] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLTweaker
+[14:55:12] [main/INFO] [FML]: Forge Mod Loader version 14.23.5.2768 for Minecraft 1.12.2 loading
+[14:55:12] [main/INFO] [FML]: Java is Java HotSpot(TM) 64-Bit Server VM, version 1.8.0_192, running on Windows 7:amd64:6.1, installed at C:\Java\jdk1.8.0_192\jre
+[14:55:12] [main/ERROR] [FML]: Apache Maven library folder was not in the format expected. Using default libraries directory.
+[14:55:12] [main/ERROR] [FML]: Full: C:\Users\Rensik\.gradle\caches\modules-2\files-2.1\org.apache.maven\maven-artifact\3.5.3\7dc72b6d6d8a6dced3d294ed54c2cc3515ade9f4\maven-artifact-3.5.3.jar
+[14:55:12] [main/ERROR] [FML]: Trimmed: c:/users/rensik/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.5.3/
+[14:55:12] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[14:55:12] [main/INFO] [FML]: Detected deobfuscated environment, loading log configs for colored console logs.
+2020-01-05 14:55:12,736 main WARN Disabling terminal, you're running in an unsupported environment.
+[14:55:12] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLCorePlugin (net.minecraftforge.fml.relauncher.FMLCorePlugin), we are in deobf and it's a forge core plugin
+[14:55:12] [main/INFO] [FML]: Ignoring missing certificate for coremod FMLForgePlugin (net.minecraftforge.classloading.FMLForgePlugin), we are in deobf and it's a forge core plugin
+[14:55:12] [main/INFO] [FML]: Searching C:\Users\Rensik\Documents\GitHub\Loot-Slash-Conquer-Pre1.14\run\.\mods for mods
+[14:55:12] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[14:55:12] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.fml.relauncher.FMLCorePlugin
+[14:55:12] [main/INFO] [GradleStart]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[14:55:12] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[14:55:12] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[14:55:12] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[14:55:12] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[14:55:12] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLInjectionAndSortingTweaker
+[14:55:12] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[14:55:13] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[14:55:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.relauncher.CoreModManager$FMLPluginWrapper
+[14:55:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.FMLDeobfTweaker
+[14:55:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[14:55:13] [main/INFO] [GradleStart]: Remapping AccessTransformer rules...
+[14:55:13] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.fml.common.launcher.TerminalTweaker
+[14:55:13] [main/INFO] [LaunchWrapper]: Calling tweak class net.minecraftforge.fml.common.launcher.TerminalTweaker
+[14:55:13] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[14:55:13] [main/INFO] [minecraft/Minecraft]: Setting user: Player765
+[14:55:15] [main/WARN] [minecraft/GameSettings]: Skipping bad option: lastServer:
+[14:55:16] [main/INFO] [minecraft/Minecraft]: LWJGL Version: 2.9.4
+[14:55:16] [main/INFO] [FML]: -- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.8.0_192, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 148692376 bytes (141 MB) / 573571072 bytes (547 MB) up to 3810525184 bytes (3634 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: 
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 419.17' Renderer: 'GeForce GTX 1050 Ti/PCIe/SSE2'
+[14:55:16] [main/INFO] [FML]: MinecraftForge v14.23.5.2768 Initialized
+[14:55:16] [main/INFO] [FML]: Starts to replace vanilla recipe ingredients with ore ingredients.
+[14:55:16] [main/INFO] [FML]: Replaced 1036 ore ingredients
+[14:55:17] [main/INFO] [FML]: Searching C:\Users\Rensik\Documents\GitHub\Loot-Slash-Conquer-Pre1.14\run\.\mods for mods
+[14:55:18] [main/WARN] [FML]: Mod codechickenlib is missing the required element 'version' and a version.properties file could not be found. Falling back to metadata version 3.2.3.358
+[14:55:18] [main/INFO] [FML]: Forge Mod Loader has identified 23 mods to load
+[14:55:18] [main/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, baubles, lycanitesmobs, lsc, attributefix, codechickenlib, cofhcore, cofhworld, eleccoreloader, eleccore, ftbbackups, ftblib, ftbutilities, journeymap, mantle, neat, placebo, redstoneflux, silentlib, reauth] at CLIENT
+[14:55:18] [main/INFO] [FML]: Attempting connection with missing mods [minecraft, mcp, FML, forge, baubles, lycanitesmobs, lsc, attributefix, codechickenlib, cofhcore, cofhworld, eleccoreloader, eleccore, ftbbackups, ftblib, ftbutilities, journeymap, mantle, neat, placebo, redstoneflux, silentlib, reauth] at SERVER
+[14:55:19] [Thread-3/INFO] [FML]: Using sync timing. 200 frames of Display.update took 189102324 nanos
+[14:55:21] [main/INFO] [minecraft/SimpleReloadableResourceManager]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Baubles, FMLFileResourcePack:Lycanites Mobs, FMLFileResourcePack:Loot Slash Conquer, FMLFileResourcePack:Attribute Fix, FMLFileResourcePack:CodeChicken Lib, FMLFileResourcePack:CoFH Core, FMLFileResourcePack:CoFH World, FMLFileResourcePack:ElecCoreLoader, FMLFileResourcePack:ElecCore, FMLFileResourcePack:FTB Backups, FMLFileResourcePack:FTB Library, FMLFileResourcePack:FTB Utilities, FMLFileResourcePack:JourneyMap, FMLFileResourcePack:Mantle, FMLFileResourcePack:Neat, FMLFileResourcePack:Placebo, FMLFileResourcePack:Redstone Flux, FMLFileResourcePack:Silent Lib, FMLFileResourcePack:ReAuth
+[14:55:21] [main/INFO] [FML]: Processing ObjectHolder annotations
+[14:55:21] [main/INFO] [FML]: Found 1172 ObjectHolder annotations
+[14:55:21] [main/INFO] [FML]: Identifying ItemStackHolder annotations
+[14:55:21] [main/INFO] [FML]: Found 0 ItemStackHolder annotations
+[14:55:21] [main/INFO] [FML]: Configured a dormant chunk cache size of 0
+[14:55:21] [Forge Version Check/INFO] [forge.VersionCheck]: [lsc] Starting version check at https://raw.githubusercontent.com/TheXFactor117/Loot-Slash-Conquer/master/info/update_checker.json
+[14:55:21] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logInfo:283]: [LycanitesMobs] [Info] [] Config version created successfully.
+[14:55:21] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logInfo:283]: [LycanitesMobs] [Info] [] Config general created successfully.
+[14:55:22] [main/INFO] [FML]: Ignored smelting recipe with conflicting input: 1xtile.air@32767 = 6xitem.sugar@0
+[14:55:22] [Forge Version Check/INFO] [forge.VersionCheck]: [cofhcore] Starting version check at https://raw.github.com/cofh/version/master/cofhcore_update.json
+[14:55:22] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logInfo:283]: [LycanitesMobs] [Info] [] Config itemlists created successfully.
+[14:55:22] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `lycanitesmobs.summoningpedestal`, expected `lycanitesmobs`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:22] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `lycanitesmobs.equipmentforge`, expected `lycanitesmobs`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:22] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logInfo:283]: [LycanitesMobs] [Info] [] Config spawning created successfully.
+[14:55:22] [Forge Version Check/INFO] [forge.VersionCheck]: [cofhcore] Found status: UP_TO_DATE Target: null
+[14:55:22] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Starting version check at http://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[14:55:23] [Forge Version Check/INFO] [forge.VersionCheck]: [forge] Found status: UP_TO_DATE Target: null
+[14:55:23] [Forge Version Check/INFO] [forge.VersionCheck]: [cofhworld] Starting version check at https://raw.github.com/cofh/version/master/cofhworld_update.json
+[14:55:23] [Forge Version Check/INFO] [forge.VersionCheck]: [cofhworld] Found status: UP_TO_DATE Target: null
+[14:55:23] [Forge Version Check/INFO] [forge.VersionCheck]: [codechickenlib] Starting version check at http://chickenbones.net/Files/notification/version.php?query=forge&version=1.12&file=CodeChickenLib
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: spriggan
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: arisaur
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: vespidqueen
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: reiver
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: lacedon
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: barghest
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: kobold
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: makaalpha
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: chupacabra
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: cacodemon
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: arix
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: skylus
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: wendigo
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: djinn
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: eechetik
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: maug
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: crusk
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: uvaraptor
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: concapede
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: ghoul
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: manticore
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: joustalpha
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: astaroth
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: thresher
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: geist
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: eyewig
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: aglebemu
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: khalk
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: joust
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: zoataur
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: asmodeus
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: nymph
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: gorgomite
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: serpix
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: spectre
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: vespid
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: warg
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: cryptkeeper
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: zephyr
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: ettin
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: abtu
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: behemoth
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: morock
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: dawon
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: shambler
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: lurker
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: afrit
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: jabberwock
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: beholder
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: tremor
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: geonach
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: lobber
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: troll
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: geken
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: strider
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: wraith
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: quillbeast
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: clink
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: ika
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: herma
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: vapula
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: treant
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: reaper
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: raiko
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: grue
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: silex
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: quetzodracl
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: wildkin
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: aspid
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: wisp
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: pinky
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: gorger
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: dweller
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: sutiramu
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: cinder
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: shade
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: banshee
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: aegis
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: erepede
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: sylph
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: volcan
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: yeti
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: yale
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: darkling
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: epion
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: ioray
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: trite
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: jengu
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: roa
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: roc
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: ventoraptor
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: salamander
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: calpod
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: remobra
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: concapedesegment
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: triffid
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: belph
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: cephignis
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: maka
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: feradon
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: xaphan
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: cockatrice
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: wraamon
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: conba
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: ent
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: tarantula
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: rahovart
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: frostweaver
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: ignibus
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: argus
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading: abaia
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading 83 JSON Spawners...
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Complete! 83 JSON Spawners Loaded In Total.
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logInfo:283]: [LycanitesMobs] [Info] [] Config mobevents created successfully.
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logInfo:283]: [LycanitesMobs] [Info] [] Config worldgen created successfully.
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading 4 JSON Dungeon Themes...
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Complete! 4 JSON Dungeon Themes Loaded In Total.
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading 1 JSON Dungeon Structures...
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Complete! 4 JSON Dungeon Structures Loaded In Total.
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading 12 JSON Dungeon Sectors...
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Complete! 4 JSON Dungeon Sectors Loaded In Total.
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Loading 4 JSON Dungeon Schematics...
+[14:55:23] [main/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logDebug:295]: [LycanitesMobs] [Debug] [] Complete! 4 JSON Dungeon Schematics Loaded In Total.
+[14:55:23] [Forge Version Check/INFO] [forge.VersionCheck]: [codechickenlib] Found status: BETA Target: null
+[14:55:23] [main/INFO] [Loot Slash Conquer]: Starting initialization process...
+[14:55:24] [main/INFO] [CoFH World]: Registering default Feature Templates...
+[14:55:24] [main/INFO] [CoFH World]: Registering default World Generators...
+[14:55:24] [main/INFO] [CoFH World]: Verifying or creating base world generation directory...
+[14:55:24] [main/INFO] [CoFH World]: Complete.
+[14:55:24] [main/INFO] [ElecCore]: ElecCore has Pre-initialized in 2 ms
+[14:55:24] [main/INFO] [FTB Library]: Loading FTBLib in development environment
+[14:55:24] [main/WARN] [FTB Library]: Replacing com.feed_the_beast.ftblib.lib.config.DefaultRankConfigHandler with com.feed_the_beast.ftbutilities.ranks.FTBUtilitiesPermissionHandler
+[14:55:24] [main/WARN] [FML]: Replacing net.minecraftforge.server.permission.DefaultPermissionHandler with com.feed_the_beast.ftbutilities.ranks.FTBUtilitiesPermissionHandler
+[14:55:24] [main/INFO] [journeymap]: Found @journeymap.client.api.ClientPlugin: com.feed_the_beast.ftbutilities.integration.JourneyMapIntegration
+[14:55:25] [ReAuth-VersionChecker/INFO] [ReAuth]: Looking for Updates
+[14:55:25] [ReAuth-VersionChecker/INFO] [ReAuth]: Looking for Updates - Finished
+[14:55:25] [main/INFO] [FML]: Applying holder lookups
+[14:55:25] [main/INFO] [FML]: Holder lookups applied
+[14:55:25] [main/INFO] [FML]: Applying holder lookups
+[14:55:25] [main/INFO] [FML]: Holder lookups applied
+[14:55:25] [main/INFO] [FML]: Applying holder lookups
+[14:55:25] [main/INFO] [FML]: Holder lookups applied
+[14:55:25] [main/INFO] [ElecCore]: Registering models
+[14:55:25] [main/INFO] [ElecCore]: Prehandling Item Models
+[14:55:25] [Placebo Patreon Loader/INFO] [placebo]: Loading patreon data...
+[14:55:25] [main/INFO] [ElecCore]: Prehandling Block Models
+[14:55:25] [main/INFO] [FML]: Applying holder lookups
+[14:55:25] [main/INFO] [FML]: Holder lookups applied
+[14:55:25] [main/INFO] [FML]: Injecting itemstacks
+[14:55:25] [main/INFO] [FML]: Itemstack injection complete
+[14:55:26] [main/WARN] [minecraft/SoundHandler]: File lycanitesmobs:sounds/entity/wraith/beg.ogg does not exist, cannot add it to event lycanitesmobs:entity.wraith.beg
+[14:55:26] [main/WARN] [minecraft/SoundHandler]: File lycanitesmobs:sounds/entity/wraith/tame.ogg does not exist, cannot add it to event lycanitesmobs:entity.wraith.tame
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.spriggan.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.spriggan.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.spriggan.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.spriggan.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.arisaur.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.arisaur.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.arisaur.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.vespidqueen.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.vespidqueen.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.vespidqueen.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.reiver.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.reiver.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.reiver.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.reiver.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.lacedon.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.lacedon.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.barghest.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.kobold.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.kobold.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.makaalpha.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.makaalpha.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.chupacabra.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.chupacabra.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cacodemon.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cacodemon.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cacodemon.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cacodemon.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.arix.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.arix.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.arix.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.skylus.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.skylus.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.skylus.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wendigo.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wendigo.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wendigo.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.djinn.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.djinn.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.djinn.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.djinn.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.eechetik.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.eechetik.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.eechetik.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.maug.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.crusk.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.crusk.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.uvaraptor.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.concapede.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.concapede.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ghoul.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ghoul.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ghoul.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.manticore.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.manticore.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.joustalpha.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.joustalpha.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.astaroth.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.astaroth.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.astaroth.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.astaroth.void.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.astaroth.void.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.astaroth.void.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.thresher.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.thresher.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.thresher.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.geist.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.geist.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.eyewig.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.aglebemu.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.aglebemu.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.khalk.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.khalk.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.joust.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.joust.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.zoataur.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.zoataur.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.asmodeus.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.asmodeus.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.nymph.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.nymph.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.nymph.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.nymph.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.gorgomite.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.gorgomite.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.serpix.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.serpix.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.serpix.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.serpix.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.spectre.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.spectre.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.spectre.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.vespid.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.vespid.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.vespid.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.warg.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cryptkeeper.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cryptkeeper.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cryptkeeper.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.zephyr.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.zephyr.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.zephyr.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ettin.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ettin.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.abtu.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.abtu.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.abtu.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.abtu.tame
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.abtu.beg
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.behemoth.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.behemoth.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.behemoth.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.morock.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.dawon.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.dawon.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.shambler.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.shambler.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.lurker.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.lurker.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.afrit.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.afrit.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.afrit.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.jabberwock.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.jabberwock.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.beholder.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.beholder.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.beholder.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.beholder.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.tremor.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.tremor.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.tremor.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.geonach.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.geonach.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.geonach.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.lobber.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.lobber.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.lobber.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.troll.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.troll.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.troll.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.geken.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.geken.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.strider.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wraith.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wraith.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wraith.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.quillbeast.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.quillbeast.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.quillbeast.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.clink.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.clink.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.clink.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ika.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ika.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ika.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.herma.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.herma.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.vapula.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.vapula.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.vapula.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.treant.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.treant.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.reaper.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.reaper.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.reaper.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.reaper.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.raiko.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.raiko.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.grue.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.grue.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.silex.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.silex.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.silex.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.silex.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.quetzodracl.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.quetzodracl.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wildkin.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wildkin.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.aspid.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.aspid.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wisp.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wisp.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wisp.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wisp.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.pinky.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.pinky.moloch.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.gorger.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.gorger.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.gorger.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.gorger.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.dweller.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.dweller.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.sutiramu.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.sutiramu.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cinder.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cinder.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cinder.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cinder.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.shade.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.shade.mount
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.banshee.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.banshee.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.banshee.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.aegis.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.aegis.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.aegis.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.erepede.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.erepede.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.sylph.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.sylph.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.sylph.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.sylph.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.volcan.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.volcan.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.volcan.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.yeti.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.yeti.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.yeti.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.yale.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.yale.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.yale.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.darkling.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.darkling.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.epion.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.epion.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.epion.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.epion.tame
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.epion.beg
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ioray.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ioray.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ioray.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ioray.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.trite.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.trite.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.jengu.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.jengu.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.jengu.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.jengu.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.roa.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.roa.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.roa.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.roc.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.roc.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ventoraptor.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.salamander.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.calpod.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.calpod.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.remobra.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.remobra.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.remobra.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.concapedesegment.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.concapedesegment.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.triffid.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.triffid.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.belph.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.belph.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.belph.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cephignis.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cephignis.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cephignis.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cephignis.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.maka.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.maka.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.feradon.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.xaphan.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.xaphan.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.xaphan.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.xaphan.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.cockatrice.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wraamon.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.wraamon.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.conba.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.conba.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.conba.tame
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.conba.beg
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ent.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ent.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.tarantula.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.tarantula.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.rahovart.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.rahovart.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.frostweaver.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.frostweaver.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.frostweaver.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ignibus.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ignibus.attack
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.ignibus.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.argus.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.argus.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.argus.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.abaia.step
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.abaia.jump
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:entity.abaia.fly
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.hellfirewall
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.hellfireorb
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.hellfirewave
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.hellfirewavepart
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.hellfirebarrier
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.hellfirebarrierpart
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.hellshield
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.helllaser
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.helllaserend
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.lifedrainend
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.waterjetend
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.arcanelaserend
+[14:55:26] [main/WARN] [minecraft/SoundManager]: Missing sound for event: lycanitesmobs:projectile.poisonrayend
+[14:55:26] [Sound Library Loader/INFO] [minecraft/SoundManager]: Starting up SoundSystem...
+[14:55:26] [Thread-5/INFO] [minecraft/SoundManager]: Initializing LWJGL OpenAL
+[14:55:26] [Thread-5/INFO] [minecraft/SoundManager]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[14:55:26] [Thread-5/INFO] [minecraft/SoundManager]: OpenAL initialized.
+[14:55:27] [Sound Library Loader/INFO] [minecraft/SoundManager]: Sound engine started
+[14:55:29] [main/INFO] [FML]: Max texture size: 16384
+[14:55:29] [main/ERROR] [minecraft/TextureMap]: Unable to parse metadata from lsc:textures/items/gaze_of_truth_charged.png
+java.lang.RuntimeException: invalid frameindex 4
+	at net.minecraft.client.renderer.texture.TextureAtlasSprite.loadSpriteFrames(TextureAtlasSprite.java:309) ~[TextureAtlasSprite.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.generateMipmaps(TextureMap.java:278) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTexture(TextureMap.java:185) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:110) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadSprites(TextureMap.java:91) [TextureMap.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:159) [ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+[14:55:29] [main/INFO] [minecraft/TextureMap]: Created: 1024x512 textures-atlas
+[14:55:30] [main/INFO] [ElecCore]: Cleaning up internal Json stuff...
+[14:55:30] [main/INFO] [ElecCore]: Handling models
+[14:55:30] [main/INFO] [ElecCore]: Finished cleaning up internal Json stuff.
+[14:55:30] [main/ERROR] [FML]: Exception loading model for variant lsc:boss_door#inventory for item "lsc:boss_door", normal location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:item/boss_door with loader VanillaLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:302) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:151) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: java.io.FileNotFoundException: lsc:models/item/boss_door.json
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:69) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:65) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadModel(ModelBakery.java:334) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.access$1400(ModelLoader.java:115) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:861) ~[ModelLoader$VanillaLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[14:55:30] [main/ERROR] [FML]: Exception loading model for variant lsc:boss_door#inventory for item "lsc:boss_door", blockstate location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:boss_door#inventory with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:296) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:151) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1175) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[14:55:30] [main/ERROR] [FML]: Exception loading blockstate for the variant lsc:boss_door#inventory: 
+java.lang.Exception: Could not load model definition for variant lsc:boss_door
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:269) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:121) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:223) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:150) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: java.lang.RuntimeException: Encountered an exception when loading model definition of model lsc:blockstates/boss_door.json
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:228) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:265) ~[ModelLoader.class:?]
+	... 20 more
+Caused by: java.io.FileNotFoundException: lsc:blockstates/boss_door.json
+	at net.minecraft.client.resources.FallbackResourceManager.getAllResources(FallbackResourceManager.java:104) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getAllResources(SimpleReloadableResourceManager.java:79) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:221) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:265) ~[ModelLoader.class:?]
+	... 20 more
+[14:55:30] [main/ERROR] [FML]: Exception loading model for variant lsc:common_loot_chest#facing=north for blockstate "lsc:common_loot_chest[facing=north]"
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:common_loot_chest#facing=north with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.registerVariant(ModelLoader.java:235) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:153) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:223) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:150) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1175) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
+	... 21 more
+[14:55:30] [main/ERROR] [FML]: Exception loading blockstate for the variant lsc:common_loot_chest#facing=north: 
+java.lang.Exception: Could not load model definition for variant lsc:common_loot_chest
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:269) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:121) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:223) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:150) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: java.lang.RuntimeException: Encountered an exception when loading model definition of model lsc:blockstates/common_loot_chest.json
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:228) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:265) ~[ModelLoader.class:?]
+	... 20 more
+Caused by: java.io.FileNotFoundException: lsc:blockstates/common_loot_chest.json
+	at net.minecraft.client.resources.FallbackResourceManager.getAllResources(FallbackResourceManager.java:104) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getAllResources(SimpleReloadableResourceManager.java:79) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:221) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:265) ~[ModelLoader.class:?]
+	... 20 more
+[14:55:30] [main/ERROR] [FML]: Exception loading model for variant lsc:common_loot_chest#inventory for item "lsc:common_loot_chest", normal location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:item/common_loot_chest with loader VanillaLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:302) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:151) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: java.io.FileNotFoundException: lsc:models/item/common_loot_chest.json
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:69) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:65) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadModel(ModelBakery.java:334) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.access$1400(ModelLoader.java:115) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VanillaLoader.loadModel(ModelLoader.java:861) ~[ModelLoader$VanillaLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[14:55:30] [main/ERROR] [FML]: Exception loading model for variant lsc:common_loot_chest#inventory for item "lsc:common_loot_chest", blockstate location exception: 
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:common_loot_chest#inventory with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadItemModels(ModelLoader.java:296) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadVariantItemModels(ModelBakery.java:175) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:151) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1175) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
+	... 20 more
+[14:55:30] [main/ERROR] [FML]: Exception loading model for variant lsc:rare_loot_chest#facing=east for blockstate "lsc:rare_loot_chest[facing=east]"
+net.minecraftforge.client.model.ModelLoaderRegistry$LoaderException: Exception loading model lsc:rare_loot_chest#facing=east with loader VariantLoader.INSTANCE, skipping
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:161) ~[ModelLoaderRegistry.class:?]
+	at net.minecraftforge.client.model.ModelLoader.registerVariant(ModelLoader.java:235) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:153) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:223) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:150) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: net.minecraft.client.renderer.block.model.ModelBlockDefinition$MissingVariantException
+	at net.minecraft.client.renderer.block.model.ModelBlockDefinition.getVariant(ModelBlockDefinition.java:83) ~[ModelBlockDefinition.class:?]
+	at net.minecraftforge.client.model.ModelLoader$VariantLoader.loadModel(ModelLoader.java:1175) ~[ModelLoader$VariantLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoaderRegistry.getModel(ModelLoaderRegistry.java:157) ~[ModelLoaderRegistry.class:?]
+	... 21 more
+[14:55:30] [main/ERROR] [FML]: Exception loading blockstate for the variant lsc:rare_loot_chest#facing=east: 
+java.lang.Exception: Could not load model definition for variant lsc:rare_loot_chest
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:269) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadBlock(ModelBakery.java:121) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.loadBlocks(ModelLoader.java:223) ~[ModelLoader.class:?]
+	at net.minecraftforge.client.model.ModelLoader.setupModelRegistry(ModelLoader.java:150) ~[ModelLoader.class:?]
+	at net.minecraft.client.renderer.block.model.ModelManager.onResourceManagerReload(ModelManager.java:28) [ModelManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.registerReloadListener(SimpleReloadableResourceManager.java:121) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.init(Minecraft.java:559) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:118) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_192]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_192]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_192]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_192]
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97) [start/:?]
+	at GradleStart.main(GradleStart.java:25) [start/:?]
+Caused by: java.lang.RuntimeException: Encountered an exception when loading model definition of model lsc:blockstates/rare_loot_chest.json
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:228) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:265) ~[ModelLoader.class:?]
+	... 20 more
+Caused by: java.io.FileNotFoundException: lsc:blockstates/rare_loot_chest.json
+	at net.minecraft.client.resources.FallbackResourceManager.getAllResources(FallbackResourceManager.java:104) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getAllResources(SimpleReloadableResourceManager.java:79) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.loadMultipartMBD(ModelBakery.java:221) ~[ModelBakery.class:?]
+	at net.minecraft.client.renderer.block.model.ModelBakery.getModelBlockDefinition(ModelBakery.java:208) ~[ModelBakery.class:?]
+	at net.minecraftforge.client.model.ModelLoader.getModelBlockDefinition(ModelLoader.java:265) ~[ModelLoader.class:?]
+	... 20 more
+[14:55:30] [main/FATAL] [FML]: Suppressed additional 23 model loading errors for domain lsc
+[14:55:32] [main/INFO] [FML]: Applying holder lookups
+[14:55:32] [main/INFO] [FML]: Holder lookups applied
+[14:55:32] [main/INFO] [ElecCore]: ElecCore has Initialized in 28 ms
+[14:55:33] [main/INFO] [journeymap]: JourneyMap log initialized.
+[14:55:33] [main/INFO] [journeymap]: initialize ENTER
+[14:55:33] [main/INFO] [journeymap]: [ClientAPI] built with JourneyMap API 1.4
+[14:55:33] [main/INFO] [journeymap]: Initializing plugins with Client API: journeymap.client.api.impl.ClientAPI
+[14:55:33] [main/INFO] [journeymap]: Initialized IClientPlugin: com.feed_the_beast.ftbutilities.integration.JourneyMapIntegration
+[14:55:33] [main/INFO] [journeymap]: initialize EXIT, elapsed count 0 avg ?ms
+[14:55:33] [main/INFO] [FML]: Injecting itemstacks
+[14:55:33] [main/INFO] [FML]: Itemstack injection complete
+[14:55:33] [main/INFO] [Loot Slash Conquer]: Loot Slash Conquer has finished initializing successfully!
+[14:55:33] [main/INFO] [ElecCore]: ElecCore has Post-initialized in 10 ms
+[14:55:33] [main/INFO] [journeymap]: Added entity icons from journeymap:icon/entity. Success: false
+[14:55:34] [main/INFO] [journeymap]: Preloaded theme textures: 72
+[14:55:34] [main/INFO] [placebo]: Beginning replacement of all shapeless recipes...
+[14:55:34] [main/INFO] [placebo]: Expect log spam from FML!
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `yellow_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `yellow_dye_from_sunflower`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `yellow_dye_from_dandelion`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `yellow_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `yellow_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `writable_book`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `white_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `trapped_chest`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `red_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `red_dye_from_tulip`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `red_dye_from_rose_bush`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `red_dye_from_poppy`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `red_dye_from_beetroot`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `red_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `red_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `purple_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `purple_dye`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `purple_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `purple_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `pumpkin_pie`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `pink_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `pink_dye_from_red_bonemeal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `pink_dye_from_pink_tulip`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `pink_dye_from_peony`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `pink_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `pink_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `orange_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `orange_dye_from_red_yellow`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `orange_dye_from_orange_tulip`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `orange_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `orange_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `mushroom_stew`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `mossy_stonebrick`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `mossy_cobblestone`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `magma_cream`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `magenta_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `magenta_dye_from_purple_and_pink`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `magenta_dye_from_lilac`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `magenta_dye_from_lapis_red_pink`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `magenta_dye_from_lapis_ink_bonemeal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `magenta_dye_from_allium`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `magenta_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `magenta_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `lime_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `lime_dye`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `lime_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `lime_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_gray_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_gray_dye_from_white_tulip`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_gray_dye_from_oxeye_daisy`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_gray_dye_from_ink_bonemeal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_gray_dye_from_gray_bonemeal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_gray_dye_from_azure_bluet`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_gray_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_gray_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_blue_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_blue_dye_from_lapis_bonemeal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_blue_dye_from_blue_orchid`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_blue_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `light_blue_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `green_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `green_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `green_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `gray_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `gray_dye`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `gray_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `gray_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `granite`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `flint_and_steel`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `fire_charge`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `fermented_spider_eye`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `ender_eye`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `cyan_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `cyan_dye`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `cyan_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `cyan_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `brown_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `brown_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `brown_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `book`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `bone_meal_from_bone`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `bone_meal_from_block`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `blue_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `blue_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `blue_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `blaze_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `black_wool`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `black_concrete_powder`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `black_bed_from_white_bed`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `minecraft` for name `andesite`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `zephyrblade_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `yetimeatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `yalemeatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `xaphanspine_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `wraithskull_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `woodenpaxel`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `wendigoantler_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `wargskull_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `vespidstinger_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `ventoraptorskull_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `vapulacrystal_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `tropicalcurry`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `throwingscythe`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `sylphwing_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `sutiramustinger_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `sugar`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `sprigganroot_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `spectretendril_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `silexmeatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `shadowstone`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `shadowcrystal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `seashellmaki`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `searingtaco`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `remobrawing_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `reiverhorns_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `purelava`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `pinkymeatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `peakskebab`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `palesoup`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `paleosalad`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `mycelium`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `mosspie_alt`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `mosspie`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `makameatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `lushstone`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `lushcrystal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `lapisfishandchips`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `joustmeatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `immunizer`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `ikameatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `grueclaw_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `geonachspear_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `geonachfist_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `explorersrisotto`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `equipmentpart_ironpaxel`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `equipmentforge_master`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `equipmentforge_lesser`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `equipmentforge_greater`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `entarm_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `eechetikarm_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `djinncloud_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `devillasagna`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `desertstone`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `desertcrystal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `demonstone`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `demoncrystal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `darklingskull_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `concapedemeatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `clinkscythe_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `cleansingcrystal`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `clay_ball`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `cinderblade_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `cephignismeatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `bulwarkburger`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `bloodchili`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `battleburrito`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `bansheeeye_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `astarothclaw_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `aspidmeatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `arisaurmeatcooked`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `argustail_break`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/WARN] [FML]: Potentially Dangerous alternative prefix `lycanitesmobs` for name `ambercake`, expected `placebo`. This could be a intended override, but in most cases indicates a broken mod.
+[14:55:34] [main/INFO] [placebo]: Successfully replaced 162 recipes with fast recipes.
+[14:55:34] [main/INFO] [cofhcore]: CoFH Core: Load Complete.
+[14:55:34] [main/INFO] [CoFH World]: Accumulating world generation files from: "C:\Users\Rensik\Documents\GitHub\Loot-Slash-Conquer-Pre1.14\run\config\cofh\world"
+[14:55:34] [main/INFO] [CoFH World]: Found a total of 0 world generation files.
+[14:55:34] [main/INFO] [CoFH World]: CoFH World: Load Complete.
+[14:55:34] [main/INFO] [ElecCore]: ElecCore has Available in 0 ms
+[14:55:34] [main/INFO] [FML]: Forge Mod Loader has successfully loaded 23 mods
+[14:55:34] [main/WARN] [minecraft/GameSettings]: Skipping bad option: lastServer:
+[14:55:34] [main/INFO] [mojang/NarratorWindows]: Narrator library for x64 successfully loaded
+[14:55:35] [JM-VersionCheck-1/INFO] [journeymap]: Newer version online: JourneyMap 5.5.6.jar for Minecraft 1.12.2 on http://minecraft.curseforge.com/projects/journeymap/files/2844789
+[14:55:35] [Realms Notification Availability checker #1/INFO] [mojang/RealmsClient]: Could not authorize you against Realms server: Invalid session id
+[14:55:41] [Server thread/INFO] [minecraft/IntegratedServer]: Starting integrated minecraft server version 1.12.2
+[14:55:41] [Server thread/INFO] [minecraft/IntegratedServer]: Generating keypair
+[14:55:41] [Server thread/INFO] [FML]: Injecting existing registry data into this server instance
+[14:55:41] [Server thread/INFO] [FML]: Applying holder lookups
+[14:55:41] [Server thread/INFO] [FML]: Holder lookups applied
+[14:55:42] [Server thread/INFO] [FML]: Loading dimension 0 (New World) (net.minecraft.server.integrated.IntegratedServer@2bb89b8)
+[14:55:42] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[14:55:42] [Server thread/INFO] [minecraft/AdvancementList]: Loaded 488 advancements
+[14:55:42] [Server thread/INFO] [FTB Library]: Reloaded server in 6ms
+[14:55:42] [Server thread/INFO] [FML]: Loading dimension -1 (New World) (net.minecraft.server.integrated.IntegratedServer@2bb89b8)
+[14:55:42] [Server thread/INFO] [FML]: Loading dimension 1 (New World) (net.minecraft.server.integrated.IntegratedServer@2bb89b8)
+[14:55:42] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing start region for level 0
+[14:55:43] [Server thread/INFO] [minecraft/MinecraftServer]: Preparing spawn area: 32%
+[14:55:44] [Server thread/INFO] [FTB Backups]: Backups folder - C:\Users\Rensik\Documents\GitHub\Loot-Slash-Conquer-Pre1.14\run\.\backups
+[14:55:44] [Server thread/INFO] [FTB Utilities]: Overridden 101 commands
+[14:55:45] [Server thread/INFO] [FML]: Unloading dimension -1
+[14:55:45] [Server thread/INFO] [FML]: Unloading dimension 1
+[14:55:45] [Server thread/INFO] [minecraft/IntegratedServer]: Changing view distance to 2, from 10
+[14:55:47] [Netty Local Client IO #0/INFO] [FML]: Server protocol version 2
+[14:55:47] [Netty Server IO #1/INFO] [FML]: Client protocol version 2
+[14:55:47] [Netty Server IO #1/INFO] [FML]: Client attempting to join with 23 mods : minecraft@1.12.2,FML@8.0.99.99,eleccoreloader@1.9.452,silentlib@3.0.13,baubles@1.5.2,redstoneflux@2.1.0,cofhworld@1.3.1,ftblib@5.4.4.5,attributefix@1.0.4,cofhcore@4.6.3,lycanitesmobs@2.0.3.1 - MC 1.12.2,forge@14.23.5.2768,eleccore@1.9.452,codechickenlib@3.2.3.358,mantle@1.12-1.3.3.55,neat@1.4-17,ftbutilities@5.4.0.122,mcp@9.42,ftbbackups@1.1.0.1,lsc@0.6.3.3-beta,journeymap@1.12.2-5.5.5,placebo@1.6.0,reauth@3.6.0
+[14:55:47] [Netty Server IO #1/INFO] [CodeChickenLib-ConfigSync]: Skipping config sync, No mods have registered a syncable config.
+[14:55:47] [Netty Local Client IO #0/INFO] [FML]: [Netty Local Client IO #0] Client side modded connection established
+[14:55:47] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[14:55:47] [Server thread/INFO] [minecraft/PlayerList]: Player765[local:E:99159837] logged in with entity id 348 at (1268.3442306446693, 75.55299286634819, 222.98213026358303)
+[14:55:47] [Server thread/INFO] [minecraft/MinecraftServer]: Player765 joined the game
+[14:55:48] [Server thread/INFO] [STDOUT]: [com.lycanitesmobs.LycanitesMobs:logInfo:283]: [LycanitesMobs] [Info] [] Online donations file read successfully.
+[14:55:48] [pool-2-thread-1/WARN] [mojang/YggdrasilMinecraftSessionService]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@643c3cfe[id=5f90bf1f-575d-3542-89d7-731859eee6f2,name=Player765,properties={},legacy=false]
+com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[YggdrasilAuthenticationService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) [YggdrasilMinecraftSessionService.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:60) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:57) [YggdrasilMinecraftSessionService$1.class:?]
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147) [guava-21.0.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:5153) [guava-21.0.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:170) [YggdrasilMinecraftSessionService.class:?]
+	at net.minecraft.client.Minecraft.getProfileProperties(Minecraft.java:3181) [Minecraft.class:?]
+	at net.minecraft.client.resources.SkinManager$3.run(SkinManager.java:138) [SkinManager$3.class:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_192]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_192]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_192]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_192]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_192]
+[14:55:49] [main/INFO] [minecraft/AdvancementList]: Loaded 17 advancements
+[14:55:49] [main/INFO] [minecraft/GuiNewChat]: [CHAT] You are currently using Lycanites Mobs 2.0.3.1 but a newer version 2.0.6.1 is now available, it is recommended to stay up to date!
+[14:55:50] [main/INFO] [journeymap]: Loaded 1 waypoints from .\journeymap\data\sp\New World\waypoints
+[14:55:50] [main/INFO] [journeymap]: Mapping started in .\journeymap\data\sp\New World\DIM0. Memory: 1610MB total, 829MB free 
+[14:55:50] [main/INFO] [minecraft/GuiNewChat]: [CHAT] JourneyMap: Press [J]
+[14:55:50] [main/INFO] [journeymap]: JourneyMap: Press [J]
+[14:55:50] [Netty Local Client IO #0/INFO] [journeymap]: Teleport Enabled:true
+[14:55:50] [Netty Local Client IO #0/INFO] [journeymap]: Server Admin Enabled:true
+[14:55:57] [main/ERROR] [journeymap]: Can't get entityTexture for Chicken (SUPPRESSED)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: java.lang.NoSuchMethodError: net.minecraft.client.renderer.entity.Render.func_110775_a(Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/ResourceLocation;
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.renderer.entity.RenderFacade.getEntityTexture(RenderFacade.java:29)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.EntityHelper.getIconTextureLocation(EntityHelper.java:278)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.EntityDTO.update(EntityDTO.java:205)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.EntityHelper.getEntitiesNearby(EntityHelper.java:75)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.EntityHelper.getAnimalsNearby(EntityHelper.java:112)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.data.AnimalsData.load(AnimalsData.java:36)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.data.AnimalsData.load(AnimalsData.java:26)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache.get(LocalCache.java:4154)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.data.DataCache.getAnimals(DataCache.java:243)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.MapState.generateDrawSteps(MapState.java:425)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:229)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:172)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.ui.UIManager.drawMiniMap(UIManager.java:328)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.forge.event.MiniMapOverlayHandler.onRenderOverlay(MiniMapOverlayHandler.java:103)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_275_MiniMapOverlayHandler_onRenderOverlay_RenderGameOverlayEvent.invoke(.dynamic)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.client.GuiIngameForge.pre(GuiIngameForge.java:910)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.client.GuiIngameForge.renderGameOverlay(GuiIngameForge.java:119)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1151)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1208)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.main.Main.main(Main.java:118)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+[14:55:57] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at GradleStart.main(GradleStart.java:25)
+[14:55:57] [main/ERROR] [journeymap]: java.lang.NoSuchMethodError: net.minecraft.client.renderer.entity.Render.func_110775_a(Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/ResourceLocation;
+	at net.minecraft.client.renderer.entity.RenderFacade.getEntityTexture(RenderFacade.java:29)
+	at journeymap.client.model.EntityHelper.getIconTextureLocation(EntityHelper.java:278)
+	at journeymap.client.model.EntityDTO.update(EntityDTO.java:205)
+	at journeymap.client.model.EntityHelper.getEntitiesNearby(EntityHelper.java:75)
+	at journeymap.client.model.EntityHelper.getAnimalsNearby(EntityHelper.java:112)
+	at journeymap.client.data.AnimalsData.load(AnimalsData.java:36)
+	at journeymap.client.data.AnimalsData.load(AnimalsData.java:26)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147)
+	at journeymap.client.data.DataCache.getAnimals(DataCache.java:243)
+	at journeymap.client.model.MapState.generateDrawSteps(MapState.java:425)
+	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:229)
+	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:172)
+	at journeymap.client.ui.UIManager.drawMiniMap(UIManager.java:328)
+	at journeymap.client.forge.event.MiniMapOverlayHandler.onRenderOverlay(MiniMapOverlayHandler.java:103)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_275_MiniMapOverlayHandler_onRenderOverlay_RenderGameOverlayEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.client.GuiIngameForge.pre(GuiIngameForge.java:910)
+	at net.minecraftforge.client.GuiIngameForge.renderGameOverlay(GuiIngameForge.java:119)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1151)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1208)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+[14:56:28] [main/INFO] [minecraft/GuiNewChat]: [CHAT] minecraft:command_block, minecraft:command_block_minecart, minecraft:comparator, minecraft:compass
+[14:56:30] [Server thread/INFO] [minecraft/MinecraftServer]: [Player765: Given [Command Block] * 1 to Player765]
+[14:56:30] [main/INFO] [minecraft/GuiNewChat]: [CHAT] Given [Command Block] * 1 to Player765
+[14:56:40] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[14:56:40] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'New World'/overworld
+[14:57:01] [main/INFO] [minecraft/GuiNewChat]: [CHAT] Command set: summon lsc:barbarian
+[14:57:28] [Server thread/INFO] [minecraft/IntegratedServer]: Saving and pausing game...
+[14:57:28] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'New World'/overworld
+[14:57:30] [Server thread/INFO] [minecraft/MinecraftServer]: [@: Object successfully summoned]
+[14:57:30] [main/INFO] [minecraft/GuiNewChat]: [CHAT] [@: Object successfully summoned]
+[14:57:34] [main/ERROR] [journeymap]: Can't get entityTexture for Barbarian (SUPPRESSED)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: java.lang.NoSuchMethodError: net.minecraft.client.renderer.entity.Render.func_110775_a(Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/ResourceLocation;
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.renderer.entity.RenderFacade.getEntityTexture(RenderFacade.java:29)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.EntityHelper.getIconTextureLocation(EntityHelper.java:278)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.EntityDTO.update(EntityDTO.java:205)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.EntityHelper.getEntitiesNearby(EntityHelper.java:75)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.EntityHelper.getMobsNearby(EntityHelper.java:102)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.data.MobsData.load(MobsData.java:34)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.data.MobsData.load(MobsData.java:24)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache.get(LocalCache.java:4154)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.data.DataCache.getMobs(DataCache.java:263)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.model.MapState.generateDrawSteps(MapState.java:439)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:229)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:172)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.ui.UIManager.drawMiniMap(UIManager.java:328)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at journeymap.client.forge.event.MiniMapOverlayHandler.onRenderOverlay(MiniMapOverlayHandler.java:103)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_275_MiniMapOverlayHandler_onRenderOverlay_RenderGameOverlayEvent.invoke(.dynamic)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.client.GuiIngameForge.pre(GuiIngameForge.java:910)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.client.GuiIngameForge.renderGameOverlay(GuiIngameForge.java:119)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1151)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1208)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.client.main.Main.main(Main.java:118)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at java.lang.reflect.Method.invoke(Method.java:498)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+[14:57:34] [main/INFO] [STDERR]: [journeymap.common.log.LogFormatter:toString:25]: 	at GradleStart.main(GradleStart.java:25)
+[14:57:34] [main/ERROR] [journeymap]: java.lang.NoSuchMethodError: net.minecraft.client.renderer.entity.Render.func_110775_a(Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/ResourceLocation;
+	at net.minecraft.client.renderer.entity.RenderFacade.getEntityTexture(RenderFacade.java:29)
+	at journeymap.client.model.EntityHelper.getIconTextureLocation(EntityHelper.java:278)
+	at journeymap.client.model.EntityDTO.update(EntityDTO.java:205)
+	at journeymap.client.model.EntityHelper.getEntitiesNearby(EntityHelper.java:75)
+	at journeymap.client.model.EntityHelper.getMobsNearby(EntityHelper.java:102)
+	at journeymap.client.data.MobsData.load(MobsData.java:34)
+	at journeymap.client.data.MobsData.load(MobsData.java:24)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147)
+	at journeymap.client.data.DataCache.getMobs(DataCache.java:263)
+	at journeymap.client.model.MapState.generateDrawSteps(MapState.java:439)
+	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:229)
+	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:172)
+	at journeymap.client.ui.UIManager.drawMiniMap(UIManager.java:328)
+	at journeymap.client.forge.event.MiniMapOverlayHandler.onRenderOverlay(MiniMapOverlayHandler.java:103)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_275_MiniMapOverlayHandler_onRenderOverlay_RenderGameOverlayEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.client.GuiIngameForge.pre(GuiIngameForge.java:910)
+	at net.minecraftforge.client.GuiIngameForge.renderGameOverlay(GuiIngameForge.java:119)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1151)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1208)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+[14:57:35] [Server thread/INFO] [minecraft/MinecraftServer]: [Player765: Set own game mode to Survival Mode]
+[14:57:35] [main/INFO] [minecraft/GuiNewChat]: [CHAT] Your game mode has been updated to Survival Mode
+[14:57:36] [Server thread/INFO] [minecraft/MinecraftServer]: Player765 was slain by Barbarian
+[14:57:36] [main/INFO] [minecraft/GuiNewChat]: [CHAT] Player765 was slain by Barbarian
+[14:57:36] [main/INFO] [minecraft/AdvancementList]: Loaded 26 advancements
+[14:57:37] [main/INFO] [journeymap]: Player765 died at BlockPos{x=1266, y=71, z=228}. Deathpoints enabled: true. Deathpoint created: true
+[14:57:39] [main/INFO] [minecraft/AdvancementList]: Loaded 26 advancements
+[14:57:46] [main/INFO] [minecraft/Minecraft]: Stopping!
+[14:57:46] [main/INFO] [journeymap]: Mapping halted in .\journeymap\data\sp\New World\DIM0
+[14:57:46] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[14:57:46] [Server thread/INFO] [minecraft/MinecraftServer]: Saving players
+[14:57:46] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[14:57:46] [Server thread/INFO] [minecraft/MinecraftServer]: Saving chunks for level 'New World'/overworld
+[14:57:47] [Server thread/INFO] [FML]: Unloading dimension 0
+[14:57:47] [Server thread/INFO] [FML]: Applying holder lookups
+[14:57:47] [Server thread/INFO] [FML]: Holder lookups applied
+[14:57:47] [main/INFO] [minecraft/SoundManager]: SoundSystem shutting down...
+[14:57:47] [main/WARN] [minecraft/SoundManager]: Author: Paul Lamb, www.paulscode.com
+
+BUILD SUCCESSFUL
+
+Total time: 2 mins 41.122 secs

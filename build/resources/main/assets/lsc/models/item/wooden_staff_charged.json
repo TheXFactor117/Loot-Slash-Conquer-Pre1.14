@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/wooden_staff",
+	"textures": {
+		"layer0": "lsc:items/wooden_staff_charged"
+	}
+}

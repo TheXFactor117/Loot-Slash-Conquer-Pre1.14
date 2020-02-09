@@ -1,0 +1,115 @@
+---- Minecraft Crash Report ----
+// Quite honestly, I wouldn't worry myself about that.
+
+Time: 1/2/20 10:16 AM
+Description: Ticking player
+
+java.lang.ArrayIndexOutOfBoundsException: 4
+	at java.util.Arrays$ArrayList.get(Arrays.java:3841)
+	at net.minecraft.util.NonNullList.get(NonNullList.java:51)
+	at com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability.tickPlayer(LSCPlayerCapability.java:100)
+	at com.thexfactor117.lsc.events.EventPlayerTick.onPlayerTick(EventPlayerTick.java:24)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_20_EventPlayerTick_onPlayerTick_PlayerTickEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.fml.common.FMLCommonHandler.onPlayerPreTick(FMLCommonHandler.java:365)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:228)
+	at net.minecraft.entity.player.EntityPlayerMP.onUpdateEntity(EntityPlayerMP.java:423)
+	at net.minecraft.network.NetHandlerPlayServer.update(NetHandlerPlayServer.java:185)
+	at net.minecraftforge.fml.common.network.handshake.NetworkDispatcher$1.update(NetworkDispatcher.java:212)
+	at net.minecraft.network.NetworkManager.processReceivedPackets(NetworkManager.java:307)
+	at net.minecraft.network.NetworkSystem.networkTick(NetworkSystem.java:197)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:865)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:743)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:192)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:592)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at java.util.Arrays$ArrayList.get(Arrays.java:3841)
+	at net.minecraft.util.NonNullList.get(NonNullList.java:51)
+	at com.thexfactor117.lsc.capabilities.implementation.LSCPlayerCapability.tickPlayer(LSCPlayerCapability.java:100)
+	at com.thexfactor117.lsc.events.EventPlayerTick.onPlayerTick(EventPlayerTick.java:24)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_20_EventPlayerTick_onPlayerTick_PlayerTickEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.fml.common.FMLCommonHandler.onPlayerPreTick(FMLCommonHandler.java:365)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:228)
+
+-- Player being ticked --
+Details:
+	Entity Type: null (net.minecraft.entity.player.EntityPlayerMP)
+	Entity ID: 316
+	Entity Name: Player597
+	Entity's Exact location: 227.21, 72.00, 260.81
+	Entity's Block location: World: (227,72,260), Chunk: (at 3,4,4 in 14,16; contains blocks 224,0,256 to 239,255,271), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Entity's Momentum: 0.00, -0.08, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.entity.player.EntityPlayerMP.onUpdateEntity(EntityPlayerMP.java:423)
+	at net.minecraft.network.NetHandlerPlayServer.update(NetHandlerPlayServer.java:185)
+	at net.minecraftforge.fml.common.network.handshake.NetworkDispatcher$1.update(NetworkDispatcher.java:212)
+	at net.minecraft.network.NetworkManager.processReceivedPackets(NetworkManager.java:307)
+
+-- Ticking connection --
+Details:
+	Connection: net.minecraft.network.NetworkManager@6463394
+Stacktrace:
+	at net.minecraft.network.NetworkSystem.networkTick(NetworkSystem.java:197)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:865)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:743)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:192)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:592)
+	at java.lang.Thread.run(Thread.java:748)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.8.0_192, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 628856632 bytes (599 MB) / 1701838848 bytes (1623 MB) up to 3810525184 bytes (3634 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 20, tallocated: 86
+	FML: MCP 9.42 Powered by Forge 14.23.5.2768 23 mods loaded, 23 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State     | ID             | Version             | Source                                        | Signature                                |
+	|:--------- |:-------------- |:------------------- |:--------------------------------------------- |:---------------------------------------- |
+	| UCHIJAAAA | minecraft      | 1.12.2              | minecraft.jar                                 | None                                     |
+	| UCHIJAAAA | mcp            | 9.42                | minecraft.jar                                 | None                                     |
+	| UCHIJAAAA | FML            | 8.0.99.99           | forgeSrc-1.12.2-14.23.5.2768.jar              | None                                     |
+	| UCHIJAAAA | forge          | 14.23.5.2768        | forgeSrc-1.12.2-14.23.5.2768.jar              | None                                     |
+	| UCHIJAAAA | baubles        | 1.5.2               | Baubles-1.12-1.5.2.jar                        | None                                     |
+	| UCHIJAAAA | lycanitesmobs  | 2.0.3.1 - MC 1.12.2 | lycanitesmobs.jar                             | None                                     |
+	| UCHIJAAAA | lsc            | 0.6.3.3-beta        | Loot Slash Conquer-1.12.2-0.6.3.3-beta.jar    | None                                     |
+	| UCHIJAAAA | attributefix   | 1.0.4               | AttributeFix-1.12.2-1.0.4.jar                 | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| UCHIJAAAA | codechickenlib | 3.2.3.358           | CodeChickenLib-1.12.2-3.2.3.358-universal.jar | f1850c39b2516232a2108a7bd84d1cb5df93b261 |
+	| UCHIJAAAA | redstoneflux   | 2.1.0               | RedstoneFlux-1.12-2.1.0.6-universal.jar       | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | cofhcore       | 4.6.3               | CoFHCore-1.12.2-4.6.3.27-universal.jar        | None                                     |
+	| UCHIJAAAA | cofhworld      | 1.3.1               | CoFHWorld-1.12.2-1.3.1.7-universal.jar        | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | eleccore       | 1.9.452             | ElecCore-1.12.2-1.9.452.jar                   | None                                     |
+	| UCHIJAAAA | ftbbackups     | 1.1.0.1             | FTBBackups-1.1.0.1.jar                        | None                                     |
+	| UCHIJAAAA | ftblib         | 5.4.4.5             | FTBLib-5.4.4.5.jar                            | None                                     |
+	| UCHIJAAAA | ftbutilities   | 5.4.0.122           | FTBUtilities-5.4.0.122.jar                    | None                                     |
+	| UCHIJAAAA | journeymap     | 1.12.2-5.5.5        | journeymap-1.12.2-5.5.5.jar                   | None                                     |
+	| UCHIJAAAA | mantle         | 1.12-1.3.3.55       | Mantle-1.12-1.3.3.55.jar                      | None                                     |
+	| UCHIJAAAA | neat           | 1.4-17              | Neat 1.4-17.jar                               | None                                     |
+	| UCHIJAAAA | placebo        | 1.6.0               | Placebo-1.12.2-1.6.0.jar                      | None                                     |
+	| UCHIJAAAA | silentlib      | 3.0.13              | SilentLib-1.12.2-3.0.13+167.jar               | None                                     |
+	| UCHIJAAAA | reauth         | 3.6.0               | reauth-3.6.0.jar                              | daba0ec4df71b6da841768c49fb873def208a1e3 |
+	| UCHIJAAAA | eleccoreloader | 1.9.452             | ElecCore-1.12.2-1.9.452.jar                   | None                                     |
+
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 8; [EntityPlayerMP['Player597'/316, l='New World', x=227.21, y=72.00, z=260.81]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'

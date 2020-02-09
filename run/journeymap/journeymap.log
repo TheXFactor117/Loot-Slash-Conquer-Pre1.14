@@ -1,0 +1,133 @@
+[14:55:33] [main/INFO] [JMLogger] JourneyMap log initialized.
+[14:55:33] [main/INFO] [JourneymapClient] initialize ENTER
+[14:55:33] [Client thread/INFO] [?] Version: JourneyMap 1.12.2-5.5.5, built with Forge 14.23.5.2768
+Forge: 14.23.5.2768
+Environment: os.name, os.arch, java.version, user.country, user.language=null, game language=en_us, locale=en_us
+Features: 
+	RadarPlayers : singleplayer = true , multiplayer = true
+	RadarAnimals : singleplayer = true , multiplayer = true
+	RadarMobs : singleplayer = true , multiplayer = true
+	RadarVillagers : singleplayer = true , multiplayer = true
+	MapTopo : singleplayer = true , multiplayer = true
+	MapSurface : singleplayer = true , multiplayer = true
+	MapCaves : singleplayer = true , multiplayer = true
+MiniMapProperties{state=Valid, file=journeymap.minimap.config, configVersion=5.5.5, zoomLevel=0, showPlayers=true, frameAlpha=100, compassFontScale=3, terrainAlpha=100, showEntityNames=true, enabled=true, showPlayerHeading=true, showVillagers=true, info2Label=Game Time, sizePercent=40, showDayNight=true, info3Label=Location, showMobs=true, showPets=true, preferredMapType=day, showCompass=true, mobDisplay=Small Dots, showReticle=true, orientation=North, shape=Circle, showSelf=true, info4Label=Biome, locationFormat=xzyv, playerDisplay=Small Dots, showGrid=true, reticleOrientation=My Heading, showWaypoints=true, showCaves=true, showAnimals=true, showMobHeading=true, showWaypointLabels=true, locationFormatVerbose=true, position=Top Right, info1Label=FPS, fontScale=3}
+MiniMapProperties{state=Valid, file=journeymap.minimap2.config, configVersion=5.5.5, zoomLevel=0, showPlayers=true, frameAlpha=100, compassFontScale=1, terrainAlpha=100, showEntityNames=true, enabled=true, showPlayerHeading=true, showVillagers=true, info2Label=Game Time, sizePercent=30, showDayNight=true, info3Label=Location, showMobs=true, showPets=true, preferredMapType=day, showCompass=true, mobDisplay=Small Dots, showReticle=true, orientation=North, shape=Rectangle, showSelf=true, info4Label=Biome, locationFormat=xzyv, playerDisplay=Small Dots, showGrid=true, reticleOrientation=Compass, showWaypoints=true, showCaves=true, showAnimals=true, showMobHeading=true, showWaypointLabels=true, locationFormatVerbose=true, position=Top Right, info1Label=Blank, fontScale=1}
+FullMapProperties{state=Valid, file=journeymap.fullmap.config, configVersion=5.5.5, mobDisplay=Small Dots, zoomLevel=0, showPlayers=true, showSelf=true, locationFormat=xzyv, playerDisplay=Small Dots, showGrid=true, showEntityNames=true, showPlayerHeading=true, showVillagers=true, showWaypoints=true, showCaves=true, showAnimals=true, showMobHeading=true, showKeys=true, showWaypointLabels=true, locationFormatVerbose=true, showMobs=true, showPets=true, fontScale=1, preferredMapType=day}
+WaypointProperties{state=Valid, file=journeymap.waypoint.config, configVersion=5.5.5, createDeathpoints=true, showName=true, maxDistance=0, autoHideLabel=true, teleportCommand=/tp {name} {x} {y} {z}, showStaticBeam=true, minDistance=4, boldLabel=false, textureSmall=true, showDistance=true, showRotatingBeam=true, fontScale=2, showTexture=true, managerEnabled=true, beaconEnabled=true}
+WebMapProperties{state=Valid, file=journeymap.webmap.config, configVersion=5.5.5, zoomLevel=0, showWaypoints=true, showCaves=true, showSelf=true, port=8080, showGrid=true, showEntityNames=true, enabled=false, googleMapApiDomain=.com, preferredMapType=day}
+CoreProperties{state=Valid, file=journeymap.core.config, configVersion=5.5.5, verboseColorPalette=false, maxPlayersData=32, mapSurfaceAboveCaves=true, optionsManagerViewed=5.5.5, announceMod=true, colorPassive=#bbbbbb, renderOverlayEventTypeName=ALL, mapBlendWater=false, renderDistanceSurfaceMax=2, radarVerticalDistance=16, mapBlendGrass=true, recordCacheStats=false, hideSneakingEntities=true, revealShape=Circle, alwaysMapSurface=false, colorVillager=#88e188, mapPlants=false, colorPet=#0077ff, radarLateralDistance=64, mapBathymetry=false, mapCrops=true, maxMobsData=32, mapPlantShadows=false, alwaysMapCaves=false, checkUpdates=true, browserPoll=2000, mapBlendFoliage=true, mappingEnabled=true, colorPlayer=#ffffff, tileHighDisplayQuality=true, cacheVillagersData=2200, logLevel=INFO, maxVillagersData=32, maxAnimalsData=32, mapTransparency=true, tileRenderType=1, caveIgnoreGlass=true, mapTopography=true, renderDistanceCaveMax=2, mapAntialiasing=true, colorSelf=#0000ff, cachePlayersData=2000, cacheMobsData=3000, cachePlayerData=1000, splashViewed=5.5.5, colorHostile=#ff0000, cacheAnimalsData=3100, themeName=OceanMonument, mapCaveLighting=true, renderDelay=2, renderOverlayPreEvent=true, autoMapPoll=2000}
+[14:55:33] [main/INFO] [ClientAPI] [ClientAPI] built with JourneyMap API 1.4
+[14:55:33] [main/INFO] [PluginHelper] Initializing plugins with Client API: journeymap.client.api.impl.ClientAPI
+[14:55:33] [main/INFO] [PluginHelper] Initialized IClientPlugin: com.feed_the_beast.ftbutilities.integration.JourneyMapIntegration
+[14:55:33] [main/INFO] [JourneymapClient] initialize EXIT, elapsed count 0 avg ?ms
+[14:55:33] [main/DEBUG] [JourneymapClient] postInitialize ENTER
+[14:55:33] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.KeyEventHandler
+[14:55:33] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.ChatEventHandler
+[14:55:33] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.StateTickHandler
+[14:55:33] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.WorldEventHandler
+[14:55:33] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.WaypointBeaconHandler
+[14:55:33] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.TextureAtlasHandler
+[14:55:33] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.MiniMapOverlayHandler
+[14:55:33] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.forge.event.PlayerConnectHandler
+[14:55:33] [main/DEBUG] [EventHandlerManager] Handler registered: journeymap.client.world.ChunkMonitor
+[14:55:33] [main/INFO] [IconSetFileHandler] Added entity icons from journeymap:icon/entity. Success: false
+[14:55:33] [main/TRACE] [ThemeLoader] Initializing themes ...
+[14:55:34] [main/INFO] [ThemeLoader] Preloaded theme textures: 72
+[14:55:34] [main/DEBUG] [JourneymapClient] postInitialize EXIT, elapsed§8 count §r1§8 avg §r606.2§8ms§r
+[14:55:35] [JM-VersionCheck-1/INFO] [VersionCheck$1] Newer version online: JourneyMap 5.5.6.jar for Minecraft 1.12.2 on http://minecraft.curseforge.com/projects/journeymap/files/2844789
+[14:55:50] [main/INFO] [WaypointStore] Loaded 1 waypoints from .\journeymap\data\sp\New World\waypoints
+[14:55:50] [main/INFO] [JourneymapClient] Mapping started in .\journeymap\data\sp\New World\DIM0. Memory: 1610MB total, 829MB free 
+[14:55:50] [main/INFO] [ChatLog] JourneyMap: Press [J]
+[14:55:50] [Netty Local Client IO #0/INFO] [JourneymapClient] Teleport Enabled:true
+[14:55:50] [Netty Local Client IO #0/INFO] [JourneymapClient] Server Admin Enabled:true
+[14:55:57] [main/ERROR] [JMLogger] Can't get entityTexture for Chicken (SUPPRESSED)
+[14:55:57] [main/ERROR] [JMLogger] java.lang.NoSuchMethodError: net.minecraft.client.renderer.entity.Render.func_110775_a(Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/ResourceLocation;
+	at net.minecraft.client.renderer.entity.RenderFacade.getEntityTexture(RenderFacade.java:29)
+	at journeymap.client.model.EntityHelper.getIconTextureLocation(EntityHelper.java:278)
+	at journeymap.client.model.EntityDTO.update(EntityDTO.java:205)
+	at journeymap.client.model.EntityHelper.getEntitiesNearby(EntityHelper.java:75)
+	at journeymap.client.model.EntityHelper.getAnimalsNearby(EntityHelper.java:112)
+	at journeymap.client.data.AnimalsData.load(AnimalsData.java:36)
+	at journeymap.client.data.AnimalsData.load(AnimalsData.java:26)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147)
+	at journeymap.client.data.DataCache.getAnimals(DataCache.java:243)
+	at journeymap.client.model.MapState.generateDrawSteps(MapState.java:425)
+	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:229)
+	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:172)
+	at journeymap.client.ui.UIManager.drawMiniMap(UIManager.java:328)
+	at journeymap.client.forge.event.MiniMapOverlayHandler.onRenderOverlay(MiniMapOverlayHandler.java:103)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_275_MiniMapOverlayHandler_onRenderOverlay_RenderGameOverlayEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.client.GuiIngameForge.pre(GuiIngameForge.java:910)
+	at net.minecraftforge.client.GuiIngameForge.renderGameOverlay(GuiIngameForge.java:119)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1151)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1208)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+[14:57:34] [main/ERROR] [JMLogger] Can't get entityTexture for Barbarian (SUPPRESSED)
+[14:57:34] [main/ERROR] [JMLogger] java.lang.NoSuchMethodError: net.minecraft.client.renderer.entity.Render.func_110775_a(Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/ResourceLocation;
+	at net.minecraft.client.renderer.entity.RenderFacade.getEntityTexture(RenderFacade.java:29)
+	at journeymap.client.model.EntityHelper.getIconTextureLocation(EntityHelper.java:278)
+	at journeymap.client.model.EntityDTO.update(EntityDTO.java:205)
+	at journeymap.client.model.EntityHelper.getEntitiesNearby(EntityHelper.java:75)
+	at journeymap.client.model.EntityHelper.getMobsNearby(EntityHelper.java:102)
+	at journeymap.client.data.MobsData.load(MobsData.java:34)
+	at journeymap.client.data.MobsData.load(MobsData.java:24)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147)
+	at journeymap.client.data.DataCache.getMobs(DataCache.java:263)
+	at journeymap.client.model.MapState.generateDrawSteps(MapState.java:439)
+	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:229)
+	at journeymap.client.ui.minimap.MiniMap.drawMap(MiniMap.java:172)
+	at journeymap.client.ui.UIManager.drawMiniMap(UIManager.java:328)
+	at journeymap.client.forge.event.MiniMapOverlayHandler.onRenderOverlay(MiniMapOverlayHandler.java:103)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_275_MiniMapOverlayHandler_onRenderOverlay_RenderGameOverlayEvent.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.client.GuiIngameForge.pre(GuiIngameForge.java:910)
+	at net.minecraftforge.client.GuiIngameForge.renderGameOverlay(GuiIngameForge.java:119)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1151)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1208)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+[14:57:37] [main/INFO] [StateTickHandler] Player765 died at BlockPos{x=1266, y=71, z=228}. Deathpoints enabled: true. Deathpoint created: true
+[14:57:46] [main/INFO] [JourneymapClient] Mapping halted in .\journeymap\data\sp\New World\DIM0

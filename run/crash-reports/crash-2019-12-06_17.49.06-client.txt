@@ -1,0 +1,143 @@
+---- Minecraft Crash Report ----
+// Everything's going to plan. No, really, that was supposed to happen.
+
+Time: 12/6/19 5:49 PM
+Description: Unexpected error
+
+java.lang.NullPointerException: Unexpected error
+	at net.arsenalnetwork.betterhud.client.b.L(Unknown Source)
+	at net.arsenalnetwork.betterhud.client.b.r(Unknown Source)
+	at net.arsenalnetwork.betterhud.client.GuiEvents.onRenderGuiPre(GuiEvents.java:107)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_176_GuiEvents_onRenderGuiPre_Pre.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.client.GuiIngameForge.pre(GuiIngameForge.java:910)
+	at net.minecraftforge.client.GuiIngameForge.renderCrosshairs(GuiIngameForge.java:217)
+	at net.minecraftforge.client.GuiIngameForge.renderGameOverlay(GuiIngameForge.java:148)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1151)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1208)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:441)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at net.arsenalnetwork.betterhud.client.b.L(Unknown Source)
+	at net.arsenalnetwork.betterhud.client.b.r(Unknown Source)
+	at net.arsenalnetwork.betterhud.client.GuiEvents.onRenderGuiPre(GuiEvents.java:107)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_176_GuiEvents_onRenderGuiPre_Pre.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.client.GuiIngameForge.pre(GuiIngameForge.java:910)
+	at net.minecraftforge.client.GuiIngameForge.renderCrosshairs(GuiIngameForge.java:217)
+	at net.minecraftforge.client.GuiIngameForge.renderGameOverlay(GuiIngameForge.java:148)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityPlayerSP['Player332'/316, l='MpServer', x=8.50, y=65.00, z=8.50]]
+	Chunk stats: MultiplayerChunkCache: 0, 0
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (8,64,8), Chunk: (at 8,4,8 in 0,0; contains blocks 0,0,0 to 15,255,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 0 game time, 0 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 1 total; [EntityPlayerSP['Player332'/316, l='MpServer', x=8.50, y=65.00, z=8.50]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:461)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2888)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:470)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.8.0_192, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1145555848 bytes (1092 MB) / 1620049920 bytes (1545 MB) up to 3810525184 bytes (3634 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 13, tallocated: 95
+	FML: MCP 9.42 Powered by Forge 14.23.5.2768 24 mods loaded, 24 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State     | ID             | Version             | Source                                        | Signature                                |
+	|:--------- |:-------------- |:------------------- |:--------------------------------------------- |:---------------------------------------- |
+	| UCHIJAAAA | minecraft      | 1.12.2              | minecraft.jar                                 | None                                     |
+	| UCHIJAAAA | mcp            | 9.42                | minecraft.jar                                 | None                                     |
+	| UCHIJAAAA | FML            | 8.0.99.99           | forgeSrc-1.12.2-14.23.5.2768.jar              | None                                     |
+	| UCHIJAAAA | forge          | 14.23.5.2768        | forgeSrc-1.12.2-14.23.5.2768.jar              | None                                     |
+	| UCHIJAAAA | baubles        | 1.5.2               | Baubles-1.12-1.5.2.jar                        | None                                     |
+	| UCHIJAAAA | lsc            | 0.6.3.2-beta        | Loot Slash Conquer-1.12.2-0.6.3.2-beta.jar    | None                                     |
+	| UCHIJAAAA | attributefix   | 1.0.4               | AttributeFix-1.12.2-1.0.4.jar                 | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| UCHIJAAAA | betterhud      | 1.12.2 - 1.0.0      | betterhud-1.12.2-1.0.0.jar                    | None                                     |
+	| UCHIJAAAA | codechickenlib | 3.2.3.358           | CodeChickenLib-1.12.2-3.2.3.358-universal.jar | f1850c39b2516232a2108a7bd84d1cb5df93b261 |
+	| UCHIJAAAA | redstoneflux   | 2.1.0               | RedstoneFlux-1.12-2.1.0.6-universal.jar       | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | cofhcore       | 4.6.3               | CoFHCore-1.12.2-4.6.3.27-universal.jar        | None                                     |
+	| UCHIJAAAA | cofhworld      | 1.3.1               | CoFHWorld-1.12.2-1.3.1.7-universal.jar        | 8a6abf2cb9e141b866580d369ba6548732eff25f |
+	| UCHIJAAAA | eleccore       | 1.9.452             | ElecCore-1.12.2-1.9.452.jar                   | None                                     |
+	| UCHIJAAAA | ftbbackups     | 1.1.0.1             | FTBBackups-1.1.0.1.jar                        | None                                     |
+	| UCHIJAAAA | ftblib         | 5.4.4.5             | FTBLib-5.4.4.5.jar                            | None                                     |
+	| UCHIJAAAA | ftbutilities   | 5.4.0.122           | FTBUtilities-5.4.0.122.jar                    | None                                     |
+	| UCHIJAAAA | journeymap     | 1.12.2-5.5.5        | journeymap-1.12.2-5.5.5.jar                   | None                                     |
+	| UCHIJAAAA | lycanitesmobs  | 2.0.3.1 - MC 1.12.2 | lycanitesmobs.jar                             | None                                     |
+	| UCHIJAAAA | mantle         | 1.12-1.3.3.55       | Mantle-1.12-1.3.3.55.jar                      | None                                     |
+	| UCHIJAAAA | neat           | 1.4-17              | Neat 1.4-17.jar                               | None                                     |
+	| UCHIJAAAA | placebo        | 1.6.0               | Placebo-1.12.2-1.6.0.jar                      | None                                     |
+	| UCHIJAAAA | silentlib      | 3.0.13              | SilentLib-1.12.2-3.0.13+167.jar               | None                                     |
+	| UCHIJAAAA | reauth         | 3.6.0               | reauth-3.6.0.jar                              | daba0ec4df71b6da841768c49fb873def208a1e3 |
+	| UCHIJAAAA | eleccoreloader | 1.9.452             | ElecCore-1.12.2-1.9.452.jar                   | None                                     |
+
+	Loaded coremods (and transformers): 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 419.17' Renderer: 'GeForce GTX 1050 Ti/PCIe/SSE2'
+	Launched Version: 1.12.2
+	LWJGL: 2.9.4
+	OpenGL: GeForce GTX 1050 Ti/PCIe/SSE2 GL version 4.6.0 NVIDIA 419.17, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 4x Intel(R) Core(TM) i5-2500K CPU @ 3.30GHz

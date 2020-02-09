@@ -1,0 +1,6 @@
+{
+    "parent": "lsc:item/iron_bow",
+    "textures": {
+        "layer0": "lsc:items/iron_bow_pulling_1"
+    }
+}

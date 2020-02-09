@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"  X",
+		" Y ",
+		"Y  "
+	],
+	"key": {
+		"X": {
+			"item": "minecraft:gold_ingot"
+		},
+		"Y": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "lsc:golden_staff"
+	}
+}

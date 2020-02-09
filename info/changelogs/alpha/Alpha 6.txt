@@ -2,8 +2,6 @@
 ### Alpha 6 Changelogs ###
 ##########################
 
-
-
 #####
 ### Alpha 6.3
 #####
@@ -13,6 +11,7 @@ Initial
 + Added an entirely new attribute system.
 + Added tons of new attributes.
 + Added a new elemental resistance formula.
++ Added stat rerolling item.
 - Removed a few attributes.
 - Temporarily removed old commands. A new all-in-one command is being worked on as a replacement.
 * Tweaked attribute value algorithms.
@@ -21,8 +20,7 @@ Initial
 * Updated internal capability system (instead of having updates happening every few ticks, they'll now happen when you change pieces of equipment).
 * Tons of internal re-working.
 * Russian lang file tweaked.
-
-
+* Tweaked Mob Health and Damage values. Should work with most mobs now.
 
 #####
 ### Alpha 6.2

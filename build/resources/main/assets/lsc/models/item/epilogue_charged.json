@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/epilogue",
+	"textures": {
+		"layer0": "lsc:items/epilogue_charged"
+	}
+}

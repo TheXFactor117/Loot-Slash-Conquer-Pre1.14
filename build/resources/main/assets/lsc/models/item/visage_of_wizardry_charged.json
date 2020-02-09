@@ -1,0 +1,6 @@
+{
+	"parent": "lsc:item/visage_of_wizardry",
+	"textures": {
+		"layer0": "lsc:items/visage_of_wizardry_charged"
+	}
+}

@@ -1,0 +1,157 @@
+{
+  "name": "demonictemple",
+  "loadDefault": true,
+  "sectorCountMin": 10,
+  "sectorCountMax": 20,
+  "corridorToCorridorChance": 0.1,
+  "roomToRoomChance": 0.1,
+  "conditions": [
+    {
+      "type": "world",
+      "dimensionIds": [
+        -1
+      ],
+      "dimensionListType": "whitelist"
+    }
+  ],
+  "themes": [
+    "demonic"
+  ],
+  "entrances": [
+    "entrancebasic"
+  ],
+  "rooms": [
+    "roombasic",
+    "roombasicloot",
+    "roombasicmob",
+    "roombasicpit"
+  ],
+  "corridors": [
+    "corridorbasic",
+    "corridorbasicdark",
+    "corridorbasicloot",
+    "corridorbasicmob"
+  ],
+  "stairs": [
+    "stairsbasic"
+  ],
+  "bossRooms": [
+    "roombasicboss"
+  ],
+  "finishes": [
+    "roombasicfinish"
+  ],
+  "lootTables": [
+    {
+      "id": "minecraft:chests/simple_dungeon"
+    },
+    {
+      "id": "minecraft:chests/village_blacksmith",
+      "level": 0
+    },
+    {
+      "id": "minecraft:chests/nether_bridge",
+      "level": 1
+    },
+    {
+      "id": "minecraft:chests/abandoned_mineshaft",
+      "level": 1
+    },
+    {
+      "id": "minecraft:chests/stronghold_corridor",
+      "level": 2
+    },
+    {
+      "id": "minecraft:chests/stronghold_crossing",
+      "level": 2
+    }
+  ],
+  "mobSpawns": [
+    {
+      "mobId": "lycanitesmobs:belph",
+      "weight": 14
+    },
+    {
+      "mobId": "lycanitesmobs:wraith",
+      "weight": 8,
+      "dungeonLevelMin": "0"
+    },
+    {
+      "mobId": "lycanitesmobs:behemoth",
+      "weight": 4,
+      "dungeonLevelMin": "1"
+    },
+    {
+      "mobId": "lycanitesmobs:pinky",
+      "weight": 4,
+      "dungeonLevelMin": "1"
+    },
+    {
+      "mobId": "lycanitesmobs:trite",
+      "weight": 14,
+      "dungeonLevelMin": "1"
+    },
+    {
+      "mobId": "lycanitesmobs:astaroth",
+      "weight": 1,
+      "dungeonLevelMin": "2"
+    },
+    {
+      "mobId": "lycanitesmobs:cacodemon",
+      "weight": 1,
+      "dungeonLevelMin": "2"
+    },
+    {
+      "mobId": "lycanitesmobs:behemoth",
+      "weight": 1,
+      "subspecies": 0,
+      "mobNameTag": "Baron of Hell",
+      "mobSizeScale": 2,
+      "naturalDespawn": "false",
+      "mobLevel": 30,
+      "spawnAsBoss": true,
+      "dungeonLevelMin": "0",
+      "dungeonLevelMax": "0",
+      "dungeonBoss": true,
+      "mobDrops": [
+        {
+          "item": "lycanitesmobs:hellfirescepter"
+        }
+      ]
+    },
+    {
+      "mobId": "lycanitesmobs:astaroth",
+      "weight": 1,
+      "subspecies": 0,
+      "mobNameTag": "Arachnotron",
+      "mobSizeScale": 1,
+      "naturalDespawn": "false",
+      "mobLevel": 50,
+      "spawnAsBoss": true,
+      "dungeonLevelMin": "1",
+      "dungeonLevelMax": "1",
+      "dungeonBoss": true,
+      "mobDrops": [
+        {
+          "item": "lycanitesmobs:devilstarscepter"
+        }
+      ]
+    },
+    {
+      "mobId": "lycanitesmobs:cacodemon",
+      "weight": 1,
+      "subspecies": 3,
+      "mobSizeScale": 1.25,
+      "mobNameTag": "Pain Elemental",
+      "naturalDespawn": "false",
+      "spawnAsBoss": true,
+      "dungeonLevelMin": "2",
+      "dungeonBoss": true,
+      "mobDrops": [
+        {
+          "item": "lycanitesmobs:demoniclightningscepter"
+        }
+      ]
+    }
+  ]
+}

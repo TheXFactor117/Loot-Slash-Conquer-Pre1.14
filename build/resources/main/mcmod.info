@@ -1,0 +1,16 @@
+[
+{
+  "modid": "lsc",
+  "name": "Loot Slash Conquer",
+  "description": "A Hack/Mine like mod, updated for newer version of Minecraft.",
+  "version": "1.12.2-0.6.3.3-beta",
+  "mcversion": "1.12.2",
+  "url": "https://github.com/TheXFactor117/Loot-Slash-Conquer",
+  "updateUrl": "",
+  "authorList": ["TheXFactor117"],
+  "credits": "Frizzil for the original Hack/Mine mod, Ithronyar for a lot of textures, and the Loot Slash Conquer Discord server for testing and ideas!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

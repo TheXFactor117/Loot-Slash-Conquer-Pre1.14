@@ -1,0 +1,172 @@
+{
+  "name": "desertcrypts",
+  "loadDefault": true,
+  "sectorCountMin": 5,
+  "sectorCountMax": 10,
+  "corridorToCorridorChance": 0.5,
+  "roomToRoomChance": 0.1,
+  "conditions": [
+    {
+      "type": "world",
+      "dimensionIds": [
+        0
+      ],
+      "dimensionListType": "whitelist",
+      "biomeTags": [
+        "sandy",
+        "wasteland",
+        "mesa",
+        "-cold"
+      ],
+      "biomeTagListType": "whitelist"
+    }
+  ],
+  "themes": [
+    "desert"
+  ],
+  "entrances": [
+    "entrancebasic"
+  ],
+  "rooms": [
+    "roombasic",
+    "roombasicloot",
+    "roombasicmob",
+    "roombasicpit"
+  ],
+  "corridors": [
+    "corridorbasic",
+    "corridorbasicdark",
+    "corridorbasicloot",
+    "corridorbasicmob"
+  ],
+  "stairs": [
+    "stairsbasic"
+  ],
+  "bossRooms": [
+    "roombasicboss"
+  ],
+  "finishes": [
+    "roombasicfinish"
+  ],
+  "lootTables": [
+    {
+      "id": "minecraft:chests/simple_dungeon"
+    },
+    {
+      "id": "minecraft:chests/village_blacksmith",
+      "level": 0
+    },
+    {
+      "id": "minecraft:chests/nether_bridge",
+      "level": 1
+    },
+    {
+      "id": "minecraft:chests/abandoned_mineshaft",
+      "level": 1
+    },
+    {
+      "id": "minecraft:chests/stronghold_corridor",
+      "level": 2
+    },
+    {
+      "id": "minecraft:chests/stronghold_crossing",
+      "level": 2
+    }
+  ],
+  "mobSpawns": [
+    {
+      "mobId": "lycanitesmobs:cryptkeeper",
+      "weight": 14
+    },
+    {
+      "mobId": "lycanitesmobs:sutiramu",
+      "weight": 14
+    },
+    {
+      "mobId": "lycanitesmobs:clink",
+      "weight": 14
+    },
+    {
+      "mobId": "lycanitesmobs:erepede",
+      "weight": 6,
+      "dungeonLevelMin": "1"
+    },
+    {
+      "mobId": "lycanitesmobs:geonach",
+      "weight": 8,
+      "dungeonLevelMin": "1"
+    },
+    {
+      "mobId": "lycanitesmobs:sylph",
+      "weight": 4,
+      "dungeonLevelMin": "2"
+    },
+    {
+      "mobId": "lycanitesmobs:triffid",
+      "weight": 4,
+      "dungeonLevelMin": "2"
+    },
+    {
+      "mobId": "lycanitesmobs:gorgomite",
+      "weight": 4,
+      "dungeonLevelMin": "2"
+    },
+    {
+      "mobId": "lycanitesmobs:crusk",
+      "weight": 1,
+      "subspecies": 1,
+      "mobNameTag": "Graboid",
+      "mobSizeScale": 1.5,
+      "naturalDespawn": "false",
+      "mobLevel": 30,
+      "spawnAsBoss": true,
+      "dungeonLevelMin": "0",
+      "dungeonLevelMax": "0",
+      "dungeonBoss": true,
+      "mobDrops": [
+        {
+          "item": "lycanitesmobs:scorchfirescepter"
+        }
+      ]
+    },
+    {
+      "mobId": "lycanitesmobs:clink",
+      "weight": 1,
+      "subspecies": 0,
+      "mobNameTag": "Crypt Executioner",
+      "mobSizeScale": 2,
+      "naturalDespawn": "false",
+      "mobLevel": 50,
+      "spawnAsBoss": true,
+      "dungeonLevelMin": "1",
+      "dungeonLevelMax": "1",
+      "dungeonBoss": true,
+      "mobDrops": [
+        {
+          "item": "lycanitesmobs:scythescepter"
+        }
+      ]
+    },
+    {
+      "mobId": "lycanitesmobs:ignibus",
+      "weight": 1,
+      "subspecies": 2,
+      "mobSizeScale": 1.1,
+      "mobNameTag": "The Tyrant Dragon",
+      "naturalDespawn": "false",
+      "mobLevel": 100,
+      "spawnAsBoss": true,
+      "dungeonLevelMin": "2",
+      "dungeonBoss": true,
+      "mobDrops": [
+        {
+          "item": "minecraft:diamond",
+          "minAmount": 20
+        },
+        {
+          "item": "lycanitesmobs:magmascepter"
+        }
+      ]
+    }
+  ]
+}

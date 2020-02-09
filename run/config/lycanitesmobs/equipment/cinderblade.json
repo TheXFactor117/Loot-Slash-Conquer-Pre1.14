@@ -1,0 +1,87 @@
+{
+  "itemName": "cinderblade",
+  "loadDefault": true,
+  "slotType": "blade",
+  "dropMobId": "lycanitesmobs:cinder",
+  "dropChance": 0.1,
+  "levelMin": 1,
+  "levelMax": 3,
+  "features": [
+    {
+      "featureType": "harvest",
+      "harvestType": "sword",
+      "harvestShape": "block",
+      "harvestRange": [
+        1,
+        1,
+        1
+      ],
+      "harvestRangeLevelMultiplier": 0
+    },
+    {
+      "featureType": "damage",
+      "levelMax": 1,
+      "damageAmount": 3,
+      "damageKnockback": 0,
+      "damageCooldown": 1,
+      "damageRange": 1,
+      "damageSweep": 45
+    },
+    {
+      "featureType": "damage",
+      "levelMin": 2,
+      "levelMax": 2,
+      "damageAmount": 4,
+      "damageKnockback": 0,
+      "damageCooldown": 1,
+      "damageRange": 1,
+      "damageSweep": 45
+    },
+    {
+      "featureType": "damage",
+      "levelMin": 3,
+      "damageAmount": 5,
+      "damageKnockback": 0,
+      "damageCooldown": 0.75,
+      "damageRange": 1,
+      "damageSweep": 45
+    },
+    {
+      "featureType": "effect",
+      "levelMax": 2,
+      "effectType": "fire",
+      "effectTarget": "target",
+      "effectDuration": 20,
+      "effectStrength": 1
+    },
+    {
+      "featureType": "effect",
+      "levelMin": 3,
+      "effectType": "fire",
+      "effectTarget": "target",
+      "effectDuration": 40,
+      "effectStrength": 1
+    },
+    {
+      "featureType": "projectile",
+      "levelMin": 2,
+      "projectileName": "ember",
+      "projectileTrigger": "secondary",
+      "projectilePattern": "spread",
+      "cooldown": 2,
+      "count": 10,
+      "spreadX": 45,
+      "spreadY": 10
+    },
+    {
+      "featureType": "summon",
+      "levelMin": 3,
+      "summonMobId": "lycanitesmobs.cinder",
+      "summonChance": 0.05,
+      "summonDuration": 10,
+      "summonCountMin": 1,
+      "summonCountMax": 1,
+      "sizeScale": 0.4
+    }
+  ]
+}

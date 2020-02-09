@@ -1,0 +1,58 @@
+{
+  "itemName": "vapulacrystal",
+  "loadDefault": true,
+  "slotType": "axe",
+  "dropMobId": "lycanitesmobs:vapula",
+  "dropChance": 0.1,
+  "levelMin": 1,
+  "levelMax": 3,
+  "features": [
+    {
+      "featureType": "harvest",
+      "levelMax": 1,
+      "harvestType": "pickaxe",
+      "harvestSpeed": 6,
+      "harvestShape": "cross",
+      "harvestRange": [
+        3,
+        3,
+        3
+      ],
+      "harvestRangeLevelMultiplier": 1
+    },
+    {
+      "featureType": "harvest",
+      "levelMin": 2,
+      "levelMax": 2,
+      "harvestType": "cross",
+      "harvestSpeed": 7,
+      "harvestShape": "block",
+      "harvestRange": [
+        5,
+        5,
+        5
+      ],
+      "harvestRangeLevelMultiplier": 1
+    },
+    {
+      "featureType": "harvest",
+      "harvestType": "pickaxe",
+      "levelMin": 3,
+      "harvestSpeed": 8,
+      "harvestShape": "block",
+      "harvestRange": [
+        7,
+        7,
+        7
+      ],
+      "harvestRangeLevelMultiplier": 1
+    },
+    {
+      "featureType": "effect",
+      "effectType": "aphagia",
+      "effectTarget": "target",
+      "effectDuration": 100,
+      "effectStrength": 1
+    }
+  ]
+}

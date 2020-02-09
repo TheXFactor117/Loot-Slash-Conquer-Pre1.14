@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="com.thexfactor117.lsc.Loot-Slash-Conquer.api" target="1.8" />
+      <module name="com.thexfactor117.lsc.Loot-Slash-Conquer.main" target="1.8" />
+      <module name="com.thexfactor117.lsc.Loot-Slash-Conquer.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
